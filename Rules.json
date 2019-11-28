@@ -2698,7 +2698,8 @@
                                             "type": "click",
                                             "target": {
                                                 "selector": ".qc-cmp-toggle"
-                                            }
+                                            },
+                                            "timeout": -1
                                         },
                                         "matcher": {
                                             "type": "css",
