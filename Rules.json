@@ -1734,7 +1734,8 @@
                                             "type": "click",
                                             "target": {
                                                 "selector": "label"
-                                            }
+                                            },
+                                            "timeout": -1
                                         },
                                         "matcher": {
                                             "type": "checkbox",
