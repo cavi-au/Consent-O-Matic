@@ -243,71 +243,59 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "ifconsent",
-                            "trueAction": {
-                                "description": "Consent succeded, press ok button",
-                                "type": "list",
-                                "actions": [
-                                    {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "ifcss",
+                                    "parent": null,
+                                    "target": {
+                                        "selector": "#CybotCookiebotDialogBodyLevelButtonAccept",
+                                        "displayFilter": true
+                                    },
+                                    "trueAction": {
+                                        "description": "Level accept button",
+                                        "type": "click",
+                                        "parent": null,
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonAccept"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "description": "dialog accept button",
                                         "type": "ifcss",
                                         "parent": null,
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonAccept",
+                                            "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected",
                                             "displayFilter": true
                                         },
                                         "trueAction": {
-                                            "description": "Level accept button",
+                                            "description": "Accept Selected Button",
                                             "type": "click",
                                             "parent": null,
                                             "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonAccept"
+                                                "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected"
                                             }
                                         },
                                         "falseAction": {
                                             "description": "dialog accept button",
-                                            "type": "ifcss",
+                                            "type": "click",
                                             "parent": null,
                                             "target": {
-                                                "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected",
-                                                "displayFilter": true
-                                            },
-                                            "trueAction": {
-                                                "description": "Accept Selected Button",
-                                                "type": "click",
-                                                "parent": null,
-                                                "target": {
-                                                    "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected"
-                                                }
-                                            },
-                                            "falseAction": {
-                                                "description": "dialog accept button",
-                                                "type": "click",
-                                                "parent": null,
-                                                "target": {
-                                                    "selector": "#CybotCookiebotDialogBodyButtonAccept"
-                                                }
+                                                "selector": "#CybotCookiebotDialogBodyButtonAccept"
                                             }
                                         }
-                                    },
-                                    {
-                                        "type": "click",
-                                        "parent": null,
-                                        "target": {
-                                            "selector": ".cb-button",
-                                            "textFilter": "Save preferences",
-                                            "displayFilter": true
-                                        }
                                     }
-                                ]
-                            },
-                            "falseAction": {
-                                "description": "Consent failed, press reject button",
-                                "type": "click",
-                                "parent": null,
-                                "target": {
-                                    "selector": "#CybotCookiebotDialogBodyButtonDecline"
+                                },
+                                {
+                                    "type": "click",
+                                    "parent": null,
+                                    "target": {
+                                        "selector": ".cb-button",
+                                        "textFilter": "Save preferences",
+                                        "displayFilter": true
+                                    }
                                 }
-                            }
+                            ]
                         },
                         {
                             "description": "check if continue or select all button (Special digital trends rule)",
@@ -348,7 +336,7 @@
             }
         ]
     },
-    "cookiecontrolcivic":{
+    "cookiecontrolcivic": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -851,7 +839,7 @@
             }
         ]
     },
-    "cookieinformation":{
+    "cookieinformation": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -1016,7 +1004,7 @@
                     "actions": [
                         {
                             "type": "consent",
-                            "consents":[
+                            "consents": [
                                 {
                                     "type": "D",
                                     "description": "Vendor - Opbevaring af og adgang til oplysninger på din enhed",
@@ -1208,7 +1196,7 @@
             }
         ]
     },
-    "onetrust":{
+    "onetrust": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -2634,7 +2622,7 @@
             }
         ]
     },
-    "quantcast":{
+    "quantcast": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -3041,7 +3029,6 @@
                                     }
                                 }
                             ]
-    
                         }
                     ]
                 }
@@ -3260,7 +3247,10 @@
                     "parent": null,
                     "target": {
                         "selector": "[class^='sp_message_container'] button",
-                "textFilter": ["Consent", "Options"]
+                        "textFilter": [
+                            "Consent",
+                            "Options"
+                        ]
                     }
                 }
             }
@@ -3369,8 +3359,6 @@
                                         }
                                     }
                                 }
-    
-    
                             ]
                         }
                     ]
@@ -3387,7 +3375,7 @@
             }
         ]
     },
-    "trustarcbar":  {
+    "trustarcbar": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -3977,7 +3965,7 @@
             }
         ]
     },
-    "wordpressgdpr":{
+    "wordpressgdpr": {
         "detectors": [
             {
                 "presentMatcher": {
