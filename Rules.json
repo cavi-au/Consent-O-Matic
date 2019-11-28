@@ -3970,7 +3970,7 @@
                     "type": "click",
                     "parent": null,
                     "target": {
-                        "selector": ".unic-box button",
+                        "selector": ".unic .unic-box button, .unic .unic-bar button",
                         "textFilter": "Save Choices"
                     }
                 }
