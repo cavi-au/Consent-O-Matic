@@ -3760,14 +3760,14 @@
                     "type": "css",
                     "parent": null,
                     "target": {
-                        "selector": ".unic .unic-box"
+                        "selector": ".unic .unic-box, .unic .unic-bar"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
                     "parent": null,
                     "target": {
-                        "selector": ".unic .unic-box"
+                        "selector": ".unic .unic-box, .unic .unic-bar"
                     }
                 }
             }
@@ -3782,7 +3782,7 @@
                             "type": "waitcss",
                             "parent": null,
                             "target": {
-                                "selector": ".unic .unic-box button",
+                                "selector": ".unic .unic-box button, .unic .unic-bar button",
                                 "textFilter": "Manage Options"
                             }
                         },
@@ -3790,7 +3790,7 @@
                             "type": "click",
                             "parent": null,
                             "target": {
-                                "selector": ".unic .unic-box button",
+                                "selector": ".unic .unic-box button, .unic .unic-bar button",
                                 "textFilter": "Manage Options"
                             }
                         }
