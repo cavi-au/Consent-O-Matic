@@ -4202,5 +4202,263 @@
                 }
             }
         ]
+    },
+    "didomi.io": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#didomi-host, #didomi-notice"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "body.didomi-popup-open, .didomi-notice-banner"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".didomi-popup-notice-buttons .didomi-button:not(.didomi-button-highlight), .didomi-notice-banner .didomi-learn-more-button"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                            "selector": "#didomi-purpose-cookies"
+                            },
+                            "retries": 50,
+                            "waitTime": 50
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "X",
+                                    "description": "Share (everything) with others",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-share_whith_others" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-share_whith_others" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "D",
+                                    "description": "Information storage and access",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-cookies" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-cookies" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "B",
+                                    "description": "Analytics",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-analytics" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-analytics" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-advertising_personalization" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-advertising_personalization" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "A",
+                                    "description": "Social networks",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-reseauxsociaux" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-reseauxsociaux" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Content selection",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-content_personalization" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-content_personalization" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad delivery",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-ad_delivery" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "childFilter": {
+                                                "target": { "selector": "#didomi-purpose-ad_delivery" }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option:last-child"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "parent": {
+                        "selector": ".didomi-consent-popup-footer .didomi-consent-popup-actions"
+                    },
+                    "target": {
+                        "selector": ".didomi-components-button:first-child"
+                    }
+                }
+            }
+        ]
     }
 }
