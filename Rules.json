@@ -4202,5 +4202,123 @@
                 }
             }
         ]
+    },
+    "lemonde.fr": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "parent": null,
+                    "target": {
+                        "selector": "#cmp-container-id, .main--cmp"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "parent": null,
+                    "target": {
+                        "selector": "#cookie-banner, .main--cmp"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".message__cookie-settings, .main--cmp"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "B",
+                                    "description": "Analytics",
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-analytics"
+                                        }
+                                    },
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-analytics"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Social networks and associated ads selection",
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-socials"
+                                        }
+                                    },
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-socials"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ads selection",
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-ads"
+                                        }
+                                    },
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-ads"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Customizations",
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-customization"
+                                        }
+                                    },
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-customization"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "parent": null,
+                    "target": {
+                        "selector": "#validate"
+                    }
+                }
+            }
+        ]
     }
 }
