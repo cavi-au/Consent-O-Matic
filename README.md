@@ -192,7 +192,7 @@ Example:
 }
 ```
 
-`consents` is an array of [Consent](#consent) types
+`consents` is an array of [Consent](#consent-1) types
 
 ### Slide
 
