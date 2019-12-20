@@ -1,7 +1,7 @@
 {
 	"name": "Consent-O-Matic",
 	"description": "Automatic handling of GDPR consent forms",
-	"version": "0.1",
+	"version": "0.4",
 	"manifest_version": 2,
 	"permissions": [
 		"activeTab",
