@@ -17,7 +17,8 @@
 * [Matchers](#matchers)
     * [Css](#css)
     * [Checkbox](#checkbox)
-* [Consent](#consent-1)
+* [Consent](#consent)
+   * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
 
 ## Introduction
@@ -192,7 +193,7 @@ Example:
 }
 ```
 
-`consents` is an array of [Consent](#consent) types
+`consents` is an array of [Consent](#consent-1) types
 
 ### Slide
 
@@ -360,6 +361,17 @@ Example:
 `trueAction` and `falseAction` are actions used if consent instead has to be given by pressing one of two buttons, rather than being toggled on/off. These will be run depending on the users selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
 
 If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
+
+### Consent Categories
+
+As seen in the addon settings, in the same order:
+
+* D: Information Storage and Access
+* A: Preferences and Functionality
+* B: Performance and Analytics
+* E: Content selection, delivery, and reporting
+* F: Ad selection, delivery, and reporting
+* X: Other Purposes
 
 ## Full example
 
