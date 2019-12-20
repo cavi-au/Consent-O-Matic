@@ -4238,7 +4238,7 @@
                         {
                             "type": "waitcss",
                             "target": {
-                            "selector": "#didomi-purpose-cookies"
+                                "selector": "#didomi-purpose-cookies"
                             },
                             "retries": 50,
                             "waitTime": 50
@@ -4254,7 +4254,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-share_whith_others" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-share_whith_others"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4266,7 +4268,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-share_whith_others" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-share_whith_others"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4282,7 +4286,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-cookies" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-cookies"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4294,7 +4300,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-cookies" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-cookies"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4310,7 +4318,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-analytics" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-analytics"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4322,7 +4332,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-analytics" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-analytics"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4338,7 +4350,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-advertising_personalization" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-advertising_personalization"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4350,7 +4364,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-advertising_personalization" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-advertising_personalization"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4366,7 +4382,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-reseauxsociaux" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-reseauxsociaux"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4378,7 +4396,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-reseauxsociaux" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-reseauxsociaux"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4394,7 +4414,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-content_personalization" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-content_personalization"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4406,7 +4428,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-content_personalization" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-content_personalization"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4422,7 +4446,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-ad_delivery" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-ad_delivery"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4434,7 +4460,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-ad_delivery" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-ad_delivery"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -4579,49 +4607,49 @@
             }
         ]
     },
-  "umf.dk": {
-    "detectors": [
-      {
-        "presentMatcher": {
-          "type": "css",
-          "parent": null,
-          "target": {
-            "selector": "#portal-cookieoptout"
-          }
-        },
-        "showingMatcher": {
-          "type": "css",
-          "parent": null,
-          "target": {
-            "selector": "#portal-cookieoptout"
-          }
-        }
-      }
-    ],
-    "methods": [
-      {
-        "name": "DO_CONSENT",
-        "action": {
-          "type": "consent",
-          "consents": [
+    "umf.dk": {
+        "detectors": [
             {
-              "type": "C",
-              "falseAction": {
-                "type": "click",
-                "target": {
-                  "selector": "#portal-cookieoptout a[href='./#cookieoptout']"
+                "presentMatcher": {
+                    "type": "css",
+                    "parent": null,
+                    "target": {
+                        "selector": "#portal-cookieoptout"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "parent": null,
+                    "target": {
+                        "selector": "#portal-cookieoptout"
+                    }
                 }
-              },
-              "trueAction": {
-                "type": "click",
-                "target": {
-                  "selector": "#portal-cookieoptout a[href='./#cookieoptin']"
-                }
-              }
             }
-          ]
-        }
-      }
-    ]
-  }
+        ],
+        "methods": [
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "B",
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#portal-cookieoptout a[href='./#cookieoptout']"
+                                }
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#portal-cookieoptout a[href='./#cookieoptin']"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
