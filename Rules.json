@@ -4578,5 +4578,50 @@
                 }
             }
         ]
-    }
+    },
+  "umf.dk": {
+    "detectors": [
+      {
+        "presentMatcher": {
+          "type": "css",
+          "parent": null,
+          "target": {
+            "selector": "#portal-cookieoptout"
+          }
+        },
+        "showingMatcher": {
+          "type": "css",
+          "parent": null,
+          "target": {
+            "selector": "#portal-cookieoptout"
+          }
+        }
+      }
+    ],
+    "methods": [
+      {
+        "name": "DO_CONSENT",
+        "action": {
+          "type": "consent",
+          "consents": [
+            {
+              "type": "C",
+              "falseAction": {
+                "type": "click",
+                "target": {
+                  "selector": "#portal-cookieoptout a[href='./#cookieoptout']"
+                }
+              },
+              "trueAction": {
+                "type": "click",
+                "target": {
+                  "selector": "#portal-cookieoptout a[href='./#cookieoptin']"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
