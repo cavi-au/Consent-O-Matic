@@ -17,7 +17,7 @@
 * [Matchers](#matchers)
     * [Css](#css)
     * [Checkbox](#checkbox)
-* [Consent](#consent-1)
+* [Consent](#consent)
    * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
 
@@ -362,7 +362,7 @@ Example:
 
 If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
 
-### Content Categories
+### Consent Categories
 
 As seen in the addon settings, in the same order:
 
