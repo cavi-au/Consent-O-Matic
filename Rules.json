@@ -1440,6 +1440,44 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
+                                "textFilter": "Marketing Cookies"
+                            },
+                            "target": {
+                                "selector": ".category-menu-switch-handler"
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "E",
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": "Marketing Cookies"
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": "Marketing Cookies"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "click",
+                            "parent": {
+                                "selector": ".category-item",
                                 "textFilter": "Measurement"
                             },
                             "target": {
