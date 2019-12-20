@@ -14,6 +14,7 @@
     * [Wait For Css](#wait-for-css)
     * [For Each](#for-each)
     * [Hide](#hide)
+    * [Close](#close)
 * [Matchers](#matchers)
     * [Css](#css)
     * [Checkbox](#checkbox)
@@ -264,13 +265,16 @@ Example:
       "selector": ".myWaitTarget"
    },
    "retries": 10,
-   "waitTime": 200
+   "waitTime": 200,
+   "negated": false
 }
 ```
 
 `retries` is the number of times to check for the target dom element. Deafults to 10.
 
 `waitTime` determines the time between retry attempts. Defaults to 250.
+
+`negated` makes wait for css wait until the target is NOT found.
 
 ### For Each
 
@@ -298,6 +302,17 @@ Example:
 {
    "type": "hide",
    "target": ".myHiddenClass"
+}
+```
+
+### Close
+
+This action closes the current tab, usefull for consent providers like Evidon, that likes to open new tabs with the consent dahsboard inside.
+
+Example:
+```json
+{
+   "type": "close"
 }
 ```
 
