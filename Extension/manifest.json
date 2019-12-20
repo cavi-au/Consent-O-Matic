@@ -1,0 +1,54 @@
+{
+	"name": "Consent-O-Matic",
+	"description": "Automatic handling of GDPR consent forms",
+	"version": "0.1",
+	"manifest_version": 2,
+	"permissions": [
+		"activeTab",
+		"storage",
+		"contextMenus",
+		"tabs"
+	],
+	"browser_action": {
+		"default_title": "Consent-O-Matic",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": ["GDPRConfig.js", "background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://*/*",
+				"http://*/*"
+			],
+			"js": [
+				"Telemetry.js",
+				"Tools.js",
+				"GDPRConfig.js",
+				"Matcher.js",
+				"Consent.js",
+				"Action.js",
+				"Detector.js",
+				"CMP.js",
+				"ConsentEngine.js",
+				"contentScript.js"
+			],
+			"all_frames": true
+		}
+	],
+	"options_ui": {
+		"page": "options.html"
+	},
+	"icons": {
+		"48": "icon_48.png",
+		"96": "icon_96.png"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "gdpr@cavi.au.dk",
+			"strict_min_version": "42.0"
+		}
+	}
+}

@@ -1,0 +1,199 @@
+<html>
+<head>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: top;
+    background: #00309a;
+    background: linear-gradient(to right, rgba(0,48,154,1) 0%,rgba(0,22,91,1) 100%);
+    overflow-x: hidden;
+}
+.header {
+    color: white;
+}
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 1.5em;
+}
+.header li {
+    display: inline-block;
+    background: rgba(100,100,200,0.2);
+    cursor: pointer;
+    padding: 1em;
+    margin: 0;
+    transition: background 0.20s ease-in-out;
+}
+.header li:hover {
+    background: rgba(100,100,200,0.5);
+}
+.header li.active {
+    opacity: 1 !important;
+    background: rgba(100,100,255,0.7);
+}
+.header li.debug {
+    position: absolute;
+    right: 0;
+    opacity: 0.01;
+}
+
+.footer {
+    position: relative;
+    padding: 1em;
+    color: white;
+    font-family: sans-serif;
+    box-shadow: 0 0 1em rgba(0,0,0,0.5);
+    display: flex;
+    margin-bottom: 0.25em;
+}
+.footer .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer h1 {
+    margin-top:0;
+    margin-bottom: 0;
+}
+.footer h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0.8;
+    font-weight: normal;
+    font-size: 1em;
+}
+.footer img {
+    height: 5em;
+    margin-right: 1em;
+}
+.description {
+    padding: 2em;
+    padding-bottom: 0.5em;
+}
+.configurator {
+    max-width: 50em;
+    flex: 1 0 auto;
+    background: white;
+}
+.configurator h2 {
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0.75em;
+    margin-top: 0;
+}
+.configurator ul {
+    list-style: none;
+    margin-left: 0em;
+    padding-left: 0em;
+}
+.configurator ul li {
+    position: relative;
+    padding: 1em;
+    padding-left: 6em;
+    margin-left: 0;
+    cursor: pointer;
+}
+.configurator ul li.active {
+    background: rgba(100,255,100,0.2);
+}
+.configurator ul li:hover {
+    background: rgba(0,0,100,0.075);
+}
+.configurator ul li.active:hover {
+    background: rgba(50,255,50,0.2);
+}
+.configurator .slider {
+    position: absolute;
+    left: 1.75em;
+    height: 20px;
+    width: 44px;
+    pointer-events: none;
+}
+.configurator .slider input {
+    display:none;
+}
+.configurator .knob {
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 1em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    transition: .4s;
+}
+.configurator input:checked + .knob {
+    background-color: #66bb6a;
+}
+.configurator input:checked + .knob:before {
+    transform: translateX(24px);
+}
+.configurator .knob:before {
+    background-color: #fff;
+    border-radius: 1em;
+    bottom: 2px;
+    content: "";
+    height: 16px;
+    left: 2px;
+    position: absolute;
+    transition: .25s;
+    width: 16px;
+}
+
+.rulelist li {
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+    cursor: initial !important;
+}
+.rulelist li button {
+    pointer-events: all;
+    position: absolute;
+    left: 2em;
+    border: 0;
+    cursor: pointer;
+}
+.rulelist li button:hover {
+    background: red;
+}
+.ruleoptions {
+    padding: 2em;
+    padding-top:0;
+}
+</style>
+<script src="GDPRConfig.js" defer="true"></script>
+<script src="options.js" defer="true"></script>
+</head>
+<body>
+<div class="header">
+    <ul>
+	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Site Lists</li><li class="menuitem debug">Debug</li>
+    </ul>
+</div>
+<div class="configurator">
+    <ul class="tab tab_uc"><!-- categories --></ul>
+    <div class="tab tab_rl" style="display:none">
+	<ul class="rulelist"><!-- rulelists --></ul>
+	<div class="ruleoptions">
+		<input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button> <button id="forceupdate">Force Ruleslist Update</button>
+	</div>
+    </div>
+    <ul class="tab tab_dbg" style="display:none"><!-- debugflags --></ul>
+</div>
+<div class="footer">
+    <img src="logo.svg">
+    <div class="title">
+        <h1>Consent-O-Matic</h1><h2>Your Choice - Applied Everywhere</h2>
+    </div>
+</div></body></html>
