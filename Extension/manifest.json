@@ -24,7 +24,6 @@
 				"http://*/*"
 			],
 			"js": [
-				"Telemetry.js",
 				"Tools.js",
 				"GDPRConfig.js",
 				"Matcher.js",

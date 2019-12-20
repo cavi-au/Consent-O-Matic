@@ -50,7 +50,6 @@ class ConsentEngine {
                         if (!ConsentEngine.debugValues.skipSubmit) {
                             await cmp.runMethod("SAVE_CONSENT");
                         }
-                        Telemetry.send("consent_complete");
                     }, 0);
                 } else {
                     if (numberOfTries > 0) {
