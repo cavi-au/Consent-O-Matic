@@ -5619,7 +5619,7 @@
                             "type": "click",
                             "target": {
                                 "selector": "#cmpbox .cmpmorelink",
-                                "textFilter": "Customize your choice"
+                                "textFilter": ["Customize your choice", "More Options"]
                             }
                         }
                     ]
