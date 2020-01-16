@@ -89,11 +89,16 @@ class ClickAction extends Action {
             }
 
             if(ConsentEngine.debugValues.debugClicks) {
-                console.log("Clicking: ", result.target);
+                console.log("Clicking: [ctrlKey: "+this.config.ctrlKey+"]", result.target);
             }
 
             result.target.focus({preventScroll: true});
-            result.target.click();
+
+            if(this.config.ctrlKey) {
+                result.target.dispatchEvent(new MouseEvent("click", {ctrlKey: true}));
+            } else {
+                result.target.click();
+            }
         }
 
         await this.waitTimeout(this.timeout);
