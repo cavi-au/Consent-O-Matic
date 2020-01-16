@@ -162,9 +162,12 @@ Example:
    "target": {
       "selector": ".myButton",
       "textFilter": "Save settings"
-   }
+   },
+   "ctrlKey": false
 }
 ```
+
+`ctrlKey` if set to true, will trigger a ctrl+click instead of a click. Which should make the link, if any, open in a new tab.
 
 In this example we only use a simple `target` with a `textFilter` but full [DOM selection](#dom-selection) is supported.
 
