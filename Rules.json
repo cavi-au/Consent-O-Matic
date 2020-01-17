@@ -4289,30 +4289,14 @@
                                     "description": "Share (everything) with others",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-share_whith_others"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-share_whith_others]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-share_whith_others"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-share_whith_others]:last-child"
                                         }
                                     }
                                 },
@@ -4321,30 +4305,30 @@
                                     "description": "Information storage and access",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-cookies"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-cookies]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-cookies"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-cookies]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Content selection, offers and marketing",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-CL-T1Rgm7]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-CL-T1Rgm7]:last-child"
                                         }
                                     }
                                 },
@@ -4353,30 +4337,46 @@
                                     "description": "Analytics",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-analytics"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-analytics]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-analytics"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-analytics]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "B",
+                                    "description": "Analytics",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-M9NRHJe3G]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-M9NRHJe3G]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-advertising_personalization]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-advertising_personalization]:last-child"
                                         }
                                     }
                                 },
@@ -4386,29 +4386,83 @@
                                     "falseAction": {
                                         "type": "click",
                                         "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
+                                            "selector": ".didomi-consent-popup-data-processing, .didomi-components-accordion-label-container",
                                             "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-advertising_personalization"
-                                                }
+                                                "target": { "selector": "#didomi-purpose-pub-ciblee" }
                                             }
                                         },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-pub-ciblee]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-advertising_personalization"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-pub-ciblee]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection - basics",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-q4zlJqdcD]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-q4zlJqdcD]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection - partners and subsidiaries",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-partenaire-cAsDe8jC]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-partenaire-cAsDe8jC]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection - social networks",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-p4em9a8m]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-p4em9a8m]:last-child"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ad and content selection - others",
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-autres-pub]:first-child"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-autres-pub]:last-child"
                                         }
                                     }
                                 },
@@ -4417,30 +4471,14 @@
                                     "description": "Social networks",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-reseauxsociaux"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-reseauxsociaux]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-reseauxsociaux"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-reseauxsociaux]:last-child"
                                         }
                                     }
                                 },
@@ -4449,30 +4487,14 @@
                                     "description": "Content selection",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-content_personalization"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-content_personalization]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-content_personalization"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-content_personalization]:last-child"
                                         }
                                     }
                                 },
@@ -4481,30 +4503,14 @@
                                     "description": "Ad delivery",
                                     "falseAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-ad_delivery"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:first-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-ad_delivery]:first-child"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
-                                        "parent": {
-                                            "selector": ".didomi-consent-popup-data-processing",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-ad_delivery"
-                                                }
-                                            }
-                                        },
                                         "target": {
-                                            "selector": ".didomi-components-radio__option:last-child"
+                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-ad_delivery]:last-child"
                                         }
                                     }
                                 }
@@ -4522,6 +4528,329 @@
                     },
                     "target": {
                         "selector": ".didomi-components-button:first-child"
+                    }
+                }
+            }
+        ]
+    },
+    "tealium.com": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#__tealiumGDPRecModal, script[id^=tealium]"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#__tealiumGDPRecModal .privacy_prompt, .cookie_banner_background"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#__tealiumGDPRcpPrefs .privacy_prompt_content"
+                            },
+                            "retries": 50,
+                            "waitTime": 50
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "B",
+                                    "description": "Analytics",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat1"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat1"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat1]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "X",
+                                    "description": "Unknown",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat2"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat2"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat2]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Ads selection",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat3"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat3"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat3]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Search content selection",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat4"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat4"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat4]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "B",
+                                    "description": "Email targeting",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat5"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat5"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat5]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Content selection",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat6"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat6"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat6]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "B",
+                                    "description": "Sharing with social networks",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat7"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat7"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat7]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Personalized offers",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat8"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat8"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat8]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "description": "Misc personalized experience",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat9"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat9"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat9]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "description": "Cookie match for ads",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat10"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat10"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat10]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "D",
+                                    "description": "Unified customer database",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat11"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".pp_category_toggle, .privacy_prompt_content td",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "#toggle_cat11"
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label[for=toggle_cat11]"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit"
                     }
                 }
             }
