@@ -12,6 +12,7 @@ class Action {
             case "hide": return new HideAction(config, cmp);
             case "slide": return new SlideAction(config, cmp);
             case "close": return new CloseAction(config, cmp);
+            case "wait": return new WaitAction(config, cmp);
             default: throw "Unknown action type: "+config.type;
         }
     }
@@ -67,6 +68,19 @@ class CloseAction extends Action {
 
     async execute(param) {
         window.close();
+    }
+}
+
+class WaitAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+    }
+
+    async execute(param) {
+        let self = this;
+        await new Promise((resolve, reject)=>{
+            setTimeout(()=>{ resolve() }, self.config.waitTime);
+        });
     }
 }
 
@@ -232,9 +246,13 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
+        console.log("Foreach find...");
+
         let results = Tools.find(this.config, true);
 
         let oldBase = Tools.base;
+
+        console.log("forEachResults: ", results);
 
         for(let result of results) {
             if(result.target != null) {
