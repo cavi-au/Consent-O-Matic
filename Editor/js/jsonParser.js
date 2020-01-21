@@ -30,9 +30,10 @@ class JsonParser {
 
         result.children("[data-bind='name']")[0].textContent = json.name;
 
-        let actionDom = await JsonParser.parseAction(json.action);
-
-        result.children("[data-bind='action']").append(actionDom);
+        if(json.action != null) {
+            let actionDom = await JsonParser.parseAction(json.action);
+            result.children("[data-bind='action']").append(actionDom);
+        }
 
         return result;
     }

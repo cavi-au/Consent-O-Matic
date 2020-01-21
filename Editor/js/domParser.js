@@ -28,13 +28,13 @@ class DomParser {
             showingMatcher: null
         };
 
-        let presentMatcherDom = dom.find("[data-bind='presentMatcher'] [data-type='matcher']");
+        let presentMatcherDom = dom.children("[data-bind='presentMatcher']").children("[data-type='matcher']");
         if(presentMatcherDom.length > 0) {
             let matcherJson = await DomParser.parseMatcherDom(presentMatcherDom);
             result.presentMatcher = matcherJson;
         }
 
-        let showingMatcherDom = dom.find("[data-bind='showingMatcher'] [data-type='matcher']");
+        let showingMatcherDom = dom.children("[data-bind='showingMatcher']").children("[data-type='matcher']");
         if(showingMatcherDom.length > 0) {
             let matcherJson = await DomParser.parseMatcherDom(showingMatcherDom);
             result.showingMatcher = matcherJson;
@@ -50,7 +50,7 @@ class DomParser {
             type: dom[0].getAttribute("data-variant")
         };
 
-        let domSelectorDom = dom.find("[data-plug='domSelector'] [data-type='domSelector']");
+        let domSelectorDom = dom.children("[data-plug='domSelector']").children("[data-type='domSelector']");
         if(domSelectorDom.length > 0) {
             let domSelectorJson = await DomParser.parseDomSelectorDom(domSelectorDom);
             Object.assign(result, domSelectorJson);
@@ -115,9 +115,9 @@ class DomParser {
 
         let result = {};
 
-        result.name = dom.find("[data-bind='name']")[0].textContent;
+        result.name = dom.children("[data-bind='name']")[0].textContent;
 
-        let actionDom = dom.find("[data-bind='action'] [data-type='action']");
+        let actionDom = dom.children("[data-bind='action']").children("[data-type='action']");
         if(actionDom.length > 0) {
             result.action = await DomParser.parseActionDom(actionDom[0]);
         } else {
@@ -177,13 +177,13 @@ class DomParser {
     static async parseListActionDom(dom, result) {
         result.actions = [];
         //Find first level of actions (Might be list action somewhere furhter down)
-        for(let actionDom of cQuery(dom.find("[data-bind='actions']")[0]).children("[data-type='action']")) {
+        for(let actionDom of cQuery(dom.children("[data-bind='actions']")[0]).children("[data-type='action']")) {
             result.actions.push(await DomParser.parseActionDom(actionDom));
         }
     }
 
     static async parseClickActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.find("[data-plug='domSelector'] [data-type='domSelector']")[0]));
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
         let ctrlKeyInput = dom.find("[data-bind='ctrlKey'] input")[0];
         if(ctrlKeyInput.checked) {
             result.ctrlKey = true;
@@ -191,19 +191,19 @@ class DomParser {
     }
 
     static async parseSlideActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.find("[data-bind='target'] [data-type='domSelector']")[0]));
-        result.dragTarget = await DomParser.parseDomSelectorDom(dom.find("[data-bind='dragTarget'] [data-type='domSelector']")[0]);
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-bind='target']").children("[data-type='domSelector']")[0]));
+        result.dragTarget = await DomParser.parseDomSelectorDom(dom.children("[data-bind='dragTarget']").children("[data-type='domSelector']")[0]);
         let axis = dom.find("[data-bind='axis']")[0];
         result.axis = axis.value;
     }
 
     static async parseForEachActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.find("[data-plug='domSelector'] [data-type='domSelector']")[0]));
-        result.action = await DomParser.parseActionDom(dom.find("[data-bind='action'] [data-type='action']")[0]);
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
+        result.action = await DomParser.parseActionDom(dom.children("[data-bind='action']").children("[data-type='action']")[0]);
     }
 
     static async parseIfCssActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.find("[data-plug='domSelector'] [data-type='domSelector']")[0]));
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
         let trueActionDom = dom.children("[data-bind='trueAction']").children("[data-type='action']");
         if(trueActionDom.length > 0) {
             result.trueAction = await DomParser.parseActionDom(trueActionDom);
@@ -216,10 +216,10 @@ class DomParser {
     }
 
     static async parseWaitCssActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.find("[data-plug='domSelector'] [data-type='domSelector']")[0]));
-        let retriesInput = dom.find("[data-bind='retries'] input")[0];
-        let waitTimeInput = dom.find("[data-bind='waitTime'] input")[0];
-        let negatedInput = dom.find("[data-bind='negated'] input")[0];
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
+        let retriesInput = dom.children("[data-bind='retries']").find("input")[0];
+        let waitTimeInput = dom.children("[data-bind='waitTime']").find("input")[0];
+        let negatedInput = dom.children("[data-bind='negated']").find("input")[0];
 
         result.retries = parseInt(retriesInput.value);
         result.waitTime = parseInt(waitTimeInput.value);
@@ -227,7 +227,7 @@ class DomParser {
     }
 
     static async parseWaitActionDom(dom, result) {
-        let waitTimeInput = dom.find("[data-bind='waitTime'] input")[0];
+        let waitTimeInput = dom.children("[data-bind='waitTime']").find("input")[0];
 
         result.waitTime = parseInt(waitTimeInput.value);
     }
@@ -235,7 +235,7 @@ class DomParser {
     static async parseConsentActionDom(dom, result) {
         result.consents = [];
         //Find first level of consents
-        for(let consentDom of cQuery(dom.find("[data-bind='consents']")[0]).children("[data-type='consent']")) {
+        for(let consentDom of cQuery(dom.children("[data-bind='consents']")[0]).children("[data-type='consent']")) {
             result.consents.push(await DomParser.parseConsentDom(consentDom));
         }
     }
@@ -245,24 +245,24 @@ class DomParser {
 
         let result = {};
 
-        result.type = dom.find("[data-bind='type']")[0].value;
+        result.type = dom.children(".type").children("[data-bind='type']")[0].value;
 
-        let matcherDom = dom.find("[data-bind='matcher'] [data-type='matcher']");
+        let matcherDom = dom.children("[data-bind='matcher']").children("[data-type='matcher']");
         if(matcherDom.length > 0) {
             result.matcher = await DomParser.parseMatcherDom(matcherDom);
         }
 
-        let toggleActionDom = dom.find("[data-bind='toggleAction'] [data-type='action']");
+        let toggleActionDom = dom.children("[data-bind='toggleAction']").children("[data-type='action']");
         if(toggleActionDom.length > 0) {
             result.toggleAction = await DomParser.parseActionDom(toggleActionDom);
         }
 
-        let trueActionDom = dom.find("[data-bind='trueAction'] [data-type='action']");
+        let trueActionDom = dom.children("[data-bind='trueAction']").children("[data-type='action']");
         if(trueActionDom.length > 0) {
             result.trueAction = await DomParser.parseActionDom(trueActionDom);
         }
 
-        let falseActionDom = dom.find("[data-bind='falseAction'] [data-type='action']");
+        let falseActionDom = dom.children("[data-bind='falseAction']").children("[data-type='action']");
         if(falseActionDom.length > 0) {
             result.falseAction = await DomParser.parseActionDom(falseActionDom);
         }

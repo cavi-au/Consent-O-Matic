@@ -240,6 +240,12 @@ function setupDraggingForType(type) {
                     cQuery(elm).append(domSelectorTemplate);
                 }
 
+                //Automatically insert consent
+                for(let elm of template.find("[data-plug='consent']:empty")){
+                    let consentTemplate = await loadTemplate("consent");
+                    cQuery(elm).append(consentTemplate);
+                }
+
                 handleDrop(template, dropTarget, hoverElm, type);
             }
         });
