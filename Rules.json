@@ -6602,12 +6602,6 @@
                                                         "target": {
                                                             "selector": "label"
                                                         }
-                                                    },
-                                                    "trueAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
                                                     }
                                                 }
                                             ]
@@ -6633,12 +6627,6 @@
                                                         }
                                                     },
                                                     "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
-                                                    },
-                                                    "trueAction": {
                                                         "type": "click",
                                                         "target": {
                                                             "selector": "label"
@@ -6672,12 +6660,6 @@
                                                         "target": {
                                                             "selector": "label"
                                                         }
-                                                    },
-                                                    "trueAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
                                                     }
                                                 }
                                             ]
@@ -6703,12 +6685,6 @@
                                                         }
                                                     },
                                                     "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
-                                                    },
-                                                    "trueAction": {
                                                         "type": "click",
                                                         "target": {
                                                             "selector": "label"
@@ -6742,12 +6718,6 @@
                                                         "target": {
                                                             "selector": "label"
                                                         }
-                                                    },
-                                                    "trueAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
                                                     }
                                                 }
                                             ]
@@ -6777,12 +6747,6 @@
                                                         "target": {
                                                             "selector": "label"
                                                         }
-                                                    },
-                                                    "trueAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "label"
-                                                        }
                                                     }
                                                 }
                                             ]
@@ -6804,5 +6768,5 @@
                 }
             }
         ]
-    }    
+    }
 }
