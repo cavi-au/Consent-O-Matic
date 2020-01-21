@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     console.log("Got message: ", message);
 
-    switch (message) {
+    switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);
             return Promise.resolve("Response already sent...");
@@ -15,6 +15,30 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             });
             //Return true to keep reply working after method has ended, async response
             return true;
+        }
+
+        case "HandledCMP": {
+            let json = JSON.parse(message.split("|")[1]);
+
+            chrome.browserAction.setBadgeText({
+                text: "✓"
+            });
+
+            GDPRConfig.getLogEntries().then((log)=>{
+                log.push({
+                    "timestamp": Date.now(),
+                    "cmp": json.cmp,
+                    "page": json.url
+                });
+
+                console.log(log);
+
+                GDPRConfig.setLogEntries(log);
+            });
+
+            console.log("Got handled stats: ", json);
+
+            return false;
         }
 
         default:

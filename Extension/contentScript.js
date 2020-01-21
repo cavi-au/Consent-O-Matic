@@ -14,7 +14,15 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
 
                 GDPRConfig.getConsentValues().then((consentTypes)=>{
                     GDPRConfig.getDebugValues().then((debugValues)=>{
-                        let engine = new ConsentEngine(config, consentTypes, debugValues);
+                        let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
+                            console.log("We handled a CMP: ", stats);
+
+                            chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
+                                "cmp": stats.cmpName,
+                                "url": url
+                            }));
+
+                        });
                         console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                     });
                 });

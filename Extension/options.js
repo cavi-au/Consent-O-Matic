@@ -1,6 +1,7 @@
 let optionsUL = document.querySelector(".configurator ul.tab_uc");
 let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
 let debugUL = document.querySelector(".configurator ul.tab_dbg");
+let logUL = document.querySelector(".configurator .tab_log ul.logList");
 
 optionsUL.innerHTML = "";
 
@@ -11,6 +12,10 @@ document.querySelector(".header .menuitem.choices").addEventListener("click", fu
 document.querySelector(".header .menuitem.rules").addEventListener("click", function (evt) {
 	tabChanged(this);
 	document.querySelector(".tab_rl").style.display = "block";
+});
+document.querySelector(".header .menuitem.log").addEventListener("click", function (evt) {
+	tabChanged(this);
+	document.querySelector(".tab_log").style.display = "block";
 });
 document.querySelector(".header .menuitem.debug").addEventListener("click", function (evt) {
 	tabChanged(this);
@@ -122,3 +127,33 @@ function saveSettings() {
 	});
 	GDPRConfig.setDebugFlags(debugFlags);
 }
+
+function updateLog() {
+	logUL.innerHTML = "";
+	GDPRConfig.getLogEntries().then((logEntries)=>{
+
+		logEntries.sort((e1, e2)=>{
+			return e2.timestamp - e1.timestamp;
+		});
+
+		logEntries.forEach((entry)=>{
+			let li = document.createElement("li");
+			
+			li.innerText = new Date(entry.timestamp).toLocaleDateString(undefined, {
+				dateStyle : "medium",
+				timeStyle: "short"
+				
+			}) + " - ["+entry.cmp+"] - "+entry.page;
+
+			logUL.append(li);
+		})
+	});
+}
+
+updateLog();
+
+document.querySelector("#clearLog").addEventListener("click", ()=>{
+	GDPRConfig.setLogEntries([]).then(()=>{
+		updateLog();
+	});
+});

@@ -1,4 +1,24 @@
 class GDPRConfig {
+    static getLogEntries() {
+        return new Promise((resolve, reject)=>{
+            chrome.storage.local.get({
+                logEntries: []
+            }, (result)=>{
+                resolve(result.logEntries);
+            });
+        });
+    }
+
+    static setLogEntries(logEntries) {
+        return new Promise((resolve, reject)=>{
+            chrome.storage.local.set({
+                logEntries: logEntries
+            }, ()=>{
+                resolve();
+            });
+        });
+    }
+
     static getConsentValues() {
         return new Promise((resolve, reject) => {
             chrome.storage.sync.get({

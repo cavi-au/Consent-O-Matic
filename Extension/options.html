@@ -178,16 +178,22 @@ body {
 <body>
 <div class="header">
     <ul>
-	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Site Lists</li><li class="menuitem debug">Debug</li>
+	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Rules Lists</li><li class="menuitem log">Log</li><li class="menuitem debug">Debug</li>
     </ul>
 </div>
 <div class="configurator">
     <ul class="tab tab_uc"><!-- categories --></ul>
     <div class="tab tab_rl" style="display:none">
-	<ul class="rulelist"><!-- rulelists --></ul>
-	<div class="ruleoptions">
-		<input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button> <button id="forceupdate">Force Ruleslist Update</button>
-	</div>
+	    <ul class="rulelist"><!-- rulelists --></ul>
+	    <div class="ruleoptions">
+		    <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button> <button id="forceupdate">Force Ruleslist Update</button>
+	    </div>
+    </div>
+    <div class="tab tab_log" style="display:none">
+        <ul class="logList"></ul>
+        <div class="logoptions">
+            <button id="clearLog">Clear</button>
+        </div>
     </div>
     <ul class="tab tab_dbg" style="display:none"><!-- debugflags --></ul>
 </div>

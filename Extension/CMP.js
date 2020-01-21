@@ -11,8 +11,10 @@ class CMP {
 
         this.methods = new Map();
         config.methods.forEach((methodConfig)=>{
-            let action = Action.createAction(methodConfig.action, this);
-            self.methods.set(methodConfig.name, action);
+            if(methodConfig.action != null) {
+                let action = Action.createAction(methodConfig.action, this);
+                self.methods.set(methodConfig.name, action);
+            }
         });
     }
 

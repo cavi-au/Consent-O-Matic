@@ -1,5 +1,5 @@
 class ConsentEngine {
-    constructor(config, consentTypes, debugValues) {
+    constructor(config, consentTypes, debugValues, handledCallback) {
         let self = this;
 
         ConsentEngine.debugValues = debugValues;
@@ -7,6 +7,8 @@ class ConsentEngine {
         this.consentTypes = consentTypes;
 
         this.cmps = [];
+
+        this.handledCallback = handledCallback;
 
         Object.keys(config).forEach((key) => {
             try {
@@ -50,6 +52,9 @@ class ConsentEngine {
                         if (!ConsentEngine.debugValues.skipSubmit) {
                             await cmp.runMethod("SAVE_CONSENT");
                         }
+                        self.handledCallback({
+                            cmpName: cmp.name
+                        });
                     }, 0);
                 } else {
                     if (numberOfTries > 0) {
