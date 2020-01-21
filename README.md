@@ -18,7 +18,7 @@
 * [Matchers](#matchers)
     * [Css](#css)
     * [Checkbox](#checkbox)
-* [Consent](#consent)
+* [Consent](#consent-1)
    * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
 
@@ -304,7 +304,9 @@ Example:
 ```json
 {
    "type": "hide",
-   "target": ".myHiddenClass"
+   "target": {
+      "selector": ".myHiddenClass"
+   }
 }
 ```
 
