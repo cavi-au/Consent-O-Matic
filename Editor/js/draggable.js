@@ -37,10 +37,20 @@ class CaviDraggable {
         this.currentDroppable = null;
         this.currentHoverElement = null;
         
-        window.addEventListener("scroll", ()=>{
+        this.lastScrollX = window.scrollX;
+        this.lastScrollY = window.scrollY;
+
+        window.addEventListener("scroll", (evt)=>{
+
+            let deltaScrollX = window.scrollX - this.lastScrollX;
+            let deltaScrollY = window.scrollY - this.lastScrollY;
+
             if(self.clone != null) {
-                self.updateClonePos(self.lastX, self.lastY);
+                self.updateClonePos(self.lastX+deltaScrollX, self.lastY+deltaScrollY);
             }
+            
+            this.lastScrollX = window.scrollX;
+            this.lastScrollY = window.scrollY;
         });
     }
 
@@ -98,8 +108,8 @@ class CaviDraggable {
         let bounds = this.clone[0].getBoundingClientRect();
 
         this.offset = {
-            x: bounds.x,
-            y: bounds.y
+            x: 0,
+            y: 0
         };
 
         if(this.options.centerClone) {
@@ -113,13 +123,13 @@ class CaviDraggable {
         });
     }
     updateClonePos(x, y) {
-        this.clone[0].style.transform = "translate3d("+(x+window.scrollX)+"px, "+(y+window.scrollY)+"px, 0px)";
         this.lastX = x;
         this.lastY = y;
+        this.clone[0].style.transform = "translate3d("+(x)+"px, "+(y)+"px, 0px)";
     }
     drag(evt) {
-        let x = evt.detail.caviEvent.positionClient.x-this.offset.x;
-        let y = evt.detail.caviEvent.positionClient.y-this.offset.y;
+        let x = evt.detail.caviEvent.position.x-this.offset.x;
+        let y = evt.detail.caviEvent.position.y-this.offset.y;
         
         this.updateClonePos(x, y);
         
@@ -159,17 +169,17 @@ class CaviDraggable {
             droppable.removeClass(this.options.hoverClass);
         });
 
+        this.html[0].style.pointerEvents = "";
+
         if(dropTarget !== null && typeof this.options.onDrop === "function") {
             this.options.onDrop(this.html, dropTarget, this.currentHoverElement);
         }
         
         this.clone.remove();
-        this.clone[0].style.transform = "";
+        this.clone = null;
         this.droppables = null;
         this.currentDroppable = null;
 		this.currentHoverElement = null;
-
-        this.html[0].style.pointerEvents = "";
 
         if(typeof this.options.onStop === "function") {
             this.options.onStop();

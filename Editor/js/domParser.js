@@ -68,11 +68,11 @@ class DomParser {
             dom = cQuery(dom);
             let result = {};
 
-            let selectorInput = dom.find("[data-bind='selector'] input")[0];
-            let textFilterInput = dom.find("[data-bind='textFilter'] input")[0];
-            let iframeFilterInput = dom.find("[data-bind='iframeFilter'] input")[0];
-            let displayFilterInput = dom.find("[data-bind='displayFilter'] input")[0];
-            let childFilter = cQuery(dom.find("[data-bind='childFilter']")[0]);
+            let selectorInput = dom.children("[data-bind='selector']").find("input")[0];
+            let textFilterInput = dom.children("[data-bind='textFilter']").find("input")[0];
+            let iframeFilterInput = dom.children("[data-bind='iframeFilter']").find("input")[0];
+            let displayFilterInput = dom.children("[data-bind='displayFilter']").find("input")[0];
+            let childFilter = dom.children("[data-bind='childFilter']").children("[data-type='domSelector']");
 
             if(selectorInput.value.trim().length > 0) {
                 result.selector = selectorInput.value.trim();
@@ -97,8 +97,8 @@ class DomParser {
             return result;
         }
 
-        let parent = await parseDomSelector(dom.find(".parent")[0]);
-        let target = await parseDomSelector(dom.find(".target")[0]);
+        let parent = await parseDomSelector(dom.children(".parent")[0]);
+        let target = await parseDomSelector(dom.children(".target")[0]);
 
         if(parent != null) {
             result.parent = parent;
@@ -159,6 +159,9 @@ class DomParser {
                 break; 
             case "slide":
                 await DomParser.parseSlideActionDom(dom, result);
+                break; 
+            case "wait":
+                await DomParser.parseWaitActionDom(dom, result);
                 break; 
             case "close":
                 //No extra parameters
@@ -221,6 +224,12 @@ class DomParser {
         result.retries = parseInt(retriesInput.value);
         result.waitTime = parseInt(waitTimeInput.value);
         result.negated = negatedInput.checked;
+    }
+
+    static async parseWaitActionDom(dom, result) {
+        let waitTimeInput = dom.find("[data-bind='waitTime'] input")[0];
+
+        result.waitTime = parseInt(waitTimeInput.value);
     }
 
     static async parseConsentActionDom(dom, result) {

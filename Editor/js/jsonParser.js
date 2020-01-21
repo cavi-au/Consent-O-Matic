@@ -118,6 +118,8 @@ class JsonParser {
                 return await JsonParser.parseSlideAction(json);
             case "close":
                 return await JsonParser.parseCloseAction(json);
+            case "wait":
+                return await JsonParser.parseWaitAction(json);
             default:
                 console.log("Unknown action type:", json.type);
         }
@@ -188,6 +190,16 @@ class JsonParser {
             result.find("[data-bind='negated'] input")[0].checked = json.negated;
         }
 
+        return result;
+    }
+
+    static async parseWaitAction(json) {
+        let result = await loadTemplate("action_wait");
+
+        if(json.waitTime) {
+            result.find("[data-bind='waitTime'] input")[0].value = json.waitTime;
+        }
+        
         return result;
     }
 

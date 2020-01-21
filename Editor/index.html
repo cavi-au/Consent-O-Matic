@@ -12,11 +12,23 @@
     </head>
     <body>
         <div class="step1">
-            <label for="loadUrl">Load URL:</label>
-            <input type="text" id="loadUrl" value="https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/Rules.json" />
-            <button class="loadButton">Load</button>
-            <br />
-            <button class="newButton">New</button>
+            <div>
+                <h2>Load from web:</h2>
+                <label for="loadUrl">URL:</label>
+                <input type="text" id="loadUrl" size="50" value="https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/Rules.json" />
+                <br />
+                <button class="loadButton">Load</button>
+            </div>
+            <div>
+                <h2>Load from text:</h2>
+                <textarea id="inputArea" cols="50" rows="8"></textarea>
+                <br />
+                <button class="loadTextButton">Load</button>
+            </div>
+            <div>
+                <h2>Create from scratch:</h2>
+                <button class="newButton">New</button>
+            </div>
         </div>
         <div class="step2">
             <select id="cmpSelector">
@@ -34,8 +46,8 @@
                 <button class="collapse">Collapse All</button>
                 <button class="uncollapse">Uncollapse All</button>
             </div>
+            <div class="cmpName"><div class="label inline">CMPName:<input /></div></div>
             <div class="info">Dragging while holding CTRL will make a copy of the dragged subtree, instead of moving it.</div>
-            <div class="trashcan">Trash</div>
             <div class="rules"></div>
             <div class="toolbox">
                 Toolbox:
@@ -54,6 +66,8 @@
                     <div data-type="action" data-variant="ifcss">IfCssAction</div>
                     <div data-type="action" data-variant="foreach">ForEachAction</div>
                     <div data-type="action" data-variant="slide">SlideAction</div>
+                    <div data-type="action" data-variant="close">CloseAction</div>
+                    <div data-type="action" data-variant="wait">WaitAction</div>
                 </div>
                 <div class="consent">
                     <div data-type="consent">Consent</div>
@@ -61,6 +75,7 @@
                 <div class="domSelectors">
                     <div data-type="domSelector">DomSelector</div>
                 </div>
+                <div class="trashcan">Trash</div>
             </div>
         </div>
         <div class="step4">

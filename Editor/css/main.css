@@ -5,7 +5,7 @@ body[data-view='step1'] div.step1, body[data-view='step2'] div.step2, body[data-
     display: block;
 }
 
-div[data-type] {
+div[data-type]:not(.draggable-clone) {
     margin-left: 2em;
 }
 
@@ -119,14 +119,13 @@ div[data-type='domSelector'] {
 }
 
 .step3 .trashcan {
-    position: fixed;
-    top: 0;
-    right: 50%;
     background: silver;
     width: 4em;
     height: 2em;
     text-align: center;
     opacity: 0;
+    margin-top: 2em;
+    margin-left: 2em;
 }
 
 .step3 .trashcan.droppable-active {
@@ -147,6 +146,6 @@ div[data-type='domSelector'] {
     margin-bottom: 2em;
 }
 
-.info {
+.info, .cmpName {
     margin-bottom: 2em;
 }

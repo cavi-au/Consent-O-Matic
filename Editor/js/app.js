@@ -18,12 +18,19 @@ document.addEventListener("keyup", (evt)=>{
     }
     if(evt.key === "z" && ctrlPressed) {
         evt.preventDefault();
-        console.log("Undo a delete!");
 
         let undoObj = undoQueue.pop();
 
         if(undoObj != null) {
-            undoObj.parent.insertBefore(undoObj.element, undoObj.nextSibling);
+            console.log("Undoing one step");
+
+            if(undoObj.parent != null) {
+                undoObj.parent.insertBefore(undoObj.element, undoObj.nextSibling);
+            } else {
+                cQuery(undoObj.element).remove();
+            }
+        } else {
+            console.log("Undo queue empty");
         }
     }
 });
@@ -33,31 +40,48 @@ cQuery(".loadButton").on("caviTap", ()=>{
     usedNew = false;
 
     Loader.loadJson(cQuery("#loadUrl")[0].value).then((json)=>{
-        cmpJson = json;
-        cQuery("#cmpSelector").empty();
-        Object.keys(json).forEach((key)=>{
-            let option = cQuery("<option>"+key+"</option>");
-            cQuery("#cmpSelector").append(option);
-        });
-
-        cQuery("body")[0].setAttribute("data-view", "step2");
+        loadFromJson(json);
+    }).catch((e)=>{
+        console.log("Failed to load from url:", e);
     });
 });
+
+new CaviTouch(cQuery(".loadTextButton"));
+cQuery(".loadTextButton").on("caviTap", ()=>{
+    try {
+        let jsonString = cQuery("#inputArea")[0].value;
+        let json = JSON.parse(jsonString);
+        loadFromJson(json);
+    } catch(e) {
+        console.log("Unable to load from jsonString:", e);
+    }
+});
+
+function loadFromJson(json) {
+    cmpJson = json;
+
+    cQuery("#cmpSelector").empty();
+    Object.keys(cmpJson).forEach((key)=>{
+        let option = cQuery("<option>"+key+"</option>");
+        cQuery("#cmpSelector").append(option);
+    });
+
+    if(cQuery("#cmpSelector option").length === 1) {
+        usedNew = true;
+        //Only 1 option, skip ahead
+        let event = new CustomEvent("caviTap");
+        cQuery("#selectCmp")[0].dispatchEvent(event);
+    } else {
+        usedNew = false;
+        cQuery("body")[0].setAttribute("data-view", "step2");
+    }
+}
 
 new CaviTouch(cQuery(".newButton"));
 cQuery(".newButton").on("caviTap", ()=>{
     usedNew = true;
 
     loadTemplate("cmp").then(async (cmpDom)=>{
-        cQuery(".step3 .rules").empty();
-
-        let saveButton = cQuery(".step3 .save");
-        new CaviTouch(saveButton);
-        saveButton.off("caviTap");
-        saveButton.on("caviTap", async ()=>{
-            saveCmp(cmpDom);
-        });
-
         let open = await loadTemplate("method");
         open.find("[data-bind='name']")[0].textContent = "OPEN_OPTIONS";
         let consent = await loadTemplate("method");
@@ -69,32 +93,38 @@ cQuery(".newButton").on("caviTap", ()=>{
         cmpDom.find("[data-plug='method']").append(consent);
         cmpDom.find("[data-plug='method']").append(save);
 
-        cQuery(".step3 .rules").append(cmpDom);
-
-        setupDragging();
+        loadFromDom(cmpDom, "myCmp");
     });
-    cQuery("body")[0].setAttribute("data-view", "step3");
 });
 
 new CaviTouch(cQuery("#selectCmp"));
 cQuery("#selectCmp").on("caviTap", ()=>{
     let selectedKey = cQuery("#cmpSelector")[0].value;
-    cQuery("body")[0].setAttribute("data-view", "step3");
     JsonParser.parseCmp(cmpJson[selectedKey]).then((cmpDom)=>{
-        cQuery(".step3 .rules").empty();
-
-        let saveButton = cQuery(".step3 .save");
-        new CaviTouch(saveButton);
-        saveButton.off("caviTap");
-        saveButton.on("caviTap", async ()=>{
-            saveCmp(cmpDom);
-        });
-
-        cQuery(".step3 .rules").append(cmpDom);
-
-        setupDragging();
+        loadFromDom(cmpDom, selectedKey);
     });
 });
+
+function loadFromDom(cmpDom, name) {
+    undoQueue = [];
+
+    cQuery(".step3 .rules").empty();
+
+    cQuery(".step3 .cmpName input")[0].value = name;
+
+    let saveButton = cQuery(".step3 .save");
+    new CaviTouch(saveButton);
+    saveButton.off("caviTap");
+    saveButton.on("caviTap", async ()=>{
+        saveCmp(cmpDom);
+    });
+
+    cQuery(".step3 .rules").append(cmpDom);
+
+    cQuery("body")[0].setAttribute("data-view", "step3");
+
+    setupDragging();
+}
 
 new CaviTouch(cQuery(".step2 .back"));
 cQuery(".step2 .back").on("caviTap", ()=>{
@@ -135,7 +165,12 @@ cQuery("body")[0].setAttribute("data-view", "step1");
 async function saveCmp(dom) {
     let json = await DomParser.parseCmpDom(dom);
 
-    let jsonString = JSON.stringify(json, null, 4);
+    let cmpName = cQuery(".step3 .cmpName input")[0].value;
+
+    let rules = {};
+    rules[cmpName] = json;
+
+    let jsonString = JSON.stringify(rules, null, 4);
 
     cQuery(".step4 pre").empty();
     cQuery(".step4 pre")[0].innerText = jsonString;
@@ -198,6 +233,13 @@ function setupDraggingForType(type) {
                     templateId = type+"_"+draggable[0].getAttribute("data-variant");
                 }
                 let template = await loadTemplate(templateId);
+
+                //Automatically fill all domSelectors
+                for(let elm of template.find("[data-plug='domSelector']:empty:not([data-bind='childFilter'])")){
+                    let domSelectorTemplate = await loadTemplate("domSelector");
+                    cQuery(elm).append(domSelectorTemplate);
+                }
+
                 handleDrop(template, dropTarget, hoverElm, type);
             }
         });
@@ -221,8 +263,6 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
         insertElement = [];
     }
 
-    console.log("["+type+"] Dropping on: ", dropTarget[0]);
-    
     if(dropTarget.is(".trashcan")) {
         console.log("Deleting:", draggable);
         undoQueue.push({
@@ -241,8 +281,26 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
 
     if(ctrlPressed) {
         console.log("Making copy instead of moving!");
-        draggable = draggable.clone();
+        let clone = draggable.clone();
+        let cloneSelects = clone.find("select");
+        let origSelects = draggable.find("select");
+
+        if(cloneSelects.length !== origSelects.length) {
+            console.log("Something weird is happening!");
+        } else {
+            for(let i = 0; i<cloneSelects.length; i++) {
+                cloneSelects[i].value = origSelects[i].value;
+            }
+        }
+
+        draggable = clone;
     }
+
+    undoQueue.push({
+        parent: draggable[0].parentNode,
+        nextSibling: draggable[0].nextSibling,
+        element: draggable[0]
+    });
 
     if(dropTarget.is("[data-multiple='true']") && insertElement.length > 0) {
         let insertParent = insertElement.parent();
@@ -277,12 +335,6 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
     } else {
         //We are empty, or a multicontainer with no insertElement selected, just insert
         dropTarget.append(draggable);
-    }
-
-    //Automatically fill all domSelectors
-    for(let elm of draggable.find("[data-plug='domSelector']:empty:not([data-bind='childFilter'])")){
-        let template = await loadTemplate("domSelector");
-        cQuery(elm).append(template);
     }
 
     setupDragging();

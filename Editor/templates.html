@@ -32,7 +32,7 @@
 <template id="domSelector">
     <div data-type="domSelector">
         <div class="parent toggled" data-fold-name="Parent">
-            <div data-bind="selector"><div class="label inline">selector</div><input size="40" /></div>
+            <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
             <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40"/></div>
             <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
             <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
@@ -40,7 +40,7 @@
             <div data-bind="childFilter" data-plug="domSelector"></div>
         </div>
         <div class="target toggled" data-fold-name="Target">
-            <div data-bind="selector"><div class="label inline">selector</div><input size="40" /></div>
+            <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
             <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40" /></div>
             <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
             <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
@@ -65,7 +65,8 @@
 </template>
 
 <template id="action_close">
-    <div data-type="action" data-variant="close" data-fold-name="CloseAction">
+    <div data-type="action" data-variant="close">
+        CloseAction
     </div>
 </template>
 
@@ -118,6 +119,12 @@
         <div data-bind="retries"><div class="label inline">retries</div><input type="number" min="1" max="100" value="10" /></div>
         <div data-bind="waitTime"><div class="label inline">waitTime</div> <input type="number" min="100" max="5000" value="250" /></div>
         <div data-bind="negated"><div class="label inline">negated</div><input type="checkbox" /></div>
+    </div>
+</template>
+
+<template id="action_wait">
+    <div data-type="action" data-variant="wait" data-fold-name="WaitAction">
+        <div data-bind="waitTime"><div class="label inline">waitTime</div> <input type="number" min="10" max="5000" value="250" /></div>
     </div>
 </template>
 
