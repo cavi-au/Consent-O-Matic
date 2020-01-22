@@ -103,13 +103,14 @@ class ClickAction extends Action {
             }
 
             if(ConsentEngine.debugValues.debugClicks) {
-                console.log("Clicking: [ctrlKey: "+this.config.ctrlKey+"]", result.target);
+                console.log("Clicking: [openInTab: "+this.config.openInTab+"]", result.target);
             }
 
             result.target.focus({preventScroll: true});
 
-            if(this.config.ctrlKey) {
-                result.target.dispatchEvent(new MouseEvent("click", {ctrlKey: true}));
+            if(this.config.openInTab) {
+                //Handle osx behaving differently?
+                result.target.dispatchEvent(new MouseEvent("click", {ctrlKey: true, shiftKey: true}));
             } else {
                 result.target.click();
             }
