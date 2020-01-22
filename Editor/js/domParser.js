@@ -184,9 +184,9 @@ class DomParser {
 
     static async parseClickActionDom(dom, result) {
         Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
-        let ctrlKeyInput = dom.find("[data-bind='ctrlKey'] input")[0];
-        if(ctrlKeyInput.checked) {
-            result.ctrlKey = true;
+        let openInTabInput = dom.find("[data-bind='openInTab'] input")[0];
+        if(openInTabInput.checked) {
+            result.openInTab = true;
         }
     }
 

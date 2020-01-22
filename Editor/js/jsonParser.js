@@ -152,8 +152,8 @@ class JsonParser {
         let domSelectorDom = await JsonParser.parseDomSelection(json);
         result.children("[data-plug='domSelector']").append(domSelectorDom);
 
-        if(json.ctrlKey) {
-            result.find("[data-bind='ctrlKey'] input")[0].checked = json.ctrlKey;
+        if(json.openInTab) {
+            result.find("[data-bind='openInTab'] input")[0].checked = json.openInTab;
         }
 
         return result;
