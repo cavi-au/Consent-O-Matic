@@ -3859,6 +3859,44 @@
                                             }
                                         ]
                                     }
+                                },
+                                {
+                                    "type": "ifcss",
+                                    "target": {
+                                        "selector": "h3",
+                                        "textFilter": [
+                                            "Social media & marketing"
+                                        ]
+                                    },
+                                    "trueAction": {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "type": "F",
+                                                "matcher": {
+                                                    "type": "css",
+                                                    "parent": {
+                                                        "selector": ".cookiecat"
+                                                    },
+                                                    "target": {
+                                                        "selector": "span.off.active"
+                                                    }
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".switch span.off"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".switch span.on"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }
@@ -3872,7 +3910,8 @@
                             "target": {
                                 "selector": ".options h2",
                                 "textFilter": [
-                                    "Required Cookies"
+                                    "Required Cookies",
+                                    "NØDVENDIGE COOKIES"
                                 ]
                             }
                         },
