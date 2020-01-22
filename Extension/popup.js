@@ -24,6 +24,7 @@ chrome.tabs.query({
 	    // Save it
             console.log("Sending report of unhandled CMP: ", url);
             fetch("https://gdprconsent.projects.cavi.au.dk/report.php?url="+encodeURIComponent(url));
+            window.close();
 	}
     });
 });

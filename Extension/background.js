@@ -1,6 +1,4 @@
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
-    console.log("Got message: ", message);
-
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);
@@ -20,9 +18,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         case "HandledCMP": {
             let json = JSON.parse(message.split("|")[1]);
 
-            chrome.browserAction.setBadgeText({
-                text: "✓"
-            });
+            setBadgeCheckmark(true, sender.tab.id);
 
             GDPRConfig.getLogEntries().then((log)=>{
                 log.push({
@@ -30,13 +26,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
                     "cmp": json.cmp,
                     "page": json.url
                 });
-
-                console.log(log);
-
                 GDPRConfig.setLogEntries(log);
             });
-
-            console.log("Got handled stats: ", json);
 
             return false;
         }
@@ -45,6 +36,21 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             console.log("Unhandled message:", message);
     }
 });
+
+function setBadgeCheckmark(enabled, id) {
+    console.log("Setting badge:", enabled, id);
+
+    let text = "";
+
+    if(enabled) {
+        text = "✓";
+    }
+
+    chrome.browserAction.setBadgeText({
+        text: text,
+        tabId: id
+    });
+}
 
 function fetchRules(forceUpdate) {
     // Make sure the cached rule-lists are up-to-date, fetch updates if needed
@@ -56,14 +62,11 @@ function fetchRules(forceUpdate) {
                 for (let ruleList of ruleLists) {
                     let entry = cachedEntries[ruleList];
 
-                    console.log(entry);
-
                     // Check for cache
                     if (!forceUpdate && (entry != null && 'timestamp' in entry && ((Date.now() / 1000) - entry.timestamp) < maxStaleness && 'rules' in entry)) {
                         rules.push(entry.rules);
                     } else {
                         // No cache, try to fetch
-                        console.log("no cache for " + ruleList);
                         try {
 
                             let response = await fetch(ruleList, { cache: "no-store" });
@@ -74,9 +77,6 @@ function fetchRules(forceUpdate) {
                                 timestamp: Date.now() / 1000,
                                 rules: theList
                             };
-
-                            console.log("Fetched: ", theList);
-
                         } catch (e) {
                             console.warn("Error fetching rulelist: ", ruleList, e.message);
                         }
@@ -95,3 +95,13 @@ function fetchRules(forceUpdate) {
     return rulePromise;
 
 }
+
+let tabsInfo = new Map();
+
+console.log("Background reloaded!");
+
+chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
+    if(info.status != null && info.status === "Loading") {
+        setBadgeCheckmark(false, tabId);
+    }
+});

@@ -40,7 +40,8 @@
 		}
 	],
 	"options_ui": {
-		"page": "options.html"
+		"page": "options.html",
+		"open_in_tab": true
 	},
 	"icons": {
 		"48": "icon_48.png",

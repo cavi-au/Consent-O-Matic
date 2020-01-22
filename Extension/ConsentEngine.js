@@ -10,6 +10,8 @@ class ConsentEngine {
 
         this.handledCallback = handledCallback;
 
+        this.triedCMPs = new Set();
+
         Object.keys(config).forEach((key) => {
             try {
                 self.cmps.push(new CMP(key, config[key]));
@@ -31,6 +33,10 @@ class ConsentEngine {
 
         let cmps = this.findCMP();
 
+        cmps = cmps.filter((cmp)=>{
+            return !self.triedCMPs.has(cmp.name);
+        });
+
         if (cmps.length > 0) {
             this.stopObserver();
 
@@ -41,6 +47,8 @@ class ConsentEngine {
             let cmp = cmps[0];
 
             console.log("CMP Detected: ", cmp.name);
+
+            this.triedCMPs.add(cmp.name);
 
             //Check if popup shows, then do consent stuff
             let numberOfTries = 10;
@@ -62,6 +70,8 @@ class ConsentEngine {
                         setTimeout(checkIsShowing, 250);
                     } else {
                         console.log("Not showing...", cmp.name);
+                        self.startObserver();
+                        self.handleMutations([]);
                     }
                 }
             }
