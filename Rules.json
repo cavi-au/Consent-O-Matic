@@ -3576,15 +3576,15 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": "title",
-                        "textFilter": "TrustArc Preference Manager"
+                        "textFilter": [
+                            "TrustArc Preference Manager"
+                        ]
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": ".gdpr .switch span.on, .pdynamicbutton a"
                     }
@@ -3602,7 +3602,9 @@
                             "target": {
                                 "selector": ".shp"
                             },
-                            "retries": 2
+                            "retries": 2,
+                            "waitTime": 250,
+                            "negated": false
                         },
                         {
                             "type": "click",
@@ -3618,7 +3620,9 @@
                             "target": {
                                 "selector": ".pdynamicbutton .advance"
                             },
-                            "retries": 2
+                            "retries": 2,
+                            "waitTime": 250,
+                            "negated": false
                         },
                         {
                             "type": "ifcss",
@@ -3639,7 +3643,9 @@
                                         "target": {
                                             "selector": ".switch span.on"
                                         },
-                                        "retries": 100
+                                        "retries": 100,
+                                        "waitTime": 250,
+                                        "negated": false
                                     }
                                 ]
                             }
@@ -3666,7 +3672,10 @@
                                     "type": "ifcss",
                                     "target": {
                                         "selector": "h3",
-                                        "textFilter": "Functional"
+                                        "textFilter": [
+                                            "Functional",
+                                            "Funktionalitets"
+                                        ]
                                     },
                                     "trueAction": {
                                         "type": "consent",
@@ -3702,7 +3711,9 @@
                                     "type": "ifcss",
                                     "target": {
                                         "selector": "h3",
-                                        "textFilter": "Analytics"
+                                        "textFilter": [
+                                            "Analytics"
+                                        ]
                                     },
                                     "trueAction": {
                                         "type": "consent",
@@ -3738,7 +3749,9 @@
                                     "type": "ifcss",
                                     "target": {
                                         "selector": "h3",
-                                        "textFilter": "marketing and advertising"
+                                        "textFilter": [
+                                            "marketing and advertising"
+                                        ]
                                     },
                                     "trueAction": {
                                         "type": "consent",
@@ -3774,7 +3787,10 @@
                                     "type": "ifcss",
                                     "target": {
                                         "selector": "h3",
-                                        "textFilter": "advertising"
+                                        "textFilter": [
+                                            "advertising",
+                                            "Annonceringscookies"
+                                        ]
                                     },
                                     "trueAction": {
                                         "type": "consent",
@@ -3810,7 +3826,9 @@
                                     "type": "ifcss",
                                     "target": {
                                         "selector": "h3",
-                                        "textFilter": "Personalised email marketing"
+                                        "textFilter": [
+                                            "Personalised email marketing"
+                                        ]
                                     },
                                     "trueAction": {
                                         "type": "consent",
@@ -3853,7 +3871,9 @@
                         "dragTarget": {
                             "target": {
                                 "selector": ".options h2",
-                                "textFilter": "Required Cookies"
+                                "textFilter": [
+                                    "Required Cookies"
+                                ]
                             }
                         },
                         "axis": "y"
@@ -3867,22 +3887,21 @@
                     "actions": [
                         {
                             "type": "click",
-                            "parent": null,
                             "target": {
                                 "selector": ".submit"
                             }
                         },
                         {
                             "type": "waitcss",
-                            "parent": null,
                             "target": {
                                 "selector": ".close"
                             },
-                            "retries": 1000
+                            "retries": 1000,
+                            "waitTime": 250,
+                            "negated": false
                         },
                         {
                             "type": "click",
-                            "parent": null,
                             "target": {
                                 "selector": ".close"
                             }
