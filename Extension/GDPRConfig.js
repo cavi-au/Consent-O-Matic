@@ -139,6 +139,11 @@ class GDPRConfig {
                 "name": "alwaysForceRulesUpdate",
                 "description": "Always force a reload of the rules on each load",
                 "value": debugValues.alwaysForceRulesUpdate
+            },
+            {
+                "name": "skipHideMethod",
+                "description": "Skips the HIDE_CMP method, to better see whats going on behind the scenes.",
+                "value": debugValues.skipHideMethod
             }
         ];
     }
@@ -240,5 +245,6 @@ GDPRConfig.defaultDebugFlags = {
     "skipSubmit": false,
     "paintMatchers": false,
     "debugClicks": false,
-    "alwaysForceRulesUpdate": false
+    "alwaysForceRulesUpdate": false,
+    "skipHideMethod": false
 }

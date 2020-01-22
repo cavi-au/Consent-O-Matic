@@ -58,7 +58,9 @@ class ConsentEngine {
                         try {
                             self.showProgressDialog();
 
-                            await cmp.runMethod("HIDE_CMP");
+                            if (!ConsentEngine.debugValues.skipHideMethod) {
+                                await cmp.runMethod("HIDE_CMP");
+                            }
                             await cmp.runMethod("OPEN_OPTIONS");
                             await cmp.runMethod("DO_CONSENT", self.consentTypes);
                             if (!ConsentEngine.debugValues.skipSubmit) {
@@ -70,7 +72,7 @@ class ConsentEngine {
                         } catch(e) {
                             console.log("Error during consent handling:", e);
                         }
-                        
+                        cmp.unHideAll();
                         self.hideProgressDialog();
                     }, 0);
                 } else {

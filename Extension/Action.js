@@ -267,23 +267,38 @@ class ForEachAction extends Action {
 class HideAction extends Action {
     constructor(config, cmp) {
         super(config);
+        this.cmp = cmp;
     }
 
     async execute(param) {
+        let self = this;
         let result = Tools.find(this.config);
 
         if(result.target != null) {
+            let oldOpacity = result.target.style.opacity;
             console.log("Hiding: ", result.target);
             result.target.style.opacity = "0";
 
             let observer = new MutationObserver(()=>{
+                let oldOpacity = result.target.style.opacity;
+
+                observer.disconnect();
                 result.target.style.opacity = "0";
+                observer.observe(result.target, {
+                    attributes: true,
+                    attributeFilter: ["style"]
+                });
+                
+                self.cmp.hiddenTargets.set(result.target, oldOpacity);
             });
 
             observer.observe(result.target, {
                 attributes: true,
                 attributeFilter: ["style"]
             });
+
+            this.cmp.hiddenTargets.set(result.target, oldOpacity);
+            this.cmp.hideObservers.push(observer);
         }
     }
 }

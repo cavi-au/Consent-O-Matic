@@ -16,6 +16,19 @@ class CMP {
                 self.methods.set(methodConfig.name, action);
             }
         });
+
+        this.hiddenTargets = new Map();
+        this.hideObservers = [];
+    }
+
+    unHideAll() {
+        this.hideObservers.forEach((observer)=>{
+            observer.disconnect();
+        });
+
+        this.hiddenTargets.forEach((oldOpacity, target)=>{
+            target.style.opacity = oldOpacity;
+        });
     }
 
     detect() {
