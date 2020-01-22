@@ -26,7 +26,7 @@ class Action {
             return this.config.timeout;
         } else {
             if (ConsentEngine.debugValues.clickDelay) {
-                return 10;
+                return 250;
             } else {
                 return 0;
             }
@@ -274,7 +274,16 @@ class HideAction extends Action {
 
         if(result.target != null) {
             console.log("Hiding: ", result.target);
-            result.target.style.display = "none";
+            result.target.style.opacity = "0";
+
+            let observer = new MutationObserver(()=>{
+                result.target.style.opacity = "0";
+            });
+
+            observer.observe(result.target, {
+                attributes: true,
+                attributeFilter: ["style"]
+            });
         }
     }
 }

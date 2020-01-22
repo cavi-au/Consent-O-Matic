@@ -82,6 +82,8 @@ cQuery(".newButton").on("caviTap", ()=>{
     usedNew = true;
 
     loadTemplate("cmp").then(async (cmpDom)=>{
+        let hide = await loadTemplate("method");
+        hide.find("[data-bind='name']")[0].textContent = "HIDE_CMP";
         let open = await loadTemplate("method");
         open.find("[data-bind='name']")[0].textContent = "OPEN_OPTIONS";
         let consent = await loadTemplate("method");
@@ -100,7 +102,46 @@ cQuery(".newButton").on("caviTap", ()=>{
 new CaviTouch(cQuery("#selectCmp"));
 cQuery("#selectCmp").on("caviTap", ()=>{
     let selectedKey = cQuery("#cmpSelector")[0].value;
-    JsonParser.parseCmp(cmpJson[selectedKey]).then((cmpDom)=>{
+    
+    let json = cmpJson[selectedKey];
+
+    if(json.methods.find((elm)=>{
+        return elm.name === "HIDE_CMP";
+    }) == null) {
+        json.methods.push({
+            "name": "HIDE_CMP",
+            "action": null
+        });
+    }
+
+    if(json.methods.find((elm)=>{
+        return elm.name === "OPEN_OPTIONS";
+    }) == null) {
+        json.methods.push({
+            "name": "OPEN_OPTIONS",
+            "action": null
+        });
+    }
+
+    if(json.methods.find((elm)=>{
+        return elm.name === "DO_CONSENT";
+    }) == null) {
+        json.methods.push({
+            "name": "DO_CONSENT",
+            "action": null
+        });
+    }
+
+    if(json.methods.find((elm)=>{
+        return elm.name === "SAVE_CONSENT";
+    }) == null) {
+        json.methods.push({
+            "name": "SAVE_CONSENT",
+            "action": null
+        });
+    }
+
+    JsonParser.parseCmp(json).then((cmpDom)=>{
         loadFromDom(cmpDom, selectedKey);
     });
 });

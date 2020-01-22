@@ -145,6 +145,9 @@ class DomParser {
             case "click":
                 await DomParser.parseClickActionDom(dom, result);
                 break; 
+            case "hide":
+                await DomParser.parseHideActionDom(dom, result);
+                break; 
             case "foreach":
                 await DomParser.parseForEachActionDom(dom, result);
                 break; 
@@ -188,6 +191,10 @@ class DomParser {
         if(openInTabInput.checked) {
             result.openInTab = true;
         }
+    }
+
+    static async parseHideActionDom(dom, result) {
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
     }
 
     static async parseSlideActionDom(dom, result) {

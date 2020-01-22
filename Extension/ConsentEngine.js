@@ -55,14 +55,23 @@ class ConsentEngine {
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
                     setTimeout(async () => {
-                        await cmp.runMethod("OPEN_OPTIONS");
-                        await cmp.runMethod("DO_CONSENT", self.consentTypes);
-                        if (!ConsentEngine.debugValues.skipSubmit) {
-                            await cmp.runMethod("SAVE_CONSENT");
+                        try {
+                            self.showProgressDialog();
+
+                            await cmp.runMethod("HIDE_CMP");
+                            await cmp.runMethod("OPEN_OPTIONS");
+                            await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                            if (!ConsentEngine.debugValues.skipSubmit) {
+                                await cmp.runMethod("SAVE_CONSENT");
+                            }
+                            self.handledCallback({
+                                cmpName: cmp.name
+                            });
+                        } catch(e) {
+                            console.log("Error during consent handling:", e);
                         }
-                        self.handledCallback({
-                            cmpName: cmp.name
-                        });
+                        
+                        self.hideProgressDialog();
                     }, 0);
                 } else {
                     if (numberOfTries > 0) {
@@ -78,6 +87,20 @@ class ConsentEngine {
 
             checkIsShowing();
         }
+    }
+
+    showProgressDialog() {
+        console.log("Showing progress...");
+        this.dialog = document.createElement("dialog");
+        document.body.appendChild(this.dialog);
+        this.dialog.innerText = "Consent-o-Matic is working, please wait...";
+        this.dialog.showModal();
+    }
+
+    hideProgressDialog() {
+        console.log("Hiding progress...");
+        this.dialog.close();
+        document.body.removeChild(this.dialog);
     }
 
     setupObserver() {

@@ -119,6 +119,8 @@ class JsonParser {
                 return await JsonParser.parseSlideAction(json);
             case "close":
                 return await JsonParser.parseCloseAction(json);
+            case "hide":
+                return await JsonParser.parseHideAction(json);
             case "wait":
                 return await JsonParser.parseWaitAction(json);
             default:
@@ -155,6 +157,15 @@ class JsonParser {
         if(json.openInTab) {
             result.find("[data-bind='openInTab'] input")[0].checked = json.openInTab;
         }
+
+        return result;
+    }
+
+    static async parseHideAction(json) {
+        let result = await loadTemplate("action_hide");
+
+        let domSelectorDom = await JsonParser.parseDomSelection(json);
+        result.children("[data-plug='domSelector']").append(domSelectorDom);
 
         return result;
     }
