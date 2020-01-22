@@ -247,13 +247,9 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
-        console.log("Foreach find...");
-
         let results = Tools.find(this.config, true);
 
         let oldBase = Tools.base;
-
-        console.log("forEachResults: ", results);
 
         for(let result of results) {
             if(result.target != null) {
@@ -292,8 +288,6 @@ class SlideAction extends Action {
         let result = Tools.find(this.config);
 
         let dragResult = Tools.find(this.config.dragTarget);
-
-        console.log("Trying to slide...");
 
         if(result.target != null) {
             let targetBounds = result.target.getBoundingClientRect();
