@@ -17,17 +17,12 @@ class CMP {
             }
         });
 
-        this.hiddenTargets = new Map();
-        this.hideObservers = [];
+        this.hiddenTargets = [];
     }
 
     unHideAll() {
-        this.hideObservers.forEach((observer)=>{
-            observer.disconnect();
-        });
-
-        this.hiddenTargets.forEach((oldOpacity, target)=>{
-            target.style.opacity = oldOpacity;
+        this.hiddenTargets.forEach((target)=>{
+            target.classList.remove("ConsentOMatic-CMP-Hider");
         });
     }
 

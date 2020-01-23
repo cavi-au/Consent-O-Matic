@@ -36,6 +36,9 @@
 				"ConsentEngine.js",
 				"contentScript.js"
 			],
+			"css": [
+				"content.css"
+			],
 			"all_frames": true
 		}
 	],
