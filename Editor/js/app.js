@@ -91,6 +91,7 @@ cQuery(".newButton").on("caviTap", ()=>{
         let save = await loadTemplate("method");
         save.find("[data-bind='name']")[0].textContent = "SAVE_CONSENT";
 
+        cmpDom.find("[data-plug='method']").append(hide);
         cmpDom.find("[data-plug='method']").append(open);
         cmpDom.find("[data-plug='method']").append(consent);
         cmpDom.find("[data-plug='method']").append(save);
