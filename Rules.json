@@ -127,7 +127,6 @@
             }
         ]
     },
-    {
         "cookiebot": {
             "detectors": [
                 {
@@ -362,8 +361,7 @@
                     }
                 }
             ]
-        }
-    },
+        },
     "cookiecontrolcivic": {
         "detectors": [
             {
