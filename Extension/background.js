@@ -66,7 +66,7 @@ function fetchRules(forceUpdate) {
                     if (!forceUpdate && (entry != null && 'timestamp' in entry && ((Date.now() / 1000) - entry.timestamp) < maxStaleness && 'rules' in entry)) {
                         rules.push(entry.rules);
                     } else {
-                        // No cache, try to fetch
+                        // No cache, or to old, try to fetch
                         try {
 
                             let response = await fetch(ruleList, { cache: "no-store" });
@@ -79,6 +79,11 @@ function fetchRules(forceUpdate) {
                             };
                         } catch (e) {
                             console.warn("Error fetching rulelist: ", ruleList, e.message);
+
+                            //Reuse cached entry even though its out of date at this point
+                            if(entry != null) {
+                                rules.push(entry.rules);
+                            }
                         }
                     }
                 }
