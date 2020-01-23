@@ -6895,14 +6895,6 @@
                         }
                     ]
                 }
-            },
-            {
-                "name": "DO_CONSENT",
-                "action": null
-            },
-            {
-                "name": "SAVE_CONSENT",
-                "action": null
             }
         ]
     }
