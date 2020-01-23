@@ -127,241 +127,246 @@
             }
         ]
     },
-        "cookiebot": {
-            "detectors": [
-                {
-                    "presentMatcher": {
-                        "type": "css",
-                        "target": {
-                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
-                        }
-                    },
-                    "showingMatcher": {
-                        "type": "css",
-                        "target": {
-                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
-                        }
-                    }
-                }
-            ],
-            "methods": [
-                {
-                    "name": "OPEN_OPTIONS",
-                    "action": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#CybotCookiebotDialogBodyButtonDetails",
-                                    "displayFilter": true
-                                }
-                            },
-                            {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".cb-button",
-                                    "textFilter": [
-                                        "Manage cookies"
-                                    ],
-                                    "displayFilter": true
-                                }
-                            },
-                            {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".js-cookie-settings",
-                                    "displayFilter": true
-                                }
-                            }
-                        ]
+"cookiebot": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
                     }
                 },
-                {
-                    "name": "DO_CONSENT",
-                    "action": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "consent",
-                                "consents": [
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyButtonDetails",
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cb-button",
+                                "textFilter": [
+                                    "Manage cookies"
+                                ],
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".js-cookie-settings",
+                                "displayFilter": true
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "A",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "B",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".dtcookie__accept",
+                                "textFilter": [
+                                    "Select All and Continue"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".h-dtcookie-decline"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".h-dtcookie-accept"
+                                }
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cb-button",
+                                "textFilter": [
+                                    "Save preferences"
+                                ],
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cb-button",
+                                "textFilter": [
+                                    "Done"
+                                ],
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyLevelButtonAccept",
+                                "displayFilter": true
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#CybotCookiebotDialogBodyLevelButtonAccept"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected",
+                                    "displayFilter": true
+                                },
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected"
+                                    }
+                                },
+                                "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#CybotCookiebotDialogBodyButtonAccept"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".js-cookie-settings-close"
+                            },
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
                                     {
-                                        "type": "A",
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
-                                            }
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".js-cookie-settings-close"
                                         }
                                     },
                                     {
-                                        "type": "B",
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
-                                            }
-                                        }
+                                        "type": "close"
                                     },
                                     {
-                                        "type": "F",
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
-                                            }
+                                        "type": "waitcss",
+                                        "target": {
+                                            "selector": ".JegFindesIkke"
                                         },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
-                                            }
-                                        }
+                                        "retries": 1,
+                                        "waitTime": 500,
+                                        "negated": false
                                     }
                                 ]
                             }
-                        ]
-                    }
-                },
-                {
-                    "name": "SAVE_CONSENT",
-                    "action": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".dtcookie__accept",
-                                    "textFilter": [
-                                        "Select All and Continue"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "click",
-                                    "target": {
-                                        "selector": ".h-dtcookie-decline"
-                                    }
-                                },
-                                "falseAction": {
-                                    "type": "click",
-                                    "target": {
-                                        "selector": ".h-dtcookie-accept"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".cb-button",
-                                    "textFilter": [
-                                        "Save preferences"
-                                    ],
-                                    "displayFilter": true
-                                }
-                            },
-                            {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".cb-button",
-                                    "textFilter": [
-                                        "Done"
-                                    ],
-                                    "displayFilter": true
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": "#CybotCookiebotDialogBodyLevelButtonAccept",
-                                    "displayFilter": true
-                                },
-                                "trueAction": {
-                                    "type": "click",
-                                    "target": {
-                                        "selector": "#CybotCookiebotDialogBodyLevelButtonAccept"
-                                    }
-                                },
-                                "falseAction": {
-                                    "type": "ifcss",
-                                    "target": {
-                                        "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected",
-                                        "displayFilter": true
-                                    },
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#CybotCookiebotDialogBodyButtonAcceptSelected"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#CybotCookiebotDialogBodyButtonAccept"
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".js-cookie-settings-close"
-                                },
-                                "trueAction": {
-                                    "type": "list",
-                                    "actions": [
-                                        {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": ".js-cookie-settings-close"
-                                            }
-                                        },
-                                        {
-                                            "type": "wait",
-                                            "waitTime": 500
-                                        },
-                                        {
-                                            "type": "close"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "HIDE_CMP",
-                    "action": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "hide",
-                                "target": {
-                                    "selector": "#CybotCookiebotDialogBodyUnderlay"
-                                }
-                            },
-                            {
-                                "type": "hide",
-                                "target": {
-                                    "selector": "#CybotCookiebotDialog"
-                                }
-                            }
-                        ]
-                    }
+                        }
+                    ]
                 }
-            ]
-        },
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyUnderlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CybotCookiebotDialog"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "cookiecontrolcivic": {
         "detectors": [
             {
