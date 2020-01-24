@@ -1,3 +1,72 @@
 .ConsentOMatic-CMP-Hider {
     opacity: 0 !important;
 }
+
+@keyframes consentomatic-progressAnimation {
+    from { 
+        background-position: 90% 50%;
+    }
+    to {
+        background-position: 0% 50%;
+    }
+}
+
+.ConsentOMatic-Progress-Dialog {
+    border: 0;
+    box-shadow: 0 0 3rem black;
+    background: #00309a;
+    background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,48,154,1) 40%,rgba(0,22,91,1) 60%);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    position: fixed;
+    overflow: hidden;
+    top: 0%;
+    margin-right: 2rem;
+    margin-left: auto;
+    padding: 1rem;
+    margin-top: -4rem;
+    opacity: 0;
+    user-select: none;
+    animation-name: consentomatic-progressAnimation;
+    animation-duration: 5s;
+    animation-delay: -1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    transition: margin-top 0.3s ease-in-out, opacity 0.4s ease-in-out;
+}
+.ConsentOMatic-Progress-Dialog h1 {
+    color: white;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin: 0;
+}
+.ConsentOMatic-Progress-Dialog p {
+    color: white;
+    margin: 0;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+.ConsentOMatic-Progress-Dialog::backdrop {
+    transition: background 1s ease-in-out;
+    background: transparent;
+}
+.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Started {
+    margin-top: 0;
+    opacity: 1;
+}
+.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Started::backdrop {
+    background: rgba(0,20,100,0.25);
+}
+.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Complete {
+    margin-top: -4rem;
+    opacity: 0;
+}
+.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Complete::backdrop {
+    background: transparent !important;
+}

@@ -56,7 +56,7 @@ class ConsentEngine {
                 if (cmp.isShowing()) {
                     setTimeout(async () => {
                         try {
-                            self.showProgressDialog();
+                            self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
 
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 await cmp.runMethod("HIDE_CMP");
@@ -91,18 +91,31 @@ class ConsentEngine {
         }
     }
 
-    showProgressDialog() {
+    showProgressDialog(text) {
         console.log("Showing progress...");
         this.dialog = document.createElement("dialog");
+	this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
+	let header = document.createElement("h1");
+	let contents = document.createElement("p");
+	header.innerText = "Consent-o-Matic";
+	contents.innerText = text;
+	this.dialog.appendChild(header);
+	this.dialog.appendChild(contents);
         document.body.appendChild(this.dialog);
-        this.dialog.innerText = "Consent-o-Matic is working, please wait...";
         this.dialog.showModal();
+	setTimeout(()=>{
+	    this.dialog.classList.add("ConsentOMatic-Progress-Started");
+	}, 0);
     }
 
     hideProgressDialog() {
+	let self = this;
         console.log("Hiding progress...");
-        this.dialog.close();
-        document.body.removeChild(this.dialog);
+	this.dialog.classList.add("ConsentOMatic-Progress-Complete");
+	setTimeout(()=>{
+            self.dialog.close();
+            document.body.removeChild(this.dialog);
+	},1000);
     }
 
     setupObserver() {

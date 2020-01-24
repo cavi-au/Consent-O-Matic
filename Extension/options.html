@@ -5,6 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     user-select: none;
+    min-height: 100vh;
 }
 body {
     display: flex;
@@ -13,10 +14,18 @@ body {
     align-items: top;
     background: #00309a;
     background: linear-gradient(to right, rgba(0,48,154,1) 0%,rgba(0,22,91,1) 100%);
-    overflow-x: hidden;
+    max-width: 50em;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 1em rgba(0,0,0,0.5);
+    line-height: 1.25em;
 }
 .header {
     color: white;
+    border-top: 1px solid #2f1988;
+    border-bottom: 1px solid #2f1988;
 }
 .header ul {
     margin: 0;
@@ -45,32 +54,33 @@ body {
     opacity: 0.01;
 }
 
-.footer {
+.prehead {
     position: relative;
     padding: 1em;
     color: white;
     font-family: sans-serif;
-    box-shadow: 0 0 1em rgba(0,0,0,0.5);
     display: flex;
-    margin-bottom: 0.25em;
+    margin-bottom: 0em;
+    background: rgb(44, 69, 193);
 }
-.footer .title {
+.prehead .title {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.footer h1 {
+.prehead h1 {
     margin-top:0;
     margin-bottom: 0;
+    line-height: 1.2em;
 }
-.footer h2 {
+.prehead h2 {
     margin-top: 0;
     margin-bottom: 0;
     opacity: 0.8;
     font-weight: normal;
     font-size: 1em;
 }
-.footer img {
+.prehead img {
     height: 5em;
     margin-right: 1em;
 }
@@ -79,7 +89,6 @@ body {
     padding-bottom: 0.5em;
 }
 .configurator {
-    max-width: 50em;
     flex: 1 0 auto;
     background: white;
 }
@@ -97,9 +106,11 @@ body {
     padding-left: 0em;
 }
 .configurator ul li {
+    background: rgba(0,0,100,0.025);
     position: relative;
     padding: 1em;
     padding-left: 6em;
+    padding-right: 2em;
     margin-left: 0;
     cursor: pointer;
 }
@@ -167,32 +178,57 @@ body {
 .rulelist li button:hover {
     background: red;
 }
-.ruleoptions {
+.ruleoptions, .logoptions {
     padding: 2em;
     padding-top:0;
+}
+
+.helptext {
+    padding: 2em;
+    padding-bottom: 0;
 }
 </style>
 <script src="GDPRConfig.js" defer="true"></script>
 <script src="options.js" defer="true"></script>
 </head>
-<body>
+<body><div class="prehead">
+    <img src="logo.svg">
+    <div class="title">
+        <h1>Consent-O-Matic</h1><h2>Your Choice - Applied Everywhere</h2>
+    </div>
+</div>
 <div class="header">
     <ul>
-	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Rules Lists</li><li class="menuitem log">Log</li><li class="menuitem debug">Debug</li>
+	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Rule Lists</li><li class="menuitem log">Log</li><li class="menuitem debug">Debug</li>
     </ul>
 </div>
 <div class="configurator">
-    <ul class="tab tab_uc"><!-- categories --></ul>
+    <div class="tab tab_uc">
+	<div class="helptext">
+	    Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.
+        </div>
+	<ul class="categorylist"><!-- categories --></ul>
+    </div>
     <div class="tab tab_rl" style="display:none">
-	    <ul class="rulelist"><!-- rulelists --></ul>
-	    <div class="ruleoptions">
-            <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button>
+	<div class="helptext">
+	    Consent-O-Matic comes with a set of rules that tell it how to understand each kind of GDPR consent popup.
+	    You can add more sources of rules here - or even <a href="https://github.com/cavi-au/Consent-O-Matic">create your own</a> list and share it with others!
+        </div>
+	<ul class="rulelist"><!-- rulelists --></ul>
+	<div class="ruleoptions">
+	    <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button>
             <br/>
             <br/>
-            <button id="forceupdate">Clear Rules list cache</button>
 	    </div>
+	<div class="helptext">
+	    <p>All the rule lists are updated automatically every 15 minutes <em>or</em> with this button:</p>
+	    <button id="forceupdate">Update Now</button>
+        </div>
     </div>
     <div class="tab tab_log" style="display:none">
+	<div class="helptext">
+	    This is a list of all the GDPR consent popups that were handled
+        </div>
         <ul class="logList"></ul>
         <div class="logoptions">
             <button id="clearLog">Clear</button>
@@ -200,9 +236,4 @@ body {
     </div>
     <ul class="tab tab_dbg" style="display:none"><!-- debugflags --></ul>
 </div>
-<div class="footer">
-    <img src="logo.svg">
-    <div class="title">
-        <h1>Consent-O-Matic</h1><h2>Your Choice - Applied Everywhere</h2>
-    </div>
-</div></body></html>
+</body></html>

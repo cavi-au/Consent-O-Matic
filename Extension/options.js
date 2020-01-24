@@ -1,4 +1,4 @@
-let optionsUL = document.querySelector(".configurator ul.tab_uc");
+let optionsUL = document.querySelector(".configurator ul.categorylist");
 let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
 let debugUL = document.querySelector(".configurator ul.tab_dbg");
 let logUL = document.querySelector(".configurator .tab_log ul.logList");
