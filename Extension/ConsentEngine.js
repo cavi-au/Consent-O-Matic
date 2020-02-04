@@ -94,13 +94,14 @@ class ConsentEngine {
     showProgressDialog(text) {
         console.log("Showing progress...");
         this.dialog = document.createElement("dialog");
-	this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
-	let header = document.createElement("h1");
-	let contents = document.createElement("p");
-	header.innerText = "Consent-o-Matic";
-	contents.innerText = text;
-	this.dialog.appendChild(header);
-	this.dialog.appendChild(contents);
+        this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
+        let header = document.createElement("h1");
+        let contents = document.createElement("p");
+        header.innerText = "Consent-o-Matic";
+        contents.innerText = text;
+        this.dialog.appendChild(header);
+        this.dialog.appendChild(contents);
+        dialogPolyfill.registerDialog(this.dialog);
         document.body.appendChild(this.dialog);
         this.dialog.showModal();
 	setTimeout(()=>{

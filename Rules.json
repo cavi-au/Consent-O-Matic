@@ -4,16 +4,15 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
-                        "selector": ".wt-cli-cookie-bar-container"
+                        "selector": "#cookie-law-info-bar"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
-                        "selector": ".wt-cli-cookie-bar-container"
+                        "selector": "#cookie-law-info-bar",
+                        "displayFilter": true
                     }
                 }
             }
@@ -23,10 +22,8 @@
                 "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
-                        "selector": ".wt-cli-cookie-bar-container .cli_settings_button",
-                        "textFilter": null
+                        "selector": ".wt-cli-cookie-bar-container .cli_settings_button"
                     }
                 }
             },
@@ -40,73 +37,109 @@
                             "consents": [
                                 {
                                     "type": "A",
-                                    "description": "Functional Cookies",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Functional"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Functional"
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 },
                                 {
                                     "type": "B",
-                                    "description": "Performance Cookies",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Performance"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Performance"
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "Marketing Cookies",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Marketing"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Marketing"
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -119,15 +152,18 @@
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
                         "selector": ".wt-cli-cookie-bar-container .cli_setting_save_button"
                     }
                 }
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": null
             }
         ]
     },
-"cookiebot": {
+    "cookiebot": {
         "detectors": [
             {
                 "presentMatcher": {
@@ -875,16 +911,15 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
-                        "selector": "#coiOverlay"
+                        "selector": "#coiOverlay, #coiSummery"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
-                        "selector": "#coiOverlay"
+                        "selector": "#coiOverlay, #coiSummery",
+                        "displayFilter": true
                     }
                 }
             }
@@ -894,9 +929,8 @@
                 "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
-                        "selector": ".coi-banner__nextpage"
+                        "selector": ".coi-banner__nextpage, .summary-texts__show-details"
                     }
                 }
             },
@@ -907,16 +941,6 @@
                     "consents": [
                         {
                             "type": "A",
-                            "description": "Functional Cookies",
-                            "toggleAction": {
-                                "type": "click",
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_functional"
-                                },
-                                "target": {
-                                    "selector": "label"
-                                }
-                            },
                             "matcher": {
                                 "type": "checkbox",
                                 "parent": {
@@ -924,21 +948,20 @@
                                 },
                                 "target": {
                                     "selector": "input"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_functional"
+                                },
+                                "target": {
+                                    "selector": "label"
                                 }
                             }
                         },
                         {
                             "type": "A",
-                            "description": "Statistical Cookies",
-                            "toggleAction": {
-                                "type": "click",
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_statistic"
-                                },
-                                "target": {
-                                    "selector": "label"
-                                }
-                            },
                             "matcher": {
                                 "type": "checkbox",
                                 "parent": {
@@ -946,21 +969,20 @@
                                 },
                                 "target": {
                                     "selector": "input"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_statistic"
+                                },
+                                "target": {
+                                    "selector": "label"
                                 }
                             }
                         },
                         {
                             "type": "F",
-                            "description": "Marketing Cookies",
-                            "toggleAction": {
-                                "type": "click",
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_marketing"
-                                },
-                                "target": {
-                                    "selector": "label"
-                                }
-                            },
                             "matcher": {
                                 "type": "checkbox",
                                 "parent": {
@@ -968,6 +990,15 @@
                                 },
                                 "target": {
                                     "selector": "input"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_marketing"
+                                },
+                                "target": {
+                                    "selector": "label"
                                 }
                             }
                         }
@@ -978,10 +1009,29 @@
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
-                        "selector": ".coi-banner__accept"
+                        "selector": ".coi-banner__accept, .coi-save-btn"
                     }
+                }
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CoiBannerOverlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#coiOverlay"
+                            }
+                        }
+                    ]
                 }
             }
         ]
@@ -4477,7 +4527,9 @@
                                         "parent": {
                                             "selector": ".didomi-consent-popup-data-processing, .didomi-components-accordion-label-container",
                                             "childFilter": {
-                                                "target": { "selector": "#didomi-purpose-pub-ciblee" }
+                                                "target": {
+                                                    "selector": "#didomi-purpose-pub-ciblee"
+                                                }
                                             }
                                         },
                                         "target": {
@@ -6037,7 +6089,10 @@
                             "type": "click",
                             "target": {
                                 "selector": "#cmpbox .cmpmorelink",
-                                "textFilter": ["Customize your choice", "More Options"]
+                                "textFilter": [
+                                    "Customize your choice",
+                                    "More Options"
+                                ]
                             }
                         }
                     ]
@@ -6212,7 +6267,7 @@
                                             ]
                                         }
                                     }
-                                ]   
+                                ]
                             }
                         },
                         {
@@ -6332,7 +6387,7 @@
                                                     "selector": "input"
                                                 }
                                             }
-                                        }                            
+                                        }
                                     ]
                                 }
                             },
@@ -6362,7 +6417,7 @@
                                                     "selector": "input"
                                                 }
                                             }
-                                        }                            
+                                        }
                                     ]
                                 }
                             },
@@ -6392,7 +6447,7 @@
                                                     "selector": "input"
                                                 }
                                             }
-                                        }                            
+                                        }
                                     ]
                                 }
                             },
@@ -6422,7 +6477,7 @@
                                                     "selector": "input"
                                                 }
                                             }
-                                        }                            
+                                        }
                                     ]
                                 }
                             },
@@ -6452,15 +6507,15 @@
                                                     "selector": "input"
                                                 }
                                             }
-                                        }                            
+                                        }
                                     ]
                                 }
                             }
                         ]
                     }
                 }
-           },
-           {
+            },
+            {
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "list",
@@ -6485,7 +6540,7 @@
                         }
                     ]
                 }
-           }
+            }
         ]
     },
     "cookieLab": {
