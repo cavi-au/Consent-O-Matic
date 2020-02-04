@@ -1041,14 +1041,12 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": ".as-oil-content-overlay"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": ".as-oil-content-overlay"
                     }
@@ -1063,17 +1061,18 @@
                     "actions": [
                         {
                             "type": "click",
-                            "parent": null,
                             "target": {
                                 "selector": ".as-js-advanced-settings"
                             }
                         },
                         {
                             "type": "waitcss",
-                            "parent": null,
                             "target": {
                                 "selector": ".as-oil-cpc__purpose-container"
-                            }
+                            },
+                            "retries": 10,
+                            "waitTime": 250,
+                            "negated": false
                         }
                     ]
                 }
@@ -1088,20 +1087,6 @@
                             "consents": [
                                 {
                                     "type": "D",
-                                    "description": "Vendor - Opbevaring af og adgang til oplysninger på din enhed",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": [
-                                                "Information storage and access",
-                                                "Opbevaring af og adgang til oplysninger på din enhed"
-                                            ]
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1113,25 +1098,24 @@
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Information storage and access",
+                                                "Opbevaring af og adgang til oplysninger på din enhed"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 },
                                 {
                                     "type": "E",
-                                    "description": "Vendor - Personlige annoncer",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": [
-                                                "Personlige annoncer",
-                                                "Personalisation"
-                                            ]
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1143,25 +1127,24 @@
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personlige annoncer",
+                                                "Personalisation"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "Vendor - Annoncevalg, levering og rapportering",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": [
-                                                "Annoncevalg, levering og rapportering",
-                                                "Ad selection, delivery, reporting"
-                                            ]
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1173,25 +1156,24 @@
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Annoncevalg, levering og rapportering",
+                                                "Ad selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 },
                                 {
                                     "type": "E",
-                                    "description": "Vendor - Personalisering af indhold",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": [
-                                                "Personalisering af indhold",
-                                                "Content selection, delivery, reporting"
-                                            ]
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1203,25 +1185,24 @@
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personalisering af indhold",
+                                                "Content selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 },
                                 {
                                     "type": "B",
-                                    "description": "Vendor - Måling",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": [
-                                                "Måling",
-                                                "Measurement"
-                                            ]
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1233,30 +1214,46 @@
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Måling",
+                                                "Measurement"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "Vendor - Google",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": "Google"
-                                        },
-                                        "target": {
-                                            "selector": ".as-oil-cpc__switch"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".as-oil-cpc__purpose-container",
-                                            "textFilter": "Google"
+                                            "textFilter": [
+                                                "Google"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Google"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
                                         }
                                     }
                                 }
@@ -1269,9 +1266,17 @@
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
                         "selector": ".as-oil__btn-optin"
+                    }
+                }
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "div.as-oil"
                     }
                 }
             }
@@ -7109,5 +7114,5 @@
                 }
             }
         ]
-    }    
+    }
 }

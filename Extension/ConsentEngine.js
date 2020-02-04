@@ -62,6 +62,9 @@ class ConsentEngine {
                                 await cmp.runMethod("HIDE_CMP");
                             }
                             await cmp.runMethod("OPEN_OPTIONS");
+                            if (!ConsentEngine.debugValues.skipHideMethod) {
+                                await cmp.runMethod("HIDE_CMP");
+                            }
                             await cmp.runMethod("DO_CONSENT", self.consentTypes);
                             if (!ConsentEngine.debugValues.skipSubmit) {
                                 await cmp.runMethod("SAVE_CONSENT");

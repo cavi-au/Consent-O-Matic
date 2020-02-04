@@ -277,6 +277,7 @@ class HideAction extends Action {
         let result = Tools.find(this.config);
 
         if(result.target != null) {
+            console.log("Hiding: ", result.target);
             this.cmp.hiddenTargets.push(result.target);
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }
