@@ -220,7 +220,7 @@ class GDPRConfig {
             chrome.storage.local.set({
                 cachedEntries: {}
             }, ()=>{
-                resolve(rules);
+                resolve();
             });
         });
     }
