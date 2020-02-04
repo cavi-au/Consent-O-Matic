@@ -94,6 +94,7 @@ class ConsentEngine {
     showProgressDialog() {
         console.log("Showing progress...");
         this.dialog = document.createElement("dialog");
+        dialogPolyfill.registerDialog(this.dialog);
         document.body.appendChild(this.dialog);
         this.dialog.innerText = "Consent-o-Matic is working, please wait...";
         this.dialog.showModal();

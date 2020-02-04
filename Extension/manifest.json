@@ -34,10 +34,12 @@
 				"Detector.js",
 				"CMP.js",
 				"ConsentEngine.js",
-				"contentScript.js"
+				"contentScript.js",
+				"dialog-polyfill.js"
 			],
 			"css": [
-				"content.css"
+				"content.css",
+				"dialog-polyfill.css"
 			],
 			"all_frames": true
 		}
