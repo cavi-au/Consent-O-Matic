@@ -36,42 +36,46 @@ document.addEventListener("keyup", (evt)=>{
 });
 
 document.querySelector(".loadButton").addEventListener("click", ()=>{
-    usedNew = false;
-
-    chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
-        let condensedJson =  Object.assign({}, ...fetchedRules);
-        loadFromJson(condensedJson);
-    });
+    let selectedKey = document.querySelector("#knownRules").value;
+   
+    usedNew = true;
+    
+    loadFromCmpKey(selectedKey);
 });
 
 document.querySelector(".loadTextButton").addEventListener("click", ()=>{
     try {
         let jsonString = document.querySelector("#inputArea").value;
         let json = JSON.parse(jsonString);
-        loadFromJson(json);
+        loadFromJson(json, document.querySelector("#cmpSelector"));
+
+        if(document.querySelector("#cmpSelector").querySelectorAll("option").length === 1) {
+            usedNew = true;
+            //Only 1 option, skip ahead
+            document.querySelector("#selectCmp").click();
+        } else {
+            usedNew = false;
+            switchView("step2");
+        }
     } catch(e) {
         console.log("Unable to load from jsonString:", e);
     }
 });
 
-function loadFromJson(json) {
+chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
+    let condensedJson =  Object.assign({}, ...fetchedRules);
+    loadFromJson(condensedJson, document.querySelector("#knownRules"));
+});
+
+function loadFromJson(json, selectDom, skipAhead = false) {
     cmpJson = json;
 
-    document.querySelector("#cmpSelector").innerHTML = "";
+    selectDom.innerHTML = "";
     Object.keys(cmpJson).forEach((key)=>{
         let option = document.createElement("option");
         option.textContent = key;
-        document.querySelector("#cmpSelector").appendChild(option);
+        selectDom.appendChild(option);
     });
-
-    if(document.querySelectorAll("#cmpSelector option").length === 1) {
-        usedNew = true;
-        //Only 1 option, skip ahead
-        document.querySelector("#selectCmp").click();
-    } else {
-        usedNew = false;
-        switchView("step2");
-    }
 }
 
 document.querySelector(".newButton").addEventListener("click", ()=>{
@@ -101,6 +105,10 @@ document.querySelector(".newButton").addEventListener("click", ()=>{
 document.querySelector("#selectCmp").addEventListener("click", ()=>{
     let selectedKey = document.querySelector("#cmpSelector").value;
     
+    loadFromCmpKey(selectedKey);
+});
+
+function loadFromCmpKey(selectedKey) {
     let json = cmpJson[selectedKey];
 
     if(json.methods.find((elm)=>{
@@ -144,7 +152,7 @@ document.querySelector("#selectCmp").addEventListener("click", ()=>{
     }).catch((e)=>{
         console.error(e);
     });
-});
+}
 
 function loadFromDom(cmpDom, name) {
     undoQueue = [];
