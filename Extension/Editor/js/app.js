@@ -38,10 +38,9 @@ document.addEventListener("keyup", (evt)=>{
 document.querySelector(".loadButton").addEventListener("click", ()=>{
     usedNew = false;
 
-    fetchJson(document.querySelector("#loadUrl").value).then((json)=>{
-        loadFromJson(json);
-    }).catch((e)=>{
-        console.log("Failed to load from url:", e);
+    chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
+        let condensedJson =  Object.assign({}, ...fetchedRules);
+        loadFromJson(condensedJson);
     });
 });
 
@@ -191,11 +190,15 @@ document.querySelector(".step4 .back").addEventListener("click", ()=>{
 });
 
 document.querySelector(".step3 .collapse").addEventListener("click", (evt)=>{
-    document.querySelector(".step3 .rules [data-fold-name]").classList.add("toggled");
+    Array.from(document.querySelectorAll(".step3 .rules [data-fold-name]")).forEach((elm)=>{
+        elm.classList.add("toggled");
+    });
 });
 
 document.querySelector(".step3 .uncollapse").addEventListener("click", ()=>{
-    document.querySelector(".step3 .rules [data-fold-name]").classList.remove("toggled");
+    Array.from(document.querySelectorAll(".step3 .rules [data-fold-name]")).forEach((elm)=>{
+        elm.classList.remove("toggled");
+    });
 });
 
 switchView("step1");
