@@ -106,7 +106,9 @@ class ClickAction extends Action {
                 console.log("Clicking: [openInTab: "+this.config.openInTab+"]", result.target);
             }
 
-            result.target.focus({preventScroll: true});
+            if(ConsentEngine.debugValues.clickDelay) {
+                result.target.focus({preventScroll: true});
+            }
 
             if(this.config.openInTab) {
                 //Handle osx behaving differently?
