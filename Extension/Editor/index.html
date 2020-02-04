@@ -10,11 +10,19 @@
     <body>
         <div class="step1">
             <div>
-                <h2>Load from known rules:</h2>
+                <h2>Load from external rules:</h2>
                 <select id="knownRules">
 
                 </select>
                 <button class="loadButton">Continue</button>
+            </div>
+            <div>
+                <h2>Load from custom rules:</h2>
+                <select id="customRules">
+
+                </select>
+                <button class="loadCustomButton">Continue</button>
+                <button class="deleteCustomButton">Delete</button>
             </div>
             <div>
                 <h2>Load from text:</h2>
@@ -39,7 +47,8 @@
         <div class="step3">
             <div class="menubar">
                 <button class="back">Back</button>
-                <button class="save">Save</button>
+                <button class="save">Save Custom Rule</button>
+                <button class="export">Export Json</button>
                 <button class="collapse">Collapse All</button>
                 <button class="uncollapse">Uncollapse All</button>
             </div>

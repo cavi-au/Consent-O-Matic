@@ -28,7 +28,7 @@ class CaviDraggable {
         document.addEventListener("click", this.clickListener, true);
 
         this.mouseDownListener = (evt)=>{
-            if(evt.button === 0 && evt.target.matches(":not(input)")) {
+            if(evt.button === 0 && evt.target.matches(":not(input)") && evt.target.matches(":not(select)")) {
                 self.startX = evt.pageX;
                 self.startY = evt.pageY;
                 self.mouseDown = true;
