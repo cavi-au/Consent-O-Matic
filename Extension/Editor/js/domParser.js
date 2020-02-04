@@ -278,9 +278,7 @@ class DomParser {
     static async parseConsentActionDom(dom, result) {
         result.consents = [];
         //Find first level of consents
-        console.log(dom);
         for(let consentDom of Array.from(dom.querySelector(":scope > [data-bind='consents']").querySelectorAll(":scope > [data-type='consent']"))) {
-            console.log(consentDom);
             result.consents.push(await DomParser.parseConsentDom(consentDom));
         }
     }

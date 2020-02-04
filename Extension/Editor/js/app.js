@@ -221,6 +221,7 @@ async function saveCmp(dom) {
 
     let jsonString = JSON.stringify(rules, null, 4);
 
+    /*
     document.querySelector(".step4 pre").innerHTML = "";
     document.querySelector(".step4 pre").innerText = jsonString;
 
@@ -232,12 +233,14 @@ async function saveCmp(dom) {
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand('copy');
+    */
+
+    console.log("Saved into new rules list");
 }
 
 let caviDraggables = [];
 
 function toggleClickHandler(evt) {
-    console.log("click!");
     if(evt.target.matches("[data-fold-name]")) {
         evt.target.classList.toggle("toggled");
         evt.stopPropagation();
