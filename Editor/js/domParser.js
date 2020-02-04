@@ -1,18 +1,16 @@
 class DomParser {
     static async parseCmpDom(dom) {
-        dom = cQuery(dom);
-
         let result = {
             detectors: [],
             methods: []
         };
 
-        for(let detectorDom of dom.find("[data-type='detector']")) {
+        for(let detectorDom of Array.from(dom.querySelectorAll("[data-type='detector']"))) {
             let detectorJson = await DomParser.parseDetectorDom(detectorDom);
             result.detectors.push(detectorJson);
         }
 
-        for(let methodDom of dom.find("[data-type='method']")) {
+        for(let methodDom of Array.from(dom.querySelectorAll("[data-type='method']"))) {
             let methodJson = await DomParser.parseMethodDom(methodDom);
             result.methods.push(methodJson);
         }
@@ -21,73 +19,102 @@ class DomParser {
     }
 
     static async parseDetectorDom(dom) {
-        dom = cQuery(dom);
-
         let result = {
             presentMatcher: null,
             showingMatcher: null
         };
 
-        let presentMatcherDom = dom.children("[data-bind='presentMatcher']").children("[data-type='matcher']");
-        if(presentMatcherDom.length > 0) {
-            let matcherJson = await DomParser.parseMatcherDom(presentMatcherDom);
-            result.presentMatcher = matcherJson;
+        try {
+            let presentMatcherDom = dom.querySelector(":scope > [data-bind='presentMatcher']").querySelector(":scope > [data-type='matcher']");
+            if(presentMatcherDom != null) {
+                let matcherJson = await DomParser.parseMatcherDom(presentMatcherDom);
+                result.presentMatcher = matcherJson;
+            }
+        } catch(e) {
+            console.warn(e);
         }
 
-        let showingMatcherDom = dom.children("[data-bind='showingMatcher']").children("[data-type='matcher']");
-        if(showingMatcherDom.length > 0) {
-            let matcherJson = await DomParser.parseMatcherDom(showingMatcherDom);
-            result.showingMatcher = matcherJson;
+        try {
+            let showingMatcherDom = dom.querySelector(":scope > [data-bind='showingMatcher']").querySelector(":scope > [data-type='matcher']");
+            if(showingMatcherDom != null) {
+                let matcherJson = await DomParser.parseMatcherDom(showingMatcherDom);
+                result.showingMatcher = matcherJson;
+            }
+        } catch(e) {
+            console.warn(e);
         }
+
 
         return result;
     }
 
     static async parseMatcherDom(dom) {
-        dom = cQuery(dom);
-
         let result = {
-            type: dom[0].getAttribute("data-variant")
+            type: dom.getAttribute("data-variant")
         };
 
-        let domSelectorDom = dom.children("[data-plug='domSelector']").children("[data-type='domSelector']");
-        if(domSelectorDom.length > 0) {
-            let domSelectorJson = await DomParser.parseDomSelectorDom(domSelectorDom);
-            Object.assign(result, domSelectorJson);
+        try {
+            let domSelectorDom = dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']");
+            if(domSelectorDom != null) {
+                let domSelectorJson = await DomParser.parseDomSelectorDom(domSelectorDom);
+                Object.assign(result, domSelectorJson);
+            }
+        } catch(e) {
+            console.warn(e);
         }
 
         return result;
     }
 
     static async parseDomSelectorDom(dom) {
-        dom = cQuery(dom);
-
         let result = {};
 
         async function parseDomSelector(dom) {
-            dom = cQuery(dom);
             let result = {};
 
-            let selectorInput = dom.children("[data-bind='selector']").find("input")[0];
-            let textFilterInput = dom.children("[data-bind='textFilter']").find("input")[0];
-            let iframeFilterInput = dom.children("[data-bind='iframeFilter']").find("input")[0];
-            let displayFilterInput = dom.children("[data-bind='displayFilter']").find("input")[0];
-            let childFilter = dom.children("[data-bind='childFilter']").children("[data-type='domSelector']");
+            try {
+                let selectorInput = dom.querySelector(":scope > [data-bind='selector']").querySelector("input");
+                if(selectorInput.value.trim().length > 0) {
+                    result.selector = selectorInput.value.trim();
+                }
+            } catch(e) {
+                //console.warn(e);
+            }
 
-            if(selectorInput.value.trim().length > 0) {
-                result.selector = selectorInput.value.trim();
+            try {
+                let textFilterInput = dom.querySelector(":scope > [data-bind='textFilter']").querySelector("input");
+                if(textFilterInput.value.trim().length > 0) {
+                    result.textFilter = textFilterInput.value.split("|").map(s => s.trim()).filter(s => s.length > 0);
+                }
+            } catch(e) {
+                //console.warn(e);
             }
-            if(textFilterInput.value.trim().length > 0) {
-                result.textFilter = textFilterInput.value.split("|").map(s => s.trim()).filter(s => s.length > 0);
+
+            try {
+                let iframeFilterInput = dom.querySelector(":scope > [data-bind='iframeFilter']").querySelector("input");
+                if(iframeFilterInput.checked) {
+                    result.iframeFilter = iframeFilterInput.checked;
+                }
+            } catch(e) {
+                //console.warn(e);
             }
-            if(iframeFilterInput.checked) {
-                result.iframeFilter = iframeFilterInput.checked;
+
+            try {
+                let displayFilterInput = dom.querySelector(":scope > [data-bind='displayFilter']").querySelector("input");
+                if(displayFilterInput.checked) {
+                    result.displayFilter = displayFilterInput.checked;
+                }
+            } catch(e) {
+                //console.warn(e);
             }
-            if(displayFilterInput.checked) {
-                result.displayFilter = displayFilterInput.checked;
-            }
-            if(childFilter.find(".target, .parent").length > 0) {
-                result.childFilter = await DomParser.parseDomSelectorDom(childFilter);
+
+            try {
+                let childFilter = dom.querySelector(":scope > [data-bind='childFilter']").querySelector(":scope > [data-type='domSelector']");
+                if(childFilter.querySelector(".target, .parent") != null) {
+                    result.childFilter = await DomParser.parseDomSelectorDom(childFilter);
+                }
+            } catch(e) {
+                //console.warn(e);
             }
 
             if(Object.keys(result).length === 0) {
@@ -97,8 +124,8 @@ class DomParser {
             return result;
         }
 
-        let parent = await parseDomSelector(dom.children(".parent")[0]);
-        let target = await parseDomSelector(dom.children(".target")[0]);
+        let parent = await parseDomSelector(dom.querySelector(":scope > .parent"));
+        let target = await parseDomSelector(dom.querySelector(":scope > .target"));
 
         if(parent != null) {
             result.parent = parent;
@@ -111,16 +138,19 @@ class DomParser {
     }
 
     static async parseMethodDom(dom) {
-        dom = cQuery(dom);
-
         let result = {};
 
-        result.name = dom.children("[data-bind='name']")[0].textContent;
+        result.name = dom.querySelector(":scope > [data-bind='name']").textContent;
 
-        let actionDom = dom.children("[data-bind='action']").children("[data-type='action']");
-        if(actionDom.length > 0) {
-            result.action = await DomParser.parseActionDom(actionDom[0]);
-        } else {
+        try {
+            let actionDom = dom.querySelector(":scope > [data-bind='action']").querySelector(":scope > [data-type='action']");
+            if(actionDom != null) {
+                result.action = await DomParser.parseActionDom(actionDom);
+            } else {
+                result.action = null;
+            }
+        } catch(e) {
+            console.warn(e);
             result.action = null;
         }
 
@@ -128,14 +158,12 @@ class DomParser {
     }
 
     static async parseActionDom(dom) {
-        dom = cQuery(dom);
-
         let result = {};
 
-        if(dom[0].hasAttribute("data-variant")) {
-            result.type = dom[0].getAttribute("data-variant");
+        if(dom.hasAttribute("data-variant")) {
+            result.type = dom.getAttribute("data-variant");
         } else {
-            result.type = dom.find("[data-variant]")[0].getAttribute("data-variant");
+            result.type = dom.querySelector("[data-variant]").getAttribute("data-variant");
         }
 
         switch(result.type) {
@@ -180,53 +208,61 @@ class DomParser {
     static async parseListActionDom(dom, result) {
         result.actions = [];
         //Find first level of actions (Might be list action somewhere furhter down)
-        for(let actionDom of cQuery(dom.children("[data-bind='actions']")[0]).children("[data-type='action']")) {
+        for(let actionDom of Array.from(dom.querySelector(":scope > [data-bind='actions']").querySelectorAll(":scope > [data-type='action']"))) {
             result.actions.push(await DomParser.parseActionDom(actionDom));
         }
     }
 
     static async parseClickActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
-        let openInTabInput = dom.find("[data-bind='openInTab'] input")[0];
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']")));
+        let openInTabInput = dom.querySelector("[data-bind='openInTab'] input");
         if(openInTabInput.checked) {
             result.openInTab = true;
         }
     }
 
     static async parseHideActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']")));
     }
 
     static async parseSlideActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-bind='target']").children("[data-type='domSelector']")[0]));
-        result.dragTarget = await DomParser.parseDomSelectorDom(dom.children("[data-bind='dragTarget']").children("[data-type='domSelector']")[0]);
-        let axis = dom.find("[data-bind='axis']")[0];
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='target']").querySelector(":scope > [data-type='domSelector']")));
+        result.dragTarget = await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='dragTarget']").querySelector(":scope > [data-type='domSelector']"));
+        let axis = dom.querySelector("[data-bind='axis']");
         result.axis = axis.value;
     }
 
     static async parseForEachActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
-        result.action = await DomParser.parseActionDom(dom.children("[data-bind='action']").children("[data-type='action']")[0]);
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']")));
+        result.action = await DomParser.parseActionDom(dom.querySelector(":scope > [data-bind='action']").querySelector(":scope > [data-type='action']"));
     }
 
     static async parseIfCssActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
-        let trueActionDom = dom.children("[data-bind='trueAction']").children("[data-type='action']");
-        if(trueActionDom.length > 0) {
-            result.trueAction = await DomParser.parseActionDom(trueActionDom);
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']")));
+        try {
+            let trueActionDom = dom.querySelector(":scope > [data-bind='trueAction']").querySelector(":scope > [data-type='action']");
+            if(trueActionDom != null) {
+                result.trueAction = await DomParser.parseActionDom(trueActionDom);
+            }
+        } catch(e) {
+            console.warn(e);
         }
 
-        let falseActionDom = dom.children("[data-bind='falseAction']").children("[data-type='action']");
-        if(falseActionDom.length > 0) {
-            result.falseAction = await DomParser.parseActionDom(falseActionDom);
+        try {
+            let falseActionDom = dom.querySelector(":scope > [data-bind='falseAction']").querySelector(":scope > [data-type='action']");
+            if(falseActionDom != null) {
+                result.falseAction = await DomParser.parseActionDom(falseActionDom);
+            }
+        } catch(e) {
+            console.warn(e);
         }
     }
 
     static async parseWaitCssActionDom(dom, result) {
-        Object.assign(result, await DomParser.parseDomSelectorDom(dom.children("[data-plug='domSelector']").children("[data-type='domSelector']")[0]));
-        let retriesInput = dom.children("[data-bind='retries']").find("input")[0];
-        let waitTimeInput = dom.children("[data-bind='waitTime']").find("input")[0];
-        let negatedInput = dom.children("[data-bind='negated']").find("input")[0];
+        Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-plug='domSelector']").querySelector(":scope > [data-type='domSelector']")));
+        let retriesInput = dom.querySelector(":scope > [data-bind='retries']").querySelector("input");
+        let waitTimeInput = dom.querySelector(":scope > [data-bind='waitTime']").querySelector("input");
+        let negatedInput = dom.querySelector(":scope > [data-bind='negated']").querySelector("input");
 
         result.retries = parseInt(retriesInput.value);
         result.waitTime = parseInt(waitTimeInput.value);
@@ -234,7 +270,7 @@ class DomParser {
     }
 
     static async parseWaitActionDom(dom, result) {
-        let waitTimeInput = dom.children("[data-bind='waitTime']").find("input")[0];
+        let waitTimeInput = dom.querySelector(":scope > [data-bind='waitTime']").querySelector("input");
 
         result.waitTime = parseInt(waitTimeInput.value);
     }
@@ -242,36 +278,52 @@ class DomParser {
     static async parseConsentActionDom(dom, result) {
         result.consents = [];
         //Find first level of consents
-        for(let consentDom of cQuery(dom.children("[data-bind='consents']")[0]).children("[data-type='consent']")) {
+        console.log(dom);
+        for(let consentDom of Array.from(dom.querySelector(":scope > [data-bind='consents']").querySelectorAll(":scope > [data-type='consent']"))) {
+            console.log(consentDom);
             result.consents.push(await DomParser.parseConsentDom(consentDom));
         }
     }
 
     static async parseConsentDom(dom) {
-        dom = cQuery(dom);
-
         let result = {};
 
-        result.type = dom.children(".type").children("[data-bind='type']")[0].value;
+        result.type = dom.querySelector(":scope > .type").querySelector(":scope > [data-bind='type']").value;
 
-        let matcherDom = dom.children("[data-bind='matcher']").children("[data-type='matcher']");
-        if(matcherDom.length > 0) {
-            result.matcher = await DomParser.parseMatcherDom(matcherDom);
+        try {
+            let matcherDom = dom.querySelector(":scope > [data-bind='matcher']").querySelector(":scope > [data-type='matcher']");
+            if(matcherDom != null) {
+                result.matcher = await DomParser.parseMatcherDom(matcherDom);
+            }
+        }catch(e) {
+            //console.warn(e);
         }
 
-        let toggleActionDom = dom.children("[data-bind='toggleAction']").children("[data-type='action']");
-        if(toggleActionDom.length > 0) {
-            result.toggleAction = await DomParser.parseActionDom(toggleActionDom);
+        try {
+            let toggleActionDom = dom.querySelector(":scope > [data-bind='toggleAction']").querySelector(":scope > [data-type='action']");
+            if(toggleActionDom != null) {
+                result.toggleAction = await DomParser.parseActionDom(toggleActionDom);
+            }
+        }catch(e) {
+            //console.warn(e);
         }
 
-        let trueActionDom = dom.children("[data-bind='trueAction']").children("[data-type='action']");
-        if(trueActionDom.length > 0) {
-            result.trueAction = await DomParser.parseActionDom(trueActionDom);
+        try {
+            let trueActionDom = dom.querySelector(":scope > [data-bind='trueAction']").querySelector(":scope > [data-type='action']");
+            if(trueActionDom != null) {
+                result.trueAction = await DomParser.parseActionDom(trueActionDom);
+            }
+        }catch(e) {
+            //console.warn(e);
         }
 
-        let falseActionDom = dom.children("[data-bind='falseAction']").children("[data-type='action']");
-        if(falseActionDom.length > 0) {
-            result.falseAction = await DomParser.parseActionDom(falseActionDom);
+        try {
+            let falseActionDom = dom.children("[data-bind='falseAction']").children("[data-type='action']");
+            if(falseActionDom != null) {
+                result.falseAction = await DomParser.parseActionDom(falseActionDom);
+            }
+        }catch(e) {
+            //console.warn(e);
         }
 
         return result;
