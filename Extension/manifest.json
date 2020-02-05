@@ -7,9 +7,7 @@
 	"manifest_version": 2,
 	"permissions": [
 		"activeTab",
-		"storage",
-		"contextMenus",
-		"tabs"
+		"storage"
 	],
 	"browser_action": {
 		"default_title": "Consent-O-Matic",
@@ -21,10 +19,7 @@
 	},
 	"content_scripts": [
 		{
-			"matches": [
-				"https://*/*",
-				"http://*/*"
-			],
+			"matches": ["<all_urls>"],
 			"js": [
 				"Tools.js",
 				"GDPRConfig.js",

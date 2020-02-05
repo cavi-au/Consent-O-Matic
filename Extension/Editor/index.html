@@ -1,11 +1,8 @@
 <html>
     <head>
         <title>GDPR Rule Editor</title>
-        <script src="https://libraries.projects.cavi.au.dk/javascript/cQuery/caviQuery.js"></script>
-        <script src="https://libraries.projects.cavi.au.dk/javascript/cQuery/caviQueryPlugins.js"></script>
-        <script src="https://libraries.projects.cavi.au.dk/javascript/CaviTouch/CaviTouch.js"></script>
         <script src="js/draggable.js"></script>
-        <script src="js/loader.js"></script>
+        <script src="js/utils.js"></script>
         <script src="js/jsonParser.js"></script>
         <script src="js/domParser.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -13,11 +10,19 @@
     <body>
         <div class="step1">
             <div>
-                <h2>Load from web:</h2>
-                <label for="loadUrl">URL:</label>
-                <input type="text" id="loadUrl" size="50" value="https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/Rules.json" />
-                <br />
-                <button class="loadButton">Load</button>
+                <h2>Load from external rules:</h2>
+                <select id="knownRules">
+
+                </select>
+                <button class="loadButton">Continue</button>
+            </div>
+            <div>
+                <h2>Load from custom rules:</h2>
+                <select id="customRules">
+
+                </select>
+                <button class="loadCustomButton">Continue</button>
+                <button class="deleteCustomButton">Delete</button>
             </div>
             <div>
                 <h2>Load from text:</h2>
@@ -42,7 +47,8 @@
         <div class="step3">
             <div class="menubar">
                 <button class="back">Back</button>
-                <button class="save">Save</button>
+                <button class="save">Save Custom Rule</button>
+                <button class="export">Export Json</button>
                 <button class="collapse">Collapse All</button>
                 <button class="uncollapse">Uncollapse All</button>
             </div>

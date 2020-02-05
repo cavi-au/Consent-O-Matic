@@ -106,7 +106,9 @@ class ClickAction extends Action {
                 console.log("Clicking: [openInTab: "+this.config.openInTab+"]", result.target);
             }
 
-            result.target.focus({preventScroll: true});
+            if(ConsentEngine.debugValues.clickDelay) {
+                result.target.focus({preventScroll: true});
+            }
 
             if(this.config.openInTab) {
                 //Handle osx behaving differently?
@@ -275,6 +277,7 @@ class HideAction extends Action {
         let result = Tools.find(this.config);
 
         if(result.target != null) {
+            console.log("Hiding: ", result.target);
             this.cmp.hiddenTargets.push(result.target);
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }

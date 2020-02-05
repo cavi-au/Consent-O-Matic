@@ -9,21 +9,28 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
 
                 console.log("FetchedRules:", fetchedRules);
             
-                // Concat rule-lists to engine config in order
                 let config =  Object.assign({}, ...fetchedRules);
 
-                GDPRConfig.getConsentValues().then((consentTypes)=>{
-                    GDPRConfig.getDebugValues().then((debugValues)=>{
-                        let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
-                            console.log("We handled a CMP: ", stats);
+                GDPRConfig.getCustomRuleLists().then((customRules)=>{
 
-                            chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
-                                "cmp": stats.cmpName,
-                                "url": url
-                            }));
+                    console.log("CustomRules:", customRules);
 
+                    // Concat rule-lists to engine config in order
+                    let config = Object.assign({}, ...fetchedRules, customRules);
+
+                    GDPRConfig.getConsentValues().then((consentTypes)=>{
+                        GDPRConfig.getDebugValues().then((debugValues)=>{
+                            let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
+                                console.log("We handled a CMP: ", stats);
+
+                                chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
+                                    "cmp": stats.cmpName,
+                                    "url": url
+                                }));
+
+                            });
+                            console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                         });
-                        console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                     });
                 });
             });

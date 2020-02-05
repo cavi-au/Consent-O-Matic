@@ -15,6 +15,48 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             return true;
         }
 
+        case "GetCustomRuleList": {
+            GDPRConfig.getCustomRuleLists().then((customRules)=>{
+                reply(customRules);
+            });
+            //Return true to keep reply working after method has ended, async response
+            return true;
+        }
+
+        case "AddCustomRule": {
+            let newRule = JSON.parse(message.split("|")[1]);
+
+            console.log("New rule to add:", newRule);
+
+            GDPRConfig.getCustomRuleLists().then((customRules)=>{
+                let combinedCustomRules = Object.assign({}, customRules, newRule);
+
+                console.log("combinedCustom:", combinedCustomRules);
+
+                GDPRConfig.setCustomRuleLists(combinedCustomRules);
+            });
+
+            return false;
+        }
+
+        case "DeleteCustomRule": {
+            let deleteRule = message.split("|")[1];
+
+            console.log("Rule to delete:", deleteRule);
+
+            GDPRConfig.getCustomRuleLists().then((customRules)=>{
+                delete customRules[deleteRule];
+
+                console.log("After delete:", customRules);
+
+                GDPRConfig.setCustomRuleLists(customRules).then(()=>{
+                    reply();
+                });
+            });
+
+            return true;
+        }
+
         case "HandledCMP": {
             let json = JSON.parse(message.split("|")[1]);
 

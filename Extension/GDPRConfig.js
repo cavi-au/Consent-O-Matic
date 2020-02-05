@@ -39,6 +39,26 @@ class GDPRConfig {
         });
     }    
 
+    static getCustomRuleLists() {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.get({
+                customRuleLists: {}
+            }, (result) => {
+                resolve(result.customRuleLists);
+            });
+        });
+    }
+
+    static setCustomRuleLists(lists) {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.set({
+                customRuleLists: lists
+            }, () => {
+                resolve();
+            });
+        });
+    }
+
     static getRuleLists() {
         return new Promise((resolve, reject) => {
             chrome.storage.sync.get({
