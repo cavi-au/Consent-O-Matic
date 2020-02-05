@@ -316,7 +316,7 @@ class DomParser {
         }
 
         try {
-            let falseActionDom = dom.children("[data-bind='falseAction']").children("[data-type='action']");
+            let falseActionDom = dom.querySelector(":scope > [data-bind='falseAction']").querySelector(":scope > [data-type='action']");
             if(falseActionDom != null) {
                 result.falseAction = await DomParser.parseActionDom(falseActionDom);
             }
