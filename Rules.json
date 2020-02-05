@@ -1287,14 +1287,12 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": "#onetrust-banner-sdk"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": "#onetrust-banner-sdk"
                     }
@@ -1306,7 +1304,6 @@
                 "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
                         "selector": "#onetrust-pc-btn-handler, .ot-sdk-show-settings"
                     }
@@ -1324,7 +1321,9 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": ".category-header",
-                                        "textFilter": "Performance Cookies"
+                                        "textFilter": [
+                                            "Performance Cookies"
+                                        ]
                                     }
                                 }
                             },
@@ -1337,21 +1336,6 @@
                             "consents": [
                                 {
                                     "type": "B",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".category-header",
-                                                    "textFilter": "Performance Cookies"
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1359,12 +1343,31 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Performance Cookies"
+                                                    "textFilter": [
+                                                        "Performance Cookies"
+                                                    ]
                                                 }
                                             }
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header",
+                                                    "textFilter": [
+                                                        "Performance Cookies"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1374,7 +1377,10 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Functional Cookies"
+                                "textFilter": [
+                                    "Functional Cookies",
+                                    "Funktionelle cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1385,24 +1391,30 @@
                             "consents": [
                                 {
                                     "type": "A",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Functional Cookies"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Functional Cookies"
+                                            "textFilter": [
+                                                "Functional Cookies",
+                                                "Funktionelle cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Functional Cookies",
+                                                "Funktionelle cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1412,7 +1424,10 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Targeting Cookies"
+                                "textFilter": [
+                                    "Targeting Cookies",
+                                    "Målrettede cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1423,24 +1438,30 @@
                             "consents": [
                                 {
                                     "type": "F",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Targeting Cookies"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Targeting Cookies"
+                                            "textFilter": [
+                                                "Targeting Cookies",
+                                                "Målrettede cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Targeting Cookies",
+                                                "Målrettede cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1450,7 +1471,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Advertising Cookies"
+                                "textFilter": [
+                                    "Advertising Cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1461,24 +1484,28 @@
                             "consents": [
                                 {
                                     "type": "F",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Advertising Cookies"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Advertising Cookies"
+                                            "textFilter": [
+                                                "Advertising Cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Advertising Cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1488,7 +1515,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Social Media Cookies"
+                                "textFilter": [
+                                    "Social Media Cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1499,24 +1528,28 @@
                             "consents": [
                                 {
                                     "type": "B",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Social Media Cookies"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Social Media Cookies"
+                                            "textFilter": [
+                                                "Social Media Cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Social Media Cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1526,7 +1559,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Marketing Cookies"
+                                "textFilter": [
+                                    "Marketing Cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1537,24 +1572,28 @@
                             "consents": [
                                 {
                                     "type": "E",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Marketing Cookies"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Marketing Cookies"
+                                            "textFilter": [
+                                                "Marketing Cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Marketing Cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1564,7 +1603,10 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Measurement"
+                                "textFilter": [
+                                    "Measurement",
+                                    "Statistiske cookies"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1575,24 +1617,30 @@
                             "consents": [
                                 {
                                     "type": "B",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Measurement"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Measurement"
+                                            "textFilter": [
+                                                "Measurement",
+                                                "Statistiske cookies"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Measurement",
+                                                "Statistiske cookies"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1602,7 +1650,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Ad selection, delivery, reporting"
+                                "textFilter": [
+                                    "Ad selection, delivery, reporting"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1613,24 +1663,28 @@
                             "consents": [
                                 {
                                     "type": "F",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Ad selection, delivery, reporting"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Ad selection, delivery, reporting"
+                                            "textFilter": [
+                                                "Ad selection, delivery, reporting"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Ad selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1640,7 +1694,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Information storage and access"
+                                "textFilter": [
+                                    "Information storage and access"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1651,24 +1707,28 @@
                             "consents": [
                                 {
                                     "type": "D",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Information storage and access"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Information storage and access"
+                                            "textFilter": [
+                                                "Information storage and access"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Information storage and access"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1678,7 +1738,9 @@
                             "type": "click",
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Content selection, delivery, reporting"
+                                "textFilter": [
+                                    "Content selection, delivery, reporting"
+                                ]
                             },
                             "target": {
                                 "selector": ".category-menu-switch-handler"
@@ -1689,24 +1751,28 @@
                             "consents": [
                                 {
                                     "type": "E",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "textFilter": "Content selection, delivery, reporting"
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Content selection, delivery, reporting"
+                                            "textFilter": [
+                                                "Content selection, delivery, reporting"
+                                            ]
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "textFilter": [
+                                                "Content selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1719,7 +1785,9 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": ".category-header",
-                                        "textFilter": "Personalisation"
+                                        "textFilter": [
+                                            "Personalisation"
+                                        ]
                                     }
                                 }
                             },
@@ -1732,21 +1800,6 @@
                             "consents": [
                                 {
                                     "type": "E",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".category-item",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".category-header",
-                                                    "textFilter": "Personalisation"
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": "label"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "checkbox",
                                         "parent": {
@@ -1754,12 +1807,31 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Personalisation"
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
                                                 }
                                             }
                                         },
                                         "target": {
                                             "selector": "input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".category-item",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header",
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": "label"
                                         }
                                     }
                                 }
@@ -1772,10 +1844,23 @@
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
                         "selector": ".save-preference-btn-handler"
                     }
+                }
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#onetrust-consent-sdk"
+                            }
+                        }
+                    ]
                 }
             }
         ]
