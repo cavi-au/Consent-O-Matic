@@ -1,5 +1,3 @@
-/* global cQuery */
-
 class CaviDraggable {
     constructor(html, options) {
         this.html = html;
