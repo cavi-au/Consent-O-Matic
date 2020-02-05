@@ -16,15 +16,6 @@ class CaviDraggable {
 
         let self = this;
 
-        this.clickListener = (evt)=>{
-            if(self.dragging) {
-                evt.preventDefault();
-                evt.stopImmediatePropagation();
-            }
-        };
-
-        document.addEventListener("click", this.clickListener, true);
-
         this.mouseDownListener = (evt)=>{
             if(evt.button === 0 && evt.target.matches(":not(input)") && evt.target.matches(":not(select)")) {
                 self.startX = evt.pageX;
@@ -62,11 +53,10 @@ class CaviDraggable {
             if(!self.dragging || evt.button !== 0) {
                 return;
             }
-    
             self.dragStop(evt);
         };
 
-        document.addEventListener("mouseup", this.mouseUpListener, true);
+        document.addEventListener("mouseup", this.mouseUpListener);
 
         this.clone = null;
         this.droppables = null;
@@ -99,8 +89,7 @@ class CaviDraggable {
 
     destroy() {
         document.removeEventListener("mousemove", this.mouseMoveListener);
-        document.removeEventListener("mouseup", this.mouseUpListener, true);
-        document.removeEventListener("click", this.clickListener, true);
+        document.removeEventListener("mouseup", this.mouseUpListener);
         window.removeEventListener("scroll", this.scrollListener);
         this.html.removeEventListener("mousedown", this.mouseDownListener)
     }

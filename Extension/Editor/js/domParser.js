@@ -124,8 +124,20 @@ class DomParser {
             return result;
         }
 
-        let parent = await parseDomSelector(dom.querySelector(":scope > .parent"));
-        let target = await parseDomSelector(dom.querySelector(":scope > .target"));
+        let parent = null;
+        
+        try {
+            parent = await parseDomSelector(dom.querySelector(":scope > .parent"));
+        } catch(e) {
+            //console.warn(e);
+        }
+
+        let target = null;
+        try {
+            target = await parseDomSelector(dom.querySelector(":scope > .target"));
+        } catch(e) {
+            //console.warn(e);
+        }
 
         if(parent != null) {
             result.parent = parent;
@@ -321,7 +333,7 @@ class DomParser {
                 result.falseAction = await DomParser.parseActionDom(falseActionDom);
             }
         }catch(e) {
-            //console.warn(e);
+            console.warn(e);
         }
 
         return result;
