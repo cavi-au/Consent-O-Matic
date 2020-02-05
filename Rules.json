@@ -7196,5 +7196,254 @@
                 }
             }
         ]
-    }
+    },
+    "theGuardian": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cmpContainer"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cmpContainer button",
+                        "textFilter": [
+                            "Options"
+                        ]
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cmpContainer"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cmpContainer button",
+                        "textFilter": [
+                            "Options"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": "#cmpContainer [class*='titleTabStyles']",
+                        "childFilter": {
+                            "target": {
+                                "selector": "[class*='radioContainerStyles']"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Information storage and access"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "D",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Personalisation"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "F",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Ad selection, delivery, reporting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "F",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Ad selection, delivery, reporting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "F",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Content selection, delivery, reporting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "E",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[class*='CmpCollapsible']",
+                                    "textFilter": [
+                                        "Measurement"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "type": "B",
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='on']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input[value='off']"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cmpContainer button",
+                        "textFilter": [
+                            "Save and close"
+                        ]
+                    }
+                }
+            }
+        ]
+    }    
 }
