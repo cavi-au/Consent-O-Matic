@@ -118,7 +118,7 @@ class ConsentEngine {
 	this.dialog.classList.add("ConsentOMatic-Progress-Complete");
 	setTimeout(()=>{
             self.dialog.close();
-            document.body.removeChild(this.dialog);
+            document.body.removeChild(self.dialog);
 	},1000);
     }
 
