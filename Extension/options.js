@@ -1,6 +1,6 @@
 let optionsUL = document.querySelector(".configurator ul.categorylist");
 let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
-let debugUL = document.querySelector(".configurator ul.tab_dbg");
+let debugUL = document.querySelector(".configurator .tab_dbg ul.flags");
 let logUL = document.querySelector(".configurator .tab_log ul.logList");
 
 optionsUL.innerHTML = "";
@@ -156,4 +156,8 @@ document.querySelector("#clearLog").addEventListener("click", ()=>{
 	GDPRConfig.setLogEntries([]).then(()=>{
 		updateLog();
 	});
+});
+
+document.querySelector("#rulesEditor").addEventListener("click", ()=>{
+	location.href = "/editor/index.html";
 });
