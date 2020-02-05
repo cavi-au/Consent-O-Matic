@@ -2751,14 +2751,12 @@
             {
                 "presentMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": ".qc-cmp-ui-container"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
-                    "parent": null,
                     "target": {
                         "selector": ".qc-cmp-ui-container.qc-cmp-showing"
                     }
@@ -2773,10 +2771,8 @@
                     "actions": [
                         {
                             "type": "click",
-                            "parent": null,
                             "target": {
-                                "selector": "#qc-cmp-purpose-button",
-                                "textFilter": null
+                                "selector": "#qc-cmp-purpose-button"
                             }
                         }
                     ]
@@ -2806,16 +2802,16 @@
                                 "consents": [
                                     {
                                         "type": "X",
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": ".qc-cmp-toggle"
-                                            }
-                                        },
                                         "matcher": {
                                             "type": "css",
                                             "target": {
                                                 "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".qc-cmp-toggle"
                                             }
                                         }
                                     }
@@ -2833,25 +2829,6 @@
                             "consents": [
                                 {
                                     "type": "D",
-                                    "description": "Vendor - Information storage and access",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Information storage and access",
-                                                        "Opbevaring af og adgang til oplysninger"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -2868,30 +2845,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "Vendor - Ad selection, delivery, reporting",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Ad selection, delivery, reporting",
-                                                        "Annoncevalg, levering og rapportering"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -2909,11 +2885,7 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
                                         }
-                                    }
-                                },
-                                {
-                                    "type": "E",
-                                    "description": "Vendor - Content selection, delivery, reporting",
+                                    },
                                     "toggleAction": {
                                         "type": "click",
                                         "parent": {
@@ -2922,8 +2894,8 @@
                                                 "target": {
                                                     "selector": "h4",
                                                     "textFilter": [
-                                                        "Content selection, delivery, reporting",
-                                                        "Indholdsvalg, levering og rapportering"
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
                                                     ]
                                                 }
                                             }
@@ -2931,7 +2903,10 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle"
                                         }
-                                    },
+                                    }
+                                },
+                                {
+                                    "type": "E",
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -2949,11 +2924,7 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
                                         }
-                                    }
-                                },
-                                {
-                                    "type": "E",
-                                    "description": "Vendor - Personalisation",
+                                    },
                                     "toggleAction": {
                                         "type": "click",
                                         "parent": {
@@ -2962,8 +2933,8 @@
                                                 "target": {
                                                     "selector": "h4",
                                                     "textFilter": [
-                                                        "Personalisation",
-                                                        "Personalisering"
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
                                                     ]
                                                 }
                                             }
@@ -2971,7 +2942,10 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle"
                                         }
-                                    },
+                                    }
+                                },
+                                {
+                                    "type": "E",
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -2988,30 +2962,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Personalisation",
+                                                        "Personalisering"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "B",
-                                    "description": "Vendor - Measurement",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Measurement",
-                                                        "Måling"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3028,30 +3001,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "D",
-                                    "description": "3rd party - Information storage and access",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Information storage and access",
-                                                        "Opbevaring af og adgang til oplysninger"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3069,11 +3041,7 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
                                         }
-                                    }
-                                },
-                                {
-                                    "type": "E",
-                                    "description": "3rd party - Personalisation",
+                                    },
                                     "toggleAction": {
                                         "type": "click",
                                         "parent": {
@@ -3082,8 +3050,8 @@
                                                 "target": {
                                                     "selector": "h4",
                                                     "textFilter": [
-                                                        "Personalisation",
-                                                        "Personalisering"
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
                                                     ]
                                                 }
                                             }
@@ -3091,7 +3059,10 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle"
                                         }
-                                    },
+                                    }
+                                },
+                                {
+                                    "type": "E",
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3109,11 +3080,7 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
                                         }
-                                    }
-                                },
-                                {
-                                    "type": "E",
-                                    "description": "3rd party - Content selection, delivery, reporting",
+                                    },
                                     "toggleAction": {
                                         "type": "click",
                                         "parent": {
@@ -3122,8 +3089,8 @@
                                                 "target": {
                                                     "selector": "h4",
                                                     "textFilter": [
-                                                        "Content selection, delivery, reporting",
-                                                        "Indholdsvalg, levering og rapportering"
+                                                        "Personalisation",
+                                                        "Personalisering"
                                                     ]
                                                 }
                                             }
@@ -3131,7 +3098,10 @@
                                         "target": {
                                             "selector": ".qc-cmp-toggle"
                                         }
-                                    },
+                                    }
+                                },
+                                {
+                                    "type": "E",
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3148,30 +3118,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "3rd party - Ad selection, delivery, reporting",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Ad selection, delivery, reporting",
-                                                        "Annoncevalg, levering og rapportering"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3188,30 +3157,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "B",
-                                    "description": "3rd party - Measurement",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": [
-                                                        "Measurement",
-                                                        "Måling"
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3228,27 +3196,29 @@
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 },
                                 {
                                     "type": "F",
-                                    "description": "Other - Google",
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "parent": {
-                                            "selector": ".qc-cmp-google-purposes-table .qc-cmp-purpose-info, .qc-cmp-google-purposes-table .qc-cmp-purpose-infoEDIT",
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "h4",
-                                                    "textFilter": "Google"
-                                                }
-                                            }
-                                        },
-                                        "target": {
-                                            "selector": ".qc-cmp-toggle"
-                                        }
-                                    },
                                     "matcher": {
                                         "type": "css",
                                         "parent": {
@@ -3256,12 +3226,31 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": "h4",
-                                                    "textFilter": "Google"
+                                                    "textFilter": [
+                                                        "Google"
+                                                    ]
                                                 }
                                             }
                                         },
                                         "target": {
                                             "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".qc-cmp-google-purposes-table .qc-cmp-purpose-info, .qc-cmp-google-purposes-table .qc-cmp-purpose-infoEDIT",
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Google"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
                                         }
                                     }
                                 }
@@ -3274,9 +3263,17 @@
                 "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
-                    "parent": null,
                     "target": {
                         "selector": ".qc-cmp-save-and-exit"
+                    }
+                }
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".qc-cmp-ui-container"
                     }
                 }
             }
