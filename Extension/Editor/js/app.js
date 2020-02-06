@@ -363,6 +363,27 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
         insertElement = null;
     }
 
+    function cloneClickHandler(evt) {
+        console.log("Clone click!");
+        evt.stopImmediatePropagation();
+    }
+
+    document.addEventListener("click", cloneClickHandler, {
+        "capture": true,
+        "once": true
+    });
+
+    setTimeout(()=>{
+        try {
+            document.removeEventListener("click", cloneClickHandler, {
+                "capture": true,
+                "once": true
+            });
+        } catch(e) {
+            console.warn(e);
+        }
+    }, 0);
+
     if (dropTarget.matches(".trashcan")) {
         console.log("Deleting:", draggable);
         undoQueue.push({
@@ -394,14 +415,6 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
                 cloneSelects[i].value = origSelects[i].value;
             }
         }
-
-        document.addEventListener("click", (evt)=>{
-            console.log("Clone click!");
-            evt.stopImmediatePropagation();
-        }, {
-            "capture": true,
-            "once": true
-        });
 
         draggable = clone;
     }
