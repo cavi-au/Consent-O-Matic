@@ -8,86 +8,90 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <div class="step1">
-            <div>
-                <h2>Load from external rules:</h2>
-                <select id="knownRules">
+        <div class="header"><h1>GDPR Consent Rule Editor</h1></div>
+        
+        <div class="page">
+            <div class="step1">
+                <div>
+                    <h2>Load from external rules:</h2>
+                    <select id="knownRules">
+
+                    </select>
+                    <button class="loadButton">Continue</button>
+                </div>
+                <div>
+                    <h2>Load from custom rules:</h2>
+                    <select id="customRules">
+
+                    </select>
+                    <button class="loadCustomButton">Continue</button>
+                    <button class="deleteCustomButton">Delete</button>
+                </div>
+                <div>
+                    <h2>Load from text:</h2>
+                    <textarea id="inputArea" cols="50" rows="8"></textarea>
+                    <br />
+                    <button class="loadTextButton">Load</button>
+                </div>
+                <div>
+                    <h2>Create from scratch:</h2>
+                    <button class="newButton">New</button>
+                </div>
+            </div>
+            <div class="step2">
+                <select id="cmpSelector">
 
                 </select>
-                <button class="loadButton">Continue</button>
-            </div>
-            <div>
-                <h2>Load from custom rules:</h2>
-                <select id="customRules">
-
-                </select>
-                <button class="loadCustomButton">Continue</button>
-                <button class="deleteCustomButton">Delete</button>
-            </div>
-            <div>
-                <h2>Load from text:</h2>
-                <textarea id="inputArea" cols="50" rows="8"></textarea>
+                <button id="selectCmp">Select</button>
                 <br />
-                <button class="loadTextButton">Load</button>
-            </div>
-            <div>
-                <h2>Create from scratch:</h2>
-                <button class="newButton">New</button>
-            </div>
-        </div>
-        <div class="step2">
-            <select id="cmpSelector">
-
-            </select>
-            <button id="selectCmp">Select</button>
-            <br />
-            <button class="back">Back</button>
-        </div>
-
-        <div class="step3">
-            <div class="menubar">
                 <button class="back">Back</button>
-                <button class="save">Save Custom Rule</button>
-                <button class="export">Export Json</button>
-                <button class="collapse">Collapse All</button>
-                <button class="uncollapse">Uncollapse All</button>
             </div>
-            <div class="cmpName"><div class="label inline">CMPName:<input /></div></div>
-            <div class="info">Dragging while holding CTRL will make a copy of the dragged subtree, instead of moving it.</div>
-            <div class="rules"></div>
-            <div class="toolbox">
-                Toolbox:
-                <div class="detector">
-                    <div data-type="detector">Detector</div>
+
+            <div class="step3">
+                <div class="menubar">
+                    <button class="back">Back</button>
+                    <button class="save">Save Custom Rule</button>
+                    <button class="export">Export Json</button>
+                    <button class="collapse">Collapse All</button>
+                    <button class="uncollapse">Uncollapse All</button>
                 </div>
-                <div class="matcher">
-                    <div data-type="matcher" data-variant="css">CssMatcher</div>
-                    <div data-type="matcher" data-variant="checkbox">CheckboxMatcher</div>
+                <div class="cmpName"><div class="label inline">CMPName:<input /></div></div>
+                <div class="info">Dragging while holding CTRL will make a copy of the dragged subtree, instead of moving it.</div>
+                <div class="rules"></div>
+                <div class="toolbox">
+                    Toolbox:
+                    <div class="detector">
+                        <div data-type="detector">Detector</div>
+                    </div>
+                    <div class="matcher">
+                        <div data-type="matcher" data-variant="css">CssMatcher</div>
+                        <div data-type="matcher" data-variant="checkbox">CheckboxMatcher</div>
+                    </div>
+                    <div class="actions">
+                        <div data-type="action" data-variant="click">ClickAction</div>
+                        <div data-type="action" data-variant="consent">ConsentAction</div>
+                        <div data-type="action" data-variant="list">ListAction</div>
+                        <div data-type="action" data-variant="waitcss">WaitCssAction</div>
+                        <div data-type="action" data-variant="ifcss">IfCssAction</div>
+                        <div data-type="action" data-variant="foreach">ForEachAction</div>
+                        <div data-type="action" data-variant="slide">SlideAction</div>
+                        <div data-type="action" data-variant="close">CloseAction</div>
+                        <div data-type="action" data-variant="hide">HideAction</div>
+                        <div data-type="action" data-variant="wait">WaitAction</div>
+                    </div>
+                    <div class="consent">
+                        <div data-type="consent">Consent</div>
+                    </div>
+                    <div class="domSelectors">
+                        <div data-type="domSelector">DomSelector</div>
+                    </div>
+                    <div class="trashcan">Trash</div>
                 </div>
-                <div class="actions">
-                    <div data-type="action" data-variant="click">ClickAction</div>
-                    <div data-type="action" data-variant="consent">ConsentAction</div>
-                    <div data-type="action" data-variant="list">ListAction</div>
-                    <div data-type="action" data-variant="waitcss">WaitCssAction</div>
-                    <div data-type="action" data-variant="ifcss">IfCssAction</div>
-                    <div data-type="action" data-variant="foreach">ForEachAction</div>
-                    <div data-type="action" data-variant="slide">SlideAction</div>
-                    <div data-type="action" data-variant="close">CloseAction</div>
-                    <div data-type="action" data-variant="hide">HideAction</div>
-                    <div data-type="action" data-variant="wait">WaitAction</div>
-                </div>
-                <div class="consent">
-                    <div data-type="consent">Consent</div>
-                </div>
-                <div class="domSelectors">
-                    <div data-type="domSelector">DomSelector</div>
-                </div>
-                <div class="trashcan">Trash</div>
             </div>
-        </div>
-        <div class="step4">
-            <button class="back">Back</button>
-            <pre></pre>
+            <div class="step4">
+                <button class="back">Back</button>
+                <pre></pre>
+            </div>
         </div>
         <script src="js/app.js"></script>
     </body>
