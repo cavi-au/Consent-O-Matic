@@ -49,8 +49,11 @@ GDPRConfig.getDebugFlags().then((debugFlags) => {
 });
 
 function addToggleItem(parent, type, name, description, isChecked){
-        let optionLI = document.createElement("li");
-        optionLI.innerHTML = `
+		let optionLI = document.createElement("li");
+		
+
+
+        const optionHtml = `
         <label class="slider" for="${type}">
                 <input type="checkbox" id="${type}" ${isChecked ? "checked" : ""}>
                 <div class="knob"></div>
@@ -58,7 +61,15 @@ function addToggleItem(parent, type, name, description, isChecked){
         <h2>${name}</h2>
         <div class="category_description">
 ${description}
-        </div>`;
+		</div>`;
+		
+		let parser = new DOMParser();
+		let parsed = parser.parseFromString(optionHtml, "text/html");
+		let children = parsed.querySelector("body");
+
+		for(let child of children.childNodes) {
+			optionLI.appendChild(child);
+		}
 
         parent.appendChild(optionLI);
         optionLI.addEventListener("click", function (evt) {

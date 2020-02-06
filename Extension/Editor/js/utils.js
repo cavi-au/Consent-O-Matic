@@ -1,3 +1,7 @@
+/**
+ * Replaces the given node with a clone of the node, effectively clearing all event listeners.
+ * @param {HTMLElement} node 
+ */
 function replaceNodeWithClone(node) {
     let clone = node.cloneNode(true);
     node.parentNode.replaceChild(clone, node);
