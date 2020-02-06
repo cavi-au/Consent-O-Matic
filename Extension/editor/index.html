@@ -9,57 +9,23 @@
     </head>
     <body>
         <div class="header"><h1>GDPR Consent Rule Editor</h1></div>
-        
-        <div class="page">
-            <div class="step1">
-                <div>
-                    <h2>Load from external rules:</h2>
-                    <select id="knownRules">
-
-                    </select>
-                    <button class="loadButton">Continue</button>
-                </div>
-                <div>
-                    <h2>Load from custom rules:</h2>
-                    <select id="customRules">
-
-                    </select>
-                    <button class="loadCustomButton">Continue</button>
-                    <button class="deleteCustomButton">Delete</button>
-                </div>
-                <div>
-                    <h2>Load from text:</h2>
-                    <textarea id="inputArea" cols="50" rows="8"></textarea>
-                    <br />
-                    <button class="loadTextButton">Load</button>
-                </div>
-                <div>
-                    <h2>Create from scratch:</h2>
-                    <button class="newButton">New</button>
-                </div>
-            </div>
-            <div class="step2">
-                <select id="cmpSelector">
-
-                </select>
-                <button id="selectCmp">Select</button>
-                <br />
-                <button class="back">Back</button>
-            </div>
-
+        <div class="menu">
             <div class="step3">
                 <div class="menubar">
+                    <div class="miniheader">
+                        Menu
+                    </div>                    
                     <button class="back">Back</button>
                     <button class="save">Save Custom Rule</button>
                     <button class="export">Export Json</button>
                     <button class="collapse">Collapse All</button>
                     <button class="uncollapse">Uncollapse All</button>
                 </div>
-                <div class="cmpName"><div class="label inline">CMPName:<input /></div></div>
-                <div class="info">Dragging while holding CTRL will make a copy of the dragged subtree, instead of moving it.</div>
-                <div class="rules"></div>
+                
                 <div class="toolbox">
-                    Toolbox:
+                    <div class="miniheader">
+                        Draggable Elements
+                    </div>                    
                     <div class="detector">
                         <div data-type="detector">Detector</div>
                     </div>
@@ -87,6 +53,52 @@
                     </div>
                     <div class="trashcan">Trash</div>
                 </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="step1 loader">
+                <h1>Load Rules</h1>
+                <div class="existing">
+                    <div>
+                        <h2>From Plugin Sources</h2>
+                        <select id="knownRules">
+
+                        </select>
+                        <button class="loadButton">Load</button>
+                    </div>
+                    <div>
+                        <h2>From Your Custom Rules</h2>
+                        <select id="customRules">
+
+                        </select>
+                        <button class="loadCustomButton">Load</button>
+                        <button class="deleteCustomButton">Delete</button>
+                    </div>
+                    <div>
+                        <h2>From Pasted JSON</h2>
+                        <textarea id="inputArea" cols="10" rows="8"></textarea>
+                        <button class="loadTextButton">Load</button>
+                    </div>
+                </div>
+                <div>
+                    <h2>..or Create a New Rule From Scratch:</h2>
+                    <button class="newButton">Create New Rule</button>
+                </div>
+            </div>
+            <div class="step2">
+                <select id="cmpSelector">
+
+                </select>
+                <button id="selectCmp">Select</button>
+                <br />
+                <button class="back">Back</button>
+            </div>
+
+            <div class="step3">
+                <h1>Consent Management Popup Provider Settings</h1>
+                <div class="cmpName"><div class="label">Name of CMP<div class="help">This is the name that will be displayed to the user when the popup is detected</div></div><input /></div>
+                <div class="rules"></div>
+                <div class="help">Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.</div>
             </div>
             <div class="step4">
                 <button class="back">Back</button>
