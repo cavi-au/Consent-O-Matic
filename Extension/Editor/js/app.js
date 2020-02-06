@@ -288,9 +288,10 @@ let caviDraggables = [];
 function toggleClickHandler(evt) {
     if (evt.target.matches("[data-fold-name]")) {
         evt.target.classList.toggle("toggled");
-        evt.stopPropagation();
     }
 }
+
+document.addEventListener("click", toggleClickHandler);
 
 function setupDragging() {
     caviDraggables.forEach((draggable) => {
@@ -305,10 +306,6 @@ function setupDragging() {
     setupDraggingForType("consent");
     setupDraggingForType("matcher");
 
-    document.querySelectorAll(".step3 .rules [data-fold-name]").forEach((elm) => {
-        elm.removeEventListener("click", toggleClickHandler);
-        elm.addEventListener("click", toggleClickHandler);
-    });
 }
 
 function setupDraggingForType(type) {
@@ -365,6 +362,27 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
     if (!insertElement.matches("[data-type='" + type + "']")) {
         insertElement = null;
     }
+
+    function cloneClickHandler(evt) {
+        console.log("Clone click!");
+        evt.stopImmediatePropagation();
+    }
+
+    document.addEventListener("click", cloneClickHandler, {
+        "capture": true,
+        "once": true
+    });
+
+    setTimeout(()=>{
+        try {
+            document.removeEventListener("click", cloneClickHandler, {
+                "capture": true,
+                "once": true
+            });
+        } catch(e) {
+            console.warn(e);
+        }
+    }, 0);
 
     if (dropTarget.matches(".trashcan")) {
         console.log("Deleting:", draggable);

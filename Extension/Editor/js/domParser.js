@@ -124,8 +124,20 @@ class DomParser {
             return result;
         }
 
-        let parent = await parseDomSelector(dom.querySelector(":scope > .parent"));
-        let target = await parseDomSelector(dom.querySelector(":scope > .target"));
+        let parent = null;
+        
+        try {
+            parent = await parseDomSelector(dom.querySelector(":scope > .parent"));
+        } catch(e) {
+            //console.warn(e);
+        }
+
+        let target = null;
+        try {
+            target = await parseDomSelector(dom.querySelector(":scope > .target"));
+        } catch(e) {
+            //console.warn(e);
+        }
 
         if(parent != null) {
             result.parent = parent;
@@ -228,7 +240,7 @@ class DomParser {
     static async parseSlideActionDom(dom, result) {
         Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='target']").querySelector(":scope > [data-type='domSelector']")));
         result.dragTarget = await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='dragTarget']").querySelector(":scope > [data-type='domSelector']"));
-        let axis = dom.querySelector("[data-bind='axis']");
+        let axis = dom.querySelector("[data-bind='axis'] > select");
         result.axis = axis.value;
     }
 
@@ -286,7 +298,7 @@ class DomParser {
     static async parseConsentDom(dom) {
         let result = {};
 
-        result.type = dom.querySelector(":scope > .type").querySelector(":scope > [data-bind='type']").value;
+        result.type = dom.querySelector(":scope > [data-bind='type'] > select").value;
 
         try {
             let matcherDom = dom.querySelector(":scope > [data-bind='matcher']").querySelector(":scope > [data-type='matcher']");
@@ -321,7 +333,7 @@ class DomParser {
                 result.falseAction = await DomParser.parseActionDom(falseActionDom);
             }
         }catch(e) {
-            //console.warn(e);
+            console.warn(e);
         }
 
         return result;
