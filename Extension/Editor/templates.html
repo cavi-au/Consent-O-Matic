@@ -1,9 +1,9 @@
 <template id="cmp">
     <div data-type="cmp">
         <div class="label">Detectors:</div>
-        <div data-plug="detector" data-multiple="true"></div>
+        <div data-plug="detector" data-multiple="true" data-bind="detectors"></div>
         <div class="label">Methods:</div>
-        <div data-plug="method" data-multiple="true"></div>
+        <div data-plug="method" data-multiple="true" data-bind="methods"></div>
     </div>
 </template>
 
@@ -24,29 +24,25 @@
 
 <template id="matcher_checkbox">
     <div data-type="matcher" data-variant="checkbox" data-fold-name="CheckboxMatcher">
-        <div class="name">CheckboxMatcher</div>
         <div data-plug="domSelector"></div>
     </div>
 </template>
 
 <template id="domSelector">
     <div data-type="domSelector">
-        <div class="parent toggled" data-fold-name="Parent">
-            <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
-            <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40"/></div>
-            <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
-            <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
-            <div class="label">ChildFilter</div>
-            <div data-bind="childFilter" data-plug="domSelector"></div>
-        </div>
-        <div class="target toggled" data-fold-name="Target">
-            <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
-            <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40" /></div>
-            <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
-            <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
-            <div class="label">ChildFilter</div>
-            <div data-bind="childFilter" data-plug="domSelector"></div>
-        </div>
+        <div class="parent toggled" data-fold-name="Parent" data-plug="domSelectorChild" data-bind="parent"></div>
+        <div class="target toggled" data-fold-name="Target" data-plug="domSelectorChild" data-bind="target"></div>
+    </div>
+</template>
+
+<template id="domSelectorChild">
+    <div data-type="domSelectorChild">
+        <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
+        <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40"/></div>
+        <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
+        <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
+        <div class="label">ChildFilter</div>
+        <div data-bind="childFilter" data-plug="domSelector"></div>
     </div>
 </template>
 
@@ -110,9 +106,9 @@
         <div data-bind="target" data-plug="domSelector"></div>
         <div class="label">DragTarget</div>
         <div data-bind="dragTarget" data-plug="domSelector"></div>
-        <div class="axis">
+        <div class="axis" data-bind="axis">
             <div class="label">Axis</div>
-            <select data-bind="axis">
+            <select>
                 <option value="y">Y</option>
                 <option value="x">X</option>
             </select>
@@ -144,15 +140,15 @@
 
 <template id="consent">
     <div data-type="consent" data-fold-name="Consent">
-        <div class="type">
-            <select data-bind="type">
+        <div class="type" data-bind="type">
+            <select>
                 <option value="A">A - Preferences and Functionality</option>
                 <option value="B">B - Performance and Analytics</option>
                 <option value="D">D - Information Storage and Access</option>
                 <option value="E">E - Content selection, delivery, and reporting</option>
                 <option value="F">F - Ad selection, delivery, and reporting</option>
                 <option value="X">X - Other Purposes</option>
-            </select data-bind="type">
+            </select>
         </div>
         <div class="label">matcher</div>
         <div data-plug="matcher" data-bind="matcher"></div>

@@ -240,7 +240,7 @@ class DomParser {
     static async parseSlideActionDom(dom, result) {
         Object.assign(result, await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='target']").querySelector(":scope > [data-type='domSelector']")));
         result.dragTarget = await DomParser.parseDomSelectorDom(dom.querySelector(":scope > [data-bind='dragTarget']").querySelector(":scope > [data-type='domSelector']"));
-        let axis = dom.querySelector("[data-bind='axis']");
+        let axis = dom.querySelector("[data-bind='axis'] > select");
         result.axis = axis.value;
     }
 
@@ -298,7 +298,7 @@ class DomParser {
     static async parseConsentDom(dom) {
         let result = {};
 
-        result.type = dom.querySelector(":scope > .type").querySelector(":scope > [data-bind='type']").value;
+        result.type = dom.querySelector(":scope > [data-bind='type'] > select").value;
 
         try {
             let matcherDom = dom.querySelector(":scope > [data-bind='matcher']").querySelector(":scope > [data-type='matcher']");
