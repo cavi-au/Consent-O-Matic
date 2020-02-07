@@ -1,0 +1,151 @@
+div.step1, div.step2, div.step3, div.step4 {
+    display: none;
+}
+body[data-view='step1'] div.step1, body[data-view='step2'] div.step2, body[data-view='step3'] div.step3, body[data-view='step4'] div.step4 {
+    display: block;
+}
+
+div[data-type]:not(.draggable-clone) {
+    margin-left: 2em;
+}
+
+div[data-plug]:empty {
+    background: orange;
+    opacity: 0.5;
+    min-height: 1em;
+    min-width: 1em;
+    display: inline-block;
+}
+
+div[data-type='action'] {
+    background: greenyellow;
+    border: 1px dotted grey;
+}
+
+div[data-type='matcher'] {
+    background: mediumslateblue;
+    border: 1px dotted grey;
+}
+
+div[data-type='detector'] {
+    background: turquoise;
+    border: 1px dotted grey;
+}
+
+div[data-type='method'] {
+    background: lightblue;
+    border: 1px dotted grey;
+}
+
+div[data-type='consent'] {
+    background: orchid;
+    border: 1px dotted grey;
+}
+
+div[data-type='domSelector'] {
+    background: khaki;
+    border: 1px dotted grey;
+}
+
+[data-fold-name].toggled div {
+    display: none !important;
+}
+
+[data-fold-name]::before {
+    content: attr(data-fold-name) " v";
+}
+
+[data-fold-name].toggled::before {
+    content: attr(data-fold-name) " ^";
+}
+
+.target.toggled div {
+    display: none !important;
+}
+
+.parent.toggled div {
+    display: none !important;
+}
+
+.target::before {
+    content: "Target v";
+}
+
+.parent::before {
+    content: "Parent v";
+}
+
+.target.toggled::before {
+    content: "Target ^";
+}
+
+.parent.toggled::before {
+    content: "Parent ^";
+}
+
+[data-plug]:empty.droppable-active, [data-plug][data-multiple='true'].droppable-active {
+    border: 2px red solid;
+    opacity: 0.7;
+    display: block;
+    margin-right: 1em;
+    min-height: 2em;
+}
+
+[data-plug]:empty.droppable-hover {
+    border: 2px green solid;
+    opacity: 1;
+}
+
+.draggable-clone {
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.step3 .rules {
+    display: inline-block;
+    min-width: 50%;
+}
+
+.toolbox {
+    position: fixed;
+    right: 2em;
+    top: 2em;
+}
+
+.toolbox .actions .action {
+    display: inline-block;
+}
+
+.step3 .trashcan {
+    background: silver;
+    width: 4em;
+    height: 2em;
+    text-align: center;
+    opacity: 0;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.step3 .trashcan.droppable-active {
+    border: 2px red solid;
+    opacity: 0.7;
+}
+
+.step3 .trashcan.droppable-hover {
+    border: 2px green solid;
+    opacity: 1;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.menubar {
+    margin-bottom: 2em;
+}
+
+.info, .cmpName {
+    margin-bottom: 2em;
+}

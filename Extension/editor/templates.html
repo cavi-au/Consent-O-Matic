@@ -1,0 +1,162 @@
+<template id="cmp">
+    <div data-type="cmp">
+        <div class="label">Detectors:</div>
+        <div data-plug="detector" data-multiple="true" data-bind="detectors"></div>
+        <div class="label">Methods:</div>
+        <div data-plug="method" data-multiple="true" data-bind="methods"></div>
+    </div>
+</template>
+
+<template id="detector">
+    <div data-type="detector" data-fold-name="Detector">
+        <div class="label">presentMatcher</div>
+        <div data-bind="presentMatcher" data-plug="matcher"></div>
+        <div class="label">showingMatcher</div>
+        <div data-bind="showingMatcher" data-plug="matcher"></div>
+    </div>
+</template>
+
+<template id="matcher_css">
+    <div data-type="matcher" data-variant="css" data-fold-name="CSSMatcher">
+        <div data-plug="domSelector"></div>
+    </div>
+</template>
+
+<template id="matcher_checkbox">
+    <div data-type="matcher" data-variant="checkbox" data-fold-name="CheckboxMatcher">
+        <div data-plug="domSelector"></div>
+    </div>
+</template>
+
+<template id="domSelector">
+    <div data-type="domSelector">
+        <div class="parent" data-fold-name="Parent" data-plug="domSelectorChild" data-bind="parent"></div>
+        <div class="target" data-fold-name="Target" data-plug="domSelectorChild" data-bind="target"></div>
+    </div>
+</template>
+
+<template id="domSelectorChild">
+    <div data-type="domSelectorChild">
+        <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
+        <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40"/></div>
+        <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
+        <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
+        <div class="label">ChildFilter</div>
+        <div data-bind="childFilter" data-plug="domSelector"></div>
+    </div>
+</template>
+
+<template id="method">
+    <div data-type="method">
+        <div data-bind="name"></div>
+        <div data-bind="action" data-plug="action"></div>
+    </div>
+</template>
+
+<template id="action_list">
+    <div data-type="action" data-variant="list" data-fold-name="ListAction">
+        <div class="label">actions</div>
+        <div data-bind="actions" data-plug="action" data-multiple="true"></div>
+    </div>
+</template>
+
+<template id="action_close">
+    <div data-type="action" data-variant="close">
+        CloseAction
+    </div>
+</template>
+
+<template id="action_foreach">
+    <div data-type="action" data-variant="foreach" data-fold-name="ForEachAction">
+        <div class="label">selector</div>
+        <div data-plug="domSelector"></div>
+        <div class="label">action</div>
+        <div data-bind="action" data-plug="action"></div>
+    </div>
+</template>
+
+<template id="action_ifcss">
+    <div data-type="action" data-variant="ifcss" data-fold-name="IfCssAction">
+        <div class="label">selector</div>
+        <div data-plug="domSelector"></div>
+        <div class="label">trueAction</div>
+        <div data-plug="action" data-bind="trueAction"></div>
+        <div class="label">falseAction</div>
+        <div data-plug="action" data-bind="falseAction"></div>
+    </div>
+</template>
+
+<template id="action_click">
+    <div data-type="action" data-variant="click" data-fold-name="ClickAction">
+        <div class="label">selector</div>
+        <div data-plug="domSelector"></div>
+        <div data-bind="openInTab"><div class="label inline">openInTab</div><input type="checkbox" /></div>
+    </div>
+</template>
+
+<template id="action_hide">
+    <div data-type="action" data-variant="hide" data-fold-name="HideAction">
+        <div class="label">selector</div>
+        <div data-plug="domSelector"></div>
+    </div>
+</template>
+
+<template id="action_slide">
+    <div data-type="action" data-variant="slide" data-fold-name="SlideAction">
+        <div data-bind="target" data-plug="domSelector"></div>
+        <div class="label">DragTarget</div>
+        <div data-bind="dragTarget" data-plug="domSelector"></div>
+        <div class="axis" data-bind="axis">
+            <div class="label">Axis</div>
+            <select>
+                <option value="y">Y</option>
+                <option value="x">X</option>
+            </select>
+        </div>
+    </div>
+</template>
+
+<template id="action_waitcss">
+    <div data-type="action" data-variant="waitcss" data-fold-name="WaitCssAction">
+        <div data-plug="domSelector"></div>
+        <div data-bind="retries"><div class="label inline">retries</div><input type="number" min="1" max="100" value="10" /></div>
+        <div data-bind="waitTime"><div class="label inline">waitTime</div> <input type="number" min="100" max="5000" value="250" /></div>
+        <div data-bind="negated"><div class="label inline">negated</div><input type="checkbox" /></div>
+    </div>
+</template>
+
+<template id="action_wait">
+    <div data-type="action" data-variant="wait" data-fold-name="WaitAction">
+        <div data-bind="waitTime"><div class="label inline">waitTime</div> <input type="number" min="10" max="5000" value="250" /></div>
+    </div>
+</template>
+
+<template id="action_consent">
+    <div data-type="action" data-variant="consent" data-fold-name="ConsentAction">
+        <div class="label">Consents</div>
+        <div data-bind="consents" data-plug="consent" data-multiple="true"></div>
+    </div>
+</template>
+
+<template id="consent">
+    <div data-type="consent" data-fold-name="Consent">
+        <div class="type" data-bind="type">
+            <select>
+                <option value="A">A - Preferences and Functionality</option>
+                <option value="B">B - Performance and Analytics</option>
+                <option value="D">D - Information Storage and Access</option>
+                <option value="E">E - Content selection, delivery, and reporting</option>
+                <option value="F">F - Ad selection, delivery, and reporting</option>
+                <option value="X">X - Other Purposes</option>
+            </select>
+        </div>
+        <div class="label">matcher</div>
+        <div data-plug="matcher" data-bind="matcher"></div>
+        <div class="label">trueAction</div>
+        <div data-plug="action" data-bind="trueAction"></div>
+        <div class="label">falseAction</div>
+        <div data-plug="action" data-bind="falseAction"></div>
+        <div class="label">toggleAction</div>
+        <div data-plug="action" data-bind="toggleAction"></div>
+    </div>
+</template>
