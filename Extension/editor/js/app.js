@@ -254,7 +254,7 @@ document.querySelector(".step3 .uncollapse").addEventListener("click", () => {
 switchView("step1");
 
 async function saveCmp(dom, exportJson = false) {
-    let json = await DomParser.parseCmpDom(dom);
+    let json = await DomParser.parseDom(dom);
 
     let cmpName = document.querySelector(".step3 .cmpName input").value;
 
