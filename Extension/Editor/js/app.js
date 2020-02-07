@@ -254,7 +254,7 @@ document.querySelector(".step3 .uncollapse").addEventListener("click", () => {
 switchView("step1");
 
 async function saveCmp(dom, exportJson = false) {
-    let json = await DomParser.parseCmpDom(dom);
+    let json = await DomParser.parseDom(dom);
 
     let cmpName = document.querySelector(".step3 .cmpName input").value;
 
@@ -333,6 +333,12 @@ function setupDraggingForType(type) {
                 //Automatically fill all domSelectors
                 for (let elm of Array.from(template.querySelectorAll("[data-plug='domSelector']:empty:not([data-bind='childFilter'])"))) {
                     let domSelectorTemplate = await loadTemplate("domSelector");
+                    elm.appendChild(domSelectorTemplate);
+                }
+
+                //Automatically fill all domSelectorChild
+                for (let elm of Array.from(template.querySelectorAll("[data-plug='domSelectorChild']:empty"))) {
+                    let domSelectorTemplate = await loadTemplate("domSelectorChild");
                     elm.appendChild(domSelectorTemplate);
                 }
 
