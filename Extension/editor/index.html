@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>GDPR Rule Editor</title>
+        <script src="js/draggable.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/jsonParser.js"></script>
+        <script src="js/domParser.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
+    <body>
+        <div class="header"><h1>GDPR Consent Rule Editor</h1></div>
+        <div class="menu">
+            <div class="step3">
+                <div class="menubar">
+                    <div class="miniheader">
+                        Menu
+                    </div>                    
+                    <button class="back">Back</button>
+                    <button class="save">Save Custom Rule</button>
+                    <button class="export">Export Json</button>
+                    <button class="collapse">Collapse All</button>
+                    <button class="uncollapse">Uncollapse All</button>
+                </div>
+                
+                <div class="toolbox">
+                    <div class="miniheader">
+                        Draggable Elements
+                    </div>                    
+                    <div class="detector">
+                        <div data-type="detector">Detector</div>
+                    </div>
+                    <div class="matcher">
+                        <div data-type="matcher" data-variant="css">CssMatcher</div>
+                        <div data-type="matcher" data-variant="checkbox">CheckboxMatcher</div>
+                    </div>
+                    <div class="actions">
+                        <div data-type="action" data-variant="click">ClickAction</div>
+                        <div data-type="action" data-variant="consent">ConsentAction</div>
+                        <div data-type="action" data-variant="list">ListAction</div>
+                        <div data-type="action" data-variant="waitcss">WaitCssAction</div>
+                        <div data-type="action" data-variant="ifcss">IfCssAction</div>
+                        <div data-type="action" data-variant="foreach">ForEachAction</div>
+                        <div data-type="action" data-variant="slide">SlideAction</div>
+                        <div data-type="action" data-variant="close">CloseAction</div>
+                        <div data-type="action" data-variant="hide">HideAction</div>
+                        <div data-type="action" data-variant="wait">WaitAction</div>
+                    </div>
+                    <div class="consent">
+                        <div data-type="consent">Consent</div>
+                    </div>
+                    <div class="domSelectors">
+                        <div data-type="domSelector">DomSelector</div>
+                    </div>
+                    <div class="trashcan">Trash</div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="step1 loader">
+                <h1>Load Rules</h1>
+                <div class="existing">
+                    <div>
+                        <h2>From Plugin Sources</h2>
+                        <select id="knownRules">
+
+                        </select>
+                        <button class="loadButton">Load</button>
+                    </div>
+                    <div>
+                        <h2>From Your Custom Rules</h2>
+                        <select id="customRules">
+
+                        </select>
+                        <button class="loadCustomButton">Load</button>
+                        <button class="deleteCustomButton">Delete</button>
+                    </div>
+                    <div>
+                        <h2>From Pasted JSON</h2>
+                        <textarea id="inputArea" cols="10" rows="8"></textarea>
+                        <button class="loadTextButton">Load</button>
+                    </div>
+                </div>
+                <div>
+                    <h2>..or Create a New Rule From Scratch:</h2>
+                    <button class="newButton">Create New Rule</button>
+                </div>
+            </div>
+            <div class="step2">
+                <select id="cmpSelector">
+
+                </select>
+                <button id="selectCmp">Select</button>
+                <br />
+                <button class="back">Back</button>
+            </div>
+
+            <div class="step3">
+                <h1>Consent Management Popup Provider Settings</h1>
+                <div class="cmpName"><div class="label">Name of CMP<div class="help">This is the name that will be displayed to the user when the popup is detected</div></div><input /></div>
+                <div class="rules"></div>
+                <div class="help">Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.</div>
+            </div>
+            <div class="step4">
+                <button class="back">Back</button>
+                <pre></pre>
+            </div>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>

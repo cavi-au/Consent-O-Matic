@@ -1,17 +1,17 @@
 <template id="cmp">
     <div data-type="cmp">
-        <div class="label">Detectors:</div>
+        <div class="label">Detectors<div class="help">Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)</div></div>	
         <div data-plug="detector" data-multiple="true" data-bind="detectors"></div>
-        <div class="label">Methods:</div>
+        <div class="label">Methods:<div class="help">Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog.</div></div>
         <div data-plug="method" data-multiple="true" data-bind="methods"></div>
     </div>
 </template>
 
 <template id="detector">
     <div data-type="detector" data-fold-name="Detector">
-        <div class="label">presentMatcher</div>
+        <div class="label">presentMatcher<div class="help">This matcher determines whether a CMP popup is present on the page</div></div>
         <div data-bind="presentMatcher" data-plug="matcher"></div>
-        <div class="label">showingMatcher</div>
+        <div class="label">showingMatcher<div class="help">This matcher determines if a CMP popup is currently showing</div></div>
         <div data-bind="showingMatcher" data-plug="matcher"></div>
     </div>
 </template>
@@ -30,18 +30,24 @@
 
 <template id="domSelector">
     <div data-type="domSelector">
-        <div class="parent toggled" data-fold-name="Parent" data-plug="domSelectorChild" data-bind="parent"></div>
-        <div class="target toggled" data-fold-name="Target" data-plug="domSelectorChild" data-bind="target"></div>
+        <div class="label">target<div class="help">The target of the selection</div></div>
+        <div class="target toggled" data-fold-name="DOM node selector" data-plug="domSelectorChild" data-bind="target"></div>
+        <div class="label">parent<div class="help">An optional parent to search for before starting the search for target from there</div></div>
+        <div class="parent toggled" data-fold-name="DOM node selector" data-plug="domSelectorChild" data-bind="parent"></div>
     </div>
 </template>
 
 <template id="domSelectorChild">
     <div data-type="domSelectorChild">
-        <div data-bind="selector"><div class="label inline">selector</div> <input size="40" /></div>
-        <div data-bind="textFilter"><div class="label inline">textFilter</div> <input size="40"/></div>
-        <div data-bind="iframeFilter"><div class="label inline">iframeFilter</div><input type="checkbox" /></div>
-        <div data-bind="displayFilter"><div class="label inline">displayFilter</div><input type="checkbox" /></div>
-        <div class="label">ChildFilter</div>
+        <div class="label">selector<div class="help">CSS selector that points to a DOM node</div></div>
+        <div data-bind="selector"><input size="30" /></div>
+        <div class="label">textFilter<div class="help">A text filter applied to the found nodes based on their content</div></div>
+        <div data-bind="textFilter"><input size="30"/></div>
+        <div class="label">iframeFilter<div class="help">Only trigger if inside an iframe</div></div>
+        <div data-bind="iframeFilter"><input type="checkbox" /></div>
+        <div class="label inline">displayFilter<div class="help">?</div></div>
+        <div data-bind="displayFilter"><input type="checkbox" /></div>
+        <div class="label">ChildFilter<div class="help">?</div></div>
         <div data-bind="childFilter" data-plug="domSelector"></div>
     </div>
 </template>
@@ -55,7 +61,7 @@
 
 <template id="action_list">
     <div data-type="action" data-variant="list" data-fold-name="ListAction">
-        <div class="label">actions</div>
+        <div class="label">actions<div class="help">Each of these actions will be performed in order</div></div>
         <div data-bind="actions" data-plug="action" data-multiple="true"></div>
     </div>
 </template>
@@ -70,7 +76,7 @@
     <div data-type="action" data-variant="foreach" data-fold-name="ForEachAction">
         <div class="label">selector</div>
         <div data-plug="domSelector"></div>
-        <div class="label">action</div>
+        <div class="label">action<div class="help">The action to perform for each of the targets found by the selector</div></div>
         <div data-bind="action" data-plug="action"></div>
     </div>
 </template>
@@ -88,26 +94,30 @@
 
 <template id="action_click">
     <div data-type="action" data-variant="click" data-fold-name="ClickAction">
-        <div class="label">selector</div>
+        <div class="label">selector<div class="help">Determine what should be clicked</div></div>
         <div data-plug="domSelector"></div>
-        <div data-bind="openInTab"><div class="label inline">openInTab</div><input type="checkbox" /></div>
+        <div class="label">openInTab<div class="help">If what is clicked is a link then optionally check this box to open it in a new tab</div></div>        
+        <div data-bind="openInTab"><input type="checkbox" /></div>
     </div>
 </template>
 
 <template id="action_hide">
     <div data-type="action" data-variant="hide" data-fold-name="HideAction">
-        <div class="label">selector</div>
+        <div class="label">selector<div class="help">Determine what should be hidden</div></div>
         <div data-plug="domSelector"></div>
     </div>
 </template>
 
 <template id="action_slide">
     <div data-type="action" data-variant="slide" data-fold-name="SlideAction">
+        <div class="label">target<div class="help">The target to perform a slide gesture on</div></div>
         <div data-bind="target" data-plug="domSelector"></div>
-        <div class="label">DragTarget</div>
+
+        <div class="label">dragTarget<div class="help">?</div></div>
         <div data-bind="dragTarget" data-plug="domSelector"></div>
+
+        <div class="label">Axis<div class="help">Direction of the slide</div></div>
         <div class="axis" data-bind="axis">
-            <div class="label">Axis</div>
             <select>
                 <option value="y">Y</option>
                 <option value="x">X</option>
@@ -118,10 +128,17 @@
 
 <template id="action_waitcss">
     <div data-type="action" data-variant="waitcss" data-fold-name="WaitCssAction">
+        <div class="label">waitFor<div class="help">The thing to wait for</div></div>        
         <div data-plug="domSelector"></div>
-        <div data-bind="retries"><div class="label inline">retries</div><input type="number" min="1" max="100" value="10" /></div>
-        <div data-bind="waitTime"><div class="label inline">waitTime</div> <input type="number" min="100" max="5000" value="250" /></div>
-        <div data-bind="negated"><div class="label inline">negated</div><input type="checkbox" /></div>
+        
+        <div class="label">retries<div class="help">How many times to repeat the search</div></div>
+        <div data-bind="retries"><input type="number" min="1" max="100" value="10" /></div>
+        
+        <div class="label">waitTime<div class="help">How long to wait after each search</div></div>
+        <div data-bind="waitTime"><input type="number" min="100" max="5000" value="250" /></div>
+        
+        <div class="label">negated<div class="help">?</div></div>
+        <div data-bind="negated"><input type="checkbox" /></div>
     </div>
 </template>
 
@@ -140,6 +157,7 @@
 
 <template id="consent">
     <div data-type="consent" data-fold-name="Consent">
+        <div class="label">type<div class="help">The type of consent that this block handles</div></div>
         <div class="type" data-bind="type">
             <select>
                 <option value="A">A - Preferences and Functionality</option>
@@ -150,13 +168,13 @@
                 <option value="X">X - Other Purposes</option>
             </select>
         </div>
-        <div class="label">matcher</div>
+        <div class="label">matcher<div class="help">?</div></div>
         <div data-plug="matcher" data-bind="matcher"></div>
-        <div class="label">trueAction</div>
+        <div class="label">trueAction<div class="help">Action to perform if the user has given this type of consent in the plugin preferences and it should be applied in the popup</div></div>
         <div data-plug="action" data-bind="trueAction"></div>
-        <div class="label">falseAction</div>
+        <div class="label">falseAction<div class="help">Action to perform if the user has not given this type of consent</div></div>
         <div data-plug="action" data-bind="falseAction"></div>
-        <div class="label">toggleAction</div>
+        <div class="label">toggleAction<div class="help">?</div></div>
         <div data-plug="action" data-bind="toggleAction"></div>
     </div>
 </template>
