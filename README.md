@@ -13,6 +13,7 @@
     * [If Css](#if-css)
     * [Wait For Css](#wait-for-css)
     * [For Each](#for-each)
+    * [Wait](#wait)
     * [Hide](#hide)
     * [Close](#close)
 * [Matchers](#matchers)
@@ -303,6 +304,18 @@ Example:
 ```
 
 `action` is the action to run for each found DOM element.
+
+### Wait
+
+This action waits the given amount of milliseconds before continuing.
+
+Example:
+```json
+{
+   "type": "wait",
+   "waitTime": 250
+}
+```
 
 ### Hide
 
