@@ -64,9 +64,17 @@ Both the present and showing matcher follow the common structure of [`Matchers`]
 
 ### Methods
 
-Methods are collections of actions. There are 3 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`
+Methods are collections of actions. There are 4 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`, `HIDE_CMP`
 
-All the methods are optional, and if present the methods will be run in the order given above, when a detector is triggered.
+All the methods are optional, and if present the methods will be run in the order given below, when a detector is triggered.
+
+```
+HIDE_CMP
+OPEN_OPTIONS
+HIDE_CMP
+DO_CONSENT
+SAVE_CONSENT
+```
 
 Methods take on the form:
 ```
