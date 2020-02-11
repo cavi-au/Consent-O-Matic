@@ -298,7 +298,7 @@ Example:
 
 ### Hide
 
-This action sets css property `display` to `none` on the DOM selection.
+This action sets css class 'ConsentOMatic-CMP-Hider' on the DOM selection. The default css rules will then set opacity to 0 on the element.
 
 Example:
 ```json
