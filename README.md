@@ -84,7 +84,7 @@ Methods take on the form:
 }
 ```
 
-Where the name is one of the 3 supported methods, and action is the [action](#actions) to execute.
+Where the name is one of the 4 supported methods, and action is the [action](#actions) to execute.
 
 ## DOM Selection
 
