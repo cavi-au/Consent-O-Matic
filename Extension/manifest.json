@@ -3,7 +3,7 @@
 	"description": "Automatic handling of GDPR consent forms",
 	"author": "CAVI - Aarhus University",
 	"homepage_url": "https://github.com/cavi-au/Consent-O-Matic",
-	"version": "0.7",
+	"version": "0.8",
 	"manifest_version": 2,
 	"permissions": [
 		"activeTab",

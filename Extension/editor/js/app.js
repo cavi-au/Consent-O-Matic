@@ -24,15 +24,11 @@ document.addEventListener("keyup", (evt) => {
         let undoObj = undoQueue.pop();
 
         if (undoObj != null) {
-            console.log("Undoing one step");
-
             if (undoObj.parent != null) {
                 undoObj.parent.insertBefore(undoObj.element, undoObj.nextSibling);
             } else {
                 undoObj.element.parentNode.removeChild(undoObj.element);
             }
-        } else {
-            console.log("Undo queue empty");
         }
     }
 });
@@ -93,8 +89,6 @@ function reloadSelectors() {
     });
 
     chrome.runtime.sendMessage("GetCustomRuleList", (customRules) => {
-        console.log("CustomRules:", customRules);
-
         customCmpJson = customRules;
 
         loadFromJson(customRules, document.querySelector("#customRules"));
@@ -276,10 +270,7 @@ async function saveCmp(dom, exportJson = false) {
         selection.addRange(range);
         document.execCommand('copy');
     } else {
-
         chrome.runtime.sendMessage("AddCustomRule|" + jsonString);
-
-        console.log("Saved into custom rules list");
     }
 }
 
@@ -336,6 +327,12 @@ function setupDraggingForType(type) {
                     elm.appendChild(domSelectorTemplate);
                 }
 
+                //Automatically fill all domSelectorChilds
+                for (let elm of Array.from(template.querySelectorAll("[data-plug='domSelectorChild']:empty"))) {
+                    let domSelectorChildTemplate = await loadTemplate("domSelectorChild");
+                    elm.appendChild(domSelectorChildTemplate);
+                }
+
                 //Automatically insert consent
                 for (let elm of Array.from(template.querySelectorAll("[data-plug='consent']:empty"))) {
                     let consentTemplate = await loadTemplate("consent");
@@ -349,22 +346,7 @@ function setupDraggingForType(type) {
 }
 
 async function handleDrop(draggable, dropTarget, hoverElm, type) {
-    let insertElement = hoverElm;
-    if (insertElement !== dropTarget) {
-        while (insertElement != null && !insertElement.matches("[data-type='" + type + "']")) {
-            insertElement = insertElement.parentNode;
-            if (insertElement === dropTarget) {
-                insertElement = null;
-            }
-        }
-    }
-
-    if (!insertElement.matches("[data-type='" + type + "']")) {
-        insertElement = null;
-    }
-
     function cloneClickHandler(evt) {
-        console.log("Clone click!");
         evt.stopImmediatePropagation();
     }
 
@@ -383,9 +365,23 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
             console.warn(e);
         }
     }, 0);
+    
+    let insertElement = hoverElm;
+    if (insertElement !== dropTarget) {
+        while (insertElement != null && !insertElement.matches("[data-type='" + type + "']")) {
+            insertElement = insertElement.parentNode;
+        }
+    }
+
+    if (insertElement === dropTarget) {
+        insertElement = null;
+    }
+
+    if (insertElement != null && !insertElement.matches("[data-type='" + type + "']")) {
+        insertElement = null;
+    }
 
     if (dropTarget.matches(".trashcan")) {
-        console.log("Deleting:", draggable);
         undoQueue.push({
             parent: draggable.parentNode,
             nextSibling: draggable.nextSibling,
@@ -393,17 +389,16 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
         });
         let savedParent = draggable.parentNode;
         draggable.parentNode.removeChild(draggable);
-        console.log(savedParent, savedParent.childNodes);
         return;
     }
 
+    console.log(draggable, dropTarget, insertElement);
+
     if (!dropTarget.matches(":empty, [data-multiple='true']")) {
-        console.log("There is no room here!");
         return;
     }
 
     if (ctrlPressed) {
-        console.log("Making copy instead of moving!");
         let clone = draggable.cloneNode(true);
         let cloneSelects = Array.from(clone.querySelectorAll("select"));
         let origSelects = Array.from(draggable.querySelectorAll("select"));
@@ -456,8 +451,6 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
         }
 
     } else {
-        console.log("Inserting", draggable);
-
         //We are empty, or a multicontainer with no insertElement selected, just insert
         dropTarget.appendChild(draggable);
 

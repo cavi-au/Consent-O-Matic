@@ -179,9 +179,8 @@ class CaviDraggable {
         this.updateClonePos(x, y);
         
         let hoverElm = document.elementFromPoint(evt.clientX, evt.clientY);
-        
-		this.currentHoverElement = hoverElm;
-		
+        this.currentHoverElement = hoverElm;
+
         if(hoverElm != null) {
             let droppable = hoverElm;
             
