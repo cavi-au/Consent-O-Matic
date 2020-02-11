@@ -217,12 +217,14 @@ body {
 	<ul class="rulelist"><!-- rulelists --></ul>
 	<div class="ruleoptions">
 	    <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button>
-            <br/>
-            <br/>
-	    </div>
-	<div class="helptext">
-	    <p>All the rule lists are updated automatically every 15 minutes <em>or</em> with this button:</p>
-	    <button id="forceupdate">Update Now</button>
+	</div>
+	<div class="helptext" style="padding-top:0">
+	    <p>All the rule lists are updated automatically every 15 minutes <em>or</em> you can </p><button id="forceupdate">Update Rules Now</button><br /><br /><br />
+	<h2>Rule List Generator</h2>
+        <p>
+	    As an alternative to writing JSON rules by hand it is also possible to create rules using this drag-n-drop editor:
+	</p>
+	    <button id="rulesEditor">Open Rule Editor</button>
         </div>
     </div>
     <div class="tab tab_log" style="display:none">
@@ -235,7 +237,6 @@ body {
         </div>
     </div>
     <div class="tab tab_dbg" style="display: none">
-        <button id="rulesEditor">Rules Editor</button>
         <ul class="flags"><!-- debugflags --></ul>
     </div>
 </div>
