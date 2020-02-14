@@ -78,7 +78,9 @@ class DomParser {
                 value = valueDom.textContent;
             }
 
-            json[bindName] = value;
+			if(value != null && value !== "" && value !== false) {
+				json[bindName] = value;
+			}
         }
     }
 }
