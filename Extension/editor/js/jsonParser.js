@@ -41,7 +41,11 @@ class JsonParser {
                         break;
                     }
                     default: {
-                        input.value = bindJson;
+						if(bindJson instanceof Array) {
+							input.value = bindJson.join("|");
+						} else {
+							input.value = bindJson;
+						}
                     }
                 }
             } else if(valueBind.querySelector("select")) {

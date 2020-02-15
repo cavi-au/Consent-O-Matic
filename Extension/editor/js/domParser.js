@@ -79,6 +79,10 @@ class DomParser {
             }
 
 			if(value != null && value !== "" && value !== false) {
+				if(value.indexOf("|") !== -1) {
+					value = value.split("|");
+				}
+				
 				json[bindName] = value;
 			}
         }
