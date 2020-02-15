@@ -79,7 +79,7 @@ class DomParser {
             }
 
 			if(value != null && value !== "" && value !== false) {
-				if(value.indexOf("|") !== -1) {
+				if(typeof(value) === "string" && value.indexOf("|") !== -1) {
 					value = value.split("|");
 				}
 				
