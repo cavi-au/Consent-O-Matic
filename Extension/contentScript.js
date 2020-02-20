@@ -7,29 +7,30 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
         
             chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
 
-                console.log("FetchedRules:", fetchedRules);
-            
                 let config =  Object.assign({}, ...fetchedRules);
 
                 GDPRConfig.getCustomRuleLists().then((customRules)=>{
-
-                    console.log("CustomRules:", customRules);
 
                     // Concat rule-lists to engine config in order
                     let config = Object.assign({}, ...fetchedRules, customRules);
 
                     GDPRConfig.getConsentValues().then((consentTypes)=>{
                         GDPRConfig.getDebugValues().then((debugValues)=>{
+                            if(debugValues.debugLog) {
+                                console.log("FetchedRules:", fetchedRules);
+                                console.log("CustomRules:", customRules);
+                            }
+            
                             let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
-                                console.log("We handled a CMP: ", stats);
-
                                 chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
                                     "cmp": stats.cmpName,
                                     "url": url
                                 }));
 
                             });
-                            console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
+                            if(debugValues.debugLog) {
+                                console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
+                            }
                         });
                     });
                 });

@@ -31,7 +31,7 @@ class CMP {
             return detector.detect();
         });
 
-        if(detector != null) {
+        if(detector != null && ConsentEngine.debugValues.debugLog) {
             console.log("Triggered detector: ", detector);
         }
 
@@ -50,7 +50,9 @@ class CMP {
         let action = this.methods.get(name);
 
         if(action != null) {
-            console.log("Triggering method: ", name);
+            if(ConsentEngine.debugValues.debugLog) {
+                console.log("Triggering method: ", name);
+            }
             await action.execute(param);
         } else {
             //Make no method behave as if an action was called, IE. push os back on the task stack

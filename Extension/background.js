@@ -26,12 +26,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         case "AddCustomRule": {
             let newRule = JSON.parse(message.split("|")[1]);
 
-            console.log("New rule to add:", newRule);
-
             GDPRConfig.getCustomRuleLists().then((customRules)=>{
                 let combinedCustomRules = Object.assign({}, customRules, newRule);
-
-                console.log("combinedCustom:", combinedCustomRules);
 
                 GDPRConfig.setCustomRuleLists(combinedCustomRules);
             });
@@ -42,12 +38,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         case "DeleteCustomRule": {
             let deleteRule = message.split("|")[1];
 
-            console.log("Rule to delete:", deleteRule);
-
             GDPRConfig.getCustomRuleLists().then((customRules)=>{
                 delete customRules[deleteRule];
-
-                console.log("After delete:", customRules);
 
                 GDPRConfig.setCustomRuleLists(customRules).then(()=>{
                     reply();
@@ -80,8 +72,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 });
 
 function setBadgeCheckmark(enabled, id) {
-    console.log("Setting badge:", enabled, id);
-
     let text = "";
 
     if(enabled) {
@@ -144,8 +134,6 @@ function fetchRules(forceUpdate) {
 }
 
 let tabsInfo = new Map();
-
-console.log("Background reloaded!");
 
 chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
     if(info.status != null && info.status === "Loading") {

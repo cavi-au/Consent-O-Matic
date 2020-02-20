@@ -22,9 +22,8 @@ chrome.tabs.query({
     document.querySelector("#unhandled").addEventListener("click", ()=>{
 	if (confirm('Submit '+url+' to our list of sites where autofill did not work?')) {
 	    // Save it
-            console.log("Sending report of unhandled CMP: ", url);
-            fetch("https://gdprconsent.projects.cavi.au.dk/report.php?url="+encodeURIComponent(url));
-            window.close();
+        fetch("https://gdprconsent.projects.cavi.au.dk/report.php?url="+encodeURIComponent(url));
+        window.close();
 	}
     });
 });

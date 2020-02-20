@@ -1,7 +1,5 @@
 class Action {
     static createAction(config, cmp) {
-        //console.log("Creating action from: ", config);
-
         switch(config.type) {
             case "click": return new ClickAction(config, cmp);
             case "list": return new ListAction(config, cmp);
@@ -277,7 +275,6 @@ class HideAction extends Action {
         let result = Tools.find(this.config);
 
         if(result.target != null) {
-            console.log("Hiding: ", result.target);
             this.cmp.hiddenTargets.push(result.target);
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }

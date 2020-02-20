@@ -4,8 +4,6 @@ class JsonParser {
     }
 
     static async loadTemplate(tplName, json) {
-        console.log("Loading template:", tplName, json);
-
         let tpl = await loadTemplate(tplName);
 
         let plugs = Array.from(tpl.querySelectorAll("[data-plug]"));
@@ -30,8 +28,6 @@ class JsonParser {
         let bindJson = json[bindName];
 
         if(bindJson != null) {
-            console.log("Value bind: ", valueBind, bindName, json);
-
             if(valueBind.querySelector("input")) {
                 //Setup value inside input
                 let input = valueBind.querySelector("input");
@@ -65,8 +61,6 @@ class JsonParser {
         if (bindName != null) {
             plugJson = json[bindName];
         }
-
-        console.log("Loading plug:", plugType, bindName, plugJson, json);
         if (plugJson != null) {
             if (!(plugJson instanceof Array)) {
                 plugJson = [plugJson];
@@ -82,8 +76,6 @@ class JsonParser {
                 plug.appendChild(tpl);
             }
         } else {
-            console.log("DEBUG null encountered loading plug:", plugType, bindName, json);
-
             if(plugType === "domSelectorChild") {
                 //Insert empty anyways
                 let tpl = await JsonParser.loadTemplate("domSelectorChild", {});

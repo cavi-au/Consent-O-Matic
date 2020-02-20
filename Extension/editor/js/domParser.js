@@ -1,7 +1,5 @@
 class DomParser {
     static async parseDom(dom) {
-        console.log("Parsing DOM:", dom);
-
         if(dom != null) {
             let result = {};
 
@@ -32,8 +30,6 @@ class DomParser {
         let bindName = plugDom.getAttribute("data-bind");
         let multiple = !!plugDom.getAttribute("data-multiple");
 
-        console.log("Parsing Plug:", plugDom, plugType, multiple, json);
-
         let result;
 
         if(multiple) {
@@ -56,8 +52,6 @@ class DomParser {
     }
 
     static async parseValue(valueDom, json) {
-        console.log("Parsing Value:", valueDom, json);
-
         if(valueDom != null) {
             let bindName = valueDom.getAttribute("data-bind");
             let value;

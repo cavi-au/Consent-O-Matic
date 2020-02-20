@@ -29,7 +29,6 @@ class Matcher {
             let correct = shouldMatch === matches;
 
             if (ConsentEngine.debugValues.clickDelay) {
-                console.log("Scrolling into view");
                 blinker.scrollIntoView({
                     behavior: "smooth",
                     block: "center",

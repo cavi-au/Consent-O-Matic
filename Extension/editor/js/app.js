@@ -392,8 +392,6 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
         return;
     }
 
-    console.log(draggable, dropTarget, insertElement);
-
     if (!dropTarget.matches(":empty, [data-multiple='true']")) {
         return;
     }

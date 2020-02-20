@@ -175,14 +175,14 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                        "selector": "#CybotCookiebotDialogBodyButtonAccept",
+                        "displayFilter": true
                     }
                 }
             }
         ],
         "methods": [
             {
-                "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "list",
                     "actions": [
@@ -197,9 +197,7 @@
                             "type": "click",
                             "target": {
                                 "selector": ".cb-button",
-                                "textFilter": [
-                                    "Manage cookies"
-                                ],
+                                "textFilter": "Manage cookies",
                                 "displayFilter": true
                             }
                         },
@@ -211,10 +209,10 @@
                             }
                         }
                     ]
-                }
+                },
+                "name": "OPEN_OPTIONS"
             },
             {
-                "name": "DO_CONSENT",
                 "action": {
                     "type": "list",
                     "actions": [
@@ -222,7 +220,6 @@
                             "type": "consent",
                             "consents": [
                                 {
-                                    "type": "A",
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
@@ -234,10 +231,10 @@
                                         "target": {
                                             "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
                                         }
-                                    }
+                                    },
+                                    "type": "A"
                                 },
                                 {
-                                    "type": "B",
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
@@ -249,10 +246,10 @@
                                         "target": {
                                             "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
                                         }
-                                    }
+                                    },
+                                    "type": "B"
                                 },
                                 {
-                                    "type": "F",
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
@@ -264,25 +261,32 @@
                                         "target": {
                                             "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
                                         }
-                                    }
+                                    },
+                                    "type": "F"
                                 }
                             ]
                         }
                     ]
-                }
+                },
+                "name": "DO_CONSENT"
             },
             {
-                "name": "SAVE_CONSENT",
                 "action": {
                     "type": "list",
                     "actions": [
                         {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyUnderlay"
+                            },
+                            "retries": "2",
+                            "waitTime": "250"
+                        },
+                        {
                             "type": "ifcss",
                             "target": {
                                 "selector": ".dtcookie__accept",
-                                "textFilter": [
-                                    "Select All and Continue"
-                                ]
+                                "textFilter": "Select All and Continue"
                             },
                             "trueAction": {
                                 "type": "click",
@@ -301,9 +305,7 @@
                             "type": "click",
                             "target": {
                                 "selector": ".cb-button",
-                                "textFilter": [
-                                    "Save preferences"
-                                ],
+                                "textFilter": "Save preferences",
                                 "displayFilter": true
                             }
                         },
@@ -311,9 +313,7 @@
                             "type": "click",
                             "target": {
                                 "selector": ".cb-button",
-                                "textFilter": [
-                                    "Done"
-                                ],
+                                "textFilter": "Done",
                                 "displayFilter": true
                             }
                         },
@@ -371,18 +371,17 @@
                                         "target": {
                                             "selector": ".JegFindesIkke"
                                         },
-                                        "retries": 1,
-                                        "waitTime": 500,
-                                        "negated": false
+                                        "retries": "1",
+                                        "waitTime": "500"
                                     }
                                 ]
                             }
                         }
                     ]
-                }
+                },
+                "name": "SAVE_CONSENT"
             },
             {
-                "name": "HIDE_CMP",
                 "action": {
                     "type": "list",
                     "actions": [
@@ -399,7 +398,8 @@
                             }
                         }
                     ]
-                }
+                },
+                "name": "HIDE_CMP"
             }
         ]
     },

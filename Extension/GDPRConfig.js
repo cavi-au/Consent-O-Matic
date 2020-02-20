@@ -164,6 +164,11 @@ class GDPRConfig {
                 "name": "skipHideMethod",
                 "description": "Skips the HIDE_CMP method, to better see whats going on behind the scenes.",
                 "value": debugValues.skipHideMethod
+            },
+            {
+                "name": "debugLog",
+                "description": "Enables extra logging",
+                "value": debugValues.debugLog
             }
         ];
     }
@@ -266,5 +271,6 @@ GDPRConfig.defaultDebugFlags = {
     "paintMatchers": false,
     "debugClicks": false,
     "alwaysForceRulesUpdate": false,
-    "skipHideMethod": false
+    "skipHideMethod": false,
+    "debugLog": false
 }

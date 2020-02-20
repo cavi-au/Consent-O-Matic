@@ -46,7 +46,9 @@ class ConsentEngine {
 
             let cmp = cmps[0];
 
-            console.log("CMP Detected: ", cmp.name);
+            if(ConsentEngine.debugValues.debugLog) {
+                console.log("CMP Detected: ", cmp.name);
+            }
 
             this.triedCMPs.add(cmp.name);
 
@@ -83,7 +85,9 @@ class ConsentEngine {
                         numberOfTries--;
                         setTimeout(checkIsShowing, 250);
                     } else {
-                        console.log("Not showing...", cmp.name);
+                        if(ConsentEngine.debugValues.debugLog) {
+                            console.log("Not showing...", cmp.name);
+                        }
                         self.startObserver();
                         self.handleMutations([]);
                     }
@@ -95,7 +99,9 @@ class ConsentEngine {
     }
 
     showProgressDialog(text) {
-        console.log("Showing progress...");
+        if(ConsentEngine.debugValues.debugLog) {
+            console.log("Showing progress...");
+        }
         this.dialog = document.createElement("dialog");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
         let header = document.createElement("h1");
@@ -113,8 +119,10 @@ class ConsentEngine {
     }
 
     hideProgressDialog() {
-	let self = this;
+    let self = this;
+    if(ConsentEngine.debugValues.debugLog) {
         console.log("Hiding progress...");
+    }
 	this.dialog.classList.add("ConsentOMatic-Progress-Complete");
 	setTimeout(()=>{
             self.dialog.close();
