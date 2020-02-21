@@ -169,13 +169,13 @@
                 "presentMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                        "selector": "#CybotCookiebotDialog"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#CybotCookiebotDialogBodyButtonAccept",
+                        "selector": "#CybotCookiebotDialog",
                         "displayFilter": true
                     }
                 }
