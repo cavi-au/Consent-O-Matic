@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         }
 
         case "AddCustomRule": {
-            let newRule = JSON.parse(message.split("|")[1]);
+            let newRule = JSON.parse(message.substring(message.indexOf("|")+1));
 
             GDPRConfig.getCustomRuleLists().then((customRules)=>{
                 let combinedCustomRules = Object.assign({}, customRules, newRule);
