@@ -456,3 +456,23 @@ async function handleDrop(draggable, dropTarget, hoverElm, type) {
 
     setupDragging();
 }
+
+function combineRules() {
+    chrome.runtime.sendMessage("GetRuleList", (fetchedRules) => {
+        chrome.runtime.sendMessage("GetCustomRuleList", (customRules) => {
+            // Concat rule-lists to engine config in order
+            let config = Object.assign({}, ...fetchedRules, customRules);
+
+            copyToClipboard(JSON.stringify(config, null, 2));
+        });
+    });
+}
+
+function copyToClipboard(str) {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
