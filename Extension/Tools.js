@@ -95,7 +95,9 @@ class Tools {
             return possibleTargets;
         } else {
             if (possibleTargets.length > 1) {
-                console.warn("Multiple possible targets: ", possibleTargets, options, parent);
+                if(ConsentEngine.debugValues.debugLog) {
+                    console.warn("Multiple possible targets: ", possibleTargets, options, parent);
+                }
             }
 
             return possibleTargets[0];
