@@ -3888,9 +3888,7 @@
                   "childFilter": {
                     "target": {
                       "selector": ".category-header",
-                      "textFilter": [
-                        "Performance Cookies"
-                      ]
+                      "textFilter": "Performance Cookies"
                     }
                   },
                   "selector": ".category-item"
@@ -3908,15 +3906,13 @@
                         "childFilter": {
                           "target": {
                             "selector": ".category-header",
-                            "textFilter": [
-                              "Performance Cookies"
-                            ]
+                            "textFilter": "Performance Cookies"
                           }
                         },
                         "selector": ".category-item"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -3925,9 +3921,7 @@
                         "childFilter": {
                           "target": {
                             "selector": ".category-header",
-                            "textFilter": [
-                              "Performance Cookies"
-                            ]
+                            "textFilter": "Performance Cookies"
                           }
                         },
                         "selector": ".category-item"
@@ -3967,7 +3961,7 @@
                         ]
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4014,7 +4008,7 @@
                         ]
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4039,9 +4033,7 @@
               {
                 "parent": {
                   "selector": ".category-item",
-                  "textFilter": [
-                    "Advertising Cookies"
-                  ]
+                  "textFilter": "Advertising Cookies"
                 },
                 "target": {
                   "selector": ".category-menu-switch-handler"
@@ -4054,21 +4046,17 @@
                     "matcher": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Advertising Cookies"
-                        ]
+                        "textFilter": "Advertising Cookies"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
                     "toggleAction": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Advertising Cookies"
-                        ]
+                        "textFilter": "Advertising Cookies"
                       },
                       "target": {
                         "selector": "label"
@@ -4083,9 +4071,7 @@
               {
                 "parent": {
                   "selector": ".category-item",
-                  "textFilter": [
-                    "Social Media Cookies"
-                  ]
+                  "textFilter": "Social Media"
                 },
                 "target": {
                   "selector": ".category-menu-switch-handler"
@@ -4098,21 +4084,17 @@
                     "matcher": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Social Media Cookies"
-                        ]
+                        "textFilter": "Social Media"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
                     "toggleAction": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Social Media Cookies"
-                        ]
+                        "textFilter": "Social Media"
                       },
                       "target": {
                         "selector": "label"
@@ -4127,9 +4109,7 @@
               {
                 "parent": {
                   "selector": ".category-item",
-                  "textFilter": [
-                    "Marketing Cookies"
-                  ]
+                  "textFilter": "Marketing Cookies"
                 },
                 "target": {
                   "selector": ".category-menu-switch-handler"
@@ -4142,21 +4122,17 @@
                     "matcher": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Marketing Cookies"
-                        ]
+                        "textFilter": "Marketing Cookies"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
                     "toggleAction": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Marketing Cookies"
-                        ]
+                        "textFilter": "Marketing Cookies"
                       },
                       "target": {
                         "selector": "label"
@@ -4193,7 +4169,7 @@
                         ]
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4219,7 +4195,9 @@
                 "parent": {
                   "selector": ".category-item",
                   "textFilter": [
-                    "Ad selection, delivery, reporting"
+                    "Ad selection, delivery and reporting",
+                    "Ad selection, delivery, reporting",
+                    "Reklamecookies"
                   ]
                 },
                 "target": {
@@ -4234,11 +4212,13 @@
                       "parent": {
                         "selector": ".category-item",
                         "textFilter": [
-                          "Ad selection, delivery, reporting"
+                          "Ad selection, delivery and reporting",
+                          "Ad selection, delivery, reporting",
+                          "Reklamecookies"
                         ]
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4246,7 +4226,9 @@
                       "parent": {
                         "selector": ".category-item",
                         "textFilter": [
-                          "Ad selection, delivery, reporting"
+                          "Ad selection, delivery and reporting",
+                          "Ad selection, delivery, reporting",
+                          "Reklamecookies"
                         ]
                       },
                       "target": {
@@ -4262,9 +4244,7 @@
               {
                 "parent": {
                   "selector": ".category-item",
-                  "textFilter": [
-                    "Information storage and access"
-                  ]
+                  "textFilter": "Information storage and access"
                 },
                 "target": {
                   "selector": ".category-menu-switch-handler"
@@ -4277,21 +4257,17 @@
                     "matcher": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Information storage and access"
-                        ]
+                        "textFilter": "Information storage and access"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
                     "toggleAction": {
                       "parent": {
                         "selector": ".category-item",
-                        "textFilter": [
-                          "Information storage and access"
-                        ]
+                        "textFilter": "Information storage and access"
                       },
                       "target": {
                         "selector": "label"
@@ -4307,7 +4283,8 @@
                 "parent": {
                   "selector": ".category-item",
                   "textFilter": [
-                    "Content selection, delivery, reporting"
+                    "Content selection, delivery, reporting",
+                    "Content selection, delivery and reporting"
                   ]
                 },
                 "target": {
@@ -4322,11 +4299,12 @@
                       "parent": {
                         "selector": ".category-item",
                         "textFilter": [
-                          "Content selection, delivery, reporting"
+                          "Content selection, delivery, reporting",
+                          "Content selection, delivery and reporting"
                         ]
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4334,7 +4312,8 @@
                       "parent": {
                         "selector": ".category-item",
                         "textFilter": [
-                          "Content selection, delivery, reporting"
+                          "Content selection, delivery, reporting",
+                          "Content selection, delivery and reporting"
                         ]
                       },
                       "target": {
@@ -4352,9 +4331,7 @@
                   "childFilter": {
                     "target": {
                       "selector": ".category-header",
-                      "textFilter": [
-                        "Personalisation"
-                      ]
+                      "textFilter": "Personalisation"
                     }
                   },
                   "selector": ".category-item"
@@ -4372,15 +4349,13 @@
                         "childFilter": {
                           "target": {
                             "selector": ".category-header",
-                            "textFilter": [
-                              "Personalisation"
-                            ]
+                            "textFilter": "Personalisation"
                           }
                         },
                         "selector": ".category-item"
                       },
                       "target": {
-                        "selector": "input"
+                        "selector": "input.category-switch-handler"
                       },
                       "type": "checkbox"
                     },
@@ -4389,9 +4364,7 @@
                         "childFilter": {
                           "target": {
                             "selector": ".category-header",
-                            "textFilter": [
-                              "Personalisation"
-                            ]
+                            "textFilter": "Personalisation"
                           }
                         },
                         "selector": ".category-item"
@@ -4440,14 +4413,12 @@
       "detectors": [
         {
           "presentMatcher": {
-            "parent": null,
             "target": {
               "selector": "#optanon-menu"
             },
             "type": "css"
           },
           "showingMatcher": {
-            "parent": null,
             "target": {
               "displayFilter": true,
               "selector": ".optanon-alert-box-wrapper"
@@ -4530,7 +4501,6 @@
               {
                 "consents": [
                   {
-                    "description": "Performance Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4566,7 +4536,6 @@
               {
                 "consents": [
                   {
-                    "description": "Personalisation Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4602,7 +4571,6 @@
               {
                 "consents": [
                   {
-                    "description": "Advertising Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4638,7 +4606,6 @@
               {
                 "consents": [
                   {
-                    "description": "Social Media Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4675,7 +4642,6 @@
               {
                 "consents": [
                   {
-                    "description": "Social Media Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4712,7 +4678,6 @@
               {
                 "consents": [
                   {
-                    "description": "Personalisation Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4749,7 +4714,6 @@
               {
                 "consents": [
                   {
-                    "description": "Site monitoring cookies Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4786,7 +4750,6 @@
               {
                 "consents": [
                   {
-                    "description": "Third party privacy-enhanced content Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4823,7 +4786,6 @@
               {
                 "consents": [
                   {
-                    "description": "Performance & Advertising Cookies Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4860,7 +4822,6 @@
               {
                 "consents": [
                   {
-                    "description": "Information storage and access Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4897,7 +4858,6 @@
               {
                 "consents": [
                   {
-                    "description": "Ad selection, delivery, reporting Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4934,7 +4894,6 @@
               {
                 "consents": [
                   {
-                    "description": "Content selection, delivery, reporting Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -4971,7 +4930,6 @@
               {
                 "consents": [
                   {
-                    "description": "Measurement cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5008,7 +4966,6 @@
               {
                 "consents": [
                   {
-                    "description": "Recommended Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5045,7 +5002,6 @@
               {
                 "consents": [
                   {
-                    "description": "Unclassified Cookies Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5082,7 +5038,6 @@
               {
                 "consents": [
                   {
-                    "description": "Analytical Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5119,7 +5074,6 @@
               {
                 "consents": [
                   {
-                    "description": "Marketing Cookies Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5156,7 +5110,6 @@
               {
                 "consents": [
                   {
-                    "description": "Personalization Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5193,7 +5146,6 @@
               {
                 "consents": [
                   {
-                    "description": "Ad Selection, Delivery & Reporting Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5230,7 +5182,6 @@
               {
                 "consents": [
                   {
-                    "description": "Content Selection, Delivery & Reporting Cookies",
                     "matcher": {
                       "parent": {
                         "selector": "#optanon-popup-body-right"
@@ -5270,6 +5221,32 @@
             "type": "click"
           },
           "name": "SAVE_CONSENT"
+        },
+        {
+          "action": {
+            "actions": [
+              {
+                "target": {
+                  "selector": "#optanon-popup-wrapper"
+                },
+                "type": "hide"
+              },
+              {
+                "target": {
+                  "selector": "#optanon-popup-bg"
+                },
+                "type": "hide"
+              },
+              {
+                "target": {
+                  "selector": ".optanon-alert-box-wrapper"
+                },
+                "type": "hide"
+              }
+            ],
+            "type": "list"
+          },
+          "name": "HIDE_CMP"
         }
       ]
     },
@@ -6398,14 +6375,12 @@
       "detectors": [
         {
           "presentMatcher": {
-            "parent": null,
             "target": {
               "selector": "html.w-mod-js .privacy-container"
             },
             "type": "css"
           },
           "showingMatcher": {
-            "parent": null,
             "target": {
               "selector": "html.w-mod-js .privacy-container"
             },
@@ -6418,84 +6393,451 @@
           "action": {
             "actions": [
               {
-                "consents": [
-                  {
-                    "matcher": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#personalisation[value='ON']"
+                "falseAction": {
+                  "consents": [
+                    {
+                      "matcher": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#personalisation[value='ON']"
+                        },
+                        "type": "css"
                       },
-                      "type": "css"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#personalisation"
+                      "toggleAction": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#personalisation"
+                        },
+                        "type": "click"
                       },
-                      "type": "click"
+                      "type": "E"
                     },
-                    "type": "E"
+                    {
+                      "matcher": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#ad-selection-delivery-reporting[value='ON']"
+                        },
+                        "type": "css"
+                      },
+                      "toggleAction": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#ad-selection-delivery-reporting"
+                        },
+                        "type": "click"
+                      },
+                      "type": "F"
+                    },
+                    {
+                      "matcher": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#measurement[value='ON']"
+                        },
+                        "type": "css"
+                      },
+                      "toggleAction": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#measurement"
+                        },
+                        "type": "click"
+                      },
+                      "type": "B"
+                    },
+                    {
+                      "matcher": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#information-storage-andaaccess[value='ON']"
+                        },
+                        "type": "css"
+                      },
+                      "toggleAction": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#information-storage-andaaccess"
+                        },
+                        "type": "click"
+                      },
+                      "type": "D"
+                    },
+                    {
+                      "matcher": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#content-sselection-delivery-reporting[value='ON']"
+                        },
+                        "type": "css"
+                      },
+                      "toggleAction": {
+                        "target": {
+                          "selector": ".priv-purpose-container a#content-sselection-delivery-reporting"
+                        },
+                        "type": "click"
+                      },
+                      "type": "E"
+                    }
+                  ],
+                  "type": "consent"
+                },
+                "target": {
+                  "selector": ".priv-vendor-block"
+                },
+                "trueAction": {
+                  "action": {
+                    "actions": [
+                      {
+                        "target": {
+                          "selector": ".purpose-title",
+                          "textFilter": [
+                            "Opbevaring af og adgang til oplysninger",
+                            "Information storage and access"
+                          ]
+                        },
+                        "trueAction": {
+                          "falseAction": {
+                            "consents": [
+                              {
+                                "falseAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "off"
+                                  },
+                                  "type": "click"
+                                },
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.neutral.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "trueAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "on"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "D"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "target": {
+                            "selector": "a.switch-bg"
+                          },
+                          "trueAction": {
+                            "consents": [
+                              {
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.switch-bg.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "toggleAction": {
+                                  "target": {
+                                    "selector": "a.switch-bg"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "D"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "type": "ifcss"
+                        },
+                        "type": "ifcss"
+                      },
+                      {
+                        "target": {
+                          "selector": ".purpose-title",
+                          "textFilter": [
+                            "Personalisering",
+                            "Personalisation"
+                          ]
+                        },
+                        "trueAction": {
+                          "falseAction": {
+                            "consents": [
+                              {
+                                "falseAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "off"
+                                  },
+                                  "type": "click"
+                                },
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.neutral.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "trueAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "on"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "F"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "target": {
+                            "selector": "a.switch-bg"
+                          },
+                          "trueAction": {
+                            "consents": [
+                              {
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.switch-bg.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "toggleAction": {
+                                  "target": {
+                                    "selector": "a.switch-bg"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "F"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "type": "ifcss"
+                        },
+                        "type": "ifcss"
+                      },
+                      {
+                        "target": {
+                          "selector": ".purpose-title",
+                          "textFilter": [
+                            "Annoncevalg, levering og rapportering",
+                            "Ad selection, delivery, reporting"
+                          ]
+                        },
+                        "trueAction": {
+                          "falseAction": {
+                            "consents": [
+                              {
+                                "falseAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "off"
+                                  },
+                                  "type": "click"
+                                },
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.neutral.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "trueAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "on"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "F"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "target": {
+                            "selector": "a.switch-bg"
+                          },
+                          "trueAction": {
+                            "consents": [
+                              {
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.switch-bg.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "toggleAction": {
+                                  "target": {
+                                    "selector": "a.switch-bg"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "F"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "type": "ifcss"
+                        },
+                        "type": "ifcss"
+                      },
+                      {
+                        "target": {
+                          "selector": ".purpose-title",
+                          "textFilter": [
+                            "Måling",
+                            "Measurement"
+                          ]
+                        },
+                        "trueAction": {
+                          "falseAction": {
+                            "consents": [
+                              {
+                                "falseAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "off"
+                                  },
+                                  "type": "click"
+                                },
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.neutral.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "trueAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "on"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "B"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "target": {
+                            "selector": "a.switch-bg"
+                          },
+                          "trueAction": {
+                            "consents": [
+                              {
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.switch-bg.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "toggleAction": {
+                                  "target": {
+                                    "selector": "a.switch-bg"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "B"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "type": "ifcss"
+                        },
+                        "type": "ifcss"
+                      },
+                      {
+                        "target": {
+                          "selector": ".purpose-title",
+                          "textFilter": [
+                            "Indholdsvalg, levering og rapportering",
+                            "Content selection, delivery, reporting"
+                          ]
+                        },
+                        "trueAction": {
+                          "falseAction": {
+                            "consents": [
+                              {
+                                "falseAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "off"
+                                  },
+                                  "type": "click"
+                                },
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.neutral.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "trueAction": {
+                                  "parent": {
+                                    "selector": "a.neutral"
+                                  },
+                                  "target": {
+                                    "selector": "div",
+                                    "textFilter": "on"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "E"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "target": {
+                            "selector": "a.switch-bg"
+                          },
+                          "trueAction": {
+                            "consents": [
+                              {
+                                "matcher": {
+                                  "target": {
+                                    "selector": "a.switch-bg.on"
+                                  },
+                                  "type": "css"
+                                },
+                                "toggleAction": {
+                                  "target": {
+                                    "selector": "a.switch-bg"
+                                  },
+                                  "type": "click"
+                                },
+                                "type": "E"
+                              }
+                            ],
+                            "type": "consent"
+                          },
+                          "type": "ifcss"
+                        },
+                        "type": "ifcss"
+                      }
+                    ],
+                    "type": "list"
                   },
-                  {
-                    "matcher": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#ad-selection-delivery-reporting[value='ON']"
-                      },
-                      "type": "css"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#ad-selection-delivery-reporting"
-                      },
-                      "type": "click"
-                    },
-                    "type": "F"
+                  "target": {
+                    "selector": ".priv-vendor-block .accordian-parent"
                   },
-                  {
-                    "matcher": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#measurement[value='ON']"
-                      },
-                      "type": "css"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#measurement"
-                      },
-                      "type": "click"
-                    },
-                    "type": "B"
-                  },
-                  {
-                    "matcher": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#information-storage-andaaccess[value='ON']"
-                      },
-                      "type": "css"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#information-storage-andaaccess"
-                      },
-                      "type": "click"
-                    },
-                    "type": "D"
-                  },
-                  {
-                    "matcher": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#content-sselection-delivery-reporting[value='ON']"
-                      },
-                      "type": "css"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": ".priv-purpose-container a#content-sselection-delivery-reporting"
-                      },
-                      "type": "click"
-                    },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                  "type": "foreach"
+                },
+                "type": "ifcss"
               }
             ],
             "type": "list"
@@ -6510,6 +6852,18 @@
             "type": "click"
           },
           "name": "SAVE_CONSENT"
+        },
+        {
+          "action": {
+            "target": {
+              "selector": ".bg-overlay"
+            },
+            "type": "hide"
+          },
+          "name": "HIDE_CMP"
+        },
+        {
+          "name": "OPEN_OPTIONS"
         }
       ]
     },
@@ -7903,7 +8257,7 @@
         }
       ]
     },
-    "ekstrabladet": {
+    "sourcepointpopup": {
       "detectors": [
         {
           "presentMatcher": {
@@ -7929,7 +8283,10 @@
           "action": {
             "target": {
               "selector": ".message-button",
-              "textFilter": "Ret indstillinger"
+              "textFilter": [
+                "Ret indstillinger",
+                "Cookie Settings"
+              ]
             },
             "type": "click"
           },
