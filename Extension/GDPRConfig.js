@@ -41,7 +41,7 @@ class GDPRConfig {
 
     static getCustomRuleLists() {
         return new Promise((resolve, reject) => {
-            chrome.storage.sync.get({
+            chrome.storage.local.get({
                 customRuleLists: {}
             }, (result) => {
                 resolve(result.customRuleLists);
@@ -51,7 +51,7 @@ class GDPRConfig {
 
     static setCustomRuleLists(lists) {
         return new Promise((resolve, reject) => {
-            chrome.storage.sync.set({
+            chrome.storage.local.set({
                 customRuleLists: lists
             }, () => {
                 resolve();
