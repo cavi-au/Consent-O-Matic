@@ -4496,33 +4496,47 @@
                 "target": {
                   "selector": ".menu-item-performance"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-performance"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4531,33 +4545,47 @@
                 "target": {
                   "selector": ".menu-item-functional"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-functional"
                       },
                       "type": "click"
                     },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "E"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4566,33 +4594,47 @@
                 "target": {
                   "selector": ".menu-item-advertising"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-advertising"
                       },
                       "type": "click"
                     },
-                    "type": "F"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "F"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4601,33 +4643,47 @@
                 "target": {
                   "selector": ".menu-item-social"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-social"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4637,33 +4693,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Social Media Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Social Media Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4673,33 +4744,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Personalisation"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Personalisation"
                       },
                       "type": "click"
                     },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "E"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4709,33 +4795,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Site monitoring cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Site monitoring cookies"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4745,33 +4846,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Third party privacy-enhanced content"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Third party privacy-enhanced content"
                       },
                       "type": "click"
                     },
-                    "type": "X"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "X"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4781,33 +4897,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Performance & Advertising Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Performance & Advertising Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "F"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "F"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4817,33 +4948,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Information storage and access"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Information storage and access"
                       },
                       "type": "click"
                     },
-                    "type": "D"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "D"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4853,33 +4999,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Ad selection, delivery, reporting"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Ad selection, delivery, reporting"
                       },
                       "type": "click"
                     },
-                    "type": "F"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "F"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4889,33 +5050,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Content selection, delivery, reporting"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Content selection, delivery, reporting"
                       },
                       "type": "click"
                     },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "E"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4925,33 +5101,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Measurement"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Measurement"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4961,33 +5152,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Recommended Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Recommended Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "X"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "X"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -4997,33 +5203,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Unclassified Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Unclassified Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "X"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "X"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -5033,33 +5254,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Analytical Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Analytical Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "B"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "B"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -5069,33 +5305,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Marketing Cookies"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Marketing Cookies"
                       },
                       "type": "click"
                     },
-                    "type": "F"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "F"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -5105,33 +5356,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Personalization"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Personalization"
                       },
                       "type": "click"
                     },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "E"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -5141,33 +5407,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Ad Selection, Delivery & Reporting"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Ad Selection, Delivery & Reporting"
                       },
                       "type": "click"
                     },
-                    "type": "F"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "F"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               },
               {
                 "parent": {
@@ -5177,33 +5458,48 @@
                   "selector": ".menu-item-necessary",
                   "textFilter": "Content Selection, Delivery & Reporting"
                 },
-                "type": "click"
-              },
-              {
-                "consents": [
-                  {
-                    "matcher": {
+                "trueAction": {
+                  "actions": [
+                    {
                       "parent": {
-                        "selector": "#optanon-popup-body-right"
+                        "selector": "#optanon-menu, .optanon-menu"
                       },
                       "target": {
-                        "selector": ".optanon-status input"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "parent": {
-                        "selector": "#optanon-popup-body-right"
-                      },
-                      "target": {
-                        "selector": ".optanon-status label"
+                        "selector": ".menu-item-necessary",
+                        "textFilter": "Content Selection, Delivery & Reporting"
                       },
                       "type": "click"
                     },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
+                    {
+                      "consents": [
+                        {
+                          "matcher": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status input"
+                            },
+                            "type": "checkbox"
+                          },
+                          "toggleAction": {
+                            "parent": {
+                              "selector": "#optanon-popup-body-right"
+                            },
+                            "target": {
+                              "selector": ".optanon-status label"
+                            },
+                            "type": "click"
+                          },
+                          "type": "E"
+                        }
+                      ],
+                      "type": "consent"
+                    }
+                  ],
+                  "type": "list"
+                },
+                "type": "ifcss"
               }
             ],
             "type": "list"
@@ -6867,6 +7163,49 @@
         }
       ]
     },
+    "sourcepointpopup": {
+      "detectors": [
+        {
+          "presentMatcher": {
+            "target": {
+              "iframeFilter": true,
+              "selector": ".message-container .message.type-modal"
+            },
+            "type": "css"
+          },
+          "showingMatcher": {
+            "target": {
+              "selector": ".message-container .message.type-modal"
+            },
+            "type": "css"
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "HIDE_CMP"
+        },
+        {
+          "action": {
+            "target": {
+              "selector": ".message-button",
+              "textFilter": [
+                "Ret indstillinger",
+                "Cookie Settings"
+              ]
+            },
+            "type": "click"
+          },
+          "name": "OPEN_OPTIONS"
+        },
+        {
+          "name": "DO_CONSENT"
+        },
+        {
+          "name": "SAVE_CONSENT"
+        }
+      ]
+    },
     "tealium.com": {
       "detectors": [
         {
@@ -8253,49 +8592,6 @@
             },
             "type": "click"
           },
-          "name": "SAVE_CONSENT"
-        }
-      ]
-    },
-    "sourcepointpopup": {
-      "detectors": [
-        {
-          "presentMatcher": {
-            "target": {
-              "iframeFilter": true,
-              "selector": ".message-container .message.type-modal"
-            },
-            "type": "css"
-          },
-          "showingMatcher": {
-            "target": {
-              "selector": ".message-container .message.type-modal"
-            },
-            "type": "css"
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "HIDE_CMP"
-        },
-        {
-          "action": {
-            "target": {
-              "selector": ".message-button",
-              "textFilter": [
-                "Ret indstillinger",
-                "Cookie Settings"
-              ]
-            },
-            "type": "click"
-          },
-          "name": "OPEN_OPTIONS"
-        },
-        {
-          "name": "DO_CONSENT"
-        },
-        {
           "name": "SAVE_CONSENT"
         }
       ]
