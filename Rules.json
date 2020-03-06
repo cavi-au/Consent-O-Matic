@@ -7197,7 +7197,8 @@
               "selector": ".message-button",
               "textFilter": [
                 "Ret indstillinger",
-                "Cookie Settings"
+                "Cookie Settings",
+                "Voir les paramètres"
               ]
             },
             "type": "click"
