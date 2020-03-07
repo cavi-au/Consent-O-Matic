@@ -8602,5 +8602,151 @@
           "name": "SAVE_CONSENT"
         }
       ]
+    },
+    "chandago": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#ac-Banner"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#ac-Banner._acc_visible"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#ac-Banner button._acc_configure",
+                        "textFilter": "Configurer"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "retries": 50,
+                            "target": {
+                                "selector": "#ac_notice._acc_visible"
+                            },
+                            "type": "waitcss",
+                            "waitTime": 10
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "description": "Information storage and access",
+                                    "falseAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='1'] .i-ko"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "trueAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='1'] .i-ok"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "description": "Preferences and Functionality",
+                                    "falseAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='2'] .i-ko"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "trueAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='2'] .i-ok"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "description": "Ad selection, delivery, reporting",
+                                    "falseAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='3'] .i-ko"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "trueAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='3'] .i-ok"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "description": "Content selection, delivery, reporting",
+                                    "falseAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='4'] .i-ko"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "trueAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='4'] .i-ok"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "description": "Measurement",
+                                    "falseAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='5'] .i-ko"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "trueAction": {
+                                        "target": {
+                                            "selector": "._acc_box[data-usage='5'] .i-ok"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": "._acc_next  ",
+                        "textFilter": "Enregistrer"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
     }
-  }
+}
