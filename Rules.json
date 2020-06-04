@@ -4470,7 +4470,7 @@
         {
           "presentMatcher": {
             "target": {
-              "selector": "#optanon-menu"
+              "selector": "#optanon-menu, .optanon-alert-box-wrapper"
             },
             "type": "css"
           },
