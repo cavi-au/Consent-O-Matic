@@ -173,3 +173,7 @@ document.querySelector("#clearLog").addEventListener("click", ()=>{
 document.querySelector("#rulesEditor").addEventListener("click", ()=>{
 	location.href = "/editor/index.html";
 });
+
+window.setInterval(function(){
+    updateLog();
+}, 5000);
