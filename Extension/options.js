@@ -16,6 +16,7 @@ document.querySelector(".header .menuitem.rules").addEventListener("click", func
 document.querySelector(".header .menuitem.log").addEventListener("click", function (evt) {
 	tabChanged(this);
 	document.querySelector(".tab_log").style.display = "block";
+	updateLog();
 });
 document.querySelector(".header .menuitem.debug").addEventListener("click", function (evt) {
 	tabChanged(this);
@@ -172,3 +173,7 @@ document.querySelector("#clearLog").addEventListener("click", ()=>{
 document.querySelector("#rulesEditor").addEventListener("click", ()=>{
 	location.href = "/editor/index.html";
 });
+
+window.setInterval(function(){
+    updateLog();
+}, 5000);
