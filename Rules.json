@@ -9128,5 +9128,61 @@
                 "name": "SAVE_CONSENT"
             }
         ]
+    },
+    "springer": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".cmp-app_gdpr"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".cmp-popup_popup"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".cmp-intro_rejectAll"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": 250
+                        },
+                        {
+                            "target": {
+                                "selector": ".cmp-purposes_purposeItem:not(.cmp-purposes_selectedPurpose)"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".cmp-details_save"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
     }
 }
