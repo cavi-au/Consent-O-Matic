@@ -3066,7 +3066,41 @@
                   }
                 ],
                 "type": "consent"
-              }
+              },
+                {
+                    "action": {
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ":not(.didomi-components-radio__option--selected)"
+                                        }
+                                    },
+                                    "type": "css"
+                                },
+                                "trueAction": {
+                                    "target": {
+                                        "selector": ":nth-child(2)"
+                                    },
+                                    "type": "click"
+                                },
+                                "falseAction": {
+                                    "target": {
+                                        "selector": ":first-child"
+                                    },
+                                    "type": "click"
+                                },
+                                "type": "X"
+                            }
+                        ],
+                        "type": "consent"
+                    },
+                    "target": {
+                        "selector": ".didomi-components-radio"
+                    },
+                    "type": "foreach"
+                }
             ],
             "type": "list"
           },
