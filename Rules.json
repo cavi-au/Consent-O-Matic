@@ -3017,6 +3017,22 @@
                     "type": "A"
                   },
                   {
+                    "description": "Social networks",
+                    "falseAction": {
+                      "target": {
+                        "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-social_media]:first-child"
+                      },
+                      "type": "click"
+                    },
+                    "trueAction": {
+                      "target": {
+                        "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-social_media]:last-child"
+                      },
+                      "type": "click"
+                    },
+                    "type": "A"
+                  },
+                  {
                     "description": "Content selection",
                     "falseAction": {
                       "target": {
