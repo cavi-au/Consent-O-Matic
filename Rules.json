@@ -3653,7 +3653,7 @@
                 "name": "HIDE_CMP"
             }
         ]
-    }    
+    },
     "oil": {
       "detectors": [
         {
