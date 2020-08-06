@@ -3541,123 +3541,119 @@
       ]
     },
     "lemonde.fr": {
-      "detectors": [
-        {
-          "presentMatcher": {
-            "parent": null,
-            "target": {
-              "selector": "#cmp-container-id, .main--cmp"
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cmp-container-id, .main--cmp"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookie-banner, .main--cmp"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".message__cookie-settings, .main--cmp"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
             },
-            "type": "css"
-          },
-          "showingMatcher": {
-            "parent": null,
-            "target": {
-              "selector": "#cookie-banner, .main--cmp"
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-analytics"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-analytics"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-socials"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-socials"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-ads"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-ads"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cmp-customization"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cmp-customization"
+                                        }
+                                    },
+                                    "type": "E"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
             },
-            "type": "css"
-          }
-        }
-      ],
-      "methods": [
-        {
-          "action": {
-            "target": {
-              "selector": ".message__cookie-settings, .main--cmp"
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#validate"
+                    }
+                },
+                "name": "SAVE_CONSENT"
             },
-            "type": "click"
-          },
-          "name": "OPEN_OPTIONS"
-        },
-        {
-          "action": {
-            "actions": [
-              {
-                "consents": [
-                  {
-                    "description": "Analytics",
-                    "matcher": {
-                      "target": {
-                        "selector": "#cmp-analytics"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": "#cmp-analytics"
-                      },
-                      "type": "click"
-                    },
-                    "type": "B"
-                  },
-                  {
-                    "description": "Social networks and associated ads selection",
-                    "matcher": {
-                      "target": {
-                        "selector": "#cmp-socials"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": "#cmp-socials"
-                      },
-                      "type": "click"
-                    },
-                    "type": "F"
-                  },
-                  {
-                    "description": "Ads selection",
-                    "matcher": {
-                      "target": {
-                        "selector": "#cmp-ads"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": "#cmp-ads"
-                      },
-                      "type": "click"
-                    },
-                    "type": "F"
-                  },
-                  {
-                    "description": "Customizations",
-                    "matcher": {
-                      "target": {
-                        "selector": "#cmp-customization"
-                      },
-                      "type": "checkbox"
-                    },
-                    "toggleAction": {
-                      "target": {
-                        "selector": "#cmp-customization"
-                      },
-                      "type": "click"
-                    },
-                    "type": "E"
-                  }
-                ],
-                "type": "consent"
-              }
-            ],
-            "type": "list"
-          },
-          "name": "DO_CONSENT"
-        },
-        {
-          "action": {
-            "parent": null,
-            "target": {
-              "selector": "#validate"
-            },
-            "type": "click"
-          },
-          "name": "SAVE_CONSENT"
-        }
-      ]
-    },
+            {
+                "name": "HIDE_CMP"
+            }
+        ]
+    }    
     "oil": {
       "detectors": [
         {
