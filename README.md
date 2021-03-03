@@ -1,6 +1,9 @@
 # Consent-O-Matic
 
 * [Introduction](#introduction)
+* [Further reading](#further-reading)
+* [Which CMPs can it autofill?](#which-cmps-can-it-autofill?)
+* [Extending Consent-O-Matic](#extending-consent-o-matic)
 * [Basic Structure](#basic-structure)
     * [Detectors](#detectors)
     * [Methods](#methods)
@@ -24,6 +27,65 @@
 * [Full example](#full-example)
 
 ## Introduction
+
+You like websites to respect your right to privacy, and your browser clears cookies when you close it.
+Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you got tired of submitting the same information over and over. If only there was a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
+
+Consent-O-Matic is a browser extension that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+
+And since, it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help.) to make the extension even easier for others to use.
+
+### Further reading
+
+Paper: [Dark Patterns After the GPDR](https://doi.org/10.1145/3313831.3376321)
+
+PDF: [Dark Patterns After the GPDR](https://arxiv.org/pdf/2001.02479.pdf)
+
+Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)
+
+## Which CMPs can it autofill?
+
+Consent-O-Matic currently works with these CMPs:
+
+* Autodesk
+* EvidonBanner
+* EvidonIFrame
+* consentmanager.net
+* cookieLab
+* cookiebar
+* cookiebot
+* cookiecontrolcivic
+* cookieinformation
+* didomi.io
+* ez-cookie
+* future
+* ikeaToast
+* lemonde.fr
+* oil
+* onetrust
+* optanon
+* optanon-alternative
+* quantcast
+* quantcast2
+* sharethis
+* sourcepoint
+* sourcepointframe
+* sourcepointpopup
+* tealium.com
+* theGuardian
+* trustarcbar
+* trustarcframe
+* umf.dk
+* uniconsent
+* wordpressgdpr
+* chandago
+* SFR
+* Webedia
+* springer
+
+## Extending Consent-O-Matic
+
+If your favorite CMP is missing from the current list, feel free to either create a custom list that you can add (click the extension icon in your browser, click "More add-on settings", click "Rule lists", and enter the URL of your custom list.). If you **really** want to want to contribute, feel free to create a Pull Request while you're at it.
 
 ## Basic Structure
 
