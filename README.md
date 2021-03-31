@@ -2,7 +2,7 @@
 
 * [Introduction](#introduction)
 * [Further reading](#further-reading)
-* [Which CMPs can it autofill?](#which-cmps-can-it-autofill)
+* [Compatible CMPs](#compatible-cmps)
 * [Extending Consent-O-Matic](#extending-consent-o-matic)
 * [Basic Structure](#basic-structure)
     * [Detectors](#detectors)
@@ -43,7 +43,7 @@ PDF: [Dark Patterns After the GPDR](https://arxiv.org/pdf/2001.02479.pdf)
 
 Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)
 
-## Which CMPs can it autofill
+## Compatible CMPs
 
 Consent-O-Matic currently works with these CMPs:
 
