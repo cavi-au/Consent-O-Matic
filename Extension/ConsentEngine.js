@@ -102,7 +102,9 @@ class ConsentEngine {
         if(ConsentEngine.debugValues.debugLog) {
             console.log("Showing progress...");
         }
-        this.dialog = document.createElement("dialog");
+        this.modal = document.createElement("div");
+        this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
+        this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
         let header = document.createElement("h1");
         let contents = document.createElement("p");
@@ -110,24 +112,24 @@ class ConsentEngine {
         contents.innerText = text;
         this.dialog.appendChild(header);
         this.dialog.appendChild(contents);
-        dialogPolyfill.registerDialog(this.dialog);
         document.body.appendChild(this.dialog);
-        this.dialog.showModal();
-	setTimeout(()=>{
-	    this.dialog.classList.add("ConsentOMatic-Progress-Started");
-	}, 0);
+        document.body.appendChild(this.modal);
+        setTimeout(()=>{
+            this.dialog.classList.add("ConsentOMatic-Progress-Started");
+        }, 0);
     }
 
     hideProgressDialog() {
-    let self = this;
-    if(ConsentEngine.debugValues.debugLog) {
-        console.log("Hiding progress...");
-    }
-	this.dialog.classList.add("ConsentOMatic-Progress-Complete");
-	setTimeout(()=>{
-            self.dialog.close();
-            document.body.removeChild(self.dialog);
-	},1000);
+        let self = this;
+        if(ConsentEngine.debugValues.debugLog) {
+            console.log("Hiding progress...");
+        }
+        this.dialog.classList.add("ConsentOMatic-Progress-Complete");
+        setTimeout(()=>{
+            self.modal.remove();
+            self.dialog.remove();
+            self.dialog = null;
+        },1000);
     }
 
     setupObserver() {
