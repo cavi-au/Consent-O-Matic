@@ -11,7 +11,27 @@
     }
 }
 
+.ConsentOMatic-Progress-Dialog-Modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 9999998;
+    opacity: 0.5;
+}
+
 .ConsentOMatic-Progress-Dialog {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 20em;
+    height: 5em;
+    margin: auto;
+    margin-top: -4rem;
+    z-index: 9999999;
+    
     border: 0;
     box-shadow: 0 0 3rem black;
     background: #00309a;
@@ -24,10 +44,7 @@
     position: fixed;
     overflow: hidden;
     top: 0%;
-    margin-right: 2rem;
-    margin-left: auto;
     padding: 1rem;
-    margin-top: -4rem;
     opacity: 0;
     user-select: none;
     animation-name: consentomatic-progressAnimation;
