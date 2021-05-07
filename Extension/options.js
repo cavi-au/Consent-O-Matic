@@ -151,11 +151,7 @@ function updateLog() {
 		logEntries.forEach((entry)=>{
 			let li = document.createElement("li");
 			
-			li.innerText = new Date(entry.timestamp).toLocaleDateString(undefined, {
-				dateStyle : "medium",
-				timeStyle: "short"
-				
-			}) + " - ["+entry.cmp+"] - "+entry.page;
+			li.innerText = new Date(entry.timestamp).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12: false, hour: '2-digit', minute: '2-digit' }) + " - ["+entry.cmp+"] - "+entry.page;
 
 			logUL.append(li);
 		})
