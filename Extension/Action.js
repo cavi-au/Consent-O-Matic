@@ -188,7 +188,9 @@ class WaitCssAction extends Action {
             negated = self.config.negated;
         }
 
-        console.time("Waiting ["+negated+"]:"+this.config.target.selector);
+		if(ConsentEngine.debugValues.debugClicks) {
+			console.time("Waiting ["+negated+"]:"+this.config.target.selector);
+		}
 
         await new Promise((resolve)=>{
             let numRetries = 10;
