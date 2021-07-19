@@ -31,7 +31,7 @@
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
 Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you got tired of submitting the same information over and over. If only there was a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
 
-Consent-O-Matic is a browser extension that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+Consent-O-Matic is a browser extension (available for [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) and [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/)) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
 
 And since, it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help.) to make the extension even easier for others to use.
 
