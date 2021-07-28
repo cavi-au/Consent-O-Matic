@@ -41,7 +41,7 @@ Paper: [Dark Patterns After the GPDR](https://doi.org/10.1145/3313831.3376321)
 
 PDF: [Dark Patterns After the GPDR](https://arxiv.org/pdf/2001.02479.pdf)
 
-Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)
+Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
 
 ## Compatible CMPs
 
