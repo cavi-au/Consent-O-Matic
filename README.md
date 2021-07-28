@@ -2,7 +2,7 @@
 
 * [Introduction](#introduction)
 * [Further reading](#further-reading)
-* [Which CMPs can it autofill?](#which-cmps-can-it-autofill?)
+* [Compatible CMPs](#compatible-cmps)
 * [Extending Consent-O-Matic](#extending-consent-o-matic)
 * [Basic Structure](#basic-structure)
     * [Detectors](#detectors)
@@ -41,9 +41,9 @@ Paper: [Dark Patterns After the GPDR](https://doi.org/10.1145/3313831.3376321)
 
 PDF: [Dark Patterns After the GPDR](https://arxiv.org/pdf/2001.02479.pdf)
 
-Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)
+Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
 
-## Which CMPs can it autofill?
+## Compatible CMPs
 
 Consent-O-Matic currently works with these CMPs:
 
@@ -57,6 +57,7 @@ Consent-O-Matic currently works with these CMPs:
 * cookiecontrolcivic
 * cookieinformation
 * didomi.io
+* dr.dk
 * ez-cookie
 * future
 * ikeaToast
