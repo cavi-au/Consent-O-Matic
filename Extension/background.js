@@ -75,7 +75,7 @@ function setBadgeCheckmark(enabled, id) {
     let text = "";
 
     if(enabled) {
-        text = "✓";
+        text = "\u2714";
     }
 
     chrome.browserAction.setBadgeText({
