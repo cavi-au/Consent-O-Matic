@@ -2,7 +2,7 @@
 
 * [Introduction](#introduction)
 * [Further reading](#further-reading)
-* [Which CMPs can it autofill?](#which-cmps-can-it-autofill?)
+* [Compatible CMPs](#compatible-cmps)
 * [Extending Consent-O-Matic](#extending-consent-o-matic)
 * [Basic Structure](#basic-structure)
     * [Detectors](#detectors)
@@ -31,19 +31,19 @@
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
 Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you got tired of submitting the same information over and over. If only there was a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
 
-Consent-O-Matic is a browser extension that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+Consent-O-Matic is a browser extension (available for [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd), [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/), Edge and Safari on iOS/MacOS) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
 
 And since, it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help.) to make the extension even easier for others to use.
 
 ### Further reading
 
-Paper: [Dark Patterns After the GPDR](https://doi.org/10.1145/3313831.3376321)
+Paper: [Dark Patterns After the GDPR](https://doi.org/10.1145/3313831.3376321)
 
-PDF: [Dark Patterns After the GPDR](https://arxiv.org/pdf/2001.02479.pdf)
+PDF: [Dark Patterns After the GDPR](https://arxiv.org/pdf/2001.02479.pdf)
 
-Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)
+Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
 
-## Which CMPs can it autofill?
+## Compatible CMPs
 
 Consent-O-Matic currently works with these CMPs:
 
@@ -57,6 +57,7 @@ Consent-O-Matic currently works with these CMPs:
 * cookiecontrolcivic
 * cookieinformation
 * didomi.io
+* dr.dk
 * ez-cookie
 * future
 * ikeaToast
