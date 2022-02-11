@@ -137,37 +137,37 @@ class GDPRConfig {
         return [
             {
                 "name": "clickDelay",
-                "description": "Wait a short time between performing each action or mouse gesture",
+                "description": Language.getString("CLICK_DELAY_DESCRIPTION"),
                 "value": debugValues.clickDelay
             },
             {
                 "name": "skipSubmit",
-                "description": "Perform actions normally but avoid submitting the form when done",
+                "description": Language.getString("SKIP_SUBMIT_DESCRIPTION"),
                 "value": debugValues.skipSubmit
             },
             {
                 "name": "paintMatchers",
-                "description": "Visual feedback while matching items in the form",
+                "description": Language.getString("PAINT_MATCHERS_DESCRIPTION"),
                 "value": debugValues.paintMatchers
             },
             {
                 "name": "debugClicks",
-                "description": "Debug clicks to the log",
+                "description": Language.getString("DEBUG_CLICKS_DESCRIPTION"),
                 "value": debugValues.debugClicks
             },
             {
                 "name": "alwaysForceRulesUpdate",
-                "description": "Always force a reload of the rules on each load",
+                "description": Language.getString("ALWAYS_FORCE_UPDATE_DESCRIPTION"),
                 "value": debugValues.alwaysForceRulesUpdate
             },
             {
                 "name": "skipHideMethod",
-                "description": "Skips the HIDE_CMP method, to better see whats going on behind the scenes.",
+                "description": Language.getString("SKIP_HIDE_DESCRIPTION"),
                 "value": debugValues.skipHideMethod
             },
             {
                 "name": "debugLog",
-                "description": "Enables extra logging",
+                "description": Language.getString("EXTRA_DEBUG_DESCRIPTION"),
                 "value": debugValues.debugLog
             }
         ];
@@ -178,38 +178,38 @@ class GDPRConfig {
 
         return [
             {
-                "name": "Information Storage and Access",
-                "description": "Storage of information or access to information that is already stored on your device - such as advertising identifiers, device identifiers, cookies, and similar technologies.",
+                "name": Language.getString("INFORMATION_NAME"),
+                "description": Language.getString("INFORMATION_DESCRIPTION"),
                 "type": "D",
                 "value": consentValues.D
             },
             {
-                "name": "Preferences and Functionality",
-                "description": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites.",
+                "name": Language.getString("PREFERENCES_NAME"),
+                "description": Language.getString("PREFERENCES_DESCRIPTION"),
                 "type": "A",
                 "value": consentValues.A
             },
             {
-                "name": "Performance and Analytics",
-                "description": "The collection of information, and combination with previously collected information, to measure, understand, and report, on your usage of the services. This allows websites to count visits and traffic sources so they can measure and improve the performance of the site. It helps them know which pages are the most and least popular, see how visitors move around the site, and where visitors come from.",
+                "name": Language.getString("PERFORMANCE_NAME"),
+                "description": Language.getString("PERFORMANCE_DESCRIPTION"),
                 "type": "B",
                 "value": consentValues.B
             },
             {
-                "name": "Content selection, delivery, and reporting",
-                "description": "Collection of information, and combination with previously collected information, to select and deliver <b>content</b> for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what content was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.",
+                "name": Language.getString("CONTENT_NAME"),
+                "description": Language.getString("CONTENT_DESCRIPTION"),
                 "type": "E",
                 "value": consentValues.E
             },
             {
-                "name": "Ad selection, delivery, and reporting",
-                "description": "Collection of information, and combination with previously collected information, to select and deliver <b>advertisements</b>, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what advertisements were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google",
+                "name": Language.getString("AD_NAME"),
+                "description": Language.getString("AD_DESCRIPTION"),
                 "type": "F",
                 "value": consentValues.F
             },
             {
-                "name": "Other Purposes",
-                "description": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category",
+                "name": Language.getString("OTHER_NAME"),
+                "description": Language.getString("OTHER_DESCRIPTION"),
                 "type": "X",
                 "value": consentValues.X
             }

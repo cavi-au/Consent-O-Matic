@@ -1,243 +1,290 @@
 <html>
+
 <head>
-<style>
-body, html {
-    margin: 0;
-    padding: 0;
-    user-select: none;
-    min-height: 100vh;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: top;
-    background: #00309a;
-    background: linear-gradient(to right, rgba(0,48,154,1) 0%,rgba(0,22,91,1) 100%);
-    max-width: 50em;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 1em rgba(0,0,0,0.5);
-    line-height: 1.25em;
-}
-.header {
-    color: white;
-    border-top: 1px solid #2f1988;
-    border-bottom: 1px solid #2f1988;
-}
-.header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    padding-left: 1.5em;
-}
-.header li {
-    display: inline-block;
-    background: rgba(100,100,200,0.2);
-    cursor: pointer;
-    padding: 1em;
-    margin: 0;
-    transition: background 0.20s ease-in-out;
-}
-.header li:hover {
-    background: rgba(100,100,200,0.5);
-}
-.header li.active {
-    opacity: 1 !important;
-    background: rgba(100,100,255,0.7);
-}
-.header li.debug {
-    position: absolute;
-    right: 0;
-    opacity: 0.01;
-}
+    <meta charset="utf-8"/>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            min-height: 100vh;
+        }
 
-.prehead {
-    position: relative;
-    padding: 1em;
-    color: white;
-    font-family: sans-serif;
-    display: flex;
-    margin-bottom: 0em;
-    background: rgb(44, 69, 193);
-}
-.prehead .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.prehead h1 {
-    margin-top:0;
-    margin-bottom: 0;
-    line-height: 1.2em;
-}
-.prehead h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    opacity: 0.8;
-    font-weight: normal;
-    font-size: 1em;
-}
-.prehead img {
-    height: 5em;
-    margin-right: 1em;
-}
-.description {
-    padding: 2em;
-    padding-bottom: 0.5em;
-}
-.configurator {
-    flex: 1 0 auto;
-    background: white;
-}
-.configurator h2 {
-    display: inline-block;
-    font-size: 1.1em;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0.75em;
-    margin-top: 0;
-}
-.configurator ul {
-    list-style: none;
-    margin-left: 0em;
-    padding-left: 0em;
-}
-.configurator ul li {
-    background: rgba(0,0,100,0.025);
-    position: relative;
-    padding: 1em;
-    padding-left: 6em;
-    padding-right: 2em;
-    margin-left: 0;
-    cursor: pointer;
-}
-.configurator ul li.active {
-    background: rgba(100,255,100,0.2);
-}
-.configurator ul li:hover {
-    background: rgba(0,0,100,0.075);
-}
-.configurator ul li.active:hover {
-    background: rgba(50,255,50,0.2);
-}
-.configurator .slider {
-    position: absolute;
-    left: 1.75em;
-    height: 20px;
-    width: 44px;
-    pointer-events: none;
-}
-.configurator .slider input {
-    display:none;
-}
-.configurator .knob {
-    cursor: pointer;
-    background-color: #ccc;
-    border-radius: 1em;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    position: absolute;
-    transition: .4s;
-}
-.configurator input:checked + .knob {
-    background-color: #66bb6a;
-}
-.configurator input:checked + .knob:before {
-    transform: translateX(24px);
-}
-.configurator .knob:before {
-    background-color: #fff;
-    border-radius: 1em;
-    bottom: 2px;
-    content: "";
-    height: 16px;
-    left: 2px;
-    position: absolute;
-    transition: .25s;
-    width: 16px;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: top;
+            background: #00309a;
+            background: linear-gradient(to right, rgba(0, 48, 154, 1) 0%, rgba(0, 22, 91, 1) 100%);
+            max-width: 50em;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+            line-height: 1.25em;
+        }
 
-.rulelist li {
-    display: flex;
-    align-items: center;
-    word-wrap: break-word;
-    cursor: initial !important;
-}
-.rulelist li button {
-    pointer-events: all;
-    position: absolute;
-    left: 2em;
-    border: 0;
-    cursor: pointer;
-}
-.rulelist li button:hover {
-    background: red;
-}
-.ruleoptions, .logoptions {
-    padding: 2em;
-    padding-top:0;
-}
+        .header {
+            color: white;
+            border-top: 1px solid #2f1988;
+            border-bottom: 1px solid #2f1988;
+        }
 
-.helptext {
-    padding: 2em;
-    padding-bottom: 0;
-}
-</style>
-<script src="GDPRConfig.js" defer="true"></script>
-<script src="options.js" defer="true"></script>
+        .header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            padding-left: 1.5em;
+        }
+
+        .header li {
+            display: inline-block;
+            background: rgba(100, 100, 200, 0.2);
+            cursor: pointer;
+            padding: 1em;
+            margin: 0;
+            transition: background 0.20s ease-in-out;
+        }
+
+        .header li:hover {
+            background: rgba(100, 100, 200, 0.5);
+        }
+
+        .header li.active {
+            opacity: 1 !important;
+            background: rgba(100, 100, 255, 0.7);
+        }
+
+        .header li.debug {
+            position: absolute;
+            right: 0;
+            opacity: 0.01;
+        }
+
+        .prehead {
+            position: relative;
+            padding: 1em;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            margin-bottom: 0em;
+            background: rgb(44, 69, 193);
+        }
+
+        .prehead .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prehead h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 1.2em;
+        }
+
+        .prehead h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+            opacity: 0.8;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .prehead img {
+            height: 5em;
+            margin-right: 1em;
+        }
+
+        .description {
+            padding: 2em;
+            padding-bottom: 0.5em;
+        }
+
+        .configurator {
+            flex: 1 0 auto;
+            background: white;
+        }
+
+        .configurator h2 {
+            display: inline-block;
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: sans-serif;
+            margin-bottom: 0.75em;
+            margin-top: 0;
+        }
+
+        .configurator ul {
+            list-style: none;
+            margin-left: 0em;
+            padding-left: 0em;
+        }
+
+        .configurator ul li {
+            background: rgba(0, 0, 100, 0.025);
+            position: relative;
+            padding: 1em;
+            padding-left: 6em;
+            padding-right: 2em;
+            margin-left: 0;
+            cursor: pointer;
+        }
+
+        .configurator ul li.active {
+            background: rgba(100, 255, 100, 0.2);
+        }
+
+        .configurator ul li:hover {
+            background: rgba(0, 0, 100, 0.075);
+        }
+
+        .configurator ul li.active:hover {
+            background: rgba(50, 255, 50, 0.2);
+        }
+
+        .configurator .slider {
+            position: absolute;
+            left: 1.75em;
+            height: 20px;
+            width: 44px;
+            pointer-events: none;
+        }
+
+        .configurator .slider input {
+            display: none;
+        }
+
+        .configurator .knob {
+            cursor: pointer;
+            background-color: #ccc;
+            border-radius: 1em;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            position: absolute;
+            transition: .4s;
+        }
+
+        .configurator input:checked+.knob {
+            background-color: #66bb6a;
+        }
+
+        .configurator input:checked+.knob:before {
+            transform: translateX(24px);
+        }
+
+        .configurator .knob:before {
+            background-color: #fff;
+            border-radius: 1em;
+            bottom: 2px;
+            content: "";
+            height: 16px;
+            left: 2px;
+            position: absolute;
+            transition: .25s;
+            width: 16px;
+        }
+
+        .rulelist li {
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+            cursor: initial !important;
+        }
+
+        .rulelist li button {
+            pointer-events: all;
+            position: absolute;
+            left: 2em;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .rulelist li button:hover {
+            background: red;
+        }
+
+        .ruleoptions,
+        .logoptions {
+            padding: 2em;
+            padding-top: 0;
+        }
+
+        .helptext {
+            padding: 2em;
+            padding-bottom: 0;
+        }
+    </style>
+    <script src="language.js"></script>
+    <script src="GDPRConfig.js" defer="true"></script>
+    <script src="options.js" defer="true"></script>
 </head>
-<body><div class="prehead">
-    <img src="logo.svg">
-    <div class="title">
-        <h1>Consent-O-Matic</h1><h2>Your Choice - Applied Everywhere</h2>
-    </div>
-</div>
-<div class="header">
-    <ul>
-	<li class="menuitem choices active">Your Choice</li><li class="menuitem rules">Rule Lists</li><li class="menuitem log">Log</li><li class="menuitem debug">Debug</li>
-    </ul>
-</div>
-<div class="configurator">
-    <div class="tab tab_uc">
-	<div class="helptext">
-	    Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.
-        </div>
-	<ul class="categorylist"><!-- categories --></ul>
-    </div>
-    <div class="tab tab_rl" style="display:none">
-	<div class="helptext">
-	    Consent-O-Matic comes with a set of rules that tell it how to understand each kind of GDPR consent popup.
-	    You can add more sources of rules here - or even <a href="https://github.com/cavi-au/Consent-O-Matic">create your own</a> list and share it with others!
-        </div>
-	<ul class="rulelist"><!-- rulelists --></ul>
-	<div class="ruleoptions">
-	    <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">Add List</button>
-	</div>
-	<div class="helptext" style="padding-top:0">
-	    <p>All the rule lists are updated automatically every 15 minutes <em>or</em> you can </p><button id="forceupdate">Update Rules Now</button><br /><br /><br />
-	<h2>Rule List Generator</h2>
-        <p>
-	    As an alternative to writing JSON rules by hand it is also possible to create rules using this drag-n-drop editor:
-	</p>
-	    <button id="rulesEditor">Open Rule Editor</button>
+
+<body>
+    <div class="prehead">
+        <img src="logo.svg">
+        <div class="title">
+            <h1>[[EXTENSION_NAME]]</h1>
+            <h2>[[EXTENSION_SUBTITLE]]</h2>
         </div>
     </div>
-    <div class="tab tab_log" style="display:none">
-	<div class="helptext">
-	    This is a list of all the GDPR consent popups that were handled
+    <div class="header">
+        <ul>
+            <li class="menuitem choices active">[[YOUR_CHOICE]]</li>
+            <li class="menuitem rules">[[RULE_LIST]]</li>
+            <li class="menuitem log">[[LOG]]</li>
+            <li class="menuitem debug">[[DEBUG]]</li>
+        </ul>
+    </div>
+    <div class="configurator">
+        <div class="tab tab_uc">
+            <div class="helptext">
+                [[CHOICE_DESCRIPTION]]
+            </div>
+            <ul class="categorylist">
+                <!-- categories -->
+            </ul>
         </div>
-        <ul class="logList"></ul>
-        <div class="logoptions">
-            <button id="clearLog">Clear</button>
+        <div class="tab tab_rl" style="display:none">
+            <div class="helptext">
+                [[RULES_DESCRIPTION]]
+            </div>
+            <ul class="rulelist">
+                <!-- rulelists -->
+            </ul>
+            <div class="ruleoptions">
+                <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">[[ADD_LIST]]</button>
+            </div>
+            <div class="helptext" style="padding-top:0">
+                <p>[[RULES_UPDATE_DESCRIPTION]]</p><button
+                    id="forceupdate">[[UPDATE_RULES_NOW]]</button><br /><br /><br />
+                <h2>[[RULE_GENERATOR]]</h2>
+                <p>
+                    [[RULE_GENERATOR_DESCRIPTION]]
+                </p>
+                <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
+            </div>
+        </div>
+        <div class="tab tab_log" style="display:none">
+            <div class="helptext">
+                [[LOG_DESCRIPTION]]
+            </div>
+            <ul class="logList"></ul>
+            <div class="logoptions">
+                <button id="clearLog">[[CLEAR]]</button>
+            </div>
+        </div>
+        <div class="tab tab_dbg" style="display: none">
+            <ul class="flags">
+                <!-- debugflags -->
+            </ul>
         </div>
     </div>
-    <div class="tab tab_dbg" style="display: none">
-        <ul class="flags"><!-- debugflags --></ul>
-    </div>
-</div>
-</body></html>
+</body>
+
+</html>
