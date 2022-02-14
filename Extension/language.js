@@ -404,6 +404,24 @@ const translations = {
     },
     "WAIT_FOR_HELP": {
         "en": "The thing to wait for"
+    },
+    "RETRIES": {
+        "en": "retries"
+    },
+    "RETRIES_HELP": {
+        "en": "How many times to repeat the search"
+    },
+    "WAIT_TIME": {
+        "en": "waitTime"
+    },
+    "WAIT_TIME_HELP": {
+        "en": "How long to wait after each search"
+    },
+    "NEGATED": {
+        "en": "negated"
+    },
+    "NEGATED_HELP": {
+        "en": "If enabled, waits until dom selection no longer exists"
     }
 };
 

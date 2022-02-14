@@ -131,13 +131,13 @@
         <div class="label">[[WAIT_FOR]]<div class="help">[[WAIT_FOR_HELP]]</div></div>        
         <div data-plug="domSelector"></div>
         
-        <div class="label">retries<div class="help">How many times to repeat the search</div></div>
+        <div class="label">[[RETRIES]]<div class="help">[[RETRIES_HELP]]</div></div>
         <div data-bind="retries"><input type="number" min="1" max="100" value="10" /></div>
         
-        <div class="label">waitTime<div class="help">How long to wait after each search</div></div>
+        <div class="label">[[WAIT_TIME]]<div class="help">[[WAIT_TIME_HELP]]</div></div>
         <div data-bind="waitTime"><input type="number" min="100" max="5000" value="250" /></div>
         
-        <div class="label">negated<div class="help">If enabled, waits until dom selection no longer exists</div></div>
+        <div class="label">[[NEGATED]]<div class="help">[[NEGATED_HELP]]</div></div>
         <div data-bind="negated"><input type="checkbox" /></div>
     </div>
 </template>
