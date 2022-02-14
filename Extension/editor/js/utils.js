@@ -30,6 +30,11 @@ async function loadTemplate(id) {
         console.error("More than 1 child!");
     }
 
+    Language.doAttributes(newFragment);
+    Language.doLanguage(newFragment);
+
+    console.log("Hest!");
+
     return newFragment.children[0];
 }
 

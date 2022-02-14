@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>GDPR Rule Editor</title>
+        <script src="../language.js"></script>
         <script src="js/draggable.js"></script>
         <script src="js/utils.js"></script>
         <script src="js/jsonParser.js"></script>
@@ -9,100 +10,100 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <div class="header"><h1>GDPR Consent Rule Editor</h1></div>
+        <div class="header"><h1>[[EDITOR_HEADER]]</h1></div>
         <div class="menu">
             <div class="step3">
                 <div class="menubar">
                     <div class="miniheader">
-                        Menu
+                        [[MENU]]
                     </div>                    
-                    <button class="back">Back</button>
-                    <button class="save">Save Custom Rule</button>
-                    <button class="export">Export Json</button>
-                    <button class="collapse">Collapse All</button>
-                    <button class="uncollapse">Uncollapse All</button>
+                    <button class="back">[[BACK]]</button>
+                    <button class="save">[[SAVE_CUSTOM_RULE]]</button>
+                    <button class="export">[[EXPORT_JSON]]</button>
+                    <button class="collapse">[[COLLAPSE_ALL]]</button>
+                    <button class="uncollapse">[[UNCOLLAPSE_ALL]]</button>
                 </div>
                 
                 <div class="toolbox">
                     <div class="miniheader">
-                        Draggable Elements
+                        [[DRAGGABLE_ELEMENTS]]
                     </div>                    
                     <div class="detector">
-                        <div data-type="detector">Detector</div>
+                        <div data-type="detector">[[DETECTOR]]</div>
                     </div>
                     <div class="matcher">
-                        <div data-type="matcher" data-variant="css">CssMatcher</div>
-                        <div data-type="matcher" data-variant="checkbox">CheckboxMatcher</div>
+                        <div data-type="matcher" data-variant="css">[[CSS_MATCHER]]</div>
+                        <div data-type="matcher" data-variant="checkbox">[[CHECKBOX_MATCHER]]</div>
                     </div>
                     <div class="actions">
-                        <div data-type="action" data-variant="click">ClickAction</div>
-                        <div data-type="action" data-variant="consent">ConsentAction</div>
-                        <div data-type="action" data-variant="list">ListAction</div>
-                        <div data-type="action" data-variant="waitcss">WaitCssAction</div>
-                        <div data-type="action" data-variant="ifcss">IfCssAction</div>
-                        <div data-type="action" data-variant="foreach">ForEachAction</div>
-                        <div data-type="action" data-variant="slide">SlideAction</div>
-                        <div data-type="action" data-variant="close">CloseAction</div>
-                        <div data-type="action" data-variant="hide">HideAction</div>
-                        <div data-type="action" data-variant="wait">WaitAction</div>
+                        <div data-type="action" data-variant="click">[[CLICK_ACTION]]</div>
+                        <div data-type="action" data-variant="consent">[[CONSENT_ACTION]]</div>
+                        <div data-type="action" data-variant="list">[[LIST_ACTION]]</div>
+                        <div data-type="action" data-variant="waitcss">[[WAIT_CSS_ACTION]]</div>
+                        <div data-type="action" data-variant="ifcss">[[IF_CSS_ACTION]]</div>
+                        <div data-type="action" data-variant="foreach">[[FOR_EACH_ACTION]]</div>
+                        <div data-type="action" data-variant="slide">[[SLIDE_ACTION]]</div>
+                        <div data-type="action" data-variant="close">[[CLOSE_ACTION]]</div>
+                        <div data-type="action" data-variant="hide">[[HIDE_ACTION]]</div>
+                        <div data-type="action" data-variant="wait">[[WAIT_ACTION]]</div>
                     </div>
                     <div class="consent">
-                        <div data-type="consent">Consent</div>
+                        <div data-type="consent">[[CONSENT]]</div>
                     </div>
                     <div class="domSelectors">
-                        <div data-type="domSelector">DomSelector</div>
+                        <div data-type="domSelector">[[DOM_SELECTOR]]</div>
                     </div>
-                    <div class="trashcan">Trash</div>
+                    <div class="trashcan">[[TRASH]]</div>
                 </div>
             </div>
         </div>
         <div class="page">
             <div class="step1 loader">
-                <h1>Load Rules</h1>
+                <h1>[[LOAD_RULES]]</h1>
                 <div class="existing">
                     <div>
-                        <h2>From Plugin Sources</h2>
+                        <h2>[[FROM_PLUGIN_SOURCE]]</h2>
                         <select id="knownRules">
 
                         </select>
-                        <button class="loadButton">Load</button>
+                        <button class="loadButton">[[LOAD]]</button>
                     </div>
                     <div>
-                        <h2>From Your Custom Rules</h2>
+                        <h2>[[FROM_CUSTOM_RULES]]</h2>
                         <select id="customRules">
 
                         </select>
-                        <button class="loadCustomButton">Load</button>
-                        <button class="deleteCustomButton">Delete</button>
+                        <button class="loadCustomButton">[[LOAD]]</button>
+                        <button class="deleteCustomButton">[[DELETE]]</button>
                     </div>
                     <div>
-                        <h2>From Pasted JSON</h2>
+                        <h2>[[FROM_PASTED_JSON]]</h2>
                         <textarea id="inputArea" cols="10" rows="8"></textarea>
-                        <button class="loadTextButton">Load</button>
+                        <button class="loadTextButton">[[LOAD]]</button>
                     </div>
                 </div>
                 <div>
-                    <h2>..or Create a New Rule From Scratch:</h2>
-                    <button class="newButton">Create New Rule</button>
+                    <h2>[[CREATE_FROM_SCRATCH]]</h2>
+                    <button class="newButton">[[CREATE_NEW_RULE]]</button>
                 </div>
             </div>
             <div class="step2">
                 <select id="cmpSelector">
 
                 </select>
-                <button id="selectCmp">Select</button>
+                <button id="selectCmp">[[SELECT]]</button>
                 <br />
-                <button class="back">Back</button>
+                <button class="back">[[BACK]]</button>
             </div>
 
             <div class="step3">
-                <h1>Consent Management Popup Provider Settings</h1>
-                <div class="cmpName"><div class="label">Name of CMP<div class="help">This is the name that will be displayed to the user when the popup is detected</div></div><input /></div>
+                <h1>[[CONSENT_MANAGEMENT_PROVIDER_POPUP]]</h1>
+                <div class="cmpName"><div class="label">[[NAME_OF_CMP]]<div class="help">[[NAME_OF_CMP_HELP]]</div></div><input /></div>
                 <div class="rules"></div>
-                <div class="help">Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.</div>
+                <div class="help">[[DRAG_HINT]]</div>
             </div>
             <div class="step4">
-                <button class="back">Back</button>
+                <button class="back">[[BACK]]</button>
                 <pre></pre>
             </div>
         </div>

@@ -129,16 +129,281 @@ const translations = {
         "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category"
     },
     "AUTOFILL_NOT_WORKING": {
-        "en": "GDPR autofill didn't work?"
+        "en": "GDPR autofill didn't work?",
+        "da": "Virkede autoudfyldningen ikke?"
     },
     "LET_US_KNOW": {
-        "en": "Let us know!"
+        "en": "Let us know!",
+        "da": "Fortæl os!"
     },
     "KEEP_RUNNING": {
-        "en": "Keep running on this site?"
+        "en": "Keep running on this site?",
+        "da": "Fortsæt med at køre på denne side?"
     },
     "MORE_ADDON_SETTINGS": {
-        "en": "More Add-on Settings"
+        "en": "More Add-on Settings",
+        "da": "Flere addon indstillinger"
+    },
+    "EDITOR_HEADER": {
+        "en": "GDPR Consent Rule Editor",
+        "da": "GDPR samtykke regel editor"
+    },
+    "MENU": {
+        "en": "Menu",
+        "da": "Menu"
+    },
+    "BACK": {
+        "en": "Back",
+        "da": "Tilbage"
+    },
+    "SAVE_CUSTOM_RULE": {
+        "en": "Save Custom Rule"
+    },
+    "EXPORT_JSON": {
+        "en": "Export Json",
+        "da": "Eksporter json"
+    },
+    "COLLAPSE_ALL": {
+        "en": "Collapse All"
+    },
+    "UNCOLLAPSE_ALL": {
+        "en": "Uncollapse All"
+    },
+    "DRAGGABLE_ELEMENTS": {
+        "en": "Draggable Elements"
+    },
+    "DETECTOR": {
+        "en": "Detector"
+    },
+    "CSS_MATCHER": {
+        "en": "CssMatcher"
+    },
+    "CHECKBOX_MATCHER": {
+        "en": "CheckboxMatcher"
+    },
+    "CLICK_ACTION": {
+        "en": "ClickAction"
+    },
+    "CONSENT_ACTION": {
+        "en": "ConsentAction"
+    },
+    "LIST_ACTION": {
+        "en": "ListAction"
+    },
+    "WAIT_CSS_ACTION": {
+        "en": "WaitCssAction"
+    },
+    "IF_CSS_ACTION": {
+        "en": "IfCssAction"
+    },
+    "FOR_EACH_ACTION": {
+        "en": "ForEachAction"
+    },
+    "SLIDE_ACTION": {
+        "en": "SlideAction"
+    },
+    "CLOSE_ACTION": {
+        "en": "CloseAction"
+    },
+    "HIDE_ACTION": {
+        "en": "HideAction"
+    },
+    "WAIT_ACTION": {
+        "en": "WaitAction"
+    },
+    "CONSENT": {
+        "en": "Consent",
+        "da": "Samtykke"
+    },
+    "DOM_SELECTOR": {
+        "en": "DomSelector"
+    },
+    "TRASH": {
+        "en": "Trash",
+        "da": "Papirkurv"
+    },
+    "LOAD_RULES": {
+        "en": "Load Rules",
+        "da": "Indlæs regler"
+    },
+    "FROM_PLUGIN_SOURCE": {
+        "en": "From Plugin Sources",
+        "da": "Fra plugin kilder"
+    },
+    "LOAD": {
+        "en": "Load",
+        "da": "Indlæs"
+    },
+    "FROM_CUSTOM_RULES": {
+        "en": "From Your Custom Rules",
+        "da": "Fra dine brugerdefinerede regler"
+    },
+    "DELETE": {
+        "en": "Delete",
+        "da": "Slet"
+    },
+    "FROM_PASTED_JSON": {
+        "en": "From Pasted JSON",
+        "da": "Fra indsat json"
+    },
+    "CREATE_FROM_SCRATCH": {
+        "en": "..or Create a New Rule From Scratch:",
+        "da": "..eller opret en ny regel fra bunden:"
+    },
+    "CREATE_NEW_RULE": {
+        "en": "Create New Rule",
+        "da": "Opret ny regel"
+    },
+    "SELECT": {
+        "en": "Select",
+        "da": "Vælg"
+    },
+    "CONSENT_MANAGEMENT_PROVIDER_POPUP": {
+        "en": "Consent Management Popup Provider Settings"
+    },
+    "NAME_OF_CMP": {
+        "en": "Name of CMP"
+    },
+    "NAME_OF_CMP_HELP": {
+        "en": "This is the name that will be displayed to the user when the popup is detected"
+    },
+    "DRAG_HINT": {
+        "en": "Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it."
+    },
+    "DETECTORS": {
+        "en": "Detectors:"
+    },
+    "DETECTORS_HELP": {
+        "en": "Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)"
+    },
+    "METHODS": {
+        "en": "Methods:"
+    },
+    "METHODS_HELP": {
+        "en": "Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog."
+    },
+    "PRESENT_MATCHER": {
+        "en": "presentMatcher"
+    },
+    "PRESENT_MATCHER_HELP": {
+        "en": "This matcher determines whether a CMP popup is present on the page"
+    },
+    "SHOWING_MATCHER": {
+        "en": "showingMatcher"
+    },
+    "SHOWING_MATCHER": {
+        "en": "This matcher determines if a CMP popup is currently showing"
+    },
+    "TARGET": {
+        "en": "target"
+    },
+    "TARGET_HELP": {
+        "en": "The target of the selection"
+    },
+    "PARENT": {
+        "en": "parent"
+    },
+    "PARENT_HELP": {
+        "en": "An optional parent to search for before starting the search for target from there"
+    },
+    "SELECTOR": {
+        "en": "selector"
+    },
+    "SELECTOR_HELP": {
+        "en": "CSS selector that points to a DOM node"
+    },
+    "TEXT_FILTER": {
+        "en": "textFilter"
+    },
+    "TEXT_FILTER_HELP": {
+        "en": "A text filter applied to the found nodes based on their content"
+    },
+    "IFRAME_FILTER": {
+        "en": "iframeFilter"
+    },
+    "IFRAME_FILTER_HELP": {
+        "en": "Only trigger if inside an iframe"
+    },
+    "DISPLAY_FILTER": {
+        "en": "displayFilter"
+    },
+    "DISPLAY_FILTER_HELP": {
+        "en": "Only trigger if has display not 'none'"
+    },
+    "CHILD_FILTER": {
+        "en": "ChildFilter"
+    },
+    "CHILD_FILTER_HELP": {
+        "en": "Only trigger if child matching this DOM node selector is found"
+    },
+    "ACTIONS": {
+        "en": "actions"
+    },
+    "ACTIONS_HELP": {
+        "en": "Each of these actions will be performed in order"
+    },
+    "SELECTOR_HELP_LIST": {
+        "en": "CSS selector that points to a list of DOM nodes"
+    },
+    "ACTION": {
+        "en": "action"
+    },
+    "ACTION_HELP": {
+        "en": "The action to perform for each of the targets found by the selector"
+    },
+    "TRUE_ACTION": {
+        "en": "trueAction"
+    },
+    "TRUE_ACTION_HELP": {
+        "en": "The action to execute if the selector is found"
+    },
+    "FALSE_ACTION": {
+        "en": "falseAction"
+    },
+    "FALSE_ACTION_TEXT": {
+        "en": "The action to execute if the selector is not found"
+    },
+    "SELECTOR_CLICK_HELP": {
+        "en": "CSS selector that points to the DOM node that should be clicked"
+    },
+    "OPEN_IN_TAB": {
+        "en": "openInTab"
+    },
+    "OPEN_IN_TAB_HELP": {
+        "en": "If what is clicked is a link then optionally check this box to open it in a new tab"
+    },
+    "SELECTOR_HIDE_HELP": {
+        "en": "CSS selector that points to the DOM node that should be hidden"
+    },
+    "DOM_NODE_SELECTOR": {
+        "en": "DOM node selector"
+    },
+    "TARGET_SLIDE_HELP": {
+        "en": "The target to perform a slide gesture on"
+    },
+    "DRAG_TARGET": {
+        "en": "dragTarget"
+    },
+    "DRAG_TARGET_HELP": {
+        "en": "The dom node to drag the slider to, x or y wise depending on axis."
+    },
+    "AXIS": {
+        "en": "Axis"
+    },
+    "AXIS_HELP": {
+        "en": "Direction of the slide"
+    },
+    "Y": {
+        "en": "Y"
+    },
+    "X": {
+        "en": "X"
+    },
+    "WAIT_FOR": {
+        "en": "waitFor"
+    },
+    "WAIT_FOR_HELP": {
+        "en": "The thing to wait for"
     }
 };
 
@@ -176,22 +441,45 @@ class Language {
         return result;
     }
 
-    static doLanguage() {
-        window.addEventListener("DOMContentLoaded", ()=>{
-            const allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    static doLanguage(node) {
+        if(node == null) {
+            node = document.body;
+        }
 
-            let regexp = /\[\[(\S+)\]\]/g;
-    
-            while(allTextNodes.nextNode()) {
-                let matches = allTextNodes.currentNode.nodeValue.matchAll(regexp);
-    
+        console.log(node);
+
+        const allTextNodes = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+
+        let regexp = /\[\[(\S+)\]\]/g;
+
+        while(allTextNodes.nextNode()) {
+            console.log(allTextNodes.currentNode);
+
+            let matches = allTextNodes.currentNode.nodeValue.matchAll(regexp);
+
+            for(let match of matches) {
+                let translation = Language.getString(match[1], []);
+                allTextNodes.currentNode.nodeValue = allTextNodes.currentNode.nodeValue.replace(match[0], translation);
+            }
+        }
+    }
+
+    static doAttributes(fragment) {
+        let regexp = /\[\[(\S+)\]\]/g;
+
+        fragment.querySelectorAll("*").forEach((node)=>{
+            Array.from(node.attributes).forEach((attr)=>{
+                let matches = attr.value.matchAll(regexp);
+
                 for(let match of matches) {
                     let translation = Language.getString(match[1], []);
-                    allTextNodes.currentNode.nodeValue = allTextNodes.currentNode.nodeValue.replace(match[0], translation);
+                    attr.value = attr.value.replace(match[0], translation);
                 }
-            }
+            });
         });
     }
 }
 
-Language.doLanguage();
+window.addEventListener("DOMContentLoaded", ()=>{
+    Language.doLanguage();
+});

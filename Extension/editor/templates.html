@@ -1,53 +1,53 @@
 <template id="cmp">
     <div data-type="cmp">
-        <div class="label">Detectors<div class="help">Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)</div></div>	
+        <div class="label">[[DETECTORS]]<div class="help">[[DETECTORS_HELP]]</div></div>	
         <div data-plug="detector" data-multiple="true" data-bind="detectors"></div>
-        <div class="label">Methods:<div class="help">Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog.</div></div>
+        <div class="label">[[METHODS]]<div class="help">[[METHODS_HELP]]</div></div>
         <div data-plug="method" data-multiple="true" data-bind="methods"></div>
     </div>
 </template>
 
 <template id="detector">
-    <div data-type="detector" data-fold-name="Detector">
-        <div class="label">presentMatcher<div class="help">This matcher determines whether a CMP popup is present on the page</div></div>
+    <div data-type="detector" data-fold-name="[[DETECTOR]]">
+        <div class="label">[[PRESENT_MATCHER]]<div class="help">[[PRESENT_MATCHER_HELP]]</div></div>
         <div data-bind="presentMatcher" data-plug="matcher"></div>
-        <div class="label">showingMatcher<div class="help">This matcher determines if a CMP popup is currently showing</div></div>
+        <div class="label">[[SHOWING_MATCHER]]<div class="help">[[SHOWING_MATCHER_HELP]]</div></div>
         <div data-bind="showingMatcher" data-plug="matcher"></div>
     </div>
 </template>
 
 <template id="matcher_css">
-    <div data-type="matcher" data-variant="css" data-fold-name="CSSMatcher">
+    <div data-type="matcher" data-variant="css" data-fold-name="[[CSS_MATCHER]]">
         <div data-plug="domSelector"></div>
     </div>
 </template>
 
 <template id="matcher_checkbox">
-    <div data-type="matcher" data-variant="checkbox" data-fold-name="CheckboxMatcher">
+    <div data-type="matcher" data-variant="checkbox" data-fold-name="[[CHECKBOX_MATCHER]]">
         <div data-plug="domSelector"></div>
     </div>
 </template>
 
 <template id="domSelector">
     <div data-type="domSelector">
-        <div class="label">target<div class="help">The target of the selection</div></div>
-        <div class="target toggled" data-fold-name="DOM node selector" data-plug="domSelectorChild" data-bind="target"></div>
-        <div class="label">parent<div class="help">An optional parent to search for before starting the search for target from there</div></div>
-        <div class="parent toggled" data-fold-name="DOM node selector" data-plug="domSelectorChild" data-bind="parent"></div>
+        <div class="label">[[TARGET]]<div class="help">[[TARGET_HELP]]</div></div>
+        <div class="target toggled" data-fold-name="[[DOM_NODE_SELECTOR]]" data-plug="domSelectorChild" data-bind="target"></div>
+        <div class="label">[[PARENT]]<div class="help">[[PARENT_HELP]]</div></div>
+        <div class="parent toggled" data-fold-name="[[DOM_NODE_SELECTOR]]" data-plug="domSelectorChild" data-bind="parent"></div>
     </div>
 </template>
 
 <template id="domSelectorChild">
     <div data-type="domSelectorChild">
-        <div class="label">selector<div class="help">CSS selector that points to a DOM node</div></div>
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP]]</div></div>
         <div data-bind="selector"><input size="30" /></div>
-        <div class="label">textFilter<div class="help">A text filter applied to the found nodes based on their content</div></div>
+        <div class="label">[[TEXT_FILTER]]<div class="help">[[TEXT_FILTER_HELP]]</div></div>
         <div data-bind="textFilter"><input size="30"/></div>
-        <div class="label">iframeFilter<div class="help">Only trigger if inside an iframe</div></div>
+        <div class="label">[[IFRAME_FILTER]]<div class="help">[[IFRAME_FILTER_HELP]]</div></div>
         <div data-bind="iframeFilter"><input type="checkbox" /></div>
-        <div class="label inline">displayFilter<div class="help">Only trigger if has display not 'none'</div></div>
+        <div class="label inline">[[DISPLAY_FILTER]]<div class="help">[[DISPLAY_FILTER_HELP]]</div></div>
         <div data-bind="displayFilter"><input type="checkbox" /></div>
-        <div class="label">ChildFilter<div class="help">Only trigger if child matching this DOM node selector is found</div></div>
+        <div class="label">[[CHILD_FILTER]]<div class="help">[[CHILD_FILTER_HELP]]</div></div>
         <div data-bind="childFilter" data-plug="domSelector"></div>
     </div>
 </template>
@@ -60,75 +60,75 @@
 </template>
 
 <template id="action_list">
-    <div data-type="action" data-variant="list" data-fold-name="ListAction">
-        <div class="label">actions<div class="help">Each of these actions will be performed in order</div></div>
+    <div data-type="action" data-variant="list" data-fold-name="[[LIST_ACTION]]">
+        <div class="label">[[ACTIONS]]<div class="help">[[ACTIONS_HELP]]</div></div>
         <div data-bind="actions" data-plug="action" data-multiple="true"></div>
     </div>
 </template>
 
 <template id="action_close">
     <div data-type="action" data-variant="close">
-        CloseAction
+        [[CLOSE_ACTION]]
     </div>
 </template>
 
 <template id="action_foreach">
-    <div data-type="action" data-variant="foreach" data-fold-name="ForEachAction">
-        <div class="label">selector<div class="help">CSS selector that points to a list of DOM nodes</div></div>
+    <div data-type="action" data-variant="foreach" data-fold-name="[[FOR_EACH_ACTION]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP_LIST]]</div></div>
         <div data-plug="domSelector"></div>
-        <div class="label">action<div class="help">The action to perform for each of the targets found by the selector</div></div>
+        <div class="label">[[ACTION]]<div class="help">[[ACTION_HELP]]</div></div>
         <div data-bind="action" data-plug="action"></div>
     </div>
 </template>
 
 <template id="action_ifcss">
-    <div data-type="action" data-variant="ifcss" data-fold-name="IfCssAction">
-        <div class="label">selector<div class="help">CSS selector that points to a DOM node</div></div>
+    <div data-type="action" data-variant="ifcss" data-fold-name="[[IF_CSS_ACTION]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP]]</div></div>
         <div data-plug="domSelector"></div>
-        <div class="label">trueAction<div class="help">The action to execute if the selector is found</div></div>
+        <div class="label">[[TRUE_ACTION]]<div class="help">[[TRUE_ACTION_HELP]]</div></div>
         <div data-plug="action" data-bind="trueAction"></div>
-        <div class="label">falseAction<div class="help">The action to execute if the selector is not found</div></div>
+        <div class="label">[[FALSE_ACTION]]<div class="help">[[FALSE_ACTION_HELP]]</div></div>
         <div data-plug="action" data-bind="falseAction"></div>
     </div>
 </template>
 
 <template id="action_click">
-    <div data-type="action" data-variant="click" data-fold-name="ClickAction">
-        <div class="label">selector<div class="help">Determine what should be clicked</div></div>
+    <div data-type="action" data-variant="click" data-fold-name="[[CLICK_ACTION]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_CLICK_HELP]]</div></div>
         <div data-plug="domSelector"></div>
-        <div class="label">openInTab<div class="help">If what is clicked is a link then optionally check this box to open it in a new tab</div></div>        
+        <div class="label">[[OPEN_IN_TAB]]<div class="help">[[OPEN_IN_TAB_HELP]]</div></div>        
         <div data-bind="openInTab"><input type="checkbox" /></div>
     </div>
 </template>
 
 <template id="action_hide">
-    <div data-type="action" data-variant="hide" data-fold-name="HideAction">
-        <div class="label">selector<div class="help">Determine what should be hidden</div></div>
+    <div data-type="action" data-variant="hide" data-fold-name="[[HIDE_ACTION]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HIDE_HELP]]</div></div>
         <div data-plug="domSelector"></div>
     </div>
 </template>
 
 <template id="action_slide">
-    <div data-type="action" data-variant="slide" data-fold-name="SlideAction">
-        <div class="label">target<div class="help">The target to perform a slide gesture on</div></div>
+    <div data-type="action" data-variant="slide" data-fold-name="[[SLIDE_ACTION]]">
+        <div class="label">[[TARGET]]<div class="help">[[TARGET_SLIDE_HELP]]</div></div>
         <div data-bind="target" data-plug="domSelector"></div>
 
-        <div class="label">dragTarget<div class="help">The dom node to drag the slider to, x or y wise depending on axis.</div></div>
+        <div class="label">[[DRAG_TARGET]]<div class="help">[[DRAG_TARGET_HELP]]</div></div>
         <div data-bind="dragTarget" data-plug="domSelector"></div>
 
-        <div class="label">Axis<div class="help">Direction of the slide</div></div>
+        <div class="label">[[AXIS]]<div class="help">[[AXIS_HELP]]</div></div>
         <div class="axis" data-bind="axis">
             <select>
-                <option value="y">Y</option>
-                <option value="x">X</option>
+                <option value="y">[[Y]]</option>
+                <option value="x">[[X]]</option>
             </select>
         </div>
     </div>
 </template>
 
 <template id="action_waitcss">
-    <div data-type="action" data-variant="waitcss" data-fold-name="WaitCssAction">
-        <div class="label">waitFor<div class="help">The thing to wait for</div></div>        
+    <div data-type="action" data-variant="waitcss" data-fold-name="[[WAIT_CSS_ACTION]]">
+        <div class="label">[[WAIT_FOR]]<div class="help">[[WAIT_FOR_HELP]]</div></div>        
         <div data-plug="domSelector"></div>
         
         <div class="label">retries<div class="help">How many times to repeat the search</div></div>
