@@ -105,35 +105,40 @@ const translations = {
         "da": "Præferencer og funktionalitet"
     },
     "PREFERENCES_DESCRIPTION": {
-        "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites."
+        "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites.",
+        "da": "Tillad websteder at huske valg, du laver (f.eks. dit brugernavn, sprog eller den region du er placeret i) og giver forbedrede, mere personlige funktioner. For eksempel kan disse cookies bruges til at huske dine loginoplysninger, ændringer, du har lavet til tekststørrelse, skrifttyper og andre dele af websider, som du kan tilpasse. De kan også bruges til at levere tjenester, du har bedt om, f.eks. at se en video eller kommentere en blog. Oplysningerne i disse cookies bruges ikke til at spore din browsingaktivitet på andre hjemmesider."
     },
     "PERFORMANCE_NAME": {
         "en": "Performance and Analytics",
         "da": "Ydelse og analyse"
     },
     "PERFORMANCE_DESCRIPTION": {
-        "en": "The collection of information, and combination with previously collected information, to measure, understand, and report, on your usage of the services. This allows websites to count visits and traffic sources so they can measure and improve the performance of the site. It helps them know which pages are the most and least popular, see how visitors move around the site, and where visitors come from."
+        "en": "The collection of information, and combination with previously collected information, to measure, understand, and report, on your usage of the services. This allows websites to count visits and traffic sources so they can measure and improve the performance of the site. It helps them know which pages are the most and least popular, see how visitors move around the site, and where visitors come from.",
+        "da": "Indsamling af oplysninger og kombination med tidligere indsamlede oplysninger, til at måle, forstå og rapporterer på din brug af tjenesterne. Dette gør det muligt for websteder at tælle besøg og trafikkilder, så de kan måle og forbedre ydeevnen på webstedet. Det hjælper dem med at vide, hvilke sider der er mest og mindst populære, se hvordan besøgende bevæger sig rundt på webstedet, og hvor besøgende kommer fra."
     },
     "CONTENT_NAME": {
         "en": "Content selection, delivery, and reporting",
         "da": "Indholdsvalg, levering og rapportering"
     },
     "CONTENT_DESCRIPTION": {
-        "en": "Collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what <b>content</b> was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices."
+        "en": "Collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what <b>content</b> was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.",
+        "da": "Indsamling af oplysninger og kombination med tidligere indsamlede oplysninger, for at vælge og levere indhold til dig og for at måle levering og effektivitet af sådant indhold. Dette inkluderer tidligere indsamlet information om dine interesser for at vælge indhold, behandle data om, hvad <b>indhold</b> der blev vist, hvor ofte eller hvor længe det blev vist, hvornår og hvor det blev vist, og om du tog nogen handling relateret til indholdet, herunder for eksempel at klikke på indhold. Dataene vil blive brugt til at personliggøre indhold på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder."
     },
     "AD_NAME": {
         "en": "Ad selection, delivery, and reporting",
         "da": "Annoncevalg, levering og rapportering"
     },
     "AD_DESCRIPTION": {
-        "en": "Collection of information, and combination with previously collected information, to select and deliver advertisements, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what <b>advertisements</b> were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google"
+        "en": "Collection of information, and combination with previously collected information, to select and deliver advertisements, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what <b>advertisements</b> were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google",
+        "da": "Indsamling af oplysninger og kombination med tidligere indsamlet information for at vælge og levere reklamer og for at måle levering og effektivitet af sådanne annoncer. Dette omfatter ved hjælp af tidligere indsamlede oplysninger om dine interesser for at vælge annoncer, behandlingsdata om, hvad <b>reklamer</b> der blev vist, hvor ofte de blev vist, hvornår og hvor de blev vist, og om du tog nogen handling relateret til annoncen, herunder for eksempel at klikke på en annonce eller foretage et køb. Dataene vil blive brugt til at personliggøre reklamer på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder. <br> <br> Inkluderer: <br> Google"
     },
     "OTHER_NAME": {
         "en": "Other Purposes",
         "da": "Andre formål"
     },
     "OTHER_DESCRIPTION": {
-        "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category"
+        "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category",
+        "da": "Uklassificeret dataindsamling, for hvilket formålet ikke er tydeligt beskrevet af hjemmesiden, eller hvor dataindsamling og -behandlingen ikke passer til nogen anden kategori"
     },
     "AUTOFILL_NOT_WORKING": {
         "en": "GDPR autofill didn't work?",
