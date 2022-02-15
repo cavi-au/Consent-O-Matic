@@ -619,6 +619,10 @@ const translations = {
     "SEND": {
         "en": "Submit",
         "da": "Indsend"
+    },
+    "THANKS": {
+        "en": "Thank you!",
+        "da": "Mange tak!"
     }
 };
 
