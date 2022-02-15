@@ -22,8 +22,8 @@
 			"matches": ["<all_urls>"],
 			"js": [
 				"Tools.js",
-				"language.js",
 				"GDPRConfig.js",
+				"language.js",
 				"Matcher.js",
 				"Consent.js",
 				"Action.js",
