@@ -7,17 +7,17 @@ const translations = {
     "EXTENSION_SUBTITLE": {
         "en": "Your Choice - Applied Everywhere",
         "da": "Dit valg - Anvendt overalt",
-	"de": "Ihre Wahl - Überall"
+	    "de": "Ihre Wahl - Überall"
     },
     "YOUR_CHOICE": {
         "en": "Your Choice",
         "da": "Dit valg",
-	"de": "Ihre Wahl"
+	    "de": "Ihre Wahl"
     },
     "RULE_LIST": {
         "en": "Rule Lists",
         "da": "Regler",
-	"de": "Regellisten",
+	    "de": "Regellisten",
     },
     "LOG": {
         "en": "Log",
@@ -26,7 +26,7 @@ const translations = {
     "DEBUG": {
         "en": "Debug",
         "da": "Debug",
-	"de": "Debug",
+	    "de": "Debug",
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
@@ -171,7 +171,7 @@ const translations = {
     "BACK": {
         "en": "Back",
         "da": "Tilbage",
-	"de": "Zurück",
+	    "de": "Zurück",
     },
     "SAVE_CUSTOM_RULE": {
         "en": "Save Custom Rule",
@@ -608,12 +608,12 @@ const translations = {
     "OPTIONS_TITLE": {
         "en": "Consent-O-Matic Options",
         "da": "Consent-O-Matic indstillinger",
-	"de": "Consent-O-Matic Einstellungen"
+	    "de": "Consent-O-Matic Einstellungen"
     },
     "ARE_YOU_SURE": {
         "en": "Are you sure?",
         "da": "Er du sikker?",
-	"de": "Bist du sicher?"
+	    "de": "Bist du sicher?"
     },
     "UNHANDLED_EXPLAINER": {
         "en": "The site is added to our list of sites to review",
@@ -627,12 +627,12 @@ const translations = {
     "SEND": {
         "en": "Submit",
         "da": "Indsend",
-	"de": "Einsenden"
+	    "de": "Einsenden"
     },
     "THANKS": {
         "en": "Thank you!",
         "da": "Mange tak!",
-	"de": "Vielen Dank!"
+	    "de": "Vielen Dank!"
     }
 };
 
