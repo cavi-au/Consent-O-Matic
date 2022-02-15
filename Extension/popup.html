@@ -9,7 +9,6 @@
         padding: 0;
     }
     body {
-        display: flex;
         background: #00309a;
         background: linear-gradient(to right, rgba(0,48,154,1) 0%,rgba(0,22,91,1) 100%);
         color: white;
@@ -23,6 +22,15 @@
         height: 3em;
         padding: 1em;
         padding-left: 0;
+    }
+    .fronttab {
+	display: flex;
+    }
+    .unhandledtab_complete {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
     }
     .siteselector {
         display: flex;
@@ -40,18 +48,31 @@
     <script src="language.js"></script>
     </head>
     <body>
-        <img src="logo.svg">
-        <div>
-            <div>[[AUTOFILL_NOT_WORKING]]</div>
-            <button id="unhandled">[[LET_US_KNOW]]</button>
-            <br><br>
-            <div>[[KEEP_RUNNING]]</div>
-        <div class="siteselector"><input type="checkbox" checked><span id="site"></span></div>
-        <button id="settings">[[MORE_ADDON_SETTINGS]]</button>
-        </div>
-        <div>
-        </div>
-        <script src="GDPRConfig.js"></script>
-        <script src="popup.js"></script>
+	<div class="fronttab">
+            <img src="logo.svg">
+            <div>
+                <div>[[AUTOFILL_NOT_WORKING]]</div>
+                <button id="unhandled">[[LET_US_KNOW]]</button>
+                <br><br>
+                <div>[[KEEP_RUNNING]]</div>
+            <div class="siteselector"><input type="checkbox" checked><span id="site"></span></div>
+            <button id="settings">[[MORE_ADDON_SETTINGS]]</button>
+            </div>
+            <div>
+            </div>
+            <script src="GDPRConfig.js"></script>
+            <script src="popup.js"></script>
+	</div>
+	<div class="unhandledtab" style="display:none">
+                <div>[[ARE_YOU_SURE]]</div>
+		<em><span id="unhandled_site"></span></em>
+                <div>[[UNHANDLED_EXPLAINER]]</div>
+                <button id="unhandled_cancel">[[CANCEL]]</button>
+                <button id="unhandled_send">[[SEND]]</button>
+	</div>
+	<div class="unhandledtab_complete" style="display:none">
+            <img src="logo.svg">
+            <div>[[THANKS]]</div>
+	</div>
     </body>
 </html>

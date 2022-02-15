@@ -603,6 +603,22 @@ const translations = {
     "OPTIONS_TITLE": {
         "en": "Concent-O-Matic Options",
         "da": "Concent-O-Matic indstillinger"
+    },
+    "ARE_YOU_SURE": {
+        "en": "Are you sure?",
+        "da": "Er du sikker?"
+    },
+    "UNHANDLED_EXPLAINER": {
+        "en": "The site is added to our list of sites to review",
+        "da": "Siden bliver tilføjet til vores liste af sider der skal gennemgåes"
+    },
+    "CANCEL": {
+        "en": "Cancel",
+        "da": "Afbryd"
+    },
+    "SEND": {
+        "en": "Submit",
+        "da": "Indsend"
     }
 };
 
