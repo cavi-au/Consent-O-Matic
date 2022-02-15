@@ -21,6 +21,8 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
                                 console.log("CustomRules:", customRules);
                             }
             
+                            ConsentEngine.debugValues = debugValues;
+
                             let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
                                 chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
                                     "cmp": stats.cmpName,
@@ -28,6 +30,7 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
                                 }));
 
                             });
+
                             if(debugValues.debugLog) {
                                 console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                             }

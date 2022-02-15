@@ -215,6 +215,10 @@ const translations = {
         "en": "Consent",
         "da": "Samtykke"
     },
+    "CONSENTS": {
+        "en": "Consents",
+        "da": "Samtykker"
+    },
     "DOM_SELECTOR": {
         "en": "DomSelector"
     },
@@ -351,16 +355,16 @@ const translations = {
     "ACTION_HELP": {
         "en": "The action to perform for each of the targets found by the selector"
     },
-    "TRUE_ACTION": {
+    "IF_TRUE_ACTION": {
         "en": "trueAction"
     },
-    "TRUE_ACTION_HELP": {
+    "IF_TRUE_ACTION_HELP": {
         "en": "The action to execute if the selector is found"
     },
-    "FALSE_ACTION": {
+    "IF_FALSE_ACTION": {
         "en": "falseAction"
     },
-    "FALSE_ACTION_TEXT": {
+    "IF_FALSE_ACTION_TEXT": {
         "en": "The action to execute if the selector is not found"
     },
     "SELECTOR_CLICK_HELP": {
@@ -422,6 +426,63 @@ const translations = {
     },
     "NEGATED_HELP": {
         "en": "If enabled, waits until dom selection no longer exists"
+    },
+    "WAIT_TIME": {
+        "en": "waitTime"
+    },
+    "WAIT_TIME_HELP": {
+        "en": "The amount of time to wait before continuing with the next action."
+    },
+    "TYPE": {
+        "en": "type"
+    },
+    "TYPE_HELP": {
+        "en": "The type of consent that this block handles"
+    },
+    "TYPE_A_OPTION": {
+        "en": "A - Preferences and Functionality"
+    },
+    "TYPE_B_OPTION": {
+        "en": "B - Performance and Analytics"
+    },
+    "TYPE_D_OPTION": {
+        "en": "D - Information Storage and Access"
+    },
+    "TYPE_E_OPTION": {
+        "en": "E - Content selection, delivery, and reporting"
+    },
+    "TYPE_F_OPTION": {
+        "en": "F - Ad selection, delivery, and reporting"
+    },
+    "TYPE_X_OPTION": {
+        "en": "X - Other Purposes"
+    },
+    "CONSENT_MATCHER": {
+        "en": "matcher"
+    },
+    "CONSENT_MATCHER_HELP": {
+        "en": "If this matcher triggers a match, it means the consent is currently given"
+    },
+    "TOGGLE_ACTION": {
+        "en": "toggleAction"
+    },
+    "TOGGLE_ACTION_HELP": {
+        "en": "Use this action if the consent is given with a toggle state"
+    },
+    "CONSENT_TRUE_ACTION": {
+        "en": "trueAction"
+    },
+    "CONSENT_TRUE_ACTION_HELP": {
+        "en": "Use this action to set consent to true, non toggle style"
+    },
+    "CONSENT_FALSE_ACTION": {
+        "en": "falseAction"
+    },
+    "CONSENT_FALSE_ACTION_HELP": {
+        "en": "Use this action to set consent to false, non toggle style"
+    },
+    "DEBUG_TRANSLATION_DESCRIPTION": {
+        "en": "When translation is missing, dont default to english, but instead show debug token."
     }
 };
 
@@ -444,6 +505,12 @@ class Language {
                 result = translation[lang];
             } else {
                 console.warn("Missing translation ["+lang+"] for key: ", key, translation);
+
+                if(Language.debugTranslations !== true) {
+                    if(translation["en"] != null) {
+                        result = translation["en"];
+                    }
+                }
             }
         } else {
             console.warn("Unknown translation key:", key);
@@ -471,8 +538,6 @@ class Language {
         let regexp = /\[\[(\S+)\]\]/g;
 
         while(allTextNodes.nextNode()) {
-            console.log(allTextNodes.currentNode);
-
             let matches = allTextNodes.currentNode.nodeValue.matchAll(regexp);
 
             for(let match of matches) {
@@ -497,6 +562,10 @@ class Language {
         });
     }
 }
+
+GDPRConfig.getDebugValues().then((debugValues)=>{
+    Language.debugTranslations = debugValues.debugTranslations;
+});
 
 window.addEventListener("DOMContentLoaded", ()=>{
     Language.doLanguage();

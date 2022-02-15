@@ -169,6 +169,11 @@ class GDPRConfig {
                 "name": "debugLog",
                 "description": Language.getString("EXTRA_DEBUG_DESCRIPTION"),
                 "value": debugValues.debugLog
+            },
+            {
+                "name": "debugTranslations",
+                "description": Language.getString("DEBUG_TRANSLATION_DESCRIPTION"),
+                "value": debugValues.debugTranslations
             }
         ];
     }
@@ -177,12 +182,6 @@ class GDPRConfig {
         let consentValues = await GDPRConfig.getConsentValues();
 
         return [
-            {
-                "name": Language.getString("INFORMATION_NAME"),
-                "description": Language.getString("INFORMATION_DESCRIPTION"),
-                "type": "D",
-                "value": consentValues.D
-            },
             {
                 "name": Language.getString("PREFERENCES_NAME"),
                 "description": Language.getString("PREFERENCES_DESCRIPTION"),
@@ -194,6 +193,12 @@ class GDPRConfig {
                 "description": Language.getString("PERFORMANCE_DESCRIPTION"),
                 "type": "B",
                 "value": consentValues.B
+            },
+            {
+                "name": Language.getString("INFORMATION_NAME"),
+                "description": Language.getString("INFORMATION_DESCRIPTION"),
+                "type": "D",
+                "value": consentValues.D
             },
             {
                 "name": Language.getString("CONTENT_NAME"),
@@ -272,5 +277,6 @@ GDPRConfig.defaultDebugFlags = {
     "debugClicks": false,
     "alwaysForceRulesUpdate": false,
     "skipHideMethod": false,
-    "debugLog": false
+    "debugLog": false,
+    "debugTranslations": false
 }

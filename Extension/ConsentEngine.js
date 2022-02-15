@@ -1,8 +1,6 @@
 class ConsentEngine {
-    constructor(config, consentTypes, debugValues, handledCallback) {
+    constructor(config, consentTypes, handledCallback) {
         let self = this;
-
-        ConsentEngine.debugValues = debugValues;
 
         this.consentTypes = consentTypes;
 
