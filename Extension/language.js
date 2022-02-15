@@ -6,7 +6,7 @@ const translations = {
     },
     "EXTENSION_SUBTITLE": {
         "en": "Your Choice - Applied Everywhere",
-        "da": "Dit valg - Anvendt overalt"
+        "da": "Dit valg - Anvendt overalt",
 	"de": "Ihre Wahl - Überall"
     },
     "YOUR_CHOICE": {
