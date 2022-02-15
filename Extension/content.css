@@ -17,8 +17,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: black;
-    z-index: 9999998;
+    background-color: #003399;
+    z-index: 2147483647;
     opacity: 0.5;
 }
 
@@ -30,8 +30,9 @@
     height: 5em;
     margin: auto;
     margin-top: -4rem;
-    z-index: 9999999;
-    
+    z-index: 2147483647;
+
+    font-size: 1rem;
     border: 0;
     box-shadow: 0 0 3rem black;
     background: #00309a;
