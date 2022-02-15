@@ -159,7 +159,7 @@ label, .label {
 [data-fold-name] {
     &:before {
         grid-column: span 2;    
-        content: "v\00a0" attr(data-fold-name);
+        content: "▾\00a0" attr(data-fold-name);
         display: block;
         padding: 0.25em;
         padding-left: 1em;
@@ -169,7 +169,7 @@ label, .label {
     
     &.toggled {
         &:before {
-            content: "^\00a0" attr(data-fold-name) ;
+            content: "▸\00a0" attr(data-fold-name) ;
         }        
         * {
             display: none !important;
