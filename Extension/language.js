@@ -93,37 +93,44 @@ const translations = {
         "da": "Aktiver ekstra debug logning"
     },
     "INFORMATION_NAME": {
-        "en": "Information Storage and Access"
+        "en": "Information Storage and Access",
+        "da": "Opbevaring og adgang til information"
     },
     "INFORMATION_DESCRIPTION": {
-        "en": "Storage of information or access to information that is already stored on your device - such as advertising identifiers, device identifiers, cookies, and similar technologies."
+        "en": "Storage of information or access to information that is already stored on your device - such as advertising identifiers, device identifiers, cookies, and similar technologies.",
+        "da": "Lagring af information eller adgang til information, der allerede er gemt på din enhed - såsom reklame-id'er, enhedsidentifikatorer, cookies og lignende teknologier."
     },
     "PREFERENCES_NAME": {
-        "en": "Preferences and Functionality"
+        "en": "Preferences and Functionality",
+        "da": "Præferencer og funktionalitet"
     },
     "PREFERENCES_DESCRIPTION": {
         "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites."
     },
     "PERFORMANCE_NAME": {
-        "en": "Performance and Analytics"
+        "en": "Performance and Analytics",
+        "da": "Ydelse og analyse"
     },
     "PERFORMANCE_DESCRIPTION": {
         "en": "The collection of information, and combination with previously collected information, to measure, understand, and report, on your usage of the services. This allows websites to count visits and traffic sources so they can measure and improve the performance of the site. It helps them know which pages are the most and least popular, see how visitors move around the site, and where visitors come from."
     },
     "CONTENT_NAME": {
-        "en": "Content selection, delivery, and reporting"
+        "en": "Content selection, delivery, and reporting",
+        "da": "Indholdsvalg, levering og rapportering"
     },
     "CONTENT_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what <b>content</b> was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices."
     },
     "AD_NAME": {
-        "en": "Ad selection, delivery, and reporting"
+        "en": "Ad selection, delivery, and reporting",
+        "da": "Annoncevalg, levering og rapportering"
     },
     "AD_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver advertisements, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what <b>advertisements</b> were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google"
     },
     "OTHER_NAME": {
-        "en": "Other Purposes"
+        "en": "Other Purposes",
+        "da": "Andre formål"
     },
     "OTHER_DESCRIPTION": {
         "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category"
@@ -157,59 +164,76 @@ const translations = {
         "da": "Tilbage"
     },
     "SAVE_CUSTOM_RULE": {
-        "en": "Save Custom Rule"
+        "en": "Save Custom Rule",
+        "da": "Gem brugerdefineret regel"
     },
     "EXPORT_JSON": {
         "en": "Export Json",
         "da": "Eksporter json"
     },
     "COLLAPSE_ALL": {
-        "en": "Collapse All"
+        "en": "Collapse All",
+        "da": "Skjul alle"
     },
     "UNCOLLAPSE_ALL": {
-        "en": "Uncollapse All"
+        "en": "Uncollapse all",
+        "da": "Vis alle"
     },
     "DRAGGABLE_ELEMENTS": {
-        "en": "Draggable Elements"
+        "en": "Draggable Elements",
+        "da": "Trækbare elementer"
     },
     "DETECTOR": {
-        "en": "Detector"
+        "en": "Detector",
+        "da": "Detektor"
     },
     "CSS_MATCHER": {
-        "en": "CssMatcher"
+        "en": "CssMatcher",
+        "da": "CssSammenligner"
     },
     "CHECKBOX_MATCHER": {
-        "en": "CheckboxMatcher"
+        "en": "CheckboxMatcher",
+        "da": "CheckboksSammenligner"
     },
     "CLICK_ACTION": {
-        "en": "ClickAction"
+        "en": "ClickAction",
+        "da": "KlikHandling"
     },
     "CONSENT_ACTION": {
-        "en": "ConsentAction"
+        "en": "ConsentAction",
+        "da": "SamtykkeHandling"
     },
     "LIST_ACTION": {
-        "en": "ListAction"
+        "en": "ListAction",
+        "da": "ListeHandling"
     },
     "WAIT_CSS_ACTION": {
-        "en": "WaitCssAction"
+        "en": "WaitCssAction",
+        "da": "VentCssHandling"
     },
     "IF_CSS_ACTION": {
-        "en": "IfCssAction"
+        "en": "IfCssAction",
+        "da": "IfCssHandling"
     },
     "FOR_EACH_ACTION": {
-        "en": "ForEachAction"
+        "en": "ForEachAction",
+        "da": "ForEachHandling"
     },
     "SLIDE_ACTION": {
-        "en": "SlideAction"
+        "en": "SlideAction",
+        "da": "SlideHandling"
     },
     "CLOSE_ACTION": {
-        "en": "CloseAction"
+        "en": "CloseAction",
+        "da": "LukHandling"
     },
     "HIDE_ACTION": {
-        "en": "HideAction"
+        "en": "HideAction",
+        "da": "SkjulHandling"
     },
     "WAIT_ACTION": {
-        "en": "WaitAction"
+        "en": "WaitAction",
+        "da": "VentHandling"
     },
     "CONSENT": {
         "en": "Consent",
@@ -220,7 +244,8 @@ const translations = {
         "da": "Samtykker"
     },
     "DOM_SELECTOR": {
-        "en": "DomSelector"
+        "en": "DomSelector",
+        "da": "DomVælger"
     },
     "TRASH": {
         "en": "Trash",
@@ -263,226 +288,316 @@ const translations = {
         "da": "Vælg"
     },
     "CONSENT_MANAGEMENT_PROVIDER_POPUP": {
-        "en": "Consent Management Popup Provider Settings"
+        "en": "Consent Management Popup Provider Settings",
+        "da": "Indstillinger for samtykke popup-udbyder"
     },
     "NAME_OF_CMP": {
-        "en": "Name of CMP"
+        "en": "Name of CMP",
+        "da": "Navn på CMP"
     },
     "NAME_OF_CMP_HELP": {
-        "en": "This is the name that will be displayed to the user when the popup is detected"
+        "en": "This is the name that will be displayed to the user when the popup is detected",
+        "da": "Dette er navnet som vil blive vist til brugeren når denne udbyder detekteres"
     },
     "DRAG_HINT": {
-        "en": "Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it."
+        "en": "Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.",
+        "da": "Hint: Træk imens CTRL holdes nede, kopierer det trækkede subtræ istedet for at flytte det"
     },
     "DETECTORS": {
-        "en": "Detectors:"
+        "en": "Detectors:",
+        "da": "Detektorer:"
     },
     "DETECTORS_HELP": {
-        "en": "Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)"
+        "en": "Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)",
+        "da": "Detektorer bruges til at afgøre, hvornår en samtykke-popup af denne type er dukket op på skærmen. Der kan ofte være flere detektorer for den samme popup, hvis der findes forskellige varianter (nederste bjælke, midterste popup osv.)"
     },
     "METHODS": {
-        "en": "Methods:"
+        "en": "Methods:",
+        "da": "Metoder:"
     },
     "METHODS_HELP": {
-        "en": "Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog."
+        "en": "Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog.",
+        "da": "Metoder udføres, når en popup er blevet detekteret af en detektor. De tjener forskellige formål, såsom at åbne og gemme dialogboksen for samtykkekonfiguration."
     },
     "PRESENT_MATCHER": {
         "en": "presentMatcher"
     },
     "PRESENT_MATCHER_HELP": {
-        "en": "This matcher determines whether a CMP popup is present on the page"
+        "en": "This matcher determines whether a CMP popup is present on the page",
+        "da": "Denne matcher afgør, om der er en CMP-popup på siden"
     },
     "SHOWING_MATCHER": {
         "en": "showingMatcher"
     },
     "SHOWING_MATCHER": {
-        "en": "This matcher determines if a CMP popup is currently showing"
+        "en": "This matcher determines if a CMP popup is currently showing",
+        "da": "Denne matcher afgør, om en CMP-popup i øjeblikket vises"
     },
     "TARGET": {
-        "en": "target"
+        "en": "target",
+        "da": "mål"
     },
     "TARGET_HELP": {
-        "en": "The target of the selection"
+        "en": "The target of the selection",
+        "da": "Målet for udvælgelsen"
     },
     "PARENT": {
-        "en": "parent"
+        "en": "parent",
+        "da": "forælder"
     },
     "PARENT_HELP": {
-        "en": "An optional parent to search for before starting the search for target from there"
+        "en": "An optional parent to search for before starting the search for the target from there",
+        "da": "En valgfri forælder at søge efter, før du starter søgningen efter målet derfra"
     },
     "SELECTOR": {
-        "en": "selector"
+        "en": "selector",
+        "da": "vælger"
     },
     "SELECTOR_HELP": {
-        "en": "CSS selector that points to a DOM node"
+        "en": "CSS selector that points to a DOM node",
+        "da": "CSS-vælger, der peger på en DOM-node"
     },
     "TEXT_FILTER": {
-        "en": "textFilter"
+        "en": "textFilter",
+        "da": "tekstFilter"
     },
     "TEXT_FILTER_HELP": {
-        "en": "A text filter applied to the found nodes based on their content"
+        "en": "A text filter applied to the found DOM nodes based on their content",
+        "da": "Et tekstfilter anvendt på de fundne DOM-noder baseret på deres indhold"
     },
     "IFRAME_FILTER": {
         "en": "iframeFilter"
     },
     "IFRAME_FILTER_HELP": {
-        "en": "Only trigger if inside an iframe"
+        "en": "Only trigger if inside an iframe",
+        "da": "Match kun hvis inde i en iframe"
     },
     "DISPLAY_FILTER": {
         "en": "displayFilter"
     },
     "DISPLAY_FILTER_HELP": {
-        "en": "Only trigger if has display not 'none'"
+        "en": "Only trigger if the DOM node has 'display' set to not 'none'",
+        "da": "Match kun hvis DOM-noden har 'display' sat til noget andet end 'none'"
     },
     "CHILD_FILTER": {
-        "en": "ChildFilter"
+        "en": "ChildFilter",
+        "da": ""
     },
     "CHILD_FILTER_HELP": {
-        "en": "Only trigger if child matching this DOM node selector is found"
+        "en": "Only trigger if child matching this DOM node selector is found",
+        "da": "Match kun, hvis der findes et barn, der matcher denne DOM-nodevælger"
     },
     "ACTIONS": {
-        "en": "actions"
+        "en": "actions",
+        "da": "handlinger"
     },
     "ACTIONS_HELP": {
-        "en": "Each of these actions will be performed in order"
+        "en": "Each of these actions will be performed in order",
+        "da": "Hver af disse handlinger vil blive udført i rækkefølge"
     },
     "SELECTOR_HELP_LIST": {
-        "en": "CSS selector that points to a list of DOM nodes"
+        "en": "CSS selector that points to a list of DOM nodes",
+        "da": "CSS-vælger, der peger på en liste over DOM-noder"
     },
     "ACTION": {
-        "en": "action"
+        "en": "action",
+        "da": "handling"
     },
     "ACTION_HELP": {
-        "en": "The action to perform for each of the targets found by the selector"
+        "en": "The action to perform for each of the targets found by the selector",
+        "da": "Den handling, der skal udføres for hvert af målene fundet af vælgeren"
     },
     "IF_TRUE_ACTION": {
-        "en": "trueAction"
+        "en": "trueAction",
+        "da": "sandHandling"
     },
     "IF_TRUE_ACTION_HELP": {
-        "en": "The action to execute if the selector is found"
+        "en": "The action to execute if the selector is found",
+        "da": "Handlingen, der skal udføres, hvis vælgeren findes"
     },
     "IF_FALSE_ACTION": {
-        "en": "falseAction"
+        "en": "falseAction",
+        "da": "falskHandling"
     },
     "IF_FALSE_ACTION_TEXT": {
-        "en": "The action to execute if the selector is not found"
+        "en": "The action to execute if the selector is not found",
+        "da": "Handlingen, der skal udføres, hvis vælgeren ikke findes"
     },
     "SELECTOR_CLICK_HELP": {
-        "en": "CSS selector that points to the DOM node that should be clicked"
+        "en": "CSS selector that points to the DOM node that should be clicked",
+        "da": "CSS-vælger, der peger på den DOM-node, der skal klikkes på"
     },
     "OPEN_IN_TAB": {
-        "en": "openInTab"
+        "en": "openInTab",
+        "da": "åbenIFane"
     },
     "OPEN_IN_TAB_HELP": {
-        "en": "If what is clicked is a link then optionally check this box to open it in a new tab"
+        "en": "If what is clicked is a link then optionally check this box to open it in a new tab",
+        "da": "Hvis det, der klikkes på, er et link, så marker valgfrit dette felt for at åbne det i en ny fane"
     },
     "SELECTOR_HIDE_HELP": {
-        "en": "CSS selector that points to the DOM node that should be hidden"
+        "en": "CSS selector that points to the DOM node that should be hidden",
+        "da": "CSS-vælger, der peger på den DOM-node, der skal skjules"
     },
     "DOM_NODE_SELECTOR": {
-        "en": "DOM node selector"
+        "en": "DOM node selector",
+        "da": "DOM-nodevælger"
     },
     "TARGET_SLIDE_HELP": {
-        "en": "The target to perform a slide gesture on"
+        "en": "The target to perform a slide gesture on",
+        "da": "Målet der skal udføres en slidebevægelse på"
     },
     "DRAG_TARGET": {
-        "en": "dragTarget"
+        "en": "dragTarget",
+        "da": "trækMål"
     },
     "DRAG_TARGET_HELP": {
-        "en": "The dom node to drag the slider to, x or y wise depending on axis."
+        "en": "The dom node to drag the slider to, x or y wise depending on axis.",
+        "da": "Dom-noden, som slideren skal trækkes til, x eller y afhængigt af aksen."
     },
     "AXIS": {
-        "en": "Axis"
+        "en": "Axis",
+        "da": "Akse"
     },
     "AXIS_HELP": {
-        "en": "Direction of the slide"
-    },
-    "Y": {
-        "en": "Y"
+        "en": "Direction of the slide",
+        "da": "Retningen for slidebevægelsen"
     },
     "X": {
-        "en": "X"
+        "en": "X",
+        "da": "X"
+    },
+    "Y": {
+        "en": "Y",
+        "da": "Y"
     },
     "WAIT_FOR": {
-        "en": "waitFor"
+        "en": "waitFor",
+        "da": "ventPå"
     },
     "WAIT_FOR_HELP": {
-        "en": "The thing to wait for"
+        "en": "The thing to wait for",
+        "da": "Det der skal ventes på"
     },
     "RETRIES": {
-        "en": "retries"
+        "en": "retries",
+        "da": "forsøg"
     },
     "RETRIES_HELP": {
-        "en": "How many times to repeat the search"
+        "en": "How many times to repeat the search",
+        "da": "Hvor mange gange søgningen skal gentages"
     },
     "WAIT_TIME": {
-        "en": "waitTime"
+        "en": "waitTime",
+        "da": "venteTid"
     },
     "WAIT_TIME_HELP": {
-        "en": "How long to wait after each search"
+        "en": "How long to wait after each search",
+        "da": "Hvor lang tid der skal gå efter hver søgning"
     },
     "NEGATED": {
-        "en": "negated"
+        "en": "negated",
+        "da": "negeret"
     },
     "NEGATED_HELP": {
-        "en": "If enabled, waits until dom selection no longer exists"
+        "en": "If enabled, waits until selected DOM node no longer exists",
+        "da": "Hvis aktiveret, venter, indtil valgte DOM-node ikke længere eksisterer"
     },
-    "WAIT_TIME": {
-        "en": "waitTime"
-    },
-    "WAIT_TIME_HELP": {
-        "en": "The amount of time to wait before continuing with the next action."
+    "ACTION_WAIT_TIME_HELP": {
+        "en": "The amount of time to wait before continuing with the next action.",
+        "da": "Den tid, der skal ventes, før der fortsættes med den næste handling."
     },
     "TYPE": {
-        "en": "type"
+        "en": "type",
+        "da": "type"
     },
     "TYPE_HELP": {
-        "en": "The type of consent that this block handles"
+        "en": "The type of consent that this block handles",
+        "da": "Typen af samtykke denne block skal håndtere"
     },
     "TYPE_A_OPTION": {
-        "en": "A - Preferences and Functionality"
+        "en": "A - Preferences and Functionality",
+        "da": "A - Præferencer og funktionalitet"
     },
     "TYPE_B_OPTION": {
-        "en": "B - Performance and Analytics"
+        "en": "B - Performance and Analytics",
+        "da": "B - Ydelse og analyse"
     },
     "TYPE_D_OPTION": {
-        "en": "D - Information Storage and Access"
+        "en": "D - Information Storage and Access",
+        "da": "D - Opbevaring og adgang til information"
     },
     "TYPE_E_OPTION": {
-        "en": "E - Content selection, delivery, and reporting"
+        "en": "E - Content selection, delivery, and reporting",
+        "da": "E - Indholdsvalg, levering og rapportering"
     },
     "TYPE_F_OPTION": {
-        "en": "F - Ad selection, delivery, and reporting"
+        "en": "F - Ad selection, delivery, and reporting",
+        "da": "F - Annoncevalg, levering og rapportering"
     },
     "TYPE_X_OPTION": {
-        "en": "X - Other Purposes"
+        "en": "X - Other Purposes",
+        "da": "X - Andre formål"
     },
     "CONSENT_MATCHER": {
-        "en": "matcher"
+        "en": "matcher",
+        "da": "matcher"
     },
     "CONSENT_MATCHER_HELP": {
-        "en": "If this matcher triggers a match, it means the consent is currently given"
+        "en": "If this matcher triggers a match, it means the consent is currently given",
+        "da": "Hvis denne matcher udløser et match, betyder det at samtykket i øjeblikket er givet"
     },
     "TOGGLE_ACTION": {
-        "en": "toggleAction"
+        "en": "toggleAction",
+        "da": "tilFraHandling"
     },
     "TOGGLE_ACTION_HELP": {
-        "en": "Use this action if the consent is given with a toggle state"
+        "en": "Use this action if the consent is given with a toggle state",
+        "da": "Brug denne handling, hvis samtykket er givet med en til/fra-tilstand"
     },
     "CONSENT_TRUE_ACTION": {
-        "en": "trueAction"
+        "en": "trueAction",
+        "da": "sandHandling"
     },
     "CONSENT_TRUE_ACTION_HELP": {
-        "en": "Use this action to set consent to true, non toggle style"
+        "en": "Use this action to set consent to true, non toggle style",
+        "da": "Brug denne handling til at indstille samtykke til sandt, ikke til/fra-tilstand"
     },
     "CONSENT_FALSE_ACTION": {
-        "en": "falseAction"
+        "en": "falseAction",
+        "da": "falskAction"
     },
     "CONSENT_FALSE_ACTION_HELP": {
-        "en": "Use this action to set consent to false, non toggle style"
+        "en": "Use this action to set consent to false, non toggle style",
+        "da": "Brug denne handling til at indstille samtykke til falsk, ikke til/fra-tilstand"
     },
     "DEBUG_TRANSLATION_DESCRIPTION": {
-        "en": "When translation is missing, dont default to english, but instead show debug token."
+        "en": "When translation is missing, dont default to english, but instead show debug token.",
+        "da": "Brug ikke som standard engelsk, hvis en oversættelse mangler."
+    },
+    "HIDE_CMP": {
+        "en": "HIDE_CMP",
+        "da": "SKJUL_CMP"
+    },
+    "OPEN_OPTIONS": {
+        "en": "OPEN_OPTIONS",
+        "da": "ÅBEN_INDSTILLINGER"
+    },
+    "DO_CONSENT": {
+        "en": "DO_CONSENT",
+        "da": "UDFØR_SAMTYKKE"
+    },
+    "SAVE_CONSENT": {
+        "en": "SAVE_CONSENT",
+        "da": "GEM_SAMTYKKE"
+    },
+    "MY_CMP": {
+        "en": "myCmp",
+        "da": "minCmp"
+    },
+    "OPTIONS_TITLE": {
+        "en": "Concent-O-Matic Options",
+        "da": "Concent-O-Matic indstillinger"
     }
 };
 
@@ -528,10 +643,18 @@ class Language {
 
     static doLanguage(node) {
         if(node == null) {
-            node = document.body;
+            node = document;
         }
 
-        console.log(node);
+        //Find browser language
+        let lang = navigator.language.substring(0, 2);
+
+        //If no language, assume english
+        if(lang == null) {
+            lang = "en";
+        }
+        
+        document.querySelector("html").lang = lang;
 
         const allTextNodes = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
 

@@ -69,7 +69,12 @@ class DomParser {
             } else if(valueDom.querySelector("select") != null) {
                 value = valueDom.querySelector("select").value;
             } else {
-                value = valueDom.textContent;
+                console.log(valueDom);
+                if(valueDom.getAttribute("data-bind-method-name")) {
+                    value = valueDom.getAttribute("data-bind-method-name");
+                } else {
+                    value = valueDom.textContent;
+                }
             }
 
 			if(value != null && value !== "" && value !== false) {

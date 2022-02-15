@@ -111,20 +111,24 @@ document.querySelector(".newButton").addEventListener("click", () => {
 
     loadTemplate("cmp").then(async (cmpDom) => {
         let hide = await loadTemplate("method");
-        hide.querySelector("[data-bind='name']").textContent = "HIDE_CMP";
+        hide.querySelector("[data-bind='name']").textContent = Language.getString("HIDE_CMP");
+        hide.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "HIDE_CMP");
         let open = await loadTemplate("method");
-        open.querySelector("[data-bind='name']").textContent = "OPEN_OPTIONS";
+        open.querySelector("[data-bind='name']").textContent = Language.getString("OPEN_OPTIONS");
+        open.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "OPEN_OPTIONS");
         let consent = await loadTemplate("method");
-        consent.querySelector("[data-bind='name']").textContent = "DO_CONSENT";
+        consent.querySelector("[data-bind='name']").textContent = Language.getString("DO_CONSENT");
+        consent.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "DO_CONSENT");
         let save = await loadTemplate("method");
-        save.querySelector("[data-bind='name']").textContent = "SAVE_CONSENT";
+        save.querySelector("[data-bind='name']").textContent = Language.getString("SAVE_CONSENT");
+        save.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "SAVE_CONSENT");
 
         cmpDom.querySelector("[data-plug='method']").appendChild(hide);
         cmpDom.querySelector("[data-plug='method']").appendChild(open);
         cmpDom.querySelector("[data-plug='method']").appendChild(consent);
         cmpDom.querySelector("[data-plug='method']").appendChild(save);
 
-        loadFromDom(cmpDom, "myCmp");
+        loadFromDom(cmpDom, Language.getString("MY_CMP"));
     }).catch((e) => {
         console.error(e);
     });
