@@ -22,7 +22,7 @@
 			"matches": ["<all_urls>"],
 			"js": [
 				"Tools.js",
-				"Language.js",
+				"language.js",
 				"GDPRConfig.js",
 				"Matcher.js",
 				"Consent.js",
