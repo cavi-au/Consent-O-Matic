@@ -7,14 +7,17 @@ const translations = {
     "EXTENSION_SUBTITLE": {
         "en": "Your Choice - Applied Everywhere",
         "da": "Dit valg - Anvendt overalt"
+	"de": "Ihre Wahl - Überall"
     },
     "YOUR_CHOICE": {
         "en": "Your Choice",
-        "da": "Dit valg"
+        "da": "Dit valg",
+	"de": "Ihre Wahl"
     },
     "RULE_LIST": {
         "en": "Rule Lists",
-        "da": "Regler"
+        "da": "Regler",
+	"de": "Regellisten",
     },
     "LOG": {
         "en": "Log",
@@ -22,15 +25,16 @@ const translations = {
     },
     "DEBUG": {
         "en": "Debug",
-        "da": "Debug"
+        "da": "Debug",
+	"de": "Debug",
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
-        "da": "Konfigurer hvilke tracking kategorier du gerne vil tillade. Så vil Consent-O-Matic udfylde samtykke popups så godt den kan baseret på dine valg. Som standard bliver alt tracking afvist."
+        "da": "Konfigurer hvilke tracking-kategorier du gerne vil tillade. Så vil Consent-O-Matic udfylde samtykke-popups så godt den kan baseret på dine valg. Som standard bliver alt tracking afvist."
     },
     "RULES_DESCRIPTION": {
         "en": "Consent-O-Matic comes with a set of rules that tell it how to understand each kind of GDPR consent popup. You can add more sources of rules here - or even create your own list and share it with others!",
-        "da": "Consent-O-Matic kommer med et sæt af regler der fortæller hvordan den skal behandler hver slags GDPR samtykke popup. Du kan tilføje flere regel kilder her - eller oprette din egen liste og dele den med andre!"
+        "da": "Sammen med Consent-O-Matic følger et sæt af regler der beskriver hvordan hver enkelt slags GDPR-samtykke-popup skal behandles. Du kan tilføje flere regel-kilder her - eller oprette din egen liste og dele den med andre!"
     },
     "ADD_LIST": {
         "en": "Add List",
@@ -50,11 +54,11 @@ const translations = {
     },
     "RULE_GENERATOR_DESCRIPTION": {
         "en": "As an alternative to writing JSON rules by hand it is also possible to create rules using this drag-n-drop editor:",
-        "da": "Som alternativ til at skrive JSON reglerne i hånden, er det også muligt at lave regler med denne drag-n-drop editor:"
+        "da": "Som alternativ til at skrive JSON-reglerne i hånden, er det også muligt at lave regler med denne drag-n-drop editor:"
     },
     "OPEN_RULE_GENERATOR": {
         "en": "Open Rule Editor",
-        "da": "Åben regel editor"
+        "da": "Redigér Regler"
     },
     "CLEAR": {
         "en": "Clear",
@@ -62,7 +66,7 @@ const translations = {
     },
     "LOG_DESCRIPTION": {
         "en": "This is a list of all the GDPR consent popups that were handled",
-        "da": "Dette er en liste over alle GDPR samtykke popups der har været håndteret"
+        "da": "Dette er en liste over alle GDPR-samtykke-popups der har været håndteret"
     },
     "CLICK_DELAY_DESCRIPTION": {
         "en": "Wait a short time between performing each action or mouse gesture",
@@ -106,7 +110,7 @@ const translations = {
     },
     "PREFERENCES_DESCRIPTION": {
         "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites.",
-        "da": "Tillad websteder at huske valg, du laver (f.eks. dit brugernavn, sprog eller den region du er placeret i) og giver forbedrede, mere personlige funktioner. For eksempel kan disse cookies bruges til at huske dine loginoplysninger, ændringer, du har lavet til tekststørrelse, skrifttyper og andre dele af websider, som du kan tilpasse. De kan også bruges til at levere tjenester, du har bedt om, f.eks. at se en video eller kommentere en blog. Oplysningerne i disse cookies bruges ikke til at spore din browsingaktivitet på andre hjemmesider."
+        "da": "Tillad websteder at huske valg, du laver (f.eks. dit brugernavn, sprog eller den region du er placeret i) og giver forbedrede, mere personlige funktioner. For eksempel kan disse cookies bruges til at huske dine loginoplysninger, ændringer, du har lavet til tekststørrelse, skrifttyper og andre dele af websider, som du kan tilpasse. De kan også bruges til at levere tjenester, du har bedt om, f.eks. at se en video eller kommentere på en blog. Oplysningerne i disse cookies bruges ikke til at spore din browsingaktivitet på andre hjemmesider."
     },
     "PERFORMANCE_NAME": {
         "en": "Performance and Analytics",
@@ -166,15 +170,16 @@ const translations = {
     },
     "BACK": {
         "en": "Back",
-        "da": "Tilbage"
+        "da": "Tilbage",
+	"de": "Zurück",
     },
     "SAVE_CUSTOM_RULE": {
         "en": "Save Custom Rule",
         "da": "Gem brugerdefineret regel"
     },
     "EXPORT_JSON": {
-        "en": "Export Json",
-        "da": "Eksporter json"
+        "en": "Export JSON",
+        "da": "Eksportér JSON"
     },
     "COLLAPSE_ALL": {
         "en": "Collapse All",
@@ -278,7 +283,7 @@ const translations = {
     },
     "FROM_PASTED_JSON": {
         "en": "From Pasted JSON",
-        "da": "Fra indsat json"
+        "da": "Fra indsat JSON"
     },
     "CREATE_FROM_SCRATCH": {
         "en": "..or Create a New Rule From Scratch:",
@@ -601,12 +606,14 @@ const translations = {
         "da": "minCmp"
     },
     "OPTIONS_TITLE": {
-        "en": "Concent-O-Matic Options",
-        "da": "Concent-O-Matic indstillinger"
+        "en": "Consent-O-Matic Options",
+        "da": "Consent-O-Matic indstillinger",
+	"de": "Consent-O-Matic Einstellungen"
     },
     "ARE_YOU_SURE": {
         "en": "Are you sure?",
-        "da": "Er du sikker?"
+        "da": "Er du sikker?",
+	"de": "Bist du sicher?"
     },
     "UNHANDLED_EXPLAINER": {
         "en": "The site is added to our list of sites to review",
@@ -614,15 +621,18 @@ const translations = {
     },
     "CANCEL": {
         "en": "Cancel",
-        "da": "Afbryd"
+        "da": "Afbryd",
+	"de": "Abbrechen"
     },
     "SEND": {
         "en": "Submit",
-        "da": "Indsend"
+        "da": "Indsend",
+	"de": "Einsenden"
     },
     "THANKS": {
         "en": "Thank you!",
-        "da": "Mange tak!"
+        "da": "Mange tak!",
+	"de": "Vielen Dank!"
     }
 };
 
