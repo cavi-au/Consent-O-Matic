@@ -10,6 +10,11 @@
         background-position: 0% 50%;
     }
 }
+@keyframes consentomatic-modalAnimation {
+    from { 
+        opacity: 0;
+    }
+}
 
 .ConsentOMatic-Progress-Dialog-Modal {
     position: absolute;
@@ -17,9 +22,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #003399;
+    background: linear-gradient(170deg, rgb(0,51,153), transparent);
     z-index: 2147483647;
     opacity: 0.5;
+    transition: opacity 1s ease-in-out;
+    animation: consentomatic-modalAnimation 1s ease-in-out;
+}
+.ConsentOMatic-Progress-Dialog-Modal.ConsentOMatic-Progress-Complete {
+    opacity: 0;
 }
 
 .ConsentOMatic-Progress-Dialog {

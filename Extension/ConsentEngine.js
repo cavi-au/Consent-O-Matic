@@ -122,6 +122,7 @@ class ConsentEngine {
         if(ConsentEngine.debugValues.debugLog) {
             console.log("Hiding progress...");
         }
+        this.modal.classList.add("ConsentOMatic-Progress-Complete");
         this.dialog.classList.add("ConsentOMatic-Progress-Complete");
         setTimeout(()=>{
             self.modal.remove();
