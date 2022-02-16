@@ -20,6 +20,16 @@ class ConsentEngine {
             }
         });
 
+        this.cmps.sort((cmp1, cmp2)=>{
+            if(cmp1.isUtility()) {
+                return -1;
+            } else if(cmp2.isUtility()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+
         this.setupObserver();
         this.startObserver();
 
@@ -55,28 +65,38 @@ class ConsentEngine {
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
                     setTimeout(async () => {
-                        try {
-                            self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
+                        if(cmp.isUtility()) {
+                            await cmp.runMethod("UTILITY");
+                            self.startObserver();
+                            self.handleMutations([]);
+                        } else {
+                            try {
+                                if (!ConsentEngine.debugValues.skipHideMethod) {
+                                    self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
+                                }
 
+                                if (!ConsentEngine.debugValues.skipHideMethod) {
+                                    await cmp.runMethod("HIDE_CMP");
+                                }
+                                await cmp.runMethod("OPEN_OPTIONS");
+                                if (!ConsentEngine.debugValues.skipHideMethod) {
+                                    await cmp.runMethod("HIDE_CMP");
+                                }
+                                await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                                if (!ConsentEngine.debugValues.skipSubmit) {
+                                    await cmp.runMethod("SAVE_CONSENT");
+                                }
+                                self.handledCallback({
+                                    cmpName: cmp.name
+                                });
+                            } catch(e) {
+                                console.log("Error during consent handling:", e);
+                            }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
-                                await cmp.runMethod("HIDE_CMP");
+                                cmp.unHideAll();
+                                self.hideProgressDialog();
                             }
-                            await cmp.runMethod("OPEN_OPTIONS");
-                            if (!ConsentEngine.debugValues.skipHideMethod) {
-                                await cmp.runMethod("HIDE_CMP");
-                            }
-                            await cmp.runMethod("DO_CONSENT", self.consentTypes);
-                            if (!ConsentEngine.debugValues.skipSubmit) {
-                                await cmp.runMethod("SAVE_CONSENT");
-                            }
-                            self.handledCallback({
-                                cmpName: cmp.name
-                            });
-                        } catch(e) {
-                            console.log("Error during consent handling:", e);
                         }
-                        cmp.unHideAll();
-                        self.hideProgressDialog();
                     }, 0);
                 } else {
                     if (numberOfTries > 0) {
@@ -100,6 +120,19 @@ class ConsentEngine {
         if(ConsentEngine.debugValues.debugLog) {
             console.log("Showing progress...");
         }
+        if(this.dialogTimeoutId != null) {
+            clearTimeout(this.dialogTimeoutId);
+            this.dialogTimeoutId = null;
+            if(this.dialog != null) {
+                this.dialog.remove();
+                this.dialog = null;
+            }
+            if(this.modal != null) {
+                this.modal.remove();
+                this.modal = null;
+            }
+        }
+
         this.modal = document.createElement("div");
         this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
         this.dialog = document.createElement("div");
@@ -124,7 +157,7 @@ class ConsentEngine {
         }
         this.modal.classList.add("ConsentOMatic-Progress-Complete");
         this.dialog.classList.add("ConsentOMatic-Progress-Complete");
-        setTimeout(()=>{
+        this.dialogTimeoutId = setTimeout(()=>{
             self.modal.remove();
             self.dialog.remove();
             self.dialog = null;
