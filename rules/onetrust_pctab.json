@@ -1,5 +1,5 @@
 {
-    "onetrust": {
+    "onetrust_pctab": {
         "detectors": [
             {
                 "presentMatcher": {
