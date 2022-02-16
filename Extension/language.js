@@ -330,14 +330,16 @@ const translations = {
         "da": "Metoder udføres, når en popup er blevet detekteret af en detektor. De tjener forskellige formål, såsom at åbne og gemme dialogboksen for samtykkekonfiguration."
     },
     "PRESENT_MATCHER": {
-        "en": "presentMatcher"
+        "en": "presentMatcher",
+        "da": "tilstedeMatcher",
     },
     "PRESENT_MATCHER_HELP": {
         "en": "This matcher determines whether a CMP popup is present on the page",
         "da": "Denne matcher afgør, om der er en CMP-popup på siden"
     },
     "SHOWING_MATCHER": {
-        "en": "showingMatcher"
+        "en": "showingMatcher",
+        "da": "visesMatcher"
     },
     "SHOWING_MATCHER": {
         "en": "This matcher determines if a CMP popup is currently showing",
