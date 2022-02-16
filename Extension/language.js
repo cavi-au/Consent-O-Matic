@@ -341,7 +341,7 @@ const translations = {
         "en": "showingMatcher",
         "da": "visesMatcher"
     },
-    "SHOWING_MATCHER": {
+    "SHOWING_MATCHER_HELP": {
         "en": "This matcher determines if a CMP popup is currently showing",
         "da": "Denne matcher afgør, om en CMP-popup i øjeblikket vises"
     },
