@@ -1,0 +1,201 @@
+{
+    "quantcast2b": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".qc-cmp2-container"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".qc-cmp2-container"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".qc-cmp2-summary-buttons button[mode=\"secondary\"]",
+                                "textFilter": [
+                                    "Indstillinger",
+                                    "MORE OPTIONS"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": "500"
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".qc-cmp2-list-item"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".qc-cmp2-list-item-header"
+                                        }
+                                    },
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".qc-cmp2-toggle-switch"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".qc-cmp2-expandable-info",
+                                                    "textFilter": [
+                                                        "Precise geolocation and information about device characteristics can be used.",
+                                                        "Cookies, device identifiers, or other information can be stored or accessed on your device for the purposes presented to you.",
+                                                        "Præcis geoplacering og oplysninger om enhedskarakteristika kan anvendes.",
+                                                        "Cookies, enhedsidentifikatorer eller andre oplysninger kan opbevares eller tilgås på din enhed til de formål, der præsenteres for dig."
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp2-expandable-list"
+                                        },
+                                        "action": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle[aria-checked=\"true\"]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".qc-cmp2-toggle-switch"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".qc-cmp2-expandable-info",
+                                                    "textFilter": [
+                                                        "Ads and content can be personalised based on a profile. More data can be added to better personalise ads and content. Ad and content performance can be measured. Insights about audiences who saw the ads and content can be derived. Data can be used to build or improve user experience, systems and software.",
+                                                        "Annoncer og indhold kan tilpasses baseret på en profil. Flere oplysninger kan tilføjes til bedre tilpasning af annoncer og indhold. Annonce- og indholdseffektivitet kan måles. Indsigter om målgrupper, der så annoncerne og indholdet, kan udledes. Data kan bruges til at udvikle eller forbedre brugeroplevelse, systemer og software."
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp2-expandable-list"
+                                        },
+                                        "action": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle[aria-checked=\"true\"]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".qc-cmp2-footer-links button",
+                                "textFilter": [
+                                    "Legitime interesser",
+                                    "LEGITIMATE INTEREST"
+                                ]
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".qc-cmp2-container button",
+                                            "textFilter": [
+                                                "ACCEPT ALL",
+                                                "Fjern indsigelse"
+                                            ]
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".qc-cmp2-container button",
+                                            "textFilter": [
+                                                "OBJECT ALL",
+                                                "Gør indsigelse mod alt"
+                                            ]
+                                        }
+                                    },
+                                    "type": "X"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".qc-cmp2-footer button[mode=\"primary\"]"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}
