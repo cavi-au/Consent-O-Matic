@@ -8,7 +8,10 @@ chrome.tabs.query({
     let activeInput = document.querySelector(".siteselector input");
     document.querySelector("#site").textContent = url;
     document.querySelector("#unhandled_site").textContent = url;
-    document.querySelector("#settings").addEventListener("click", function(){chrome.runtime.openOptionsPage()});
+    document.querySelector("#settings").addEventListener("click", function(){
+	chrome.runtime.openOptionsPage();
+        window.close();
+    });
 
     GDPRConfig.isActive(url).then((active)=>{
         activeInput.checked = active;
