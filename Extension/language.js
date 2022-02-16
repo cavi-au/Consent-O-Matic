@@ -378,14 +378,16 @@ const translations = {
         "da": "Et tekstfilter anvendt på de fundne DOM-noder baseret på deres indhold"
     },
     "IFRAME_FILTER": {
-        "en": "iframeFilter"
+        "en": "iframeFilter",
+        "da": "iframeFilter"
     },
     "IFRAME_FILTER_HELP": {
         "en": "Only trigger if inside an iframe",
         "da": "Match kun hvis inde i en iframe"
     },
     "DISPLAY_FILTER": {
-        "en": "displayFilter"
+        "en": "displayFilter",
+        "da": "displayFilter"
     },
     "DISPLAY_FILTER_HELP": {
         "en": "Only trigger if the DOM node has 'display' set to not 'none'",
@@ -393,7 +395,7 @@ const translations = {
     },
     "CHILD_FILTER": {
         "en": "ChildFilter",
-        "da": ""
+        "da": "BarnFilter"
     },
     "CHILD_FILTER_HELP": {
         "en": "Only trigger if child matching this DOM node selector is found",
