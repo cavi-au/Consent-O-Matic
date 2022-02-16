@@ -1,0 +1,132 @@
+{
+    "cookieinformation": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#coiOverlay, #coiSummery"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#coiOverlay, #coiSummery"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": ".coi-banner__nextpage, .summary-texts__show-details"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "consents": [
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_functional"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_functional"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_statistic"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_statistic"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_marketing"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#switch-cookie_cat_marketing"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        }
+                    ],
+                    "type": "consent"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".coi-banner__accept, .coi-save-btn"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "#CoiBannerOverlay"
+                            },
+                            "type": "hide"
+                        },
+                        {
+                            "target": {
+                                "selector": "#coiOverlay"
+                            },
+                            "type": "hide"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

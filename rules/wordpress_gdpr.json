@@ -1,0 +1,127 @@
+{
+    "wordpressgdpr": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wpgdprc-consent-bar"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".wpgdprc-consent-bar"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wpgdprc-consent-bar .wpgdprc-consent-bar__settings",
+                        "textFilter": null
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".wpgdprc-consent-modal .wpgdprc-button",
+                                "textFilter": "Eyeota"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "description": "Eyeota Cookies",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wpgdprc-consent-modal__description",
+                                            "textFilter": "Eyeota"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wpgdprc-consent-modal__description",
+                                            "textFilter": "Eyeota"
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "X"
+                                }
+                            ],
+                            "type": "consent"
+                        },
+                        {
+                            "target": {
+                                "selector": ".wpgdprc-consent-modal .wpgdprc-button",
+                                "textFilter": "Advertising"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "description": "Advertising Cookies",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wpgdprc-consent-modal__description",
+                                            "textFilter": "Advertising"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wpgdprc-consent-modal__description",
+                                            "textFilter": "Advertising"
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wpgdprc-button",
+                        "textFilter": "Save my settings"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

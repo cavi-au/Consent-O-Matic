@@ -1,0 +1,124 @@
+{
+    "mydealz.de": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "div.oreo-message.bg--color-white.bRad--t-a.space--h-4.space--v-4.boxShadow--large.seal--pointer-on.overflow--scrollY-raw.space--mt-2"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "div.oreo-message.bg--color-white.bRad--t-a.space--h-4.space--v-4.boxShadow--large.seal--pointer-on.overflow--scrollY-raw.space--mt-2"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "span.btn.btn--mode-primary",
+                                        "textFilter": "Einstellungen speichern"
+                                    }
+                                },
+                                "selector": "button.width--all-12"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button.flex--grow-1.text--color-brandPrimary.text--b.space--h-3"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label.size--all-xl.text--b.flex--grow-1.space--mr-3.clickable",
+                                            "textFilter": "Personalisierungs-Cookies"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label.size--all-xl.text--b.flex--grow-1.space--mr-3.clickable",
+                                            "textFilter": "Funktionalitäts-Cookies"
+                                        }
+                                    },
+                                    "type": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label.size--all-xl.text--b.flex--grow-1.space--mr-3.clickable",
+                                            "textFilter": "Analyse-Cookies"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "span.btn.btn--mode-primary",
+                                        "textFilter": "Einstellungen speichern"
+                                    }
+                                },
+                                "selector": "button.width--all-12"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

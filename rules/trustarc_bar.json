@@ -1,0 +1,47 @@
+{
+    "trustarcbar": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#truste-consent-content, .truste-consent-content"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#truste-consent-content, .truste-consent-content"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "parent": null,
+                            "target": {
+                                "displayFilter": true,
+                                "selector": "#truste-show-consent"
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "parent": null,
+                            "target": {
+                                "selector": "#truste-show-consent"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            }
+        ]
+    }
+}

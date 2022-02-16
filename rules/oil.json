@@ -1,0 +1,253 @@
+{
+    "oil": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": ".as-oil-content-overlay"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "selector": ".as-oil-content-overlay"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".as-js-advanced-settings"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "retries": "10",
+                            "target": {
+                                "selector": ".as-oil-cpc__purpose-container"
+                            },
+                            "type": "waitcss",
+                            "waitTime": "250"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Information storage and access",
+                                                "Opbevaring af og adgang til oplysninger på din enhed"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Information storage and access",
+                                                "Opbevaring af og adgang til oplysninger på din enhed"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personlige annoncer",
+                                                "Personalisation"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personlige annoncer",
+                                                "Personalisation"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Annoncevalg, levering og rapportering",
+                                                "Ad selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Annoncevalg, levering og rapportering",
+                                                "Ad selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personalisering af indhold",
+                                                "Content selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": [
+                                                "Personalisering af indhold",
+                                                "Content selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".as-oil-cpc__purpose-header",
+                                                    "textFilter": [
+                                                        "Måling",
+                                                        "Measurement"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".as-oil-cpc__purpose-container"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".as-oil-cpc__purpose-header",
+                                                    "textFilter": [
+                                                        "Måling",
+                                                        "Measurement"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".as-oil-cpc__purpose-container"
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": "Google"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".as-oil-cpc__purpose-container",
+                                            "textFilter": "Google"
+                                        },
+                                        "target": {
+                                            "selector": ".as-oil-cpc__switch"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".as-oil__btn-optin"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "div.as-oil"
+                    },
+                    "type": "hide"
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

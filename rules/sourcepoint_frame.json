@@ -1,0 +1,498 @@
+{
+    "sourcepointframe": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "html.w-mod-js .privacy-container"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "selector": "html.w-mod-js .privacy-container"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "falseAction": {
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#personalisation[value='ON']"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#personalisation"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "E"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#ad-selection-delivery-reporting[value='ON']"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#ad-selection-delivery-reporting"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "F"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#measurement[value='ON']"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#measurement"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "B"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#information-storage-andaaccess[value='ON']"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#information-storage-andaaccess"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "D"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#content-sselection-delivery-reporting[value='ON']"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".priv-purpose-container a#content-sselection-delivery-reporting"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "E"
+                                    }
+                                ],
+                                "type": "consent"
+                            },
+                            "target": {
+                                "selector": ".priv-vendor-block"
+                            },
+                            "trueAction": {
+                                "action": {
+                                    "actions": [
+                                        {
+                                            "target": {
+                                                "selector": ".purpose-title",
+                                                "textFilter": [
+                                                    "Opbevaring af og adgang til oplysninger",
+                                                    "Information storage and access"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "falseAction": {
+                                                    "consents": [
+                                                        {
+                                                            "falseAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "off"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.neutral.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "trueAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "on"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "D"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "target": {
+                                                    "selector": "a.switch-bg"
+                                                },
+                                                "trueAction": {
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "toggleAction": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "D"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "type": "ifcss"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": ".purpose-title",
+                                                "textFilter": [
+                                                    "Personalisering",
+                                                    "Personalisation"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "falseAction": {
+                                                    "consents": [
+                                                        {
+                                                            "falseAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "off"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.neutral.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "trueAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "on"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "target": {
+                                                    "selector": "a.switch-bg"
+                                                },
+                                                "trueAction": {
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "toggleAction": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "type": "ifcss"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": ".purpose-title",
+                                                "textFilter": [
+                                                    "Annoncevalg, levering og rapportering",
+                                                    "Ad selection, delivery, reporting"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "falseAction": {
+                                                    "consents": [
+                                                        {
+                                                            "falseAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "off"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.neutral.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "trueAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "on"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "target": {
+                                                    "selector": "a.switch-bg"
+                                                },
+                                                "trueAction": {
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "toggleAction": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "type": "ifcss"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": ".purpose-title",
+                                                "textFilter": [
+                                                    "Måling",
+                                                    "Measurement"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "falseAction": {
+                                                    "consents": [
+                                                        {
+                                                            "falseAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "off"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.neutral.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "trueAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "on"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "target": {
+                                                    "selector": "a.switch-bg"
+                                                },
+                                                "trueAction": {
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "toggleAction": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "type": "ifcss"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": ".purpose-title",
+                                                "textFilter": [
+                                                    "Indholdsvalg, levering og rapportering",
+                                                    "Content selection, delivery, reporting"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "falseAction": {
+                                                    "consents": [
+                                                        {
+                                                            "falseAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "off"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.neutral.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "trueAction": {
+                                                                "parent": {
+                                                                    "selector": "a.neutral"
+                                                                },
+                                                                "target": {
+                                                                    "selector": "div",
+                                                                    "textFilter": "on"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "E"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "target": {
+                                                    "selector": "a.switch-bg"
+                                                },
+                                                "trueAction": {
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg.on"
+                                                                },
+                                                                "type": "css"
+                                                            },
+                                                            "toggleAction": {
+                                                                "target": {
+                                                                    "selector": "a.switch-bg"
+                                                                },
+                                                                "type": "click"
+                                                            },
+                                                            "type": "E"
+                                                        }
+                                                    ],
+                                                    "type": "consent"
+                                                },
+                                                "type": "ifcss"
+                                            },
+                                            "type": "ifcss"
+                                        }
+                                    ],
+                                    "type": "list"
+                                },
+                                "target": {
+                                    "selector": ".priv-vendor-block .accordian-parent"
+                                },
+                                "type": "foreach"
+                            },
+                            "type": "ifcss"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".priv-save-btn"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".bg-overlay"
+                    },
+                    "type": "hide"
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            }
+        ]
+    }
+}

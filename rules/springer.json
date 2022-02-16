@@ -1,0 +1,396 @@
+{
+    "springer": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".cmp-app_gdpr"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".cmp-popup_popup"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".cmp-intro_rejectAll"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": 250
+                        },
+                        {
+                            "target": {
+                                "selector": ".cmp-purposes_purposeItem:not(.cmp-purposes_selectedPurpose)"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "consents": [
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Przechowywanie informacji na urządzeniu lub dostęp do nich",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Przechowywanie informacji na urządzeniu lub dostęp do nich",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "D"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór podstawowych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór podstawowych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Tworzenie profilu spersonalizowanych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Tworzenie profilu spersonalizowanych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór spersonalizowanych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór spersonalizowanych reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Tworzenie profilu spersonalizowanych treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Tworzenie profilu spersonalizowanych treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór spersonalizowanych treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Wybór spersonalizowanych treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Pomiar wydajności reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Pomiar wydajności reklam",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Pomiar wydajności treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Pomiar wydajności treści",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Stosowanie badań rynkowych w celu generowania opinii odbiorców",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Stosowanie badań rynkowych w celu generowania opinii odbiorców",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "X"
+                        },
+                        {
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Opracowywanie i ulepszanie produktów",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch .cmp-switch_isSelected"
+                                },
+                                "type": "css"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".cmp-purposes_detailHeader",
+                                    "textFilter": "Opracowywanie i ulepszanie produktów",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".cmp-switch_switch"
+                                        }
+                                    }
+                                },
+                                "target": {
+                                    "selector": ".cmp-switch_switch:not(.cmp-switch_isSelected)"
+                                },
+                                "type": "click"
+                            },
+                            "type": "X"
+                        }
+                    ],
+                    "type": "consent"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".cmp-details_save"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,131 @@
+{
+    "optanon-alternative": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#optanon-popup-body-content"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".optanon-alert-box-wrapper"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".optanon-alert-box-wrapper .optanon-toggle-display"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "consents": [
+                        {
+                            "description": "Performance Cookies",
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Performance Cookies"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Performance Cookies"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "description": "Functional Cookies",
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Functional Cookies"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Functional Cookies"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "description": "Targeting Cookies",
+                            "matcher": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Targeting Cookies"
+                                },
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": "#optanon-popup-body-content",
+                                    "textFilter": "Targeting Cookies"
+                                },
+                                "target": {
+                                    "selector": "label"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        }
+                    ],
+                    "type": "consent"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": {
+                        "selector": ".optanon-save-settings-button"
+                    },
+                    "target": {
+                        "selector": ".optanon-white-button-middle"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,196 @@
+{
+    "onetrust-stackoverflow": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".js-consent-banner"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".js-consent-banner",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".js-consent-banner .js-cookie-settings"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk .js-consent-save"
+                            },
+                            "retries": "10",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk"
+                            }
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Performance Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Performance Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Targeting Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Targeting Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Functional Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "input"
+                                },
+                                "parent": {
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": ".grid--cell",
+                                            "textFilter": "Functional Cookies"
+                                        }
+                                    },
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                }
+                            },
+                            "type": "A"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk .js-consent-save"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".js-consent-banner"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

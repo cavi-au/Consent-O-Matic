@@ -1,0 +1,823 @@
+{
+    "EvidonIFrame": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".footer .evidon-footer-image"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".footer .evidon-footer-image"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Advertising"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Advertising"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Functional"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Functional"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Analytics Provider"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Analytics Provider"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Social Media"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Social Media"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Network"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Network"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Server"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Server"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Creative/Ad Format Technology"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Research Provider"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Research Provider"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Creative/Ad Format Technology"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Data Aggregator/Supplier"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Data Aggregator/Supplier"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Publisher"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Publisher"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Demand Side Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Demand Side Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Retargeter"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Retargeter"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Exchange"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Exchange"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Marketing Solutions"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Marketing Solutions"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Advertiser"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Advertiser"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Supply Side Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Supply Side Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Optimizer"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Optimizer"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Verification"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Ad Verification"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Data Management Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Data Management Platform"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Agency"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Agency"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Business Intelligence"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Business Intelligence"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Key Ad Personalization Cookies"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Key Ad Personalization Cookies"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Analytics"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".category-header-text",
+                                                    "textFilter": "Analytics"
+                                                }
+                                            },
+                                            "selector": ".category-header"
+                                        },
+                                        "target": {
+                                            "selector": "img.category-check.checked"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "button#apply-button"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "target": {
+                                "selector": "#optoutfeedback",
+                                "textFilter": [
+                                    "opted out",
+                                    "settings updated"
+                                ]
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "type": "close"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,166 @@
+{
+    "cookiebar": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#cookie-law-info-bar"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#cookie-law-info-bar"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": ".wt-cli-cookie-bar-container .cli_settings_button"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "label"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".wt-cli-cookie-bar-container .cli_setting_save_button"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": null,
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

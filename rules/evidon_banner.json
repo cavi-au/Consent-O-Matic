@@ -1,0 +1,324 @@
+{
+    "EvidonBanner": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#_evidon_banner"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#_evidon_banner"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "#_evidon_banner #_evidon-message a",
+                                "textFilter": [
+                                    "choices",
+                                    "Cookie Consent Tool",
+                                    "here"
+                                ]
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": 250
+                        },
+                        {
+                            "target": {
+                                "selector": "#_evidon_banner #_evidon-option-button"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "falseAction": {
+                                "actions": [
+                                    {
+                                        "negated": false,
+                                        "retries": 10,
+                                        "target": {
+                                            "selector": "iframe#_evidon-consent-frame"
+                                        },
+                                        "type": "waitcss",
+                                        "waitTime": 250
+                                    },
+                                    {
+                                        "negated": true,
+                                        "retries": 10,
+                                        "target": {
+                                            "selector": "iframe#_evidon-consent-frame"
+                                        },
+                                        "type": "waitcss",
+                                        "waitTime": 250
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "button#_evidon-accept-button"
+                                        },
+                                        "type": "click"
+                                    }
+                                ],
+                                "type": "list"
+                            },
+                            "target": {
+                                "selector": "#evidon-prefdiag-overlay"
+                            },
+                            "trueAction": {
+                                "target": {
+                                    "selector": ".evidon-prefdiag-declinebtn"
+                                },
+                                "type": "click"
+                            },
+                            "type": "ifcss"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "#evidon-prefdiag-background"
+                            },
+                            "type": "hide"
+                        },
+                        {
+                            "target": {
+                                "selector": "#evidon-prefdiag-overlay"
+                            },
+                            "type": "hide"
+                        },
+                        {
+                            "target": {
+                                "selector": "#_evidon_banner"
+                            },
+                            "type": "hide"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#evidon-prefdiag-overlay"
+                    },
+                    "trueAction": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": ".evidon-prefdiag-sidebarlink",
+                                    "textFilter": [
+                                        "Purposes"
+                                    ]
+                                },
+                                "type": "click"
+                            },
+                            {
+                                "action": {
+                                    "actions": [
+                                        {
+                                            "target": {
+                                                "selector": "[id*=iab-purpose-name]",
+                                                "textFilter": [
+                                                    "Information storage and access"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "target": {
+                                                                "selector": "input"
+                                                            },
+                                                            "type": "checkbox"
+                                                        },
+                                                        "toggleAction": {
+                                                            "target": {
+                                                                "selector": "label"
+                                                            },
+                                                            "type": "click"
+                                                        },
+                                                        "type": "D"
+                                                    }
+                                                ],
+                                                "type": "consent"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": "[id*=iab-purpose-name]",
+                                                "textFilter": [
+                                                    "Personalisation"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "target": {
+                                                                "selector": "input"
+                                                            },
+                                                            "type": "checkbox"
+                                                        },
+                                                        "toggleAction": {
+                                                            "target": {
+                                                                "selector": "label"
+                                                            },
+                                                            "type": "click"
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ],
+                                                "type": "consent"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": "[id*=iab-purpose-name]",
+                                                "textFilter": [
+                                                    "Content selection, delivery, reporting"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "target": {
+                                                                "selector": "input"
+                                                            },
+                                                            "type": "checkbox"
+                                                        },
+                                                        "toggleAction": {
+                                                            "target": {
+                                                                "selector": "label"
+                                                            },
+                                                            "type": "click"
+                                                        },
+                                                        "type": "E"
+                                                    }
+                                                ],
+                                                "type": "consent"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": "[id*=iab-purpose-name]",
+                                                "textFilter": [
+                                                    "Ad selection, delivery, reporting"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "target": {
+                                                                "selector": "input"
+                                                            },
+                                                            "type": "checkbox"
+                                                        },
+                                                        "toggleAction": {
+                                                            "target": {
+                                                                "selector": "label"
+                                                            },
+                                                            "type": "click"
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ],
+                                                "type": "consent"
+                                            },
+                                            "type": "ifcss"
+                                        },
+                                        {
+                                            "target": {
+                                                "selector": "[id*=iab-purpose-name]",
+                                                "textFilter": [
+                                                    "Measurement"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "target": {
+                                                                "selector": "input"
+                                                            },
+                                                            "type": "checkbox"
+                                                        },
+                                                        "toggleAction": {
+                                                            "target": {
+                                                                "selector": "label"
+                                                            },
+                                                            "type": "click"
+                                                        },
+                                                        "type": "B"
+                                                    }
+                                                ],
+                                                "type": "consent"
+                                            },
+                                            "type": "ifcss"
+                                        }
+                                    ],
+                                    "type": "list"
+                                },
+                                "target": {
+                                    "selector": "#iab-purpose-container [id*='iab-purpose']"
+                                },
+                                "type": "foreach"
+                            },
+                            {
+                                "target": {
+                                    "selector": ".evidon-prefdiag-acceptbtn",
+                                    "textFilter": [
+                                        "Save Preferences"
+                                    ]
+                                },
+                                "type": "click"
+                            },
+                            {
+                                "target": {
+                                    "selector": ".evidon-prefdiag-sidebarlink",
+                                    "textFilter": [
+                                        "Vendors"
+                                    ]
+                                },
+                                "type": "click"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "type": "ifcss"
+                },
+                "name": "DO_CONSENT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "sourcepoint": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "[class^='sp_message_container']"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "[class^='sp_message_container']"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": "[class^='sp_message_container'] button",
+                        "textFilter": [
+                            "Consent",
+                            "Options"
+                        ]
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            }
+        ]
+    }
+}

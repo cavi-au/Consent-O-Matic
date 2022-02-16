@@ -1,0 +1,177 @@
+{
+    "sharethis": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".app_gdpr"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".app_gdpr .popup_popup"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "parent": null,
+                            "target": {
+                                "selector": ".app_gdpr .intro_showPurposes"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "consents": [
+                        {
+                            "description": "Vendor - Information storage and access",
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Information storage and access"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Information storage and access"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch"
+                                },
+                                "type": "click"
+                            },
+                            "type": "D"
+                        },
+                        {
+                            "description": "Vendor - Ad selection, delivery, reporting",
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Ad selection, delivery, reporting"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Ad selection, delivery, reporting"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "description": "Vendor - Personalisation",
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Personalisation"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Personalisation"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch"
+                                },
+                                "type": "click"
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "description": "Vendor - Content selection, delivery, reporting",
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Content selection, delivery, reporting"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Content selection, delivery, reporting"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch"
+                                },
+                                "type": "click"
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "description": "Vendor - Measurement",
+                            "matcher": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Measurement"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch input"
+                                },
+                                "type": "checkbox"
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".purposes_purposes",
+                                    "textFilter": "Measurement"
+                                },
+                                "target": {
+                                    "selector": ".switch_switch"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        }
+                    ],
+                    "type": "consent"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".app_gdpr .details_save"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

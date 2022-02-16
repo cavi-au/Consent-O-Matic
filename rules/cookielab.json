@@ -1,0 +1,124 @@
+{
+    "cookieLab": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#cookieLab"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "selector": "#cookieLab"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": "#cookieLab #consentChooseCookies"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": ".cookieInfo",
+                                    "textFilter": [
+                                        "Statistical analysis cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": ".cookieInfo"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": ".cookieInfo"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "B"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": ".cookieInfo",
+                                    "textFilter": [
+                                        "Advertising cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": ".cookieInfo"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": ".cookieInfo"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "target": {
+                        "selector": "#cookieLab #cookieChooseCookies > label"
+                    },
+                    "type": "foreach"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#cookieLab #chooseSaveSettings"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

@@ -1,0 +1,250 @@
+{
+    "quantcast2": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "[data-tracking-opt-in-overlay]"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": 500
+                        },
+                        {
+                            "action": {
+                                "actions": [
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Information storage and access"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Personalization"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Ad selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Content selection, delivery, reporting"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Measurement"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    },
+                                    {
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Other Partners"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "type": "checkbox"
+                                                    },
+                                                    "toggleAction": {
+                                                        "target": {
+                                                            "selector": "label"
+                                                        },
+                                                        "type": "click"
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ],
+                                            "type": "consent"
+                                        },
+                                        "type": "ifcss"
+                                    }
+                                ],
+                                "type": "list"
+                            },
+                            "parent": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "input"
+                                    }
+                                },
+                                "selector": "[data-tracking-opt-in-overlay] > div > div"
+                            },
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "input"
+                                    }
+                                },
+                                "selector": ":scope > div"
+                            },
+                            "type": "foreach"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-save]"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

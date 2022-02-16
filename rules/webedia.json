@@ -1,0 +1,188 @@
+{
+    "Webedia": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".app_gdpr--2k2uB"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".banner_banner--3pjXd"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".banner_consent--2qj6F .button_invert--1bse9",
+                        "textFilter": "Gérer mes choix"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "retries": 50,
+                            "target": {
+                                "selector": ".popup_popup--1TXMW"
+                            },
+                            "type": "waitcss",
+                            "waitTime": 10
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "description": "Information Storage and Access",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Conservation et accès aux informations"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Conservation et accès aux informations"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "description": "Preferences and Functionality",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Personnalisation"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Personnalisation"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "description": "Ad selection, delivery, and reporting",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Sélection, diffusion et signalement de publicités"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Sélection, diffusion et signalement de publicités"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "description": "Content selection, delivery, and reporting",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Sélection, diffusion et signalement de contenu"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Sélection, diffusion et signalement de contenu"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "description": "Performance and Analytics",
+                                    "matcher": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Évaluation"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "selector": ".summary_purposeItem--3WVlI",
+                                            "textFilter": "Évaluation"
+                                        },
+                                        "target": {
+                                            "selector": ".switch_native--3vL1-"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".popup_content--2JBXA .details_save--1ja7w",
+                        "textFilter": "Valider et continuer sur le site"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

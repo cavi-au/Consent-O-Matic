@@ -1,0 +1,325 @@
+{
+  "tealium.com": {
+    "detectors": [
+      {
+        "presentMatcher": {
+          "target": {
+            "selector": "#__tealiumGDPRecModal, script[id^=tealium]"
+          },
+          "type": "css"
+        },
+        "showingMatcher": {
+          "target": {
+            "selector": "#__tealiumGDPRecModal .privacy_prompt, .cookie_banner_background"
+          },
+          "type": "css"
+        }
+      }
+    ],
+    "methods": [
+      {
+        "action": {
+          "target": {
+            "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings"
+          },
+          "type": "click"
+        },
+        "name": "OPEN_OPTIONS"
+      },
+      {
+        "action": {
+          "actions": [
+            {
+              "retries": 50,
+              "target": {
+                "selector": "#__tealiumGDPRcpPrefs .privacy_prompt_content"
+              },
+              "type": "waitcss",
+              "waitTime": 50
+            },
+            {
+              "consents": [
+                {
+                  "description": "Analytics",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat1"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat1"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat1]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "B"
+                },
+                {
+                  "description": "Unknown",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat2"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat2"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat2]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "X"
+                },
+                {
+                  "description": "Ads selection",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat3"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat3"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat3]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "F"
+                },
+                {
+                  "description": "Search content selection",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat4"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat4"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat4]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "E"
+                },
+                {
+                  "description": "Email targeting",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat5"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat5"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat5]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "B"
+                },
+                {
+                  "description": "Content selection",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat6"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat6"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat6]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "E"
+                },
+                {
+                  "description": "Sharing with social networks",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat7"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat7"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat7]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "B"
+                },
+                {
+                  "description": "Personalized offers",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat8"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat8"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat8]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "E"
+                },
+                {
+                  "description": "Misc personalized experience",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat9"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat9"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat9]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "E"
+                },
+                {
+                  "description": "Cookie match for ads",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat10"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat10"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat10]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "F"
+                },
+                {
+                  "description": "Unified customer database",
+                  "matcher": {
+                    "target": {
+                      "selector": "#__tealiumGDPRcpPrefs #toggle_cat11"
+                    },
+                    "type": "checkbox"
+                  },
+                  "toggleAction": {
+                    "parent": {
+                      "childFilter": {
+                        "target": {
+                          "selector": "#toggle_cat11"
+                        }
+                      },
+                      "selector": ".pp_category_toggle, .privacy_prompt_content td"
+                    },
+                    "target": {
+                      "selector": "label[for=toggle_cat11]"
+                    },
+                    "type": "click"
+                  },
+                  "type": "D"
+                }
+              ],
+              "type": "consent"
+            }
+          ],
+          "type": "list"
+        },
+        "name": "DO_CONSENT"
+      },
+      {
+        "action": {
+          "target": {
+            "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit"
+          },
+          "type": "click"
+        },
+        "name": "SAVE_CONSENT"
+      }
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+{
+    "future": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "iframeFilter": true,
+                        "selector": "script[src='cmpui.js']"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "iframeFilter": true,
+                        "selector": "#mainMoreInfo"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": "#mainMoreInfo"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": "label.form-check-label",
+                                    "textFilter": [
+                                        "Information storage and access",
+                                        "Lagring og adgang til oplysninger"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "D"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label.form-check-label",
+                                    "textFilter": [
+                                        "Personalisation",
+                                        "Personalisering"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label.form-check-label",
+                                    "textFilter": [
+                                        "Annoncevalg, levering, rapportering",
+                                        "Ad selection, delivery, reporting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label.form-check-label",
+                                    "textFilter": [
+                                        "Udvælgelse af indhold, levering, rapportering",
+                                        "Content selection, delivery, reporting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "E"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label.form-check-label",
+                                    "textFilter": [
+                                        "Measurement",
+                                        "Måling"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "B"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "target": {
+                        "selector": ".cmp-consent-list .form-check"
+                    },
+                    "type": "foreach"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": ".cmp-btn-save"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "target": {
+                                "selector": ".cmp-vendors"
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "target": {
+                                "selector": ".cmp-btn-save"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

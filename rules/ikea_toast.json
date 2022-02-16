@@ -1,0 +1,47 @@
+{
+    "ikeaToast": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "[data-widget='cookie-dialog'].toast"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "[data-widget='cookie-dialog'].toast"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "openInTab": true,
+                            "target": {
+                                "selector": "[data-widget='cookie-dialog'].toast .toast__privacy-link",
+                                "textFilter": [
+                                    "Cookie and privacy statement"
+                                ]
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "target": {
+                                "selector": "[data-widget='cookie-dialog'].toast .toast__close"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            }
+        ]
+    }
+}

@@ -1,0 +1,154 @@
+{
+    "ez-cookie": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#ez-cookie-dialog"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#ez-cookie-dialog"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "#ez-cookie-dialog-wrapper"
+                            },
+                            "type": "hide"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": null,
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Preferences"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "label"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "A"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Statistics"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "label"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "B"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Marketing"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "label"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "parent": {
+                        "selector": "#ez-cookie-options"
+                    },
+                    "target": {
+                        "selector": ".ez-cookie-option"
+                    },
+                    "type": "foreach"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#ez-ok-cookies"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

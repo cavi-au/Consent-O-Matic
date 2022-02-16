@@ -1,0 +1,226 @@
+{
+    "uniconsent": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".unic .unic-box, .unic .unic-bar"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".unic .unic-box, .unic .unic-bar"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "parent": null,
+                            "target": {
+                                "selector": ".unic .unic-box button, .unic .unic-bar button",
+                                "textFilter": "Manage Options"
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "parent": null,
+                            "target": {
+                                "selector": ".unic .unic-box button, .unic .unic-bar button",
+                                "textFilter": "Manage Options"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "consents": [
+                                    {
+                                        "description": "Information storage and access",
+                                        "matcher": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Information storage and access"
+                                            },
+                                            "target": {
+                                                "selector": "input"
+                                            },
+                                            "type": "checkbox"
+                                        },
+                                        "toggleAction": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Information storage and access"
+                                            },
+                                            "target": {
+                                                "selector": "label"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "D"
+                                    },
+                                    {
+                                        "description": "Personalisation",
+                                        "matcher": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Personalisation"
+                                            },
+                                            "target": {
+                                                "selector": "input"
+                                            },
+                                            "type": "checkbox"
+                                        },
+                                        "toggleAction": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Personalisation"
+                                            },
+                                            "target": {
+                                                "selector": "label"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "E"
+                                    },
+                                    {
+                                        "description": "Ad selection, delivery, reporting",
+                                        "matcher": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Ad selection, delivery, reporting"
+                                            },
+                                            "target": {
+                                                "selector": "input"
+                                            },
+                                            "type": "checkbox"
+                                        },
+                                        "toggleAction": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Ad selection, delivery, reporting"
+                                            },
+                                            "target": {
+                                                "selector": "label"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "F"
+                                    },
+                                    {
+                                        "description": "Content selection, delivery, reporting",
+                                        "matcher": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Content selection, delivery, reporting"
+                                            },
+                                            "target": {
+                                                "selector": "input"
+                                            },
+                                            "type": "checkbox"
+                                        },
+                                        "toggleAction": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Content selection, delivery, reporting"
+                                            },
+                                            "target": {
+                                                "selector": "label"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "E"
+                                    },
+                                    {
+                                        "description": "Measurement",
+                                        "matcher": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Measurement"
+                                            },
+                                            "target": {
+                                                "selector": "input"
+                                            },
+                                            "type": "checkbox"
+                                        },
+                                        "toggleAction": {
+                                            "parent": {
+                                                "selector": ".columns",
+                                                "textFilter": "Measurement"
+                                            },
+                                            "target": {
+                                                "selector": "label"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "B"
+                                    }
+                                ],
+                                "type": "consent"
+                            },
+                            {
+                                "target": {
+                                    "selector": ".column",
+                                    "textFilter": "Google Personalization"
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "description": "Google Personalization",
+                                            "matcher": {
+                                                "target": {
+                                                    "selector": "input"
+                                                },
+                                                "type": "checkbox"
+                                            },
+                                            "toggleAction": {
+                                                "target": {
+                                                    "selector": "label"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "target": {
+                        "selector": ".unic-purposes"
+                    },
+                    "type": "foreach"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".unic .unic-box button, .unic .unic-bar button",
+                        "textFilter": "Save Choices"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

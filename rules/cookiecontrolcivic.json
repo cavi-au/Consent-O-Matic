@@ -1,0 +1,505 @@
+{
+    "cookiecontrolcivic": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#ccc-notify .ccc-notify-button"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#ccc-notify .ccc-notify-button"
+                    },
+                    "type": "css"
+                }
+            },
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#ccc[open]"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": "#ccc[open]"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "parent": null,
+                            "target": {
+                                "selector": "#ccc #ccc-notify .ccc-notify-button",
+                                "textFilter": [
+                                    "Settings",
+                                    "Cookie Preferences"
+                                ]
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "displayFilter": true,
+                                "selector": "#ccc-recommended-settings"
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Analytical Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Analytical Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Marketing Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Marketing Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Social Sharing Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Social Sharing Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Performance"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Performance"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Functionality (incl. social media)"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Functionality (incl. social media)"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Targeting/Advertising"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Targeting/Advertising"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Google Analytics"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Google Analytics"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                }
+                            ],
+                            "type": "consent"
+                        },
+                        {
+                            "target": {
+                                "selector": ".optional-cookie button",
+                                "textFilter": "Configure Ad Vendors"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "target": {
+                                "displayFilter": true,
+                                "selector": "#iab-purposes .optional-cookie"
+                            },
+                            "type": "waitcss"
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Information storage and access"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Information storage and access"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Personalisation"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Personalisation"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Ad selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Ad selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Content selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Content selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Measurement"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "type": "checkbox"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Measurement"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        },
+                                        "target": {
+                                            "selector": "click"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#ccc-close"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}

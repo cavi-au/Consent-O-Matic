@@ -1,0 +1,535 @@
+{
+    "quantcast": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": ".qc-cmp-ui-container"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "selector": ".qc-cmp-ui-container.qc-cmp-showing"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "#qc-cmp-purpose-button"
+                            },
+                            "type": "click"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "actions": [
+                        {
+                            "target": {
+                                "selector": "a[onclick*='updateConsentUi\",3'], a[onclick*='updateConsentUi\\',3']"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "action": {
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "target": {
+                                                "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                            },
+                                            "type": "css"
+                                        },
+                                        "toggleAction": {
+                                            "target": {
+                                                "selector": ".qc-cmp-toggle"
+                                            },
+                                            "type": "click"
+                                        },
+                                        "type": "X"
+                                    }
+                                ],
+                                "type": "consent"
+                            },
+                            "parent": {
+                                "selector": ".qc-cmp-vendor-list-body"
+                            },
+                            "target": {
+                                "selector": ".qc-cmp-toggle-cell"
+                            },
+                            "type": "foreach"
+                        },
+                        {
+                            "target": {
+                                "selector": "a[onclick*='updateConsentUi\",2'], a[onclick*='updateConsentUi\\',2']"
+                            },
+                            "type": "click"
+                        },
+                        {
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Personalisation",
+                                                        "Personalisering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Personalisation",
+                                                        "Personalisering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-publisher-purposes-table .qc-cmp-purpose-info"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Information storage and access",
+                                                        "Opbevaring af og adgang til oplysninger"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Personalisation",
+                                                        "Personalisering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Personalisation",
+                                                        "Personalisering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting",
+                                                        "Indholdsvalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting",
+                                                        "Annoncevalg, levering og rapportering"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Measurement",
+                                                        "Måling"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-vendors-purposes-table .qc-cmp-purpose-info, .qc-cmp-vendors-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Google"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-google-purposes-table .qc-cmp-purpose-info, .qc-cmp-google-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle.qc-cmp-toggle-on"
+                                        },
+                                        "type": "css"
+                                    },
+                                    "toggleAction": {
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "h4",
+                                                    "textFilter": [
+                                                        "Google"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".qc-cmp-google-purposes-table .qc-cmp-purpose-info, .qc-cmp-google-purposes-table .qc-cmp-purpose-infoEDIT"
+                                        },
+                                        "target": {
+                                            "selector": ".qc-cmp-toggle"
+                                        },
+                                        "type": "click"
+                                    },
+                                    "type": "F"
+                                }
+                            ],
+                            "type": "consent"
+                        }
+                    ],
+                    "type": "list"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".qc-cmp-save-and-exit"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".qc-cmp-ui-container"
+                    },
+                    "type": "hide"
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

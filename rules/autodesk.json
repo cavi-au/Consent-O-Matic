@@ -1,0 +1,209 @@
+{
+    "Autodesk": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#adsk-eprivacy-body"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#adsk-eprivacy-body"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": "#adsk-eprivacy-body"
+                    },
+                    "type": "hide"
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#adsk-eprivacy-privacy-details"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": "h4",
+                                    "textFilter": [
+                                        "Online experience"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "falseAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='no']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='yes']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "E"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "h4",
+                                    "textFilter": [
+                                        "Communication"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "falseAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='no']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='yes']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "h4",
+                                    "textFilter": [
+                                        "Customer feedback"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "falseAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='no']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='yes']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "X"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "h4",
+                                    "textFilter": [
+                                        "Digital advertising"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "falseAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='no']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='yes']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "F"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            },
+                            {
+                                "target": {
+                                    "selector": "h4",
+                                    "textFilter": [
+                                        "Troubleshooting"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "falseAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='no']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": "input[data-category-selector='yes']"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "X"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "target": {
+                        "selector": "#adsk-eprivacy-form .adsk-eprivacy-category-container"
+                    },
+                    "type": "foreach"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "#adsk-eprivacy-continue-btn"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}
