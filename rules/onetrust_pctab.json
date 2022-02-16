@@ -16,20 +16,19 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#onetrust-banner-sdk",
-                        "displayFilter": true
+                        "childFilter": {
+                            "target": {
+                                "selector": ".otPcTab",
+                                "displayFilter": true
+                            }
+                        },
+                        "selector": "#onetrust-consent-sdk"
                     }
                 }
             }
         ],
         "methods": [
             {
-                "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": "#onetrust-pc-btn-handler, .ot-sdk-show-settings"
-                    }
-                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -109,7 +108,8 @@
                                     "selector": ".ot-grp-hdr1",
                                     "textFilter": [
                                         "Performance Cookies",
-                                        "Leistungs-Cookies"
+                                        "Leistungs-Cookies",
+                                        "Ydeevne og analytik cookies"
                                     ]
                                 },
                                 "trueAction": {
@@ -163,6 +163,122 @@
                                         }
                                     ]
                                 }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Reklamecookies",
+                                        "Advertising Cookies",
+                                        "Werbe-Cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Funktionelle cookies",
+                                        "Functional Cookies",
+                                        "Funktionale Cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": "Personlig tilpasning cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "X"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": "Målrettede cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -191,6 +307,9 @@
                     ]
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }

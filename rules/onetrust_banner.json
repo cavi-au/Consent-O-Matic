@@ -1,0 +1,49 @@
+{
+    "onetrust_banner": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#onetrust-banner-sdk"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#onetrust-banner-sdk",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#onetrust-pc-btn-handler"
+                            }
+                        }
+                    ]
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

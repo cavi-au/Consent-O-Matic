@@ -50,7 +50,12 @@ class JsonParser {
                 select.value = bindJson;
             } else {
                 //Setup value as string
-                valueBind.textContent = bindJson;
+                if(valueBind.parentNode.matches("[data-type='method']")) {
+                    valueBind.setAttribute("data-bind-method-name", bindJson);
+                    valueBind.textContent = Language.getString(bindJson);
+                } else {
+                    valueBind.textContent = bindJson;
+                }
             }
         }
     }

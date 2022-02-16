@@ -123,10 +123,15 @@ document.querySelector(".newButton").addEventListener("click", () => {
         save.querySelector("[data-bind='name']").textContent = Language.getString("SAVE_CONSENT");
         save.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "SAVE_CONSENT");
 
+        let utility = await loadTemplate("method");
+        utility.querySelector("[data-bind='name']").textContent = Language.getString("UTILITY");
+        utility.querySelector("[data-bind='name']").setAttribute("data-bind-method-name", "UTILITY");
+
         cmpDom.querySelector("[data-plug='method']").appendChild(hide);
         cmpDom.querySelector("[data-plug='method']").appendChild(open);
         cmpDom.querySelector("[data-plug='method']").appendChild(consent);
         cmpDom.querySelector("[data-plug='method']").appendChild(save);
+        cmpDom.querySelector("[data-plug='method']").appendChild(utility);
 
         loadFromDom(cmpDom, Language.getString("MY_CMP"));
     }).catch((e) => {
@@ -146,6 +151,15 @@ function loadFromCmpJson(json, selectedKey) {
     }) == null) {
         json.methods.push({
             "name": "HIDE_CMP",
+            "action": null
+        });
+    }
+
+    if (json.methods.find((elm) => {
+        return elm.name === "UTILITY";
+    }) == null) {
+        json.methods.push({
+            "name": "UTILITY",
             "action": null
         });
     }

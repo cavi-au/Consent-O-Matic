@@ -33,8 +33,6 @@ async function loadTemplate(id) {
     Language.doAttributes(newFragment);
     Language.doLanguage(newFragment);
 
-    console.log("Hest!");
-
     return newFragment.children[0];
 }
 

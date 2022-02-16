@@ -46,6 +46,10 @@ class CMP {
         return detector.isShowing();
     }
 
+    isUtility() {
+        return this.methods.has("UTILITY") && this.methods.size === 1;
+    }
+
     async runMethod(name, param = null) {
         let action = this.methods.get(name);
 

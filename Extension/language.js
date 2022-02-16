@@ -637,6 +637,10 @@ const translations = {
         "en": "Thank you!",
         "da": "Mange tak!",
 	    "de": "Vielen Dank!"
+    },
+    "UTILITY": {
+        "en": "UTILITY",
+        "da": "UTILITY"
     }
 };
 
