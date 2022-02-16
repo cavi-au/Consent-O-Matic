@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         }
 
         default:
-            console.log("Unhandled message:", message);
+            console.warn("Unhandled message:", message);
     }
 });
 
@@ -89,6 +89,15 @@ function fetchRules(forceUpdate) {
     let maxStaleness = 60 * 15;  // Fetch frequency in seconds
     let rulePromise = new Promise((resolve, reject) => {
         GDPRConfig.getRuleLists().then((ruleLists) => {
+
+            let oldDefaultListIndex = ruleLists.indexOf("https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/Rules.json");
+
+            if(oldDefaultListIndex !== -1) {
+                console.log("Cleaning old rule list, and replacing with new reference based list...");
+                ruleLists[oldDefaultListIndex] = "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules-list.json"
+                GDPRConfig.setRuleLists(ruleLists);
+            }
+
             chrome.storage.local.get({ cachedEntries: {} }, async function ({ cachedEntries: cachedEntries }) {
                 let rules = [];
                 for (let ruleList of ruleLists) {
@@ -99,19 +108,16 @@ function fetchRules(forceUpdate) {
                         rules.push(entry.rules);
                     } else {
                         // No cache, or to old, try to fetch
-                        try {
+                        let theList = await fetchRulesList(ruleList);
 
-                            let response = await fetch(ruleList, { cache: "no-store" });
-                            let theList = await response.json();
+                        if(theList != null) {
                             let storedEntry = {};
                             rules.push(theList);
                             cachedEntries[ruleList] = {
                                 timestamp: Date.now() / 1000,
                                 rules: theList
                             };
-                        } catch (e) {
-                            console.warn("Error fetching rulelist: ", ruleList, e.message);
-
+                        } else {
                             //Reuse cached entry even though its out of date at this point
                             if(entry != null) {
                                 rules.push(entry.rules);
@@ -140,3 +146,35 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
         setBadgeCheckmark(false, tabId);
     }
 });
+
+async function fetchRulesList(ruleList) {
+    try {
+
+        let response = await fetch(ruleList, { cache: "no-store" });
+        let theList = await response.json();
+
+        let theMergedList = Object.assign({}, theList);
+        delete theMergedList.references;
+
+        //If references is present, fetch those and merge into big json object
+        if(theList.references != null) {
+            let promises = [];
+            for(let ref of theList.references) {
+                promises.push(fetchRulesList(ref));
+            }
+
+            let lists = await Promise.all(promises);
+
+            lists.forEach((list) => {
+                Object.assign(theMergedList, list);
+            });
+        }
+
+        return theMergedList;
+
+    } catch (e) {
+        console.warn("Error fetching rulelist: ", ruleList, e.message);
+    }
+
+    return null;
+}
