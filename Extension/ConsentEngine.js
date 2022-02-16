@@ -6,6 +6,11 @@ class ConsentEngine {
 
         this.cmps = [];
 
+        console.group("TEST");
+        console.log(handledCallback);
+        console.trace();
+        console.groupEnd();
+
         this.handledCallback = handledCallback;
 
         this.triedCMPs = new Set();

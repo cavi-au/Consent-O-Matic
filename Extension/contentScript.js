@@ -23,7 +23,7 @@ chrome.runtime.sendMessage("GetTabUrl", (url)=>{
             
                             ConsentEngine.debugValues = debugValues;
 
-                            let engine = new ConsentEngine(config, consentTypes, debugValues, (stats)=>{
+                            let engine = new ConsentEngine(config, consentTypes, (stats)=>{
                                 chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
                                     "cmp": stats.cmpName,
                                     "url": url
