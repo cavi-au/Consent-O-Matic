@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A27C71C27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
 		7A27C71D27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
+		7A84BB8A27BCFB98000AC8E0 /* language.js in Resources */ = {isa = PBXBuildFile; fileRef = 7A84BB8927BCFB98000AC8E0 /* language.js */; };
+		7A84BB8B27BCFB98000AC8E0 /* language.js in Resources */ = {isa = PBXBuildFile; fileRef = 7A84BB8927BCFB98000AC8E0 /* language.js */; };
 		7ABDB9EF279FED16001F98FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9EE279FED16001F98FD /* AppDelegate.swift */; };
 		7ABDB9F1279FED16001F98FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9F0279FED16001F98FD /* SceneDelegate.swift */; };
 		7ABDB9F4279FED16001F98FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9F2279FED16001F98FD /* LaunchScreen.storyboard */; };
@@ -117,6 +119,7 @@
 
 /* Begin PBXFileReference section */
 		7A27C71B27A2A2D0008AECB6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		7A84BB8927BCFB98000AC8E0 /* language.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = language.js; path = ../../Extension/language.js; sourceTree = "<group>"; };
 		7ABDB9DF279FED13001F98FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		7ABDB9E1279FED13001F98FD /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		7ABDB9E2279FED13001F98FD /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -291,6 +294,7 @@
 		7ABDBA39279FED18001F98FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A84BB8927BCFB98000AC8E0 /* language.js */,
 				7ABDBA3A279FED18001F98FD /* Tools.js */,
 				7ABDBA3B279FED18001F98FD /* Action.js */,
 				7ABDBA3C279FED18001F98FD /* popup.js */,
@@ -489,6 +493,7 @@
 				7ABDBA6F279FED18001F98FD /* icon_128.png in Resources */,
 				7ABDBA72279FED18001F98FD /* Consent.js in Resources */,
 				7ABDBA64279FED18001F98FD /* Tools.js in Resources */,
+				7A84BB8A27BCFB98000AC8E0 /* language.js in Resources */,
 				7ABDBA76279FED18001F98FD /* CMP.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +522,7 @@
 				7ABDBA5A279FED18001F98FD /* icon_128.png in Resources */,
 				7ABDBA5D279FED18001F98FD /* Consent.js in Resources */,
 				7ABDBA4F279FED18001F98FD /* Tools.js in Resources */,
+				7A84BB8B27BCFB98000AC8E0 /* language.js in Resources */,
 				7ABDBA61279FED18001F98FD /* CMP.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
