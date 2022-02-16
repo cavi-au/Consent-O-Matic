@@ -1,0 +1,197 @@
+{
+    "onetrust": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "childFilter": {
+                            "target": {
+                                "selector": ".otPcTab"
+                            }
+                        },
+                        "selector": "#onetrust-consent-sdk"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#onetrust-banner-sdk",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#onetrust-pc-btn-handler, .ot-sdk-show-settings"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".ot-desc-cntr"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Opbevare og/eller tilgå oplysninger på en enhed",
+                                        "Store and/or access information on a device",
+                                        "Informationen auf einem Gerät speichern und/oder abrufen"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "D"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                        "Personalised ads and content, ad and content measurement, audience insights and product development",
+                                        "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Performance Cookies",
+                                        "Leistungs-Cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": [
+                                        "Bruge præcise geoplaceringsoplysninger",
+                                        "Use precise geolocation data",
+                                        "Genaue Standortdaten verwenden"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "X"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".save-preference-btn-handler"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#onetrust-consent-sdk"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}
