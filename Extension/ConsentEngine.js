@@ -34,6 +34,13 @@ class ConsentEngine {
         this.startObserver();
 
         this.handleMutations([]);
+
+        setTimeout(()=>{
+            if(ConsentEngine.debugValues.debugLog) {
+                console.log("No CMP detected in 5 seconds, stopping engine...");
+            }
+            this.stopObserver();
+        }, 5000);
     }
 
     async handleMutations(mutations) {
