@@ -98,3 +98,15 @@
 .ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Complete::backdrop {
     background: transparent !important;
 }
+
+.ConsentOMatic-Auto-UI  {
+    z-index: 999999999;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    display: block;
+    background-color: blue;
+    color:white;
+    padding: 1em;
+    border: 1px solid black;
+}
