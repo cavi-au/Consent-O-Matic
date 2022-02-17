@@ -37,7 +37,20 @@ class ConsentEngine {
     }
 
     async handleMutations(mutations) {
-        let self = this;
+        const self = this;
+
+        if(this.queueId != null) {
+            clearTimeout(this.queueId);
+        }
+
+        this.queueId = setTimeout(()=>{
+            self.checkForCMPs();
+            self.queueId = null;
+        }, 250);
+    }
+
+    checkForCMPs() {
+        const self = this;
 
         if(ConsentEngine.debugValues.debugLog) {
             console.groupCollapsed("findCMP");
