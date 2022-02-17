@@ -16,7 +16,22 @@ class Action {
     }
 
     constructor(config) {
+        const self = this;
+
         this.config = config;
+
+        //Override execute, with logging variant
+        let realExecute = this.execute;
+
+        this.execute = async function (param){
+            self.logStart(param);
+            try {
+                await realExecute.call(self, param);
+            } catch(e) {
+                console.error(e);
+            }
+            self.logEnd();
+        }
     }
 
     get timeout() {
@@ -28,6 +43,18 @@ class Action {
             } else {
                 return 0;
             }
+        }
+    }
+
+    logStart(param) {
+        if(ConsentEngine.debugValues.debugLog) {
+            console.group(this.constructor.name+":", this.config, param);
+        }
+    }
+
+    logEnd() {
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupEnd();
         }
     }
 

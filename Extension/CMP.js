@@ -27,12 +27,18 @@ class CMP {
     }
 
     detect() {
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupCollapsed("Testing:", this.name);
+        }
         let detector = this.detectors.find((detector)=>{
             return detector.detect();
         });
 
         if(detector != null && ConsentEngine.debugValues.debugLog) {
             console.log("Triggered detector: ", detector);
+        }
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupEnd();
         }
 
         return detector != null;
