@@ -39,14 +39,16 @@ class ConsentEngine {
     async handleMutations(mutations) {
         const self = this;
 
-        if(this.queueId != null) {
-            clearTimeout(this.queueId);
+        if(this.queueId == null) {
+            this.queueId = setTimeout(()=>{
+                try {
+                    self.checkForCMPs();
+                } catch(e) {
+                    console.error(e);
+                }
+                self.queueId = null;
+            }, 250);
         }
-
-        this.queueId = setTimeout(()=>{
-            self.checkForCMPs();
-            self.queueId = null;
-        }, 250);
     }
 
     checkForCMPs() {
