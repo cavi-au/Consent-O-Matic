@@ -3,17 +3,17 @@
         "detectors": [
             {
                 "presentMatcher": {
+                    "type": "css",
                     "target": {
-                        "iframeFilter": true,
-                        "selector": ".message-container .message.type-modal"
-                    },
-                    "type": "css"
+                        "selector": ".message-container .message.type-modal",
+                        "iframeFilter": true
+                    }
                 },
                 "showingMatcher": {
+                    "type": "css",
                     "target": {
                         "selector": ".message-container .message.type-modal"
-                    },
-                    "type": "css"
+                    }
                 }
             }
         ],
@@ -23,15 +23,17 @@
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
-                        "selector": ".message-button",
+                        "selector": ".message-container .message-button",
                         "textFilter": [
                             "Ret indstillinger",
                             "Cookie Settings",
-                            "Voir les paramètres"
+                            "Voir les paramètres",
+                            "Options",
+                            "Manage my cookies"
                         ]
-                    },
-                    "type": "click"
+                    }
                 },
                 "name": "OPEN_OPTIONS"
             },
@@ -40,6 +42,9 @@
             },
             {
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
