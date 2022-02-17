@@ -17,6 +17,7 @@
 		"scripts": ["GDPRConfig.js", "background.js"],
 		"persistent": false
 	},
+	"web_accessible_resources": ["auto.html"],	
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
@@ -30,6 +31,7 @@
 				"Detector.js",
 				"CMP.js",
 				"ConsentEngine.js",
+				"AutomaticDetection.js",
 				"contentScript.js"
 			],
 			"css": [
