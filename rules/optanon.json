@@ -3,1136 +3,1139 @@
         "detectors": [
             {
                 "presentMatcher": {
+                    "type": "css",
                     "target": {
                         "selector": "#optanon-menu, .optanon-alert-box-wrapper"
-                    },
-                    "type": "css"
+                    }
                 },
                 "showingMatcher": {
+                    "type": "css",
                     "target": {
-                        "displayFilter": true,
-                        "selector": ".optanon-alert-box-wrapper"
-                    },
-                    "type": "css"
+                        "selector": ".optanon-alert-box-wrapper",
+                        "displayFilter": true
+                    }
                 }
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "click",
                             "target": {
                                 "selector": ".optanon-alert-box-wrapper .optanon-toggle-display, a[onclick*='OneTrust.ToggleInfoDisplay()'], a[onclick*='Optanon.ToggleInfoDisplay()']"
-                            },
-                            "type": "click"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "click",
                             "target": {
                                 "selector": ".preference-menu-item #Your-privacy"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
+                            "type": "click",
                             "target": {
                                 "selector": "#optanon-vendor-consent-text"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
-                            "action": {
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "target": {
-                                                "selector": "input"
-                                            },
-                                            "type": "checkbox"
-                                        },
-                                        "toggleAction": {
-                                            "target": {
-                                                "selector": "label"
-                                            },
-                                            "type": "click"
-                                        },
-                                        "type": "X"
-                                    }
-                                ],
-                                "type": "consent"
-                            },
+                            "type": "foreach",
                             "target": {
                                 "selector": "#optanon-vendor-consent-list .vendor-item"
                             },
-                            "type": "foreach"
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "label"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
                         },
                         {
+                            "type": "click",
                             "target": {
                                 "selector": ".vendor-consent-back-link"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-performance"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-performance"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "B"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-functional"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-functional"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
-                                                "type": "E"
+                                                "type": "A"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-advertising"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-advertising"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "F"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-social"
                             },
-                            "trueAction": {
-                                "actions": [
-                                    {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
-                                        "target": {
-                                            "selector": ".menu-item-social"
-                                        },
-                                        "type": "click"
-                                    },
-                                    {
-                                        "consents": [
-                                            {
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
-                                                    "target": {
-                                                        "selector": ".optanon-status input"
-                                                    },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
-                                                    "target": {
-                                                        "selector": ".optanon-status label"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "B"
-                                            }
-                                        ],
-                                        "type": "consent"
-                                    }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
-                        },
-                        {
                             "parent": {
                                 "selector": "#optanon-menu, .optanon-menu"
                             },
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".menu-item-social"
+                                        },
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": ".optanon-status input"
+                                                    },
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".optanon-status label"
+                                                    },
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
+                                                },
+                                                "type": "B"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Social Media Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Social Media Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "B"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Personalisation"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Personalisation"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "E"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Site monitoring cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Site monitoring cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "B"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Third party privacy-enhanced content"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Third party privacy-enhanced content"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "X"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Performance & Advertising Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Performance & Advertising Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "F"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Information storage and access"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Information storage and access"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "D"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Ad selection, delivery, reporting"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Ad selection, delivery, reporting"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "F"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Content selection, delivery, reporting"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Content selection, delivery, reporting"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "E"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Measurement"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Measurement"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "B"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Recommended Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Recommended Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "X"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Unclassified Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Unclassified Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "X"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Analytical Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Analytical Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "B"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Marketing Cookies"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Marketing Cookies"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "F"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Personalization"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Personalization"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "E"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Ad Selection, Delivery & Reporting"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Ad Selection, Delivery & Reporting"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "F"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         },
                         {
-                            "parent": {
-                                "selector": "#optanon-menu, .optanon-menu"
-                            },
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".menu-item-necessary",
                                 "textFilter": "Content Selection, Delivery & Reporting"
                             },
+                            "parent": {
+                                "selector": "#optanon-menu, .optanon-menu"
+                            },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
-                                        "parent": {
-                                            "selector": "#optanon-menu, .optanon-menu"
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": ".menu-item-necessary",
                                             "textFilter": "Content Selection, Delivery & Reporting"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": "#optanon-menu, .optanon-menu"
+                                        }
                                     },
                                     {
+                                        "type": "consent",
                                         "consents": [
                                             {
                                                 "matcher": {
-                                                    "parent": {
-                                                        "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    "type": "checkbox",
                                                     "target": {
                                                         "selector": ".optanon-status input"
                                                     },
-                                                    "type": "checkbox"
-                                                },
-                                                "toggleAction": {
                                                     "parent": {
                                                         "selector": "#optanon-popup-body-right"
-                                                    },
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
                                                     "target": {
                                                         "selector": ".optanon-status label"
                                                     },
-                                                    "type": "click"
+                                                    "parent": {
+                                                        "selector": "#optanon-popup-body-right"
+                                                    }
                                                 },
                                                 "type": "E"
                                             }
-                                        ],
-                                        "type": "consent"
+                                        ]
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
-                    "parent": {
-                        "selector": ".optanon-save-settings-button"
-                    },
+                    "type": "click",
                     "target": {
                         "selector": ".optanon-white-button-middle"
                     },
-                    "type": "click"
+                    "parent": {
+                        "selector": ".optanon-save-settings-button"
+                    }
                 },
                 "name": "SAVE_CONSENT"
             },
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "hide",
                             "target": {
                                 "selector": "#optanon-popup-wrapper"
-                            },
-                            "type": "hide"
+                            }
                         },
                         {
+                            "type": "hide",
                             "target": {
                                 "selector": "#optanon-popup-bg"
-                            },
-                            "type": "hide"
+                            }
                         },
                         {
+                            "type": "hide",
                             "target": {
                                 "selector": ".optanon-alert-box-wrapper"
-                            },
-                            "type": "hide"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
