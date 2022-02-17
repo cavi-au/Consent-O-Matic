@@ -5,14 +5,14 @@
                 "presentMatcher": {
                     "parent": null,
                     "target": {
-                        "selector": "#truste-consent-content, .truste-consent-content"
+                        "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
                     },
                     "type": "css"
                 },
                 "showingMatcher": {
                     "parent": null,
                     "target": {
-                        "selector": "#truste-consent-content, .truste-consent-content"
+                        "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
                     },
                     "type": "css"
                 }
@@ -40,7 +40,7 @@
                     ],
                     "type": "list"
                 },
-                "name": "OPEN_OPTIONS"
+                "name": "UTILITY"
             }
         ]
     }
