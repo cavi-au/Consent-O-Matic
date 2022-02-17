@@ -16,6 +16,8 @@ class Tools {
             }
         }
 
+        const clonedPossibleTargets = possibleTargets.slice();
+
         if (options.textFilter != null) {
             possibleTargets = possibleTargets.filter((possibleTarget) => {
                 let textContent = possibleTarget.textContent.toLowerCase();
@@ -89,6 +91,15 @@ class Tools {
                 Tools.setBase(oldBase);
                 return childResults.target != null;
             });
+        }
+
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupCollapsed("findElement:", options.selector, possibleTargets.length);
+            console.log("Options:", options, "Parent:", parent);
+            console.log("Possible targets before filter: ", clonedPossibleTargets);
+            console.log("Possible targets after filter: ", possibleTargets);
+            console.log("Returned result:", multiple?possibleTargets:possibleTargets[0]);
+            console.groupEnd();
         }
 
         if (multiple) {

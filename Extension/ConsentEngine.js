@@ -39,7 +39,13 @@ class ConsentEngine {
     async handleMutations(mutations) {
         let self = this;
 
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupCollapsed("findCMP");
+        }
         let cmps = this.findCMP();
+        if(ConsentEngine.debugValues.debugLog) {
+            console.groupEnd();
+        }
 
         cmps = cmps.filter((cmp)=>{
             return !self.triedCMPs.has(cmp.name);
@@ -56,6 +62,7 @@ class ConsentEngine {
 
             if(ConsentEngine.debugValues.debugLog) {
                 console.log("CMP Detected: ", cmp.name);
+                console.groupCollapsed(cmp.name+" - isShowing?");
             }
 
             this.triedCMPs.add(cmp.name);
@@ -64,9 +71,17 @@ class ConsentEngine {
             let numberOfTries = 10;
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
+                    console.groupEnd();
+                    console.log(cmp.name+" - Showing");
                     setTimeout(async () => {
                         if(cmp.isUtility()) {
+                            if(ConsentEngine.debugValues.debugLog) {
+                                console.groupCollapsed(cmp.name+" - UTILITY");
+                            }
                             await cmp.runMethod("UTILITY");
+                            if(ConsentEngine.debugValues.debugLog) {
+                                console.groupEnd();
+                            }
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
@@ -76,15 +91,49 @@ class ConsentEngine {
                                 }
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name+" - HIDE_CMP");
+                                    }
                                     await cmp.runMethod("HIDE_CMP");
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupEnd();
+                                    }
+                                }
+                                
+                                if(ConsentEngine.debugValues.debugLog) {
+                                    console.groupCollapsed(cmp.name+" - OPEN_OPTIONS");
                                 }
                                 await cmp.runMethod("OPEN_OPTIONS");
+                                if(ConsentEngine.debugValues.debugLog) {
+                                    console.groupEnd();
+                                }
+
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name+" - HIDE_CMP");
+                                    }
                                     await cmp.runMethod("HIDE_CMP");
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupEnd();
+                                    }
+                                }
+
+                                if(ConsentEngine.debugValues.debugLog) {
+                                    console.groupCollapsed(cmp.name+" - DO_CONSENT");
                                 }
                                 await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                                if(ConsentEngine.debugValues.debugLog) {
+                                    console.groupEnd();
+                                }
+
                                 if (!ConsentEngine.debugValues.skipSubmit) {
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name+" - SAVE_CONSENT");
+                                    }
                                     await cmp.runMethod("SAVE_CONSENT");
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.groupEnd();
+                                    }
                                 }
                                 self.handledCallback({
                                     cmpName: cmp.name
@@ -104,7 +153,8 @@ class ConsentEngine {
                         setTimeout(checkIsShowing, 250);
                     } else {
                         if(ConsentEngine.debugValues.debugLog) {
-                            console.log("Not showing...", cmp.name);
+                            console.groupEnd();
+                            console.log(cmp.name+" - Not showing");
                         }
                         self.startObserver();
                         self.handleMutations([]);
