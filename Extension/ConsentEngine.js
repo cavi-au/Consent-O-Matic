@@ -35,7 +35,7 @@ class ConsentEngine {
 
         this.handleMutations([]);
 
-        setTimeout(()=>{
+        this.stopEngineId = setTimeout(()=>{
             if(ConsentEngine.debugValues.debugLog) {
                 console.log("No CMP detected in 5 seconds, stopping engine...");
             }
@@ -167,6 +167,7 @@ class ConsentEngine {
                                 cmp.unHideAll();
                                 self.hideProgressDialog();
                             }
+                            clearTimeout(this.stopEngineId);
                         }
                     }, 0);
                 } else {
