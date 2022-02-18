@@ -31,7 +31,8 @@
                                 "selector": ".qc-cmp2-summary-buttons button[mode=\"secondary\"]",
                                 "textFilter": [
                                     "Indstillinger",
-                                    "MORE OPTIONS"
+                                    "MORE OPTIONS",
+                                    "FLERE MULIGHEDER"
                                 ]
                             }
                         }
