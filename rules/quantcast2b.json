@@ -11,7 +11,8 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": ".qc-cmp2-container"
+                        "displayFilter": true,
+                        "selector": ".qc-cmp2-container .qc-cmp2-ui"
                     }
                 }
             }
