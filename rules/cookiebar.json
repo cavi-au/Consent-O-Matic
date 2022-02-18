@@ -3,163 +3,304 @@
         "detectors": [
             {
                 "presentMatcher": {
+                    "type": "css",
                     "target": {
                         "selector": "#cookie-law-info-bar"
-                    },
-                    "type": "css"
+                    }
                 },
                 "showingMatcher": {
+                    "type": "css",
                     "target": {
-                        "displayFilter": true,
-                        "selector": "#cookie-law-info-bar"
-                    },
-                    "type": "css"
+                        "selector": "#cookie-law-info-bar",
+                        "displayFilter": true
+                    }
                 }
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "click",
                     "target": {
-                        "selector": ".wt-cli-cookie-bar-container .cli_settings_button"
-                    },
-                    "type": "click"
+                        "selector": "#cookie-law-info-bar .cli_settings_button"
+                    }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "consent",
                             "consents": [
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Functional"
-                                            ]
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
+                                        "parent": {
+                                            "selector": ".cli-tab-header",
+                                            "textFilter": "Functional"
+                                        }
                                     },
                                     "toggleAction": {
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Functional"
-                                            ]
-                                        },
+                                        "type": "click",
                                         "target": {
                                             "selector": "label"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": "Functional"
+                                        }
                                     },
                                     "type": "A"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Performance"
-                                            ]
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Performance"
-                                            ]
-                                        },
+                                            "textFilter": "Performance"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
                                             "selector": "label"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": "Performance"
+                                        }
                                     },
                                     "type": "B"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Marketing"
-                                            ]
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Marketing"
-                                            ]
-                                        },
+                                            "textFilter": "Marketing"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
                                             "selector": "label"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": "Marketing"
+                                        }
                                     },
                                     "type": "F"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Tracking"
-                                            ]
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": [
-                                                "Tracking"
-                                            ]
-                                        },
+                                            "textFilter": "Tracking"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
                                             "selector": "label"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
+                                            "textFilter": "Tracking"
+                                        }
                                     },
                                     "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"functional\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"functional\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"performance\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"performance\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"analytics\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"analytics\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"advertisement\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"advertisement\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"others\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"others\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "X"
                                 }
-                            ],
-                            "type": "consent"
+                            ]
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
-                        "selector": ".wt-cli-cookie-bar-container .cli_setting_save_button"
-                    },
-                    "type": "click"
+                        "selector": ".cli_setting_save_button"
+                    }
                 },
                 "name": "SAVE_CONSENT"
             },
             {
-                "action": null,
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
