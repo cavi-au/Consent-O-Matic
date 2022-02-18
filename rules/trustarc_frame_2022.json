@@ -1,0 +1,441 @@
+{
+    "trustarcframe_2022": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "title",
+                        "textFilter": "TrustArc Preference Manager"
+                    },
+                    "parent": {
+                        "childFilter": {
+                            "target": {
+                                "selector": ".iab_managePanel"
+                            }
+                        },
+                        "selector": "html"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".iab_managePanel"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".switchContainer"
+                            },
+                            "retries": "10",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": "500"
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".switchContainer"
+                                    }
+                                },
+                                "selector": ".cookiecat"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentyes"
+                                            }
+                                        },
+                                        "falseAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentno"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".categoryTitle",
+                                        "textFilter": "Functional Cookies"
+                                    }
+                                },
+                                "selector": ".cookiecat"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "css",
+                                            "target": {
+                                                "selector": ".consentyes.activeConsent"
+                                            }
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentyes"
+                                            }
+                                        },
+                                        "falseAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentyes",
+                                                "textFilter": ".consentno"
+                                            }
+                                        },
+                                        "type": "A"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".categoryTitle",
+                                        "textFilter": "Advertising Cookies"
+                                    }
+                                },
+                                "selector": ".cookiecat"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "css",
+                                            "target": {
+                                                "selector": ".consentyes.activeConsent"
+                                            }
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentyes"
+                                            }
+                                        },
+                                        "falseAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".consentyes",
+                                                "textFilter": ".consentno"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": "1"
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".manageListItem"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "css",
+                                                    "target": {
+                                                        "selector": ".consentyes.activeConsent"
+                                                    }
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentno"
+                                                    }
+                                                },
+                                                "type": "X"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintno"
+                                                    }
+                                                },
+                                                "type": "X"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".managePurposeListText",
+                                        "textFilter": [
+                                            "Store and/or access information on a device",
+                                            "Use precise geolocation data",
+                                            "Actively scan device characteristics for identification"
+                                        ]
+                                    }
+                                },
+                                "selector": ".manageListItem"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "css",
+                                                    "target": {
+                                                        "selector": ".consentyes.activeConsent"
+                                                    }
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentno"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintno"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".managePurposeListText",
+                                        "textFilter": [
+                                            "Select basic ads",
+                                            "Create a personalised ads profile",
+                                            "Select personalised ads",
+                                            "Measure ad performance"
+                                        ]
+                                    }
+                                },
+                                "selector": ".manageListItem"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "css",
+                                                    "target": {
+                                                        "selector": ".consentyes.activeConsent"
+                                                    }
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentno"
+                                                    }
+                                                },
+                                                "type": "F"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintno"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".managePurposeListText",
+                                        "textFilter": [
+                                            "Create a personalised content profile",
+                                            "Select personalised content",
+                                            "Measure content performance"
+                                        ]
+                                    }
+                                },
+                                "selector": ".manageListItem"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "css",
+                                                    "target": {
+                                                        "selector": ".consentyes.activeConsent"
+                                                    }
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".consentno"
+                                                    }
+                                                },
+                                                "type": "E"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintyes"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".legintno"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".saveAndExit"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
