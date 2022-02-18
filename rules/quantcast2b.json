@@ -11,7 +11,8 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": ".qc-cmp2-container"
+                        "displayFilter": true,
+                        "selector": ".qc-cmp2-container #qc-cmp2-ui"
                     }
                 }
             }
@@ -31,7 +32,8 @@
                                 "selector": ".qc-cmp2-summary-buttons button[mode=\"secondary\"]",
                                 "textFilter": [
                                     "Indstillinger",
-                                    "MORE OPTIONS"
+                                    "MORE OPTIONS",
+                                    "FLERE MULIGHEDER"
                                 ]
                             }
                         }
