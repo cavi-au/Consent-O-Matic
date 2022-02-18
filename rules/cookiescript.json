@@ -1,0 +1,142 @@
+{
+    "cookiescript": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookiescript_injected"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookiescript_wrapper",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cookiescript_wrapper"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".cookiescript_checkbox"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": "STATISTISKE"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": "MARKETING"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": "FUNKTIONELLE"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cookiescript_reject"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
