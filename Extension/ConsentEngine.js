@@ -175,7 +175,7 @@ class ConsentEngine {
                                 cmp.unHideAll();
                                 self.hideProgressDialog();
                             }
-                            clearTimeout(this.stopEngineId);
+                            clearTimeout(self.stopEngineId);
                         }
                     }, 0);
                 } else {
