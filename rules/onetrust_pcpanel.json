@@ -50,7 +50,9 @@
                                             "textFilter": [
                                                 "Analytics Cookies",
                                                 "Externí analýzy",
-                                                "Analyse Cookies"
+                                                "Analyse Cookies",
+                                                "Statistical Cookies",
+                                                "Mål ydeevne"
                                             ]
                                         },
                                         "trueAction": {
@@ -81,7 +83,8 @@
                                             "textFilter": [
                                                 "Functional Cookies",
                                                 "Functionality Cookies",
-                                                "Funktionelle Cookies"
+                                                "Funktionelle Cookies",
+                                                "Udvid funktionalitet"
                                             ]
                                         },
                                         "trueAction": {
@@ -114,7 +117,8 @@
                                                 "Reklamecookies",
                                                 "Advertising Cookies",
                                                 "Marketing Cookies",
-                                                "Cookies für Marketingzwecke"
+                                                "Cookies für Marketingzwecke",
+                                                "Tilpas annoncering"
                                             ]
                                         },
                                         "trueAction": {
