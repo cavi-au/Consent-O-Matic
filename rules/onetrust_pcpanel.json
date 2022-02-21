@@ -49,7 +49,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Analytics Cookies",
-                                                "Externí analýzy"
+                                                "Externí analýzy",
+                                                "Analyse Cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -79,7 +80,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Functional Cookies",
-                                                "Functionality Cookies"
+                                                "Functionality Cookies",
+                                                "Funktionelle Cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -111,7 +113,8 @@
                                                 "Targeting Cookies",
                                                 "Reklamecookies",
                                                 "Advertising Cookies",
-                                                "Marketing Cookies"
+                                                "Marketing Cookies",
+                                                "Cookies für Marketingzwecke"
                                             ]
                                         },
                                         "trueAction": {
@@ -171,7 +174,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Store and/or access information on a device",
-                                                "Opbevare og/eller tilgå oplysninger på en enhed"
+                                                "Opbevare og/eller tilgå oplysninger på en enhed",
+                                                "Informationen auf einem Gerät speichern und/oder abrufen"
                                             ]
                                         },
                                         "trueAction": {
@@ -202,7 +206,8 @@
                                             "textFilter": [
                                                 "Personalised ads and content, ad and content measurement, audience insights and product development",
                                                 "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
-                                                "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling"
+                                                "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                                "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung"
                                             ]
                                         },
                                         "trueAction": {
@@ -232,7 +237,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Use precise geolocation data",
-                                                "Bruge præcise geoplaceringsoplysninger"
+                                                "Bruge præcise geoplaceringsoplysninger",
+                                                "Genaue Standortdaten verwenden"
                                             ]
                                         },
                                         "trueAction": {
@@ -262,7 +268,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Actively scan device characteristics for identification",
-                                                "Aktivt scanne enhedskarakteristika til identifikation"
+                                                "Aktivt scanne enhedskarakteristika til identifikation",
+                                                "Geräteeigenschaften zur Identifikation aktiv abfragen"
                                             ]
                                         },
                                         "trueAction": {
