@@ -57,6 +57,8 @@
     top: 0%;
     padding: 1rem;
     opacity: 0;
+    -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     animation-name: consentomatic-progressAnimation;
     animation-duration: 5s;

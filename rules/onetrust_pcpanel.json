@@ -77,7 +77,10 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Functional Cookies"
+                                            "textFilter": [
+                                                "Functional Cookies",
+                                                "Functionality Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -287,7 +290,10 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Cookies målrettet sociale medier"
+                                            "textFilter": [
+                                                "Cookies målrettet sociale medier",
+                                                "Social Media Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
