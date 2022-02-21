@@ -25,7 +25,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "#CybotCookiebotDialogBodyButtonDetails",
+                                "selector": "#CybotCookiebotDialogBodyButtonDetails, #CybotCookiebotDialogBodyLevelButtonCustomize",
                                 "displayFilter": true
                             }
                         },
@@ -244,6 +244,9 @@
                     ]
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
