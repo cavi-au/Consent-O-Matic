@@ -25,7 +25,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": ".optanon-alert-box-wrapper .optanon-toggle-display, a[onclick*='OneTrust.ToggleInfoDisplay()'], a[onclick*='Optanon.ToggleInfoDisplay()']"
+                                "selector": ".optanon-alert-box-wrapper .optanon-toggle-display, a[onclick*='OneTrust.ToggleInfoDisplay()'], a[onclick*='Optanon.ToggleInfoDisplay()'], .optanon-alert-box-wrapper .cookie-settings-button"
                             }
                         }
                     ]
