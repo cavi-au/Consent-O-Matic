@@ -111,16 +111,24 @@
     border: 1px solid black;
 }
 
+.ConsentOMatic-Auto-UI li {
+    padding-left: 1em;
+}
+
 .ConsentOMatic-PossibleBanner-Select {
     border: 5px dotted blue !important;
 }
 
+.ConsentOMatic-PossibleCMPPopup-Select {
+    border: 5px dotted red !important;
+}
+
 .ConsentOMatic-PossibleButton-Select {
-    border: 5px dotted blue !important;
+    border: 5px dotted yellow !important;
 }
 
 .ConsentOMatic-PossibleCategory-Select {
-    border: 5px dotted blue !important;
+    border: 5px dotted green !important;
 }
 
 li:not(.showButtons) .possibleShowSettingsButtons {

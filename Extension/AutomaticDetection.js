@@ -50,20 +50,27 @@ class AutomaticDetector {
         return possibleBanners;
     }
     
-    static findPossibleCategories() {
-        let possibleCategories = [];
+    static findPossibleCMPWithCategories() {
+        let possibleCMPWithCategories = [];
 
         AutomaticDetector.getPossibleCMPItems().forEach((cmp)=>{
+            let result = {
+                cmp: cmp,
+                categories: []
+            };
+
+            possibleCMPWithCategories.push(result);
+
             cmp.querySelectorAll("input").forEach((input)=>{
                 let topParent = AutomaticDetector.findTopParentWithOnlyOneInput(input);
     
                 if(topParent != null) {
-                    possibleCategories.push(topParent);
+                    result.categories.push(topParent);
                 }
             });
         });
 
-        return possibleCategories;
+        return possibleCMPWithCategories;
     }
 
     static async fetchTemplate(selector) {
@@ -115,10 +122,10 @@ class AutomaticDetector {
             buttonsUl.classList.add("possibleShowSettingsButtons");
             bannerLi.appendChild(buttonsUl);
 
-            banner.buttons.forEach((button)=>{
+            function addButton(text, inputHandler) {
                 let buttonLi = document.createElement("li");
                 let buttonLabel = document.createElement("label");
-                buttonLabel.textContent = button.textContent;
+                buttonLabel.textContent = text;
 
                 let buttonInput = document.createElement("input");
                 buttonInput.setAttribute("type", "radio");
@@ -130,7 +137,21 @@ class AutomaticDetector {
                 buttonLabel.appendChild(buttonInput);
 
                 buttonInput.addEventListener("input", ()=>{
-                    if(buttonInput.checked) {
+                    inputHandler(buttonInput.checked);
+                });
+            }
+
+            addButton("No Settings Button", ()=>{
+                document.querySelectorAll(".ConsentOMatic-PossibleButton-Select").forEach((possibleButton)=>{
+                    possibleButton.classList.remove("ConsentOMatic-PossibleButton-Select");
+                });
+
+                currentlySelected.button = null;
+            });
+
+            banner.buttons.forEach((button)=>{
+                addButton(button.textContent, (checked)=>{
+                    if(checked) {
                         document.querySelectorAll(".ConsentOMatic-PossibleButton-Select").forEach((possibleButton)=>{
                             possibleButton.classList.remove("ConsentOMatic-PossibleButton-Select");
                         });
@@ -139,7 +160,7 @@ class AutomaticDetector {
 
                         currentlySelected.button = button;
                     }
-                })
+                });
             });
 
             input.addEventListener("input", ()=>{
@@ -148,12 +169,14 @@ class AutomaticDetector {
                         possibleBanner.classList.remove("ConsentOMatic-PossibleBanner-Select");
                     });
 
+                    ui.querySelectorAll(".banner").forEach((possibleBannerLi)=>{
+                        possibleBannerLi.classList.remove("showButtons");
+                    });
+
                     banner.bannerDom.classList.add("ConsentOMatic-PossibleBanner-Select");
                     bannerLi.classList.add("showButtons");
 
                     currentlySelected.banner = banner;
-                } else {
-                    bannerLi.classList.remove("showButtons");
                 }
             });
 
@@ -163,19 +186,62 @@ class AutomaticDetector {
         }
 
         ui.querySelector(".next").addEventListener("click", ()=>{
-            currentlySelected.button.click();
+            if(currentlySelected.button != null) {
+                currentlySelected.button.click();
+            }
+
+            document.querySelectorAll(".ConsentOMatic-PossibleBanner-Select").forEach((possibleBanner)=>{
+                possibleBanner.classList.remove("ConsentOMatic-PossibleBanner-Select");
+            });
+
             ui.remove();
-            self.showCategoryUI();
+            self.showCategoryUI(currentlySelected);
         });
     }
 
-    static async showCategoryUI() {
+    static async showCategoryUI(currentlySelected) {
         const self = this;
 
         let ui = await AutomaticDetector.fetchTemplate("#bannerUI-page2");
 
-        for(let category of this.findPossibleCategories()) {
-            category.classList.add("ConsentOMatic-PossibleCategory-Select");
+        let i = 1;
+        for(let possibleCmpPopup of this.findPossibleCMPWithCategories()) {
+            let li = document.createElement("li");
+            li.classList.add("cmpWithCategory");
+
+            let label = document.createElement("label");
+            label.textContent = "Possible Category Popup "+i;
+
+            let input = document.createElement("input");
+            input.setAttribute("type", "radio");
+            input.setAttribute("name", "possible-cmp-with-categories");
+
+            input.addEventListener("input", ()=>{
+                document.querySelectorAll(".ConsentOMatic-PossibleCMPPopup-Select").forEach((elm)=>{
+                    elm.classList.remove("ConsentOMatic-PossibleCMPPopup-Select");
+                });
+
+                currentlySelected.categoryPopup = possibleCmpPopup.cmp;
+
+                possibleCmpPopup.cmp.classList.add("ConsentOMatic-PossibleCMPPopup-Select");
+
+                
+                document.querySelectorAll(".ConsentOMatic-PossibleCategory-Select").forEach((elm)=>{
+                    elm.classList.remove("ConsentOMatic-PossibleCategory-Select");
+                });
+
+                possibleCmpPopup.categories.forEach((category)=>{
+                    category.classList.add("ConsentOMatic-PossibleCategory-Select");
+                });
+            });
+
+            label.appendChild(input);
+
+            li.appendChild(label);
+
+            ui.querySelector(".cmps").appendChild(li);
+
+            i++;
         }
 
         document.body.appendChild(ui);
