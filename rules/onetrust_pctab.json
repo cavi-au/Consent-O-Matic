@@ -35,7 +35,7 @@
                 "action": {
                     "type": "foreach",
                     "target": {
-                        "selector": ".ot-desc-cntr"
+                        "selector": ".ot-desc-cntr, .description-container"
                     },
                     "action": {
                         "type": "list",
@@ -43,7 +43,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Opbevare og/eller tilgå oplysninger på en enhed",
                                         "Store and/or access information on a device",
@@ -57,13 +57,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "D"
@@ -74,7 +74,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
                                         "Personalised ads and content, ad and content measurement, audience insights and product development",
@@ -88,13 +88,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "F"
@@ -105,7 +105,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Performance Cookies",
                                         "Leistungs-Cookies",
@@ -120,13 +120,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "B"
@@ -137,7 +137,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Bruge præcise geoplaceringsoplysninger",
                                         "Use precise geolocation data",
@@ -151,13 +151,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "D"
@@ -168,7 +168,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Reklamecookies",
                                         "Advertising Cookies",
@@ -182,13 +182,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "F"
@@ -199,7 +199,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Funktionelle cookies",
                                         "Functional Cookies",
@@ -213,13 +213,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "A"
@@ -230,7 +230,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": "Personlig tilpasning cookies"
                                 },
                                 "trueAction": {
@@ -240,13 +240,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "X"
@@ -257,7 +257,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Målrettede cookies",
                                         "Targeting cookies"
@@ -270,13 +270,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "F"
@@ -287,7 +287,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": "Site monitoring cookies"
                                 },
                                 "trueAction": {
@@ -297,13 +297,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "B"
@@ -314,7 +314,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".ot-grp-hdr1",
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": "Third-party privacy enhanced cookies"
                                 },
                                 "trueAction": {
@@ -324,13 +324,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".ot-grp-hdr1 input"
+                                                    "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
                                             "type": "X"
