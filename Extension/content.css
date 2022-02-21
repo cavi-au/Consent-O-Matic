@@ -100,7 +100,7 @@
 }
 
 .ConsentOMatic-Auto-UI  {
-    z-index: 999999999;
+    z-index: 2147483647;
     position: absolute;
     top: 2em;
     left: 2em;
@@ -109,4 +109,16 @@
     color:white;
     padding: 1em;
     border: 1px solid black;
+}
+
+.ConsentOMatic-PossibleBanner-Select {
+    border: 5px dotted blue !important;
+}
+
+.ConsentOMatic-PossibleButton-Select {
+    border: 5px dotted blue !important;
+}
+
+li:not(.showButtons) .possibleShowSettingsButtons {
+    display: none;
 }

@@ -15,6 +15,9 @@ class AutomaticDetector {
         let potentialCMPs = [];
     
         document.querySelectorAll("*").forEach((elm)=>{
+            if(elm.classList.contains("ConsentOMatic")) {
+                return;
+            }
             let styles = window.getComputedStyle(elm);
             if(styles.zIndex > 1000) {
                 potentialCMPs.push(elm);
@@ -37,7 +40,10 @@ class AutomaticDetector {
                 cmp.querySelectorAll("button, a").forEach((button)=>{
                     banner.buttons.push(button);
                 });
-                possibleBanners.push(banner);
+
+                if(banner.buttons.length > 0) {
+                    possibleBanners.push(banner);
+                }
             }
         });
 
@@ -80,15 +86,83 @@ class AutomaticDetector {
 
     static async showBannerSelectorUI() {
         
+        let currentlySelected = {
+            banner: null,
+            button: null
+        };
+
         let ui = await AutomaticDetector.fetchTemplate("#bannerUI");
 
-        document.body.append(ui);
+        document.body.appendChild(ui);
 
+        let i = 1;
         for(let banner of AutomaticDetector.findPossibleBanners()) {
-            let bannerLi = AutomaticDetector.fetchTemplate("#bannerChild");
-            bannerLi.querySelector(".name").textContent = banner.bannerDom.
+            let bannerLi = await AutomaticDetector.fetchTemplate("#bannerChild");
+
+            let input = document.createElement("input");
+            input.setAttribute("type", "radio");
+            input.setAttribute("name", "possible-banner");
+            input.banner = banner;
+
+            let label = document.createElement("label");
+            label.textContent = "Possible banner "+i;
+
+            bannerLi.appendChild(label);
+            label.appendChild(input);
+
+            let buttonsUl = document.createElement("ul");
+            buttonsUl.classList.add("possibleShowSettingsButtons");
+            bannerLi.appendChild(buttonsUl);
+
+            banner.buttons.forEach((button)=>{
+                let buttonLi = document.createElement("li");
+                let buttonLabel = document.createElement("label");
+                buttonLabel.textContent = button.textContent;
+
+                let buttonInput = document.createElement("input");
+                buttonInput.setAttribute("type", "radio");
+                buttonInput.setAttribute("name", "possible-settings-button");
+
+                buttonLi.appendChild(buttonLabel);
+
+                buttonsUl.appendChild(buttonLi);
+                buttonLabel.appendChild(buttonInput);
+
+                buttonInput.addEventListener("input", ()=>{
+                    if(buttonInput.checked) {
+                        document.querySelectorAll(".ConsentOMatic-PossibleButton-Select").forEach((possibleButton)=>{
+                            possibleButton.classList.remove("ConsentOMatic-PossibleButton-Select");
+                        });
+    
+                        button.classList.add("ConsentOMatic-PossibleButton-Select");
+
+                        currentlySelected.button = button;
+                    }
+                })
+            });
+
+            input.addEventListener("input", ()=>{
+                if(input.checked) {
+                    document.querySelectorAll(".ConsentOMatic-PossibleBanner-Select").forEach((possibleBanner)=>{
+                        possibleBanner.classList.remove("ConsentOMatic-PossibleBanner-Select");
+                    });
+
+                    banner.bannerDom.classList.add("ConsentOMatic-PossibleBanner-Select");
+                    bannerLi.classList.add("showButtons");
+
+                    currentlySelected.banner = banner;
+                } else {
+                    bannerLi.classList.remove("showButtons");
+                }
+            });
 
             ui.querySelector(".banners").appendChild(bannerLi);
+
+            i++;
         }
+
+        ui.querySelector(".next").addEventListener("click", ()=>{
+            console.log(currentlySelected);
+        });
     }
 }
