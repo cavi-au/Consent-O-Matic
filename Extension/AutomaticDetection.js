@@ -85,13 +85,14 @@ class AutomaticDetector {
     }
 
     static async showBannerSelectorUI() {
+        const self = this;
         
         let currentlySelected = {
             banner: null,
             button: null
         };
 
-        let ui = await AutomaticDetector.fetchTemplate("#bannerUI");
+        let ui = await AutomaticDetector.fetchTemplate("#bannerUI-page1");
 
         document.body.appendChild(ui);
 
@@ -162,7 +163,21 @@ class AutomaticDetector {
         }
 
         ui.querySelector(".next").addEventListener("click", ()=>{
-            console.log(currentlySelected);
+            currentlySelected.button.click();
+            ui.remove();
+            self.showCategoryUI();
         });
+    }
+
+    static async showCategoryUI() {
+        const self = this;
+
+        let ui = await AutomaticDetector.fetchTemplate("#bannerUI-page2");
+
+        for(let category of this.findPossibleCategories()) {
+            category.classList.add("ConsentOMatic-PossibleCategory-Select");
+        }
+
+        document.body.appendChild(ui);
     }
 }

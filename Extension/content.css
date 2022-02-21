@@ -119,6 +119,10 @@
     border: 5px dotted blue !important;
 }
 
+.ConsentOMatic-PossibleCategory-Select {
+    border: 5px dotted blue !important;
+}
+
 li:not(.showButtons) .possibleShowSettingsButtons {
     display: none;
 }
