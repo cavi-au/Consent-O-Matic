@@ -106,7 +106,9 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Targeting Cookies",
-                                                "Reklamecookies"
+                                                "Reklamecookies",
+                                                "Advertising Cookies",
+                                                "Marketing Cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -451,7 +453,11 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Select basic ads"
+                                            "textFilter": [
+                                                "Select basic ads",
+                                                "Basic ads, and ad measurement",
+                                                "Personalised ads profile and display"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -497,6 +503,33 @@
                                                         }
                                                     },
                                                     "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Content measurement, audience insights, and product development."
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
                                             ]
                                         }

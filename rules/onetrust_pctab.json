@@ -257,7 +257,10 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".ot-grp-hdr1",
-                                    "textFilter": "Målrettede cookies"
+                                    "textFilter": [
+                                        "Målrettede cookies",
+                                        "Targeting cookies"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -276,6 +279,60 @@
                                                 }
                                             },
                                             "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": "Site monitoring cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1",
+                                    "textFilter": "Third-party privacy enhanced cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ot-grp-hdr1 input"
+                                                }
+                                            },
+                                            "type": "X"
                                         }
                                     ]
                                 }
