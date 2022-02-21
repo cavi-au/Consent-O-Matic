@@ -33,473 +33,514 @@
             },
             {
                 "action": {
-                    "type": "foreach",
-                    "target": {
-                        "selector": ".ot-cat-item, .category-item"
-                    },
-                    "action": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Analytics Cookies",
-                                        "Externí analýzy"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "B"
-                                        }
-                                    ]
-                                }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".ot-cat-item, .category-item"
                             },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Functional Cookies"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Analytics Cookies",
+                                                "Externí analýzy"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "B"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "A"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Targeting Cookies",
-                                        "Reklamecookies"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Functional Cookies"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "A"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "F"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Performance Cookies",
-                                        "Measure content performance"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Targeting Cookies",
+                                                "Reklamecookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "F"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "B"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Store and/or access information on a device",
-                                        "Opbevare og/eller tilgå oplysninger på en enhed"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Performance Cookies",
+                                                "Measure content performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "B"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "D"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Personalised ads and content, ad and content measurement, audience insights and product development",
-                                        "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
-                                        "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Opbevare og/eller tilgå oplysninger på en enhed"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "D"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "F"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Use precise geolocation data",
-                                        "Bruge præcise geoplaceringsoplysninger"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Personalised ads and content, ad and content measurement, audience insights and product development",
+                                                "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                                "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "F"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "D"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Actively scan device characteristics for identification",
-                                        "Aktivt scanne enhedskarakteristika til identifikation"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Use precise geolocation data",
+                                                "Bruge præcise geoplaceringsoplysninger"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "D"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "D"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Cookies målrettet sociale medier"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Actively scan device characteristics for identification",
+                                                "Aktivt scanne enhedskarakteristika til identifikation"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "D"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "X"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Select personalised content"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Cookies målrettet sociale medier"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "X"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Develop and improve products"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Select personalised content"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "X"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Apply market research to generate audience insights"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Develop and improve products"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "X"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Create a personalised content profile"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Apply market research to generate audience insights"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "X"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": [
-                                        "Personalised ads, and ad measurement",
-                                        "Select personalised ads",
-                                        "Create a personalised ads profile"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Create a personalised content profile"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "F"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Select basic ads"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Personalised ads, and ad measurement",
+                                                "Select personalised ads",
+                                                "Create a personalised ads profile"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "F"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "F"
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "ifcss",
-                                "target": {
-                                    "selector": ".ot-cat-header, .category-header",
-                                    "textFilter": "Measure ad performance"
-                                },
-                                "trueAction": {
-                                    "type": "consent",
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "type": "checkbox",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Select basic ads"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "F"
                                                 }
-                                            },
-                                            "toggleAction": {
-                                                "type": "click",
-                                                "target": {
-                                                    "selector": "input.category-switch-handler"
-                                                }
-                                            },
-                                            "type": "F"
+                                            ]
                                         }
-                                    ]
-                                }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": "Measure ad performance"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
                             }
-                        ]
-                    }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "button.ot-obj-leg-btn-handler"
+                                    }
+                                },
+                                "selector": ".category-item"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "falseAction": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ":scope > input"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "button.ot-obj-leg-btn-handler"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
