@@ -109,7 +109,8 @@
                                     "textFilter": [
                                         "Performance Cookies",
                                         "Leistungs-Cookies",
-                                        "Ydeevne og analytik cookies"
+                                        "Ydeevne og analytik cookies",
+                                        "Analytics Cookies"
                                     ]
                                 },
                                 "trueAction": {
