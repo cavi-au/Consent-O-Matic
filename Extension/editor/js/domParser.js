@@ -63,7 +63,7 @@ class DomParser {
                         value = input.checked;
                         break;
                     default:
-                        value = input.value;
+                        value = input.value.trim();
                         break;
                 }
             } else if(valueDom.querySelector("select") != null) {
@@ -79,7 +79,9 @@ class DomParser {
 
 			if(value != null && value !== "" && value !== false) {
 				if(typeof(value) === "string" && value.indexOf("|") !== -1) {
-					value = value.split("|");
+					value = value.split("|").map((arrayValue)=>{
+                        return arrayValue.trim();
+                    });
 				}
 				
 				json[bindName] = value;

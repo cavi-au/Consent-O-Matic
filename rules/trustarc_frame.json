@@ -3,378 +3,465 @@
         "detectors": [
             {
                 "presentMatcher": {
+                    "type": "css",
                     "target": {
                         "selector": "title",
-                        "textFilter": [
-                            "TrustArc Preference Manager"
-                        ]
-                    },
-                    "type": "css"
+                        "textFilter": "TrustArc Preference Manager"
+                    }
                 },
                 "showingMatcher": {
+                    "type": "css",
                     "target": {
                         "selector": ".gdpr .switch span.on, .pdynamicbutton a"
-                    },
-                    "type": "css"
+                    }
                 }
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
-                            "negated": false,
-                            "retries": 2,
+                            "type": "waitcss",
                             "target": {
                                 "selector": ".shp"
                             },
-                            "type": "waitcss",
-                            "waitTime": 250
+                            "retries": "2",
+                            "waitTime": "250"
                         },
                         {
+                            "type": "click",
+                            "target": {
+                                "selector": ".shp"
+                            },
                             "parent": {
                                 "selector": ".pdynamicbutton"
-                            },
-                            "target": {
-                                "selector": ".shp"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
-                            "negated": false,
-                            "retries": 2,
+                            "type": "waitcss",
                             "target": {
                                 "selector": ".pdynamicbutton .advance"
                             },
-                            "type": "waitcss",
-                            "waitTime": 250
+                            "retries": "2",
+                            "waitTime": "250"
                         },
                         {
+                            "type": "ifcss",
                             "target": {
                                 "selector": ".prefPanel > div[role~='group']"
                             },
                             "trueAction": {
+                                "type": "list",
                                 "actions": [
                                     {
+                                        "type": "click",
                                         "target": {
                                             "selector": ".pdynamicbutton .advance"
-                                        },
-                                        "type": "click"
+                                        }
                                     },
                                     {
-                                        "negated": false,
-                                        "retries": 100,
+                                        "type": "waitcss",
                                         "target": {
                                             "selector": ".switch span.on"
                                         },
-                                        "type": "waitcss",
-                                        "waitTime": 250
+                                        "retries": "100",
+                                        "waitTime": "250"
                                     }
-                                ],
-                                "type": "list"
-                            },
-                            "type": "ifcss"
+                                ]
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "falseAction": {
-                        "axis": "y",
-                        "dragTarget": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
                             "target": {
-                                "selector": ".options h2",
-                                "textFilter": [
-                                    "Required Cookies",
-                                    "NØDVENDIGE COOKIES"
+                                "selector": ".cookiecat"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gwt-InlineHTML",
+                                            "textFilter": "Functional"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": "span[role='option'].active",
+                                                                    "textFilter": "On"
+                                                                }
+                                                            },
+                                                            "selector": ".switch"
+                                                        }
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".switch span[role='option']",
+                                                            "textFilter": "On"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".switch span[role='option']",
+                                                            "textFilter": "Off"
+                                                        }
+                                                    },
+                                                    "type": "A"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gwt-InlineHTML",
+                                            "textFilter": "Marketing"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": "span[role='option'].active",
+                                                                    "textFilter": "On"
+                                                                }
+                                                            },
+                                                            "selector": ".switch"
+                                                        }
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".switch span[role='option']",
+                                                            "textFilter": "On"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".switch span[role='option']",
+                                                            "textFilter": "Off"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    }
                                 ]
                             }
                         },
-                        "target": {
-                            "selector": ".ui-slider-handle"
-                        },
-                        "type": "slide"
-                    },
-                    "target": {
-                        "selector": ".prefPanel > div[role~='group']"
-                    },
-                    "trueAction": {
-                        "action": {
-                            "actions": [
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "Functional",
-                                            "Funktionalitets"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "A"
-                                            }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".prefPanel > div[role~='group']"
+                            },
+                            "trueAction": {
+                                "type": "foreach",
+                                "target": {
+                                    "selector": ".prefPanel > div[role~='group']"
                                 },
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "Analytics"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "B"
+                                "action": {
+                                    "type": "list",
+                                    "actions": [
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": [
+                                                    "Functional",
+                                                    "Funktionalitets"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "A"
+                                                    }
+                                                ]
                                             }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
-                                },
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "marketing and advertising"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "F"
+                                        },
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": "Analytics"
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "B"
+                                                    }
+                                                ]
                                             }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
-                                },
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "advertising",
-                                            "Annonceringscookies"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "F"
+                                        },
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": "marketing and advertising"
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ]
                                             }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
-                                },
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "Personalised email marketing"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "F"
+                                        },
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": [
+                                                    "advertising",
+                                                    "Annonceringscookies"
+                                                ]
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ]
                                             }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
-                                },
-                                {
-                                    "target": {
-                                        "selector": "h3",
-                                        "textFilter": [
-                                            "Social media & marketing"
-                                        ]
-                                    },
-                                    "trueAction": {
-                                        "consents": [
-                                            {
-                                                "falseAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.on"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "matcher": {
-                                                    "parent": {
-                                                        "selector": ".cookiecat"
-                                                    },
-                                                    "target": {
-                                                        "selector": "span.off.active"
-                                                    },
-                                                    "type": "css"
-                                                },
-                                                "trueAction": {
-                                                    "target": {
-                                                        "selector": ".switch span.off"
-                                                    },
-                                                    "type": "click"
-                                                },
-                                                "type": "F"
+                                        },
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": "Personalised email marketing"
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ]
                                             }
-                                        ],
-                                        "type": "consent"
-                                    },
-                                    "type": "ifcss"
+                                        },
+                                        {
+                                            "type": "ifcss",
+                                            "target": {
+                                                "selector": "h3",
+                                                "textFilter": "Social media & marketing"
+                                            },
+                                            "trueAction": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "css",
+                                                            "target": {
+                                                                "selector": "span.off.active"
+                                                            },
+                                                            "parent": {
+                                                                "selector": ".cookiecat"
+                                                            }
+                                                        },
+                                                        "trueAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.off"
+                                                            }
+                                                        },
+                                                        "falseAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ".switch span.on"
+                                                            }
+                                                        },
+                                                        "type": "F"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
                                 }
-                            ],
-                            "type": "list"
-                        },
-                        "target": {
-                            "selector": ".prefPanel > div[role~='group']"
-                        },
-                        "type": "foreach"
-                    },
-                    "type": "ifcss"
+                            },
+                            "falseAction": {
+                                "type": "slide",
+                                "dragTarget": {
+                                    "target": {
+                                        "selector": ".options h2",
+                                        "textFilter": [
+                                            "Required Cookies",
+                                            "NØDVENDIGE COOKIES"
+                                        ]
+                                    }
+                                },
+                                "axis": "y"
+                            }
+                        }
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "click",
                             "target": {
                                 "selector": ".submit"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
-                            "negated": false,
-                            "retries": 1000,
-                            "target": {
-                                "selector": ".close"
-                            },
                             "type": "waitcss",
-                            "waitTime": 250
-                        },
-                        {
                             "target": {
                                 "selector": ".close"
                             },
-                            "type": "click"
+                            "retries": "1000",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".close"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }

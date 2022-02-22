@@ -57,6 +57,8 @@
     top: 0%;
     padding: 1rem;
     opacity: 0;
+    -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     animation-name: consentomatic-progressAnimation;
     animation-duration: 5s;
@@ -100,7 +102,7 @@
 }
 
 .ConsentOMatic-Auto-UI  {
-    z-index: 999999999;
+    z-index: 2147483647;
     position: absolute;
     top: 2em;
     left: 2em;
@@ -109,4 +111,28 @@
     color:white;
     padding: 1em;
     border: 1px solid black;
+}
+
+.ConsentOMatic-Auto-UI li {
+    padding-left: 1em;
+}
+
+.ConsentOMatic-PossibleBanner-Select {
+    border: 5px dotted blue !important;
+}
+
+.ConsentOMatic-PossibleCMPPopup-Select {
+    border: 5px dotted red !important;
+}
+
+.ConsentOMatic-PossibleButton-Select {
+    border: 5px dotted yellow !important;
+}
+
+.ConsentOMatic-PossibleCategory-Select {
+    border: 5px dotted green !important;
+}
+
+li:not(.showButtons) .possibleShowSettingsButtons {
+    display: none;
 }

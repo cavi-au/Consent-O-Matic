@@ -5,13 +5,13 @@
                 "presentMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#onetrust-banner-sdk"
+                        "selector": "#onetrust-banner-sdk, #cookie-consent-wrapper"
                     }
                 },
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#onetrust-banner-sdk",
+                        "selector": "#onetrust-banner-sdk, #cookie-consent-preferences",
                         "displayFilter": true
                     }
                 }
@@ -37,7 +37,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "#onetrust-pc-btn-handler"
+                                "selector": "#onetrust-pc-btn-handler, #cookie-consent-preferences"
                             }
                         }
                     ]

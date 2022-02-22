@@ -3,88 +3,76 @@
         "detectors": [
             {
                 "presentMatcher": {
-                    "parent": null,
+                    "type": "css",
                     "target": {
-                        "displayFilter": true,
-                        "selector": "#ccc-notify .ccc-notify-button"
-                    },
-                    "type": "css"
+                        "selector": "#ccc-notify .ccc-notify-button",
+                        "displayFilter": true
+                    }
                 },
                 "showingMatcher": {
-                    "parent": null,
+                    "type": "css",
                     "target": {
-                        "displayFilter": true,
-                        "selector": "#ccc-notify .ccc-notify-button"
-                    },
-                    "type": "css"
+                        "selector": "#ccc-notify .ccc-notify-button",
+                        "displayFilter": true
+                    }
                 }
             },
             {
                 "presentMatcher": {
-                    "parent": null,
+                    "type": "css",
                     "target": {
                         "selector": "#ccc[open]"
-                    },
-                    "type": "css"
+                    }
                 },
                 "showingMatcher": {
-                    "parent": null,
+                    "type": "css",
                     "target": {
                         "selector": "#ccc[open]"
-                    },
-                    "type": "css"
+                    }
                 }
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
-                            "parent": null,
+                            "type": "click",
                             "target": {
                                 "selector": "#ccc #ccc-notify .ccc-notify-button",
                                 "textFilter": [
                                     "Settings",
                                     "Cookie Preferences"
                                 ]
-                            },
-                            "type": "click"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "waitcss",
                             "target": {
-                                "displayFilter": true,
-                                "selector": "#ccc-recommended-settings"
+                                "selector": "#ccc-recommended-settings",
+                                "displayFilter": true
                             },
-                            "type": "waitcss"
+                            "retries": "10",
+                            "waitTime": "250"
                         },
                         {
+                            "type": "consent",
                             "consents": [
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Analytical Cookies"
-                                                }
-                                            },
-                                            "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -93,31 +81,31 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Analytical Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
                                     },
                                     "type": "B"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Marketing Cookies"
-                                                }
-                                            },
-                                            "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -126,16 +114,31 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Marketing Cookies"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
                                     },
                                     "type": "F"
                                 },
                                 {
                                     "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -144,13 +147,13 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -159,16 +162,16 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
-                                        "target": {
-                                            "selector": "click"
-                                        },
-                                        "type": "click"
+                                        }
                                     },
                                     "type": "B"
                                 },
                                 {
                                     "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -177,13 +180,13 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -192,31 +195,16 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
-                                        "target": {
-                                            "selector": "click"
-                                        },
-                                        "type": "click"
+                                        }
                                     },
                                     "type": "B"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Functionality (incl. social media)"
-                                                }
-                                            },
-                                            "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -225,31 +213,31 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Functionality (incl. social media)"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
                                     },
                                     "type": "A"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Targeting/Advertising"
-                                                }
-                                            },
-                                            "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -258,31 +246,31 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Targeting/Advertising"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
                                     },
                                     "type": "F"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Google Analytics"
-                                                }
-                                            },
-                                            "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -291,50 +279,52 @@
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Google Analytics"
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
                                     },
                                     "type": "B"
                                 }
-                            ],
-                            "type": "consent"
+                            ]
                         },
                         {
+                            "type": "click",
                             "target": {
                                 "selector": ".optional-cookie button",
                                 "textFilter": "Configure Ad Vendors"
-                            },
-                            "type": "click"
+                            }
                         },
                         {
+                            "type": "waitcss",
                             "target": {
-                                "displayFilter": true,
-                                "selector": "#iab-purposes .optional-cookie"
+                                "selector": "#iab-purposes .optional-cookie",
+                                "displayFilter": true
                             },
-                            "type": "waitcss"
+                            "retries": "10",
+                            "waitTime": "250"
                         },
                         {
+                            "type": "consent",
                             "consents": [
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Information storage and access"
-                                                }
-                                            },
-                                            "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -343,31 +333,31 @@
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Information storage and access"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        }
                                     },
                                     "type": "D"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Personalisation"
-                                                }
-                                            },
-                                            "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -376,31 +366,31 @@
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Personalisation"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        }
                                     },
                                     "type": "E"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Ad selection, delivery, reporting"
-                                                }
-                                            },
-                                            "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -409,31 +399,31 @@
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Ad selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        }
                                     },
                                     "type": "F"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Content selection, delivery, reporting"
-                                                }
-                                            },
-                                            "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -442,31 +432,31 @@
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Content selection, delivery, reporting"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        }
                                     },
                                     "type": "E"
                                 },
                                 {
                                     "matcher": {
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".optional-cookie-header",
-                                                    "textFilter": "Measurement"
-                                                }
-                                            },
-                                            "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "input"
                                         },
-                                        "type": "checkbox"
-                                    },
-                                    "toggleAction": {
                                         "parent": {
                                             "childFilter": {
                                                 "target": {
@@ -475,30 +465,45 @@
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
-                                        },
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
                                         "target": {
-                                            "selector": "click"
+                                            "selector": "input"
                                         },
-                                        "type": "click"
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": "Measurement"
+                                                }
+                                            },
+                                            "selector": "#iab-purposes .optional-cookie"
+                                        }
                                     },
                                     "type": "B"
                                 }
-                            ],
-                            "type": "consent"
+                            ]
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
                         "selector": "#ccc-close"
-                    },
-                    "type": "click"
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
