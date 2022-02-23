@@ -52,7 +52,8 @@
                                                 "Externí analýzy",
                                                 "Analyse Cookies",
                                                 "Statistical Cookies",
-                                                "Mål ydeevne"
+                                                "Mål ydeevne",
+                                                "Måle- og analysecookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -118,7 +119,8 @@
                                                 "Advertising Cookies",
                                                 "Marketing Cookies",
                                                 "Cookies für Marketingzwecke",
-                                                "Tilpas annoncering"
+                                                "Tilpas annoncering",
+                                                "ADVERTISING"
                                             ]
                                         },
                                         "trueAction": {
@@ -331,7 +333,10 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Select personalised content"
+                                            "textFilter": [
+                                                "Select personalised content",
+                                                "CONTENT PERSONALISATION"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -349,7 +354,7 @@
                                                             "selector": "input.category-switch-handler"
                                                         }
                                                     },
-                                                    "type": "X"
+                                                    "type": "E"
                                                 }
                                             ]
                                         }
