@@ -174,7 +174,13 @@ class GDPRConfig {
                 "name": "debugTranslations",
                 "description": Language.getString("DEBUG_TRANSLATION_DESCRIPTION"),
                 "value": debugValues.debugTranslations
-            }
+            },
+            {
+                "name": "skipSubmitConfirmation",
+                "description": Language.getString("SKIP_SUBMIT_CONFIRMATION"),
+                "value": debugValues.skipSubmitConfirmation
+            },
+
         ];
     }
 
@@ -278,5 +284,6 @@ GDPRConfig.defaultDebugFlags = {
     "alwaysForceRulesUpdate": false,
     "skipHideMethod": false,
     "debugLog": false,
-    "debugTranslations": false
+    "debugTranslations": false,
+    "skipSubmitConfirmation": false
 }

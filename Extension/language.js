@@ -638,6 +638,14 @@ const translations = {
         "da": "Mange tak!",
 	    "de": "Vielen Dank!"
     },
+    "NO-CONFIRM": {
+	"en": "Don't ask next time",
+	"da": "Spørg ikke næste gang"
+    },
+    "SKIP_SUBMIT_CONFIRMATION": {
+	"en": "Avoid having to confirm each time when sending reports about badly handled websites using the addon popup",
+	"da": "Undgå at skulle bekræfte hver gang når der sendes rapport omkring dårligt håndterede websites via addon popuppen"
+    },
     "UTILITY": {
         "en": "UTILITY",
         "da": "UTILITY"
