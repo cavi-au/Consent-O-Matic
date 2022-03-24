@@ -23,7 +23,8 @@ GDPRConfig.isActive(url).then(async (active) => {
                         let engine = new ConsentEngine(config, consentTypes, (stats)=>{
                             chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
                                 "cmp": stats.cmpName,
-                                "url": url
+                                "url": url,
+				"clicks": stats.clicks
                             }));
 
                         });

@@ -116,6 +116,8 @@ class ConsentEngine {
                             self.handleMutations([]);
                         } else {
                             try {
+				let clicks = 0;
+
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
                                     self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
                                 }
@@ -166,7 +168,8 @@ class ConsentEngine {
                                     }
                                 }
                                 self.handledCallback({
-                                    cmpName: cmp.name
+                                    cmpName: cmp.name,
+				    clicks: clicks
                                 });
                             } catch(e) {
                                 console.log("Error during consent handling:", e);

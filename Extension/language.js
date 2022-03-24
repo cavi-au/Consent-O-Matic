@@ -19,9 +19,9 @@ const translations = {
         "da": "Regler",
 	    "de": "Regellisten",
     },
-    "LOG": {
-        "en": "Log",
-        "da": "Log"
+    "ABOUT": {
+        "en": "About",
+        "da": "Info"
     },
     "DEBUG": {
         "en": "Debug",
@@ -64,9 +64,13 @@ const translations = {
         "en": "Clear",
         "da": "Ryd"
     },
-    "LOG_DESCRIPTION": {
-        "en": "This is a list of all the GDPR consent popups that were handled",
-        "da": "Dette er en liste over alle GDPR-samtykke-popups der har været håndteret"
+    "ABOUT_DESCRIPTION": {
+        "en": "Here you can see how many times a popup has been filled out and just how many clicks Consent-O-Matic has saved you.",
+        "da": "Her kan du se hvor mange gange der er blevet udfyldt en popup for dig, og hvor mange klik Consent-O-Matic har sparet dig."
+    },
+    "CLICKS_SAVED": {
+	"en": "clicks saved",
+	"da": "klik sparet",
     },
     "CLICK_DELAY_DESCRIPTION": {
         "en": "Wait a short time between performing each action or mouse gesture",
