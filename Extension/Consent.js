@@ -29,17 +29,18 @@ class Consent {
     }
 
     async setEnabled(enabled) {
+	let clicks = 0;
         if(this.enabledMatcher != null && this.toggleAction != null) {
             if(this.isEnabled() && !enabled) {
-                await this.toggle();
+                clicks += await this.toggle();
             } else if(!this.isEnabled() && enabled) {
-                await this.toggle();
+                clicks += await this.toggle();
             }
         } else {
             if(enabled) {
-                await this.trueAction.execute();
+                clicks += await this.trueAction.execute();
             } else {
-                await this.falseAction.execute();
+                clicks += await this.falseAction.execute();
             }
         }
 
@@ -49,6 +50,7 @@ class Consent {
                 await this.enabledMatcher.debug(enabled);
             }
         }
+	return clicks;
     }
 
     get type() {
