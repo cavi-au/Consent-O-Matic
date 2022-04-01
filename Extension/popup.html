@@ -39,9 +39,25 @@
         padding-bottom: 1em;
         padding-top: 0.5em;
     }
-    button {
-        padding: 0.25em;
+    button, input {
+        padding: 1em;
         margin: 0.5em 0;
+    }
+    input, button {
+	border: 1px solid black;
+	background: rgba(100,100,200,0.2);
+	transition: background 0.2s ease-in-out;
+	color: white;
+	cursor: pointer;
+    }
+    #unhandled_send {
+	background: rgba(100, 100, 255, 0.3)
+    }
+    #unhandled_send:hover {
+	background: rgba(100, 100, 255, 0.6)
+    }
+    button:hover {
+	background: rgba(100,100,200,0.5);
     }
     </style>
     <script src="GDPRConfig.js"></script>
