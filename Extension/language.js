@@ -711,20 +711,10 @@ const translations = {
         "da": "Brug denne handling, hvis samtykket er givet med en til/fra-tilstand",
         "de": "Verwenden Sie diese Aktion, wenn die Zustimmung mit einem Umschaltzustand erteilt wird"
     },
-    "CONSENT_TRUE_ACTION": {
-        "en": "trueAction",
-        "da": "sandHandling",
-        "de": "WahrAktion"
-    },
     "CONSENT_TRUE_ACTION_HELP": {
         "en": "Use this action to set consent to true, non toggle style",
         "da": "Brug denne handling til at indstille samtykke til sandt, ikke til/fra-tilstand",
         "de": "Verwenden Sie diese Aktion, um die Zustimmung auf wahr zu setzen, ohne Umschaltstil"
-    },
-    "CONSENT_FALSE_ACTION": {
-        "en": "falseAction",
-        "da": "falskAction",
-        "de": "FalschAktion"
     },
     "CONSENT_FALSE_ACTION_HELP": {
         "en": "Use this action to set consent to false, non toggle style",
@@ -805,6 +795,18 @@ const translations = {
         "en": "UTILITY",
         "da": "UTILITY",
         "de": "DIENSTPROGRAMM"
+    },
+    "CMP": {
+	"en": "Consent Management Provider",
+	"da": "Samtykke-popup-udbyder"
+    },
+    "POPUPS_FILLED": {
+	"en": "Popups Filled",
+	"da": "Udfyldte Popups",
+    },
+    "CLICKS_MADE": {
+	"en": "Clicks Made",
+	"da": "Antal Klik"
     }
 };
 
