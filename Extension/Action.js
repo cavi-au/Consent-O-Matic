@@ -1,17 +1,22 @@
 class Action {
     static createAction(config, cmp) {
-        switch(config.type) {
-            case "click": return new ClickAction(config, cmp);
-            case "list": return new ListAction(config, cmp);
-            case "consent": return new ConsentAction(config, cmp);
-            case "ifcss": return new IfCssAction(config, cmp);
-            case "waitcss": return new WaitCssAction(config, cmp);
-            case "foreach": return new ForEachAction(config, cmp);
-            case "hide": return new HideAction(config, cmp);
-            case "slide": return new SlideAction(config, cmp);
-            case "close": return new CloseAction(config, cmp);
-            case "wait": return new WaitAction(config, cmp);
-            default: throw "Unknown action type: "+config.type;
+        try {
+            switch(config.type) {
+                case "click": return new ClickAction(config, cmp);
+                case "list": return new ListAction(config, cmp);
+                case "consent": return new ConsentAction(config, cmp);
+                case "ifcss": return new IfCssAction(config, cmp);
+                case "waitcss": return new WaitCssAction(config, cmp);
+                case "foreach": return new ForEachAction(config, cmp);
+                case "hide": return new HideAction(config, cmp);
+                case "slide": return new SlideAction(config, cmp);
+                case "close": return new CloseAction(config, cmp);
+                case "wait": return new WaitAction(config, cmp);
+                default: throw "Unknown action type: "+config.type;
+            }
+        } catch(e) {
+            console.error(e);
+            return new NopAction(config, cmp);
         }
     }
 
@@ -265,6 +270,17 @@ class WaitCssAction extends Action {
 
             checkCss();
         });
+    }
+}
+
+class NopAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+    }
+
+    async execute(param) {
+        //NOP
+        return;
     }
 }
 

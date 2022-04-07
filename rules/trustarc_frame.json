@@ -92,7 +92,11 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Functional"
+                                            "textFilter": [
+                                                "Functional",
+                                                "Funktionalitets",
+                                                "Funktionelle Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -113,15 +117,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span[role='option']",
-                                                            "textFilter": "On"
+                                                            "selector": ".switch span.on[role='option']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span[role='option']",
-                                                            "textFilter": "Off"
+                                                            "selector": ".switch span.off[role='option']"
                                                         }
                                                     },
                                                     "type": "A"
@@ -133,7 +135,11 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Marketing"
+                                            "textFilter": [
+                                                "Marketing",
+                                                "Annonceringscookies",
+                                                "Werbe-Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -154,15 +160,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span[role='option']",
-                                                            "textFilter": "On"
+                                                            "selector": ".switch span.on[role='option']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span[role='option']",
-                                                            "textFilter": "Off"
+                                                            "selector": ".switch span.off[role='option']"
                                                         }
                                                     },
                                                     "type": "F"
