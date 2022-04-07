@@ -29,13 +29,15 @@ class Action {
         let realExecute = this.execute;
 
         this.execute = async function (param){
+	    let clicks = 0;
             self.logStart(param);
             try {
-                await realExecute.call(self, param);
+        	clicks += await realExecute.call(self, param);
             } catch(e) {
                 console.error(e);
             }
             self.logEnd();
+	    return clicks;
         }
     }
 
@@ -85,9 +87,14 @@ class ListAction extends Action {
     }
 
     async execute(param) {
+	let clicks = 0;
         for(let action of this.actions) {
-            await action.execute(param);
+	    let result = await action.execute(param);
+            if (result > 0){
+		clicks += result;
+	    }
         }
+	return clicks;
     }
 }
 
@@ -98,6 +105,7 @@ class CloseAction extends Action {
 
     async execute(param) {
         window.close();
+	return 1; // Closing window counts as a click
     }
 }
 
@@ -111,6 +119,7 @@ class WaitAction extends Action {
         await new Promise((resolve, reject)=>{
             setTimeout(()=>{ resolve() }, self.config.waitTime);
         });
+	return 0; // Never clicks while waiting
     }
 }
 
@@ -121,6 +130,7 @@ class ClickAction extends Action {
     }
 
     async execute(param) {
+	let clicks = 0;
         let result = Tools.find(this.config);
 
         if(result.target != null) {
@@ -146,9 +156,11 @@ class ClickAction extends Action {
             } else {
                 result.target.click();
             }
+	    clicks++;
         }
 
         await this.waitTimeout(this.timeout);
+	return clicks;
     }
 }
 
@@ -166,6 +178,7 @@ class ConsentAction extends Action {
     }
 
     async execute(consentTypes) {
+	let clicks = 0;
         for(let consent of this.consents) {
             let shouldBeEnabled = false;
             
@@ -173,8 +186,9 @@ class ConsentAction extends Action {
                 shouldBeEnabled = consentTypes[consent.type];
             }
 
-            await consent.setEnabled(shouldBeEnabled);
+            clicks += await consent.setEnabled(shouldBeEnabled);
         }
+	return clicks;
     }
 }
 
@@ -192,17 +206,19 @@ class IfCssAction extends Action {
     }
 
     async execute(param) {
+	let clicks = 0;
         let result = Tools.find(this.config);
 
         if(result.target != null) {
             if(this.trueAction != null) {
-                await this.trueAction.execute(param);
+                clicks += await this.trueAction.execute(param);
             }
         } else {
             if(this.falseAction != null) {
-                await this.falseAction.execute(param);
+                clicks += await this.falseAction.execute(param);
             }
         }
+	return clicks;
     }
 }
 
@@ -213,7 +229,6 @@ class WaitCssAction extends Action {
 
     async execute(param) {
         let self = this;
-
         let negated = false;
         
         if(self.config.negated) {
@@ -270,6 +285,7 @@ class WaitCssAction extends Action {
 
             checkCss();
         });
+	return 0; // Never clicks
     }
 }
 
@@ -292,20 +308,19 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
+	let clicks = 0;
         let results = Tools.find(this.config, true);
-
         let oldBase = Tools.base;
 
         for(let result of results) {
             if(result.target != null) {
-
                 Tools.setBase(result.target);
-
-                await this.action.execute(param);
+                clicks += await this.action.execute(param);
             }
         }
 
         Tools.setBase(oldBase);
+	return clicks;
     }
 }
 
@@ -323,6 +338,7 @@ class HideAction extends Action {
             this.cmp.hiddenTargets.push(result.target);
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }
+	return 0; // Never clicks
     }
 }
 
@@ -332,6 +348,7 @@ class SlideAction extends Action {
     }
 
     async execute(param) {
+	let clicks = 0;
         let result = Tools.find(this.config);
 
         let dragResult = Tools.find(this.config.dragTarget);
@@ -417,6 +434,8 @@ class SlideAction extends Action {
             result.target.dispatchEvent(mouseMove);
             await this.waitTimeout(10);
             result.target.dispatchEvent(mouseUp);
+	    clicks++;
         }
+	return clicks;
     }
 }

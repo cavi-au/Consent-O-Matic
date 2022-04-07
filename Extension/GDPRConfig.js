@@ -1,18 +1,21 @@
 class GDPRConfig {
-    static getLogEntries() {
+    static getStatistics() {
         return new Promise((resolve, reject)=>{
             chrome.storage.local.get({
-                logEntries: []
+                statistics: {
+		    clicks: 0,
+		    cmps: {}
+		}
             }, (result)=>{
-                resolve(result.logEntries);
+                resolve(result.statistics);
             });
         });
     }
 
-    static setLogEntries(logEntries) {
+    static setStatistics(entries) {
         return new Promise((resolve, reject)=>{
             chrome.storage.local.set({
-                logEntries: logEntries
+                statistics: entries
             }, ()=>{
                 resolve();
             });
@@ -174,7 +177,13 @@ class GDPRConfig {
                 "name": "debugTranslations",
                 "description": Language.getString("DEBUG_TRANSLATION_DESCRIPTION"),
                 "value": debugValues.debugTranslations
-            }
+            },
+            {
+                "name": "skipSubmitConfirmation",
+                "description": Language.getString("SKIP_SUBMIT_CONFIRMATION"),
+                "value": debugValues.skipSubmitConfirmation
+            },
+
         ];
     }
 
@@ -278,5 +287,6 @@ GDPRConfig.defaultDebugFlags = {
     "alwaysForceRulesUpdate": false,
     "skipHideMethod": false,
     "debugLog": false,
-    "debugTranslations": false
+    "debugTranslations": false,
+    "skipSubmitConfirmation": false
 }

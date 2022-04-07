@@ -221,6 +221,38 @@
             padding: 2em;
             padding-bottom: 0;
         }
+
+	.saves {
+	    text-align: center;
+	    padding: 1em;
+	    font-size: 1.2em;
+	    font-weight: bold;
+	}
+	.saves #clicks {
+	    font-size: 2em;
+	}
+	.logList {
+	    padding: 2em;
+	    border-spacing: 0;
+	    margin: auto;
+	}
+	.logList th {
+	    background: #cedcff;
+	    font-weight: normal;
+	    padding: 0.25em 1em;
+	}
+	.logList tr:first-child th {
+	    font-weight: bold;
+	}
+	.logList td {
+	    text-align: center;
+	}
+	.logList tr:not(:first-child):nth-child(2n) th {
+	    background: #eef2ff;
+	}
+	.logList tr:not(:first-child):nth-child(2n+1) th {
+	    background: #e6eafd;
+	}
     </style>
     <script src="GDPRConfig.js" defer="true"></script>
     <script src="language.js" defer="true"></script>
@@ -239,7 +271,7 @@
         <ul>
             <li class="menuitem choices active">[[YOUR_CHOICE]]</li>
             <li class="menuitem rules">[[RULE_LIST]]</li>
-            <li class="menuitem log">[[LOG]]</li>
+            <li class="menuitem about">[[ABOUT]]</li>
             <li class="menuitem debug">[[DEBUG]]</li>
         </ul>
     </div>
@@ -272,11 +304,16 @@
                 <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
             </div>
         </div>
-        <div class="tab tab_log" style="display:none">
+        <div class="tab tab_about" style="display:none">
             <div class="helptext">
-                [[LOG_DESCRIPTION]]
+                [[ABOUT_DESCRIPTION]]
             </div>
-            <ul class="logList"></ul>
+	    <div class="saves">
+		<span id="clicks">0</span> [[CLICKS_SAVED]]
+	    </div>
+            <table class="logList">
+		<tr><th>[[CMP]]</th><th>[[POPUPS_FILLED]]</th><th>[[CLICKS_MADE]]</th></tr>
+	    </table>
             <div class="logoptions">
                 <button id="clearLog">[[CLEAR]]</button>
             </div>

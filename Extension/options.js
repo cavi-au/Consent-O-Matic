@@ -1,7 +1,7 @@
 let optionsUL = document.querySelector(".configurator ul.categorylist");
 let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
 let debugUL = document.querySelector(".configurator .tab_dbg ul.flags");
-let logUL = document.querySelector(".configurator .tab_log ul.logList");
+let aboutTable = document.querySelector(".configurator .tab_about table.logList");
 
 optionsUL.innerHTML = "";
 
@@ -13,9 +13,9 @@ document.querySelector(".header .menuitem.rules").addEventListener("click", func
 	tabChanged(this);
 	document.querySelector(".tab_rl").style.display = "block";
 });
-document.querySelector(".header .menuitem.log").addEventListener("click", function (evt) {
+document.querySelector(".header .menuitem.about").addEventListener("click", function (evt) {
 	tabChanged(this);
-	document.querySelector(".tab_log").style.display = "block";
+	document.querySelector(".tab_about").style.display = "block";
 	updateLog();
 });
 document.querySelector(".header .menuitem.debug").addEventListener("click", function (evt) {
@@ -141,35 +141,38 @@ function saveSettings() {
 }
 
 function updateLog() {
-	logUL.innerHTML = "";
-	GDPRConfig.getLogEntries().then((logEntries)=>{
+	aboutTable.querySelectorAll("tr:not(:first-child)").forEach((el)=>{
+	    el.remove();
+	});
+	GDPRConfig.getStatistics().then((entries)=>{
+		document.querySelector("#clicks").innerText = entries.clicks;
 
-		logEntries.sort((e1, e2)=>{
-			return e2.timestamp - e1.timestamp;
-		});
-
-		logEntries.forEach((entry)=>{
-			let li = document.createElement("li");
-			
-			li.innerText = new Date(entry.timestamp).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12: false, hour: '2-digit', minute: '2-digit' }) + " - ["+entry.cmp+"] - "+entry.page;
-
-			logUL.append(li);
-		})
+		for (const [cmp, stats] of Object.entries(entries.cmps)){
+			let tr = document.createElement("tr");
+			let cell = document.createElement("th");
+			cell.innerText = cmp;
+			tr.appendChild(cell);
+			cell = document.createElement("td");
+			cell.innerText = stats.filledForms;
+			tr.appendChild(cell);
+			cell = document.createElement("td");
+			cell.innerText = stats.clicks;
+			tr.appendChild(cell);
+			aboutTable.append(tr);
+		}
 	});
 }
 
-updateLog();
 
 document.querySelector("#clearLog").addEventListener("click", ()=>{
-	GDPRConfig.setLogEntries([]).then(()=>{
-		updateLog();
+	GDPRConfig.setStatistics({
+	    clicks: 0,
+	    cmps: {}
+	}).then(()=>{
+	    updateLog();
 	});
 });
 
 document.querySelector("#rulesEditor").addEventListener("click", ()=>{
 	location.href = "/editor/index.html";
 });
-
-window.setInterval(function(){
-    updateLog();
-}, 5000);

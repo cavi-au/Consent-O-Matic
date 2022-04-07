@@ -116,6 +116,8 @@ class ConsentEngine {
                             self.handleMutations([]);
                         } else {
                             try {
+				let clicks = 0;
+
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
                                     self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
                                 }
@@ -133,7 +135,7 @@ class ConsentEngine {
                                 if(ConsentEngine.debugValues.debugLog) {
                                     console.groupCollapsed(cmp.name+" - OPEN_OPTIONS");
                                 }
-                                await cmp.runMethod("OPEN_OPTIONS");
+                                clicks += await cmp.runMethod("OPEN_OPTIONS");
                                 if(ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -151,7 +153,7 @@ class ConsentEngine {
                                 if(ConsentEngine.debugValues.debugLog) {
                                     console.groupCollapsed(cmp.name+" - DO_CONSENT");
                                 }
-                                await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                                clicks += await cmp.runMethod("DO_CONSENT", self.consentTypes);
                                 if(ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -160,13 +162,18 @@ class ConsentEngine {
                                     if(ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name+" - SAVE_CONSENT");
                                     }
-                                    await cmp.runMethod("SAVE_CONSENT");
+                                    clicks += await cmp.runMethod("SAVE_CONSENT");
                                     if(ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
+				if (!(clicks>0)){
+				    clicks = 0; // Catch-all for NaN, negative numbers etc.
+				    console.log("Consent-O-Matic click-count error for CMP", cmp);
+				}
                                 self.handledCallback({
-                                    cmpName: cmp.name
+                                    cmpName: cmp.name,
+				    clicks: clicks
                                 });
                             } catch(e) {
                                 console.log("Error during consent handling:", e);

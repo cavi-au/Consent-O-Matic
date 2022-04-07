@@ -54,13 +54,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
             setBadgeCheckmark(true, sender.tab.id);
 
-            GDPRConfig.getLogEntries().then((log)=>{
-                log.push({
-                    "timestamp": Date.now(),
-                    "cmp": json.cmp,
-                    "page": json.url
-                });
-                GDPRConfig.setLogEntries(log);
+            GDPRConfig.getStatistics().then((entries)=>{
+		entries.clicks += json.clicks;
+		
+		if (!entries.cmps.hasOwnProperty(json.cmp)){
+		    entries.cmps[json.cmp] = {
+			filledForms: 0,
+			clicks: 0
+		    }
+		}
+		entries.cmps[json.cmp].filledForms ++;
+		entries.cmps[json.cmp].clicks += json.clicks;
+
+                GDPRConfig.setStatistics(entries);
             });
 
             return false;
