@@ -11,8 +11,8 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "displayFilter": true,
-                        "selector": ".qc-cmp2-container #qc-cmp2-ui"
+                        "selector": ".qc-cmp2-container #qc-cmp2-ui",
+                        "displayFilter": true
                     }
                 }
             }
@@ -23,7 +23,11 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "wait",
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".qc-cmp2-summary-buttons button[mode=\"secondary\"]"
+                            },
+                            "retries": "10",
                             "waitTime": "250"
                         },
                         {
@@ -46,10 +50,6 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "wait",
-                            "waitTime": "500"
-                        },
-                        {
                             "type": "foreach",
                             "target": {
                                 "selector": ".qc-cmp2-list-item"
@@ -60,42 +60,39 @@
                                     {
                                         "type": "click",
                                         "target": {
-                                            "selector": ".qc-cmp2-list-item-header"
+                                            "selector": ":scope > button"
                                         }
                                     },
                                     {
-                                        "type": "foreach",
+                                        "type": "ifcss",
                                         "target": {
-                                            "selector": ".qc-cmp2-toggle-switch"
+                                            "selector": ".qc-cmp2-list-item-title",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification",
+                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
+                                                "Opbevare og/eller tilgå oplysninger på en enhed",
+                                                "Precise geolocation data, and identification through device scanning"
+                                            ]
                                         },
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".qc-cmp2-expandable-info",
-                                                    "textFilter": [
-                                                        "Precise geolocation and information about device characteristics can be used.",
-                                                        "Cookies, device identifiers, or other information can be stored or accessed on your device for the purposes presented to you.",
-                                                        "Præcis geoplacering og oplysninger om enhedskarakteristika kan anvendes.",
-                                                        "Cookies, enhedsidentifikatorer eller andre oplysninger kan opbevares eller tilgås på din enhed til de formål, der præsenteres for dig."
-                                                    ]
-                                                }
-                                            },
-                                            "selector": ".qc-cmp2-expandable-list"
-                                        },
-                                        "action": {
+                                        "trueAction": {
                                             "type": "consent",
                                             "consents": [
                                                 {
                                                     "matcher": {
                                                         "type": "css",
                                                         "target": {
-                                                            "selector": ".qc-cmp2-toggle[aria-checked=\"true\"]"
+                                                            "selector": "button[role='switch'][aria-checked='true']"
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1)"
                                                         }
                                                     },
                                                     "toggleAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".qc-cmp2-toggle"
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1) button"
                                                         }
                                                     },
                                                     "type": "D"
@@ -104,39 +101,103 @@
                                         }
                                     },
                                     {
-                                        "type": "foreach",
+                                        "type": "ifcss",
                                         "target": {
-                                            "selector": ".qc-cmp2-toggle-switch"
+                                            "selector": ".qc-cmp2-list-item-title",
+                                            "textFilter": [
+                                                "Create a personalised ads profile",
+                                                "Select personalised ads",
+                                                "Select basic ads",
+                                                "Measure ad performance",
+                                                "Apply market research to generate audience insights",
+                                                "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                                "Personalised ads and content, ad and content measurement, audience insights and product development"
+                                            ]
                                         },
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ".qc-cmp2-expandable-info",
-                                                    "textFilter": [
-                                                        "Ads and content can be personalised based on a profile. More data can be added to better personalise ads and content. Ad and content performance can be measured. Insights about audiences who saw the ads and content can be derived. Data can be used to build or improve user experience, systems and software.",
-                                                        "Annoncer og indhold kan tilpasses baseret på en profil. Flere oplysninger kan tilføjes til bedre tilpasning af annoncer og indhold. Annonce- og indholdseffektivitet kan måles. Indsigter om målgrupper, der så annoncerne og indholdet, kan udledes. Data kan bruges til at udvikle eller forbedre brugeroplevelse, systemer og software."
-                                                    ]
-                                                }
-                                            },
-                                            "selector": ".qc-cmp2-expandable-list"
-                                        },
-                                        "action": {
+                                        "trueAction": {
                                             "type": "consent",
                                             "consents": [
                                                 {
                                                     "matcher": {
                                                         "type": "css",
                                                         "target": {
-                                                            "selector": ".qc-cmp2-toggle[aria-checked=\"true\"]"
+                                                            "selector": "button[role='switch'][aria-checked='true']"
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1)"
                                                         }
                                                     },
                                                     "toggleAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".qc-cmp2-toggle"
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1) button"
                                                         }
                                                     },
                                                     "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".qc-cmp2-list-item-title",
+                                            "textFilter": [
+                                                "Create a personalised content profile",
+                                                "Select personalised content",
+                                                "Measure content performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "button[role='switch'][aria-checked='true']"
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1)"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1) button"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".qc-cmp2-list-item-title",
+                                            "textFilter": "Develop and improve products"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "button[role='switch'][aria-checked='true']"
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1)"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1) button"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
                                             ]
                                         }
@@ -147,7 +208,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": ".qc-cmp2-footer-links button",
+                                "selector": ".qc-cmp2-footer-links button2",
                                 "textFilter": [
                                     "Legitime interesser",
                                     "LEGITIMATE INTEREST"
@@ -196,7 +257,16 @@
                 "name": "SAVE_CONSENT"
             },
             {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".qc-cmp2-container"
+                    }
+                },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }

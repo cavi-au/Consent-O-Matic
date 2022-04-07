@@ -1,9 +1,11 @@
+const inputSelector = "input, [role='switch']"
+
 class AutomaticDetector {
     static findTopParentWithOnlyOneInput(input) {
         let foundParent = null;
         let parent = input.parentNode;
     
-        while(parent.querySelectorAll("input").length === 1) {
+        while(parent.querySelectorAll(inputSelector).length === 1) {
             foundParent = parent;
             parent = parent.parentNode;
         }
@@ -61,7 +63,7 @@ class AutomaticDetector {
 
             possibleCMPWithCategories.push(result);
 
-            cmp.querySelectorAll("input").forEach((input)=>{
+            cmp.querySelectorAll(inputSelector).forEach((input)=>{
                 let topParent = AutomaticDetector.findTopParentWithOnlyOneInput(input);
     
                 if(topParent != null) {
