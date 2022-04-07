@@ -163,7 +163,7 @@ label:hover .help, .label:hover .help {
 
 [data-fold-name]:before {
   grid-column: span 2;
-  content: "▾ " attr(data-fold-name) " - " attr(data-fold-extra-name);
+  content: "▾ " attr(data-fold-name) attr(data-fold-extra-name);
   display: block;
   padding: 0.25em;
   padding-left: 1em;
@@ -171,7 +171,7 @@ label:hover .help, .label:hover .help {
   cursor: move;
 }
 [data-fold-name].toggled:before {
-  content: "▸ " attr(data-fold-name) " - " attr(data-fold-extra-name);
+  content: "▸ " attr(data-fold-name) attr(data-fold-extra-name);
 }
 [data-fold-name].toggled * {
   display: none !important;

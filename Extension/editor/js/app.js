@@ -505,7 +505,7 @@ function updateTitles() {
             let select = consents[0].querySelector("[data-bind='type'] select");
             let text = select.querySelector("[value='"+select.value+"'").textContent;
 
-            extraFoldName = text;
+            extraFoldName = " - "+text;
         }
 
         div.setAttribute("data-fold-extra-name", extraFoldName);
