@@ -494,3 +494,33 @@ function copyToClipboard(str) {
     document.execCommand('copy');
     document.body.removeChild(el);
 };
+
+function updateTitles() {
+    document.querySelectorAll("div[data-fold-name]").forEach((div)=>{
+        let extraFoldName = "";
+
+        let consents = div.querySelectorAll("[data-type='consent']");
+
+        if(consents.length === 1) {
+            let select = consents[0].querySelector("[data-bind='type'] select");
+            let text = select.querySelector("[value='"+select.value+"'").textContent;
+
+            extraFoldName = text;
+        }
+
+        div.setAttribute("data-fold-extra-name", extraFoldName);
+    });
+}
+
+let observer = new MutationObserver((mutations)=>{
+    updateTitles();
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+document.addEventListener("input", ()=>{
+    updateTitles();
+});
