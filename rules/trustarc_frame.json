@@ -71,6 +71,20 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiecat"
+                            },
+                            "trueAction": {
+                                "type": "waitcss",
+                                "target": {
+                                    "selector": ".switch span.on"
+                                },
+                                "retries": "25",
+                                "waitTime": "250"
+                            }
                         }
                     ]
                 },
