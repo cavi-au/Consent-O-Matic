@@ -20,10 +20,10 @@ class ConsentEngine {
             }
         });
 
-        this.cmps.sort((cmp1, cmp2)=>{
-            if(cmp1.isUtility()) {
+        this.cmps.sort((cmp1, cmp2) => {
+            if (cmp1.isUtility()) {
                 return -1;
-            } else if(cmp2.isUtility()) {
+            } else if (cmp2.isUtility()) {
                 return 1;
             } else {
                 return 0;
@@ -39,12 +39,12 @@ class ConsentEngine {
     }
 
     startStopTimeout() {
-        if(this.stopEngineId != null) {
+        if (this.stopEngineId != null) {
             clearTimeout(this.stopEngineId);
         }
 
-        this.stopEngineId = setTimeout(()=>{
-            if(ConsentEngine.debugValues.debugLog) {
+        this.stopEngineId = setTimeout(() => {
+            if (ConsentEngine.debugValues.debugLog) {
                 console.log("No CMP detected in 5 seconds, stopping engine...");
             }
             this.stopObserver();
@@ -54,11 +54,11 @@ class ConsentEngine {
     async handleMutations(mutations) {
         const self = this;
 
-        if(this.queueId == null) {
-            this.queueId = setTimeout(()=>{
+        if (this.queueId == null) {
+            this.queueId = setTimeout(() => {
                 try {
                     self.checkForCMPs();
-                } catch(e) {
+                } catch (e) {
                     console.error(e);
                 }
                 self.queueId = null;
@@ -69,15 +69,15 @@ class ConsentEngine {
     checkForCMPs() {
         const self = this;
 
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             console.groupCollapsed("findCMP");
         }
         let cmps = this.findCMP();
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             console.groupEnd();
         }
 
-        cmps = cmps.filter((cmp)=>{
+        cmps = cmps.filter((cmp) => {
             return !self.triedCMPs.has(cmp.name);
         });
 
@@ -90,9 +90,9 @@ class ConsentEngine {
 
             let cmp = cmps[0];
 
-            if(ConsentEngine.debugValues.debugLog) {
+            if (ConsentEngine.debugValues.debugLog) {
                 console.log("CMP Detected: ", cmp.name);
-                console.groupCollapsed(cmp.name+" - isShowing?");
+                console.groupCollapsed(cmp.name + " - isShowing?");
             }
 
             this.triedCMPs.add(cmp.name);
@@ -101,81 +101,85 @@ class ConsentEngine {
             let numberOfTries = 10;
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
-                    console.groupEnd();
-                    console.log(cmp.name+" - Showing");
+                    if (ConsentEngine.debugValues.debugLog) {
+                        console.groupEnd();
+                        console.log(cmp.name + " - Showing");
+                    }
                     setTimeout(async () => {
-                        if(cmp.isUtility()) {
-                            if(ConsentEngine.debugValues.debugLog) {
-                                console.groupCollapsed(cmp.name+" - UTILITY");
+                        if (cmp.isUtility()) {
+                            if (ConsentEngine.debugValues.debugLog) {
+                                console.groupCollapsed(cmp.name + " - UTILITY");
                             }
                             await cmp.runMethod("UTILITY");
-                            if(ConsentEngine.debugValues.debugLog) {
+                            if (ConsentEngine.debugValues.debugLog) {
                                 console.groupEnd();
                             }
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
                             try {
-				let clicks = 0;
+                                let clicks = 0;
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
-                                    self.showProgressDialog("Autofilling "+cmp.name+", please wait...");
+                                    self.showProgressDialog("Autofilling " + cmp.name + ", please wait...");
                                 }
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
-                                    if(ConsentEngine.debugValues.debugLog) {
-                                        console.groupCollapsed(cmp.name+" - HIDE_CMP");
+                                    if (ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
-                                    if(ConsentEngine.debugValues.debugLog) {
+                                    if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
-                                
-                                if(ConsentEngine.debugValues.debugLog) {
-                                    console.groupCollapsed(cmp.name+" - OPEN_OPTIONS");
+
+                                if (ConsentEngine.debugValues.debugLog) {
+                                    console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
                                 }
                                 clicks += await cmp.runMethod("OPEN_OPTIONS");
-                                if(ConsentEngine.debugValues.debugLog) {
+                                if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
-                                    if(ConsentEngine.debugValues.debugLog) {
-                                        console.groupCollapsed(cmp.name+" - HIDE_CMP");
+                                    if (ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
-                                    if(ConsentEngine.debugValues.debugLog) {
+                                    if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
 
-                                if(ConsentEngine.debugValues.debugLog) {
-                                    console.groupCollapsed(cmp.name+" - DO_CONSENT");
+                                if (ConsentEngine.debugValues.debugLog) {
+                                    console.groupCollapsed(cmp.name + " - DO_CONSENT");
                                 }
                                 clicks += await cmp.runMethod("DO_CONSENT", self.consentTypes);
-                                if(ConsentEngine.debugValues.debugLog) {
+                                if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
 
                                 if (!ConsentEngine.debugValues.skipSubmit) {
-                                    if(ConsentEngine.debugValues.debugLog) {
-                                        console.groupCollapsed(cmp.name+" - SAVE_CONSENT");
+                                    if (ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
                                     clicks += await cmp.runMethod("SAVE_CONSENT");
-                                    if(ConsentEngine.debugValues.debugLog) {
+                                    if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
-				if (!(clicks>0)){
-				    clicks = 0; // Catch-all for NaN, negative numbers etc.
-				    console.log("Consent-O-Matic click-count error for CMP", cmp);
-				}
+                                if (!(clicks > 0)) {
+                                    clicks = 0; // Catch-all for NaN, negative numbers etc.
+                                    if(ConsentEngine.debugValues.debugLog) {
+                                        console.log("Consent-O-Matic click count was 0 for CMP:", cmp.name);
+                                    }
+                                }
                                 self.handledCallback({
                                     cmpName: cmp.name,
-				    clicks: clicks
+                                    clicks: clicks
                                 });
-                            } catch(e) {
+                            } catch (e) {
                                 console.log("Error during consent handling:", e);
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
@@ -190,9 +194,9 @@ class ConsentEngine {
                         numberOfTries--;
                         setTimeout(checkIsShowing, 250);
                     } else {
-                        if(ConsentEngine.debugValues.debugLog) {
+                        if (ConsentEngine.debugValues.debugLog) {
                             console.groupEnd();
-                            console.log(cmp.name+" - Not showing");
+                            console.log(cmp.name + " - Not showing");
                         }
                         self.startObserver();
                         self.handleMutations([]);
@@ -206,17 +210,17 @@ class ConsentEngine {
     }
 
     showProgressDialog(text) {
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             console.log("Showing progress...");
         }
-        if(this.dialogTimeoutId != null) {
+        if (this.dialogTimeoutId != null) {
             clearTimeout(this.dialogTimeoutId);
             this.dialogTimeoutId = null;
-            if(this.dialog != null) {
+            if (this.dialog != null) {
                 this.dialog.remove();
                 this.dialog = null;
             }
-            if(this.modal != null) {
+            if (this.modal != null) {
                 this.modal.remove();
                 this.modal = null;
             }
@@ -234,23 +238,23 @@ class ConsentEngine {
         this.dialog.appendChild(contents);
         document.body.appendChild(this.modal);
         document.body.appendChild(this.dialog);
-        setTimeout(()=>{
+        setTimeout(() => {
             this.dialog.classList.add("ConsentOMatic-Progress-Started");
         }, 0);
     }
 
     hideProgressDialog() {
         let self = this;
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             console.log("Hiding progress...");
         }
         this.modal.classList.add("ConsentOMatic-Progress-Complete");
         this.dialog.classList.add("ConsentOMatic-Progress-Complete");
-        this.dialogTimeoutId = setTimeout(()=>{
+        this.dialogTimeoutId = setTimeout(() => {
             self.modal.remove();
             self.dialog.remove();
             self.dialog = null;
-        },1000);
+        }, 1000);
     }
 
     setupObserver() {

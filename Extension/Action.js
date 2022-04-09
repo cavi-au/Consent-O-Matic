@@ -1,7 +1,7 @@
 class Action {
     static createAction(config, cmp) {
         try {
-            switch(config.type) {
+            switch (config.type) {
                 case "click": return new ClickAction(config, cmp);
                 case "list": return new ListAction(config, cmp);
                 case "consent": return new ConsentAction(config, cmp);
@@ -12,9 +12,9 @@ class Action {
                 case "slide": return new SlideAction(config, cmp);
                 case "close": return new CloseAction(config, cmp);
                 case "wait": return new WaitAction(config, cmp);
-                default: throw "Unknown action type: "+config.type;
+                default: throw "Unknown action type: " + config.type;
             }
-        } catch(e) {
+        } catch (e) {
             console.error(e);
             return new NopAction(config, cmp);
         }
@@ -28,21 +28,21 @@ class Action {
         //Override execute, with logging variant
         let realExecute = this.execute;
 
-        this.execute = async function (param){
-	    let clicks = 0;
+        this.execute = async function (param) {
+            let clicks = 0;
             self.logStart(param);
             try {
-        	clicks += await realExecute.call(self, param);
-            } catch(e) {
+                clicks += await realExecute.call(self, param);
+            } catch (e) {
                 console.error(e);
             }
             self.logEnd();
-	    return clicks;
+            return clicks;
         }
     }
 
     get timeout() {
-        if(this.config.timeout != null) {
+        if (this.config.timeout != null) {
             return this.config.timeout;
         } else {
             if (ConsentEngine.debugValues.clickDelay) {
@@ -54,13 +54,13 @@ class Action {
     }
 
     logStart(param) {
-        if(ConsentEngine.debugValues.debugLog) {
-            console.group(this.constructor.name+":", this.config, param);
+        if (ConsentEngine.debugValues.debugLog) {
+            console.group(this.constructor.name + ":", this.config, param);
         }
     }
 
     logEnd() {
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             console.groupEnd();
         }
     }
@@ -70,8 +70,8 @@ class Action {
     }
 
     async waitTimeout(timeout) {
-        return new Promise((resolve)=>{
-            setTimeout(()=>{resolve();}, timeout);
+        return new Promise((resolve) => {
+            setTimeout(() => { resolve(); }, timeout);
         });
     }
 }
@@ -81,20 +81,20 @@ class ListAction extends Action {
         super(config);
 
         this.actions = [];
-        config.actions.forEach((actionConfig)=>{
+        config.actions.forEach((actionConfig) => {
             this.actions.push(Action.createAction(actionConfig, cmp));
         });
     }
 
     async execute(param) {
-	let clicks = 0;
-        for(let action of this.actions) {
-	    let result = await action.execute(param);
-            if (result > 0){
-		clicks += result;
-	    }
+        let clicks = 0;
+        for (let action of this.actions) {
+            let result = await action.execute(param);
+            if (result > 0) {
+                clicks += result;
+            }
         }
-	return clicks;
+        return clicks;
     }
 }
 
@@ -105,7 +105,7 @@ class CloseAction extends Action {
 
     async execute(param) {
         window.close();
-	return 1; // Closing window counts as a click
+        return 1; // Closing window counts as a click
     }
 }
 
@@ -116,10 +116,10 @@ class WaitAction extends Action {
 
     async execute(param) {
         let self = this;
-        await new Promise((resolve, reject)=>{
-            setTimeout(()=>{ resolve() }, self.config.waitTime);
+        await new Promise((resolve, reject) => {
+            setTimeout(() => { resolve() }, self.config.waitTime);
         });
-	return 0; // Never clicks while waiting
+        return 0; // Never clicks while waiting
     }
 }
 
@@ -130,11 +130,11 @@ class ClickAction extends Action {
     }
 
     async execute(param) {
-	let clicks = 0;
+        let clicks = 0;
         let result = Tools.find(this.config);
 
-        if(result.target != null) {
-            if(ConsentEngine.debugValues.clickDelay) {
+        if (result.target != null) {
+            if (ConsentEngine.debugValues.clickDelay) {
                 result.target.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
@@ -142,25 +142,25 @@ class ClickAction extends Action {
                 });
             }
 
-            if(ConsentEngine.debugValues.debugClicks) {
-                console.log("Clicking: [openInTab: "+this.config.openInTab+"]", result.target);
+            if (ConsentEngine.debugValues.debugClicks) {
+                console.log("Clicking: [openInTab: " + this.config.openInTab + "]", result.target);
             }
 
-            if(ConsentEngine.debugValues.clickDelay) {
-                result.target.focus({preventScroll: true});
+            if (ConsentEngine.debugValues.clickDelay) {
+                result.target.focus({ preventScroll: true });
             }
 
-            if(this.config.openInTab) {
+            if (this.config.openInTab) {
                 //Handle osx behaving differently?
-                result.target.dispatchEvent(new MouseEvent("click", {ctrlKey: true, shiftKey: true}));
+                result.target.dispatchEvent(new MouseEvent("click", { ctrlKey: true, shiftKey: true }));
             } else {
                 result.target.click();
             }
-	    clicks++;
+            clicks++;
         }
 
         await this.waitTimeout(this.timeout);
-	return clicks;
+        return clicks;
     }
 }
 
@@ -172,23 +172,23 @@ class ConsentAction extends Action {
 
         this.consents = [];
 
-        this.config.consents.forEach((consentConfig)=>{
+        this.config.consents.forEach((consentConfig) => {
             self.consents.push(new Consent(consentConfig, cmp));
         });
     }
 
     async execute(consentTypes) {
-	let clicks = 0;
-        for(let consent of this.consents) {
+        let clicks = 0;
+        for (let consent of this.consents) {
             let shouldBeEnabled = false;
-            
-            if(consentTypes.hasOwnProperty(consent.type)) {
+
+            if (consentTypes.hasOwnProperty(consent.type)) {
                 shouldBeEnabled = consentTypes[consent.type];
             }
 
             clicks += await consent.setEnabled(shouldBeEnabled);
         }
-	return clicks;
+        return clicks;
     }
 }
 
@@ -196,29 +196,29 @@ class IfCssAction extends Action {
     constructor(config, cmp) {
         super(config);
 
-        if(config.trueAction != null) {
+        if (config.trueAction != null) {
             this.trueAction = Action.createAction(config.trueAction, cmp);
         }
 
-        if(config.falseAction != null) {
+        if (config.falseAction != null) {
             this.falseAction = Action.createAction(config.falseAction, cmp);
         }
     }
 
     async execute(param) {
-	let clicks = 0;
+        let clicks = 0;
         let result = Tools.find(this.config);
 
-        if(result.target != null) {
-            if(this.trueAction != null) {
+        if (result.target != null) {
+            if (this.trueAction != null) {
                 clicks += await this.trueAction.execute(param);
             }
         } else {
-            if(this.falseAction != null) {
+            if (this.falseAction != null) {
                 clicks += await this.falseAction.execute(param);
             }
         }
-	return clicks;
+        return clicks;
     }
 }
 
@@ -230,53 +230,61 @@ class WaitCssAction extends Action {
     async execute(param) {
         let self = this;
         let negated = false;
-        
-        if(self.config.negated) {
+
+        if (self.config.negated) {
             negated = self.config.negated;
         }
 
-		if(ConsentEngine.debugValues.debugClicks) {
-			console.time("Waiting ["+negated+"]:"+this.config.target.selector);
-		}
+        if (ConsentEngine.debugValues.debugLog) {
+            console.time("Waiting [" + negated + "]:" + this.config.target.selector);
+        }
 
-        await new Promise((resolve)=>{
+        await new Promise((resolve) => {
             let numRetries = 10;
             let waitTime = 250;
 
-            if(self.config.retries) {
+            if (self.config.retries) {
                 numRetries = self.config.retries;
             }
 
-            if(self.config.waitTime) {
+            if (self.config.waitTime) {
                 waitTime = self.config.waitTime;
             }
 
             function checkCss() {
                 let result = Tools.find(self.config);
 
-                if(negated) {
-                    if(result.target != null) {
-                        if(numRetries > 0) {
+                if (negated) {
+                    if (result.target != null) {
+                        if (numRetries > 0) {
                             numRetries--;
                             setTimeout(checkCss, waitTime);
                         } else {
-                            console.timeEnd("Waiting ["+negated+"]:"+self.config.target.selector);
+                            if (ConsentEngine.debugValues.debugLog) {
+                                console.timeEnd("Waiting [" + negated + "]:" + self.config.target.selector);
+                            }
                             resolve();
                         }
                     } else {
-                        console.timeEnd("Waiting ["+negated+"]:"+self.config.target.selector);
+                        if (ConsentEngine.debugValues.debugLog) {
+                            console.timeEnd("Waiting [" + negated + "]:" + self.config.target.selector);
+                        }
                         resolve();
                     }
                 } else {
-                    if(result.target != null) {
-                        console.timeEnd("Waiting ["+negated+"]:"+self.config.target.selector);
+                    if (result.target != null) {
+                        if (ConsentEngine.debugValues.debugLog) {
+                            console.timeEnd("Waiting [" + negated + "]:" + self.config.target.selector);
+                        }
                         resolve();
                     } else {
-                        if(numRetries > 0) {
+                        if (numRetries > 0) {
                             numRetries--;
                             setTimeout(checkCss, waitTime);
                         } else {
-                            console.timeEnd("Waiting ["+negated+"]:"+self.config.target.selector);
+                            if (ConsentEngine.debugValues.debugLog) {
+                                console.timeEnd("Waiting [" + negated + "]:" + self.config.target.selector);
+                            }
                             resolve();
                         }
                     }
@@ -285,7 +293,7 @@ class WaitCssAction extends Action {
 
             checkCss();
         });
-	return 0; // Never clicks
+        return 0; // Never clicks
     }
 }
 
@@ -308,19 +316,19 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
-	let clicks = 0;
+        let clicks = 0;
         let results = Tools.find(this.config, true);
         let oldBase = Tools.base;
 
-        for(let result of results) {
-            if(result.target != null) {
+        for (let result of results) {
+            if (result.target != null) {
                 Tools.setBase(result.target);
                 clicks += await this.action.execute(param);
             }
         }
 
         Tools.setBase(oldBase);
-	return clicks;
+        return clicks;
     }
 }
 
@@ -334,11 +342,11 @@ class HideAction extends Action {
         let self = this;
         let result = Tools.find(this.config);
 
-        if(result.target != null) {
+        if (result.target != null) {
             this.cmp.hiddenTargets.push(result.target);
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }
-	return 0; // Never clicks
+        return 0; // Never clicks
     }
 }
 
@@ -348,22 +356,22 @@ class SlideAction extends Action {
     }
 
     async execute(param) {
-	let clicks = 0;
+        let clicks = 0;
         let result = Tools.find(this.config);
 
         let dragResult = Tools.find(this.config.dragTarget);
 
-        if(result.target != null) {
+        if (result.target != null) {
             let targetBounds = result.target.getBoundingClientRect();
             let dragTargetBounds = dragResult.target.getBoundingClientRect();
 
             let yDiff = dragTargetBounds.top - targetBounds.top;
             let xDiff = dragTargetBounds.left - targetBounds.left;
 
-            if(this.config.axis.toLowerCase() === "y") {
+            if (this.config.axis.toLowerCase() === "y") {
                 xDiff = 0;
             }
-            if(this.config.axis.toLowerCase() === "x") {
+            if (this.config.axis.toLowerCase() === "x") {
                 yDiff = 0;
             }
 
@@ -398,10 +406,10 @@ class SlideAction extends Action {
                 true,
                 window,
                 0,
-                screenX+xDiff,
-                screenY+yDiff,
-                clientX+xDiff,
-                clientY+yDiff,
+                screenX + xDiff,
+                screenY + yDiff,
+                clientX + xDiff,
+                clientY + yDiff,
                 false,
                 false,
                 false,
@@ -409,7 +417,7 @@ class SlideAction extends Action {
                 0,
                 result.target
             );
-            
+
             let mouseUp = document.createEvent("MouseEvents");
             mouseUp.initMouseEvent(
                 "mouseup",
@@ -417,10 +425,10 @@ class SlideAction extends Action {
                 true,
                 window,
                 0,
-                screenX+xDiff,
-                screenY+yDiff,
-                clientX+xDiff,
-                clientY+yDiff,
+                screenX + xDiff,
+                screenY + yDiff,
+                clientX + xDiff,
+                clientY + yDiff,
                 false,
                 false,
                 false,
@@ -434,8 +442,8 @@ class SlideAction extends Action {
             result.target.dispatchEvent(mouseMove);
             await this.waitTimeout(10);
             result.target.dispatchEvent(mouseUp);
-	    clicks++;
+            clicks++;
         }
-	return clicks;
+        return clicks;
     }
 }

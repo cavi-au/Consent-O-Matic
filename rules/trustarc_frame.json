@@ -2,19 +2,23 @@
     "trustarcframe": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "title",
-                        "textFilter": "TrustArc Preference Manager"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "title",
+                            "textFilter": "TrustArc Preference Manager"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".gdpr .switch span.on, .pdynamicbutton a"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".gdpr .switch span.on, .pdynamicbutton a"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -27,7 +31,7 @@
                             "target": {
                                 "selector": ".shp"
                             },
-                            "retries": "2",
+                            "retries": "10",
                             "waitTime": "250"
                         },
                         {
@@ -44,13 +48,21 @@
                             "target": {
                                 "selector": ".pdynamicbutton .advance"
                             },
-                            "retries": "2",
+                            "retries": "10",
+                            "waitTime": "250"
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".cookiecat, .pdynamicbutton .advance"
+                            },
+                            "retries": "10",
                             "waitTime": "250"
                         },
                         {
                             "type": "ifcss",
                             "target": {
-                                "selector": ".prefPanel > div[role~='group']"
+                                "selector": ".pdynamicbutton .advance"
                             },
                             "trueAction": {
                                 "type": "list",
@@ -71,20 +83,6 @@
                                     }
                                 ]
                             }
-                        },
-                        {
-                            "type": "ifcss",
-                            "target": {
-                                "selector": ".cookiecat"
-                            },
-                            "trueAction": {
-                                "type": "waitcss",
-                                "target": {
-                                    "selector": ".switch span.on"
-                                },
-                                "retries": "25",
-                                "waitTime": "250"
-                            }
                         }
                     ]
                 },
@@ -94,6 +92,10 @@
                 "action": {
                     "type": "list",
                     "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": "250"
+                        },
                         {
                             "type": "foreach",
                             "target": {
@@ -432,12 +434,18 @@
                             },
                             "falseAction": {
                                 "type": "slide",
+                                "target": {
+                                    "target": {
+                                        "selector": "div[role=slider]"
+                                    }
+                                },
                                 "dragTarget": {
                                     "target": {
                                         "selector": ".options h2",
                                         "textFilter": [
                                             "Required Cookies",
-                                            "NØDVENDIGE COOKIES"
+                                            "NØDVENDIGE COOKIES",
+                                            "PÅKRÆVEDE COOKIES"
                                         ]
                                     }
                                 },
