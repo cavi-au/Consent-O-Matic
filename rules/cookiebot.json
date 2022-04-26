@@ -14,7 +14,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyButtonDecline",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody",
                             "displayFilter": true
                         }
                     }
@@ -105,6 +105,68 @@
                                     "type": "F"
                                 }
                             ]
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ":scope > input[id*=CybotCookiebotDialogBodyLevelButtonIABPurposeLegitimateInterest]"
+                                    }
+                                },
+                                "selector": "div.CybotCookiebotDialogBodyLevelButtonWrapper"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input[id*=CybotCookiebotDialogBodyLevelButtonIABPurposeLegitimateInterest]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "input[id*=CybotCookiebotDialogBodyLevelButtonIABPurposeLegitimateInterest]"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ":scope > input[id*=CybotCookiebotDialogBodyLevelButtonIABVendorLegitimateInterest]"
+                                    }
+                                },
+                                "selector": "div.CybotCookiebotDialogBodyLevelButtonWrapper"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input[id*=CybotCookiebotDialogBodyLevelButtonIABVendorLegitimateInterest]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "input[id*=CybotCookiebotDialogBodyLevelButtonIABVendorLegitimateInterest]"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -223,12 +285,6 @@
                                         "waitTime": "500"
                                     }
                                 ]
-                            }
-                        },
-                        {
-                            "type": "click",
-                            "target": {
-                                "selector": "#CybotCookiebotDialogBodyButtonDecline"
                             }
                         }
                     ]
