@@ -14,7 +14,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences",
                             "displayFilter": true
                         }
                     }
@@ -291,6 +291,14 @@
                             "type": "click",
                             "target": {
                                 "selector": "#CybotCookiebotDialogBodyButtonDecline"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cookie-btn",
+                                "textFilter": "Tillad valgte",
+                                "displayFilter": true
                             }
                         }
                     ]
