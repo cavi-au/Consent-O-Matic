@@ -1,0 +1,82 @@
+{
+    "google_popup": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[role=\"dialog\"] a[href^=\"https://policies.google.com/privacy\"]"
+                        }
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[role=\"dialog\"] a[href^=\"https://policies.google.com/technologies/cookies\"]"
+                        }
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[role=\"dialog\"] a[href^=\"https://policies.google.com/terms\"]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[role=\"dialog\"]",
+                            "textFilter": "g.co/privacytools"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[role=\"dialog\"] button, [role=\"dialog\"] a",
+                        "textFilter": [
+                            "Pasmaak",
+                            "Fərdiləşdirin",
+                            "Prilagodi",
+                            "Personalitza",
+                            "Přizpůsobit",
+                            "Addasu",
+                            "Přizpůsobit",
+                            "Tilpas",
+                            "Anpassen",
+                            "Kohanda",
+                            "Customise",
+                            "Personalizar",
+                            "Pertsonalizatu",
+                            "I-customize",
+                            "Saincheap",
+                            "Personalizar",
+                            "Sesuaikan",
+                            "Personalizza",
+                            "Aanpassen",
+                            "Personnaliser"
+                        ]
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

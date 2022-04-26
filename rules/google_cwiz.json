@@ -1,0 +1,95 @@
+{
+    "google_cwiz": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "childFilter": {
+                            "target": {
+                                "selector": "a[href^=\"https://policies.google.com/privacy\"]"
+                            }
+                        },
+                        "selector": "body[jscontroller] c-wiz",
+                        "textFilter": "Google Analytics"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "a[href^=\"https://policies.google.com/technologies/cookies\"]"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "childFilter": {
+                                            "target": {
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ":scope > button"
+                                                    }
+                                                },
+                                                "selector": ":scope > div[data-is-touch-wrapper]"
+                                            }
+                                        },
+                                        "selector": ":scope > div[jsaction]"
+                                    }
+                                },
+                                "selector": "div"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "div[jsaction]:nth-child(0n+2) button"
+                                            }
+                                        },
+                                        "falseAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "div[jsaction]:nth-child(0n+1) button"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "c-wiz form[method=\"POST\"] button"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
