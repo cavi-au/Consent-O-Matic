@@ -1,0 +1,148 @@
+{
+  "nordnetdk": {
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "div[role=dialog][aria-labelledby=\"cookie-consent-title\"]"
+            }
+          }
+        ],
+        "showingMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "div[role=dialog][aria-labelledby=\"cookie-consent-title\"]",
+              "displayFilter": true
+            }
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "name": "HIDE_CMP"
+      },
+      {
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "div[role=dialog][aria-labelledby=\"cookie-consent-title\"] button",
+            "textFilter": "Læs mere og tilpas mine præferencer"
+          }
+        },
+        "name": "OPEN_OPTIONS"
+      },
+      {
+        "action": {
+          "type": "foreach",
+          "target": {
+            "selector": "li[class*=\"CookieConsentModal__StyledListItem\"]"
+          },
+          "action": {
+            "type": "list",
+            "actions": [
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "h4",
+                  "textFilter": "Funktionelle cookies"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "css",
+                        "target": {
+                          "selector": "button[role=switch][aria-checked=true]"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "button[role=switch]"
+                        }
+                      },
+                      "type": "A"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "h4",
+                  "textFilter": "Analytiske cookies"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "css",
+                        "target": {
+                          "selector": "button[role=switch][aria-checked=true]"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "button[role=switch]"
+                        }
+                      },
+                      "type": "B"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "h4",
+                  "textFilter": "Cookies for markedsføring"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "css",
+                        "target": {
+                          "selector": "button[role=switch][aria-checked=true]"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "button[role=switch]"
+                        }
+                      },
+                      "type": "F"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "name": "DO_CONSENT"
+      },
+      {
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "button",
+            "textFilter": "Gem præferencer"
+          }
+        },
+        "name": "SAVE_CONSENT"
+      },
+      {
+        "name": "UTILITY"
+      }
+    ]
+  }
+}

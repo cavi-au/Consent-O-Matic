@@ -2,19 +2,23 @@
     "cookiebot": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyButtonDecline",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -219,6 +223,12 @@
                                         "waitTime": "500"
                                     }
                                 ]
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyButtonDecline"
                             }
                         }
                     ]

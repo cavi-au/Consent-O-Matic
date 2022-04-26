@@ -1,0 +1,54 @@
+{
+  "mitid": {
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#mitid-shared--cookie-warning-popup-modal-wrapper"
+            }
+          }
+        ],
+        "showingMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#mitid-shared--cookie-warning-popup-modal-wrapper",
+              "displayFilter": true
+            }
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "action": {
+          "type": "hide",
+          "target": {
+            "selector": "#mitid-shared--cookie-warning-popup-modal-wrapper, #mitid-shared--cookie-warning-popup-overlay"
+          }
+        },
+        "name": "HIDE_CMP"
+      },
+      {
+        "name": "OPEN_OPTIONS"
+      },
+      {
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#button-accept-cookie-policy"
+          }
+        },
+        "name": "DO_CONSENT"
+      },
+      {
+        "name": "SAVE_CONSENT"
+      },
+      {
+        "name": "UTILITY"
+      }
+    ]
+  }
+}
