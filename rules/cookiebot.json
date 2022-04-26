@@ -286,6 +286,12 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#CybotCookiebotDialogBodyButtonDecline"
+                            }
                         }
                     ]
                 },
