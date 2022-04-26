@@ -155,7 +155,7 @@
                         {
                             "type": "foreach",
                             "target": {
-                                "selector": ".iab-purposes-features .iab-purpose div[id^=\"purpose-\"]"
+                                "selector": ".iab-purposes-features .iab-purpose div[id^=\"purpose-\"], .iab-purposes-features .iab-special-feature div[id^=\"purpose-\"]"
                             },
                             "action": {
                                 "type": "list",
