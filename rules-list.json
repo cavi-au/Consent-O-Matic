@@ -52,6 +52,7 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/wordpress_gdpr.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/mitid.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/pricerunnerdk.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/nordnetdk.json"
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/nordnetdk.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/danskebank.json"
   ]
 }

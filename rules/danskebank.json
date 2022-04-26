@@ -1,0 +1,153 @@
+{
+  "danskebank": {
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "div.cookie-consent-banner-modal"
+            }
+          }
+        ],
+        "showingMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "div.cookie-consent-banner-modal",
+              "displayFilter": true
+            }
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "name": "HIDE_CMP"
+      },
+      {
+        "name": "OPEN_OPTIONS"
+      },
+      {
+        "action": {
+          "type": "foreach",
+          "target": {
+            "selector": "#cookie-categories .input-set"
+          },
+          "action": {
+            "type": "list",
+            "actions": [
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "label",
+                  "textFilter": "Funktionelle"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "checkbox",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "type": "A"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "label",
+                  "textFilter": "Statistiske"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "checkbox",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "type": "B"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ifcss",
+                "target": {
+                  "selector": "label",
+                  "textFilter": "Marketing"
+                },
+                "trueAction": {
+                  "type": "consent",
+                  "consents": [
+                    {
+                      "matcher": {
+                        "type": "checkbox",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "toggleAction": {
+                        "type": "click",
+                        "target": {
+                          "selector": "input"
+                        }
+                      },
+                      "type": "F"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "name": "DO_CONSENT"
+      },
+      {
+        "action": {
+          "type": "list",
+          "actions": [
+            {
+              "type": "click",
+              "target": {
+                "selector": "#button-accept-selected",
+                "displayFilter": true
+              }
+            },
+            {
+              "type": "click",
+              "target": {
+                "selector": "#button-accept-necessary",
+                "displayFilter": true
+              }
+            }
+          ]
+        },
+        "name": "SAVE_CONSENT"
+      },
+      {
+        "name": "UTILITY"
+      }
+    ]
+  }
+}
