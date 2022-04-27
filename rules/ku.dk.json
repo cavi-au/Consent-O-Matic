@@ -79,41 +79,20 @@
                             "type": "ifcss",
                             "target": {
                                 "selector": ".btn",
-                                "textFilter": "Accept selected"
+                                "textFilter": "Accept selected|Acceptér valgte"
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
                                     "selector": ".btn",
-                                    "textFilter": "Accept selected"
+                                    "textFilter": "Accept selected|Acceptér valgte"
                                 }
                             },
                             "falseAction": {
                                 "type": "click",
                                 "target": {
                                     "selector": ".btn",
-                                    "textFilter": "Reject all"
-                                }
-                            }
-                        },
-                        {
-                            "type": "ifcss",
-                            "target": {
-                                "selector": ".btn",
-                                "textFilter": "Acceptér valgte"
-                            },
-                            "trueAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".btn",
-                                    "textFilter": "Acceptér valgte"
-                                }
-                            },
-                            "falseAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": ".btn",
-                                    "textFilter": "Afslå alle"
+                                    "textFilter": "Reject all|Afslå alle"
                                 }
                             }
                         }
