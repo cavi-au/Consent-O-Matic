@@ -32,12 +32,12 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "css",
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "#check-0"
                                         }
                                     },
-                                    "trueAction": {
+                                    "toggleAction": {
                                         "type": "click",
                                         "target": {
                                             "selector": "#check-0"
@@ -52,12 +52,12 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "css",
+                                        "type": "checkbox",
                                         "target": {
                                             "selector": "#check-1"
                                         }
                                     },
-                                    "trueAction": {
+                                    "toggleAction": {
                                         "type": "click",
                                         "target": {
                                             "selector": "#check-1"
