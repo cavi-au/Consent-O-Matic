@@ -1,19 +1,23 @@
 {
-    "sourcepoint_2022": {
+    "sourcepoint_frame_2022": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-modal"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-modal"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-modal"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-modal"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -259,6 +263,21 @@
                                                 "type": "click",
                                                 "target": {
                                                     "selector": "button .off"
+                                                }
+                                            },
+                                            "type": "X"
+                                        },
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "button[aria-checked=\"true\"]"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "button[aria-checked=\"true\"]"
                                                 }
                                             },
                                             "type": "X"
