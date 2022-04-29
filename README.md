@@ -31,7 +31,7 @@
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
 Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you got tired of submitting the same information over and over. If only there was a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
 
-Consent-O-Matic is a browser extension (available for [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd), [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/), Edge and Safari on iOS/MacOS) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+Consent-O-Matic is a browser extension (available for [Most chromium based browsers](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd), [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) and [Safari on iOS/MacOS](https://apps.apple.com/gb/app/consent-o-matic/id1606897889)) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
 
 And since, it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help.) to make the extension even easier for others to use.
 
@@ -108,6 +108,8 @@ Each CMP is a named entry and contains 2 parts, `detectors` and `methods`.
 }
 ```
 
+If more than 1 detector is added to a CMP, the CMP counts as detected if any of the detectors trigger.
+
 ### Detectors
 
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
@@ -115,8 +117,8 @@ Detectors are the part that detects if a certain rule set should be applied. Bas
 Detector structure:
 ```
 {
-   "presentMatcher": { ... },
-   "showingMatcher": { ... }
+   "presentMatcher": [{ ... }],
+   "showingMatcher": [{ ... }]
 }
 ```
 
@@ -125,6 +127,8 @@ The present matcher is used to detect if the CMP is present on the page.
 Some CMPs still insert the popup HTML into the DOM even when re-visiting a page where you have already given consent earlier. We only want to handle the consent form if its actually showing on the page. This is what the showing matcher is used for.
 
 Both the present and showing matcher follow the common structure of [`Matchers`](#matchers).
+
+Both present and showing matcher, can be multiple matchers, and only if all present matcher match, does it trigger the detector. Likewise for showing matchers.
 
 ### Methods
 
