@@ -19,14 +19,16 @@ class Tools {
         const clonedPossibleTargets = possibleTargets.slice();
 
         if (options.textFilter != null) {
+            let filterMultipleSpacesRegex = /\s{2,}/gm;
+
             possibleTargets = possibleTargets.filter((possibleTarget) => {
-                let textContent = possibleTarget.textContent.toLowerCase();
+                let textContent = possibleTarget.textContent.toLowerCase().replace(filterMultipleSpacesRegex, " ");
 
                 if (Array.isArray(options.textFilter)) {
                     let foundText = false;
 
                     for (let text of options.textFilter) {
-                        if (textContent.indexOf(text.toLowerCase()) !== -1) {
+                        if (textContent.indexOf(text.toLowerCase().replace(filterMultipleSpacesRegex, " ")) !== -1) {
                             foundText = true;
                             break;
                         }
