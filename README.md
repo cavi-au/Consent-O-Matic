@@ -108,6 +108,8 @@ Each CMP is a named entry and contains 2 parts, `detectors` and `methods`.
 }
 ```
 
+If more than 1 detector is added to a CMP, the CMP counts as detected if any of the detectors trigger.
+
 ### Detectors
 
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
@@ -115,8 +117,8 @@ Detectors are the part that detects if a certain rule set should be applied. Bas
 Detector structure:
 ```
 {
-   "presentMatcher": { ... },
-   "showingMatcher": { ... }
+   "presentMatcher": [{ ... }],
+   "showingMatcher": [{ ... }]
 }
 ```
 
@@ -125,6 +127,8 @@ The present matcher is used to detect if the CMP is present on the page.
 Some CMPs still insert the popup HTML into the DOM even when re-visiting a page where you have already given consent earlier. We only want to handle the consent form if its actually showing on the page. This is what the showing matcher is used for.
 
 Both the present and showing matcher follow the common structure of [`Matchers`](#matchers).
+
+Both present and showing matcher, can be multiple matchers, and only if all present matcher match, does it trigger the detector. Likewise for showing matchers.
 
 ### Methods
 
