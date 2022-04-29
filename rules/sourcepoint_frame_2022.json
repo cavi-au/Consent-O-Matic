@@ -25,6 +25,13 @@
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".message-container .message.type-modal button",
+                        "textFilter": "Manage Cookies"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -200,6 +207,13 @@
                             "type": "click",
                             "target": {
                                 "selector": ".message-container div[title=\"Legitimate Interest\"]"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".message-container .page-action",
+                                "textFilter": "Legitimate Interest"
                             }
                         },
                         {
