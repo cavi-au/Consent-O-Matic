@@ -255,7 +255,7 @@ const translations = {
     "BACK": {
         "en": "Back",
         "da": "Tilbage",
-	      "de": "Zurück",,
+	      "de": "Zurück",
 	      "pt": "Voltar"
     },
     "SAVE_CUSTOM_RULE": {
@@ -399,7 +399,7 @@ const translations = {
     "FROM_PLUGIN_SOURCE": {
         "en": "From Plugin Sources",
         "da": "Fra Addon-kilderne",
-        "de": "Aus Plugin Quellen"
+        "de": "Aus Plugin Quellen",
 	      "pt": "De Fontes de Plug-ins",
     },
     "LOAD": {
@@ -717,7 +717,7 @@ const translations = {
     "X": {
         "en": "X",
         "da": "X",
-        "de": "X",,
+        "de": "X",
 	      "pt": "X"
     },
     "Y": {
