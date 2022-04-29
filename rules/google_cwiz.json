@@ -2,24 +2,28 @@
     "google_cwiz": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "childFilter": {
-                            "target": {
-                                "selector": "a[href^=\"https://policies.google.com/privacy\"]"
-                            }
-                        },
-                        "selector": "body[jscontroller] c-wiz",
-                        "textFilter": "Google Analytics"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": "a[href^=\"https://policies.google.com/privacy\"]"
+                                }
+                            },
+                            "selector": "body[jscontroller] c-wiz",
+                            "textFilter": "Google Analytics"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "a[href^=\"https://policies.google.com/technologies/cookies\"]"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "a[href^=\"https://policies.google.com/technologies/cookies\"]"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -48,7 +52,7 @@
                                                 "selector": ":scope > div[data-is-touch-wrapper]"
                                             }
                                         },
-                                        "selector": ":scope > div[jsaction]"
+                                        "selector": ":scope > div[jsaction]:nth-child(0n+2)"
                                     }
                                 },
                                 "selector": "div"
