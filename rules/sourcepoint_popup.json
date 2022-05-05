@@ -2,18 +2,22 @@
     "sourcepointpopup": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -36,6 +40,12 @@
                         {
                             "type": "wait",
                             "waitTime": "250"
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".message-container .message-button.cmp-cta-manage"
+                            }
                         },
                         {
                             "type": "click",

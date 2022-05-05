@@ -1,19 +1,23 @@
 {
-    "sourcepoint_2022": {
+    "sourcepoint_frame_2022": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-modal"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-modal"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".message-container .message.type-modal"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-container .message.type-modal"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -21,6 +25,13 @@
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".message-container .message.type-modal button",
+                        "textFilter": "Manage Cookies"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -199,6 +210,13 @@
                             }
                         },
                         {
+                            "type": "click",
+                            "target": {
+                                "selector": ".message-container .page-action",
+                                "textFilter": "Legitimate Interest"
+                            }
+                        },
+                        {
                             "type": "foreach",
                             "target": {
                                 "childFilter": {
@@ -259,6 +277,21 @@
                                                 "type": "click",
                                                 "target": {
                                                     "selector": "button .off"
+                                                }
+                                            },
+                                            "type": "X"
+                                        },
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "button[aria-checked=\"true\"]"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "button[aria-checked=\"true\"]"
                                                 }
                                             },
                                             "type": "X"

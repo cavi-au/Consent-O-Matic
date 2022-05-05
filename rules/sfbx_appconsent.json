@@ -1,0 +1,303 @@
+{
+    "sfbx_appconsent": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".frame-root .frame-content .banner .button__openPrivacyCenter"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".frame-root .frame-content .banner .button__openPrivacyCenter"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".frame-root .frame-content .banner .button__openPrivacyCenter"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".frame-root .frame-content .consentableItem"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".switch__allow"
+                                                    }
+                                                },
+                                                "falseAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".switch__disallow"
+                                                    }
+                                                },
+                                                "type": "X"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Stocker et/ou accéder à des informations sur un terminal"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": "Personalised ads"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": "Personalised content"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": "Ad measurement, and audience insights"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": [
+                                                "Content measurement, and product development",
+                                                "Publicités et contenu personnalisés, mesure de performance des publicités et du contenu, données d’audience et développement de produit"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": "Use precise geolocation data"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "article",
+                                            "textFilter": "Actively scan device characteristics for identification"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup--allowed"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".consentableItem__switchGroup"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".frame-root .frame-content button",
+                                "textFilter": [
+                                    "Save",
+                                    "Enregistrer"
+                                ]
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".frame-root .frame-content button",
+                                "textFilter": [
+                                    "Close",
+                                    "Fermer"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

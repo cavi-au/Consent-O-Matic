@@ -1,0 +1,157 @@
+{
+    "optanon_springernature": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cc-preferences[data-cc-preferences]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cc-preferences[data-cc-preferences] .cc-preferences__dialog"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".cc-preferences__category"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".cc-preferences__category-header",
+                                    "textFilter": "Cookies that measure website use"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                }
+                                            },
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".cc-preferences__category-header",
+                                    "textFilter": "Cookies that help with our communications and marketing"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                }
+                                            },
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".cc-preferences__category-header",
+                                    "textFilter": "Cookies that help show personalised advertising"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                }
+                                            },
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cc-button[data-cc-action=\"save\"]"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
