@@ -1,7 +1,7 @@
 {
   "references": [
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/autodesk.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/bbd_fc.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/bbc_fc.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/chandago.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/consentmanager.net.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookiebar.json",
