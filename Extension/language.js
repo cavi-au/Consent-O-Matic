@@ -8,32 +8,38 @@ const translations = {
     "EXTENSION_SUBTITLE": {
         "en": "Your Choice - Applied Everywhere",
         "da": "Dit valg - Anvendt overalt",
-	      "de": "Ihre Wahl - Überall angewendet",
-	      "pt": "Sua Escolha - Aplicadada em todos os lugares"
+        "de": "Ihre Wahl - Überall angewendet",
+        "pt": "Sua Escolha - Aplicadada em todos os lugares"
     },
     "YOUR_CHOICE": {
         "en": "Your Choice",
         "da": "Dit valg",
-	      "de": "Ihre Wahl",
-	      "pt": "Sua Escolha"
+        "de": "Ihre Wahl",
+        "pt": "Sua Escolha"
     },
     "RULE_LIST": {
         "en": "Rule Lists",
         "da": "Regler",
-	      "de": "Regellisten",
-	      "pt": "Lista de Regras"
+        "de": "Regellisten",
+        "pt": "Lista de Regras"
+    },
+    "OPTIONS": {
+        "en": "Options",
+        "da": "Options",
+        "de": "Options",
+        "pt": "Options"
     },
     "ABOUT": {
         "en": "About",
         "da": "Info",
         "de": "Information",
-	      "pt": "Sobre"
+	    "pt": "Sobre"
     },
     "DEBUG": {
         "en": "Debug",
         "da": "Debug",
-	      "de": "Debug",
-	      "pt": "Debug"
+	    "de": "Debug",
+	    "pt": "Debug"
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
@@ -1023,7 +1029,7 @@ class Language {
         if(lang == null) {
             lang = "en";
         }
-        
+
         document.querySelector("html").lang = lang;
 
         const allTextNodes = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);

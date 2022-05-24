@@ -31,7 +31,19 @@ class GDPRConfig {
             });
         });
     }
-    
+
+    static getOptions() {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.get({
+                options: {
+                    disableModal: false
+                }
+            }, (result) => {
+                resolve(result.options);
+            });
+        });
+    }
+
     static getDebugValues() {
         return new Promise((resolve, reject) => {
             chrome.storage.sync.get({
@@ -40,7 +52,7 @@ class GDPRConfig {
                 resolve(result.debugFlags);
             });
         });
-    }    
+    }
 
     static getCustomRuleLists() {
         return new Promise((resolve, reject) => {
@@ -133,7 +145,7 @@ class GDPRConfig {
             });
         });
     }
-    
+
     static async getDebugFlags() {
         let debugValues = await GDPRConfig.getDebugValues();
 
@@ -241,7 +253,19 @@ class GDPRConfig {
             });
         });
     }
-    
+
+    static setOptions() {
+        return new Promise((resolve, reject)=>{
+            chrome.storage.sync.set({
+                options: {
+                    disableModal: false
+                }
+            }, () => {
+                resolve();
+            });
+        });
+    }
+
     static setDebugFlags(newDebugFlags) {
         return new Promise((resolve, reject)=>{
             newDebugFlags = Object.assign({}, GDPRConfig.defaultDebugFlags, newDebugFlags);
@@ -252,7 +276,7 @@ class GDPRConfig {
                 resolve();
             });
         });
-    }    
+    }
 
     static clearRuleCache() {
         return new Promise((resolve, reject)=>{

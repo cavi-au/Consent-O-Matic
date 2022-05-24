@@ -13,6 +13,10 @@ document.querySelector(".header .menuitem.rules").addEventListener("click", func
     tabChanged(this);
     document.querySelector(".tab_rl").style.display = "block";
 });
+document.querySelector(".header .menuitem.options").addEventListener("click", function (evt) {
+    tabChanged(this);
+    document.querySelector(".tab_options").style.display = "block";
+});
 document.querySelector(".header .menuitem.about").addEventListener("click", function (evt) {
     tabChanged(this);
     document.querySelector(".tab_about").style.display = "block";
@@ -137,6 +141,8 @@ function saveSettings() {
         consentValues[input.id] = input.checked;
     });
     GDPRConfig.setConsentValues(consentValues);
+
+    GDPRConfig.setOptions();
 
     let debugFlags = {};
     debugUL.querySelectorAll("li input").forEach((input) => {

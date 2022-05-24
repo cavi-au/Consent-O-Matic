@@ -227,7 +227,13 @@ class ConsentEngine {
         }
 
         this.modal = document.createElement("div");
-        this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
+
+        GDPRConfig.getOptions().then(options => {
+            if (options.disableModal && options.disableModal == true) {
+                this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
+            }
+        });
+
         this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
         let header = document.createElement("h1");
