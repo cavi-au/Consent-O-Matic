@@ -3,7 +3,7 @@
 }
 
 @keyframes consentomatic-progressAnimation {
-    from { 
+    from {
         background-position: 90% 50%;
     }
     to {
@@ -11,13 +11,13 @@
     }
 }
 @keyframes consentomatic-modalAnimation {
-    from { 
+    from {
         opacity: 0;
     }
 }
 
 .ConsentOMatic-Progress-Dialog-Modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
