@@ -86,7 +86,7 @@ Consent-O-Matic currently works with these CMPs:
 
 ## Extending Consent-O-Matic
 
-If your favorite CMP is missing from the current list, feel free to either create a custom list that you can add (click the extension icon in your browser, click "More add-on settings", click "Rule lists", and enter the URL of your custom list.). If you **really** want to want to contribute, feel free to create a Pull Request while you're at it.
+If your favorite CMP is missing from the current list, feel free to either create a custom list that you can add (click the extension icon in your browser, click "More add-on settings", click "Rule lists", and enter the URL of your custom list.). If you **really** want to contribute, feel free to create a Pull Request while you're at it.
 
 ## Basic Structure
 
