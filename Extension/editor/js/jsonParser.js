@@ -16,7 +16,7 @@ class JsonParser {
             await JsonParser.loadPlug(plug, plugType, bindName, json);
         }
 
-        for(let valueBind of valueBinds) {
+        for (let valueBind of valueBinds) {
             let bindName = valueBind.getAttribute("data-bind");
             await JsonParser.loadBind(valueBind, bindName, json);
         }
@@ -27,30 +27,50 @@ class JsonParser {
     static async loadBind(valueBind, bindName, json) {
         let bindJson = json[bindName];
 
-        if(bindJson != null) {
-            if(valueBind.querySelector("input")) {
+        if (bindJson != null) {
+            if (valueBind.querySelector("ul")) {
+                //List
+                function insertListItem(value) {
+                    let li = document.createElement("li");
+                    let input = document.createElement("input");
+                    input.setAttribute("size", 30);
+                    input.value = value.trim();
+                    valueBind.querySelector("ul").append(li);
+                    li.appendChild(input);
+                }
+
+                valueBind.querySelector("ul").innerHTML = "";
+
+                if (Array.isArray(bindJson)) {
+                    bindJson.forEach((value) => {
+                        insertListItem(value);
+                    })
+                } else {
+                    insertListItem(bindJson);
+                }
+            } else if (valueBind.querySelector("input")) {
                 //Setup value inside input
                 let input = valueBind.querySelector("input");
-                switch(input.getAttribute("type")) {
+                switch (input.getAttribute("type")) {
                     case "checkbox": {
                         input.checked = bindJson;
                         break;
                     }
                     default: {
-						if(bindJson instanceof Array) {
-							input.value = bindJson.join("|");
-						} else {
-							input.value = bindJson;
-						}
+                        if (Array.isArray(bindJson)) {
+                            input.value = bindJson.join("|");
+                        } else {
+                            input.value = bindJson;
+                        }
                     }
                 }
-            } else if(valueBind.querySelector("select")) {
+            } else if (valueBind.querySelector("select")) {
                 //Setup value inside select
                 let select = valueBind.querySelector("select");
                 select.value = bindJson;
             } else {
                 //Setup value as string
-                if(valueBind.parentNode.matches("[data-type='method']")) {
+                if (valueBind.parentNode.matches("[data-type='method']")) {
                     valueBind.setAttribute("data-bind-method-name", bindJson);
                     valueBind.textContent = Language.getString(bindJson);
                 } else {
@@ -76,12 +96,12 @@ class JsonParser {
                 if (plugJsonEntry.type != null && tplName !== "domSelector" && tplName !== "consent") {
                     tplName += "_" + plugJsonEntry.type;
                 }
-    
+
                 let tpl = await JsonParser.loadTemplate(tplName, plugJsonEntry);
                 plug.appendChild(tpl);
             }
         } else {
-            if(plugType === "domSelectorChild") {
+            if (plugType === "domSelectorChild") {
                 //Insert empty anyways
                 let tpl = await JsonParser.loadTemplate("domSelectorChild", {});
                 plug.appendChild(tpl);

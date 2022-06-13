@@ -207,6 +207,11 @@ label:hover .help, .label:hover .help {
 [data-plug]:empty.droppable-active:hover:after {
   background: rgba(20, 255, 100, 0.6);
 }
+[data-plug] .list {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0;
+}
 
 div.step1, div.step2, div.step3, div.step4 {
   display: none;

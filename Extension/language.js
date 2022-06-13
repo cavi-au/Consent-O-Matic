@@ -648,7 +648,7 @@ const translations = {
         "de": "falschAktion",
 	      "pt": "falseAction"
     },
-    "IF_FALSE_ACTION_TEXT": {
+    "IF_FALSE_ACTION_HELP": {
         "en": "The action to execute if the selector is not found",
         "da": "Handlingen, der skal udføres, hvis vælgeren ikke findes",
         "de": "Die Aktion, die ausgeführt werden soll, wenn der Selektor nicht gefunden wird",
@@ -998,7 +998,9 @@ class Language {
                 }
             }
         } else {
-            console.warn("Unknown translation key:", key);
+            console.groupCollapsed("Unknown translation key:", key);
+            console.trace();
+            console.groupEnd();
         }
 
         if(subs != null && Array.isArray(subs)) {

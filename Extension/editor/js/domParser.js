@@ -56,7 +56,16 @@ class DomParser {
             let bindName = valueDom.getAttribute("data-bind");
             let value;
 
-            if(valueDom.querySelector("input") != null) {
+            if(valueDom.querySelector("ul.list") != null) {
+                console.log("LIST!");
+                value = "";
+                valueDom.querySelectorAll("ul.list input").forEach((input)=>{
+                    let v = input.value.trim();
+                    if(v.length > 0) {
+                        value = value + "|" + v;
+                    }
+                });
+            } else if(valueDom.querySelector("input") != null) {
                 let input = valueDom.querySelector("input");
                 switch(input.getAttribute("type")) {
                     case "checkbox":
@@ -81,6 +90,8 @@ class DomParser {
 				if(typeof(value) === "string" && value.indexOf("|") !== -1) {
 					value = value.split("|").map((arrayValue)=>{
                         return arrayValue.trim();
+                    }).filter((arrayValue)=>{
+                        return arrayValue.length > 0;
                     });
 				}
 				

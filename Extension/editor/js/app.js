@@ -14,6 +14,16 @@ document.addEventListener("keydown", (evt) => {
     }
 });
 
+document.addEventListener("blur", (evt)=>{
+    let list = evt.target.closest("ul.list");
+
+    if(list != null && evt.target.matches("input")) {
+        if(evt.target.value.trim().length === 0) {
+            evt.target.remove();
+        }
+    }
+})
+
 document.addEventListener("keyup", (evt) => {
     if (evt.key === "Control") {
         ctrlPressed = false;
@@ -29,6 +39,18 @@ document.addEventListener("keyup", (evt) => {
             } else {
                 undoObj.element.parentNode.removeChild(undoObj.element);
             }
+        }
+    }
+
+    if(evt.key === "Enter") {
+        let list = evt.target.closest("ul.list");
+        if(list != null) {
+            let li = document.createElement("li");
+            let input = document.createElement("input");
+            input.setAttribute("size", 30);
+            li.appendChild(input);
+            list.appendChild(li);
+            input.focus();
         }
     }
 });
