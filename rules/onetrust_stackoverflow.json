@@ -158,13 +158,67 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "click",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk .js-consent-save"
+                            }
+                        },
+                        {
                             "type": "wait",
                             "waitTime": "250"
                         },
                         {
-                            "type": "click",
+                            "type": "ifcss",
                             "target": {
                                 "selector": "#onetrust-banner-sdk .js-consent-save"
+                            },
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#onetrust-banner-sdk .js-consent-save"
+                                        }
+                                    },
+                                    {
+                                        "type": "wait",
+                                        "waitTime": "250"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "#onetrust-banner-sdk .js-consent-save"
+                                        },
+                                        "trueAction": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#onetrust-banner-sdk .js-consent-save"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "wait",
+                                                    "waitTime": "250"
+                                                },
+                                                {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": "#onetrust-banner-sdk .js-consent-save"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "#onetrust-banner-sdk .js-consent-save"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
