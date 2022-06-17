@@ -36,14 +36,7 @@ menuTabs.forEach((menuTab) => {
 
 GDPRConfig.getConsentTypes().then((consentTypes) => {
     consentTypes.forEach((consentType) => {
-        addToggleItem(optionsUL, consentType.type, consentType.name, consentType.description, consentType.value).querySelector("input").addEventListener("input", function (evt) {
-            if (this.checked) {
-                this.parentNode.parentNode.classList.add("active");
-            } else {
-                this.parentNode.parentNode.classList.remove("active");
-            }
-            saveSettings();
-        });
+        addToggleItem(optionsUL, consentType.type, consentType.name, consentType.description, consentType.value);
     });
 });
 
@@ -99,6 +92,12 @@ ${description}
         let input = optionLI.querySelector("input");
         input.checked = !input.checked;
         optionLI.querySelector(".knob").setAttribute("aria-checked", ""+input.checked);
+        if (input.checked) {
+            optionLI.classList.add("active");
+        } else {
+            optionLI.classList.remove("active");
+        }
+        saveSettings();
     }
 
     parent.appendChild(optionLI);

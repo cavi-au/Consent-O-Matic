@@ -37,7 +37,9 @@
                             "type": "click",
                             "target": {
                                 "selector": ".cb-button",
-                                "textFilter": "Manage cookies",
+                                "textFilter": [
+                                    "Manage cookies"
+                                ],
                                 "displayFilter": true
                             }
                         },
@@ -190,32 +192,29 @@
                             "type": "ifcss",
                             "target": {
                                 "selector": ".dtcookie__accept",
-                                "textFilter": "Select All and Continue"
+                                "textFilter": [
+                                    "Select All and Continue"
+                                ]
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": ".h-dtcookie-decline"
+                                    "selector": ".h-dtcookie-decline",
+                                    "displayFilter": true
                                 }
                             },
                             "falseAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": ".h-dtcookie-accept"
+                                    "selector": ".h-dtcookie-accept",
+                                    "displayFilter": true
                                 }
                             }
                         },
                         {
                             "type": "click",
                             "target": {
-                                "selector": "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection"
-                            }
-                        },
-                        {
-                            "type": "click",
-                            "target": {
-                                "selector": ".cb-button",
-                                "textFilter": "Save preferences",
+                                "selector": "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection",
                                 "displayFilter": true
                             }
                         },
@@ -223,7 +222,19 @@
                             "type": "click",
                             "target": {
                                 "selector": ".cb-button",
-                                "textFilter": "Done",
+                                "textFilter": [
+                                    "Save preferences"
+                                ],
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cb-button",
+                                "textFilter": [
+                                    "Done"
+                                ],
                                 "displayFilter": true
                             }
                         },
@@ -236,7 +247,8 @@
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#CybotCookiebotDialogBodyLevelButtonAccept"
+                                    "selector": "#CybotCookiebotDialogBodyLevelButtonAccept",
+                                    "displayFilter": true
                                 }
                             },
                             "falseAction": {
@@ -290,14 +302,17 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "#CybotCookiebotDialogBodyButtonDecline"
+                                "selector": "#CybotCookiebotDialogBodyButtonDecline",
+                                "displayFilter": true
                             }
                         },
                         {
                             "type": "click",
                             "target": {
                                 "selector": ".cookie-btn",
-                                "textFilter": "Tillad valgte",
+                                "textFilter": [
+                                    "Tillad valgte"
+                                ],
                                 "displayFilter": true
                             }
                         }
