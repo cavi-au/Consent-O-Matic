@@ -5,22 +5,33 @@ let aboutTable = document.querySelector(".configurator .tab_about table.logList"
 
 optionsUL.innerHTML = "";
 
-document.querySelector(".header .menuitem.choices").addEventListener("click", function (evt) {
-    tabChanged(this);
-    document.querySelector(".tab_uc").style.display = "block";
-});
-document.querySelector(".header .menuitem.rules").addEventListener("click", function (evt) {
-    tabChanged(this);
-    document.querySelector(".tab_rl").style.display = "block";
-});
-document.querySelector(".header .menuitem.about").addEventListener("click", function (evt) {
-    tabChanged(this);
-    document.querySelector(".tab_about").style.display = "block";
-    updateLog();
-});
-document.querySelector(".header .menuitem.debug").addEventListener("click", function (evt) {
-    tabChanged(this);
-    document.querySelector(".tab_dbg").style.display = "block";
+let menuTabs = document.querySelectorAll(".header .menuitem")
+
+menuTabs.forEach((menuTab) => {
+    menuTab.addEventListener("click", (evt)=>{
+        tabChanged(menuTab);
+    });
+
+    menuTab.addEventListener("keydown", (evt)=> {
+        console.log(evt.code);
+
+        let newTab = null;
+
+        if(evt.code === "ArrowRight") {
+            newTab = menuTab.nextElementSibling;
+            if(newTab == null) {
+                newTab = menuTabs[0];
+            }
+        } else if(evt.code === "ArrowLeft") {
+            newTab = menuTab.previousElementSibling;
+            if(newTab == null) {
+                newTab = menuTabs[menuTabs.length - 1];
+            }
+        }
+        if(newTab != null) {
+            tabChanged(newTab);
+        }
+    });
 });
 
 GDPRConfig.getConsentTypes().then((consentTypes) => {
@@ -55,16 +66,23 @@ GDPRConfig.getDebugFlags().then((debugFlags) => {
     });
 });
 
+function uuidv4() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+}
+
 function addToggleItem(parent, type, name, description, isChecked) {
     let optionLI = document.createElement("li");
 
+    let uuid = uuidv4();
 
     const optionHtml = `
         <label class="slider" for="${type}">
                 <input type="checkbox" id="${type}" ${isChecked ? "checked" : ""}>
-                <div class="knob"></div>
+                <div class="knob" role="checkbox" aria-checked="${isChecked ? "true" : "false"}" tabindex="0" aria-labelledby="${uuid}"></div>
         </label>
-        <h2>${name}</h2>
+        <h2 id=${uuid}>${name}</h2>
         <div class="category_description">
 ${description}
 		</div>`;
@@ -77,10 +95,22 @@ ${description}
         optionLI.appendChild(child);
     }
 
+    function toggleInput() {
+        let input = optionLI.querySelector("input");
+        input.checked = !input.checked;
+        optionLI.querySelector(".knob").setAttribute("aria-checked", ""+input.checked);
+    }
+
     parent.appendChild(optionLI);
     optionLI.addEventListener("click", function (evt) {
-        this.querySelector("input").click();
+        toggleInput();
         evt.stopPropagation();
+    });
+    optionLI.addEventListener("keydown", function (evt) {
+        if(evt.code === "Space") {
+            toggleInput();
+            evt.stopPropagation();
+        }
     });
     return optionLI;
 }
@@ -122,13 +152,31 @@ document.querySelector("#forceupdate").addEventListener("click", () => {
 });
 
 function tabChanged(target) {
-    document.querySelectorAll(".header .menuitem").forEach((item) => {
+    let oldTab = document.querySelector(".header .menuitem[tabindex='0']");
+    if(oldTab != null) {
+        oldTab.setAttribute("tabindex", -1);
+    }
+
+    menuTabs.forEach((item) => {
         item.classList.remove("active");
+        item.setAttribute("aria-selected", false);
     });
     document.querySelectorAll(".tab").forEach((item) => {
         item.style.display = "none";
     });
     target.classList.add("active");
+    target.setAttribute("aria-selected", true);
+    target.setAttribute("tabindex", 0);
+
+    document.querySelectorAll(".configurator .tab").forEach((tab)=>{
+        tab.style.display = "none";
+    });
+
+    document.getElementById(target.getAttribute("aria-controls")).style.display = "block";
+
+    target.focus();
+
+    updateLog();
 }
 
 function saveSettings() {

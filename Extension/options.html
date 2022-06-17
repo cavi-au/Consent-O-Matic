@@ -268,15 +268,15 @@
         </div>
     </div>
     <div class="header">
-        <ul>
-            <li class="menuitem choices active">[[YOUR_CHOICE]]</li>
-            <li class="menuitem rules">[[RULE_LIST]]</li>
-            <li class="menuitem about">[[ABOUT]]</li>
-            <li class="menuitem debug">[[DEBUG]]</li>
+        <ul role="tablist">
+            <li class="menuitem choices active" role="tab" tabindex="0" aria-controls="categoryListTab" aria-selected="true">[[YOUR_CHOICE]]</li>
+            <li class="menuitem rules" role="tab" tabindex="-1" aria-controls="rulesListTab" aria-selected="false">[[RULE_LIST]]</li>
+            <li class="menuitem about" role="tab" tabindex="-1" aria-controls="aboutTab" aria-selected="false">[[ABOUT]]</li>
+            <li class="menuitem debug" role="tab" tabindex="-1" aria-controls="debugTab" aria-selected="false">[[DEBUG]]</li>
         </ul>
     </div>
     <div class="configurator">
-        <div class="tab tab_uc">
+        <div class="tab tab_uc" id="categoryListTab" role="tabpanel" tabindex="0">
             <div class="helptext">
                 [[CHOICE_DESCRIPTION]]
             </div>
@@ -284,7 +284,7 @@
                 <!-- categories -->
             </ul>
         </div>
-        <div class="tab tab_rl" style="display:none">
+        <div class="tab tab_rl" style="display:none" id="rulesListTab" role="tabpanel" tabindex="0">
             <div class="helptext">
                 [[RULES_DESCRIPTION]]
             </div>
@@ -304,7 +304,7 @@
                 <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
             </div>
         </div>
-        <div class="tab tab_about" style="display:none">
+        <div class="tab tab_about" style="display:none" id="aboutTab" role="tabpanel" tabindex="0">
             <div class="helptext">
                 [[ABOUT_DESCRIPTION]]
             </div>
@@ -346,7 +346,7 @@ SOFTWARE.
 </p>
 	    </div>
         </div>
-        <div class="tab tab_dbg" style="display: none">
+        <div class="tab tab_dbg" style="display: none" id="debugTab" role="tabpanel" tabindex="0">
             <ul class="flags">
                 <!-- debugflags -->
             </ul>
