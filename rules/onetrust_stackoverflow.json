@@ -41,6 +41,23 @@
                             "target": {
                                 "selector": "#onetrust-banner-sdk"
                             }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "input"
+                            },
+                            "parent": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".grid--cell",
+                                        "textFilter": "Targeting Cookies"
+                                    }
+                                },
+                                "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                            },
+                            "retries": "10",
+                            "waitTime": "250"
                         }
                     ]
                 },
