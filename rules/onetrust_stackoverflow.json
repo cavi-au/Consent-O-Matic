@@ -173,7 +173,7 @@
                                 "selector": "#onetrust-banner-sdk [role=\"dialog\"]"
                             }
                         },
-                        {
+                       {
                             "type": "hide",
                             "target": {
                                 "selector": ".js-consent-banner"
