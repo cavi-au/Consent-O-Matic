@@ -121,7 +121,7 @@ class ConsentEngine {
                                 let clicks = 0;
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
-                                    self.showProgressDialog("Autofilling " + cmp.name + ", please wait...");
+                                    self.showProgressDialog("Handling " + cmp.name + "...");
                                 }
 
                                 self.totalSteps = cmp.getNumSteps();
@@ -244,11 +244,8 @@ class ConsentEngine {
         this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
         this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
-        let header = document.createElement("h1");
         let contents = document.createElement("p");
-        header.innerText = "Consent-o-Matic";
         contents.innerText = text;
-        this.dialog.appendChild(header);
         this.dialog.appendChild(contents);
         document.body.appendChild(this.modal);
         document.body.appendChild(this.dialog);
