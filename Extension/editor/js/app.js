@@ -113,6 +113,7 @@ function reloadSelectors() {
     });
 
     chrome.runtime.sendMessage("GetCustomRuleList", (customRules) => {
+        delete customRules["$schema"];
         customCmpJson = customRules;
 
         loadFromJson(customRules, document.querySelector("#customRules"));
