@@ -9,9 +9,6 @@
     border: 1px solid blue;
     box-shadow: 0 0 0.5rem black !important;
 }
-.ConsentOMatic-CMP-PIP:hover {
-    transform: initial !important;
-}
 .ConsentOMatic-Progress-Dialog-Modal {
     position: fixed;
     bottom: 0;
