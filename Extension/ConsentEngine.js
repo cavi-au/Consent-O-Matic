@@ -124,11 +124,17 @@ class ConsentEngine {
                                     self.showProgressDialog("Autofilling " + cmp.name + ", please wait...");
                                 }
 
+                                self.totalSteps = cmp.getNumSteps();
+                                self.completedSteps = 0;
+                                self.updateProgress();
+
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
+                                    self.completedSteps += cmp.getNumStepsForMethod("HIDE_CMP");
+                                    self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -138,6 +144,8 @@ class ConsentEngine {
                                     console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
                                 }
                                 clicks += await cmp.runMethod("OPEN_OPTIONS");
+                                self.completedSteps += cmp.getNumStepsForMethod("OPEN_OPTIONS");
+                                self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -147,6 +155,8 @@ class ConsentEngine {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
+                                    self.completedSteps += cmp.getNumStepsForMethod("HIDE_CMP");
+                                    self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -156,6 +166,8 @@ class ConsentEngine {
                                     console.groupCollapsed(cmp.name + " - DO_CONSENT");
                                 }
                                 clicks += await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                                self.completedSteps += cmp.getNumStepsForMethod("DO_CONSENT");
+                                self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -165,13 +177,15 @@ class ConsentEngine {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
                                     clicks += await cmp.runMethod("SAVE_CONSENT");
+                                    self.completedSteps += cmp.getNumStepsForMethod("SAVE_CONSENT");
+                                    self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
                                 if (!(clicks > 0)) {
                                     clicks = 0; // Catch-all for NaN, negative numbers etc.
-                                    if(ConsentEngine.debugValues.debugLog) {
+                                    if (ConsentEngine.debugValues.debugLog) {
                                         console.log("Consent-O-Matic click count was 0 for CMP:", cmp.name);
                                     }
                                 }
@@ -243,6 +257,13 @@ class ConsentEngine {
         }, 0);
     }
 
+    updateProgress() {
+        if (this.modal != null) {
+            let fraction = this.completedSteps / this.totalSteps;
+            this.modal.style.setProperty("--progress", fraction);
+        }
+    }
+
     hideProgressDialog() {
         let self = this;
         if (ConsentEngine.debugValues.debugLog) {
@@ -266,7 +287,7 @@ class ConsentEngine {
     }
 
     startObserver() {
-        if(document.body != null) {
+        if (document.body != null) {
             this.observer.observe(document.body, {
                 childList: true,
                 attributes: true,
@@ -285,3 +306,5 @@ class ConsentEngine {
         });
     }
 }
+
+ConsentEngine.singleton = null;

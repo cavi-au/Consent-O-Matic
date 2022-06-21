@@ -31,6 +31,8 @@ GDPRConfig.isActive(url).then(async (active) => {
 
                         });
 
+                        ConsentEngine.singleton = engine;
+
                         if(debugValues.debugLog) {
                             console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                         }

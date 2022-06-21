@@ -78,12 +78,29 @@ class CMP {
     	return clicks;
     }
 
+    getNumStepsForMethod(method) {
+        let action = this.methods.get(method);
+
+        if(action != null) {
+            return action.getNumSteps();
+        }
+
+        return 0;
+    }
+
     getNumSteps() {
         let totalSteps = 0;
 
         this.methods.forEach((action, name)=>{
             if(name !== "UTILITY") {
-                totalSteps += action.getNumSteps();
+                let steps = action.getNumSteps();
+
+                if(name === "HIDE_CMP") {
+                    //Hide CMP is called twice
+                    totalSteps += (2 * steps);
+                } else {
+                    totalSteps += steps;
+                }
             }
         });
 
