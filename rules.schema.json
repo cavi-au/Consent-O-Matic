@@ -1,0 +1,285 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "title": "Consent-O-Matic rule schema",
+    "type": "object",
+    "patternProperties": {
+        "^": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "detectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "presentMatcher": {
+                                "oneOf": [
+                                    {"$ref": "#/$defs/Matcher"},
+                                    {
+                                        "type": "array",
+                                        "items": {"$ref": "#/$defs/Matcher"}
+                                    }
+                                ]
+                            },
+                            "showingMatcher": {
+                                "oneOf": [
+                                    {"$ref": "#/$defs/Matcher"},
+                                    {
+                                        "type": "array",
+                                        "items": {"$ref": "#/$defs/Matcher"}
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "methods": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/Method"}
+                }
+            }
+        }
+    },
+    "$defs": {
+        "Matcher": {
+            "oneOf": [
+                {"$ref": "#/$defs/CssMatcher"},
+                {"$ref": "#/$defs/CheckboxMatcher"}
+            ]
+        },
+        "CssMatcher": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "css"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "target": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
+        "CheckboxMatcher": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "checkbox"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "target": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
+
+        "Method": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "action"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": [
+                        "OPEN_OPTIONS",
+                        "DO_CONSENT",
+                        "SAVE_CONSENT",
+                        "HIDE_CMP",
+                        "UTILITY"
+                    ]
+                },
+                "action": {"$ref": "#/$defs/Actions"}
+            }
+        },
+
+        "Actions": {
+            "oneOf": [
+                {"$ref": "#/$defs/ClickAction"},
+                {"$ref": "#/$defs/ListAction"},
+                {"$ref": "#/$defs/ConsentAction"},
+                {"$ref": "#/$defs/SlideAction"},
+                {"$ref": "#/$defs/IfCssAction"},
+                {"$ref": "#/$defs/WaitForCssAction"},
+                {"$ref": "#/$defs/ForEachAction"},
+                {"$ref": "#/$defs/WaitAction"},
+                {"$ref": "#/$defs/HideAction"},
+                {"$ref": "#/$defs/CloseAction"}
+            ]
+        },
+        "ClickAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "click"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "openInTab": {"type": "boolean"}
+            }
+        },
+        "ListAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "actions"],
+            "properties": {
+                "type": {"const": "list"},
+                "actions": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/Actions"}
+                }
+            }
+        },
+        "ConsentAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "consents"],
+            "properties": {
+                "type": {"const": "consent"},
+                "consents": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/Consent"}
+                }
+            }
+        },
+        "SlideAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target", "dragTarget", "axis"],
+            "properties": {
+                "type": {"const": "slide"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "dragTarget": {"$ref": "#/$defs/DOMSelection"},
+                "axis": {
+                    "type": "string",
+                    "enum": ["x", "y"]
+                }
+            }
+        },
+        "IfCssAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "ifcss"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "trueAction": {"$ref": "#/$defs/Actions"},
+                "falseAction": {"$ref": "#/$defs/Actions"}
+            }
+        },
+        "WaitForCssAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "waitcss"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "retries": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "waitTime": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "negated": {"type": "boolean"}
+            }
+        },
+        "ForEachAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target", "action"],
+            "properties": {
+                "type": {"const": "foreach"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "action": {"$ref": "#/$defs/Actions"}
+            }
+        },
+        "WaitAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "waitTime"],
+            "properties": {
+                "type": {"const": "wait"},
+                "waitTime": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "HideAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "hide"},
+                "target": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
+        "CloseAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+                "type": {"const": "close"}
+            }
+        },
+
+        "DOMSelection": {
+            "oneOf": [
+                {"$ref": "#/$defs/Selection"},
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["target"],
+                    "properties": {
+                        "present": {"$ref": "#/$defs/DOMSelection"},
+                        "target": {"$ref": "#/$defs/DOMSelection"}
+                    }
+                }
+            ]
+        },
+        "Selection": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["selector"],
+            "properties": {
+                "selector": {"type": "string"},
+                "textFilter": {
+                    "oneOf": [
+                        {"type": "string"},
+                        {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    ]
+                },
+                "styleFilter": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["option", "value"],
+                    "properties": {
+                        "option": {"type": "string"},
+                        "value": {"type": "string"},
+                        "negated": {"type": "boolean"}
+                    }
+                },
+                "displayFilter": {"type": "boolean"},
+                "iframeFilter": {"type": "boolean"},
+                "childFilter": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
+
+        "Consent": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["D", "A", "B", "E", "F", "X"]
+                },
+                "toggleAction": {"$ref": "#/$defs/Actions"},
+                "matcher": {"$ref": "#/$defs/Matcher"},
+                "trueAction": {"$ref": "#/$defs/Actions"},
+                "falseAction": {"$ref": "#/$defs/Actions"}
+            }
+        }
+    }
+  }
