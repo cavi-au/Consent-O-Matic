@@ -24,10 +24,21 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": ".fc-consent-root"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".fc-consent-root"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".bbccookies-banner"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
