@@ -105,6 +105,8 @@ function reloadSelectors() {
     chrome.runtime.sendMessage("GetRuleList", (fetchedRules) => {
         let condensedJson = Object.assign({}, ...fetchedRules);
 
+        delete condensedJson["$schema"];
+
         cmpJson = condensedJson;
 
         loadFromJson(condensedJson, document.querySelector("#knownRules"));
