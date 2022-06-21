@@ -6,7 +6,7 @@
     transform-origin: right bottom !important;
     transition: transform 0.15s ease-in-out !important;
     contain: paint !important;
-    border: 1px solid blue;
+    border: 1px solid blue; !important;
     box-shadow: 0 0 0.5rem black !important;
 }
 .ConsentOMatic-Progress-Dialog-Modal {
@@ -50,6 +50,7 @@
     background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,48,154,1) 40%,rgba(0,22,91,1) 60%);
     background-size: 400% 400%;
     display: flex;
+    box-sizing: border-box;
     flex-direction: row;
     justify-content: left;
     align-items: center;
