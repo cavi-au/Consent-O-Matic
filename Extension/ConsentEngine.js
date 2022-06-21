@@ -227,7 +227,11 @@ class ConsentEngine {
         }
 
         this.modal = document.createElement("div");
-        this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
+        if(ConsentEngine.debugValues.hideInsteadOfPIP) {
+            this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
+        } else {
+            this.modal.classList.add("ConsentOMatic-Progress-Dialog-PIP");
+        }
         this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
         let header = document.createElement("h1");
