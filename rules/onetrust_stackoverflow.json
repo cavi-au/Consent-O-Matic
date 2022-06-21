@@ -38,12 +38,6 @@
                             "waitTime": 250
                         },
                         {
-                            "type": "hide",
-                            "target": {
-                                "selector": "#onetrust-banner-sdk"
-                            }
-                        },
-                        {
                             "type": "waitcss",
                             "target": {
                                 "selector": "input"
