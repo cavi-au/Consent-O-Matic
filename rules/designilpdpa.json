@@ -1,0 +1,195 @@
+{
+	"$schema": "../rules.schema.json",
+	"designilpdpa": {
+		"detectors": [
+			{
+				"presentMatcher": {
+					"type": "css",
+					"target": {
+						"selector": ".dpdpa--popup"
+					}
+				},
+				"showingMatcher": {
+					"target": {
+						"selector": ".dpdpa--popup.active"
+					},
+					"type": "css"
+				}
+			}
+		],
+		"methods": [
+			{
+				"name": "OPEN_OPTIONS",
+				"action": {
+					"type": "click",
+					"parent": {
+						"selector": ".dpdpa--popup"
+					},
+					"target": {
+						"selector": "#dpdpa--popup-button-settings"
+					}
+				}
+			},
+			{
+				"name": "DO_CONSENT",
+				"action": {
+					"type": "consent",
+					"consents": [
+						{
+							"type": "B",
+							"matcher": {
+								"type": "checkbox",
+								"target": {
+									"selector": "input[type=checkbox]"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"คุกกี้เพื่อการวิเคราะห์",
+												"Performance"
+											]
+										}
+									}
+								}
+							},
+							"toggleAction": {
+								"type": "click",
+								"target": {
+									"selector": ".dpdpa--popup-switch"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"คุกกี้เพื่อการวิเคราะห์",
+												"Performance"
+											]
+										}
+									}
+								}
+							}
+						},
+						{
+							"type": "F",
+							"matcher": {
+								"type": "checkbox",
+								"target": {
+									"selector": "input[type=checkbox]"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"กลุ่มเป้าหมาย",
+												"Targeting"
+											]
+										}
+									}
+								}
+							},
+							"toggleAction": {
+								"type": "click",
+								"target": {
+									"selector": ".dpdpa--popup-switch"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"กลุ่มเป้าหมาย",
+												"Targeting"
+											]
+										}
+									}
+								}
+							}
+						},
+						{
+							"type": "A",
+							"matcher": {
+								"type": "checkbox",
+								"target": {
+									"selector": "input[type=checkbox]"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"การใช้งานเว็บไซต์",
+												"Functional"
+											]
+										}
+									}
+								}
+							},
+							"toggleAction": {
+								"type": "click",
+								"target": {
+									"selector": ".dpdpa--popup-switch"
+								},
+								"parent": {
+									"selector": ".dpdpa--popup-header",
+									"childFilter": {
+										"target": {
+											"selector": ".dpdpa--popup-title",
+											"textFilter": [
+												"การใช้งานเว็บไซต์",
+												"Functional"
+											]
+										}
+									}
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "SAVE_CONSENT",
+				"action": {
+					"type": "click",
+					"target": {
+						"selector": "#pdpa_settings_confirm"
+					}
+				}
+			},
+			{
+				"name": "HIDE_CMP",
+				"action": {
+					"type": "list",
+					"actions": [
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--alwayson"
+							}
+						},
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--popup-sidebar"
+							}
+						},
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--popup-bg"
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}
