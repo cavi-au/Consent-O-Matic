@@ -227,11 +227,7 @@ class ConsentEngine {
         }
 
         this.modal = document.createElement("div");
-        if(ConsentEngine.debugValues.hideInsteadOfPIP) {
-            this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
-        } else {
-            this.modal.classList.add("ConsentOMatic-Progress-Dialog-PIP");
-        }
+        this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
         this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
         let header = document.createElement("h1");
