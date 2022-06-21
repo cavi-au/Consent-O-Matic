@@ -73,6 +73,11 @@ class DomParser {
                         break;
                     default:
                         value = input.value.trim();
+
+                        if(input.getAttribute("type") === "number") {
+                            value = +value;
+                        }
+
                         break;
                 }
             } else if(valueDom.querySelector("select") != null) {
