@@ -957,17 +957,26 @@ const translations = {
     "CMP": {
 	      "en": "Consent Management Provider",
 	      "da": "Samtykke-popup-udbyder",
-	      "pt": "Consent Management Provider"
+	      "pt": "Consent Management Provider",
+          "de": "Einwilligungsverwaltungsanbieter"
     },
     "POPUPS_FILLED": {
 	      "en": "Popups Filled",
 	      "da": "Udfyldte Popups",
-	      "pt": "Pop-ups preenchidos"
+	      "pt": "Pop-ups preenchidos",
+          "de": "Popups gefüllt"
     },
     "CLICKS_MADE": {
 	      "en": "Clicks Made",
 	      "da": "Antal Klik",
-	      "pt": "Cliques Feitos"
+	      "pt": "Cliques Feitos",
+          "de": "Klicks gemacht"
+    },
+    "HIDE_INSTEAD_OF_PIP_DESCRIPTION": {
+        "en": "Hide instead of using Picture In Picture",
+        "da": "Skjul istedet for at bruge billed i billed",
+        "de": "Ausblenden statt Bild-in-Bild verwenden",
+        "pt": "Ocultar em vez de usar Picture In Picture",
     }
 };
 

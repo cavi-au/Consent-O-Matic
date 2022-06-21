@@ -24,7 +24,7 @@ GDPRConfig.isActive(url).then(async (active) => {
                             chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
                                 "cmp": stats.cmpName,
                                 "url": url,
-				"clicks": stats.clicks
+				                "clicks": stats.clicks
                             }));
 
                         });

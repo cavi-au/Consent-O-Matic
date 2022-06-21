@@ -401,7 +401,12 @@ class HideAction extends Action {
 
         if (result.target != null) {
             this.cmp.hiddenTargets.push(result.target);
-            result.target.classList.add("ConsentOMatic-CMP-Hider");
+
+            if(ConsentEngine.debugValues.hideInsteadOfPIP) {
+                result.target.classList.add("ConsentOMatic-CMP-Hider");
+            } else {
+                result.target.classList.add("ConsentOMatic-CMP-PIP");
+            }
         }
         return 0; // Never clicks
     }

@@ -164,6 +164,11 @@ class GDPRConfig {
                 "value": debugValues.alwaysForceRulesUpdate
             },
             {
+                "name": "hideInsteadOfPIP",
+                "description": Language.getString("HIDE_INSTEAD_OF_PIP_DESCRIPTION"),
+                "value": debugValues.hideInsteadOfPIP
+            },
+            {
                 "name": "skipHideMethod",
                 "description": Language.getString("SKIP_HIDE_DESCRIPTION"),
                 "value": debugValues.skipHideMethod
@@ -288,5 +293,6 @@ GDPRConfig.defaultDebugFlags = {
     "skipHideMethod": false,
     "debugLog": false,
     "debugTranslations": false,
-    "skipSubmitConfirmation": false
+    "skipSubmitConfirmation": false,
+    "hideInsteadOfPIP": false
 }
