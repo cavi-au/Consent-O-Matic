@@ -278,7 +278,7 @@
                 "action": {
                     "type": "hide",
                     "target": {
-                        "selector": ".qc-cmp2-container"
+                        "selector": ".qc-cmp-cleanslate"
                     }
                 },
                 "name": "HIDE_CMP"
