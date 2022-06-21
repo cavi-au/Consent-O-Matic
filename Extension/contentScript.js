@@ -5,11 +5,13 @@ GDPRConfig.isActive(url).then(async (active) => {
         chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
 
             GDPRConfig.getCustomRuleLists().then((customRules)=>{
+                fetchedRules.forEach((ruleObj)=>{
+                    delete ruleObj["$schema"];
+                });
+                delete customRules["$schema"];
 
                 // Concat rule-lists to engine config in order
                 let config = Object.assign({}, ...fetchedRules, customRules);
-
-                delete config["$schema"];
 
                 GDPRConfig.getConsentValues().then((consentTypes)=>{
                     GDPRConfig.getDebugValues().then((debugValues)=>{
