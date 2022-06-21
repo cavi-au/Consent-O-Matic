@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "Sirdata": {
         "detectors": [
             {

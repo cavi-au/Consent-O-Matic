@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "DRCC": {
         "detectors": [
             {
@@ -33,8 +34,8 @@
                     "target": {
                         "selector": "div.drcc-cookie-categories"
                     },
-                    "retries": "10",
-                    "waitTime": "250"
+                    "retries": 10,
+                    "waitTime": 250
                 },
                 "name": "OPEN_OPTIONS"
             },

@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "cookiebot": {
         "detectors": [
             {
@@ -185,7 +186,7 @@
                             },
                             "trueAction": {
                                 "type": "wait",
-                                "waitTime": "500"
+                                "waitTime": 500
                             }
                         },
                         {
@@ -293,8 +294,8 @@
                                         "target": {
                                             "selector": ".JegFindesIkke"
                                         },
-                                        "retries": "1",
-                                        "waitTime": "500"
+                                        "retries": 1,
+                                        "waitTime": 500
                                     }
                                 ]
                             }

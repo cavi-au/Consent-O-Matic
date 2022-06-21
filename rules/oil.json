@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "oil": {
         "detectors": [
             {
@@ -27,12 +28,12 @@
                             "type": "click"
                         },
                         {
-                            "retries": "10",
+                            "retries": 10,
                             "target": {
                                 "selector": ".as-oil-cpc__purpose-container"
                             },
                             "type": "waitcss",
-                            "waitTime": "250"
+                            "waitTime": 250
                         }
                     ],
                     "type": "list"

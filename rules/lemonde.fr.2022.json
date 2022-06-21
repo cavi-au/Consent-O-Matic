@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "lemonde": {
         "detectors": [
             {
@@ -38,8 +39,8 @@
                             "target": {
                                 "selector": ".gdpr-lmd-params"
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "consent",

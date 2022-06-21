@@ -4,6 +4,9 @@
     "title": "Consent-O-Matic rule schema",
     "type": "object",
     "patternProperties": {
+        "\\$schema": {
+            "type": "string"
+        },
         "^": {
             "type": "object",
             "additionalProperties": false,
@@ -73,7 +76,7 @@
         "Method": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["name", "action"],
+            "required": ["name"],
             "properties": {
                 "name": {
                     "type": "string",
@@ -159,6 +162,7 @@
             "properties": {
                 "type": {"const": "ifcss"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
                 "trueAction": {"$ref": "#/$defs/Actions"},
                 "falseAction": {"$ref": "#/$defs/Actions"}
             }
@@ -170,6 +174,7 @@
             "properties": {
                 "type": {"const": "waitcss"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
                 "retries": {
                     "type": "integer",
                     "minimum": 0
@@ -188,6 +193,7 @@
             "properties": {
                 "type": {"const": "foreach"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
                 "action": {"$ref": "#/$defs/Actions"}
             }
         },
@@ -209,7 +215,8 @@
             "required": ["type", "target"],
             "properties": {
                 "type": {"const": "hide"},
-                "target": {"$ref": "#/$defs/DOMSelection"}
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"}
             }
         },
         "CloseAction": {
@@ -223,18 +230,31 @@
 
         "DOMSelection": {
             "oneOf": [
+                {"type": "null"},
                 {"$ref": "#/$defs/Selection"},
                 {
                     "type": "object",
                     "additionalProperties": false,
                     "required": ["target"],
                     "properties": {
-                        "present": {"$ref": "#/$defs/DOMSelection"},
+                        "parent": {"$ref": "#/$defs/DOMSelection"},
                         "target": {"$ref": "#/$defs/DOMSelection"}
                     }
                 }
             ]
         },
+
+        "StyleFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["option", "value"],
+            "properties": {
+                "option": {"type": "string"},
+                "value": {"type": "string"},
+                "negated": {"type": "boolean"}
+            }
+        },
+
         "Selection": {
             "type": "object",
             "additionalProperties": false,
@@ -251,14 +271,8 @@
                     ]
                 },
                 "styleFilter": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": ["option", "value"],
-                    "properties": {
-                        "option": {"type": "string"},
-                        "value": {"type": "string"},
-                        "negated": {"type": "boolean"}
-                    }
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/StyleFilter"}
                 },
                 "displayFilter": {"type": "boolean"},
                 "iframeFilter": {"type": "boolean"},
@@ -278,8 +292,9 @@
                 "toggleAction": {"$ref": "#/$defs/Actions"},
                 "matcher": {"$ref": "#/$defs/Matcher"},
                 "trueAction": {"$ref": "#/$defs/Actions"},
-                "falseAction": {"$ref": "#/$defs/Actions"}
+                "falseAction": {"$ref": "#/$defs/Actions"},
+                "description": {"type": "string"}
             }
         }
     }
-  }
+}

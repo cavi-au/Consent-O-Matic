@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "ez-cookie": {
         "detectors": [
             {
@@ -33,7 +34,6 @@
                 "name": "HIDE_CMP"
             },
             {
-                "action": null,
                 "name": "OPEN_OPTIONS"
             },
             {

@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "cookiecontrolcivic": {
         "detectors": [
             {
@@ -61,8 +62,8 @@
                                 "selector": "#ccc-recommended-settings",
                                 "displayFilter": true
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "consent",
@@ -313,8 +314,8 @@
                                 "selector": "#iab-purposes .optional-cookie",
                                 "displayFilter": true
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "consent",

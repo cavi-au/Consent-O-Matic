@@ -1,4 +1,5 @@
 {
+	"$schema": "../rules.schema.json",
     "didomi.io": {
         "detectors": [
             {
@@ -295,9 +296,12 @@
                                 "consents": [
                                     {
                                         "matcher": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": ":not(.didomi-components-radio__option--selected)"
+                                            "target": {
+                                                "selector": "*",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ":not(.didomi-components-radio__option--selected)"
+                                                    }
                                                 }
                                             },
                                             "type": "css"
