@@ -1,21 +1,25 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust-stackoverflow": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".js-consent-banner"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".js-consent-banner"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".js-consent-banner",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".js-consent-banner",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -43,13 +47,7 @@
                                 "selector": "input"
                             },
                             "parent": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": ".grid--cell",
-                                        "textFilter": "Targeting Cookies"
-                                    }
-                                },
-                                "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                "selector": "#onetrust-banner-sdk .s-modal--body .ai-center"
                             },
                             "retries": 10,
                             "waitTime": 250
@@ -69,13 +67,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Performance Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Performance Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -84,13 +79,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Performance Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Performance Cookies"
+                                    ]
                                 }
                             },
                             "type": "B"
@@ -102,13 +94,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Targeting Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Targeting Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -117,13 +106,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Targeting Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Targeting Cookies"
+                                    ]
                                 }
                             },
                             "type": "F"
@@ -135,13 +121,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Functional Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Functional Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -150,13 +133,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": "Functional Cookies"
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Functional Cookies"
+                                    ]
                                 }
                             },
                             "type": "A"
@@ -190,7 +170,7 @@
                         {
                             "type": "hide",
                             "target": {
-                                "selector": "#onetrust-banner-sdk"
+                                "selector": "#onetrust-banner-sdk [role=\"dialog\"]"
                             }
                         },
                         {
@@ -202,6 +182,9 @@
                     ]
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
