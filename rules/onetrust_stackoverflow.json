@@ -47,15 +47,7 @@
                                 "selector": "input"
                             },
                             "parent": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": ".grid--cell",
-                                        "textFilter": [
-                                            "Targeting Cookies"
-                                        ]
-                                    }
-                                },
-                                "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                "selector": "#onetrust-banner-sdk .s-modal--body .ai-center"
                             },
                             "retries": 10,
                             "waitTime": 250
@@ -75,15 +67,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Performance Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Performance Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -92,15 +79,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Performance Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Performance Cookies"
+                                    ]
                                 }
                             },
                             "type": "B"
@@ -112,15 +94,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Targeting Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Targeting Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -129,15 +106,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Targeting Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Targeting Cookies"
+                                    ]
                                 }
                             },
                             "type": "F"
@@ -149,15 +121,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Functional Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Functional Cookies"
+                                    ]
                                 }
                             },
                             "toggleAction": {
@@ -166,15 +133,10 @@
                                     "selector": "input"
                                 },
                                 "parent": {
-                                    "childFilter": {
-                                        "target": {
-                                            "selector": ".grid--cell",
-                                            "textFilter": [
-                                                "Functional Cookies"
-                                            ]
-                                        }
-                                    },
-                                    "selector": "#onetrust-banner-sdk .s-modal--body .grid.ai-center"
+                                    "selector": "#onetrust-banner-sdk .s-modal--body .ai-center",
+                                    "textFilter": [
+                                        "Functional Cookies"
+                                    ]
                                 }
                             },
                             "type": "A"
@@ -211,7 +173,7 @@
                                 "selector": "#onetrust-banner-sdk [role=\"dialog\"]"
                             }
                         },
-                        {
+                       {
                             "type": "hide",
                             "target": {
                                 "selector": ".js-consent-banner"
