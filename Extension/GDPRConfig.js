@@ -188,6 +188,11 @@ class GDPRConfig {
                 "description": Language.getString("SKIP_SUBMIT_CONFIRMATION"),
                 "value": debugValues.skipSubmitConfirmation
             },
+            {
+                "name": "dontHideProgressDialog",
+                "description": "Dont hide ConsentOMatic progress dialog",
+                "value": debugValues.dontHideProgressDialog
+            }
 
         ];
     }
@@ -294,5 +299,6 @@ GDPRConfig.defaultDebugFlags = {
     "debugLog": false,
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
-    "hideInsteadOfPIP": false
+    "hideInsteadOfPIP": false,
+    "dontHideProgressDialog": false
 }

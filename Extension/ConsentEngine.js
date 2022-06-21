@@ -197,8 +197,10 @@ class ConsentEngine {
                                 console.log("Error during consent handling:", e);
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
-                                cmp.unHideAll();
-                                self.hideProgressDialog();
+                                if(ConsentEngine.debugValues.dontHideProgressDialog === false) {
+                                    cmp.unHideAll();
+                                    self.hideProgressDialog();
+                                }
                             }
                             clearTimeout(self.stopEngineId);
                         }
