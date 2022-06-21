@@ -74,6 +74,11 @@ class Action {
             setTimeout(() => { resolve(); }, timeout);
         });
     }
+
+    getNumSteps() {
+        console.warn("Missing getNumSteps on: "+this.constructor.name);
+        return 0;
+    }
 }
 
 class ListAction extends Action {
@@ -96,6 +101,16 @@ class ListAction extends Action {
         }
         return clicks;
     }
+
+    getNumSteps() {
+        let steps = 0;
+
+        this.actions.forEach((action)=>{
+            steps += action.getNumSteps();
+        });
+
+        return steps;
+    }
 }
 
 class CloseAction extends Action {
@@ -106,6 +121,10 @@ class CloseAction extends Action {
     async execute(param) {
         window.close();
         return 1; // Closing window counts as a click
+    }
+
+    getNumSteps() {
+        return 1;
     }
 }
 
@@ -120,6 +139,10 @@ class WaitAction extends Action {
             setTimeout(() => { resolve() }, self.config.waitTime);
         });
         return 0; // Never clicks while waiting
+    }
+
+    getNumSteps() {
+        return 1;
     }
 }
 
@@ -162,6 +185,10 @@ class ClickAction extends Action {
         await this.waitTimeout(this.timeout);
         return clicks;
     }
+
+    getNumSteps() {
+        return 1;
+    }
 }
 
 class ConsentAction extends Action {
@@ -189,6 +216,10 @@ class ConsentAction extends Action {
             clicks += await consent.setEnabled(shouldBeEnabled);
         }
         return clicks;
+    }
+
+    getNumSteps() {
+        return 1;
     }
 }
 
@@ -219,6 +250,20 @@ class IfCssAction extends Action {
             }
         }
         return clicks;
+    }
+
+    getNumSteps() {
+        let steps = 0;
+
+        if(this.trueAction != null) {
+            steps += this.trueAction.getNumSteps();
+        }
+
+        if(this.falseAction != null) {
+            steps += this.falseAction.getNumSteps();
+        }
+
+        return Math.round(steps / 2);
     }
 }
 
@@ -295,6 +340,10 @@ class WaitCssAction extends Action {
         });
         return 0; // Never clicks
     }
+
+    getNumSteps() {
+        return 1;
+    }
 }
 
 class NopAction extends Action {
@@ -305,6 +354,10 @@ class NopAction extends Action {
     async execute(param) {
         //NOP
         return;
+    }
+
+    getNumSteps() {
+        return 0;
     }
 }
 
@@ -330,6 +383,10 @@ class ForEachAction extends Action {
         Tools.setBase(oldBase);
         return clicks;
     }
+
+    getNumSteps() {
+        return this.action.getNumSteps();
+    }
 }
 
 class HideAction extends Action {
@@ -347,6 +404,10 @@ class HideAction extends Action {
             result.target.classList.add("ConsentOMatic-CMP-Hider");
         }
         return 0; // Never clicks
+    }
+
+    getNumSteps() {
+        return 1;
     }
 }
 
@@ -445,5 +506,9 @@ class SlideAction extends Action {
             clicks++;
         }
         return clicks;
+    }
+
+    getNumSteps() {
+        return 1;
     }
 }

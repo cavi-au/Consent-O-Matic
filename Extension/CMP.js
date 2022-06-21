@@ -58,13 +58,13 @@ class CMP {
 
     async runMethod(name, param = null) {
         let action = this.methods.get(name);
-	let stepsPerformed = 0;
+    	let clicks = 0;
 
         if(action != null) {
             if(ConsentEngine.debugValues.debugLog) {
                 console.log("Triggering method: ", name);
             }
-            stepsPerformed += await action.execute(param);
+            clicks += await action.execute(param);
         } else {
             //Make no method behave as if an action was called, IE. push os back on the task stack
             await new Promise((resolve)=>{
@@ -74,6 +74,18 @@ class CMP {
             });
         }
 
-	return stepsPerformed;
+    	return clicks;
+    }
+
+    getNumSteps() {
+        let totalSteps = 0;
+
+        this.methods.forEach((action, name)=>{
+            if(name !== "UTILITY") {
+                totalSteps += action.getNumSteps();
+            }
+        });
+
+        return totalSteps;
     }
 }
