@@ -250,7 +250,7 @@ class ConsentEngine {
         contents.innerText = text;
         this.dialog.appendChild(contents);
         document.body.appendChild(this.modal);
-        document.body.appendChild(this.dialog);
+        this.modal.appendChild(this.dialog);
         setTimeout(() => {
             this.dialog.classList.add("ConsentOMatic-Progress-Started");
         }, 0);
