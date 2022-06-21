@@ -163,6 +163,32 @@
 						"selector": "#pdpa_settings_confirm"
 					}
 				}
+			},
+			{
+				"name": "HIDE_CMP",
+				"action": {
+					"type": "list",
+					"actions": [
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--alwayson"
+							}
+						},
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--popup-sidebar"
+							}
+						},
+						{
+							"type": "hide",
+							"target": {
+								"selector": ".dpdpa--popup-bg"
+							}
+						}
+					]
+				}
 			}
 		]
 	}
