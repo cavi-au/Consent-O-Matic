@@ -1,14 +1,7 @@
 .ConsentOMatic-CMP-Hider {
     opacity: 0 !important;
 }
-.ConsentOMatic-CMP-PIP {
-    transform: translateY(-4rem) scale(0.25) !important;
-    transform-origin: right bottom !important;
-    transition: transform 0.15s ease-in-out !important;
-    contain: paint !important;
-    border: 1px solid blue; !important;
-    box-shadow: 0 0 0.5rem black !important;
-}
+
 .ConsentOMatic-Progress-Dialog-Modal {
     position: fixed;
     bottom: 0;
