@@ -295,6 +295,7 @@ async function saveCmp(dom, exportJson = false) {
     let cmpName = document.querySelector(".step3 .cmpName input").value;
 
     let rules = {};
+    rules["$schema"] = "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json";
     rules[cmpName] = json;
 
     let jsonString = JSON.stringify(rules, null, 4);
