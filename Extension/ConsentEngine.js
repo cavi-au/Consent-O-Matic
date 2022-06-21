@@ -266,11 +266,13 @@ class ConsentEngine {
     }
 
     startObserver() {
-        this.observer.observe(document.body, {
-            childList: true,
-            attributes: true,
-            subtree: true
-        });
+        if(document.body != null) {
+            this.observer.observe(document.body, {
+                childList: true,
+                attributes: true,
+                subtree: true
+            });
+        }
     }
 
     stopObserver() {
