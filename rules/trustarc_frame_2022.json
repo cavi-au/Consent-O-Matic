@@ -39,12 +39,12 @@
                             "target": {
                                 "selector": ".switchContainer"
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "wait",
-                            "waitTime": "500"
+                            "waitTime": 500
                         },
                         {
                             "type": "foreach",
@@ -157,7 +157,7 @@
                         },
                         {
                             "type": "wait",
-                            "waitTime": "1"
+                            "waitTime": 1
                         },
                         {
                             "type": "foreach",

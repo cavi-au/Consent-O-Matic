@@ -32,8 +32,8 @@
                             "target": {
                                 "selector": ".shp"
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "click",
@@ -49,8 +49,8 @@
                             "target": {
                                 "selector": ".cookiecat, .pdynamicbutton .advance, .listItem"
                             },
-                            "retries": "10",
-                            "waitTime": "250"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
                             "type": "ifcss",
@@ -71,8 +71,8 @@
                                         "target": {
                                             "selector": ".switch span.on"
                                         },
-                                        "retries": "20",
-                                        "waitTime": "250"
+                                        "retries": 20,
+                                        "waitTime": 250
                                     }
                                 ]
                             }
@@ -87,7 +87,7 @@
                     "actions": [
                         {
                             "type": "wait",
-                            "waitTime": "250"
+                            "waitTime": 250
                         },
                         {
                             "type": "foreach",
@@ -620,8 +620,8 @@
                             "target": {
                                 "selector": ".close"
                             },
-                            "retries": "1000",
-                            "waitTime": "250"
+                            "retries": 1000,
+                            "waitTime": 250
                         },
                         {
                             "type": "click",

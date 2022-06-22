@@ -39,8 +39,8 @@
                         "selector": ".truste_box_overlay",
                         "displayFilter": true
                     },
-                    "retries": "100",
-                    "waitTime": "250",
+                    "retries": 100,
+                    "waitTime": 250,
                     "negated": true
                 },
                 "name": "OPEN_OPTIONS"

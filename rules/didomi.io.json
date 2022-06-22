@@ -1,5 +1,3 @@
-GDPR Consent Rules Editor
-Back
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "didomi.io": {

@@ -40,7 +40,7 @@
                     "actions": [
                         {
                             "type": "wait",
-                            "waitTime": "250"
+                            "waitTime": 250
                         },
                         {
                             "type": "click",
