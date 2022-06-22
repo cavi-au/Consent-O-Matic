@@ -7,7 +7,7 @@
     bottom: 0;
     right: 0;
     background: linear-gradient(170deg, rgb(0,51,153), transparent);
-    z-index: 2147483647;
+    z-index: 2147483646;
     transition: opacity 1s ease-in-out;
     animation: consentomatic-modalAnimation 0.5s ease-in-out;
 }
@@ -29,6 +29,18 @@
     }
 }
 
+.ConsentOMatic-Progres-Preview {
+    position: absolute;
+    width: calc(min(25vw, 20rem));
+    height: 12rem;
+    background: #00309a;
+    opacity: 0.4;
+    bottom: calc(4rem);
+    right: 0;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
 
 .ConsentOMatic-Progress-Dialog {
     position: absolute;

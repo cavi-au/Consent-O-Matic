@@ -391,11 +391,58 @@ class HideAction extends Action {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
-		// We may have to restore these? Or maybe not?
-		result.target.style.setProperty("left", "initial","important");
-		result.target.style.setProperty("top","initial","important");
-		result.target.style.setProperty("right", 0, "important");
-		result.target.style.setProperty("bottom",0, "important");
+                
+                let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
+                function setStyles() {
+                    console.log("Setting styles:", result.target);
+
+                    let scale = 0.25;
+                    if(preview != null) {
+                        let width = preview.offsetWidth - 4;
+                        let height = preview.offsetHeight - 4;
+    
+                        let targetWidth = result.target.offsetWidth;
+                        let targetHeight = result.target.offsetHeight;
+    
+                        let widthScale = width / targetWidth;
+                        let heightScale = height / targetHeight;
+    
+                        scale = Math.min(widthScale, heightScale);
+                    }
+    
+                    result.target.style.setProperty("left", "initial","important");
+                    result.target.style.setProperty("top","initial","important");
+                    result.target.style.setProperty("right",  "2px", "important");
+                    result.target.style.setProperty("bottom", "2px", "important");
+                    result.target.style.setProperty("transform", "translateY(-4rem) scale("+scale+")", "important");
+                    result.target.style.setProperty("transform-origin", "right bottom", "important");
+                    result.target.style.setProperty("transition", "transform 0.15s ease-in-out", "important");
+                    result.target.style.setProperty("contain", "paint", "important");
+                    result.target.style.setProperty("border", "1px solid blue", "important");
+                    result.target.style.setProperty("box-shadow", "none", "important");
+                    result.target.style.setProperty("z-index", "2147483647", "important");
+                }
+
+                setStyles();
+
+                let entriesSeen = new Set();
+
+                let observer = new ResizeObserver((entries)=>{
+                    for(let entry of entries) {
+                        if(!entriesSeen.has(entry.target)) {
+                            entriesSeen.add(entry.target);
+                        } else {
+                            setStyles();
+                        }
+                    }
+                });
+
+                startObserver();
+
+                function startObserver() {
+                    entriesSeen.clear();
+                    observer.observe(result.target);
+                }
             }
         }
     }

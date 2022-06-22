@@ -252,6 +252,11 @@ class ConsentEngine {
         this.modal.classList.add("ConsentOMatic-Progress-Dialog-Modal");
         this.dialog = document.createElement("div");
         this.dialog.classList.add("ConsentOMatic-Progress-Dialog");
+
+        this.preview = document.createElement("div");
+        this.preview.classList.add("ConsentOMatic-Progres-Preview");
+        this.modal.appendChild(this.preview);
+
         let contents = document.createElement("p");
         contents.innerText = text;
         this.dialog.appendChild(contents);

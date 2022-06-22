@@ -88,6 +88,11 @@ function setBadgeCheckmark(enabled, id) {
         text: text,
         tabId: id
     });
+
+    chrome.browserAction.setBadgeBackgroundColor({
+        color: "white",
+        tabId: id
+    });
 }
 
 function fetchRules(forceUpdate) {

@@ -1,0 +1,92 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Twitter": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div#layers span",
+                            "textFilter": [
+                                "Did someone say … cookies?"
+                            ]
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div#layers span",
+                            "textFilter": [
+                                "Did someone say … cookies?"
+                            ],
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "div[role=\"button\"]",
+                            "textFilter": [
+                                "Accept all cookies"
+                            ]
+                        },
+                        "parent": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": "div > div > span",
+                                    "textFilter": [
+                                        "Did someone say … cookies?"
+                                    ]
+                                }
+                            },
+                            "selector": "div#layers"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "div[role=\"button\"]",
+                            "textFilter": [
+                                "Refuse non-essential cookies"
+                            ]
+                        },
+                        "parent": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": "div > div > span",
+                                    "textFilter": [
+                                        "Did someone say … cookies?"
+                                    ]
+                                }
+                            },
+                            "selector": "div#layers"
+                        }
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
