@@ -1,0 +1,80 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Reddit": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "section a[href=\"https://www.redditinc.com/policies/cookie-notice\"]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "section a[href=\"https://www.redditinc.com/policies/cookie-notice\"]",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button",
+                            "textFilter": [
+                                "Accept all"
+                            ]
+                        },
+                        "parent": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": "a[href=\"https://www.redditinc.com/policies/cookie-notice\"]"
+                                }
+                            },
+                            "selector": "section"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button",
+                            "textFilter": [
+                                "Reject non-essential"
+                            ]
+                        },
+                        "parent": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": "a[href=\"https://www.redditinc.com/policies/cookie-notice\"]"
+                                }
+                            },
+                            "selector": "section"
+                        }
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

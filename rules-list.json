@@ -65,6 +65,7 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/ku.dk.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookiewow.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/designilpdpa.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/facebook.json"
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/facebook.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/reddit.json"
   ]
 }
