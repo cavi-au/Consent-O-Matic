@@ -391,6 +391,11 @@ class HideAction extends Action {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
+		// We may have to restore these? Or maybe not?
+		result.target.style.setProperty("left", "initial","important");
+		result.target.style.setProperty("top","initial","important");
+		result.target.style.setProperty("right", 0, "important");
+		result.target.style.setProperty("bottom",0, "important");
             }
         }
     }

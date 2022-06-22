@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "optanon_springernature": {
         "detectors": [
             {
@@ -23,6 +23,23 @@
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cc-banner[data-cc-banner]"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cc-preferences[data-cc-preferences]"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
@@ -41,7 +58,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".cc-preferences__category-header",
-                                    "textFilter": "Cookies that measure website use"
+                                    "textFilter": [
+                                        "Cookies that measure website use"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -74,7 +93,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".cc-preferences__category-header",
-                                    "textFilter": "Cookies that help with our communications and marketing"
+                                    "textFilter": [
+                                        "Cookies that help with our communications and marketing"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -107,7 +128,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".cc-preferences__category-header",
-                                    "textFilter": "Cookies that help show personalised advertising"
+                                    "textFilter": [
+                                        "Cookies that help show personalised advertising"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
