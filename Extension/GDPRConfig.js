@@ -3,9 +3,9 @@ class GDPRConfig {
         return new Promise((resolve, reject)=>{
             chrome.storage.local.get({
                 statistics: {
-		    clicks: 0,
-		    cmps: {}
-		}
+		            clicks: 0,
+		            cmps: {}
+		        }
             }, (result)=>{
                 resolve(result.statistics);
             });

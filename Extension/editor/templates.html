@@ -92,6 +92,15 @@
     </div>
 </template>
 
+<template id="action_ifallowall">
+    <div data-type="action" data-variant="ifallowall" data-fold-name="[[IF_ALLOW_ALL_ACTION]]">
+        <div class="label">[[IF_TRUE_ACTION]]<div class="help">[[IF_TRUE_ACTION_HELP]]</div></div>
+        <div data-plug="action" data-bind="trueAction"></div>
+        <div class="label">[[IF_FALSE_ACTION]]<div class="help">[[IF_FALSE_ACTION_HELP]]</div></div>
+        <div data-plug="action" data-bind="falseAction"></div>
+    </div>
+</template>
+
 <template id="action_click">
     <div data-type="action" data-variant="click" data-fold-name="[[CLICK_ACTION]]">
         <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_CLICK_HELP]]</div></div>

@@ -12,6 +12,7 @@ class Action {
                 case "slide": return new SlideAction(config, cmp);
                 case "close": return new CloseAction(config, cmp);
                 case "wait": return new WaitAction(config, cmp);
+                case "ifallowall": return new IfAllowAllAction(config, cmp);
                 default: throw "Unknown action type: " + config.type;
             }
         } catch (e) {
@@ -25,19 +26,19 @@ class Action {
 
         this.config = config;
 
-        //Override execute, with logging variant
-        let realExecute = this.execute;
+        if(ConsentEngine.debugValues.debugLog) {
+            //Override execute, with logging variant
+            let realExecute = this.execute;
 
-        this.execute = async function (param) {
-            let clicks = 0;
-            self.logStart(param);
-            try {
-                clicks += await realExecute.call(self, param);
-            } catch (e) {
-                console.error(e);
+            this.execute = async function (param) {
+                self.logStart(param);
+                try {
+                    await realExecute.call(self, param);
+                } catch (e) {
+                    console.error(e);
+                }
+                self.logEnd();
             }
-            self.logEnd();
-            return clicks;
         }
     }
 
@@ -66,7 +67,7 @@ class Action {
     }
 
     async execute(param) {
-        console.log("Remember to overrride execute()");
+        console.log("Remember to overrride execute()", this.constructor.name);
     }
 
     async waitTimeout(timeout) {
@@ -92,14 +93,9 @@ class ListAction extends Action {
     }
 
     async execute(param) {
-        let clicks = 0;
         for (let action of this.actions) {
-            let result = await action.execute(param);
-            if (result > 0) {
-                clicks += result;
-            }
+            await action.execute(param);
         }
-        return clicks;
     }
 
     getNumSteps() {
@@ -138,7 +134,6 @@ class WaitAction extends Action {
         await new Promise((resolve, reject) => {
             setTimeout(() => { resolve() }, self.config.waitTime);
         });
-        return 0; // Never clicks while waiting
     }
 
     getNumSteps() {
@@ -153,7 +148,6 @@ class ClickAction extends Action {
     }
 
     async execute(param) {
-        let clicks = 0;
         let result = Tools.find(this.config);
 
         if (result.target != null) {
@@ -179,11 +173,10 @@ class ClickAction extends Action {
             } else {
                 result.target.click();
             }
-            clicks++;
+            ConsentEngine.singleton.registerClick();
         }
 
         await this.waitTimeout(this.timeout);
-        return clicks;
     }
 
     getNumSteps() {
@@ -205,7 +198,6 @@ class ConsentAction extends Action {
     }
 
     async execute(consentTypes) {
-        let clicks = 0;
         for (let consent of this.consents) {
             let shouldBeEnabled = false;
 
@@ -213,9 +205,8 @@ class ConsentAction extends Action {
                 shouldBeEnabled = consentTypes[consent.type];
             }
 
-            clicks += await consent.setEnabled(shouldBeEnabled);
+            await consent.setEnabled(shouldBeEnabled);
         }
-        return clicks;
     }
 
     getNumSteps() {
@@ -237,19 +228,17 @@ class IfCssAction extends Action {
     }
 
     async execute(param) {
-        let clicks = 0;
         let result = Tools.find(this.config);
 
         if (result.target != null) {
             if (this.trueAction != null) {
-                clicks += await this.trueAction.execute(param);
+                await this.trueAction.execute(param);
             }
         } else {
             if (this.falseAction != null) {
-                clicks += await this.falseAction.execute(param);
+                await this.falseAction.execute(param);
             }
         }
-        return clicks;
     }
 
     getNumSteps() {
@@ -338,7 +327,6 @@ class WaitCssAction extends Action {
 
             checkCss();
         });
-        return 0; // Never clicks
     }
 
     getNumSteps() {
@@ -353,7 +341,6 @@ class NopAction extends Action {
 
     async execute(param) {
         //NOP
-        return;
     }
 
     getNumSteps() {
@@ -369,19 +356,17 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
-        let clicks = 0;
         let results = Tools.find(this.config, true);
         let oldBase = Tools.base;
 
         for (let result of results) {
             if (result.target != null) {
                 Tools.setBase(result.target);
-                clicks += await this.action.execute(param);
+                await this.action.execute(param);
             }
         }
 
         Tools.setBase(oldBase);
-        return clicks;
     }
 
     getNumSteps() {
@@ -408,7 +393,6 @@ class HideAction extends Action {
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
             }
         }
-        return 0; // Never clicks
     }
 
     getNumSteps() {
@@ -419,10 +403,10 @@ class HideAction extends Action {
 class SlideAction extends Action {
     constructor(config, cmp) {
         super(config);
+        this.cmp = cmp;
     }
 
     async execute(param) {
-        let clicks = 0;
         let result = Tools.find(this.config);
 
         let dragResult = Tools.find(this.config.dragTarget);
@@ -508,12 +492,64 @@ class SlideAction extends Action {
             result.target.dispatchEvent(mouseMove);
             await this.waitTimeout(10);
             result.target.dispatchEvent(mouseUp);
-            clicks++;
+            ConsentEngine.singleton.registerClick();
         }
-        return clicks;
     }
 
     getNumSteps() {
         return 1;
+    }
+}
+
+class IfAllowAllAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+        this.cmp = cmp;
+ 
+        if (config.trueAction != null) {
+            this.trueAction = Action.createAction(config.trueAction, cmp);
+        }
+
+        if (config.falseAction != null) {
+            this.falseAction = Action.createAction(config.falseAction, cmp);
+        }
+    }
+
+    async execute(consentTypes) {
+        let allTrue = true;
+
+        Object.keys(consentTypes).forEach((key)=>{
+            let value = consentTypes[key];
+
+            if(value === false) {
+                allTrue = false;
+            }
+        });
+
+        console.log("All True:", allTrue);
+
+        if (allTrue) {
+            if (this.trueAction != null) {
+                await this.trueAction.execute(consentTypes);
+            }
+        } else {
+            if (this.falseAction != null) {
+                await this.falseAction.execute(consentTypes);
+            }
+        }
+    }
+
+    getNumSteps() {
+        let steps = 0;
+
+        if(this.trueAction != null) {
+            steps += this.trueAction.getNumSteps();
+        }
+
+        if(this.falseAction != null) {
+            steps += this.falseAction.getNumSteps();
+        }
+
+        return Math.round(steps / 2);
     }
 }

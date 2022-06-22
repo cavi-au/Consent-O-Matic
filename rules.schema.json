@@ -103,7 +103,8 @@
                 {"$ref": "#/$defs/ForEachAction"},
                 {"$ref": "#/$defs/WaitAction"},
                 {"$ref": "#/$defs/HideAction"},
-                {"$ref": "#/$defs/CloseAction"}
+                {"$ref": "#/$defs/CloseAction"},
+                {"$ref": "#/$defs/IfAllowAllAction"}
             ]
         },
         "ClickAction": {
@@ -225,6 +226,17 @@
             "required": ["type"],
             "properties": {
                 "type": {"const": "close"}
+            }
+        },
+
+        "IfAllowAllAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+                "type": {"const": "ifallowall"},
+                "trueAction": {"$ref": "#/$defs/Actions"},
+                "falseAction": {"$ref": "#/$defs/Actions"}
             }
         },
 

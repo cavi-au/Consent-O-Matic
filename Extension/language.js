@@ -637,10 +637,10 @@ const translations = {
 	      "pt": "trueAction"
     },
     "IF_TRUE_ACTION_HELP": {
-        "en": "The action to execute if the selector is found",
-        "da": "Handlingen, der skal udføres, hvis vælgeren findes",
-        "de": "Die Aktion, die ausgeführt werden soll, wenn der Selektor gefunden wird",
-	      "pt": "A ação a ser executada se o seletor for encontrado"
+        "en": "The action to execute if true",
+        "da": "Handlingen, der skal udføres, hvis sand",
+        "de": "Die Aktion, die ausgeführt werden soll, wenn wahr",
+	      "pt": "A ação a ser executada se for verdadeira"
     },
     "IF_FALSE_ACTION": {
         "en": "falseAction",
@@ -649,10 +649,10 @@ const translations = {
 	      "pt": "falseAction"
     },
     "IF_FALSE_ACTION_HELP": {
-        "en": "The action to execute if the selector is not found",
-        "da": "Handlingen, der skal udføres, hvis vælgeren ikke findes",
-        "de": "Die Aktion, die ausgeführt werden soll, wenn der Selektor nicht gefunden wird",
-	      "pt": "A ação a ser executada se o seletor não for encontrado"
+        "en": "The action to execute if false",
+        "da": "Handlingen, der skal udføres, hvis falsk",
+        "de": "Die Aktion, die ausgeführt werden soll, wenn falsch",
+        "pt": "A ação a ser executada se for falsa"
     },
     "SELECTOR_CLICK_HELP": {
         "en": "CSS selector that points to the DOM node that should be clicked",
@@ -977,6 +977,108 @@ const translations = {
         "da": "Skjul istedet for at bruge billed i billed",
         "de": "Ausblenden statt Bild-in-Bild verwenden",
         "pt": "Ocultar em vez de usar Picture In Picture",
+    },
+    "IF_ALLOW_ALL_ACTION": {
+        "en": "IfAllowAllAction",
+        "da": "IfAllowAllHandling",
+        "de": "IfAllowAllAktion",
+        "pt": "IfAllowAllAction",
+    },
+    "DETECTOR_DESCRIPTION": {
+        "en": "Used to detect the presence of a CMP",
+        "da": "Bruges til at detektere tilstedeværelsen af en CMP",
+        "de": "Wird verwendet, um das Vorhandensein eines CMP zu erkennen",
+        "pt": "Usado para detectar a presença de um CMP"
+    },
+    "CSS_MATCHER_DESCRIPTION": {
+        "en": "Matches if the css selector is found",
+        "da": "Matcher, hvis css-vælgeren er fundet",
+        "de": "Stimmt überein, wenn der CSS-Selektor gefunden wird",
+        "pt": "Corresponde se o seletor css for encontrado"
+    },
+    "CHECKBOX_MATCHER_DESCRIPTION": {
+        "en": "Matches if the checkbox is found, and checked",
+        "da": "Matcher, hvis afkrydsningsfeltet er fundet og markeret",
+        "de": "Stimmt überein, wenn das Kontrollkästchen gefunden und aktiviert wird",
+        "pt": "Corresponde se a caixa de seleção for encontrada e marcada"
+    },
+    "CLICK_ACTION_DESCRIPTION": {
+        "en": "Clicks the element found by the css selector",
+        "da": "Klik på elementet fundet af css-vælgeren",
+        "de": "Klickt auf das vom CSS-Selektor gefundene Element",
+        "pt": "Clica no elemento encontrado pelo seletor css"
+    },
+    "CONSENT_ACTION_DESCRIPTION": {
+        "en": "Handles consent based on users choice",
+        "da": "Håndterer samtykke baseret på brugernes valg",
+        "de": "Verarbeitet die Zustimmung basierend auf der Wahl des Benutzers",
+        "pt": "Lida com o consentimento com base na escolha dos usuários"
+    },
+    "LIST_ACTION_DESCRIPTION": {
+        "en": "Allows multiple actions to be run after each other",
+        "da": "Tillader, at flere handlinger køres efter hinanden",
+        "de": "Ermöglicht die Ausführung mehrerer Aktionen nacheinander",
+        "pt": "Permite que várias ações sejam executadas uma após a outra"
+    },
+    "WAIT_CSS_ACTION_DESCRIPTION": {
+        "en": "Waits until a css selector is found",
+        "da": "Venter indtil en css-vælger er fundet",
+        "de": "Wartet, bis ein CSS-Selektor gefunden wird",
+        "pt": "Aguarda até que um seletor css seja encontrado"
+    },
+    "IF_CSS_ACTION_DESCRIPTION": {
+        "en": "True if the css selector can be found, false otherwise",
+        "da": "Sandt, hvis css-vælgeren kan findes, ellers falsk",
+        "de": "Wahr, wenn der CSS-Selektor gefunden werden kann, andernfalls falsch",
+        "pt": "True se o seletor css puder ser encontrado, false caso contrário"
+    },
+    "IF_ALLOW_ALL_ACTION_DESCRIPTION": {
+        "en": "True, if the user has all consents allowed, false otherwise",
+        "da": "Sandt, hvis brugeren har alle samtykker tilladt, falsk ellers",
+        "de": "Wahr, wenn dem Benutzer alle Einwilligungen erlaubt sind, andernfalls falsch",
+        "pt": "Verdadeiro, se o usuário tiver todos os consentimentos permitidos, falso caso contrário"
+    },
+    "FOR_EACH_ACTION_DESCRIPTION": {
+        "en": "Runs an action for each selected element",
+        "da": "Kører en handling for hvert valgte element",
+        "de": "Führt eine Aktion für jedes ausgewählte Element aus",
+        "pt": "Executa uma ação para cada elemento selecionado"
+    },
+    "SLIDE_ACTION_DESCRIPTION": {
+        "en": "Simulates interacting with a slider",
+        "da": "Simulerer interaktion med en slider",
+        "de": "Simuliert die Interaktion mit einem Schieberegler",
+        "pt": "Simula a interação com um controle deslizante"
+    },
+    "CLOSE_ACTION_DESCRIPTION": {
+        "en": "Closes the current window/tab",
+        "da": "Lukker det aktuelle vindue/faneblad",
+        "de": "Schließt das aktuelle Fenster/Tab",
+        "pt": "Fecha a janela/guia atual"
+    },
+    "HIDE_ACTION_DESCRIPTION": {
+        "en": "Hides the element found with the given css selector.",
+        "da": "Skjuler elementet fundet med den givne css-vælger.",
+        "de": "Blendet das Element aus, das mit dem angegebenen CSS-Selektor gefunden wurde.",
+        "pt": "Oculta o elemento encontrado com o seletor css fornecido."
+    },
+    "WAIT_ACTION_DESCRIPTION": {
+        "en": "Waits a given amount of time before continuing",
+        "da": "Venter et givet stykke tid, før der fortsættes",
+        "de": "Wartet eine bestimmte Zeit, bevor fortgefahren wird",
+        "pt": "Aguarda um determinado período de tempo antes de continuar"
+    },
+    "CONSENT_DESCRIPTION": {
+        "en": "Used to handle consent, inside a ConsentAction",
+        "da": "Bruges til at håndtere samtykke inde i en ConsentHandling",
+        "de": "Wird verwendet, um die Zustimmung innerhalb einer ConsentAction zu verarbeiten",
+        "pt": "Usado para lidar com o consentimento, dentro de um ConsentAction"
+    },
+    "DOM_SELECTOR_DESCRIPTION": {
+        "en": "A css selector, with filters",
+        "da": "En css-vælger med filtre",
+        "de": "Ein CSS-Selektor mit Filtern",
+        "pt": "Um seletor css, com filtros"
     }
 };
 

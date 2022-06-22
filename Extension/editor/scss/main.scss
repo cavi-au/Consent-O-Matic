@@ -51,6 +51,23 @@ body {
     .toolbox [data-type] {
         padding: 0.5em;
         cursor: grab;
+
+        .help {
+            position: absolute;
+            display: none;
+            background: white;
+            border: 1px solid black;
+            max-width: 15em;
+            padding: 0.5em;
+            z-index: 1000;
+            pointer-events: none;
+            left: 1em;
+            top: 2em;
+        } 
+        
+        &:hover .help {
+            display: block;
+        }
     }
 }
 
@@ -108,7 +125,7 @@ label, .label {
         max-width: 15em;
         padding: 0.5em;
         z-index: 1000;
-	pointer-events: none;
+	    pointer-events: none;
     } 
     
     &:hover .help {
@@ -222,10 +239,6 @@ label, .label {
     }
 }
 
-
-
-
-
 div.step1, div.step2, div.step3, div.step4 {
     display: none;
 }
@@ -257,6 +270,10 @@ div[data-plug]:empty {
     position: absolute;
     top: 0;
     left: 0;
+
+    .help {
+        display: none;
+    }
 }
 
 .step3 .rules {

@@ -54,6 +54,21 @@ body {
   padding: 0.5em;
   cursor: grab;
 }
+.menu .toolbox [data-type] .help {
+  position: absolute;
+  display: none;
+  background: white;
+  border: 1px solid black;
+  max-width: 15em;
+  padding: 0.5em;
+  z-index: 1000;
+  pointer-events: none;
+  left: 1em;
+  top: 2em;
+}
+.menu .toolbox [data-type]:hover .help {
+  display: block;
+}
 
 .loader {
   display: flex;
@@ -246,6 +261,9 @@ div[data-plug]:empty {
   position: absolute;
   top: 0;
   left: 0;
+}
+.draggable-clone .help {
+  display: none;
 }
 
 .step3 .rules {

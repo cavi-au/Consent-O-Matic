@@ -10,6 +10,8 @@ class ConsentEngine {
 
         this.triedCMPs = new Set();
 
+        this.numClicks = 0;
+
         Object.keys(config).forEach((key) => {
             try {
                 self.cmps.push(new CMP(key, config[key]));
@@ -36,6 +38,10 @@ class ConsentEngine {
         this.handleMutations([]);
 
         this.startStopTimeout();
+    }
+
+    registerClick() {
+        this.numClicks++;
     }
 
     startStopTimeout() {
@@ -118,7 +124,7 @@ class ConsentEngine {
                             self.handleMutations([]);
                         } else {
                             try {
-                                let clicks = 0;
+                                self.numClicks = 0;
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
                                     self.showProgressDialog("Handling " + cmp.name + "...");
@@ -143,7 +149,7 @@ class ConsentEngine {
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
                                 }
-                                clicks += await cmp.runMethod("OPEN_OPTIONS");
+                                await cmp.runMethod("OPEN_OPTIONS");
                                 self.completedSteps += cmp.getNumStepsForMethod("OPEN_OPTIONS");
                                 self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
@@ -165,7 +171,7 @@ class ConsentEngine {
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupCollapsed(cmp.name + " - DO_CONSENT");
                                 }
-                                clicks += await cmp.runMethod("DO_CONSENT", self.consentTypes);
+                                await cmp.runMethod("DO_CONSENT", self.consentTypes);
                                 self.completedSteps += cmp.getNumStepsForMethod("DO_CONSENT");
                                 self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
@@ -176,22 +182,22 @@ class ConsentEngine {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
-                                    clicks += await cmp.runMethod("SAVE_CONSENT");
+                                    await cmp.runMethod("SAVE_CONSENT");
                                     self.completedSteps += cmp.getNumStepsForMethod("SAVE_CONSENT");
                                     self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
                                 }
-                                if (!(clicks > 0)) {
-                                    clicks = 0; // Catch-all for NaN, negative numbers etc.
+                                if (!(self.numClicks > 0)) {
                                     if (ConsentEngine.debugValues.debugLog) {
-                                        console.log("Consent-O-Matic click count was 0 for CMP:", cmp.name);
+                                        console.log("Consent-O-Matic click count was 0 for CMP:", self.numClicks, cmp.name);
                                     }
+                                    self.numClicks = 0; // Catch-all for NaN, negative numbers etc.
                                 }
                                 self.handledCallback({
                                     cmpName: cmp.name,
-                                    clicks: clicks
+                                    clicks: self.numClicks
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
