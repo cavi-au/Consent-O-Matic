@@ -1,31 +1,35 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust_pcpanel": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "childFilter": {
-                            "target": {
-                                "selector": ".otPcPanel, .otPcCenter"
-                            }
-                        },
-                        "selector": "#onetrust-consent-sdk"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": ".otPcPanel, .otPcCenter"
+                                }
+                            },
+                            "selector": "#onetrust-consent-sdk"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "childFilter": {
-                            "target": {
-                                "selector": ".otPcPanel, .otPcCenter",
-                                "displayFilter": true
-                            }
-                        },
-                        "selector": "#onetrust-consent-sdk"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": ".otPcPanel, .otPcCenter",
+                                    "displayFilter": true
+                                }
+                            },
+                            "selector": "#onetrust-consent-sdk"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -364,7 +368,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Develop and improve products"
+                                            "textFilter": [
+                                                "Develop and improve products"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -391,7 +397,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Apply market research to generate audience insights"
+                                            "textFilter": [
+                                                "Apply market research to generate audience insights"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -418,7 +426,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Create a personalised content profile"
+                                            "textFilter": [
+                                                "Create a personalised content profile"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -507,7 +517,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Measure ad performance"
+                                            "textFilter": [
+                                                "Measure ad performance"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -534,7 +546,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Content measurement, audience insights, and product development."
+                                            "textFilter": [
+                                                "Content measurement, audience insights, and product development."
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -561,7 +575,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": "Recommended Cookies"
+                                            "textFilter": [
+                                                "Recommended Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -643,7 +659,13 @@
                         {
                             "type": "hide",
                             "target": {
-                                "selector": "#onetrust-consent-sdk"
+                                "selector": "#onetrust-pc-sdk"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".onetrust-pc-dark-filter"
                             }
                         }
                     ]

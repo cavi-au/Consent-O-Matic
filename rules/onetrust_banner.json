@@ -1,21 +1,25 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust_banner": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#onetrust-banner-sdk, #cookie-consent-wrapper"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#onetrust-banner-sdk, #cookie-consent-wrapper"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#onetrust-banner-sdk, #cookie-consent-preferences",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#onetrust-banner-sdk, #cookie-consent-preferences",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -35,6 +39,14 @@
                 "action": {
                     "type": "list",
                     "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#onetrust-banner-sdk"
+                            },
+                            "hideFromDetection": true,
+                            "forceHide": true
+                        },
                         {
                             "type": "click",
                             "target": {

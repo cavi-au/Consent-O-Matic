@@ -1,31 +1,35 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust_pctab": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "childFilter": {
-                            "target": {
-                                "selector": ".otPcTab"
-                            }
-                        },
-                        "selector": "#onetrust-consent-sdk"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": ".otPcTab"
+                                }
+                            },
+                            "selector": "#onetrust-consent-sdk"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "childFilter": {
-                            "target": {
-                                "selector": ".otPcTab",
-                                "displayFilter": true
-                            }
-                        },
-                        "selector": "#onetrust-consent-sdk"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "childFilter": {
+                                "target": {
+                                    "selector": ".otPcTab",
+                                    "displayFilter": true
+                                }
+                            },
+                            "selector": "#onetrust-consent-sdk"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -232,7 +236,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
-                                    "textFilter": "Personlig tilpasning cookies"
+                                    "textFilter": [
+                                        "Personlig tilpasning cookies"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -289,7 +295,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
-                                    "textFilter": "Site monitoring cookies"
+                                    "textFilter": [
+                                        "Site monitoring cookies"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -316,7 +324,9 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
-                                    "textFilter": "Third-party privacy enhanced cookies"
+                                    "textFilter": [
+                                        "Third-party privacy enhanced cookies"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -360,7 +370,13 @@
                         {
                             "type": "hide",
                             "target": {
-                                "selector": "#onetrust-consent-sdk"
+                                "selector": "#onetrust-pc-sdk"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".onetrust-pc-dark-filter"
                             }
                         }
                     ]

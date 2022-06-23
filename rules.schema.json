@@ -217,7 +217,9 @@
             "properties": {
                 "type": {"const": "hide"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
-                "parent": {"$ref": "#/$defs/DOMSelection"}
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "hideFromDetection": {"type": "boolean"},
+                "forceHide": {"type": "boolean"}
             }
         },
         "CloseAction": {

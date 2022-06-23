@@ -63,6 +63,10 @@ class Tools {
 
         if (options.displayFilter != null) {
             possibleTargets = possibleTargets.filter((possibleTarget) => {
+                if(possibleTarget.matches(".ConsentOMatic-CMP-NoDetect")) {
+                    return !options.displayFilter;
+                }
+
                 if(options.displayFilter) {
                     //We should be displayed
                     return possibleTarget.offsetHeight !== 0;
