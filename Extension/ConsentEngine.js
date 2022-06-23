@@ -11,6 +11,7 @@ class ConsentEngine {
         this.triedCMPs = new Set();
 
         this.numClicks = 0;
+        this.pipEnabled = false;
 
         Object.keys(config).forEach((key) => {
             try {
@@ -38,6 +39,13 @@ class ConsentEngine {
         this.handleMutations([]);
 
         this.startStopTimeout();
+    }
+
+    enablePip() {
+        this.pipEnabled = true;
+        if(this.modal != null) {
+            this.modal.classList.add("ConsentOMatic-PIP")
+        }
     }
 
     registerClick() {
@@ -202,6 +210,7 @@ class ConsentEngine {
                                     }
                                     self.numClicks = 0; // Catch-all for NaN, negative numbers etc.
                                 }
+
                                 self.handledCallback({
                                     cmpName: cmp.name,
                                     clicks: self.numClicks
@@ -211,8 +220,8 @@ class ConsentEngine {
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if(ConsentEngine.debugValues.dontHideProgressDialog === false) {
-                                    cmp.unHideAll();
                                     cmp.stopObservers();
+                                    cmp.unHideAll();
                                     self.hideProgressDialog();
                                 }
                             }

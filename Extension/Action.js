@@ -46,8 +46,12 @@ class Action {
         if (this.config.timeout != null) {
             return this.config.timeout;
         } else {
+            let pipEnabled = ConsentEngine.debugValues.skipHideMethod === false && ConsentEngine.debugValues.hideInsteadOfPIP === false;
+
             if (ConsentEngine.debugValues.clickDelay) {
-                return 250;
+                return 125;
+            } else if(ConsentEngine.singleton.pipEnabled) {
+                return 125;
             } else {
                 return 0;
             }
@@ -151,22 +155,41 @@ class ClickAction extends Action {
         let result = Tools.find(this.config);
 
         if (result.target != null) {
-            let pipEnabled = ConsentEngine.debugValues.skipHideMethod === false && ConsentEngine.debugValues.hideInsteadOfPIP === false;
-            console.log("Pip Enabled:", pipEnabled);
-            let pipScroll = false;
-            if(pipEnabled) {
+            if(ConsentEngine.singleton.pipEnabled) {
                 pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
-    
-                console.log("PipScroll:", pipScroll, result.target, result.target.closest(".ConsentOMatic-CMP-PIP"));
             }
     
             if (ConsentEngine.debugValues.clickDelay || pipScroll) {
+                //Wait for any auto scroll to finish
+                let scrollPromise = new Promise((resolve)=>{
+                    let scrollTimeout = null;
+                    
+                    function myTimeout() {
+                        scrollTimeout = setTimeout(()=>{
+                            window.removeEventListener("scroll", myScroll);
+                            resolve();
+                        }, 25);
+                    }
+
+                    function myScroll() {
+                        clearTimeout(scrollTimeout);
+                        myTimeout();
+                    }
+
+                    myTimeout();
+                    window.addEventListener('scroll', myScroll);
+                });
+
                 result.target.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                     inline: "center"
                 });
+
+                await scrollPromise;
             }
+
+            await this.waitTimeout(this.timeout);
 
             if (ConsentEngine.debugValues.debugClicks) {
                 console.log("Clicking: [openInTab: " + this.config.openInTab + "]", result.target);
@@ -182,6 +205,7 @@ class ClickAction extends Action {
             } else {
                 result.target.click();
             }
+
             ConsentEngine.singleton.registerClick();
         }
 
@@ -407,6 +431,7 @@ class HideAction extends Action {
             if(ConsentEngine.debugValues.hideInsteadOfPIP || this.config.forceHide === true) {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
+                ConsentEngine.singleton.enablePip();
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
                 
                 function setStyles() {
