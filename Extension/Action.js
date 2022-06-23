@@ -155,6 +155,7 @@ class ClickAction extends Action {
         let result = Tools.find(this.config);
 
         if (result.target != null) {
+            let pipScroll = false;
             if(ConsentEngine.singleton.pipEnabled) {
                 pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
             }
