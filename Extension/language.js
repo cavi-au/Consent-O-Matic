@@ -1133,9 +1133,11 @@ class Language {
                 }
             }
         } else {
-            console.groupCollapsed("Unknown translation key:", key);
-            console.trace();
-            console.groupEnd();
+            if(ConsentEngine.debugValues.debugLog) {
+                console.groupCollapsed("Unknown translation key:", key);
+                console.trace();
+                console.groupEnd();
+            }
         }
 
         if(subs != null && Array.isArray(subs)) {

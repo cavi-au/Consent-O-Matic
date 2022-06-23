@@ -160,7 +160,9 @@ class ClickAction extends Action {
                 pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
             }
     
-            if (ConsentEngine.debugValues.clickDelay || pipScroll) {
+            let isShowing = result.target.offsetHeight !== 0;
+
+            if (isShowing && (ConsentEngine.debugValues.clickDelay || pipScroll)) {
                 //Wait for any auto scroll to finish
                 let scrollPromise = new Promise((resolve)=>{
                     let scrollTimeout = null;
@@ -190,7 +192,9 @@ class ClickAction extends Action {
                 await scrollPromise;
             }
 
-            await this.waitTimeout(this.timeout);
+            if(isShowing) {
+                await this.waitTimeout(this.timeout);
+            }
 
             if (ConsentEngine.debugValues.debugClicks) {
                 console.log("Clicking: [openInTab: " + this.config.openInTab + "]", result.target);
@@ -208,9 +212,11 @@ class ClickAction extends Action {
             }
 
             ConsentEngine.singleton.registerClick();
-        }
 
-        await this.waitTimeout(this.timeout);
+            if(isShowing) {
+                await this.waitTimeout(this.timeout);
+            }
+        }
     }
 
     getNumSteps() {
@@ -449,6 +455,11 @@ class HideAction extends Action {
                         let targetWidth = result.target.offsetWidth;
                         let targetHeight = result.target.offsetHeight;
     
+                        if(result.target.offsetHeight === 0) {
+                            result.target.style.setProperty("height", "100%", "important");
+                            targetHeight = result.target.offsetHeight;
+                        }
+
                         let widthScale = width / targetWidth;
                         let heightScale = height / targetHeight;
     
