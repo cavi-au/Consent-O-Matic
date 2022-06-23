@@ -263,7 +263,7 @@ class ConsentEngine {
         document.body.appendChild(this.modal);
         this.modal.appendChild(this.dialog);
         setTimeout(() => {
-            this.dialog.classList.add("ConsentOMatic-Progress-Started");
+            this.modal.classList.add("ConsentOMatic-Progress-Started");
         }, 0);
     }
 
@@ -280,7 +280,6 @@ class ConsentEngine {
             console.log("Hiding progress...");
         }
         this.modal.classList.add("ConsentOMatic-Progress-Complete");
-        this.dialog.classList.add("ConsentOMatic-Progress-Complete");
         this.dialogTimeoutId = setTimeout(() => {
             self.modal.remove();
             self.dialog.remove();

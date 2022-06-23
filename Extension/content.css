@@ -33,13 +33,22 @@
     position: absolute;
     width: calc(min(25vw, 20rem));
     height: 12rem;
-    background: #00309a;
-    opacity: 0.4;
+    background: rgba(0,48,154,0.2);
+    box-sizing: border-box;
     bottom: calc(4rem);
     right: 0;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #00008b12;
+    border-top: 1px solid #00008b12;
+    border-right: 1px solid #00008b12;
+    transition: transform 0.25s ease-out;
+    transform-origin: center bottom;
+    transform: scaleY(0.1);
+}
+.ConsentOMatic-Progress-Started .ConsentOMatic-Progres-Preview {
+    transform: scaleY(1);
+}
+.ConsentOMatic-Progress-Complete .ConsentOMatic-Progres-Preview {
+    transform: scaleY(0);
 }
 
 .ConsentOMatic-Progress-Dialog {
@@ -107,16 +116,16 @@
     transition: background 1s ease-in-out;
     background: transparent;
 }
-.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Started {
+.ConsentOMatic-Progress-Started .ConsentOMatic-Progress-Dialog {
     opacity: 1;
 }
-.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Started::backdrop {
+.ConsentOMatic-Progress-Started .ConsentOMatic-Progress-Dialog::backdrop {
     background: rgba(0,20,100,0.25);
 }
-.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Complete {
+.ConsentOMatic-Progress-Complete .ConsentOMatic-Progress-Dialog {
     opacity: 0;
 }
-.ConsentOMatic-Progress-Dialog.ConsentOMatic-Progress-Complete::backdrop {
+.ConsentOMatic-Progress-Complete .ConsentOMatic-Progress-Dialog::backdrop {
     background: transparent !important;
 }
 
