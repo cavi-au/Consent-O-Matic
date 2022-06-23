@@ -151,7 +151,7 @@
                     "actions": [
                         {
                             "type": "wait",
-                            "waitTime": 250
+                            "waitTime": 500
                         },
                         {
                             "type": "click",
