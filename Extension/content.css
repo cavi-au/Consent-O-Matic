@@ -40,11 +40,11 @@
     border-left: 1px solid #00008b12;
     border-top: 1px solid #00008b12;
     border-right: 1px solid #00008b12;
-    transition: transform 0.25s ease-out;
+    transition: transform 0.3s ease-out;
     transform-origin: center bottom;
-    transform: scaleY(0.1);
+    transform: scaleY(0);
 }
-.ConsentOMatic-Progress-Started .ConsentOMatic-Progres-Preview {
+.ConsentOMatic-PIP .ConsentOMatic-Progres-Preview {
     transform: scaleY(1);
 }
 .ConsentOMatic-Progress-Complete .ConsentOMatic-Progres-Preview {

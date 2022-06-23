@@ -461,7 +461,7 @@ class HideAction extends Action {
                     result.target.style.setProperty("transform-origin", "right bottom", "important");
                     result.target.style.setProperty("transition", "transform 0.15s ease-in-out", "important");
                     result.target.style.setProperty("contain", "paint", "important");
-                    result.target.style.setProperty("border", "1px solid blue", "important");
+                    result.target.style.setProperty("border", "none", "important");
                     result.target.style.setProperty("box-shadow", "none", "important");
                     result.target.style.setProperty("z-index", "2147483647", "important");
                 }
