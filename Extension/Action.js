@@ -453,6 +453,7 @@ class HideAction extends Action {
     
                     //console.log("Setting styles:", result.target, scale, preview != null);
 
+                    result.target.style.setProperty("position", "fixed", "important");
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
                     result.target.style.setProperty("right",  "2px", "important");
@@ -464,6 +465,7 @@ class HideAction extends Action {
                     result.target.style.setProperty("border", "none", "important");
                     result.target.style.setProperty("box-shadow", "none", "important");
                     result.target.style.setProperty("z-index", "2147483647", "important");
+                    result.target.style.setProperty("animation", "none", "important");
                 }
 
                 setStyles();
