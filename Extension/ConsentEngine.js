@@ -120,6 +120,12 @@ class ConsentEngine {
                             if (ConsentEngine.debugValues.debugLog) {
                                 console.groupEnd();
                             }
+                            if (!ConsentEngine.debugValues.skipHideMethod) {
+                                if(ConsentEngine.debugValues.dontHideProgressDialog === false) {
+                                    cmp.stopObservers();
+                                }
+                            }
+                            
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
@@ -141,6 +147,7 @@ class ConsentEngine {
                                     await cmp.runMethod("HIDE_CMP");
                                     self.completedSteps += cmp.getNumStepsForMethod("HIDE_CMP");
                                     self.updateProgress();
+
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -205,6 +212,7 @@ class ConsentEngine {
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if(ConsentEngine.debugValues.dontHideProgressDialog === false) {
                                     cmp.unHideAll();
+                                    cmp.stopObservers();
                                     self.hideProgressDialog();
                                 }
                             }

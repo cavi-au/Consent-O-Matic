@@ -1079,6 +1079,30 @@ const translations = {
         "da": "En css-vælger med filtre",
         "de": "Ein CSS-Selektor mit Filtern",
         "pt": "Um seletor css, com filtros"
+    },
+    "HIDE_FROM_DETECTION": {
+        "en": "Hide from detection",
+        "da": "Skul fra at blive opdaget",
+        "de": "Vor Entdeckung verstecken",
+        "pt": "Ocultar da detecção"
+    },
+    "HIDE_FROM_DETECTION_HELP": {
+        "en": "Make sure this element and its children, is never detected by ConsentOMatic",
+        "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af ConsentOMatic",
+        "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von ConsentOMatic erkannt werden",
+        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo ConsentOMatic"
+    },
+    "FORCE_HIDE": {
+        "en": "Force hide",
+        "da": "Tving skjul",
+        "de": "Ausblenden erzwingen",
+        "pt": "Forçar ocultação"
+    },
+    "FORCE_HIDE_HELP": {
+        "en": "Force hiding this element, instead of using picture in picture",
+        "da": "Tving at dette element bliver skjult i stedet for at bruge billede i billede",
+        "de": "Erzwingen Sie das Ausblenden dieses Elements, anstatt Bild in Bild zu verwenden",
+        "pt": "Forçar a ocultação deste elemento, em vez de usar imagem em imagem"
     }
 };
 

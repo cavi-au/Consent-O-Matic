@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust_hidden": {
         "detectors": [
             {
@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".optanon-toggle-display:not([class*='PageFooterdesktop']"
+                            "selector": ".optanon-toggle-display:not([data-m*='footer_privacysettings']):not([class*='PageFooterdesktop'])"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".optanon-toggle-display:not([class*='PageFooterdesktop']",
+                            "selector": ".optanon-toggle-display:not([data-m*='footer_privacysettings']):not([class*='PageFooterdesktop'])",
                             "displayFilter": true
                         }
                     }

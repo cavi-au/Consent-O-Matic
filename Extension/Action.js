@@ -151,7 +151,16 @@ class ClickAction extends Action {
         let result = Tools.find(this.config);
 
         if (result.target != null) {
-            if (ConsentEngine.debugValues.clickDelay) {
+            let pipEnabled = ConsentEngine.debugValues.skipHideMethod === false && ConsentEngine.debugValues.hideInsteadOfPIP === false;
+            console.log("Pip Enabled:", pipEnabled);
+            let pipScroll = false;
+            if(pipEnabled) {
+                pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
+    
+                console.log("PipScroll:", pipScroll, result.target, result.target.closest(".ConsentOMatic-CMP-PIP"));
+            }
+    
+            if (ConsentEngine.debugValues.clickDelay || pipScroll) {
                 result.target.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
@@ -163,7 +172,7 @@ class ClickAction extends Action {
                 console.log("Clicking: [openInTab: " + this.config.openInTab + "]", result.target);
             }
 
-            if (ConsentEngine.debugValues.clickDelay) {
+            if (ConsentEngine.debugValues.clickDelay || pipScroll) {
                 result.target.focus({ preventScroll: true });
             }
 
@@ -381,21 +390,27 @@ class HideAction extends Action {
     }
 
     async execute(param) {
+        if(ConsentEngine.debugValues.skipHideMethod === true) {
+            return;
+        }
+
         let self = this;
         let result = Tools.find(this.config);
 
         if (result.target != null) {
             this.cmp.hiddenTargets.push(result.target);
 
-            if(ConsentEngine.debugValues.hideInsteadOfPIP) {
+            if(this.config.hideFromDetection === true) {
+                result.target.classList.add("ConsentOMatic-CMP-NoDetect");
+            }
+
+            if(ConsentEngine.debugValues.hideInsteadOfPIP || this.config.forceHide === true) {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
                 
-                let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
                 function setStyles() {
-                    console.log("Setting styles:", result.target);
-
+                    let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
                     let scale = 0.25;
                     if(preview != null) {
                         let width = preview.offsetWidth - 4;
@@ -410,6 +425,8 @@ class HideAction extends Action {
                         scale = Math.min(widthScale, heightScale);
                     }
     
+                    //console.log("Setting styles:", result.target, scale, preview != null);
+
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
                     result.target.style.setProperty("right",  "2px", "important");
@@ -443,6 +460,18 @@ class HideAction extends Action {
                     entriesSeen.clear();
                     observer.observe(result.target);
                 }
+
+                this.cmp.observers.push(observer);
+
+                let observer2 = new MutationObserver((mutations)=>{
+                    setStyles();
+                });
+
+                this.cmp.observers.push(observer2);
+                observer2.observe(result.target, {
+                    attributes: true,
+                    attributeFilter: ["style"]
+                });
             }
         }
     }

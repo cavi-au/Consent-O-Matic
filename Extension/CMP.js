@@ -18,6 +18,13 @@ class CMP {
         });
 
         this.hiddenTargets = [];
+        this.observers = [];
+    }
+
+    stopObservers() {
+        this.observers.forEach((observer)=>{
+            observer.disconnect();
+        });
     }
 
     unHideAll() {
