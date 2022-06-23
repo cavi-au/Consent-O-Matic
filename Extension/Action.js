@@ -435,6 +435,10 @@ class HideAction extends Action {
                 ConsentEngine.singleton.enablePip();
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
                 
+                if(result.target.savedStyles == null) {
+                    result.target.savedStyles = result.target.getAttribute("style");
+                }
+
                 function setStyles() {
                     let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
                     let scale = 0.25;

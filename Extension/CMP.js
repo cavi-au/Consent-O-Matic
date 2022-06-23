@@ -30,6 +30,9 @@ class CMP {
     unHideAll() {
         this.hiddenTargets.forEach((target)=>{
             target.classList.remove("ConsentOMatic-CMP-Hider");
+            if(target.classList.contains("ConsentOMatic-CMP-PIP")) {
+                target.setAttribute("style", target.savedStyles);
+            }
             target.classList.remove("ConsentOMatic-CMP-PIP");
         });
     }
