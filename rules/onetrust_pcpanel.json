@@ -86,7 +86,8 @@
                                                 "Functional Cookies",
                                                 "Functionality Cookies",
                                                 "Funktionelle Cookies",
-                                                "Udvid funktionalitet"
+                                                "Udvid funktionalitet",
+                                                "Extend functionality"
                                             ]
                                         },
                                         "trueAction": {
@@ -151,7 +152,8 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Performance Cookies",
-                                                "Measure content performance"
+                                                "Measure content performance",
+                                                "Measure performance"
                                             ]
                                         },
                                         "trueAction": {
