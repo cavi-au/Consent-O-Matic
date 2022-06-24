@@ -476,6 +476,22 @@ class HideAction extends Action {
     
                     //console.log("Setting styles:", result.target, scale, preview != null);
 
+                    let ourStyles = [
+                        "position",
+                        "left",
+                        "top",
+                        "right",
+                        "bottom",
+                        "transform",
+                        "transform-origin",
+                        "transition",
+                        "contain",
+                        "border",
+                        "box-shadow",
+                        "z-index",
+                        "animation"
+                    ];
+
                     result.target.style.setProperty("position", "fixed", "important");
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
