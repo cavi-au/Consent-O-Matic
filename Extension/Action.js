@@ -509,6 +509,12 @@ class HideAction extends Action {
 
                 setStyles();
 
+                await new Promise((resolve)=>{
+                    requestAnimationFrame(()=>{
+                        resolve();
+                    });
+                });
+
                 let entriesSeen = new Set();
 
                 let observer = new ResizeObserver((entries)=>{
