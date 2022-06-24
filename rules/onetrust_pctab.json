@@ -237,7 +237,8 @@
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
-                                        "Personlig tilpasning cookies"
+                                        "Personlig tilpasning cookies",
+                                        "Personalisation Cookies"
                                     ]
                                 },
                                 "trueAction": {
@@ -256,7 +257,7 @@
                                                     "selector": ".ot-grp-hdr1 input, .group-toggle input"
                                                 }
                                             },
-                                            "type": "X"
+                                            "type": "E"
                                         }
                                     ]
                                 }
