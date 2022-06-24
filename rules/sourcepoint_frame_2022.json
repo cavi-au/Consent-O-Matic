@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "sourcepoint_frame_2022": {
         "detectors": [
             {
@@ -23,6 +23,22 @@
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".message.type-modal"
+                                    }
+                                },
+                                "selector": ".message-container"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
@@ -30,7 +46,9 @@
                     "type": "click",
                     "target": {
                         "selector": ".message-container .message.type-modal button",
-                        "textFilter": "Manage Cookies"
+                        "textFilter": [
+                            "Manage Cookies"
+                        ]
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -214,7 +232,9 @@
                             "type": "click",
                             "target": {
                                 "selector": ".message-container .page-action",
-                                "textFilter": "Legitimate Interest"
+                                "textFilter": [
+                                    "Legitimate Interest"
+                                ]
                             }
                         },
                         {
