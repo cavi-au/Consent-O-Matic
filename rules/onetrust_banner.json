@@ -48,6 +48,19 @@
                             "forceHide": true
                         },
                         {
+                            "type": "hide",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "#cookie-consent-preferences"
+                                    }
+                                },
+                                "selector": "#cookie-consent-wrapper"
+                            },
+                            "hideFromDetection": true,
+                            "forceHide": true
+                        },
+                        {
                             "type": "click",
                             "target": {
                                 "selector": "#onetrust-pc-btn-handler, #cookie-consent-preferences"
