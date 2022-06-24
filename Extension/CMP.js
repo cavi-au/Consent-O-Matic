@@ -56,12 +56,15 @@ class CMP {
                 let notOurStyles = [];
 
                 styleAttrSplit.forEach((style)=>{
-                    let styleSplit = style.split(":");
-                    let name = styleSplit[0].trim();
-                    let value = styleSplit[1].trim();
+                    style = style.trim();
+                    if(style.length > 0 && style.indexOf(":") !== -1) {
+                        let styleSplit = style.split(":");
+                        let name = styleSplit[0].trim();
+                        let value = styleSplit[1].trim();
 
-                    if(!ourStyles.includes(name)) {
-                        notOurStyles.push({name, value});
+                        if(!ourStyles.includes(name)) {
+                            notOurStyles.push({name, value});
+                        }
                     }
                 });
 
