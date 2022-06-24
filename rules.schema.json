@@ -69,7 +69,8 @@
             "properties": {
                 "type": {"const": "checkbox"},
                 "parent": {"$ref": "#/$defs/DOMSelection"},
-                "target": {"$ref": "#/$defs/DOMSelection"}
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "negated": {"type": "boolean"}
             }
         },
 

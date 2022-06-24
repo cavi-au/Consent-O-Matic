@@ -24,7 +24,10 @@
 
 <template id="matcher_checkbox">
     <div data-type="matcher" data-variant="checkbox" data-fold-name="[[CHECKBOX_MATCHER]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP]]</div></div>
         <div data-plug="domSelector"></div>
+        <div class="label inline">[[NEGATED]]<div class="help">[[NEGATED_CHECKBOX_HELP]]</div></div>
+        <div data-bind="negated"><input type="checkbox" /></div>
     </div>
 </template>
 
