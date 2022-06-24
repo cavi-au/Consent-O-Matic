@@ -1,36 +1,44 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "cookiecontrolcivic": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#ccc-notify .ccc-notify-button",
-                        "displayFilter": true
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ccc-notify .ccc-notify-button",
+                            "displayFilter": true
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#ccc-notify .ccc-notify-button",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ccc-notify .ccc-notify-button",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             },
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#ccc[open]"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ccc[open]"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#ccc[open]"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ccc[open]"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -78,7 +86,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Analytical Cookies"
+                                                    "textFilter": [
+                                                        "Analytical Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -93,7 +103,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Analytical Cookies"
+                                                    "textFilter": [
+                                                        "Analytical Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -111,7 +123,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Marketing Cookies"
+                                                    "textFilter": [
+                                                        "Marketing Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -126,7 +140,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Marketing Cookies"
+                                                    "textFilter": [
+                                                        "Marketing Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -144,7 +160,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Social Sharing Cookies"
+                                                    "textFilter": [
+                                                        "Social Sharing Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -159,7 +177,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Social Sharing Cookies"
+                                                    "textFilter": [
+                                                        "Social Sharing Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -177,7 +197,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Performance"
+                                                    "textFilter": [
+                                                        "Performance"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -192,7 +214,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Performance"
+                                                    "textFilter": [
+                                                        "Performance"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -210,7 +234,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Functionality (incl. social media)"
+                                                    "textFilter": [
+                                                        "Functionality (incl. social media)"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -225,7 +251,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Functionality (incl. social media)"
+                                                    "textFilter": [
+                                                        "Functionality (incl. social media)"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -243,7 +271,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Targeting/Advertising"
+                                                    "textFilter": [
+                                                        "Targeting/Advertising"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -258,7 +288,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Targeting/Advertising"
+                                                    "textFilter": [
+                                                        "Targeting/Advertising"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -276,7 +308,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Google Analytics"
+                                                    "textFilter": [
+                                                        "Google Analytics"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
@@ -291,13 +325,52 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Google Analytics"
+                                                    "textFilter": [
+                                                        "Google Analytics"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#ccc-optional-categories .optional-cookie"
                                         }
                                     },
                                     "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": [
+                                                        "Third party cookies"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": ".optional-cookie-header",
+                                                    "textFilter": [
+                                                        "Third party cookies"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "#ccc-optional-categories .optional-cookie"
+                                        }
+                                    },
+                                    "type": "X"
                                 }
                             ]
                         },
@@ -305,7 +378,9 @@
                             "type": "click",
                             "target": {
                                 "selector": ".optional-cookie button",
-                                "textFilter": "Configure Ad Vendors"
+                                "textFilter": [
+                                    "Configure Ad Vendors"
+                                ]
                             }
                         },
                         {
@@ -330,7 +405,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Information storage and access"
+                                                    "textFilter": [
+                                                        "Information storage and access"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -345,7 +422,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Information storage and access"
+                                                    "textFilter": [
+                                                        "Information storage and access"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -363,7 +442,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Personalisation"
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -378,7 +459,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Personalisation"
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -396,7 +479,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Ad selection, delivery, reporting"
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -411,7 +496,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Ad selection, delivery, reporting"
+                                                    "textFilter": [
+                                                        "Ad selection, delivery, reporting"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -429,7 +516,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Content selection, delivery, reporting"
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -444,7 +533,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Content selection, delivery, reporting"
+                                                    "textFilter": [
+                                                        "Content selection, delivery, reporting"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -462,7 +553,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Measurement"
+                                                    "textFilter": [
+                                                        "Measurement"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
@@ -477,7 +570,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".optional-cookie-header",
-                                                    "textFilter": "Measurement"
+                                                    "textFilter": [
+                                                        "Measurement"
+                                                    ]
                                                 }
                                             },
                                             "selector": "#iab-purposes .optional-cookie"
