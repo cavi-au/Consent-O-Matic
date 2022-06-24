@@ -292,7 +292,6 @@ class ConsentEngine {
         this.modal.appendChild(this.dialog);
 
         this.dialog.addEventListener("click", ()=>{
-            console.log("Unhiding!");
             self.unHideAll();
         });
 
