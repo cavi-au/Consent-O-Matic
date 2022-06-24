@@ -1,22 +1,25 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "onetrust": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#onetrust-banner-sdk",
-                        "displayFilter": true
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#onetrust-banner-sdk",
+                            "displayFilter": true
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#onetrust-banner-sdk",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#onetrust-banner-sdk",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -24,7 +27,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#onetrust-pc-btn-handler, .ot-sdk-show-settings"
+                        "selector": "#onetrust-banner-sdk #onetrust-pc-btn-handler, .ot-sdk-show-settings:not([href])"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -42,7 +45,9 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": ".category-header",
-                                        "textFilter": "Performance Cookies"
+                                        "textFilter": [
+                                            "Performance Cookies"
+                                        ]
                                     }
                                 },
                                 "selector": ".category-item"
@@ -61,7 +66,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Performance Cookies"
+                                                    "textFilter": [
+                                                        "Performance Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": ".category-item"
@@ -76,7 +83,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Performance Cookies"
+                                                    "textFilter": [
+                                                        "Performance Cookies"
+                                                    ]
                                                 }
                                             },
                                             "selector": ".category-item"
@@ -187,7 +196,9 @@
                             },
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Advertising Cookies"
+                                "textFilter": [
+                                    "Advertising Cookies"
+                                ]
                             }
                         },
                         {
@@ -201,7 +212,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Advertising Cookies"
+                                            "textFilter": [
+                                                "Advertising Cookies"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -211,7 +224,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Advertising Cookies"
+                                            "textFilter": [
+                                                "Advertising Cookies"
+                                            ]
                                         }
                                     },
                                     "type": "F"
@@ -225,7 +240,9 @@
                             },
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Social Media"
+                                "textFilter": [
+                                    "Social Media"
+                                ]
                             }
                         },
                         {
@@ -239,7 +256,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Social Media"
+                                            "textFilter": [
+                                                "Social Media"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -249,7 +268,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Social Media"
+                                            "textFilter": [
+                                                "Social Media"
+                                            ]
                                         }
                                     },
                                     "type": "B"
@@ -263,7 +284,9 @@
                             },
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Marketing Cookies"
+                                "textFilter": [
+                                    "Marketing Cookies"
+                                ]
                             }
                         },
                         {
@@ -277,7 +300,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Marketing Cookies"
+                                            "textFilter": [
+                                                "Marketing Cookies"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -287,7 +312,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Marketing Cookies"
+                                            "textFilter": [
+                                                "Marketing Cookies"
+                                            ]
                                         }
                                     },
                                     "type": "E"
@@ -398,7 +425,9 @@
                             },
                             "parent": {
                                 "selector": ".category-item",
-                                "textFilter": "Information storage and access"
+                                "textFilter": [
+                                    "Information storage and access"
+                                ]
                             }
                         },
                         {
@@ -412,7 +441,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Information storage and access"
+                                            "textFilter": [
+                                                "Information storage and access"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -422,7 +453,9 @@
                                         },
                                         "parent": {
                                             "selector": ".category-item",
-                                            "textFilter": "Information storage and access"
+                                            "textFilter": [
+                                                "Information storage and access"
+                                            ]
                                         }
                                     },
                                     "type": "D"
@@ -485,7 +518,9 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": ".category-header",
-                                        "textFilter": "Personalisation"
+                                        "textFilter": [
+                                            "Personalisation"
+                                        ]
                                     }
                                 },
                                 "selector": ".category-item"
@@ -504,7 +539,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Personalisation"
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
                                                 }
                                             },
                                             "selector": ".category-item"
@@ -519,7 +556,9 @@
                                             "childFilter": {
                                                 "target": {
                                                     "selector": ".category-header",
-                                                    "textFilter": "Personalisation"
+                                                    "textFilter": [
+                                                        "Personalisation"
+                                                    ]
                                                 }
                                             },
                                             "selector": ".category-item"
@@ -555,6 +594,9 @@
                     ]
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
