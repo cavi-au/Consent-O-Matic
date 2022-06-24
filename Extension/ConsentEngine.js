@@ -115,6 +115,7 @@ class ConsentEngine {
             let numberOfTries = 10;
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
+                    self.currentCMP = cmp;
                     if (ConsentEngine.debugValues.debugLog) {
                         console.groupEnd();
                         console.log(cmp.name + " - Showing");
@@ -220,6 +221,7 @@ class ConsentEngine {
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if(ConsentEngine.debugValues.dontHideProgressDialog === false) {
+                                    self.currentCMP = null;
                                     cmp.stopObservers();
                                     cmp.unHideAll();
                                     self.hideProgressDialog();
@@ -248,7 +250,16 @@ class ConsentEngine {
         }
     }
 
+    unHideAll() {
+        if(this.currentCMP != null) {
+            this.currentCMP.stopObservers();
+            this.currentCMP.unHideAll();
+        }
+    }
+
     showProgressDialog(text) {
+        const self = this;
+
         if (ConsentEngine.debugValues.debugLog) {
             console.log("Showing progress...");
         }
@@ -279,6 +290,12 @@ class ConsentEngine {
         this.dialog.appendChild(contents);
         document.body.appendChild(this.modal);
         this.modal.appendChild(this.dialog);
+
+        this.dialog.addEventListener("click", ()=>{
+            console.log("Unhiding!");
+            self.unHideAll();
+        });
+
         setTimeout(() => {
             this.modal.classList.add("ConsentOMatic-Progress-Started");
         }, 0);

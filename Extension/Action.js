@@ -16,7 +16,9 @@ class Action {
                 default: throw "Unknown action type: " + config.type;
             }
         } catch (e) {
-            console.error(e);
+            if(ConsentEngine.debugValues.debugLog) {
+                console.error(e);
+            }
             return new NopAction(config, cmp);
         }
     }
@@ -164,6 +166,7 @@ class ClickAction extends Action {
 
             if (isShowing && (ConsentEngine.debugValues.clickDelay || pipScroll)) {
                 //Wait for any auto scroll to finish
+                /*
                 let scrollPromise = new Promise((resolve)=>{
                     let scrollTimeout = null;
                     
@@ -182,6 +185,7 @@ class ClickAction extends Action {
                     myTimeout();
                     window.addEventListener('scroll', myScroll);
                 });
+                */
 
                 result.target.scrollIntoView({
                     behavior: "smooth",
@@ -189,7 +193,7 @@ class ClickAction extends Action {
                     inline: "center"
                 });
 
-                await scrollPromise;
+                //await scrollPromise;
             }
 
             if(isShowing) {
@@ -441,11 +445,15 @@ class HideAction extends Action {
                 ConsentEngine.singleton.enablePip();
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
                 
-                if(result.target.savedStyles == null) {
+                if(typeof result.target.savedStyles === "undefined") {
                     result.target.savedStyles = result.target.getAttribute("style");
                 }
 
                 function setStyles() {
+                    if(!result.target.matches(".ConsentOMatic-CMP-PIP")) {
+                        return;
+                    }
+
                     let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
                     let scale = 0.25;
                     if(preview != null) {

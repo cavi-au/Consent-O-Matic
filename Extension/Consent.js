@@ -37,9 +37,13 @@ class Consent {
             }
         } else {
             if(enabled) {
-                await this.trueAction.execute();
+                if(this.trueAction != null) {
+                    await this.trueAction.execute();
+                }
             } else {
-                await this.falseAction.execute();
+                if(this.falseAction != null) {
+                    await this.falseAction.execute();
+                }
             }
         }
 
