@@ -53,12 +53,7 @@
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
-                                                "Analytics Cookies",
-                                                "Externí analýzy",
-                                                "Analyse Cookies",
-                                                "Statistical Cookies",
-                                                "Mål ydeevne",
-                                                "Måle- og analysecookies"
+                                                "Do Not Sell My Personal Information for NYP Print Subscribers (Offline Third Parties)"
                                             ]
                                         },
                                         "trueAction": {
@@ -69,7 +64,8 @@
                                                         "type": "checkbox",
                                                         "target": {
                                                             "selector": "input.category-switch-handler"
-                                                        }
+                                                        },
+                                                        "negated": true
                                                     },
                                                     "toggleAction": {
                                                         "type": "click",
@@ -77,7 +73,7 @@
                                                             "selector": "input.category-switch-handler"
                                                         }
                                                     },
-                                                    "type": "B"
+                                                    "type": "F"
                                                 }
                                             ]
                                         }
@@ -596,6 +592,40 @@
                                                         }
                                                     },
                                                     "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Analytics Cookies",
+                                                "Externí analýzy",
+                                                "Analyse Cookies",
+                                                "Statistical Cookies",
+                                                "Mål ydeevne",
+                                                "Måle- og analysecookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "B"
                                                 }
                                             ]
                                         }

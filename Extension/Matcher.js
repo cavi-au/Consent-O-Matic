@@ -77,6 +77,12 @@ class CheckboxMatcher extends Matcher {
     matches() {
         let result = Tools.find(this.config);
         
+        if(this.config.negated) {
+            console.log("Negated checkbox");
+
+            return result.target != null && !result.target.checked;
+        }
+
         return result.target != null && result.target.checked;
     }
 }

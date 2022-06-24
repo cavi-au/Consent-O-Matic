@@ -1103,6 +1103,12 @@ const translations = {
         "da": "Tving at dette element bliver skjult i stedet for at bruge billede i billede",
         "de": "Erzwingen Sie das Ausblenden dieses Elements, anstatt Bild in Bild zu verwenden",
         "pt": "Forçar a ocultação deste elemento, em vez de usar imagem em imagem"
+    },
+    "NEGATED_CHECKBOX_HELP": {
+        "en": "If checked, the checkbox count as checked when not checked, and vice versa",
+        "da": "Hvis markeret, tæller afkrydsningsfeltet som markeret, når det ikke er markeret, og omvendt",
+        "de": "Wenn es aktiviert ist, zählt das Kontrollkästchen als aktiviert, wenn es nicht aktiviert ist, und umgekehrt",
+        "pt": "Se marcada, a caixa de seleção conta como marcada quando não marcada e vice-versa"
     }
 };
 
