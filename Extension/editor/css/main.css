@@ -164,6 +164,7 @@ label:hover .help, .label:hover .help {
 [data-bind=detectors] {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin-bottom: 1em;
 }
 [data-bind=detectors] [data-type=detector] {
