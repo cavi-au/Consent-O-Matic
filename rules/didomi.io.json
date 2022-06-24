@@ -44,279 +44,197 @@
                             "waitTime": 50
                         },
                         {
+                            "type": "foreach",
+                            "target": {
+                                "selector": "#didomi-host .didomi-consent-popup-data-processing"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Actively scan device characteristics for identification",
+                                                "Use precise geolocation data"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Create a personalised ads profile",
+                                                "Apply market research to generate audience insights",
+                                                "Measure ad performance",
+                                                "Select basic ads",
+                                                "Select personalised ads",
+                                                "Storage and access to geolocation information for targeted advertising purposes",
+                                                "Offer personalised advertising"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Create a personalised content profile",
+                                                "Measure content performance",
+                                                "Select personalised content",
+                                                "Optimise navigation and suggested content"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Develop and improve products"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Audience measurement and content performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".didomi-consent-popup-view-vendors-list-link"
+                            }
+                        },
+                        {
                             "type": "consent",
                             "consents": [
                                 {
                                     "trueAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-share_whith_others]:last-child"
+                                            "selector": ".didomi-consent-popup-container-click-all .didomi-components-radio .didomi-components-radio__option:nth-child(2)"
                                         }
                                     },
                                     "falseAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-share_whith_others]:first-child"
+                                            "selector": ".didomi-consent-popup-container-click-all .didomi-components-radio .didomi-components-radio__option:nth-child(1)"
                                         }
                                     },
                                     "type": "X"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-cookies]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-cookies]:first-child"
-                                        }
-                                    },
-                                    "type": "D"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-CL-T1Rgm7]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-CL-T1Rgm7]:first-child"
-                                        }
-                                    },
-                                    "type": "E"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-analytics]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-analytics]:first-child"
-                                        }
-                                    },
-                                    "type": "B"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-M9NRHJe3G]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-M9NRHJe3G]:first-child"
-                                        }
-                                    },
-                                    "type": "B"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-advertising_personalization]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-advertising_personalization]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-pub-ciblee]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-pub-ciblee]:first-child"
-                                        },
-                                        "parent": {
-                                            "childFilter": {
-                                                "target": {
-                                                    "selector": "#didomi-purpose-pub-ciblee"
-                                                }
-                                            },
-                                            "selector": ".didomi-consent-popup-data-processing, .didomi-components-accordion-label-container"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-q4zlJqdcD]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-q4zlJqdcD]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-partenaire-cAsDe8jC]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-partenaire-cAsDe8jC]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-p4em9a8m]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-p4em9a8m]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-autres-pub]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-autres-pub]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-reseauxsociaux]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-reseauxsociaux]:first-child"
-                                        }
-                                    },
-                                    "type": "A"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-social_media]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-social_media]:first-child"
-                                        }
-                                    },
-                                    "type": "A"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-content_personalization]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-content_personalization]:first-child"
-                                        }
-                                    },
-                                    "type": "E"
-                                },
-                                {
-                                    "trueAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-ad_delivery]:last-child"
-                                        }
-                                    },
-                                    "falseAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".didomi-components-radio__option[aria-describedby=didomi-purpose-ad_delivery]:first-child"
-                                        }
-                                    },
-                                    "type": "F"
                                 }
                             ]
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "selector": ".didomi-components-radio"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "css",
-                                            "target": {
-                                                "childFilter": {
-                                                    "target": {
-                                                        "selector": ":not(.didomi-components-radio__option--selected)"
-                                                    }
-                                                },
-                                                "selector": "*"
-                                            }
-                                        },
-                                        "trueAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": ":nth-child(2)"
-                                            }
-                                        },
-                                        "falseAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": ":first-child"
-                                            }
-                                        },
-                                        "type": "X"
-                                    }
-                                ]
-                            }
                         }
                     ]
                 },
@@ -336,10 +254,22 @@
             },
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": ".didomi-popup-backdrop"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#didomi-popup"
+                            },
+                            "forceHide": true
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#didomi-consent-popup"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
