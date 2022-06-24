@@ -28,12 +28,53 @@ class CMP {
     }
 
     unHideAll() {
+        let ourStyles = [
+            "position",
+            "left",
+            "top",
+            "right",
+            "bottom",
+            "transform",
+            "transform-origin",
+            "transition",
+            "contain",
+            "border",
+            "box-shadow",
+            "z-index",
+            "animation"
+        ];
+
         this.hiddenTargets.forEach((target)=>{
             target.classList.remove("ConsentOMatic-CMP-Hider");
             target.classList.remove("ConsentOMatic-CMP-PIP");
+
+            //Find styles we have not set
+            let styleAttrSplit = target.getAttribute("style").split(";").filter((style)=>{return style.trim().length > 0});
+
+            let notOurStyles = [];
+
+            styleAttrSplit.forEach((style)=>{
+                let styleSplit = style.split(":");
+                let name = styleSplit[0].trim();
+                let value = styleSplit[1].trim();
+
+                if(!ourStyles.includes(name)) {
+                    notOurStyles.push({name, value});
+                }
+            });
+
+            //Reload saved styles
             if(typeof target.savedStyles !== "undefined") {
+                if(target.savedStyles === null) {
+                    target.removeAttribute("style");
+                }
                 target.setAttribute("style", target.savedStyles);
             }
+
+            //Set styles again, we did not set
+            notOurStyles.forEach(({name, value})=>{
+                target.style.setProperty(name, value);
+            });
         });
     }
 
