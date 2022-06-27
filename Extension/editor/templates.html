@@ -59,6 +59,7 @@
     <div data-type="method">
         <div data-bind="name"></div>
         <div data-bind="action" data-plug="action"></div>
+        <div data-bind="custom" style="display: none"><input type="checkbox" /></div>
     </div>
 </template>
 
@@ -81,6 +82,24 @@
         <div data-plug="domSelector"></div>
         <div class="label">[[ACTION]]<div class="help">[[ACTION_HELP]]</div></div>
         <div data-bind="action" data-plug="action"></div>
+    </div>
+</template>
+
+<template id="action_runrooted">
+    <div data-type="action" data-variant="runrooted" data-fold-name="[[RUN_ROOTED_ACTION]]">
+        <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP_LIST]]</div></div>
+        <div data-plug="domSelector"></div>
+        <div class="label">[[ACTION]]<div class="help">[[ACTION_HELP]]</div></div>
+        <div data-bind="action" data-plug="action"></div>
+        <div class="label">[[IGNORE_OLD_ROOT]]<div class="help">[[IGNORE_OLD_ROOT_HELP]]</div></div>
+        <div data-bind="ignoreOldRoot"><input type="checkbox" /></div>
+    </div>
+</template>
+
+<template id="action_runmethod">
+    <div data-type="action" data-variant="runmethod" data-fold-name="[[RUN_METHOD_ACTION]]">
+        <div class="label">[[METHOD]]<div class="help">[[METHOD_HELP]]</div></div>
+        <div data-bind="method"><input size="30" /></div>
     </div>
 </template>
 

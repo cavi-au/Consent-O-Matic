@@ -3,16 +3,38 @@ class Tools {
         Tools.base = base;
     }
 
+    static getBase() {
+        return Tools.base;
+    }
+
     static findElement(options, parent = null, multiple = false) {
         let possibleTargets = null;
 
-        if (parent != null) {
-            possibleTargets = Array.from(parent.querySelectorAll(options.selector));
-        } else {
-            if (Tools.base != null) {
-                possibleTargets = Array.from(Tools.base.querySelectorAll(options.selector));
+        if(options.selector.trim() === ":scope") {
+            //Select current root
+            if(parent != null) {
+                possibleTargets = [parent];
             } else {
-                possibleTargets = Array.from(document.querySelectorAll(options.selector));
+                if (Tools.base != null) {
+                    possibleTargets = [Tools.base];
+                } else {
+                    possibleTargets = [document];
+                }
+
+            }
+
+            if(ConsentEngine.debugValues.debugLog) {
+                console.log("Special :scope handling, selecting current root:", possibleTargets);
+            }
+        } else {
+            if (parent != null) {
+                possibleTargets = Array.from(parent.querySelectorAll(options.selector));
+            } else {
+                if (Tools.base != null) {
+                    possibleTargets = Array.from(Tools.base.querySelectorAll(options.selector));
+                } else {
+                    possibleTargets = Array.from(document.querySelectorAll(options.selector));
+                }
             }
         }
 

@@ -13,6 +13,8 @@ class Action {
                 case "close": return new CloseAction(config, cmp);
                 case "wait": return new WaitAction(config, cmp);
                 case "ifallowall": return new IfAllowAllAction(config, cmp);
+                case "runrooted": return new RunRootedAction(config, cmp);
+                case "runmethod": return new RunMethodAction(config, cmp);
                 default: throw "Unknown action type: " + config.type;
             }
         } catch (e) {
@@ -396,25 +398,35 @@ class ForEachAction extends Action {
     constructor(config, cmp) {
         super(config);
 
-        this.action = Action.createAction(this.config.action, cmp);
+        if(this.config.action != null) {
+            this.action = Action.createAction(this.config.action, cmp);
+        } else {
+            console.warn("Missing action on ForEach: ", this);
+        }
     }
 
     async execute(param) {
-        let results = Tools.find(this.config, true);
-        let oldBase = Tools.base;
+        if(this.action != null) {
+            let results = Tools.find(this.config, true);
+            let oldBase = Tools.base;
 
-        for (let result of results) {
-            if (result.target != null) {
-                Tools.setBase(result.target);
-                await this.action.execute(param);
+            for (let result of results) {
+                if (result.target != null) {
+                    Tools.setBase(result.target);
+                    await this.action.execute(param);
+                }
             }
-        }
 
-        Tools.setBase(oldBase);
+            Tools.setBase(oldBase);
+        }
     }
 
     getNumSteps() {
-        return this.action.getNumSteps();
+        if(this.action != null) {
+            return this.action.getNumSteps();
+        }
+
+        return 0;
     }
 }
 
@@ -705,5 +717,89 @@ class IfAllowAllAction extends Action {
         }
 
         return Math.round(steps / 2);
+    }
+}
+
+class RunRootedAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+        this.cmp = cmp;
+
+        if(this.config.action != null) {
+            this.action = Action.createAction(this.config.action, cmp);
+        } else {
+            console.warn("Missing action on RunRooted: ", this);
+        }
+    }
+
+    async execute(params) {
+        if(this.config.action != null) {
+
+            //Save root
+            let oldRoot = Tools.getBase();
+
+            //Reset to null root
+            if(this.config.ignoreOldRoot === true) {
+                Tools.setBase(null);
+            }
+
+            //Find new root
+            let result = Tools.find(this.config);
+
+            if(result.target != null) {
+                //Set new root
+                Tools.setBase(result.target);
+                
+                //RUN
+                await this.action.execute(params);
+            }
+
+            //Set old base back
+            Tools.setBase(oldRoot);
+        }
+    }
+
+    getNumSteps() {
+        if(this.action != null) {
+            return this.action.getNumSteps();
+        }
+
+        return 0;
+    }
+}
+
+class RunMethodAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+        this.cmp = cmp;
+    }
+
+    async execute(params) {
+        if(this.config.method == null) {
+            console.warn("Missing option 'method' on RunMethodAction");
+            return;
+        }
+
+        let methodName = this.config.method.toUpperCase();
+
+        if(!this.cmp.hasMethod(methodName)) {
+            console.warn("CMP does not have method ["+methodName+"]", this.cmp);
+            return;
+        }
+
+        if(!this.cmp.isCustomMethod(methodName)) {
+            console.warn("CMP method ["+methodName+"] is not a custom method!");
+            return;
+        }
+
+        await this.cmp.runMethod(methodName, params);
+    }
+
+    getNumSteps() {
+        if(this.cmp.hasMethod(this.config.method)) {
+            return this.cmp.getNumStepsForMethod(this.config.method);
+        }
+
+        return 0;
     }
 }

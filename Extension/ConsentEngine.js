@@ -49,7 +49,27 @@ class ConsentEngine {
     }
 
     registerClick() {
+        let clickFraction = 1 / this.currentMethodStepsTotal;
+
         this.numClicks++;
+
+        if(this.currentMethodFraction == 0) {
+            this.currentMethodFraction = clickFraction;
+        } else {
+            let rest = 1 - this.currentMethodFraction;
+
+            this.currentMethodFraction += rest * (clickFraction / 2.0);
+        }
+
+        this.calculateProgress();
+    }
+
+    currentMethodDone() {
+        this.completedSteps += this.currentMethodStepsTotal;
+        this.currentMethodFraction = 1;
+        this.calculateProgress();
+        this.currentMethodStepsTotal = 0;
+        this.currentMethodFraction = 0;
     }
 
     startStopTimeout() {
@@ -147,15 +167,15 @@ class ConsentEngine {
 
                                 self.totalSteps = cmp.getNumSteps();
                                 self.completedSteps = 0;
-                                self.updateProgress();
+                                self.currentMethodStepsTotal = 0;
+                                self.currentMethodFraction = 0;
+                                self.updateProgress(0);
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
-                                    self.completedSteps += cmp.getNumStepsForMethod("HIDE_CMP");
-                                    self.updateProgress();
 
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
@@ -166,8 +186,6 @@ class ConsentEngine {
                                     console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
                                 }
                                 await cmp.runMethod("OPEN_OPTIONS");
-                                self.completedSteps += cmp.getNumStepsForMethod("OPEN_OPTIONS");
-                                self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -177,8 +195,6 @@ class ConsentEngine {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
                                     await cmp.runMethod("HIDE_CMP");
-                                    self.completedSteps += cmp.getNumStepsForMethod("HIDE_CMP");
-                                    self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -188,8 +204,6 @@ class ConsentEngine {
                                     console.groupCollapsed(cmp.name + " - DO_CONSENT");
                                 }
                                 await cmp.runMethod("DO_CONSENT", self.consentTypes);
-                                self.completedSteps += cmp.getNumStepsForMethod("DO_CONSENT");
-                                self.updateProgress();
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -199,8 +213,6 @@ class ConsentEngine {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
                                     await cmp.runMethod("SAVE_CONSENT");
-                                    self.completedSteps += cmp.getNumStepsForMethod("SAVE_CONSENT");
-                                    self.updateProgress();
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -211,6 +223,8 @@ class ConsentEngine {
                                     }
                                     self.numClicks = 0; // Catch-all for NaN, negative numbers etc.
                                 }
+
+                                self.updateProgress(1.0);
 
                                 self.handledCallback({
                                     cmpName: cmp.name,
@@ -300,9 +314,13 @@ class ConsentEngine {
         }, 0);
     }
 
-    updateProgress() {
+    calculateProgress() {
+        let fraction = (this.completedSteps + this.currentMethodStepsTotal * this.currentMethodFraction) / this.totalSteps;
+        this.updateProgress(fraction);
+    }
+
+    updateProgress(fraction) {
         if (this.modal != null) {
-            let fraction = this.completedSteps / this.totalSteps;
             this.modal.style.setProperty("--progress", fraction);
         }
     }

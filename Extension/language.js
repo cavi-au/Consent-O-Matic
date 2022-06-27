@@ -1109,6 +1109,36 @@ const translations = {
         "da": "Hvis markeret, tæller afkrydsningsfeltet som markeret, når det ikke er markeret, og omvendt",
         "de": "Wenn es aktiviert ist, zählt das Kontrollkästchen als aktiviert, wenn es nicht aktiviert ist, und umgekehrt",
         "pt": "Se marcada, a caixa de seleção conta como marcada quando não marcada e vice-versa"
+    },
+    "RUN_ROOTED_ACTION": {
+        "en": "RunRootedAction"
+    },
+    "RUN_ROOTED_ACTION_DESCRIPTION": {
+        "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards."
+    },
+    "RUN_METHOD_ACTION": {
+        "en": "RunMethodAction"
+    },
+    "RUN_METHOD_ACTION_DESCRIPTION": {
+        "en": "Runs a custom method."
+    },
+    "ADD_METHOD": {
+        "en": "Add method"
+    },
+    "ADD_METHOD_PROMPT": {
+        "en": "Name of new method:"
+    },
+    "IGNORE_OLD_ROOT": {
+        "en": "Ignore old root"
+    },
+    "IGNORE_OLD_ROOT_HELP": {
+        "en": "Ignores any root set, and restarts from document"
+    },
+    "METHOD": {
+        "en": "Method"
+    },
+    "METHOD_HELP": {
+        "en": "The method to run"
     }
 };
 
@@ -1139,11 +1169,7 @@ class Language {
                 }
             }
         } else {
-            if(ConsentEngine.debugValues.debugLog) {
-                console.groupCollapsed("Unknown translation key:", key);
-                console.trace();
-                console.groupEnd();
-            }
+            console.log("%c Unknown translation key:", "background: red; color: white;", key);
         }
 
         if(subs != null && Array.isArray(subs)) {

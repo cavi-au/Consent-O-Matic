@@ -154,6 +154,9 @@ label:hover .help, .label:hover .help {
   display: block;
   font-weight: bold;
 }
+[data-type][data-type=method] [data-bind~=name].customMethod {
+  color: blue;
+}
 [data-type][data-type=consent] {
   background: orchid;
 }

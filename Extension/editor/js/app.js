@@ -84,6 +84,8 @@ document.querySelector(".loadTextButton").addEventListener("click", () => {
         let jsonString = document.querySelector("#inputArea").value;
         let json = JSON.parse(jsonString);
 
+        delete json["$schema"];
+
         textCmpJson = json;
 
         loadFromJson(json, document.querySelector("#cmpSelector"));
@@ -549,4 +551,20 @@ observer.observe(document.body, {
 
 document.addEventListener("input", ()=>{
     updateTitles();
+});
+
+document.querySelector("button.addmethod").addEventListener("click", async ()=>{
+    let promptMsg = Language.getString("ADD_METHOD_PROMPT");
+    let methodName = window.prompt(promptMsg);
+
+    if(methodName != null) {
+        methodName = methodName.toUpperCase();
+
+        let methodDom = await JsonParser.loadTemplate("method", {
+            "name": methodName,
+            "custom": true
+        });
+
+        document.querySelector("[data-type='cmp'] > [data-plug='method']").appendChild(methodDom);
+    }
 });

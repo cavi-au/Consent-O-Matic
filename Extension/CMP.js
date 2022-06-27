@@ -13,6 +13,7 @@ class CMP {
         config.methods.forEach((methodConfig)=>{
             if(methodConfig.action != null) {
                 let action = Action.createAction(methodConfig.action, this);
+                action.customMethod = methodConfig.custom;
                 self.methods.set(methodConfig.name, action);
             }
         });
@@ -122,14 +123,38 @@ class CMP {
         return this.methods.has("UTILITY") && this.methods.size === 1;
     }
 
+    hasMethod(name) {
+        return this.methods.has(name);
+    }
+
+    isCustomMethod(name) {
+        let action = this.methods.get(name);
+
+        if(action != null) {
+            return action.customMethod === true;
+        }
+
+        return false;
+    }
+
     async runMethod(name, param = null) {
         let action = this.methods.get(name);
 
         if(action != null) {
+            if(!this.isCustomMethod(name)) {
+                ConsentEngine.singleton.currentMethodStepsTotal = this.getNumStepsForMethod(name);
+            }
+
             if(ConsentEngine.debugValues.debugLog) {
                 console.log("Triggering method: ", name);
             }
             await action.execute(param);
+
+            if(!this.isCustomMethod(name)) {
+                ConsentEngine.singleton.currentMethodDone();
+            }
+
+
         } else {
             //Make no method behave as if an action was called, IE. push os back on the task stack
             await new Promise((resolve)=>{

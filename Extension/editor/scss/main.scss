@@ -155,6 +155,10 @@ label, .label {
         [data-bind~="name"] {
             display: block;
             font-weight: bold;
+
+            &.customMethod {
+                color: blue;
+            }
         }
     }
     &[data-type='consent'] {background: orchid}
