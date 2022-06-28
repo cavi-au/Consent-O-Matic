@@ -57,6 +57,18 @@ GDPRConfig.getDebugFlags().then((debugFlags) => {
 			optionLi.classList.add("active");
 		}
     });
+    document.getElementById("clearDebugFlags").addEventListener("click", async ()=>{
+	console.log("Nuking values");
+	chrome.storage.sync.remove("debugFlags", ()=>{
+		chrome.storage.sync.set({
+    	            debugFlags: {ost:true}
+	        });
+        	setTimeout(async ()=>{
+        		let values = await GDPRConfig.getDebugValues();
+        		console.log("Debug flags are now", values);
+		}, 2000);
+	});
+    });
 });
 
 function uuidv4() {
