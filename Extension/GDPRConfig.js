@@ -35,7 +35,7 @@ class GDPRConfig {
     static getDebugValues() {
         return new Promise((resolve, reject) => {
             chrome.storage.sync.get({
-                debugFlags: GDPRConfig.defaultDebugFlags
+                debugFlags: {}
             }, (result) => {
                 resolve(result.debugFlags);
             });
@@ -254,8 +254,6 @@ class GDPRConfig {
     
     static setDebugFlags(newDebugFlags) {
         return new Promise((resolve, reject)=>{
-            newDebugFlags = Object.assign({}, GDPRConfig.defaultDebugFlags, newDebugFlags);
-
             chrome.storage.sync.set({
                 debugFlags: newDebugFlags
             }, () => {
@@ -287,18 +285,3 @@ GDPRConfig.defaultValues = {
 GDPRConfig.defaultRuleLists = [
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules-list.json",
 ];
-
-
-GDPRConfig.defaultDebugFlags = {
-    "clickDelay": false,
-    "skipSubmit": false,
-    "paintMatchers": false,
-    "debugClicks": false,
-    "alwaysForceRulesUpdate": false,
-    "skipHideMethod": false,
-    "debugLog": false,
-    "debugTranslations": false,
-    "skipSubmitConfirmation": false,
-    "hideInsteadOfPIP": false,
-    "dontHideProgressDialog": false
-}

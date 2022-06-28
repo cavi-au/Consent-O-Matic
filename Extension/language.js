@@ -1162,7 +1162,7 @@ class Language {
             } else {
                 console.warn("Missing translation ["+lang+"] for key: ", key, translation);
 
-                if(Language.debugTranslations !== true) {
+                if(!Language.debugTranslations) {
                     if(translation["en"] != null) {
                         result = translation["en"];
                     }

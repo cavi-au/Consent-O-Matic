@@ -61,7 +61,7 @@ GDPRConfig.getDebugFlags().then((debugFlags) => {
 	console.log("Nuking values");
 	chrome.storage.sync.remove("debugFlags", ()=>{
 		chrome.storage.sync.set({
-    	            debugFlags: {ost:true}
+    	            debugFlags: {}
 	        });
         	setTimeout(async ()=>{
         		let values = await GDPRConfig.getDebugValues();

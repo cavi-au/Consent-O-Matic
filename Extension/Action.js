@@ -50,7 +50,7 @@ class Action {
         if (this.config.timeout != null) {
             return this.config.timeout;
         } else {
-            let pipEnabled = ConsentEngine.debugValues.skipHideMethod === false && ConsentEngine.debugValues.hideInsteadOfPIP === false;
+            let pipEnabled = !(ConsentEngine.debugValues.skipHideMethod || ConsentEngine.debugValues.hideInsteadOfPIP);
 
             if (ConsentEngine.debugValues.clickDelay) {
                 return 125;
@@ -437,7 +437,7 @@ class HideAction extends Action {
     }
 
     async execute(param) {
-        if(ConsentEngine.debugValues.skipHideMethod === true) {
+        if(ConsentEngine.debugValues.skipHideMethod) {
             return;
         }
 
