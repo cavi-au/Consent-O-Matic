@@ -236,9 +236,9 @@ class ConsentEngine {
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if(!ConsentEngine.debugValues.dontHideProgressDialog) {
                                     self.currentCMP = null;
+                                    self.hideProgressDialog();
                                     cmp.stopObservers();
                                     cmp.unHideAll();
-                                    self.hideProgressDialog();
                                 }
                             }
                             clearTimeout(self.stopEngineId);
