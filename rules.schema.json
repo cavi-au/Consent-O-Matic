@@ -89,7 +89,8 @@
                         "UTILITY"
                     ]
                 },
-                "action": {"$ref": "#/$defs/Actions"}
+                "action": {"$ref": "#/$defs/Actions"},
+                "custom": {"type": "boolean"}
             }
         },
 
@@ -231,7 +232,27 @@
                 "type": {"const": "close"}
             }
         },
-
+        "RunRootedAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target", "action"],
+            "properties": {
+                "type": {"const": "runrooted"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "action": {"$ref": "#/$defs/Actions"},
+                "ignoreOldRoot": {"type": "boolean"}
+            }
+        },
+        "RunMethodAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "method"],
+            "properties": {
+                "type": {"const": "runmethod"},
+                "method": {"type": "string"}
+            }
+        },
         "IfAllowAllAction": {
             "type": "object",
             "additionalProperties": false,
