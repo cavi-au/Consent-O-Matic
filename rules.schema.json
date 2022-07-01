@@ -106,7 +106,9 @@
                 {"$ref": "#/$defs/WaitAction"},
                 {"$ref": "#/$defs/HideAction"},
                 {"$ref": "#/$defs/CloseAction"},
-                {"$ref": "#/$defs/IfAllowAllAction"}
+                {"$ref": "#/$defs/IfAllowAllAction"},
+                {"$ref": "#/$defs/RunMethodAction"},
+                {"$ref": "#/$defs/RunRootedAction"}
             ]
         },
         "ClickAction": {
