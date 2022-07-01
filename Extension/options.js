@@ -57,19 +57,22 @@ GDPRConfig.getDebugFlags().then((debugFlags) => {
 			optionLi.classList.add("active");
 		}
     });
-    document.getElementById("clearDebugFlags").addEventListener("click", async ()=>{
-	console.log("Nuking values");
-	chrome.storage.sync.remove("debugFlags", ()=>{
-		chrome.storage.sync.set({
-    	            debugFlags: {}
-	        });
-        	setTimeout(async ()=>{
-        		let values = await GDPRConfig.getDebugValues();
-        		console.log("Debug flags are now", values);
-		}, 2000);
-	});
-    });
 });
+
+document.querySelector("#clearDebugFlags").addEventListener("click", ()=>{
+    GDPRConfig.setDebugFlags({}).then(()=>{
+        GDPRConfig.getDebugFlags().then((debugFlags)=>{
+            debugFlags.forEach((debugFlag)=>{
+                let optionLi = document.querySelector("ul.flags li[data-name='"+debugFlag.name+"']");
+                let input = optionLi.querySelector("input");
+                input.checked = debugFlag.value;
+                if(!debugFlag.value) {
+                    optionLi.classList.remove("active");
+                }
+            });
+        });
+    })
+})
 
 function uuidv4() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
@@ -79,6 +82,7 @@ function uuidv4() {
 
 function addToggleItem(parent, type, name, description, isChecked) {
     let optionLI = document.createElement("li");
+    optionLI.setAttribute("data-name", name);
 
     let uuid = uuidv4();
 

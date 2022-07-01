@@ -27,7 +27,7 @@ class GDPRConfig {
             chrome.storage.sync.get({
                 consentValues: GDPRConfig.defaultValues
             }, (result) => {
-                resolve(result.consentValues);
+                resolve(Object.assign({}, GDPRConfig.defaultValues, result.consentValues));
             });
         });
     }
@@ -37,7 +37,7 @@ class GDPRConfig {
             chrome.storage.sync.get({
                 debugFlags: {}
             }, (result) => {
-                resolve(result.debugFlags);
+                resolve(Object.assign({}, GDPRConfig.defaultDebugFlags, result.debugFlags));
             });
         });
     }    
@@ -280,6 +280,20 @@ GDPRConfig.defaultValues = {
     "E": false,
     "F": false,
     "X": false
+};
+
+GDPRConfig.defaultDebugFlags = {
+    "clickDelay": false,
+    "skipSubmit": false,
+    "paintMatchers": false,
+    "debugClicks": false,
+    "alwaysForceRulesUpdate": false,
+    "skipHideMethod": false,
+    "debugLog": false,
+    "debugTranslations": false,
+    "skipSubmitConfirmation": false,
+    "hideInsteadOfPIP": false,
+    "dontHideProgressDialog": false
 };
 
 GDPRConfig.defaultRuleLists = [
