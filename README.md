@@ -29,11 +29,11 @@
 ## Introduction
 
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
-Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you got tired of submitting the same information over and over. If only there was a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
+Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you tire of submitting the same information over and over. If only there were a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
 
-Consent-O-Matic is a browser extension (available for [Most chromium based browsers](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd), [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) and [Safari on iOS/MacOS](https://apps.apple.com/gb/app/consent-o-matic/id1606897889)) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your preference in cookies upon installation, it will autofill those forms for you when it encounters them. And let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+Consent-O-Matic is a browser extension (available for [most chromium based browsers](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd), [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) and [Safari on iOS/MacOS](https://apps.apple.com/gb/app/consent-o-matic/id1606897889)) that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your cookie preferences upon installation, it will autofill those forms for you when it encounters them—and let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
 
-And since, it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help.) to make the extension even easier for others to use.
+And since it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help) to make the extension even easier for others to use.
 
 ### Further reading
 
@@ -128,13 +128,13 @@ Some CMPs still insert the popup HTML into the DOM even when re-visiting a page 
 
 Both the present and showing matcher follow the common structure of [`Matchers`](#matchers).
 
-Both present and showing matcher, can be multiple matchers, and only if all present matcher match, does it trigger the detector. Likewise for showing matchers.
+Both the present and showing matcher can be multiple matchers, only triggering the detector if all of the matchers (respectively for present and showing) apply.
 
 ### Methods
 
 Methods are collections of actions. There are 4 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`, `HIDE_CMP`
 
-All the methods are optional, and if present the methods will be run in the order given below, when a detector is triggered.
+All the methods are optional, and, if present, the methods will be run in the order given below when a detector is triggered.
 
 ```
 HIDE_CMP
@@ -152,11 +152,11 @@ Methods take on the form:
 }
 ```
 
-Where the name is one of the 4 supported methods, and action is the [action](#actions) to execute.
+where the name is one of the 4 supported methods and action is the [action](#actions) to execute.
 
 ## DOM Selection
 
-Most actions and matchers have some target that they apply to. For this reason Consent-O-Matic has a DOM selection mechanism that can easily help with selecting the correct dom element.
+Most actions and matchers have some target that they apply to. For this reason, Consent-O-Matic has a DOM selection mechanism that can easily help with selecting the correct DOM element.
 
 ```json
 "parent": {
@@ -191,7 +191,7 @@ All the parameters to `parent` and `target` except `selector` are optional.
 
 The selection method works by using the css selector from `selector` and then filtering the resulting DOM nodes via the various available filters:
 
-* `textFilter` filters all nodes that does not include the given text. It can also be given as an array `"textFilter":["filter1", "filter2"]` and then it filters all nodes that does not include one of the given text filters.
+* `textFilter` filters all nodes that do not include the given text. It can also be given as an array `"textFilter":["filter1", "filter2"]` and then it filters all nodes that do not include one of the given text filters.
 
 * `styleFilter` filters based on computedStyles. `option` is the style option to compare for example `position`, `value` is the value to compare against and `negated` sets if the option value should match or not match the given value.
 
@@ -219,7 +219,7 @@ Here is an example DOM selection:
 ```
 This selector first tries to find the `parent` which is a DOM element with the class `myParent` that is inside an iframe and has a child DOM element with the class `myChild` that contains the text "Gregor".
 
-Then using this parent as "root" it tries to find a DOM element with the class `myTarget`.
+Then, using this parent as "root", it tries to find a DOM element with the class `myTarget`.
 
 This could then be the target of an action or matcher.
 
@@ -243,7 +243,7 @@ Example:
 }
 ```
 
-`openInTab` if set to true, will trigger a ctrl+shift+click instead of a click. Which should make the link, if any, open in a new tab, and focus that tab.
+`openInTab` if set to true, will trigger a ctrl+shift+click instead of a click, which should make the link, if any, open in a new tab, and focus that tab.
 
 In this example we only use a simple `target` with a `textFilter` but full [DOM selection](#dom-selection) is supported.
 
@@ -329,12 +329,12 @@ Example:
 }
 ```
 
-`trueAction` is an action that will be run of the DOM selection finds an element.
+`trueAction` is an action that will be run if the DOM selection finds an element.
 `falseAction` will be run when the DOM selection does not find an element.
 
 ### Wait For Css
 
-This action waits until the DOM selector finds a dom element that matches. Mostly used if something in the consent form loads slowly and needs to be waited for.
+This action waits until the DOM selector finds a DOM element that matches. This is mostly used if something in the consent form loads slowly and needs to be waited for.
 
 Example:
 ```json
@@ -349,7 +349,7 @@ Example:
 }
 ```
 
-`retries` is the number of times to check for the target dom element. Deafults to 10.
+`retries` is the number of times to check for the target DOM element. Deafults to 10.
 
 `waitTime` determines the time between retry attempts. Defaults to 250.
 
@@ -357,7 +357,7 @@ Example:
 
 ### For Each
 
-If some set of actions needs to be run several times, but with different DOM nodes as root, the for each action can be used. It runs its action 1 time for each DOM element that is selected by its DOM selection, all actions run inside the for each loop, will see the DOM as starting from the currently selected node.
+If some set of actions needs to be run several times, but with different DOM nodes as root, the for each action can be used. It runs its action 1 time for each DOM element that is selected by its DOM selection; all actions run inside the for each loop will see the DOM as starting from the currently selected node.
 
 Example:
 ```json
@@ -400,7 +400,7 @@ Example:
 
 ### Close
 
-This action closes the current tab, usefull for consent providers like Evidon, that likes to open new tabs with the consent dahsboard inside.
+This action closes the current tab, useful for consent providers like Evidon, which likes to open new tabs with the consent dashboard inside.
 
 Example:
 ```json
@@ -447,7 +447,7 @@ This is what is used inside [Consent Actions](#consent) and defines the actual c
 
 Each consent has a type, that matches the consent categories inside Consent-O-Matic, so if a user has toggled the first consent category to ON, (Type A) and the consent is of type "A", then the consent will be enabled.
 
-Usually the consent is given either as a toggle, or a set of buttons on/off. Therefore `consent` has mechanism for both these cases.
+Usually the consent is given either as a toggle, or a set of buttons on/off. Therefore `consent` has a mechanism for each of these cases.
 
 Example:
 ```json
@@ -460,7 +460,7 @@ Example:
 }
 ```
 
-`type` is the type of consent category this rule defines and determines if this consent should be on or off depending on the users selection for that type of category.
+`type` is the type of consent category this rule defines and determines if this consent should be on or off depending on the user's selection for that type of category.
 
 `toggleAction` this action is used to select consent if the popup uses a toggle or a switch to communicate consent. The action will be run if the matcher says the consent is in a state different from what the user has asked it to be, otherwise it will not be run.
 
