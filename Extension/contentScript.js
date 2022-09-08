@@ -2,6 +2,17 @@ let url = location.href;
 url = url.substring(url.indexOf("://")+3, url.indexOf("/", 8));
 GDPRConfig.isActive(url).then(async (active) => {
     if (active) {
+	window.consentScrollBehaviours = {};
+	["html","html body"].forEach(element=>{
+	    let node = document.querySelector(element);
+	    if (node){
+		let styles = window.getComputedStyle(node);
+		window.consentScrollBehaviours[element] = ["position","overflow","overflow-y"].map(property=>{
+		    return {property:property, value:styles[property]}
+		});
+	    }
+	});
+
         chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
 
             GDPRConfig.getCustomRuleLists().then((customRules)=>{

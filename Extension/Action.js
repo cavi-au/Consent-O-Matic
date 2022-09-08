@@ -50,12 +50,14 @@ class Action {
         if (this.config.timeout != null) {
             return this.config.timeout;
         } else {
-            let pipEnabled = !(ConsentEngine.debugValues.skipHideMethod || ConsentEngine.debugValues.hideInsteadOfPIP);
-
             if (ConsentEngine.debugValues.clickDelay) {
-                return 125;
+                return 150;
             } else if(ConsentEngine.singleton.pipEnabled) {
-                return 125;
+        	// Reduce click wait based on number of clicks
+        	if (ConsentEngine.singleton.getClicksSoFar()>100) return 0;
+        	if (ConsentEngine.singleton.getClicksSoFar()>20) return 1;
+        	if (ConsentEngine.singleton.getClicksSoFar()>5) return 10;
+                return 100;
             } else {
                 return 0;
             }
@@ -167,35 +169,11 @@ class ClickAction extends Action {
             let isShowing = result.target.offsetHeight !== 0;
 
             if (isShowing && (ConsentEngine.debugValues.clickDelay || pipScroll)) {
-                //Wait for any auto scroll to finish
-                /*
-                let scrollPromise = new Promise((resolve)=>{
-                    let scrollTimeout = null;
-                    
-                    function myTimeout() {
-                        scrollTimeout = setTimeout(()=>{
-                            window.removeEventListener("scroll", myScroll);
-                            resolve();
-                        }, 25);
-                    }
-
-                    function myScroll() {
-                        clearTimeout(scrollTimeout);
-                        myTimeout();
-                    }
-
-                    myTimeout();
-                    window.addEventListener('scroll', myScroll);
-                });
-                */
-
                 result.target.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                     inline: "center"
                 });
-
-                //await scrollPromise;
             }
 
             if(isShowing) {

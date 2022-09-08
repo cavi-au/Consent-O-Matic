@@ -41,11 +41,45 @@ class ConsentEngine {
         this.startStopTimeout();
     }
 
+
+    /**
+     * Generates or removes a temporary custom stylesheet that enforces the currently stored scroll behaviours
+     */
+    enforceScrollBehaviours(shouldEnforce){
+	console.log("enforce", shouldEnforce);
+	let stylesheetElement = document.querySelector("#consent-scrollbehaviour-override");
+	if (stylesheetElement){
+	    stylesheetElement.textContent = "";
+	}
+	if (!shouldEnforce) return;
+	
+	console.log("Enforcring", window.consentScrollBehaviours);
+	if (!stylesheetElement){
+	    stylesheetElement = document.createElement("style");
+	    stylesheetElement.id = "consent-scrollbehaviour-override";
+	    document.documentElement.appendChild(stylesheetElement);
+	}
+	let content = Object.entries(window.consentScrollBehaviours).map(entry=>{
+	    const [element,rules] = entry;
+	    return element+"{"+rules.map(rule=>{
+		let hasImportant = rule.value.includes("important");
+		return rule.property+":"+rule.value+(hasImportant?"":"!important");
+	    }).join(";")+"}";
+	}).join("");
+	if (ConsentEngine.debugValues.debugLog) {
+	    console.log(content);
+	}
+	stylesheetElement.textContent = content;
+	console.log(stylesheetElement);
+    }
+        
+
     enablePip() {
         this.pipEnabled = true;
         if(this.modal != null) {
             this.modal.classList.add("ConsentOMatic-PIP")
         }
+        this.enforceScrollBehaviours(true);
     }
 
     registerClick() {
@@ -62,6 +96,10 @@ class ConsentEngine {
         }
 
         this.calculateProgress();
+    }
+    
+    getClicksSoFar(){
+	return this.numClicks;
     }
 
     currentMethodDone() {
@@ -336,6 +374,7 @@ class ConsentEngine {
             self.dialog.remove();
             self.dialog = null;
         }, 1000);
+        this.enforceScrollBehaviours(false);
     }
 
     setupObserver() {
