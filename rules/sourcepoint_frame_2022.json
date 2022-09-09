@@ -198,6 +198,16 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "multiclick",
+                            "target": {
+                                "selector": ".tcfv2-stack .accordion:not(.active)"
+                            }
+                        },
+                        {
+                            "type": "wait",
+                            "waitTime": 250
+                        },
+                        {
                             "type": "foreach",
                             "target": {
                                 "selector": ".tcfv2-stack"
@@ -205,12 +215,6 @@
                             "action": {
                                 "type": "list",
                                 "actions": [
-                                    {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": ".accordion:not(.active)"
-                                        }
-                                    },
                                     {
                                         "type": "foreach",
                                         "target": {

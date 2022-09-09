@@ -310,7 +310,13 @@ const translations = {
         "en": "ClickAction",
         "da": "KlikHandling",
         "de": "KlickAktion",
-	      "pt": "ClickAction"
+        "pt": "ClickAction"
+    },
+    "MULTICLICK_ACTION": {
+        "en": "MultiClickAction",
+        "da": "MultiKlikHandling",
+        "de": "MultiKlickAktion",
+        "pt": "MultiClickAction"
     },
     "CONSENT_ACTION": {
         "en": "ConsentAction",
@@ -1007,6 +1013,11 @@ const translations = {
         "da": "Klik på elementet fundet af css-vælgeren",
         "de": "Klickt auf das vom CSS-Selektor gefundene Element",
         "pt": "Clica no elemento encontrado pelo seletor css"
+    },
+    "MULTICLICK_ACTION_DESCRIPTION": {
+        "en": "Clicks all elements found by the css selector at once",
+        "da": "Klik på alle elementerne fundet af css-vælgeren på én gang",
+        "de": "Klickt alle vom CSS-Selektor gefundenen Elemente auf einmal an"
     },
     "CONSENT_ACTION_DESCRIPTION": {
         "en": "Handles consent based on users choice",
