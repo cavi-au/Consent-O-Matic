@@ -46,14 +46,12 @@ class ConsentEngine {
      * Generates or removes a temporary custom stylesheet that enforces the currently stored scroll behaviours
      */
     enforceScrollBehaviours(shouldEnforce){
-	console.log("enforce", shouldEnforce);
 	let stylesheetElement = document.querySelector("#consent-scrollbehaviour-override");
 	if (stylesheetElement){
 	    stylesheetElement.textContent = "";
 	}
 	if (!shouldEnforce) return;
 	
-	console.log("Enforcring", window.consentScrollBehaviours);
 	if (!stylesheetElement){
 	    stylesheetElement = document.createElement("style");
 	    stylesheetElement.id = "consent-scrollbehaviour-override";
@@ -70,7 +68,6 @@ class ConsentEngine {
 	    console.log(content);
 	}
 	stylesheetElement.textContent = content;
-	console.log(stylesheetElement);
     }
         
 

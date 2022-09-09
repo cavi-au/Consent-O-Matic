@@ -3,6 +3,7 @@ class Action {
         try {
             switch (config.type) {
                 case "click": return new ClickAction(config, cmp);
+                case "multiclick": return new MultiClickAction(config, cmp);
                 case "list": return new ListAction(config, cmp);
                 case "consent": return new ConsentAction(config, cmp);
                 case "ifcss": return new IfCssAction(config, cmp);
@@ -205,6 +206,38 @@ class ClickAction extends Action {
 
     getNumSteps() {
         return 1;
+    }
+}
+
+class MultiClickAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+        this.cmp = cmp;
+    }
+
+    async execute(param) {
+        let results = Tools.find(this.config, true);
+        if (ConsentEngine.debugValues.debugClicks) {
+            console.log("MultiClicking:", results);
+        }
+	results.forEach(result=>{
+	    if (result.target!=null){
+		result.target.click();
+	    }
+	});
+        
+        // TODO: Register more clicks simultaneously
+	results.forEach(result=>{
+	    if (result.target!=null){
+    		ConsentEngine.singleton.registerClick();
+    	    }
+    	});
+        
+        // TODO: Consider how this should be shown in PiP?
+    }
+
+    getNumSteps() {
+        return 50; // STUB: Poor estimate
     }
 }
 
