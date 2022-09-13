@@ -97,7 +97,7 @@ function setBadgeCheckmark(enabled, id) {
 
 function fetchRules(forceUpdate) {
     // Make sure the cached rule-lists are up-to-date, fetch updates if needed
-    let maxStaleness = 60 * 15;  // Fetch frequency in seconds
+    let maxStaleness = 22 * 3600 + (Math.random()*26*3600);  // Fetch frequency in seconds
     let rulePromise = new Promise((resolve, reject) => {
         GDPRConfig.getRuleLists().then((ruleLists) => {
 
