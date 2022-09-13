@@ -1180,7 +1180,9 @@ class Language {
                 }
             }
         } else {
-            console.log("%c Unknown translation key:", "background: red; color: white;", key);
+            if(Language.debugTranslations) {
+                console.log("%c Unknown translation key:", "background: red; color: white;", key);
+            }
         }
 
         if(subs != null && Array.isArray(subs)) {

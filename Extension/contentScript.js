@@ -14,17 +14,6 @@ async function contentScriptRunner() {
     
     url = url.substring(url.indexOf("://")+3, url.indexOf("/", 8));
 
-    window.consentScrollBehaviours = {};
-    ["html","html body"].forEach(element=>{
-        let node = document.querySelector(element);
-        if (node){
-        let styles = window.getComputedStyle(node);
-        window.consentScrollBehaviours[element+".consent-scrollbehaviour-override"] = ["position","overflow","overflow-y"].map(property=>{
-            return {property:property, value:styles[property]}
-        });
-        }
-    });
-
     GDPRConfig.isActive(url).then(async (active) => {
         if (active) {
             chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
@@ -69,6 +58,35 @@ async function contentScriptRunner() {
     });
 }
 
+window.consentScrollBehaviours = {};
+function getCalculatedStyles() {
+    ["html","html body"].forEach(element=>{
+        let node = document.querySelector(element);
+        if (node) {
+            let styles = window.getComputedStyle(node);
+            window.consentScrollBehaviours[element+".consent-scrollbehaviour-override"] = ["position","overflow","overflow-y"].map(property=>{
+                return {property:property, value:styles[property]}
+            });
+        }
+    });
+}
+
+let observer = new MutationObserver((mutations)=>{
+    mutations.forEach((mutation)=>{
+        mutation.addedNodes.forEach((node)=>{
+            if(node.matches != null && node.matches("body")) {
+                getCalculatedStyles();
+                observer.disconnect();
+                console.log("Calculated styles for body");
+            }
+        })
+    });
+});
+
+observer.observe(document.querySelector("html"), {
+    childList: true
+});
+
 window.addEventListener("message", (event)=>{
     try {
         if(event.data.enforceScrollBehaviours != null) {
@@ -78,6 +96,8 @@ window.addEventListener("message", (event)=>{
         console.error("Error inside message listener:", e);
     }
 });
+
+console.log("ContentScript run:", location.origin);
 
 contentScriptRunner().catch((e)=>{
     console.error(e);
