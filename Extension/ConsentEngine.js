@@ -45,38 +45,61 @@ class ConsentEngine {
     /**
      * Generates or removes a temporary custom stylesheet that enforces the currently stored scroll behaviours
      */
-    enforceScrollBehaviours(shouldEnforce){
-	let stylesheetElement = document.querySelector("#consent-scrollbehaviour-override");
-	if (stylesheetElement){
-	    stylesheetElement.textContent = "";
-	}
-	if (!shouldEnforce) return;
-	
-	if (!stylesheetElement){
-	    stylesheetElement = document.createElement("style");
-	    stylesheetElement.id = "consent-scrollbehaviour-override";
-	    document.documentElement.appendChild(stylesheetElement);
-	}
-	let content = Object.entries(window.consentScrollBehaviours).map(entry=>{
-	    const [element,rules] = entry;
-	    return element+"{"+rules.map(rule=>{
-		let hasImportant = rule.value.includes("important");
-		return rule.property+":"+rule.value+(hasImportant?"":"!important");
-	    }).join(";")+"}";
-	}).join("");
-	if (ConsentEngine.debugValues.debugLog) {
-	    console.log(content);
-	}
-	stylesheetElement.textContent = content;
+    static enforceScrollBehaviours(shouldEnforce) {
+        //Make sure we enforce on parent if inside iframe
+        let insideIframe = window !== window.parent;
+    
+        if(insideIframe) {
+            //find top most window
+            let top = window.parent;
+            while(top !== top.parent){
+                top = top.parent;
+            }
+
+            chrome.runtime.sendMessage("GetTabUrl", (url)=>{
+                url = url.substring(0, url.indexOf("/", 8));
+                top.postMessage({"enforceScrollBehaviours": shouldEnforce}, url);
+            });
+        }
+    
+        let stylesheetElement = document.querySelector("#consent-scrollbehaviour-override");
+        if (stylesheetElement) {
+            stylesheetElement.textContent = "";
+        }
+
+        document.querySelector("html").classList.remove("consent-scrollbehaviour-override");
+        document.querySelector("body").classList.remove("consent-scrollbehaviour-override");
+
+        if (!shouldEnforce) return;
+
+        document.querySelector("html").classList.add("consent-scrollbehaviour-override");
+        document.querySelector("body").classList.add("consent-scrollbehaviour-override");
+
+        if (!stylesheetElement) {
+            stylesheetElement = document.createElement("style");
+            stylesheetElement.id = "consent-scrollbehaviour-override";
+            document.documentElement.appendChild(stylesheetElement);
+        }
+        let content = Object.entries(window.consentScrollBehaviours).map(entry => {
+            const [element, rules] = entry;
+            return element + "{" + rules.map(rule => {
+                let hasImportant = rule.value.includes("important");
+                return rule.property + ":" + rule.value + (hasImportant ? "" : "!important");
+            }).join(";") + "}";
+        }).join("");
+        if (ConsentEngine.debugValues.debugLog) {
+            console.log(content);
+        }
+        stylesheetElement.textContent = content;
     }
-        
+
 
     enablePip() {
         this.pipEnabled = true;
-        if(this.modal != null) {
+        if (this.modal != null) {
             this.modal.classList.add("ConsentOMatic-PIP")
         }
-        this.enforceScrollBehaviours(true);
+        ConsentEngine.enforceScrollBehaviours(true);
     }
 
     registerClick() {
@@ -84,7 +107,7 @@ class ConsentEngine {
 
         this.numClicks++;
 
-        if(this.currentMethodFraction == 0) {
+        if (this.currentMethodFraction == 0) {
             this.currentMethodFraction = clickFraction;
         } else {
             let rest = 1 - this.currentMethodFraction;
@@ -94,9 +117,9 @@ class ConsentEngine {
 
         this.calculateProgress();
     }
-    
-    getClicksSoFar(){
-	return this.numClicks;
+
+    getClicksSoFar() {
+        return this.numClicks;
     }
 
     currentMethodDone() {
@@ -185,11 +208,11 @@ class ConsentEngine {
                                 console.groupEnd();
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
-                                if(!ConsentEngine.debugValues.dontHideProgressDialog) {
+                                if (!ConsentEngine.debugValues.dontHideProgressDialog) {
                                     cmp.stopObservers();
                                 }
                             }
-                            
+
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
@@ -269,7 +292,7 @@ class ConsentEngine {
                                 console.log("Error during consent handling:", e);
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
-                                if(!ConsentEngine.debugValues.dontHideProgressDialog) {
+                                if (!ConsentEngine.debugValues.dontHideProgressDialog) {
                                     self.currentCMP = null;
                                     self.hideProgressDialog();
                                     cmp.stopObservers();
@@ -300,7 +323,7 @@ class ConsentEngine {
     }
 
     unHideAll() {
-        if(this.currentCMP != null) {
+        if (this.currentCMP != null) {
             this.currentCMP.stopObservers();
             this.currentCMP.unHideAll();
         }
@@ -340,7 +363,7 @@ class ConsentEngine {
         document.body.appendChild(this.modal);
         this.modal.appendChild(this.dialog);
 
-        this.dialog.addEventListener("click", ()=>{
+        this.dialog.addEventListener("click", () => {
             self.unHideAll();
         });
 
@@ -371,7 +394,7 @@ class ConsentEngine {
             self.dialog.remove();
             self.dialog = null;
         }, 1000);
-        this.enforceScrollBehaviours(false);
+        ConsentEngine.enforceScrollBehaviours(false);
     }
 
     setupObserver() {
