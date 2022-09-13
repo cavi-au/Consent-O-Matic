@@ -77,7 +77,6 @@ let observer = new MutationObserver((mutations)=>{
             if(node.matches != null && node.matches("body")) {
                 getCalculatedStyles();
                 observer.disconnect();
-                console.log("Calculated styles for body");
             }
         })
     });
@@ -96,8 +95,6 @@ window.addEventListener("message", (event)=>{
         console.error("Error inside message listener:", e);
     }
 });
-
-console.log("ContentScript run:", location.origin);
 
 contentScriptRunner().catch((e)=>{
     console.error(e);
