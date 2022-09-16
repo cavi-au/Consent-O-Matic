@@ -49,8 +49,9 @@ chrome.tabs.query({
                 window.close();
             }, 1250);
         });
-
-        Language.doLanguage();
     });
 });
 
+window.addEventListener("DOMContentLoaded", ()=>{
+    Language.doLanguage();
+});
