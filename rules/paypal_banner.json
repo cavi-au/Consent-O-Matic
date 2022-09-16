@@ -1,0 +1,57 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "paypal_banner": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#gdprCookieBanner #manageCookiesLink"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#gdprCookieBanner #manageCookiesLink"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifallownone",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#gdprCookieBanner #bannerDeclineButton"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#gdprCookieBanner #manageCookiesLink"
+                        }
+                    }
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
