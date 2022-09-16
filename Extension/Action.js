@@ -694,7 +694,6 @@ class IfAllowAllAction extends Action {
 
     async execute(consentTypes) {
         let allTrue = true;
-
         Object.keys(consentTypes).forEach((key)=>{
             let value = consentTypes[key];
 
@@ -703,9 +702,58 @@ class IfAllowAllAction extends Action {
             }
         });
 
-        console.log("All True:", allTrue);
-
         if (allTrue) {
+            if (this.trueAction != null) {
+                await this.trueAction.execute(consentTypes);
+            }
+        } else {
+            if (this.falseAction != null) {
+                await this.falseAction.execute(consentTypes);
+            }
+        }
+    }
+
+    getNumSteps() {
+        let steps = 0;
+
+        if(this.trueAction != null) {
+            steps += this.trueAction.getNumSteps();
+        }
+
+        if(this.falseAction != null) {
+            steps += this.falseAction.getNumSteps();
+        }
+
+        return Math.round(steps / 2);
+    }
+}
+
+class IfAllowNoneAction extends Action {
+    constructor(config, cmp) {
+        super(config);
+        this.cmp = cmp;
+ 
+        if (config.trueAction != null) {
+            this.trueAction = Action.createAction(config.trueAction, cmp);
+        }
+
+        if (config.falseAction != null) {
+            this.falseAction = Action.createAction(config.falseAction, cmp);
+        }
+    }
+
+    async execute(consentTypes) {
+        let allFalse = true;
+
+        Object.keys(consentTypes).forEach((key)=>{
+            let value = consentTypes[key];
+
+            if(value === true) {
+                allFalse = false;
+            }
+        });
+
+        if (allFalse) {
             if (this.trueAction != null) {
                 await this.trueAction.execute(consentTypes);
             }

@@ -990,6 +990,12 @@ const translations = {
         "de": "IfAllowAllAktion",
         "pt": "IfAllowAllAction",
     },
+    "IF_ALLOW_NONE_ACTION": {
+        "en": "IfAllowNoneAction",
+        "da": "IfAllowNoneHandling",
+        "de": "IfAllowNoneAktion",
+        "pt": "IfAllowNoneAction",
+    },
     "DETECTOR_DESCRIPTION": {
         "en": "Used to detect the presence of a CMP",
         "da": "Bruges til at detektere tilstedeværelsen af en CMP",
@@ -1048,6 +1054,12 @@ const translations = {
         "da": "Sandt, hvis brugeren har alle samtykker tilladt, falsk ellers",
         "de": "Wahr, wenn dem Benutzer alle Einwilligungen erlaubt sind, andernfalls falsch",
         "pt": "Verdadeiro, se o usuário tiver todos os consentimentos permitidos, falso caso contrário"
+    },
+    "IF_ALLOW_NONE_ACTION_DESCRIPTION": {
+        "en": "True, if the user has all consents rejected, false otherwise",
+        "da": "Sandt, hvis brugeren har alle samtykker afvist, falsk ellers",
+        "de": "Wahr, wenn dem Benutzer alle Einwilligungen abgelehnt hat, andernfalls false",
+        "pt": "Verdadeiro, se o usuário tiver todos os consentimentos rejeitados, falso caso contrário"
     },
     "FOR_EACH_ACTION_DESCRIPTION": {
         "en": "Runs an action for each selected element",
