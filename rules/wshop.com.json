@@ -1,0 +1,115 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "wshop.com": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookiesLightbox.notAccepted"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#shadCookie.actif"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#shadCookie.actif"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiesLightbox.notAccepted"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cookiesLightbox .toggleCookiePrefs"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cookiesLightbox input[value=\"analytics\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cookiesLightbox input[value=\"analytics\"]"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cookiesLightbox input[value=\"marketing\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cookiesLightbox input[value=\"marketing\"]"
+                                }
+                            },
+                            "type": "X"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifallownone",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookiesLightbox #js_cookie_refuse"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookiesLightbox #js_cookie_accept"
+                        }
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
