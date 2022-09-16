@@ -203,7 +203,7 @@ class ConsentEngine {
                             if (ConsentEngine.debugValues.debugLog) {
                                 console.groupCollapsed(cmp.name + " - UTILITY");
                             }
-                            await cmp.runMethod("UTILITY");
+                            await cmp.runMethod("UTILITY", self.consentTypes);
                             if (ConsentEngine.debugValues.debugLog) {
                                 console.groupEnd();
                             }
@@ -233,7 +233,7 @@ class ConsentEngine {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
-                                    await cmp.runMethod("HIDE_CMP");
+                                    await cmp.runMethod("HIDE_CMP", self.consentTypes);
 
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
@@ -243,7 +243,7 @@ class ConsentEngine {
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
                                 }
-                                await cmp.runMethod("OPEN_OPTIONS");
+                                await cmp.runMethod("OPEN_OPTIONS", self.consentTypes);
                                 if (ConsentEngine.debugValues.debugLog) {
                                     console.groupEnd();
                                 }
@@ -252,7 +252,7 @@ class ConsentEngine {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - HIDE_CMP");
                                     }
-                                    await cmp.runMethod("HIDE_CMP");
+                                    await cmp.runMethod("HIDE_CMP", self.consentTypes);
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
@@ -270,7 +270,7 @@ class ConsentEngine {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
-                                    await cmp.runMethod("SAVE_CONSENT");
+                                    await cmp.runMethod("SAVE_CONSENT", self.consentTypes);
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }
