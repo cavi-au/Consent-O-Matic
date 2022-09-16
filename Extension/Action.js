@@ -14,6 +14,7 @@ class Action {
                 case "close": return new CloseAction(config, cmp);
                 case "wait": return new WaitAction(config, cmp);
                 case "ifallowall": return new IfAllowAllAction(config, cmp);
+                case "ifallownone": return new IfAllowNoneAction(config, cmp);
                 case "runrooted": return new RunRootedAction(config, cmp);
                 case "runmethod": return new RunMethodAction(config, cmp);
                 default: throw "Unknown action type: " + config.type;
