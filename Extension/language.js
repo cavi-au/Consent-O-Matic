@@ -1256,6 +1256,3 @@ GDPRConfig.getDebugValues().then((debugValues)=>{
     Language.debugTranslations = debugValues.debugTranslations;
 });
 
-window.addEventListener("DOMContentLoaded", ()=>{
-    Language.doLanguage();
-});

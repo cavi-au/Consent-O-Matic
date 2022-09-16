@@ -568,3 +568,7 @@ document.querySelector("button.addmethod").addEventListener("click", async ()=>{
         document.querySelector("[data-type='cmp'] > [data-plug='method']").appendChild(methodDom);
     }
 });
+
+window.addEventListener("DOMContentLoaded", ()=>{
+    Language.doLanguage();
+});
