@@ -60,12 +60,6 @@
             background: rgba(100, 100, 255, 0.7);
         }
 
-        .header li.debug {
-            position: absolute;
-            right: 0;
-            opacity: 0.01;
-        }
-
         .prehead {
             position: relative;
             padding: 1em;
@@ -270,6 +264,7 @@
     <div class="header">
         <ul role="tablist">
             <li class="menuitem choices active" role="tab" tabindex="0" aria-controls="categoryListTab" aria-selected="true">[[YOUR_CHOICE]]</li>
+            <li class="menuitem general" role="tab" tabindex="-1" aria-controls="generalTab" aria-selected="false">[[SETTINGS]]</li>
             <li class="menuitem rules" role="tab" tabindex="-1" aria-controls="rulesListTab" aria-selected="false">[[RULE_LIST]]</li>
             <li class="menuitem about" role="tab" tabindex="-1" aria-controls="aboutTab" aria-selected="false">[[ABOUT]]</li>
             <li class="menuitem debug" role="tab" tabindex="-1" aria-controls="debugTab" aria-selected="false">[[DEBUG]]</li>
@@ -282,6 +277,14 @@
             </div>
             <ul class="categorylist">
                 <!-- categories -->
+            </ul>
+        </div>
+        <div class="tab tab_settings" id="generalTab" role="tabpanel" tabindex="0">
+            <div class="helptext">
+                [[SETTINGS_DESCRIPTION]]
+            </div>
+            <ul class="settingsList">
+                <!-- settings -->
             </ul>
         </div>
         <div class="tab tab_rl" style="display:none" id="rulesListTab" role="tabpanel" tabindex="0">

@@ -30,10 +30,22 @@ const translations = {
 	      "pt": "Sobre"
     },
     "DEBUG": {
-        "en": "Debug",
-        "da": "Debug",
-	      "de": "Debug",
-	      "pt": "Debug"
+        "en": "Dev",
+        "da": "Dev",
+	      "de": "Dev",
+	      "pt": "Dev"
+    },
+    "SETTINGS": {
+        "en": "Settings",
+        "da": "Indstillinger",
+	      "de": "Einstellungen",
+	      "pt": "Definições"
+    },
+    "SETTINGS_DESCRIPTION": {
+        "en": "Settings",
+        "da": "Indstillinger",
+	      "de": "Einstellungen",
+	      "pt": "Definições"
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
@@ -54,10 +66,10 @@ const translations = {
 	      "pt": "Adicionar Lista"
     },
     "RULES_UPDATE_DESCRIPTION": {
-        "en": "All the rule lists are updated automatically every 15 minutes or you can",
-        "da": "Alle listerne med regler opdateres automatisk hvert 15. minut, eller du kan",
-        "de": "Alle Regellisten werden automatisch alle 15 Minuten aktualisiert, oder Sie können",
-	      "pt": "Todas as listas de regras são atualizadas automaticamente a cada 15 minutos ou você pode"
+        "en": "All the rule lists are updated automatically every 22-48 hours or you can",
+        "da": "Alle listerne med regler opdateres automatisk engang hver 22-48 time, eller du kan",
+        "de": "Alle Regellisten werden automatisch alle 22-48 Stunden aktualisiert oder Sie können",
+	      "pt": "Todas as listas de regras são atualizadas automaticamente a cada 22-48 horas ou você pode"
     },
     "UPDATE_RULES_NOW": {
         "en": "Update Rules Now",
