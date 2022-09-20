@@ -34,6 +34,28 @@ menuTabs.forEach((menuTab) => {
     });
 });
 
+GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+    let hideOrPipForm = document.querySelector("#generalTab #hideOrPip");
+    let hideOrPipRadioGroup = hideOrPipForm.elements["hideOrPip"];
+    if(generalSettings.hideInsteadOfPIP) {
+        hideOrPipRadioGroup.value = "hide";
+    } else {
+        hideOrPipRadioGroup.value = "pip";
+    }
+
+    function saveGeneralSettings() {
+        const newGeneralSettings = {
+            hideInsteadOfPIP: hideOrPipRadioGroup.value === "hide"
+        };
+
+        GDPRConfig.setGeneralSettings(newGeneralSettings);
+    }
+
+    hideOrPipForm.addEventListener("input", ()=>{
+        saveGeneralSettings();
+    });
+});
+
 GDPRConfig.getConsentTypes().then((consentTypes) => {
     consentTypes.forEach((consentType) => {
         addToggleItem(optionsUL, consentType.type, consentType.name, consentType.description, consentType.value);

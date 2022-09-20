@@ -284,7 +284,13 @@
                 [[SETTINGS_DESCRIPTION]]
             </div>
             <ul class="settingsList">
-                <!-- settings -->
+                <li class="hideOrPip">
+                    <div>[[HIDE_OR_PIP_DESCRIPTION]]</div>
+                    <form id="hideOrPip">
+                        <div><label><input type="radio" name="hideOrPip" value="pip"/> [[HIDE_OR_PIP_PIP_LABEL]]</label></div>
+                        <div><label><input type="radio" name="hideOrPip" value="hide"/> [[HIDE_OR_PIP_HIDE_LABEL]]</label></div>
+                    </form>
+                </li>
             </ul>
         </div>
         <div class="tab tab_rl" style="display:none" id="rulesListTab" role="tabpanel" tabindex="0">

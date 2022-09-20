@@ -29,27 +29,30 @@ async function contentScriptRunner() {
     
                     GDPRConfig.getConsentValues().then((consentTypes)=>{
                         GDPRConfig.getDebugValues().then((debugValues)=>{
-                            if(debugValues.debugLog) {
-                                console.log("FetchedRules:", fetchedRules);
-                                console.log("CustomRules:", customRules);
-                            }
-            
-                            ConsentEngine.debugValues = debugValues;
-    
-                            let engine = new ConsentEngine(config, consentTypes, (stats)=>{
-                                chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
-                                    "cmp": stats.cmpName,
-                                    "url": url,
-                                    "clicks": stats.clicks
-                                }));
-    
+                            GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+                                if(debugValues.debugLog) {
+                                    console.log("FetchedRules:", fetchedRules);
+                                    console.log("CustomRules:", customRules);
+                                }
+                
+                                ConsentEngine.debugValues = debugValues;
+                                ConsentEngine.generalSettings = generalSettings;
+        
+                                let engine = new ConsentEngine(config, consentTypes, (stats)=>{
+                                    chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
+                                        "cmp": stats.cmpName,
+                                        "url": url,
+                                        "clicks": stats.clicks
+                                    }));
+        
+                                });
+        
+                                ConsentEngine.singleton = engine;
+        
+                                if(debugValues.debugLog) {
+                                    console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
+                                }
                             });
-    
-                            ConsentEngine.singleton = engine;
-    
-                            if(debugValues.debugLog) {
-                                console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
-                            }
                         });
                     });
                 });

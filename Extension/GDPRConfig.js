@@ -42,6 +42,16 @@ class GDPRConfig {
         });
     }    
 
+    static getGeneralSettings() {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.get({
+                generalSettings: {}
+            }, (result) => {
+                resolve(Object.assign({}, GDPRConfig.defaultSettings, result.generalSettings));
+            });
+        });
+    }    
+
     static getCustomRuleLists() {
         return new Promise((resolve, reject) => {
             chrome.storage.local.get({
@@ -164,11 +174,6 @@ class GDPRConfig {
                 "value": debugValues.alwaysForceRulesUpdate
             },
             {
-                "name": "hideInsteadOfPIP",
-                "description": Language.getString("HIDE_INSTEAD_OF_PIP_DESCRIPTION"),
-                "value": debugValues.hideInsteadOfPIP
-            },
-            {
                 "name": "skipHideMethod",
                 "description": Language.getString("SKIP_HIDE_DESCRIPTION"),
                 "value": debugValues.skipHideMethod
@@ -262,6 +267,16 @@ class GDPRConfig {
         });
     }    
 
+    static setGeneralSettings(newGeneralSettings) {
+        return new Promise((resolve, reject)=>{
+            chrome.storage.sync.set({
+                generalSettings: newGeneralSettings
+            }, () => {
+                resolve();
+            });
+        });
+    }    
+
     static clearRuleCache() {
         return new Promise((resolve, reject)=>{
             chrome.storage.local.set({
@@ -282,6 +297,10 @@ GDPRConfig.defaultValues = {
     "X": false
 };
 
+GDPRConfig.defaultSettings = {
+    "hideInsteadOfPIP": false
+}
+
 GDPRConfig.defaultDebugFlags = {
     "clickDelay": false,
     "skipSubmit": false,
@@ -292,7 +311,6 @@ GDPRConfig.defaultDebugFlags = {
     "debugLog": false,
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
-    "hideInsteadOfPIP": false,
     "dontHideProgressDialog": false
 };
 

@@ -463,7 +463,7 @@ class HideAction extends Action {
                 result.target.classList.add("ConsentOMatic-CMP-NoDetect");
             }
 
-            if(ConsentEngine.debugValues.hideInsteadOfPIP || this.config.forceHide === true) {
+            if(ConsentEngine.generalSettings.hideInsteadOfPIP || this.config.forceHide === true) {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
                 ConsentEngine.singleton.enablePip();
