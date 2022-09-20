@@ -3,6 +3,7 @@ class Matcher {
         switch(config.type) {
             case "css": return new CssMatcher(config);
             case "checkbox": return new CheckboxMatcher(config);
+            case "url": return new URLMatcher(config);
             default: throw "Unknown matcher type: "+config.type;
         }
     }
@@ -84,5 +85,62 @@ class CheckboxMatcher extends Matcher {
         }
 
         return result.target != null && result.target.checked;
+    }
+}
+
+class URLMatcher extends Matcher {
+    constructor(config) {
+        super(config);
+    }
+
+    debug() {
+        //Overriden to disable
+    }
+
+    matches() {
+        if (ConsentEngine.debugValues.debugLog) {
+            console.log("URL Matcher:", ConsentEngine.topFrameUrl, this.config);
+        }
+
+        let urls = this.config.url;
+        if(!Array.isArray(urls)) {
+            urls = [urls];
+        }
+
+        let matched = false;
+        
+        if(this.config.regexp) {
+            for(let url of urls) {
+                let regexp = new RegExp(url);
+                if(regexp.exec(ConsentEngine.topFrameUrl) !== null) {
+                    if (ConsentEngine.debugValues.debugLog) {
+                        console.log("Matched URL regexp:", url);
+                    }
+                    matched = true;
+                    break;
+                }
+            }
+        } else {
+            for(let url of urls) {
+                if(location.origin.indexOf(url) > -1) {
+                    if (ConsentEngine.debugValues.debugLog) {
+                        console.log("Matched URL:", url);
+                    }
+                    matched = true;
+                    break;
+                }
+            }
+        }
+
+        if(this.config.negated) {
+            //If the matcher should be negated, negate matched
+            matched = !matched;
+        }
+
+        if (ConsentEngine.debugValues.debugLog) {
+            console.log("Did URLMatcher match (after negate):", matched);
+        }
+
+        return matched;
     }
 }

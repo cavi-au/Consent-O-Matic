@@ -22,6 +22,17 @@
     </div>
 </template>
 
+<template id="matcher_url">
+    <div data-type="matcher" data-variant="url" data-fold-name="[[URL_MATCHER]]">
+        <div class="label">[[URL_LABEL]]<div class="help">[[URL_LABEL_HELP]]</div></div>
+        <div data-bind="url"><ul class="list"><li><input size="30"/></li></li></ul></div>
+        <div class="label">[[REGEXP_LABEL]]<div class="help">[[REGEXP_LABEL_HELP]]</div></div>
+        <div data-bind="regexp"><input type="checkbox" /></div>
+        <div class="label inline">[[NEGATED]]<div class="help">[[NEGATED_URL_HELP]]</div></div>
+        <div data-bind="negated"><input type="checkbox" /></div>
+    </div>
+</template>
+
 <template id="matcher_checkbox">
     <div data-type="matcher" data-variant="checkbox" data-fold-name="[[CHECKBOX_MATCHER]]">
         <div class="label">[[SELECTOR]]<div class="help">[[SELECTOR_HELP]]</div></div>

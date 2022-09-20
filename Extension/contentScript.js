@@ -37,6 +37,7 @@ async function contentScriptRunner() {
                 
                                 ConsentEngine.debugValues = debugValues;
                                 ConsentEngine.generalSettings = generalSettings;
+                                ConsentEngine.topFrameUrl = url;
         
                                 let engine = new ConsentEngine(config, consentTypes, (stats)=>{
                                     chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({

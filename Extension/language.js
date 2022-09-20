@@ -330,6 +330,42 @@ const translations = {
         "de": "CssAbgleich",
         "pt": "CssMatcher"
     },
+    "URL_MATCHER": {
+        "en": "UrlMatcher",
+        "da": "UrlSammenligner",
+        "de": "UrlAbgleich",
+        "pt": "UrlMatcher"
+    },
+    "URL_MATCHER_DESCRIPTION": {
+        "en": "Matches 'location.origin' against a list of urls",
+        "da": "Matcher 'location.origin' mod en liste over URL'er",
+        "de": "Gleicht 'location.origin' mit einer Liste von URLs ab",
+        "pt": "Corresponde a 'location.origin' a uma lista de URLs"
+    },
+    "URL_LABEL": {
+        "en": "Url",
+        "da": "Url",
+        "de": "Url",
+        "pt": "Url"
+    },
+    "URL_LABEL_HELP": {
+        "en": "The urls to test against, if one matches the matcher is true",
+        "da": "Webadresserne til at teste op imod, hvis en af dem matcher, er sammenligneren sand",
+        "de": "Die URLs, gegen die getestet werden soll, wenn einer übereinstimmt, ist der Matcher wahr",
+        "pt": "Os URLs para testar, se um corresponder, o matcher é verdadeiro"
+    },
+    "REGEXP_LABEL": {
+        "en": "RegExp",
+        "da": "RegExp",
+        "de": "RegExp",
+        "pt": "RegExp"
+    },
+    "REGEXP_LABEL_HELP": {
+        "en": "Treats the url as a regular expression.",
+        "da": "Behandler url'en som et regulært udtryk.",
+        "de": "Behandelt die URL als regulären Ausdruck.",
+        "pt": "Trata o URL como uma expressão regular."
+    },
     "CHECKBOX_MATCHER": {
         "en": "CheckboxMatcher",
         "da": "CheckboksSammenligner",
@@ -1192,6 +1228,9 @@ const translations = {
     },
     "METHOD_HELP": {
         "en": "The method to run"
+    },
+    "NEGATED_URL_HELP": {
+        "en": "When enabled, this matcher matches, if none of the URL's match"
     }
 };
 
