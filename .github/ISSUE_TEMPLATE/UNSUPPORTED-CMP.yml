@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-# Please report unsupported sites using the extension
+        # Please report unsupported sites using the extension
 
-In most cases when Consent-O-Matic does not fill out a popup it is due to us not yet knowing about the consent popup being shown on that website.
-If that is the case please use the built-in report system in the extension directly and report the site. This adds it to our list of sites to look at.
+        In most cases when Consent-O-Matic does not fill out a popup it is due to us not yet knowing about the consent popup being shown on that website.
+        If that is the case please use the built-in report system in the extension directly and report the site. This adds it to our list of sites to look at.
 
-The issue list here on Github is mostly for bugs and for reporting when popups are filled incorrectly.
+        The issue list here on Github is mostly for bugs and for reporting when popups are filled incorrectly.
