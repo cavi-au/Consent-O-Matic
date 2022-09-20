@@ -7,6 +7,14 @@
                     {
                         "type": "css",
                         "target": {
+                            "selector": "form#ws-consent"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
                             "selector": "form#ws-consent",
                             "displayFilter": true
                         }
