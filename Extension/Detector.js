@@ -13,20 +13,32 @@ class Detector {
         }
 
         this.config.presentMatcher.forEach((matcher)=>{
-            this.presentMatchers.push(Matcher.createMatcher(matcher));
+            if(matcher != null) {
+                this.presentMatchers.push(Matcher.createMatcher(matcher));
+            }
         });
         this.config.showingMatcher.forEach((matcher)=>{
-            this.showingMatchers.push(Matcher.createMatcher(matcher));
+            if(matcher != null) {
+                this.showingMatchers.push(Matcher.createMatcher(matcher));
+            }
         });
     }
 
     detect() {
+        if(this.presentMatchers.length === 0) {
+            return false;
+        }
+
         return this.presentMatchers.every((matcher)=>{
             return matcher.matches();
         });
     }
 
     isShowing() {
+        if(this.showingMatchers.length === 0) {
+            return true;
+        }
+
         return this.showingMatchers.every((matcher)=>{
             return matcher.matches();
         });

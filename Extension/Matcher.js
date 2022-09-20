@@ -122,7 +122,7 @@ class URLMatcher extends Matcher {
             }
         } else {
             for(let url of urls) {
-                if(location.origin.indexOf(url) > -1) {
+                if(ConsentEngine.topFrameUrl.indexOf(url) > -1) {
                     if (ConsentEngine.debugValues.debugLog) {
                         console.log("Matched URL:", url);
                     }

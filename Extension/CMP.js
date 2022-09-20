@@ -42,7 +42,9 @@ class CMP {
             "border",
             "box-shadow",
             "z-index",
-            "animation"
+            "animation",
+            "grid-column",
+            "grid-row"
         ];
 
         this.hiddenTargets.forEach((target)=>{

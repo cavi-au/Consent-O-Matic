@@ -495,31 +495,17 @@ class HideAction extends Action {
                         let widthScale = width / targetWidth;
                         let heightScale = height / targetHeight;
     
+                        console.log(width, height, targetWidth, targetHeight, widthScale, heightScale);
+
                         scale = Math.min(widthScale, heightScale);
                     }
     
-                    //console.log("Setting styles:", result.target, scale, preview != null);
-
-                    let ourStyles = [
-                        "position",
-                        "left",
-                        "top",
-                        "right",
-                        "bottom",
-                        "transform",
-                        "transform-origin",
-                        "transition",
-                        "contain",
-                        "border",
-                        "box-shadow",
-                        "z-index",
-                        "animation"
-                    ];
+                    console.log("Setting styles:", result.target, scale, preview != null);
 
                     result.target.style.setProperty("position", "fixed", "important");
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
-                    result.target.style.setProperty("right",  "2px", "important");
+                    result.target.style.setProperty("right",  "0px", "important");
                     result.target.style.setProperty("bottom", "2px", "important");
                     result.target.style.setProperty("transform", "translateY(-4rem) scale("+scale+")", "important");
                     result.target.style.setProperty("transform-origin", "right bottom", "important");
@@ -528,7 +514,9 @@ class HideAction extends Action {
                     result.target.style.setProperty("border", "none", "important");
                     result.target.style.setProperty("box-shadow", "none", "important");
                     result.target.style.setProperty("z-index", "2147483647", "important");
-                    result.target.style.setProperty("animation", "none", "important");
+                    result.target.style.setProperty("grid-column", "none", "important");
+                    result.target.style.setProperty("grid-row", "none", "important");
+                    
                 }
 
                 setStyles();
