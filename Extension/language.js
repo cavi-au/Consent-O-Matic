@@ -931,7 +931,7 @@ const translations = {
 	      "pt": "Tem certeza?"
     },
     "UNHANDLED_EXPLAINER": {
-        "en": "The site is added to our list of sites to review",
+        "en": "The site will be added to our list of sites to review",
         "da": "Siden bliver tilføjet til vores liste af sider der skal gennemgåes",
         "de": "Die Website wird in unsere Liste der zu überprüfenden Websites aufgenommen",
 	      "pt": "O site é adicionado à nossa lista de sites para revisão"
