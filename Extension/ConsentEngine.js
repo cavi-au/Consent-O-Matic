@@ -131,6 +131,8 @@ class ConsentEngine {
     }
 
     startStopTimeout() {
+        const self = this;
+
         if (this.stopEngineId != null) {
             clearTimeout(this.stopEngineId);
         }
@@ -139,6 +141,9 @@ class ConsentEngine {
             if (ConsentEngine.debugValues.debugLog) {
                 console.log("No CMP detected in 5 seconds, stopping engine...");
             }
+            self.handledCallback({
+                handled: false
+            });
             this.stopObserver();
         }, 5000);
     }
@@ -285,6 +290,7 @@ class ConsentEngine {
                                 self.updateProgress(1.0);
 
                                 self.handledCallback({
+                                    handled: true,
                                     cmpName: cmp.name,
                                     clicks: self.numClicks
                                 });

@@ -39,13 +39,27 @@ async function contentScriptRunner() {
                                 ConsentEngine.generalSettings = generalSettings;
                                 ConsentEngine.topFrameUrl = url;
         
-                                let engine = new ConsentEngine(config, consentTypes, (stats)=>{
-                                    chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify({
-                                        "cmp": stats.cmpName,
-                                        "url": url,
-                                        "clicks": stats.clicks
-                                    }));
-        
+                                let engine = new ConsentEngine(config, consentTypes, (evt)=>{
+                                    let result = {
+                                        "handled": evt.handled
+                                    };
+
+                                    if(evt.handled) {
+                                        result.cmp = evt.cmpName;
+                                        result.clicks = evt.clicks;
+                                        result.url = url;
+    
+                                        chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
+                                    }
+
+                                    if(debugValues.scrapingMode) {
+                                        // Set debug data for scraper to use
+                                        try {
+                                            document.querySelector("html").setAttribute("data-consentOMatic", JSON.stringify(result));
+                                        } catch(e) {
+                                            console.error("Unable to set 'data-consentOMatic':", e);
+                                        }
+                                    }
                                 });
         
                                 ConsentEngine.singleton = engine;
