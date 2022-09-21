@@ -1320,8 +1320,10 @@ class Language {
         });
     }
 }
+window.Language = Language;
 
 GDPRConfig.getDebugValues().then((debugValues) => {
     Language.debugTranslations = debugValues.debugTranslations;
 });
 
+export {Language};

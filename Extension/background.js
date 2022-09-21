@@ -1,3 +1,5 @@
+import {GDPRConfig} from './GDPRConfig.js'
+
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
@@ -84,12 +86,12 @@ function setBadgeCheckmark(enabled, id) {
         text = "\u2714";
     }
 
-    chrome.browserAction.setBadgeText({
+    chrome.action.setBadgeText({
         text: text,
         tabId: id
     });
 
-    chrome.browserAction.setBadgeBackgroundColor({
+    chrome.action.setBadgeBackgroundColor({
         color: "white",
         tabId: id
     });
@@ -149,8 +151,6 @@ function fetchRules(forceUpdate) {
     return rulePromise;
 
 }
-
-let tabsInfo = new Map();
 
 chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
     if(info.status != null && info.status === "Loading") {

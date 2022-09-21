@@ -196,3 +196,5 @@ class CMP {
         return totalSteps;
     }
 }
+
+export {CMP};

@@ -1,4 +1,23 @@
 async function contentScriptRunner() {
+    //Load all dependencies from modules
+    async function loadModule(file) {
+        let module = await import(file);
+
+        Object.keys(module).forEach((exportName)=>{
+            window[exportName] = module[exportName];
+        });
+    }
+
+    await loadModule("./GDPRConfig.js");
+    await loadModule("./Tools.js");
+    await loadModule("./Language.js");
+    await loadModule("./Action.js");
+    await loadModule("./Matcher.js");
+    await loadModule("./Detector.js");
+    await loadModule("./Consent.js");
+    await loadModule("./CMP.js");
+    await loadModule("./ConsentEngine.js");
+
     let url = location.href;
     
     let insideIframe = window !== window.parent;

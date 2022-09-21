@@ -144,3 +144,10 @@ class URLMatcher extends Matcher {
         return matched;
     }
 }
+
+export {
+    Matcher,
+    CssMatcher,
+    CheckboxMatcher,
+    URLMatcher
+}

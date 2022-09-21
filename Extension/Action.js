@@ -848,3 +848,23 @@ class RunMethodAction extends Action {
         return 0;
     }
 }
+
+export {
+    Action,
+    ListAction,
+    CloseAction,
+    WaitAction,
+    ClickAction,
+    MultiClickAction,
+    ConsentAction,
+    IfCssAction,
+    WaitCssAction,
+    NopAction,
+    ForEachAction,
+    HideAction,
+    SlideAction,
+    IfAllowAllAction,
+    IfAllowNoneAction,
+    RunRootedAction,
+    RunMethodAction
+}

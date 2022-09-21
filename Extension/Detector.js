@@ -44,3 +44,5 @@ class Detector {
         });
     }
 }
+
+export { Detector };

@@ -443,3 +443,5 @@ class ConsentEngine {
 }
 
 ConsentEngine.singleton = null;
+
+export {ConsentEngine};

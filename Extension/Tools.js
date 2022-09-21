@@ -221,3 +221,5 @@ class Tools {
 }
 
 Tools.base = null;
+
+export {Tools};

@@ -59,3 +59,5 @@ class Consent {
         return this.config.type;
     }
 }
+
+export {Consent}
