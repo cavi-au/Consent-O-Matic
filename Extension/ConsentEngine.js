@@ -38,9 +38,12 @@ class ConsentEngine {
 
         this.startStopTimeout();
 
-        document.addEventListener("DOMContentLoaded", ()=>{
+        window.addEventListener("DOMContentLoaded", ()=>{
             self.handleMutations([]);
-        })
+        });
+        setTimeout(()=>{
+            self.handleMutations([]);
+        },0)
     }
 
 
