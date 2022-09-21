@@ -184,7 +184,8 @@
                                             "textFilter": [
                                                 "Store and/or access information on a device",
                                                 "Opbevare og/eller tilgå oplysninger på en enhed",
-                                                "Informationen auf einem Gerät speichern und/oder abrufen"
+                                                "Informationen auf einem Gerät speichern und/oder abrufen",
+                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning"
                                             ]
                                         },
                                         "trueAction": {

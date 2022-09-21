@@ -58,7 +58,9 @@
                                             "textFilter": [
                                                 "Store and/or access information on a device",
                                                 "Actively scan device characteristics for identification",
-                                                "Use precise geolocation data"
+                                                "Use precise geolocation data",
+                                                "Authentication and authorization management",
+                                                "Functionality"
                                             ]
                                         },
                                         "trueAction": {
@@ -125,7 +127,10 @@
                                                 "Create a personalised content profile",
                                                 "Measure content performance",
                                                 "Select personalised content",
-                                                "Optimise navigation and suggested content"
+                                                "Optimise navigation and suggested content",
+                                                "Contact",
+                                                "Usage Statistics",
+                                                "Live tracking of behaviours on a website for assistance and error-tracking"
                                             ]
                                         },
                                         "trueAction": {
@@ -183,7 +188,8 @@
                                         "target": {
                                             "selector": ".didomi-components-accordion",
                                             "textFilter": [
-                                                "Audience measurement and content performance"
+                                                "Audience measurement and content performance",
+                                                "Analytics"
                                             ]
                                         },
                                         "trueAction": {
@@ -235,6 +241,15 @@
                                     "type": "X"
                                 }
                             ]
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".didomi-components-button:first-child"
+                            },
+                            "parent": {
+                                "selector": ".didomi-consent-popup-footer .didomi-consent-popup-actions"
+                            }
                         }
                     ]
                 },
