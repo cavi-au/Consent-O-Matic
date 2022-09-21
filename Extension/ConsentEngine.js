@@ -332,8 +332,6 @@ class ConsentEngine {
             }
 
             checkIsShowing();
-        } else {
-            console.log("Nothing found, try again later");
         }
     }
 
