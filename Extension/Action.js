@@ -500,8 +500,6 @@ class HideAction extends Action {
                         scale = Math.min(widthScale, heightScale);
                     }
     
-                    console.log("Setting styles:", result.target, scale, preview != null);
-
                     result.target.style.setProperty("position", "fixed", "important");
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
@@ -516,7 +514,6 @@ class HideAction extends Action {
                     result.target.style.setProperty("z-index", "2147483647", "important");
                     result.target.style.setProperty("grid-column", "none", "important");
                     result.target.style.setProperty("grid-row", "none", "important");
-                    
                 }
 
                 setStyles();

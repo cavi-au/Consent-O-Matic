@@ -36,9 +36,11 @@ class ConsentEngine {
         this.setupObserver();
         this.startObserver();
 
-        this.handleMutations([]);
-
         this.startStopTimeout();
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            self.handleMutations([]);
+        })
     }
 
 
@@ -141,6 +143,11 @@ class ConsentEngine {
             if (ConsentEngine.debugValues.debugLog) {
                 console.log("No CMP detected in 5 seconds, stopping engine...");
             }
+
+            if(self.queueId != null) {
+                clearTimeout(self.queueId);
+            }
+
             self.handledCallback({
                 handled: false
             });
@@ -153,12 +160,12 @@ class ConsentEngine {
 
         if (this.queueId == null) {
             this.queueId = setTimeout(() => {
+                self.queueId = null;
                 try {
                     self.checkForCMPs();
                 } catch (e) {
                     console.error(e);
                 }
-                self.queueId = null;
             }, 250);
         }
     }
@@ -318,13 +325,15 @@ class ConsentEngine {
                             console.log(cmp.name + " - Not showing");
                         }
                         self.startObserver();
-                        self.handleMutations([]);
                         self.startStopTimeout()
+                        self.handleMutations([]);
                     }
                 }
             }
 
             checkIsShowing();
+        } else {
+            console.log("Nothing found, try again later");
         }
     }
 
