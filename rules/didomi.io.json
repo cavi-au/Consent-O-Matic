@@ -128,9 +128,7 @@
                                                 "Measure content performance",
                                                 "Select personalised content",
                                                 "Optimise navigation and suggested content",
-                                                "Contact",
-                                                "Usage Statistics",
-                                                "Live tracking of behaviours on a website for assistance and error-tracking"
+                                                "Contact"
                                             ]
                                         },
                                         "trueAction": {
@@ -189,7 +187,9 @@
                                             "selector": ".didomi-components-accordion",
                                             "textFilter": [
                                                 "Audience measurement and content performance",
-                                                "Analytics"
+                                                "Analytics",
+                                                "Usage Statistics",
+                                                "Live tracking of behaviours on a website for assistance and error-tracking"
                                             ]
                                         },
                                         "trueAction": {
