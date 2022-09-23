@@ -319,7 +319,7 @@ Example:
       "type": "click",
       "target": {
          "selector": ".myTrueButton"
-      }  
+      }
    },
    "falseAction": {
       "type": "click",
