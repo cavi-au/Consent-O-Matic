@@ -1,3 +1,9 @@
+let recordedCookies = [];
+
+function cookieChanged(evt) {
+    recordedCookies.push(evt);
+}
+
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
@@ -68,6 +74,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
                 GDPRConfig.setStatistics(entries);
             });
+
+            return false;
+        }
+
+        case "RecordCookieChanges": {
+
+            chrome.cookies.onChanged.addListener(cookieChanged);
+                          
+            return false;
+        }
+
+        case "GetRecordedCookies": {
+            reply({cookies: recordedCookies});
 
             return false;
         }

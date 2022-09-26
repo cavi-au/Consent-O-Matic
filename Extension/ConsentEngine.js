@@ -13,6 +13,8 @@ class ConsentEngine {
         this.numClicks = 0;
         this.pipEnabled = false;
 
+        this.savedCookies = document.cookie;
+
         Object.keys(config).forEach((key) => {
             try {
                 self.cmps.push(new CMP(key, config[key]));
@@ -232,6 +234,12 @@ class ConsentEngine {
                             self.handleMutations([]);
                         } else {
                             try {
+                                await new Promise((resolve)=>{
+                                    chrome.runtime.sendMessage("RecordCookieChanges", ()=>{
+                                        resolve();
+                                    });
+                                });
+
                                 self.numClicks = 0;
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
@@ -299,13 +307,28 @@ class ConsentEngine {
 
                                 self.updateProgress(1.0);
 
+                                let cookies = await new Promise((resolve)=>{
+                                    setTimeout(()=>{
+                                        //Wait 1 sec before getting cookie changes
+                                        chrome.runtime.sendMessage("GetRecordedCookies", (cookies)=>{
+                                            resolve(cookies);
+                                        });
+                                    }, 1000);
+                                });
+
                                 self.handledCallback({
                                     handled: true,
                                     cmpName: cmp.name,
-                                    clicks: self.numClicks
+                                    clicks: self.numClicks,
+                                    cookies: JSON.stringify(cookies)
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
+                                self.handledCallback({
+                                    handled: false,
+                                    cmpName: cmp.name,
+                                    error: ""+e
+                                });
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if (!ConsentEngine.debugValues.dontHideProgressDialog) {

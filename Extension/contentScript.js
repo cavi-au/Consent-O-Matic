@@ -41,24 +41,23 @@ async function contentScriptRunner() {
         
                                 let engine = new ConsentEngine(config, consentTypes, (evt)=>{
                                     let result = {
-                                        "handled": evt.handled
+                                        url
                                     };
 
+                                    Object.keys(evt).forEach((key)=>{
+                                        result[key] = evt[key];
+                                    })
+
+                                    let json = JSON.stringify(result);
+
                                     if(evt.handled) {
-                                        result.cmp = evt.cmpName;
-                                        result.clicks = evt.clicks;
-                                        result.url = url;
-    
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
                                     }
 
-                                    if(debugValues.scrapingMode) {
-                                        // Set debug data for scraper to use
-                                        try {
-                                            document.querySelector("html").setAttribute("data-consentOMatic", JSON.stringify(result));
-                                        } catch(e) {
-                                            console.error("Unable to set 'data-consentOMatic':", e);
-                                        }
+                                    try {
+                                        document.querySelector("html").setAttribute("data-consentOMatic", JSON.stringify(result));
+                                    } catch(e) {
+                                        console.error("Unable to set 'data-consentOMatic':", e);
                                     }
                                 });
         
