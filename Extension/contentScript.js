@@ -51,15 +51,6 @@ async function contentScriptRunner() {
     
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
                                     }
-
-                                    if(debugValues.scrapingMode) {
-                                        // Set debug data for scraper to use
-                                        try {
-                                            document.querySelector("html").setAttribute("data-consentOMatic", JSON.stringify(result));
-                                        } catch(e) {
-                                            console.error("Unable to set 'data-consentOMatic':", e);
-                                        }
-                                    }
                                 });
         
                                 ConsentEngine.singleton = engine;

@@ -197,11 +197,6 @@ class GDPRConfig {
                 "name": "dontHideProgressDialog",
                 "description": "Dont hide ConsentOMatic progress dialog",
                 "value": debugValues.dontHideProgressDialog
-            },
-            {
-                "name": "scrapingMode",
-                "description": "Put small stats attribute with JSON string on html element, for scraping testing",
-                "value": debugValues.scrapingMode
             }
         ];
     }
@@ -315,8 +310,7 @@ GDPRConfig.defaultDebugFlags = {
     "debugLog": false,
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
-    "dontHideProgressDialog": false,
-    "scrapingMode": false
+    "dontHideProgressDialog": false
 };
 
 GDPRConfig.defaultRuleLists = [
