@@ -48,6 +48,7 @@ Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 202
 Consent-O-Matic currently works with these CMPs:
 
 * Autodesk
+* begadi.com
 * EvidonBanner
 * EvidonIFrame
 * consentmanager.net
@@ -318,7 +319,7 @@ Example:
       "type": "click",
       "target": {
          "selector": ".myTrueButton"
-      }  
+      }
    },
    "falseAction": {
       "type": "click",
