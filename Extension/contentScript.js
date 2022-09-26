@@ -41,7 +41,8 @@ async function contentScriptRunner() {
         
                                 let engine = new ConsentEngine(config, consentTypes, (evt)=>{
                                     let result = {
-                                        url
+                                        url,
+                                        consentTypes
                                     };
 
                                     Object.keys(evt).forEach((key)=>{
