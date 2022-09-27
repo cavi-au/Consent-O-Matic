@@ -1124,7 +1124,7 @@ const translations = {
     "IF_ALLOW_NONE_ACTION_DESCRIPTION": {
         "en": "True, if the user has all consents rejected, false otherwise",
         "da": "Sandt, hvis brugeren har alle samtykker afvist, falsk ellers",
-        "de": "Wahr, wenn der Benutzer alle Einwilligungen abgelehnt hat, andernfalls false",
+        "de": "Wahr, wenn der Benutzer alle Einwilligungen abgelehnt hat, andernfalls falsch",
         "pt": "Verdadeiro, se o usuário tiver todos os consentimentos rejeitados, falso caso contrário"
     },
     "FOR_EACH_ACTION_DESCRIPTION": {
@@ -1204,7 +1204,7 @@ const translations = {
     },
     "RUN_ROOTED_ACTION_DESCRIPTION": {
         "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
-        "de": "Führt eine Aktion aus, die auf dem ausgewählten Dom-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root."
+        "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root."
     },
     "RUN_METHOD_ACTION": {
         "en": "RunMethodAction"
