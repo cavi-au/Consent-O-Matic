@@ -41,9 +41,9 @@ class ConsentEngine {
         window.addEventListener("DOMContentLoaded", ()=>{
             self.handleMutations([]);
         });
-        setTimeout(()=>{
+        this.domScannerInterval = setInterval(()=>{
             self.handleMutations([]);
-        },0)
+        },250);
     }
 
 
@@ -150,6 +150,8 @@ class ConsentEngine {
             if(self.queueId != null) {
                 clearTimeout(self.queueId);
             }
+
+            clearInterval(self.domScannerInterval);
 
             self.handledCallback({
                 handled: false
@@ -316,6 +318,7 @@ class ConsentEngine {
                                 }
                             }
                             clearTimeout(self.stopEngineId);
+                            clearInterval(self.domScannerInterval);
                         }
                     }, 0);
                 } else {
