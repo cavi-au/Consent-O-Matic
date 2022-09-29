@@ -88,7 +88,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         case "GetRecordedCookies": {
             reply({cookies: recordedCookies});
 
-            return false;
+            return true;
         }
 
         default:
