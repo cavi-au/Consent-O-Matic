@@ -51,6 +51,11 @@ async function contentScriptRunner() {
 
                                     let json = JSON.stringify(result);
 
+                                    if(window.sendCoMResults != null) {
+                                        console.log("Sending result");
+                                        sendCoMResults(json);
+                                    }
+
                                     if(evt.handled) {
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
                                     }

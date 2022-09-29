@@ -60,6 +60,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
             setBadgeCheckmark(true, sender.tab.id);
 
+            console.log("Handled:", json);
+
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;
                 
@@ -76,21 +78,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             });
 
             return false;
-        }
-
-        case "RecordCookieChanges": {
-
-            chrome.cookies.onChanged.addListener(cookieChanged);
-                       
-            reply();
-
-            return true;
-        }
-
-        case "GetRecordedCookies": {
-            reply({cookies: recordedCookies});
-
-            return true;
         }
 
         default:

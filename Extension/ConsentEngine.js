@@ -43,9 +43,9 @@ class ConsentEngine {
         window.addEventListener("DOMContentLoaded", ()=>{
             self.handleMutations([]);
         });
-        setTimeout(()=>{
+        this.domScannerInterval = setInterval(()=>{
             self.handleMutations([]);
-        },0)
+        },250);
     }
 
 
@@ -153,6 +153,8 @@ class ConsentEngine {
                 clearTimeout(self.queueId);
             }
 
+            clearInterval(self.domScannerInterval);
+
             self.handledCallback({
                 handled: false
             });
@@ -234,12 +236,6 @@ class ConsentEngine {
                             self.handleMutations([]);
                         } else {
                             try {
-                                await new Promise((resolve)=>{
-                                    chrome.runtime.sendMessage("RecordCookieChanges", ()=>{
-                                        resolve();
-                                    });
-                                });
-
                                 self.numClicks = 0;
 
                                 if (!ConsentEngine.debugValues.skipHideMethod) {
@@ -307,20 +303,10 @@ class ConsentEngine {
 
                                 self.updateProgress(1.0);
 
-                                let cookies = await new Promise((resolve)=>{
-                                    setTimeout(()=>{
-                                        //Wait 1 sec before getting cookie changes
-                                        chrome.runtime.sendMessage("GetRecordedCookies", (cookies)=>{
-                                            resolve(cookies);
-                                        });
-                                    }, 1000);
-                                });
-
                                 self.handledCallback({
                                     handled: true,
                                     cmpName: cmp.name,
-                                    clicks: self.numClicks,
-                                    cookies: JSON.stringify(cookies)
+                                    clicks: self.numClicks
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
@@ -339,6 +325,7 @@ class ConsentEngine {
                                 }
                             }
                             clearTimeout(self.stopEngineId);
+                            clearInterval(self.domScannerInterval);
                         }
                     }, 0);
                 } else {
