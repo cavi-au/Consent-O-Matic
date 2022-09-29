@@ -81,8 +81,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         case "RecordCookieChanges": {
 
             chrome.cookies.onChanged.addListener(cookieChanged);
-                          
-            return false;
+                       
+            reply();
+
+            return true;
         }
 
         case "GetRecordedCookies": {
