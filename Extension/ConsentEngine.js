@@ -1,3 +1,11 @@
+function publish(result) {
+    var actualCode = '(' + function(result) { window.publishCoMResult(result) } + ')(' + JSON.stringify(result) + ')';
+    var script = document.createElement('script');
+    script.textContent = actualCode;
+    (document.head||document.documentElement).appendChild(script);
+    script.remove();
+}
+
 class ConsentEngine {
     constructor(config, consentTypes, handledCallback) {
         let self = this;
@@ -285,6 +293,17 @@ class ConsentEngine {
                                     console.groupEnd();
                                 }
 
+                                //Puppeteer link, since pressing SAVE, would refresh page on some sites.
+                                publish({
+                                    handled: true,
+                                    cmpName: cmp.name,
+                                    clicks: self.clicks,
+                                    url: ConsentEngine.topFrameUrl,
+                                    consentTypes: self.consentTypes,
+                                    debugSettings: ConsentEngine.debugValues,
+                                    generalSettings: ConsentEngine.generalSettings
+                                });
+
                                 if (!ConsentEngine.debugValues.skipSubmit) {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
@@ -310,6 +329,17 @@ class ConsentEngine {
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
+                                publish({
+                                    handled: false,
+                                    cmpName: cmp.name,
+                                    clicks: self.clicks,
+                                    url: ConsentEngine.topFrameUrl,
+                                    consentTypes: self.consentTypes,
+                                    debugSettings: ConsentEngine.debugValues,
+                                    generalSettings: ConsentEngine.generalSettings,
+                                    error: ""+e
+                                });
+
                                 self.handledCallback({
                                     handled: false,
                                     cmpName: cmp.name,

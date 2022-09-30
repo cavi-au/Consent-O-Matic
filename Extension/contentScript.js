@@ -51,19 +51,8 @@ async function contentScriptRunner() {
 
                                     let json = JSON.stringify(result);
 
-                                    if(window.sendCoMResults != null) {
-                                        console.log("Sending result");
-                                        sendCoMResults(json);
-                                    }
-
                                     if(evt.handled) {
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
-                                    }
-
-                                    try {
-                                        document.querySelector("html").setAttribute("data-consentOMatic", JSON.stringify(result));
-                                    } catch(e) {
-                                        console.error("Unable to set 'data-consentOMatic':", e);
                                     }
                                 });
         
@@ -119,6 +108,8 @@ window.addEventListener("message", (event)=>{
     }
 });
 
-contentScriptRunner().catch((e)=>{
-    console.error(e);
+window.addEventListener("startCOM", ()=>{
+    contentScriptRunner().catch((e)=>{
+        console.error(e);
+    });
 });
