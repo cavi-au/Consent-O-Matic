@@ -25,6 +25,7 @@
 * [Consent](#consent-1)
    * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
+* [Installing From Source](#installing-from-source)
 
 ## Introduction
 
@@ -593,3 +594,9 @@ Putting it all together, here is a full example of a CMP "myCMP" that has 2 cons
    }
 }
 ```
+
+## Installing from source
+
+### Chrome
+
+Download this repository and follow [these steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) to load it as an extension into Chrome. Make sure you select the _Extension_ directory.
