@@ -599,4 +599,8 @@ Putting it all together, here is a full example of a CMP "myCMP" that has 2 cons
 
 ### Chrome
 
-Download this repository and follow [these steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) to load it as an extension into Chrome. Make sure you select the _Extension_ directory.
+Follow [these steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked). Make sure you select the _Extension_ directory.
+
+### Firefox
+
+Follow [these steps](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing). Make sure you select the _Extension\/manifest.json_ file.
