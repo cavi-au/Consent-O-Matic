@@ -157,6 +157,16 @@ class ConsentEngine {
                 console.log("No CMP detected in 5 seconds, stopping engine...");
             }
 
+            publish({
+                handled: false,
+                cmpName: null,
+                clicks: self.numClicks,
+                url: ConsentEngine.topFrameUrl,
+                consentTypes: self.consentTypes,
+                debugSettings: ConsentEngine.debugValues,
+                generalSettings: ConsentEngine.generalSettings
+            });
+
             if(self.queueId != null) {
                 clearTimeout(self.queueId);
             }
@@ -297,7 +307,7 @@ class ConsentEngine {
                                 publish({
                                     handled: true,
                                     cmpName: cmp.name,
-                                    clicks: self.clicks,
+                                    clicks: self.numClicks,
                                     url: ConsentEngine.topFrameUrl,
                                     consentTypes: self.consentTypes,
                                     debugSettings: ConsentEngine.debugValues,
@@ -332,7 +342,7 @@ class ConsentEngine {
                                 publish({
                                     handled: false,
                                     cmpName: cmp.name,
-                                    clicks: self.clicks,
+                                    clicks: self.numClicks,
                                     url: ConsentEngine.topFrameUrl,
                                     consentTypes: self.consentTypes,
                                     debugSettings: ConsentEngine.debugValues,
