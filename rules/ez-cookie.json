@@ -1,153 +1,257 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "ez-cookie": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "target": {
-                        "selector": "#ez-cookie-dialog"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "target": {
-                        "displayFilter": true,
-                        "selector": "#ez-cookie-dialog"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ez-cookie-dialog"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ez-cookie-dialog",
+                            "displayFilter": true
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
+                            "type": "hide",
                             "target": {
                                 "selector": "#ez-cookie-dialog-wrapper"
-                            },
-                            "type": "hide"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ez-manage-settings"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "action": {
-                        "actions": [
-                            {
-                                "target": {
-                                    "selector": "label",
-                                    "textFilter": [
-                                        "Preferences"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "target": {
-                                                    "selector": "input"
-                                                },
-                                                "type": "checkbox"
-                                            },
-                                            "toggleAction": {
-                                                "target": {
-                                                    "selector": "label"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "A"
-                                        }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": "#ez-cookie-dialog .ez-cmp-purpose, #ez-cookie-dialog .ez-cmp-specialFeature"
                             },
-                            {
-                                "target": {
-                                    "selector": "label",
-                                    "textFilter": [
-                                        "Statistics"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "target": {
-                                                    "selector": "input"
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": ".ez-cmp-purpose-legitimate-interest input"
+                                                    }
                                                 },
-                                                "type": "checkbox"
-                                            },
-                                            "toggleAction": {
-                                                "target": {
-                                                    "selector": "label"
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": ".ez-cmp-purpose-legitimate-interest input"
+                                                    }
                                                 },
-                                                "type": "click"
-                                            },
-                                            "type": "B"
+                                                "type": "X"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ez-cmp-purpose-name, .ez-cmp-specialFeature-name",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            },
-                            {
-                                "target": {
-                                    "selector": "label",
-                                    "textFilter": [
-                                        "Marketing"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "matcher": {
-                                                "target": {
-                                                    "selector": "input"
-                                                },
-                                                "type": "checkbox"
-                                            },
-                                            "toggleAction": {
-                                                "target": {
-                                                    "selector": "label"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "F"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ez-cmp-purpose-name, .ez-cmp-specialFeature-name",
+                                            "textFilter": [
+                                                "Select basic ads",
+                                                "Create a personalised ads profile",
+                                                "Select personalised ads",
+                                                "Apply market research to generate audience insights",
+                                                "Measure ad performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ez-cmp-purpose-name, .ez-cmp-specialFeature-name",
+                                            "textFilter": [
+                                                "Create a personalised content profile",
+                                                "Select personalised content",
+                                                "Measure content performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ez-cmp-purpose-name, .ez-cmp-specialFeature-name",
+                                            "textFilter": [
+                                                "Develop and improve products"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".ez-cmp-purpose-consent input, .ez-cmp-specialFeature-consent input"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
                             }
-                        ],
-                        "type": "list"
-                    },
-                    "parent": {
-                        "selector": "#ez-cookie-options"
-                    },
-                    "target": {
-                        "selector": ".ez-cookie-option"
-                    },
-                    "type": "foreach"
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#ez-show-vendors"
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": "#ez-cookie-dialog .ez-cmp-vendor .ez-cmp-vendor-legitimate-interest"
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "input"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
-                        "selector": "#ez-ok-cookies"
-                    },
-                    "type": "click"
+                        "selector": "#ez-save-settings"
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
