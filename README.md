@@ -50,16 +50,17 @@ Consent-O-Matic currently works with these CMPs:
 
 * Autodesk
 * begadi.com
-* EvidonBanner
-* EvidonIFrame
+* chandago
 * consentmanager.net
-* cookieLab
 * cookiebar
 * cookiebot
 * cookiecontrolcivic
 * cookieinformation
+* cookieLab
 * didomi.io
 * dr.dk
+* EvidonBanner
+* EvidonIFrame
 * ez-cookie
 * future
 * ikeaToast
@@ -70,21 +71,20 @@ Consent-O-Matic currently works with these CMPs:
 * optanon-alternative
 * quantcast
 * quantcast2
+* SFR
 * sharethis
 * sourcepoint
 * sourcepointframe
 * sourcepointpopup
+* springer
 * tealium.com
 * theGuardian
 * trustarcbar
 * trustarcframe
 * umf.dk
 * uniconsent
-* wordpressgdpr
-* chandago
-* SFR
 * Webedia
-* springer
+* wordpressgdpr
 
 ## Extending Consent-O-Matic
 
