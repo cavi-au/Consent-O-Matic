@@ -264,7 +264,7 @@
     <div class="header">
         <ul role="tablist">
             <li class="menuitem choices active" role="tab" tabindex="0" aria-controls="categoryListTab" aria-selected="true">[[YOUR_CHOICE]]</li>
-            <li class="menuitem general" role="tab" tabindex="-1" aria-controls="generalTab" aria-selected="false">[[SETTINGS]]</li>
+            <li class="menuitem general" role="tab" tabindex="-1" aria-controls="generalTab" aria-selected="false">[[DISPLAY]]</li>
             <li class="menuitem rules" role="tab" tabindex="-1" aria-controls="rulesListTab" aria-selected="false">[[RULE_LIST]]</li>
             <li class="menuitem about" role="tab" tabindex="-1" aria-controls="aboutTab" aria-selected="false">[[ABOUT]]</li>
             <li class="menuitem debug" role="tab" tabindex="-1" aria-controls="debugTab" aria-selected="false">[[DEBUG]]</li>
@@ -281,14 +281,68 @@
         </div>
         <div class="tab tab_settings" style="display:none" id="generalTab" role="tabpanel" tabindex="0">
             <div class="helptext">
-                [[SETTINGS_DESCRIPTION]]
+                [[DISPLAY_DESCRIPTION]]
             </div>
+	    <style>
+		.configurator ul li.hideOrPip {
+		    padding: 2em;
+		}
+		#hideOrPip {
+		    display: flex;
+		    align-items: flex-start;
+		    flex-wrap: wrap;
+		    margin-top: 1em;
+		}
+		#hideOrPip > div {
+		    flex: 1 1 auto;
+		    width: 50%;
+		    min-width: 15em;
+		    box-sizing: border-box;
+		}
+		#hideOrPip input {
+		    display: none;
+		}
+		#hideOrPip label {
+		    display: block;
+		    text-align: center;
+		    padding: 1em;
+		    cursor: pointer;
+		    background: rgba(0,0,0,0.02);
+		    
+		}
+		#hideOrPip label:hover {
+		    background: rgba(255,255,255,0.2);
+		}
+		#hideOrPip img {
+width: 12em;
+height: 10em;
+object-fit: contain;
+background: #e6e6e6;
+border: none;
+box-shadow: 0.2em 0.2em 0.5em rgba(0,0,0,0.1);
+display: block;
+margin: 1em auto;
+		}
+		#hideOrPip input:checked + label {
+		    background: rgba(100, 255, 100, 0.2);
+		}
+		#hideOrPip input:checked + label img {
+		    background: rgba(50, 255, 50, 0.2);
+		    box-shadow: 0em 0em 0.2em rgba(0,0,0,0.2);
+		}
+	    </style>
             <ul class="settingsList">
                 <li class="hideOrPip">
                     <div>[[HIDE_OR_PIP_DESCRIPTION]]</div>
                     <form id="hideOrPip">
-                        <div><label><input type="radio" name="hideOrPip" value="pip"/> [[HIDE_OR_PIP_PIP_LABEL]]</label></div>
-                        <div><label><input type="radio" name="hideOrPip" value="hide"/> [[HIDE_OR_PIP_HIDE_LABEL]]</label></div>
+			<div>
+				<input type="radio" name="hideOrPip" id="hop_pip" value="pip"/>
+				<label for="hop_pip"><h2>Minimize</h2><img src="minimize.svg">[[HIDE_OR_PIP_PIP_LABEL]]</label>
+			</div>
+			<div>
+				<input type="radio" name="hideOrPip" id="hop_hide" value="hide"/>
+				<label for="hop_hide"><h2>Hide</h2><img src="hide.svg"> [[HIDE_OR_PIP_HIDE_LABEL]]</label>
+			</div>
                     </form>
                 </li>
             </ul>

@@ -36,34 +36,35 @@ const translations = {
         "pt": "Dev"
     },
     "HIDE_OR_PIP_DESCRIPTION": {
-        "en": "Select between the two modes, 'Hide' or 'Picture in Picture'",
-        "da": "Vælg mellem de to tilstande, 'Skjul' eller 'Billede i billede'",
-        "de": "Wählen Sie zwischen den beiden Modi „Ausblenden“ oder „Bild im Bild“",
-        "pt": "Selecione entre os dois modos, 'Ocultar' ou 'Picture in Picture'"
+        "en": "How to display popups while they are being filled out",
+        "da": "Hvordan popups skal vises imens de udfyldes"
+    },
+    "HIDE_OR_PIP_HIDE_TITLE": {
+        "en": "Hide",
+        "da": "Skjul",
+        "de": "Ausblenden",
+        "pt": "Ocultar"
     },
     "HIDE_OR_PIP_HIDE_LABEL": {
-        "en": "'Hide' completely hides the CMP while answering it.",
-        "da": "'Skjul' skjuler CMP'en fuldstændigt, mens den besvares.",
-        "de": "„Ausblenden“ verbirgt das CMP vollständig, während es beantwortet wird.",
-        "pt": "'Ocultar' oculta completamente o CMP ao respondê-lo."
+        "en": "Hide the popup entirely while answering it",
+        "da": "Skjul popup'en fuldstændigt imens den besvares",
+        "de": "Verbirgt das popup, während es beantwortet wird"
+    },
+    "HIDE_OR_PIP_PIP_TITLE": {
+        "en": "Minimize",
+        "da": "Minimér"
     },
     "HIDE_OR_PIP_PIP_LABEL": {
-        "en": "'Picture in Picture' shows the CMP being answered in a small overlay.",
-        "da": "'Billede i billede' viser CMP'en, der besvares i en lille overlejring.",
-        "de": "„Bild im Bild“ zeigt in einem kleinen Overlay, dass die CMP beantwortet wird.",
-        "pt": "'Picture in Picture' mostra o CMP sendo respondido em uma pequena sobreposição."
+        "en": "Show the popup in a small overlay in the corner",
+        "da": "Vis popup'en i en lille overlejring i hjørnet"
     },
-    "SETTINGS": {
-        "en": "Settings",
-        "da": "Indstillinger",
-        "de": "Einstellungen",
-        "pt": "Definições"
+    "DISPLAY": {
+        "en": "Display",
+        "da": "Visning"
     },
-    "SETTINGS_DESCRIPTION": {
-        "en": "Configure general settings",
-        "da": "Konfigurer generelle indstillinger",
-        "de": "Allgemeine Einstellungen konfigurieren",
-        "pt": "Definir configurações gerais"
+    "DISPLAY_DESCRIPTION": {
+        "en": "Configure the appearance and behaviour of Consent-O-Matic",
+        "da": "Konfigurer Consent-O-Matic's udseende og opførsel"
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
