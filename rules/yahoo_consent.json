@@ -212,7 +212,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".page-footer .actions button.secondary[value=\"reject\"]"
+                        "selector": ".page-footer .actions button.secondary[value=\"save\"]"
                     }
                 },
                 "name": "SAVE_CONSENT"
