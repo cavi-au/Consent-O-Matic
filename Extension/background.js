@@ -49,10 +49,34 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             return true;
         }
 
+        case "CMPError": {
+            if(!tabHandledMap.get(sender.tab.id)) {
+                setBadgeCheckmark("\u2717", sender.tab.id);
+            }
+
+            return false;
+        }
+
+        case "NothingFound": {
+            if(!tabHandledMap.get(sender.tab.id)) {
+                setBadgeCheckmark("", sender.tab.id);
+            }
+
+            return false;
+        }
+
+        case "Searching": {
+            if(!tabHandledMap.get(sender.tab.id)) {
+                setBadgeCheckmark("\u2026", sender.tab.id);
+            }
+
+            return false;
+        }
+
         case "HandledCMP": {
             let json = JSON.parse(message.split("|")[1]);
 
-            setBadgeCheckmark(true, sender.tab.id);
+            setBadgeCheckmark("\u2714", sender.tab.id);
 
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;
@@ -77,13 +101,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     }
 });
 
-function setBadgeCheckmark(enabled, id) {
-    let text = "";
-
-    if(enabled) {
-        text = "\u2714";
-    }
-
+function setBadgeCheckmark(text, id) {
     chrome.browserAction.setBadgeText({
         text: text,
         tabId: id
@@ -150,11 +168,12 @@ function fetchRules(forceUpdate) {
 
 }
 
-let tabsInfo = new Map();
+let tabHandledMap = new Map();
 
 chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
     if(info.status != null && info.status === "Loading") {
-        setBadgeCheckmark(false, tabId);
+        setBadgeCheckmark("", tabId);
+        tabHandledMap.set(tabId, false);
     }
 });
 
