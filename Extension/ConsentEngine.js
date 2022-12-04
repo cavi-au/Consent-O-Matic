@@ -308,6 +308,10 @@ class ConsentEngine {
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
+                                self.handledCallback({
+                                    handled: false,
+                                    error: true
+                                });
                             }
                             if (!ConsentEngine.debugValues.skipHideMethod) {
                                 if (!ConsentEngine.debugValues.dontHideProgressDialog) {
