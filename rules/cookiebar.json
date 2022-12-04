@@ -1,21 +1,25 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "cookiebar": {
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookiebar1": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#cookie-law-info-bar"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-law-info-bar"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#cookie-law-info-bar",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-law-info-bar",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -43,7 +47,9 @@
                                         },
                                         "parent": {
                                             "selector": ".cli-tab-header",
-                                            "textFilter": "Functional"
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -53,7 +59,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Functional"
+                                            "textFilter": [
+                                                "Functional"
+                                            ]
                                         }
                                     },
                                     "type": "A"
@@ -66,7 +74,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Performance"
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -76,7 +86,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Performance"
+                                            "textFilter": [
+                                                "Performance"
+                                            ]
                                         }
                                     },
                                     "type": "B"
@@ -89,7 +101,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Marketing"
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -99,7 +113,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Marketing"
+                                            "textFilter": [
+                                                "Marketing"
+                                            ]
                                         }
                                     },
                                     "type": "F"
@@ -112,7 +128,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Tracking"
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
                                         }
                                     },
                                     "toggleAction": {
@@ -122,7 +140,9 @@
                                         },
                                         "parent": {
                                             "selector": ".wt-cli-cookie-bar-container .cli-tab-header",
-                                            "textFilter": "Tracking"
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
                                         }
                                     },
                                     "type": "F"
@@ -281,6 +301,37 @@
                                         }
                                     },
                                     "type": "X"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"analitici\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"analitici\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "B"
                                 }
                             ]
                         }
