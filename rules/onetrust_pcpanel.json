@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "onetrust_pcpanel": {
+    "onetrust_pcpanel1": {
         "detectors": [
             {
                 "presentMatcher": [
@@ -122,7 +122,8 @@
                                                 "Marketing Cookies",
                                                 "Cookies für Marketingzwecke",
                                                 "Tilpas annoncering",
-                                                "ADVERTISING"
+                                                "ADVERTISING",
+                                                "Målrettede cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -610,7 +611,9 @@
                                                 "Analyse Cookies",
                                                 "Statistical Cookies",
                                                 "Mål ydeevne",
-                                                "Måle- og analysecookies"
+                                                "Måle- og analysecookies",
+                                                "Statistiske cookies",
+                                                "Analytical Cookies"
                                             ]
                                         },
                                         "trueAction": {
