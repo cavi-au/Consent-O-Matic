@@ -122,7 +122,8 @@
                                                 "Marketing Cookies",
                                                 "Cookies für Marketingzwecke",
                                                 "Tilpas annoncering",
-                                                "ADVERTISING"
+                                                "ADVERTISING",
+                                                "Målrettede cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -610,7 +611,9 @@
                                                 "Analyse Cookies",
                                                 "Statistical Cookies",
                                                 "Mål ydeevne",
-                                                "Måle- og analysecookies"
+                                                "Måle- og analysecookies",
+                                                "Statistiske cookies",
+                                                "Analytical Cookies"
                                             ]
                                         },
                                         "trueAction": {
