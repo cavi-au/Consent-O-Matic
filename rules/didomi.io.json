@@ -60,7 +60,9 @@
                                                 "Actively scan device characteristics for identification",
                                                 "Use precise geolocation data",
                                                 "Authentication and authorization management",
-                                                "Functionality"
+                                                "Functionality",
+                                                "Stocker et/ou accéder à des informations sur un terminal",
+                                                "Analyser activement les caractéristiques du terminal pour l’identification"
                                             ]
                                         },
                                         "trueAction": {
@@ -95,7 +97,10 @@
                                                 "Select basic ads",
                                                 "Select personalised ads",
                                                 "Storage and access to geolocation information for targeted advertising purposes",
-                                                "Offer personalised advertising"
+                                                "Offer personalised advertising",
+                                                "Publicité personnalisée",
+                                                "Sélectionner des publicités personnalisées",
+                                                "Créer un profil pour afficher un contenu personnalisé"
                                             ]
                                         },
                                         "trueAction": {
@@ -128,7 +133,11 @@
                                                 "Measure content performance",
                                                 "Select personalised content",
                                                 "Optimise navigation and suggested content",
-                                                "Contact"
+                                                "Contact",
+                                                "Personnalisation de votre service",
+                                                "Sélectionner du contenu personnalisé",
+                                                "Sélectionner des publicités standard",
+                                                "Mesurer la performance des publicités"
                                             ]
                                         },
                                         "trueAction": {
@@ -157,7 +166,9 @@
                                         "target": {
                                             "selector": ".didomi-components-accordion",
                                             "textFilter": [
-                                                "Develop and improve products"
+                                                "Develop and improve products",
+                                                "Utiliser des données de géolocalisation précises",
+                                                "Développer et améliorer les produits"
                                             ]
                                         },
                                         "trueAction": {
@@ -189,7 +200,11 @@
                                                 "Audience measurement and content performance",
                                                 "Analytics",
                                                 "Usage Statistics",
-                                                "Live tracking of behaviours on a website for assistance and error-tracking"
+                                                "Live tracking of behaviours on a website for assistance and error-tracking",
+                                                "Mesurer l’audience",
+                                                "Réseaux sociaux",
+                                                "Exploiter des études de marché afin de générer des données d’audience",
+                                                "Mesurer la performance du contenu"
                                             ]
                                         },
                                         "trueAction": {
