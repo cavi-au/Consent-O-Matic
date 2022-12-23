@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "sourcepointpopup": {
         "detectors": [
             {
@@ -60,7 +60,8 @@
                                     "Manage my cookies",
                                     "Settings",
                                     "Einstellungen",
-                                    "Instellen"
+                                    "Instellen",
+                                    "Mijn instellingen beheren"
                                 ]
                             }
                         }
