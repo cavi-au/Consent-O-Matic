@@ -1,0 +1,610 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Twitch.tv": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div.consent-banner__content--gdpr-v2"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div.consent-banner__content--gdpr-v2",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".consent-banner"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".ReactModal__Overlay.ReactModal__Overlay--after-open.modal__backdrop.js-modal-backdrop"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button[data-a-target=consent-banner-manage-preferences]"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".Layout-sc-1xcs6mc-0.hZLfAO"
+                            },
+                            "retries": 10,
+                            "waitTime": 250
+                        },
+                        {
+                            "type": "ifallownone",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "button[data-a-target=consent-modal-save]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".Layout-sc-1xcs6mc-0.hZLfAO"
+                                        },
+                                        "action": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Analytics cookies and data usage:",
+                                                                                "Analyse-cookies og dataanvendelse:",
+                                                                                "Cookies und Datennutzung:",
+                                                                                "Cookies de análisis y uso de datos:",
+                                                                                "Cookies de analítica y uso de datos:",
+                                                                                "Cookies d'analyse et utilisation des données :",
+                                                                                "Cookie analitici e utilizzo dei dati:",
+                                                                                "Analitikai sütik és adathasználat:",
+                                                                                "Analytische cookies en datagebruik:",
+                                                                                "Informasjonskapsler for analyse og databruk:",
+                                                                                "Analityczne pliki cookie i wykorzystanie danych:",
+                                                                                "Cookies analíticos e utilização de dados:",
+                                                                                "Cookies de análise e uso de dados:",
+                                                                                "Cookie-uri analitice și utilizarea datelor:",
+                                                                                "Analytické cookies a používanie dát",
+                                                                                "Analyyttiset evästeet ja tiedon käyttö:",
+                                                                                "Statistikcookies och dataanvändning:",
+                                                                                "Cookie phân tích và sử dụng dữ liệu:",
+                                                                                "Analiz çerezleri ve veri kullanımı:",
+                                                                                "Analytické cookeis a využití dat:",
+                                                                                "Cookie ανάλυσης και χρήσης δεδομένων:",
+                                                                                "Аналитични бисквитки и употреба на данни:",
+                                                                                "Аналитические файлы cookie и использование данных:",
+                                                                                "คุกกี้ในส่วนของการวิเคราะห์และการใช้ข้อมูล:",
+                                                                                "分析 Cookie 和数据使用情况：",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "アナリティクスクッキーとデータの利用:",
+                                                                                "분석 쿠키 및 데이터 사용:"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Analytics cookies and data usage:",
+                                                                                "Analyse-cookies og dataanvendelse:",
+                                                                                "Cookies und Datennutzung:",
+                                                                                "Cookies de análisis y uso de datos:",
+                                                                                "Cookies de analítica y uso de datos:",
+                                                                                "Cookies d'analyse et utilisation des données :",
+                                                                                "Cookie analitici e utilizzo dei dati:",
+                                                                                "Analitikai sütik és adathasználat:",
+                                                                                "Analytische cookies en datagebruik:",
+                                                                                "Informasjonskapsler for analyse og databruk:",
+                                                                                "Analityczne pliki cookie i wykorzystanie danych:",
+                                                                                "Cookies analíticos e utilização de dados:",
+                                                                                "Cookies de análise e uso de dados:",
+                                                                                "Cookie-uri analitice și utilizarea datelor:",
+                                                                                "Analytické cookies a používanie dát",
+                                                                                "Analyyttiset evästeet ja tiedon käyttö:",
+                                                                                "Statistikcookies och dataanvändning:",
+                                                                                "Cookie phân tích và sử dụng dữ liệu:",
+                                                                                "Analiz çerezleri ve veri kullanımı:",
+                                                                                "Analytické cookeis a využití dat:",
+                                                                                "Cookie ανάλυσης και χρήσης δεδομένων:",
+                                                                                "Аналитични бисквитки и употреба на данни:",
+                                                                                "Аналитические файлы cookie и использование данных:",
+                                                                                "คุกกี้ในส่วนของการวิเคราะห์และการใช้ข้อมูล:",
+                                                                                "分析 Cookie 和数据使用情况：",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "アナリティクスクッキーとデータの利用:",
+                                                                                "분석 쿠키 및 데이터 사용:"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Advertising cookies and data usage:",
+                                                                                "Reklame-cookies og dataanvendelse:",
+                                                                                "Werbe-Cookies und Datennutzung:",
+                                                                                "Cookies publicitarias y uso de datos:",
+                                                                                "Cookies de publicidad y uso de datos:",
+                                                                                "Cookies publicitaires et utilisation des données :",
+                                                                                "Cookie pubblicitari e utilizzo dei dati:",
+                                                                                "Hirdetési sütik és adathasználat:",
+                                                                                "Reclamecookies en datagebruik:",
+                                                                                "Informasjonskapsler for reklame og databruk:",
+                                                                                "Cookie reklamowe i wykorzystanie danych:",
+                                                                                "Cookies de análise e uso de dados:",
+                                                                                "Cookies de publicidade e uso de dados:",
+                                                                                "Cookie-uri publicitare și utilizarea datelor:",
+                                                                                "Reklamné súbory cookies a používanie dát:",
+                                                                                "Markkinointievästeet ja tiedon käyttö:",
+                                                                                "Reklamcookies och dataanvändning:",
+                                                                                "Sử dụng cookie và dữ liệu quảng cáo:",
+                                                                                "Reklam çerezleri ve veri kullanımı:",
+                                                                                "Reklamní cookies a využití dat:",
+                                                                                "Χρήση cookie και δεδομένων:",
+                                                                                "Бисквитки за реклами и употреба на данни:",
+                                                                                "Рекламные файлы cookie и использование данных:",
+                                                                                "คุกกี้สำหรับโฆษณาและการใช้ข้อมูล:",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "広告クッキーとデータの利用:",
+                                                                                "광고 쿠키 및 데이터 사용:"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Advertising cookies and data usage:",
+                                                                                "Reklame-cookies og dataanvendelse:",
+                                                                                "Werbe-Cookies und Datennutzung:",
+                                                                                "Cookies publicitarias y uso de datos:",
+                                                                                "Cookies de publicidad y uso de datos:",
+                                                                                "Cookies publicitaires et utilisation des données :",
+                                                                                "Cookie pubblicitari e utilizzo dei dati:",
+                                                                                "Hirdetési sütik és adathasználat:",
+                                                                                "Reclamecookies en datagebruik:",
+                                                                                "Informasjonskapsler for reklame og databruk:",
+                                                                                "Cookie reklamowe i wykorzystanie danych:",
+                                                                                "Cookies de análise e uso de dados:",
+                                                                                "Cookies de publicidade e uso de dados:",
+                                                                                "Cookie-uri publicitare și utilizarea datelor:",
+                                                                                "Reklamné súbory cookies a používanie dát:",
+                                                                                "Markkinointievästeet ja tiedon käyttö:",
+                                                                                "Reklamcookies och dataanvändning:",
+                                                                                "Sử dụng cookie và dữ liệu quảng cáo:",
+                                                                                "Reklam çerezleri ve veri kullanımı:",
+                                                                                "Reklamní cookies a využití dat:",
+                                                                                "Χρήση cookie και δεδομένων:",
+                                                                                "Бисквитки за реклами и употреба на данни:",
+                                                                                "Рекламные файлы cookie и использование данных:",
+                                                                                "คุกกี้สำหรับโฆษณาและการใช้ข้อมูล:",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "广告 Cookie 和数据使用情况：",
+                                                                                "広告クッキーとデータの利用:",
+                                                                                "광고 쿠키 및 데이터 사용:"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "div[data-a-target=tw-core-button-label-text].Layout-sc-1xcs6mc-0.phMMp",
+                                            "textFilter": [
+                                                "Set Cookies by Purpose",
+                                                "Indstil cookies efter formål",
+                                                "Cookies nach Zweck setzen",
+                                                "Configurar cookies por finalidad",
+                                                "Establecer cookies por propósitos",
+                                                "Définir les cookies par finalité",
+                                                "Imposta i Cookie per finalità",
+                                                "Sütik beállítása cél szerint",
+                                                "Cookies instellen per doel",
+                                                "Sett informasjonskapsler etter formål",
+                                                "Ustaw pliki cookie według celu",
+                                                "Definir cookies por finalidade",
+                                                "Configurar cookies por finalidade",
+                                                "Setează Cookie-urile în funcție de scop",
+                                                "Nastaviť súbory cookie podľa účelu",
+                                                "Aseta evästeet tarkoituksen mukaan",
+                                                "Ställ in cookies efter syfte",
+                                                "Đặt Cookie theo mục đích",
+                                                "Amacına göre çerez ayarları",
+                                                "Nastavit soubory cookie podle účelu",
+                                                "Ορισμός Cookie ανά σκοπό",
+                                                "Задаване на бисквитки спрямо цел",
+                                                "Установить файлы cookie по назначению",
+                                                "ตั้งค่าคุกกี้ตามวัตถุประสงค์",
+                                                "按目的设置 Cookie",
+                                                "依照目的設定 Cookie",
+                                                "目的別にクッキーを設定",
+                                                "목적에 따른 쿠키 설정"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "waitcss",
+                                        "target": {
+                                            "selector": "[data-a-target=tw-checkbox]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Create a personalised ads profile",
+                                                        "Select personalised ads"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                        },
+                                        "retries": 10,
+                                        "waitTime": 250
+                                    },
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".Layout-sc-1xcs6mc-0.bSoSIm"
+                                        },
+                                        "action": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Store and/or access information on a device"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Store and/or access information on a device"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "D"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Create a personalised ads profile",
+                                                                                "Select personalised ads",
+                                                                                "Measure ad performance",
+                                                                                "Apply market research to generate audience insights"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Create a personalised ads profile",
+                                                                                "Select personalised ads",
+                                                                                "Measure ad performance",
+                                                                                "Apply market research to generate audience insights"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "F"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Create a personalised content profile",
+                                                                                "Select personalised content",
+                                                                                "Measure content performance"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Create a personalised content profile",
+                                                                                "Select personalised content",
+                                                                                "Measure content performance"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "E"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Develop and improve products",
+                                                                                "Actively scan device characteristics for identification"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Develop and improve products",
+                                                                                "Actively scan device characteristics for identification"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "checkbox",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Use precise geolocation data"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "[data-a-target=tw-checkbox]"
+                                                                },
+                                                                "parent": {
+                                                                    "childFilter": {
+                                                                        "target": {
+                                                                            "selector": "p",
+                                                                            "textFilter": [
+                                                                                "Use precise geolocation data"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "selector": ".Layout-sc-1xcs6mc-0.hkmaKt.fixed-width-title-and-toggle"
+                                                                }
+                                                            },
+                                                            "type": "X"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-a-target=consent-modal-save]"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "[data-a-target=consent-modal-save]"
+                            },
+                            "retries": 10,
+                            "waitTime": 250
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-a-target=consent-modal-save]"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
