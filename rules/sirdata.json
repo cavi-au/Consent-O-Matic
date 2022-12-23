@@ -54,13 +54,29 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "click",
+                            "type": "ifcss",
                             "target": {
                                 "selector": "span[class^=\"sd-cmp\"]",
                                 "textFilter": [
                                     "Set your choices",
                                     "Paramétrer vos choix"
                                 ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "span[class^=\"sd-cmp\"]",
+                                    "textFilter": [
+                                        "Set your choices",
+                                        "Paramétrer vos choix"
+                                    ]
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".sd-cmp-16t61.sd-cmp-2JYyd.sd-cmp-18g3C"
+                                }
                             }
                         },
                         {
