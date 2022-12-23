@@ -62,7 +62,12 @@
                                                 "Authentication and authorization management",
                                                 "Functionality",
                                                 "Stocker et/ou accéder à des informations sur un terminal",
-                                                "Analyser activement les caractéristiques du terminal pour l’identification"
+                                                "Analyser activement les caractéristiques du terminal pour l’identification",
+                                                "Lagra och/eller få åtkomst till information på en enhet",
+                                                "Lagre og/eller få tilgang til informasjon på en enhet",
+                                                "Velg grunnleggende annonser",
+                                                "Velg personlige annonser",
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö"
                                             ]
                                         },
                                         "trueAction": {
@@ -100,7 +105,21 @@
                                                 "Offer personalised advertising",
                                                 "Publicité personnalisée",
                                                 "Sélectionner des publicités personnalisées",
-                                                "Créer un profil pour afficher un contenu personnalisé"
+                                                "Créer un profil pour afficher un contenu personnalisé",
+                                                "Promotions de nos contenus, produits et services",
+                                                "Publicité ciblée par profilage (collecte, profilage et partage de données entre éditeurs partenaires)",
+                                                "Cookies för anpassad marknadsföring och innehåll",
+                                                "Mäta annonsprestanda",
+                                                "Skapa en personanpassad annonsprofil",
+                                                "Välja personanpassade annonser",
+                                                "Cookies for custom marketing and content",
+                                                "Opprett en personlig annonseprofil",
+                                                "Måle annonseprestasjon",
+                                                "Mainonta- ja kohdistusevästeet",
+                                                "Mainonnan ja sen tehokkuuden mittaaminen",
+                                                "Personoidun mainosprofiilin muodostaminen",
+                                                "Tavallisten mainosten valinta",
+                                                "Personoitujen mainosten valinta"
                                             ]
                                         },
                                         "trueAction": {
@@ -137,6 +156,12 @@
                                                 "Personnalisation de votre service",
                                                 "Sélectionner du contenu personnalisé",
                                                 "Sélectionner des publicités standard",
+                                                "Skapa en personanpassad innehållsprofil",
+                                                "Välja personanpassat innehåll",
+                                                "Opprette en personlig innholdsprofil",
+                                                "Velge personlig innhold",
+                                                "Personoidun sisältöprofiilin muodostaminen",
+                                                "Personoidun sisällön valinta"
                                                 "Mesurer la performance des publicités"
                                             ]
                                         },
@@ -168,7 +193,10 @@
                                             "textFilter": [
                                                 "Develop and improve products",
                                                 "Utiliser des données de géolocalisation précises",
-                                                "Développer et améliorer les produits"
+                                                "Développer et améliorer les produits",
+                                                "Utveckla och förbättra produkter",
+                                                "Utvikle og forbedre produkter",
+                                                "Tuotekehitys"
                                             ]
                                         },
                                         "trueAction": {
@@ -204,7 +232,17 @@
                                                 "Mesurer l’audience",
                                                 "Réseaux sociaux",
                                                 "Exploiter des études de marché afin de générer des données d’audience",
-                                                "Mesurer la performance du contenu"
+                                                "Mesurer la performance du contenu",
+                                                "Mesure d'audience",
+                                                "AB Testing",
+                                                "Mesure d’audience et web analyse",
+                                                "Cookies för analys och utveckling",
+                                                "Mäta innehållsprestanda",
+                                                "Måle innholdsprestasjon",
+                                                "Cookies for analysis and development",
+                                                "Evästeet analysointia ja kehittämistä varten",
+                                                "Markkinatutkimusten soveltaminen käyttäjäymmärryksen luomiseksi",
+                                                "Sisällön ja sen tehokkuuden mittaaminen"
                                             ]
                                         },
                                         "trueAction": {
@@ -224,6 +262,38 @@
                                                         }
                                                     },
                                                     "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Contenus vidéo et audio",
+                                                "Contenus cartographiques/infographiques",
+                                                "Personalization",
+                                                "Contenus cartographiques, infographiques et ludique"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "A"
                                                 }
                                             ]
                                         }
