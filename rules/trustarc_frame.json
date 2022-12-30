@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "trustarcframe": {
         "detectors": [
             {
@@ -8,7 +8,9 @@
                         "type": "css",
                         "target": {
                             "selector": "title",
-                            "textFilter": "TrustArc Preference Manager"
+                            "textFilter": [
+                                "TrustArc Preference Manager"
+                            ]
                         }
                     }
                 ],
@@ -104,7 +106,8 @@
                                             "textFilter": [
                                                 "Functional",
                                                 "Funktionalitets",
-                                                "Funktionelle Cookies"
+                                                "Funktionelle Cookies",
+                                                "Funktionalitets- og profilcookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -117,7 +120,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -126,13 +134,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "A"
@@ -161,7 +169,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -170,13 +183,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "F"
@@ -188,7 +201,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Store and/or access information on a device"
+                                            "textFilter": [
+                                                "Store and/or access information on a device"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -200,7 +215,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -209,13 +229,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "D"
@@ -227,7 +247,10 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Personalised ads, ad measurement, and audience insights"
+                                            "textFilter": [
+                                                "Personalised ads, ad measurement, and audience insights",
+                                                "Reklame- og Targetingcookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -239,7 +262,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -248,13 +276,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "F"
@@ -266,7 +294,9 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Personalised content, and content measurement"
+                                            "textFilter": [
+                                                "Personalised content, and content measurement"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -278,7 +308,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -287,13 +322,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "E"
@@ -305,7 +340,10 @@
                                         "type": "ifcss",
                                         "target": {
                                             "selector": ".gwt-InlineHTML",
-                                            "textFilter": "Develop and improve products"
+                                            "textFilter": [
+                                                "Develop and improve products",
+                                                "Analytics Cookies"
+                                            ]
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -317,7 +355,12 @@
                                                             "childFilter": {
                                                                 "target": {
                                                                     "selector": "span[role='option'].active",
-                                                                    "textFilter": "On"
+                                                                    "textFilter": [
+                                                                        "On",
+                                                                        "Ja",
+                                                                        "Yes",
+                                                                        "Tilvælg"
+                                                                    ]
                                                                 }
                                                             },
                                                             "selector": ".switch"
@@ -326,13 +369,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno"
                                                         }
                                                     },
                                                     "type": "X"
@@ -399,7 +442,9 @@
                                             "type": "ifcss",
                                             "target": {
                                                 "selector": "h3",
-                                                "textFilter": "Analytics"
+                                                "textFilter": [
+                                                    "Analytics"
+                                                ]
                                             },
                                             "trueAction": {
                                                 "type": "consent",
@@ -435,7 +480,9 @@
                                             "type": "ifcss",
                                             "target": {
                                                 "selector": "h3",
-                                                "textFilter": "marketing and advertising"
+                                                "textFilter": [
+                                                    "marketing and advertising"
+                                                ]
                                             },
                                             "trueAction": {
                                                 "type": "consent",
@@ -510,7 +557,9 @@
                                             "type": "ifcss",
                                             "target": {
                                                 "selector": "h3",
-                                                "textFilter": "Personalised email marketing"
+                                                "textFilter": [
+                                                    "Personalised email marketing"
+                                                ]
                                             },
                                             "trueAction": {
                                                 "type": "consent",
@@ -546,7 +595,9 @@
                                             "type": "ifcss",
                                             "target": {
                                                 "selector": "h3",
-                                                "textFilter": "Social media & marketing"
+                                                "textFilter": [
+                                                    "Social media & marketing"
+                                                ]
                                             },
                                             "trueAction": {
                                                 "type": "consent",
