@@ -1,0 +1,193 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cassie": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".syrenis-cookie-widget"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cassie-cookie-module",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cassie-cookie-module"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cassie-view-all"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".cassie-cookie-modal--group"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cassie-cookie-group--heading",
+                                            "textFilter": [
+                                                "Performance and Functionality Cookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "[aria-checked=true].cassie-cookie-group--toggle-switch"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cassie-toggle-switch"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cassie-cookie-group--heading",
+                                            "textFilter": [
+                                                "Targeting Cookies for ITV Promotions"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "[aria-checked=true].cassie-cookie-group--toggle-switch"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cassie-toggle-switch"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cassie-cookie-group--heading",
+                                            "textFilter": [
+                                                "Third Party Cookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "[aria-checked=true].cassie-cookie-group--toggle-switch"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cassie-toggle-switch"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cassie-cookie-group--heading",
+                                            "textFilter": [
+                                                "Tracking Cookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "[aria-checked=true].cassie-cookie-group--toggle-switch"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cassie-toggle-switch"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cassie_save_preferences"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
