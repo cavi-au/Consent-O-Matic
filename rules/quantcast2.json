@@ -1,218 +1,64 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "quantcast2": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "target": {
-                        "selector": "[data-tracking-opt-in-overlay]"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "target": {
-                        "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[data-tracking-opt-in-overlay]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
-                    "target": {
-                        "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
-                    },
-                    "type": "click"
-                },
-                "name": "OPEN_OPTIONS"
-            },
-            {
-                "action": {
+                    "type": "list",
                     "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-learn-more]"
+                            }
+                        },
                         {
                             "type": "wait",
                             "waitTime": 500
                         },
                         {
-                            "action": {
-                                "actions": [
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Information storage and access"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "D"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
-                                    },
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Personalization"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
-                                    },
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Ad selection, delivery, reporting"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
-                                    },
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Content selection, delivery, reporting"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "E"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
-                                    },
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Measurement"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "B"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
-                                    },
-                                    {
-                                        "target": {
-                                            "selector": "div",
-                                            "textFilter": [
-                                                "Other Partners"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "target": {
-                                                            "selector": "input"
-                                                        },
-                                                        "type": "checkbox"
-                                                    },
-                                                    "toggleAction": {
-                                                        "target": {
-                                                            "selector": "label"
-                                                        },
-                                                        "type": "click"
-                                                    },
-                                                    "type": "X"
-                                                }
-                                            ],
-                                            "type": "consent"
-                                        },
-                                        "type": "ifcss"
+                            "type": "multiclick",
+                            "target": {
+                                "selector": "._1hNWKDVJf2Z0Wsp4jQFbmV"
+                            }
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "input"
                                     }
-                                ],
-                                "type": "list"
+                                },
+                                "selector": ":scope > div"
                             },
                             "parent": {
                                 "childFilter": {
@@ -222,29 +68,217 @@
                                 },
                                 "selector": "[data-tracking-opt-in-overlay] > div > div"
                             },
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "input"
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Information storage and access",
+                                                "Opbevare og/eller tilgå oplysninger på en enhed"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Personalization",
+                                                "Vælge tilpassede annoncer",
+                                                "Oprette en tilpasset annonceprofil"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Ad selection, delivery, reporting",
+                                                "Vælge basisannoncer",
+                                                "Måle annonceeffektivitet",
+                                                "Anvende markedsundersøgelser til at generere målgruppeindsigter"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Content selection, delivery, reporting",
+                                                "Oprette en tilpasset indholdsprofil",
+                                                "Vælge tilpasset indhold",
+                                                "Content personalization"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Measurement",
+                                                "Måle indholdseffektivitet",
+                                                "Udvikle og forbedre produkter",
+                                                "Aktivt scanne enhedskarakteristika til identifikation"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "div",
+                                            "textFilter": [
+                                                "Other Partners",
+                                                "Bruge præcise geoplaceringsoplysninger"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
                                     }
-                                },
-                                "selector": ":scope > div"
-                            },
-                            "type": "foreach"
+                                ]
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
                         "selector": "[data-tracking-opt-in-overlay] [data-tracking-opt-in-save]"
-                    },
-                    "type": "click"
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
