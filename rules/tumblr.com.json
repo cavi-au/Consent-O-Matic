@@ -1,0 +1,152 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "tumblr.com": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".frame-content .cmp__dialog",
+                            "iframeFilter": true
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".frame-content .cmp__dialog",
+                            "iframeFilter": true,
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".components-button.is-secondary",
+                        "textFilter": [
+                            "Learn More"
+                        ]
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".components-checkbox-control__input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "strong",
+                                                    "textFilter": [
+                                                        "Analytics"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".components-checkbox-control__input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "strong",
+                                                    "textFilter": [
+                                                        "Analytics"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".components-checkbox-control__input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "strong",
+                                                    "textFilter": [
+                                                        "Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".components-checkbox-control__input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "strong",
+                                                    "textFilter": [
+                                                        "Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".components-button.is-primary",
+                        "textFilter": [
+                            "Agree to Selected"
+                        ]
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

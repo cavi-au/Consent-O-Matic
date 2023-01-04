@@ -1,0 +1,111 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "yle.fi": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#yle-consent-sdk-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ycd-background",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#yle-consent-sdk-container .ycd-background"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[name=select-consents]"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ycd_personalization"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ycd_personalization"
+                                }
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ycd_development"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ycd_development"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ycd_embedded_social_media"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ycd_embedded_social_media"
+                                }
+                            },
+                            "type": "E"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[name=accept-all-consents]"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

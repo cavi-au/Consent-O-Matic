@@ -1,0 +1,69 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "myfigurecollection.net": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".gdpr-disclaimer.tbx-target"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".gdpr-disclaimer.tbx-target",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".gdpr-disclaimer.tbx-target"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifallowall",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".accept.tbx-click"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".decline.tbx-click"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
