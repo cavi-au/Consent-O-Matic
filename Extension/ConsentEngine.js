@@ -163,8 +163,8 @@ class ConsentEngine {
     async handleMutations(mutations) {
         const self = this;
 
-        if (this.queueId == null) {
-            this.queueId = setTimeout(() => {
+        if (this.queueId == null && !self.checkRunning) {
+            this.queueId = setTimeout(async () => {
                 self.queueId = null;
                 try {
                     self.checkForCMPs();
@@ -175,8 +175,17 @@ class ConsentEngine {
         }
     }
 
-    checkForCMPs() {
+    async checkForCMPs() {
         const self = this;
+
+        self.checkRunning = true;
+
+        //Wait for a super small while, to make async
+        await new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve();
+            }, 0);
+        });
 
         if (ConsentEngine.debugValues.debugLog) {
             console.groupCollapsed("findCMP");
@@ -341,8 +350,10 @@ class ConsentEngine {
                 }
             }
 
-            checkIsShowing();
+            await checkIsShowing();
         }
+
+        self.checkRunning = false;
     }
 
     unHideAll() {
