@@ -21,7 +21,7 @@
       {
         "action": {
           "target": {
-            "selector": ".cc-ALLOW"
+            "selector": "a.cc-ALLOW"
           },
           "type": "click"
         },

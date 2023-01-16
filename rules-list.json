@@ -90,6 +90,7 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/setonosylius.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/begadi.com.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/tweakers.net.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/yle.fi.json"
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/yle.fi.json",
+    "https://raw.githubusercontent.com/BenjaminLeibinger/Consent-O-Matic/cookie-consent/rules/cookieconsent.json"
   ]
 }
