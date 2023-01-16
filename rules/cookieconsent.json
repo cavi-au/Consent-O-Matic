@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+  "cookieconsent": {
+    "detectors": [
+      {
+        "presentMatcher": {
+          "target": {
+            "selector": ".cc-message"
+          },
+          "type": "css"
+        },
+        "showingMatcher": {
+          "target": {
+            "selector": ".cc-message"
+          },
+          "type": "css"
+        }
+      }
+    ],
+    "methods": [
+      {
+        "action": {
+          "target": {
+            "selector": ".cc-ALLOW"
+          },
+          "type": "click"
+        },
+        "name": "DO_CONSENT"
+      }
+    ]
+  }
+}
