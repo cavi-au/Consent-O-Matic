@@ -1,0 +1,88 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Autodesk": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "target": {
+                        "selector": "#cookie-policy-info"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "target": {
+                        "displayFilter": true,
+                        "selector": "#cookie-policy-info"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "target": {
+                        "selector": "#cookie-policy-info"
+                    },
+                    "type": "hide"
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": "[aria-label='Cookie Settings']"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "action": {
+                        "actions": [
+                            {
+                                "target": {
+                                    "selector": "li",
+                                    "textFilter": [
+                                        "Analytics and Other Cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "target": {
+                                                    "selector": ".active-switch"
+                                                },
+                                                "type": "click"
+                                            },
+                                            "type": "B"
+                                        }
+                                    ],
+                                    "type": "consent"
+                                },
+                                "type": "ifcss"
+                            }
+                        ],
+                        "type": "list"
+                    },
+                    "target": {
+                        "selector": "#cookie-policy-lightbox-wrapperr"
+                    },
+                    "type": "waitcss"
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".cookie-policy-lightbox-bottom > .btn-save"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}
