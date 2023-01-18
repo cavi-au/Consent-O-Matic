@@ -61,7 +61,10 @@
                                     "Settings",
                                     "Einstellungen",
                                     "Instellen",
-                                    "Mijn instellingen beheren"
+                                    "Mijn instellingen beheren",
+                                    "Hantera cookies",
+                                    "Manage",
+                                    "Configure Preferences"
                                 ]
                             }
                         }
