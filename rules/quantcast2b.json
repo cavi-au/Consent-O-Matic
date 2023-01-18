@@ -42,7 +42,8 @@
                                 "textFilter": [
                                     "Indstillinger",
                                     "MORE OPTIONS",
-                                    "FLERE MULIGHEDER"
+                                    "FLERE MULIGHEDER",
+                                    "Paramétrer les cookies"
                                 ]
                             }
                         }
@@ -80,7 +81,10 @@
                                                 "Opbevare og/eller tilgå oplysninger på en enhed",
                                                 "Precise geolocation data, and identification through device scanning",
                                                 "Bruge præcise geoplaceringsoplysninger",
-                                                "Aktivt scanne enhedskarakteristika til identifikation"
+                                                "Aktivt scanne enhedskarakteristika til identifikation",
+                                                "Stocker et/ou accéder à des informations sur un terminal",
+                                                "Utiliser des données de géolocalisation précises",
+                                                "Analyser activement les caractéristiques du terminal pour l’identification"
                                             ]
                                         },
                                         "trueAction": {
@@ -123,7 +127,11 @@
                                                 "Oprette en tilpasset annonceprofil",
                                                 "Vælge tilpassede annoncer",
                                                 "Måle annonceeffektivitet",
-                                                "Anvende markedsundersøgelser til at generere målgruppeindsigter"
+                                                "Anvende markedsundersøgelser til at generere målgruppeindsigter",
+                                                "Sélectionner des publicités standard",
+                                                "Créer un profil personnalisé de publicités",
+                                                "Sélectionner des publicités personnalisées",
+                                                "Mesurer la performance des publicités"
                                             ]
                                         },
                                         "trueAction": {
@@ -160,7 +168,11 @@
                                                 "Measure content performance",
                                                 "Oprette en tilpasset indholdsprofil",
                                                 "Vælge tilpasset indhold",
-                                                "Måle indholdseffektivitet"
+                                                "Måle indholdseffektivitet",
+                                                "Créer un profil pour afficher un contenu personnalisé",
+                                                "Sélectionner du contenu personnalisé",
+                                                "Mesurer la performance du contenu",
+                                                "Exploiter des études de marché afin de générer des données d’audience"
                                             ]
                                         },
                                         "trueAction": {
@@ -193,7 +205,8 @@
                                             "selector": ".qc-cmp2-list-item-title",
                                             "textFilter": [
                                                 "Develop and improve products",
-                                                "Udvikle og forbedre produkter"
+                                                "Udvikle og forbedre produkter",
+                                                "Développer et améliorer les produits"
                                             ]
                                         },
                                         "trueAction": {
