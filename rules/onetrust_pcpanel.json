@@ -154,7 +154,8 @@
                                             "textFilter": [
                                                 "Performance Cookies",
                                                 "Measure content performance",
-                                                "Measure performance"
+                                                "Measure performance",
+                                                "Leistungs-Cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -613,7 +614,9 @@
                                                 "Mål ydeevne",
                                                 "Måle- og analysecookies",
                                                 "Statistiske cookies",
-                                                "Analytical Cookies"
+                                                "Analytical Cookies",
+                                                "Statistik Cookies",
+                                                "Analytics"
                                             ]
                                         },
                                         "trueAction": {
