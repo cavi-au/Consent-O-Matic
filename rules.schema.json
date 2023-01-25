@@ -75,23 +75,38 @@
         },
 
         "Method": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["name"],
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "enum": [
-                        "OPEN_OPTIONS",
-                        "DO_CONSENT",
-                        "SAVE_CONSENT",
-                        "HIDE_CMP",
-                        "UTILITY"
-                    ]
+            "oneOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["name"],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "enum": [
+                                "OPEN_OPTIONS",
+                                "DO_CONSENT",
+                                "SAVE_CONSENT",
+                                "HIDE_CMP",
+                                "UTILITY"
+                            ]
+                        },
+                        "action": {"$ref": "#/$defs/Actions"}
+                    }
                 },
-                "action": {"$ref": "#/$defs/Actions"},
-                "custom": {"type": "boolean"}
-            }
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["name", "custom"],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "action": {"$ref": "#/$defs/Actions"},
+                        "custom": { "enum": [ true ] }
+                    }
+                }
+            ]
         },
 
         "Actions": {
