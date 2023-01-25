@@ -3,85 +3,61 @@
     "Asus": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "target": {
-                        "selector": "#cookie-policy-info"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "target": {
-                        "displayFilter": true,
-                        "selector": "#cookie-policy-info"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-policy-info"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-policy-info",
+                            "displayFilter": true
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "hide",
                     "target": {
                         "selector": "#cookie-policy-info"
-                    },
-                    "type": "hide"
+                    }
                 },
                 "name": "HIDE_CMP"
             },
             {
-                "action": {
-                    "target": {
-                        "selector": "[aria-label='Cookie Settings']"
-                    },
-                    "type": "click"
-                },
                 "name": "OPEN_OPTIONS"
             },
             {
-                "action": {
-                    "action": {
-                        "actions": [
-                            {
-                                "target": {
-                                    "selector": "li",
-                                    "textFilter": [
-                                        "Analytics and Other Cookies"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": ".active-switch"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "B"
-                                        }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            }
-                        ],
-                        "type": "list"
-                    },
-                    "target": {
-                        "selector": "#cookie-policy-lightbox-wrapperr"
-                    },
-                    "type": "waitcss"
-                },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
-                    "target": {
-                        "selector": ".cookie-policy-lightbox-bottom > .btn-save"
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookie-policy-info .cookie-btn-box .btn-ok"
+                        }
                     },
-                    "type": "click"
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookie-policy-info .cookie-btn-box .btn-setting"
+                        }
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }

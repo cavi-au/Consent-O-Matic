@@ -97,6 +97,7 @@
         "Actions": {
             "oneOf": [
                 {"$ref": "#/$defs/ClickAction"},
+                {"$ref": "#/$defs/MultiClickAction"},
                 {"$ref": "#/$defs/ListAction"},
                 {"$ref": "#/$defs/ConsentAction"},
                 {"$ref": "#/$defs/SlideAction"},
@@ -107,6 +108,7 @@
                 {"$ref": "#/$defs/HideAction"},
                 {"$ref": "#/$defs/CloseAction"},
                 {"$ref": "#/$defs/IfAllowAllAction"},
+                {"$ref": "#/$defs/IfAllowNoneAction"},
                 {"$ref": "#/$defs/RunMethodAction"},
                 {"$ref": "#/$defs/RunRootedAction"}
             ]
@@ -117,6 +119,17 @@
             "required": ["type", "target"],
             "properties": {
                 "type": {"const": "click"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"},
+                "openInTab": {"type": "boolean"}
+            }
+        },
+        "MultiClickAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "multiclick"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
                 "parent": {"$ref": "#/$defs/DOMSelection"},
                 "openInTab": {"type": "boolean"}
@@ -265,7 +278,16 @@
                 "falseAction": {"$ref": "#/$defs/Actions"}
             }
         },
-
+        "IfAllowNoneAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+                "type": {"const": "ifallownone"},
+                "trueAction": {"$ref": "#/$defs/Actions"},
+                "falseAction": {"$ref": "#/$defs/Actions"}
+            }
+        },
         "DOMSelection": {
             "oneOf": [
                 {"type": "null"},
