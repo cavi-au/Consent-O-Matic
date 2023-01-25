@@ -146,8 +146,7 @@
             "properties": {
                 "type": {"const": "multiclick"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
-                "parent": {"$ref": "#/$defs/DOMSelection"},
-                "openInTab": {"type": "boolean"}
+                "parent": {"$ref": "#/$defs/DOMSelection"}
             }
         },
         "ListAction": {
