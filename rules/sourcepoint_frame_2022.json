@@ -52,7 +52,8 @@
                     "target": {
                         "selector": "button.message-button",
                         "textFilter": [
-                            "Manage Cookies"
+                            "Manage Cookies",
+                            "Customize"
                         ]
                     },
                     "trueAction": {
@@ -60,7 +61,8 @@
                         "target": {
                             "selector": "button.message-button",
                             "textFilter": [
-                                "Manage Cookies"
+                                "Manage Cookies",
+                                "Customize"
                             ]
                         }
                     }
