@@ -162,7 +162,9 @@
                                                 "Velge personlig innhold",
                                                 "Personoidun sisältöprofiilin muodostaminen",
                                                 "Personoidun sisällön valinta",
-                                                "Mesurer la performance des publicités"
+                                                "Mesurer la performance des publicités",
+                                                "Promotion et personnalisation des contenus",
+                                                "Personnalisation du contenu éditorial et mesure de la performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -196,7 +198,8 @@
                                                 "Développer et améliorer les produits",
                                                 "Utveckla och förbättra produkter",
                                                 "Utvikle og forbedre produkter",
-                                                "Tuotekehitys"
+                                                "Tuotekehitys",
+                                                "Activation de l'affiliation"
                                             ]
                                         },
                                         "trueAction": {
@@ -274,7 +277,9 @@
                                                 "Contenus vidéo et audio",
                                                 "Contenus cartographiques/infographiques",
                                                 "Personalization",
-                                                "Contenus cartographiques, infographiques et ludique"
+                                                "Contenus cartographiques, infographiques et ludique",
+                                                "Ces identifiants permettent d'interagir avec les plateformes vidéos.",
+                                                "Activation des services interactifs proposés par des tiers"
                                             ]
                                         },
                                         "trueAction": {
