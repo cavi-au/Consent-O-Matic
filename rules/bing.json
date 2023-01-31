@@ -1,0 +1,141 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "bing": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#bnp_cookie_banner"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#bnp_cookie_banner",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#bnp_cookie_banner"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#mcp_container"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#bnp_btn_preference"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".mcp_row"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "#analytics_checkbox"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "#analytics_checkbox"
+                                            }
+                                        },
+                                        "type": "B"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "#sm_checkbox"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "#sm_checkbox"
+                                            }
+                                        },
+                                        "type": "E"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "wait",
+                                "waitTime": 2500
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "#ad_checkbox"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "#ad_checkbox"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
