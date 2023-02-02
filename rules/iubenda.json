@@ -1,20 +1,24 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "ibuenda": {
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "iubuenda": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#iubenda-cs-banner"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#iubenda-cs-banner"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".iubenda-cs-customize-btn"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".iubenda-cs-customize-btn"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
@@ -66,7 +70,10 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": "label",
-                                        "textFilter": "Basic interactions & functionalities"
+                                        "textFilter": [
+                                            "Basic interactions & functionalities",
+                                            "Interazioni e funzionalità semplici"
+                                        ]
                                     }
                                 },
                                 "selector": ".purposes-item"
@@ -98,7 +105,10 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": "label",
-                                        "textFilter": "Experience enhancement"
+                                        "textFilter": [
+                                            "Experience enhancement",
+                                            "Miglioramento dell’esperienza"
+                                        ]
                                     }
                                 },
                                 "selector": ".purposes-item"
@@ -130,7 +140,10 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": "label",
-                                        "textFilter": "Measurement"
+                                        "textFilter": [
+                                            "Measurement",
+                                            "Misurazione"
+                                        ]
                                     }
                                 },
                                 "selector": ".purposes-item"
@@ -162,7 +175,10 @@
                                 "childFilter": {
                                     "target": {
                                         "selector": "label",
-                                        "textFilter": "Targeting & Advertising"
+                                        "textFilter": [
+                                            "Targeting & Advertising",
+                                            "Targeting e Pubblicità"
+                                        ]
                                     }
                                 },
                                 "selector": ".purposes-item"
