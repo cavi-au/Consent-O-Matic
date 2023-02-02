@@ -43,7 +43,8 @@
                                     "Indstillinger",
                                     "MORE OPTIONS",
                                     "FLERE MULIGHEDER",
-                                    "Paramétrer les cookies"
+                                    "Paramétrer les cookies",
+                                    "PIÙ OPZIONI"
                                 ]
                             }
                         }
@@ -84,7 +85,10 @@
                                                 "Aktivt scanne enhedskarakteristika til identifikation",
                                                 "Stocker et/ou accéder à des informations sur un terminal",
                                                 "Utiliser des données de géolocalisation précises",
-                                                "Analyser activement les caractéristiques du terminal pour l’identification"
+                                                "Analyser activement les caractéristiques du terminal pour l’identification",
+                                                "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                "Utilizzare dati di geolocalizzazione precisi",
+                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
                                             ]
                                         },
                                         "trueAction": {
@@ -131,7 +135,11 @@
                                                 "Sélectionner des publicités standard",
                                                 "Créer un profil personnalisé de publicités",
                                                 "Sélectionner des publicités personnalisées",
-                                                "Mesurer la performance des publicités"
+                                                "Mesurer la performance des publicités",
+                                                "Selezionare annunci basici (basic ads)",
+                                                "Creare un profilo di annunci personalizzati",
+                                                "Selezionare annunci personalizzati",
+                                                "Valutare le performance degli annunci"
                                             ]
                                         },
                                         "trueAction": {
@@ -172,7 +180,10 @@
                                                 "Créer un profil pour afficher un contenu personnalisé",
                                                 "Sélectionner du contenu personnalisé",
                                                 "Mesurer la performance du contenu",
-                                                "Exploiter des études de marché afin de générer des données d’audience"
+                                                "Exploiter des études de marché afin de générer des données d’audience",
+                                                "Creare un profilo di contenuto personalizzato",
+                                                "Selezionare contenuti personalizzati",
+                                                "Valutare le performance dei contenuti"
                                             ]
                                         },
                                         "trueAction": {
@@ -204,9 +215,42 @@
                                         "target": {
                                             "selector": ".qc-cmp2-list-item-title",
                                             "textFilter": [
+                                                "Applicare ricerche di mercato per generare approfondimenti sul pubblico"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "button[role='switch'][aria-checked='true']"
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1)"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".qc-cmp2-toggle-switch:nth-of-type(1) button"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".qc-cmp2-list-item-title",
+                                            "textFilter": [
                                                 "Develop and improve products",
                                                 "Udvikle og forbedre produkter",
-                                                "Développer et améliorer les produits"
+                                                "Développer et améliorer les produits",
+                                                "Sviluppare e perfezionare i prodotti"
                                             ]
                                         },
                                         "trueAction": {
