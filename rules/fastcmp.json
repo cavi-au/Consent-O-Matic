@@ -1,0 +1,300 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "fastcmp": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#fast-cmp-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#fast-cmp-container"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "html"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".fast-cmp-navigation-button"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".fast-cmp-consent-box"
+                            },
+                            "retries": 10,
+                            "waitTime": 250
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".fast-cmp-consent-box"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='purposeConsents'][value='1']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='purposeConsents'][value='2'],[name='purposeConsents'][value='3'],[name='purposeConsents'][value='4'],[name='purposeConsents'][value='7'],[name='purposeConsents'][value='9']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='purposeConsents'][value='5'],[name='purposeConsents'][value='6']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='purposeConsents'][value='8'],[name='purposeConsents'][value='10']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeConsents]"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=purposeLegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='specialFeatureOptins'][value='1']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=specialFeatureOptins]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=specialFeatureOptins]"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "[name='specialFeatureOptins'][value='2']"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[name=specialFeatureOptins]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "multiclick",
+                                                        "target": {
+                                                            "selector": "[name=specialFeatureOptins]"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".fast-cmp-button-primary[value='save']"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
