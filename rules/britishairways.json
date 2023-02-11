@@ -15,7 +15,8 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#overlay[style='display: block;']"
+                            "selector": "#overlay[style='display: block;']",
+                            "displayFilter": true
                         }
                     }
                 ]
