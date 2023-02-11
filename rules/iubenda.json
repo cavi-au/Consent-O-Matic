@@ -23,6 +23,23 @@
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#iubenda-cs-banner"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#iubenda-iframe"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
