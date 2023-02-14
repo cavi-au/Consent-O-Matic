@@ -9,7 +9,7 @@
                         "target": {
                             "childFilter": {
                                 "target": {
-                                    "selector": ".otPcPanel, .otPcCenter"
+                                    "selector": ".otPcPanel, .otPcCenter, .otPcPopup"
                                 }
                             },
                             "selector": "#onetrust-consent-sdk"
@@ -22,7 +22,7 @@
                         "target": {
                             "childFilter": {
                                 "target": {
-                                    "selector": ".otPcPanel, .otPcCenter",
+                                    "selector": ".otPcPanel, .otPcCenter, .otPcPopup",
                                     "displayFilter": true
                                 }
                             },
@@ -123,7 +123,13 @@
                                                 "Cookies für Marketingzwecke",
                                                 "Tilpas annoncering",
                                                 "ADVERTISING",
-                                                "Målrettede cookies"
+                                                "Målrettede cookies",
+                                                "Marketing-Technologien",
+                                                "MARKETING",
+                                                "PUBLICIDAD",
+                                                "PUBBLICITÀ",
+                                                "REKLAMY",
+                                                "RECLAME"
                                             ]
                                         },
                                         "trueAction": {
@@ -155,7 +161,13 @@
                                                 "Performance Cookies",
                                                 "Measure content performance",
                                                 "Measure performance",
-                                                "Leistungs-Cookies"
+                                                "Leistungs-Cookies",
+                                                "Performance-Technologien",
+                                                "ANALYSECOOKIES",
+                                                "ANALYSE",
+                                                "ANÁLISIS",
+                                                "ANALISI",
+                                                "ANALITYKA"
                                             ]
                                         },
                                         "trueAction": {
@@ -312,7 +324,14 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Cookies målrettet sociale medier",
-                                                "Social Media Cookies"
+                                                "Social Media Cookies",
+                                                "SOCIALE MEDIER",
+                                                "SOCIAL MEDIA",
+                                                "SOZIALE MEDIEN",
+                                                "REDES SOCIALES",
+                                                "RÉSEAUX SOCIAUX",
+                                                "Informasjonskapsler for sosiale medier",
+                                                "SOCIALE MEDIA"
                                             ]
                                         },
                                         "trueAction": {
@@ -342,7 +361,12 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Select personalised content",
-                                                "CONTENT PERSONALISATION"
+                                                "CONTENT PERSONALISATION",
+                                                "PERSONALISIERUNG VON INHALTEN",
+                                                "PERSONALIZACIÓN DEL CONTENIDO",
+                                                "PERSONALIZZAZIONE DEI CONTENUTI",
+                                                "PERSONALIZACJA TRESCI",
+                                                "INHOUDSPERSONALISATIE"
                                             ]
                                         },
                                         "trueAction": {
