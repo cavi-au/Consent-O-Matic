@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[data-testid='accept-our-cookies-dialog']",
+                            "selector": "[data-testid='accept-our-cookies-dialog'], [aria-label='Cookie Notification']",
                             "displayFilter": true
                         }
                     }
@@ -65,7 +65,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "[aria-controls^='panel-Analytics & tracking']"
+                                "selector": "[aria-controls^='panel-Analytics & tracking'], [aria-controls^='panel-Analytics & Tracking']"
                             }
                         },
                         {
@@ -75,13 +75,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "[name='Analytics & tracking']"
+                                            "selector": "[name='Analytics & tracking'], [name='Analytics & Tracking']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "[name='Analytics & tracking']"
+                                            "selector": "[name='Analytics & tracking'], [name='Analytics & Tracking']"
                                         }
                                     },
                                     "type": "B"
@@ -117,7 +117,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "[aria-controls^='panel-Marketing or advertising']"
+                                "selector": "[aria-controls^='panel-Marketing or advertising'], [aria-controls^='panel-Advertising']"
                             }
                         },
                         {
@@ -127,13 +127,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "[name='Marketing or advertising']"
+                                            "selector": "[name='Marketing or advertising'],[name='Advertising']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "[name='Marketing or advertising']"
+                                            "selector": "[name='Marketing or advertising'],[name='Advertising']"
                                         }
                                     },
                                     "type": "F"
@@ -163,6 +163,32 @@
                                         }
                                     },
                                     "type": "E"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[aria-controls^='panel-Performance & Testing']"
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[name='Performance & Testing']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[name='Performance & Testing']"
+                                        }
+                                    },
+                                    "type": "B"
                                 }
                             ]
                         }
