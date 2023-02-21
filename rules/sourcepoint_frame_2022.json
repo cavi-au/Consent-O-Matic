@@ -354,7 +354,9 @@
                                                 "Select basic ads",
                                                 "Create a personalised ads profile",
                                                 "Measure ad performance",
-                                                "Apply market research to generate audience insights"
+                                                "Apply market research to generate audience insights",
+                                                "Marketing-cookies",
+                                                "Cookies brugt af reklamepartnere (IAB)"
                                             ]
                                         },
                                         "trueAction": {
@@ -491,7 +493,8 @@
                                             "textFilter": [
                                                 "Select personalised content",
                                                 "Create a personalised content profile",
-                                                "Measure content performance"
+                                                "Measure content performance",
+                                                "Tilpas tjenester"
                                             ]
                                         },
                                         "trueAction": {
@@ -547,6 +550,73 @@
                                                                 }
                                                             },
                                                             "type": "E"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".accordion",
+                                            "textFilter": [
+                                                "Analyse og produktudvikling"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "foreach",
+                                            "target": {
+                                                "selector": ".stack-row"
+                                            },
+                                            "action": {
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": "span.on"
+                                                },
+                                                "trueAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "css",
+                                                                "target": {
+                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                }
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.on"
+                                                                }
+                                                            },
+                                                            "falseAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.off"
+                                                                }
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ]
+                                                },
+                                                "falseAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "css",
+                                                                "target": {
+                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.slider"
+                                                                }
+                                                            },
+                                                            "type": "B"
                                                         }
                                                     ]
                                                 }
