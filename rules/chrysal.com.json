@@ -7,6 +7,9 @@
                     {
                         "type": "css",
                         "target": {
+                            "selector": "#popup-cookie-settings"
+                        },
+                        "parent": {
                             "selector": ".popup-content"
                         }
                     }
@@ -15,8 +18,11 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".popup-content",
+                            "selector": "#popup-cookie-settings",
                             "displayFilter": true
+                        },
+                        "parent": {
+                            "selector": ".popup-content"
                         }
                     }
                 ]

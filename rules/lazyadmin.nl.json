@@ -9,7 +9,7 @@
                         "target": {
                             "selector": ".notice-title",
                             "textFilter": [
-                                "Manage Your Privacy",
+                                "Privacy",
                                 "Управление на вашата поверителност",
                                 "Administri la seva privacitat",
                                 "管理您的隐私",
@@ -20,7 +20,7 @@
                                 "Hallake oma isikuandmete kaitset",
                                 "Hallinnoi tietosuojaa",
                                 "Gérer la protection de votre vie privée",
-                                "Verwalten Sie Ihre Privatsphäre",
+                                "Privatsphäre",
                                 "Διαχείριση του Απορρήτου Σας",
                                 "Adatvédelmi beállítások kezelése",
                                 "Gestisci la tua privacy",
@@ -36,7 +36,9 @@
                                 "Upravljajte svojo zasebnost",
                                 "Gestione su Privacidad",
                                 "Hantera din integritet",
-                                "Gizliliğinizi Yönetin"
+                                "Gizliliğinizi Yönetin",
+                                "We use cookies",
+                                "We gebruiken cookies"
                             ],
                             "iframeFilter": true
                         }
@@ -48,7 +50,7 @@
                         "target": {
                             "selector": ".notice-title",
                             "textFilter": [
-                                "Manage Your Privacy",
+                                "Privacy",
                                 "Управление на вашата поверителност",
                                 "Administri la seva privacitat",
                                 "管理您的隐私",
@@ -59,7 +61,7 @@
                                 "Hallake oma isikuandmete kaitset",
                                 "Hallinnoi tietosuojaa",
                                 "Gérer la protection de votre vie privée",
-                                "Verwalten Sie Ihre Privatsphäre",
+                                "Privatsphäre",
                                 "Διαχείριση του Απορρήτου Σας",
                                 "Adatvédelmi beállítások kezelése",
                                 "Gestisci la tua privacy",
@@ -75,7 +77,9 @@
                                 "Upravljajte svojo zasebnost",
                                 "Gestione su Privacidad",
                                 "Hantera din integritet",
-                                "Gizliliğinizi Yönetin"
+                                "Gizliliğinizi Yönetin",
+                                "We use cookies",
+                                "We gebruiken cookies"
                             ],
                             "iframeFilter": true,
                             "displayFilter": true
@@ -237,6 +241,36 @@
                                         }
                                     ]
                                 }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Use precise geolocation data",
+                                        "Actively scan device characteristics for identification"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "X"
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -245,10 +279,35 @@
             },
             {
                 "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": "#saveAndExit"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#saveAndExit"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".mat-dialog-title.confirmationDialogTitle"
+                            },
+                            "retries": 10,
+                            "waitTime": 50
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".mat-dialog-title.confirmationDialogTitle"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".mat-focus-indicator.okButton.mat-raised-button.mat-button-base"
+                                }
+                            }
+                        }
+                    ]
                 },
                 "name": "SAVE_CONSENT"
             },
