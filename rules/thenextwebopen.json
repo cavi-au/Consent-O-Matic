@@ -30,12 +30,6 @@
                 "name": "HIDE_CMP"
             },
             {
-                "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": ".cookie-consent-banner__btn-secondary"
-                    }
-                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -45,6 +39,12 @@
                 "name": "SAVE_CONSENT"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookie-consent-banner__btn-secondary"
+                    }
+                },
                 "name": "UTILITY"
             }
         ]
