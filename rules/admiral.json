@@ -1,0 +1,482 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "admiral": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".a__sc-np32r2-0"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".a__sc-np32r2-0",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".a__sc-np32r2-0"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".Button__StyledButton-a1qza5-0",
+                        "textFilter": [
+                            "Purposes"
+                        ]
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".Frame-sc-1d4hofp-0.dFwApY"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".a__sc-cqhbjh-2.jtxseY.a__sc-tonkui-1.ddTxVh",
+                                            "textFilter": [
+                                                "Store and/or access information on a device"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".a__sc-cqhbjh-2.jtxseY.a__sc-tonkui-1.ddTxVh",
+                                            "textFilter": [
+                                                "Select basic ads",
+                                                "Create a personalised ads profile",
+                                                "Select personalised ads",
+                                                "Measure ad performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".a__sc-cqhbjh-2.jtxseY.a__sc-tonkui-1.ddTxVh",
+                                            "textFilter": [
+                                                "Create a personalised content profile",
+                                                "Select personalised content",
+                                                "Measure content performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".a__sc-cqhbjh-2.jtxseY.a__sc-tonkui-1.ddTxVh",
+                                            "textFilter": [
+                                                "Apply market research to generate audience insights",
+                                                "Develop and improve products"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Consent"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "parent": {
+                                                            "childFilter": {
+                                                                "target": {
+                                                                    "selector": ".Text-azid7f-0.a__sc-tonkui-2.hfJItt",
+                                                                    "textFilter": [
+                                                                        "Legitimate Interest"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "selector": ".Toggle__Label-sc-1gq6yqj-0.elgZCt"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".Frame-sc-1d4hofp-0.cLZaYT"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".a__sc-cqhbjh-2.jtxseY",
+                                            "textFilter": [
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".Button__StyledButton-a1qza5-0",
+                        "textFilter": [
+                            "Save & exit"
+                        ]
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
