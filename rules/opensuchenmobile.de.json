@@ -30,6 +30,12 @@
                 "name": "OPEN_OPTIONS"
             },
             {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
                 "action": {
                     "type": "ifallowall",
                     "trueAction": {
@@ -45,12 +51,6 @@
                         }
                     }
                 },
-                "name": "DO_CONSENT"
-            },
-            {
-                "name": "SAVE_CONSENT"
-            },
-            {
                 "name": "UTILITY"
             }
         ]
