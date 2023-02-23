@@ -7,15 +7,22 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
-                        }
-                    }
-                ],
-                "showingMatcher": [
-                    {
-                        "type": "css",
-                        "target": {
-                            "selector": ".message-container .message.type-bottom, .message-container .message.type-modal"
+                            "selector": ".message-container .message-button",
+                            "textFilter": [
+                                "Ret indstillinger",
+                                "Cookie Settings",
+                                "Voir les paramètres",
+                                "Options",
+                                "Manage my cookies",
+                                "Settings",
+                                "Einstellungen",
+                                "Instellen",
+                                "Mijn instellingen beheren",
+                                "Hantera cookies",
+                                "Manage",
+                                "Configure Preferences"
+                            ],
+                            "displayFilter": true
                         }
                     }
                 ]

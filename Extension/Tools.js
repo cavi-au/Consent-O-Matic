@@ -117,7 +117,11 @@ class Tools {
                 Tools.setBase(possibleTarget);
                 let childResults = Tools.find(options.childFilter);
                 Tools.setBase(oldBase);
-                return childResults.target != null;
+                if(options.childFilterNegated) {
+                    return childResults.target == null;
+                } else {
+                    return childResults.target != null;
+                }
             });
         }
 

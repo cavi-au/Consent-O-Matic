@@ -62,6 +62,16 @@
                 "target": {"$ref": "#/$defs/DOMSelection"}
             }
         },
+        "OnOffMatcher": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "onMatcher", "offMatcher"],
+            "properties": {
+                "type": {"const": "onoff"},
+                "onMatcher": {"$ref": "#/$defs/DOMSelection"},
+                "offMatcher": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
         "CheckboxMatcher": {
             "type": "object",
             "additionalProperties": false,
@@ -350,7 +360,8 @@
                 },
                 "displayFilter": {"type": "boolean"},
                 "iframeFilter": {"type": "boolean"},
-                "childFilter": {"$ref": "#/$defs/DOMSelection"}
+                "childFilter": {"$ref": "#/$defs/DOMSelection"},
+                "childFilterNegate": {"type": "boolean"}
             }
         },
 

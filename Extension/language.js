@@ -1205,42 +1205,80 @@ const translations = {
     },
     "RUN_ROOTED_ACTION_DESCRIPTION": {
         "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
-        "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root."
+        "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root.",
+        "da": "Kør en handling forankret på det valgte dom-element. Ignorerer evt. gammel root og sætter gammel den igen bagefter.",
+        "pt": "",
     },
     "RUN_METHOD_ACTION": {
         "en": "RunMethodAction"
     },
     "RUN_METHOD_ACTION_DESCRIPTION": {
         "en": "Runs a custom method.",
-        "de": "Benutzerdefinierte Methode durchführen."
+        "de": "Benutzerdefinierte Methode durchführen.",
+        "da": "Kører en custom metode"
     },
     "ADD_METHOD": {
         "en": "Add method",
-        "de": "Methode hinzufügen"
+        "de": "Methode hinzufügen",
+        "da": "Tilføj metode"
     },
     "ADD_METHOD_PROMPT": {
         "en": "Name of new method:",
-        "de": "Name der neuen Methode:"
+        "de": "Name der neuen Methode:",
+        "da": "Navnet på den nye metode:"
     },
     "IGNORE_OLD_ROOT": {
         "en": "Ignore old root",
-        "de": "Alten Root ignorieren"
+        "de": "Alten Root ignorieren",
+        "da": "Ignorer gammel root"
     },
     "IGNORE_OLD_ROOT_HELP": {
         "en": "Ignores any root set, and restarts from document",
-        "de": "Ignoriert jeden gesetzten Root und beginnt wieder beim Document"
+        "de": "Ignoriert jeden gesetzten Root und beginnt wieder beim Document",
+        "da": "Ignorerer hvis der var sat en gammel root, og starter fra document"
     },
     "METHOD": {
         "en": "Method",
-        "de": "Methode"
+        "de": "Methode",
+        "da": "Metode"
     },
     "METHOD_HELP": {
         "en": "The method to run",
-        "de": "Die durchzuführende Methode"
+        "de": "Die durchzuführende Methode",
+        "da": "Metoden der skal køres"
     },
     "NEGATED_URL_HELP": {
         "en": "When enabled, this matcher matches, if none of the URL's match",
-        "de": "Wenn aktiviert, wird der Abgleich durchgeführt, wenn keine der URLs übereinstimmt"
+        "de": "Wenn aktiviert, wird der Abgleich durchgeführt, wenn keine der URLs übereinstimmt",
+        "da": "Hvis aktiveret, matcher denne matcher, kun hvis ingen af webadresserne matcher"
+    },
+    "ONOFF_MATCHER": {
+        "en": "OnOff Matcher"
+
+    },
+    "ONOFF_MATCHER_DESCRIPTION": {
+        "en": "Uses 2 css queries to check if something is on or off"
+
+    },
+    "ONOFF_MATCHER_TRUE": {
+        "en": "On"
+
+    },
+    "ONOFF_MATCHER_FALSE": {
+        "en": "Off"
+
+    },
+    "ONOFF_MATCHER_TRUE_HELP": {
+        "en": "The css query used to check if this is on"
+    },
+    "ONOFF_MATCHER_FALSE_HELP": {
+        "en": "The css query used to check if this is off"
+    },
+    "CHILD_FILTER_NEAGTE": {
+        "en": "Negate child filter"
+    },
+    "CHILD_FILTER_NEAGTE_HELP": {
+        "en": "A negated child filter, filters this selector if a child is found"
     }
 };
 

@@ -22,6 +22,15 @@
     </div>
 </template>
 
+<template id="matcher_onoff">
+    <div data-type="matcher" data-variant="onoff" data-fold-name="[[ONOFF_MATCHER]]">
+        <div class="label">[[ONOFF_MATCHER_TRUE]]<div class="help">[[ONOFF_MATCHER_TRUE_HELP]]</div></div>
+        <div data-bind="onMatcher" data-plug="domSelector"></div>
+        <div class="label">[[ONOFF_MATCHER_FALSE]]<div class="help">[[ONOFF_MATCHER_FALSE_HELP]]</div></div>
+        <div data-bind="offMatcher" data-plug="domSelector"></div>
+    </div>
+</template>
+
 <template id="matcher_url">
     <div data-type="matcher" data-variant="url" data-fold-name="[[URL_MATCHER]]">
         <div class="label">[[URL_LABEL]]<div class="help">[[URL_LABEL_HELP]]</div></div>
@@ -63,6 +72,8 @@
         <div data-bind="displayFilter"><input type="checkbox" /></div>
         <div class="label">[[CHILD_FILTER]]<div class="help">[[CHILD_FILTER_HELP]]</div></div>
         <div data-bind="childFilter" data-plug="domSelector"></div>
+        <div class="label">[[CHILD_FILTER_NEAGTE]]<div class="help">[[CHILD_FILTER_NEGATE_HELP]]</div></div>
+        <div data-bind="childFilterNegate"><input type="checkbox" /></div>
     </div>
 </template>
 
@@ -149,6 +160,8 @@
         <div data-plug="domSelector"></div>
         <div class="label">[[OPEN_IN_TAB]]<div class="help">[[OPEN_IN_TAB_HELP]]</div></div>        
         <div data-bind="openInTab"><input type="checkbox" /></div>
+        <div class="label">Disable click timeout<div class="help">If enabled, dont do any timeout for this click, warning, this means no UI is updated!</div></div>
+        <div data-bind="noTimeout"><input type="checkbox" /></div>
     </div>
 </template>
 

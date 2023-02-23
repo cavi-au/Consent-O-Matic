@@ -1,3 +1,14 @@
+/**
+ * 
+ */
+const STATUS = {
+    "INIT": 0,
+    "NOTHING": 1,
+    "SEARCHING": 2,
+    "ERROR": 3,
+    "HANDLED": 4
+}
+
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
@@ -50,24 +61,27 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         }
 
         case "CMPError": {
-            if(!tabHandledMap.get(sender.tab.id)) {
+            if(tabStatusMap.get(sender.tab.id) !== STATUS.HANDLED) {
                 setBadgeCheckmark("\u2717", sender.tab.id);
+                tabStatusMap.set(sender.tab.id, STATUS.ERROR);
             }
 
             return false;
         }
 
         case "NothingFound": {
-            if(!tabHandledMap.get(sender.tab.id)) {
+            if(tabStatusMap.get(sender.tab.id) !== STATUS.HANDLED) {
                 setBadgeCheckmark("", sender.tab.id);
+                tabStatusMap.set(sender.tab.id, STATUS.NOTHING);
             }
 
             return false;
         }
 
         case "Searching": {
-            if(!tabHandledMap.get(sender.tab.id)) {
-                setBadgeCheckmark("\u2026", sender.tab.id);
+            if(tabStatusMap.get(sender.tab.id) !== STATUS.HANDLED) {
+                setBadgeCheckmark("\uD83D\uDD0E", sender.tab.id);
+                tabStatusMap.set(sender.tab.id, STATUS.SEARCHING);
             }
 
             return false;
@@ -77,6 +91,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             let json = JSON.parse(message.split("|")[1]);
 
             setBadgeCheckmark("\u2714", sender.tab.id);
+
+            tabStatusMap.set(sender.tab.id, STATUS.HANDLED);
 
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;
@@ -168,12 +184,12 @@ function fetchRules(forceUpdate) {
 
 }
 
-let tabHandledMap = new Map();
+let tabStatusMap = new Map();
 
 chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
     if(info.status != null && info.status === "Loading") {
         setBadgeCheckmark("", tabId);
-        tabHandledMap.set(tabId, false);
+        tabStatusMap.set(tabId, STATUS.INIT);
     }
 });
 
