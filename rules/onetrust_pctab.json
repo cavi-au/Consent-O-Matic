@@ -208,7 +208,8 @@
                                     "textFilter": [
                                         "Funktionelle cookies",
                                         "Functional Cookies",
-                                        "Funktionale Cookies"
+                                        "Funktionale Cookies",
+                                        "Funktionelle"
                                     ]
                                 },
                                 "trueAction": {
@@ -268,7 +269,8 @@
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Målrettede cookies",
-                                        "Targeting cookies"
+                                        "Targeting cookies",
+                                        "Målrettede"
                                     ]
                                 },
                                 "trueAction": {
@@ -297,7 +299,8 @@
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
-                                        "Site monitoring cookies"
+                                        "Site monitoring cookies",
+                                        "Performance"
                                     ]
                                 },
                                 "trueAction": {
@@ -326,7 +329,8 @@
                                 "target": {
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
-                                        "Third-party privacy enhanced cookies"
+                                        "Third-party privacy enhanced cookies",
+                                        "Sociale medier"
                                     ]
                                 },
                                 "trueAction": {
