@@ -332,6 +332,8 @@ class ConsentEngine {
                             }
                             clearTimeout(self.stopEngineId);
                             clearInterval(self.domScannerIntervalID);
+
+                            self.checkRunning = false;
                         }
                     }, 0);
                 } else {
@@ -343,6 +345,7 @@ class ConsentEngine {
                             console.groupEnd();
                             console.log(cmp.name + " - Not showing");
                         }
+                        self.checkRunning = false;
                         self.startObserver();
                         self.startStopTimeout()
                         self.handleMutations([]);
@@ -352,8 +355,6 @@ class ConsentEngine {
 
             await checkIsShowing();
         }
-
-        self.checkRunning = false;
     }
 
     unHideAll() {
