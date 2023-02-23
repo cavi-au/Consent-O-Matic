@@ -7,15 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay"
-                        }
-                    }
-                ],
-                "showingMatcher": [
-                    {
-                        "type": "css",
-                        "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog",
                             "displayFilter": true
                         }
                     }

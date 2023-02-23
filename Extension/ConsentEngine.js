@@ -216,7 +216,7 @@ class ConsentEngine {
             this.triedCMPs.add(cmp.name);
 
             //Check if popup shows, then do consent stuff
-            let numberOfTries = 10;
+            let numberOfTries = 5;
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
                     self.currentCMP = cmp;
@@ -238,6 +238,8 @@ class ConsentEngine {
                                     cmp.stopObservers();
                                 }
                             }
+
+                            self.checkRunning = false;
 
                             self.startObserver();
                             self.handleMutations([]);
@@ -354,6 +356,8 @@ class ConsentEngine {
             }
 
             await checkIsShowing();
+        } else {
+            self.checkRunning = false;
         }
     }
 

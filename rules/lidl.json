@@ -5,6 +5,12 @@
             {
                 "presentMatcher": [
                     {
+                        "type": "url",
+                        "url": [
+                            "www.lidl.dk"
+                        ]
+                    },
+                    {
                         "type": "css",
                         "target": {
                             "selector": "#CybotCookiebotDialog"
