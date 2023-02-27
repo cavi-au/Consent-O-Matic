@@ -1,5 +1,5 @@
 {
-    "$schema": "../rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "sourcepoint_frame_2022": {
         "detectors": [
             {
@@ -53,7 +53,8 @@
                         "selector": "button.message-button",
                         "textFilter": [
                             "Manage Cookies",
-                            "Customize"
+                            "Customize",
+                            "Konfigurieren"
                         ]
                     },
                     "trueAction": {
@@ -62,7 +63,8 @@
                             "selector": "button.message-button",
                             "textFilter": [
                                 "Manage Cookies",
-                                "Customize"
+                                "Customize",
+                                "Konfigurieren"
                             ]
                         }
                     }
@@ -958,6 +960,129 @@
                                                                     "noTimeout": true
                                                                 },
                                                                 "type": "B"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".accordion",
+                                            "textFilter": [
+                                                "Datenübermittlung an Partner in den USA"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "foreach",
+                                            "target": {
+                                                "selector": ".stack-row"
+                                            },
+                                            "action": {
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": "span.on"
+                                                },
+                                                "trueAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.on"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "falseAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.off"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "type": "E"
+                                                        }
+                                                    ]
+                                                },
+                                                "falseAction": {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "E"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "E"
                                                             }
                                                         ]
                                                     }
