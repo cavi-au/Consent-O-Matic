@@ -44,7 +44,8 @@
                                     "MORE OPTIONS",
                                     "FLERE MULIGHEDER",
                                     "Paramétrer les cookies",
-                                    "PIÙ OPZIONI"
+                                    "PIÙ OPZIONI",
+                                    "ΠΕΡΙΣΣΟΤΕΡΕΣ ΕΠΙΛΟΓΕΣ"
                                 ]
                             }
                         }
@@ -88,7 +89,10 @@
                                                 "Analyser activement les caractéristiques du terminal pour l’identification",
                                                 "Archiviare e/o accedere a informazioni su un dispositivo",
                                                 "Utilizzare dati di geolocalizzazione precisi",
-                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
+                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
+                                                "Αποθήκευση ή/και πρόσβαση στα δεδομένα μιας συσκευής",
+                                                "Χρήση ακριβών δεδομένων γεω-εντοπισμού",
+                                                "Ακριβής σάρωση χαρακτηριστικών συσκευής για αναγνώριση ταυτότητας"
                                             ]
                                         },
                                         "trueAction": {
@@ -139,7 +143,11 @@
                                                 "Selezionare annunci basici (basic ads)",
                                                 "Creare un profilo di annunci personalizzati",
                                                 "Selezionare annunci personalizzati",
-                                                "Valutare le performance degli annunci"
+                                                "Valutare le performance degli annunci",
+                                                "Επιλογή βασικών διαφημίσεων",
+                                                "Δημιουργία προφίλ εξατομικευμένων διαφημίσεων",
+                                                "Επιλογή εξατομικευμένων διαφημίσεων",
+                                                "Μέτρηση απόδοσης διαφημίσεων"
                                             ]
                                         },
                                         "trueAction": {
@@ -183,7 +191,10 @@
                                                 "Exploiter des études de marché afin de générer des données d’audience",
                                                 "Creare un profilo di contenuto personalizzato",
                                                 "Selezionare contenuti personalizzati",
-                                                "Valutare le performance dei contenuti"
+                                                "Valutare le performance dei contenuti",
+                                                "Δημιουργία προφίλ εξατομικευμένου περιεχομένου",
+                                                "Επιλογή εξατομικευμένου περιεχομένου",
+                                                "Μέτρηση απόδοσης περιεχομένου"
                                             ]
                                         },
                                         "trueAction": {
@@ -215,7 +226,8 @@
                                         "target": {
                                             "selector": ".qc-cmp2-list-item-title",
                                             "textFilter": [
-                                                "Applicare ricerche di mercato per generare approfondimenti sul pubblico"
+                                                "Applicare ricerche di mercato per generare approfondimenti sul pubblico",
+                                                "Πραγματοποίηση έρευνας αγοράς και άντληση πληροφοριών για το κοινό"
                                             ]
                                         },
                                         "trueAction": {
@@ -250,7 +262,8 @@
                                                 "Develop and improve products",
                                                 "Udvikle og forbedre produkter",
                                                 "Développer et améliorer les produits",
-                                                "Sviluppare e perfezionare i prodotti"
+                                                "Sviluppare e perfezionare i prodotti",
+                                                "Δημιουργία και βελτίωση προϊόντων"
                                             ]
                                         },
                                         "trueAction": {
@@ -286,7 +299,8 @@
                                 "selector": ".qc-cmp2-footer-links button",
                                 "textFilter": [
                                     "Legitime interesser",
-                                    "LEGITIMATE INTEREST"
+                                    "LEGITIMATE INTEREST",
+                                    "ΘΕΜΙΤΟ ΕΝΔΙΑΦΕΡΟΝ"
                                 ]
                             }
                         },
@@ -300,7 +314,8 @@
                                             "selector": ".qc-cmp2-container button",
                                             "textFilter": [
                                                 "ACCEPT ALL",
-                                                "Fjern indsigelse"
+                                                "Fjern indsigelse",
+                                                "ΑΠΟΔΕΧΟΜΑΙ ΤΑ ΠΑΝΤΑ"
                                             ]
                                         }
                                     },
@@ -310,7 +325,8 @@
                                             "selector": ".qc-cmp2-container button",
                                             "textFilter": [
                                                 "OBJECT ALL",
-                                                "Gør indsigelse mod alt"
+                                                "Gør indsigelse mod alt",
+                                                "ΑΠΟΡΡΙΠΤΩ ΤΑ ΠΑΝΤΑ"
                                             ]
                                         }
                                     },
