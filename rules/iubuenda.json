@@ -89,7 +89,8 @@
                                         "selector": "label",
                                         "textFilter": [
                                             "Basic interactions & functionalities",
-                                            "Interazioni e funzionalità semplici"
+                                            "Interazioni e funzionalità semplici",
+                                            "Functionality"
                                         ]
                                     }
                                 },
@@ -124,7 +125,9 @@
                                         "selector": "label",
                                         "textFilter": [
                                             "Experience enhancement",
-                                            "Miglioramento dell’esperienza"
+                                            "Miglioramento dell’esperienza",
+                                            "Experience",
+                                            "Expérience"
                                         ]
                                     }
                                 },
@@ -159,7 +162,8 @@
                                         "selector": "label",
                                         "textFilter": [
                                             "Measurement",
-                                            "Misurazione"
+                                            "Misurazione",
+                                            "Mesure"
                                         ]
                                     }
                                 },
@@ -194,7 +198,8 @@
                                         "selector": "label",
                                         "textFilter": [
                                             "Targeting & Advertising",
-                                            "Targeting e Pubblicità"
+                                            "Targeting e Pubblicità",
+                                            "Marketing"
                                         ]
                                     }
                                 },
