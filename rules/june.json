@@ -1,0 +1,162 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "june": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".modal-guts .cookie-headline"
+                        },
+                        "parent": {
+                            "selector": "#modal-tracking"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".modal-guts .cookie-headline",
+                            "displayFilter": true
+                        },
+                        "parent": {
+                            "selector": "#modal-tracking",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#modal-tracking"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#modal-overlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".flex-container"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "#functional-cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "#stats-cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "#marketing-cookies"
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "E"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#agreepartialbtn"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
