@@ -24,10 +24,21 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "[class^='gravito'][class*='CMP-background-overlay']"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "[class^='gravito'][class*='CMP-background-overlay']"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "[class^='gravitoCMP-modal-layer']"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
@@ -95,7 +106,12 @@
                                                 "Tarkkojen sijaintitietojen käyttö",
                                                 "Insamling av data",
                                                 "Utveckla och förbättra produkter",
-                                                "Statistical cookies"
+                                                "Statistical cookies",
+                                                "Analytics Cookies",
+                                                "Analytik",
+                                                "Analyytikkaevästeet",
+                                                "Análisis",
+                                                "Analytique"
                                             ]
                                         },
                                         "trueAction": {
@@ -140,7 +156,12 @@
                                             "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
                                             "textFilter": [
                                                 "Toiminnalliset evästeet",
-                                                "Functional cookies"
+                                                "Functional cookies",
+                                                "Preference Cookies",
+                                                "Benutzereinstellungen",
+                                                "Asetusevästeet",
+                                                "Preferencia",
+                                                "Préférence"
                                             ]
                                         },
                                         "trueAction": {
@@ -220,7 +241,12 @@
                                                 "Tavalliset mainokset ja mainonnan mittaus",
                                                 "Personoitu mainosprofiili ja personoitujen mainosten näyttäminen",
                                                 "Personanpassade annonser och innehåll, annons- och innehållsmätning samt målgruppsinsikter",
-                                                "Marketing & advertising cookies"
+                                                "Marketing & advertising cookies",
+                                                "Advertising Cookies",
+                                                "Marketing",
+                                                "Mainosevästeet",
+                                                "Publicitarias",
+                                                "Publicité"
                                             ]
                                         },
                                         "trueAction": {
