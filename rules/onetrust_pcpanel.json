@@ -87,7 +87,8 @@
                                                 "Functionality Cookies",
                                                 "Funktionelle Cookies",
                                                 "Udvid funktionalitet",
-                                                "Extend functionality"
+                                                "Extend functionality",
+                                                "Præferencer"
                                             ]
                                         },
                                         "trueAction": {
@@ -199,7 +200,8 @@
                                                 "Store and/or access information on a device",
                                                 "Opbevare og/eller tilgå oplysninger på en enhed",
                                                 "Informationen auf einem Gerät speichern und/oder abrufen",
-                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning"
+                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
+                                                "Specielle formål"
                                             ]
                                         },
                                         "trueAction": {
@@ -640,7 +642,8 @@
                                                 "Statistiske cookies",
                                                 "Analytical Cookies",
                                                 "Statistik Cookies",
-                                                "Analytics"
+                                                "Analytics",
+                                                "Statistik"
                                             ]
                                         },
                                         "trueAction": {
