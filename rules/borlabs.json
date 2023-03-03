@@ -78,7 +78,7 @@
                             "matcher": {
                                 "type": "checkbox",
                                 "target": {
-                                    "selector": "#borlabs-cookie-group-statistics"
+                                    "selector": "#borlabs-cookie-group-external-media"
                                 }
                             },
                             "toggleAction": {
