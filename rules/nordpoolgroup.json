@@ -1,0 +1,106 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "nordpoolgroup": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[ng-controller='CookieConsentKitController as cookieConsentCtrl'][id='main-content']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[ng-controller='CookieConsentKitController as cookieConsentCtrl'][id='main-content']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".cookie-button.active[ng-click*='persistent'][ng-click*='true']"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".cookie-button[ng-click*='persistent'][ng-click*='true']"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".cookie-button[ng-click*='persistent'][ng-click*='false']"
+                                        }
+                                    },
+                                    "type": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".cookie-button.active[ng-click*='3rdparty'][ng-click*='true']"
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".cookie-button[ng-click*='3rdparty'][ng-click*='true']"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".cookie-button[ng-click*='3rdparty'][ng-click*='false']"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "multiclick",
+                    "target": {
+                        "selector": "[href='/en/']"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
