@@ -321,7 +321,8 @@
                     "target": {
                         "selector": "button[class^=\"sd-cmp\"]",
                         "textFilter": [
-                            "Save"
+                            "Save",
+                            "Enregistrer"
                         ]
                     }
                 },
