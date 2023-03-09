@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "trustarc_popup_hider": {
+    "lucide": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".truste_box_overlay"
+                            "selector": ".modal.cookie.fade.in#cookieconsent"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".truste_box_overlay",
+                            "selector": ".modal.cookie.fade.in#cookieconsent",
                             "displayFilter": true
                         }
                     }
@@ -24,42 +24,41 @@
         ],
         "methods": [
             {
-                "action": {
-                    "type": "list",
-                    "actions": [
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": ".truste_box_overlay"
-                            }
-                        },
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": ".truste_overlay"
-                            }
-                        }
-                    ]
-                },
                 "name": "HIDE_CMP"
             },
             {
-                "action": {
-                    "type": "waitcss",
-                    "target": {
-                        "selector": ".truste_box_overlay",
-                        "displayFilter": true
-                    },
-                    "retries": 100,
-                    "waitTime": 250,
-                    "negated": true
-                },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "name": "DO_CONSENT"
             },
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifallowall",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[onclick*='setCookieAcceptType'][onclick*='all']"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[onclick*='setCookieAcceptType'][onclick*='none']"
+                                }
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "button[aria-label='Close']"
+                            }
+                        }
+                    ]
+                },
                 "name": "SAVE_CONSENT"
             },
             {
