@@ -1,0 +1,73 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "gfycatopen": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookieBannerContainer"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookieBannerContainer.shown",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": ".cookie-settings-container"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".cookie-banner__close-button"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookie-prompt a"
+                                },
+                                "openInTab": true
+                            },
+                            {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookie-banner__close-button"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
