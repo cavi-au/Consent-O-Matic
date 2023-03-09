@@ -1,0 +1,117 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "tui": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cmNotifyBanner[aria-label='Consent Banner']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cmNotifyBanner[aria-label='Consent Banner']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cmNotifyBanner"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#__tealiumGDPRcpPrefs"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cmManage"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#PersonalisationSlide"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#PersonalisationSlide"
+                                        }
+                                    },
+                                    "type": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[id='Targeting and AdvertisingSlide']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[id='Targeting and AdvertisingSlide']"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cmSave"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
