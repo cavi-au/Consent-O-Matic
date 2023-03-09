@@ -158,7 +158,8 @@ function updateRuleList() {
         ruleLists.forEach((ruleList) => {
             let optionLI = document.createElement("li");
             let button = document.createElement("button");
-            let link = document.createElement("span");
+            let link = document.createElement("a");
+            link.href = ruleList;
             link.innerText = ruleList;
             button.innerText = "X";
             optionLI.appendChild(button);
