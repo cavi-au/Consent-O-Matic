@@ -27,7 +27,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings, #prefslink, #gdpr_change_settings, #advanced_consent_options, #__tealiumGDPRecModal a[href*='showConsentPreferences'], #__tealiumGDPRecModal a[href*='goToPreferences()'], .details-button, #__tealiumGDPRecModal a[onclick*='goToPreferences()'], #__tealiumGDPRecModal a[onclick*='showConsentPreferences'], #open_preferences"
+                        "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings, #prefslink, #gdpr_change_settings, #advanced_consent_options, #__tealiumGDPRecModal a[href*='showConsentPreferences'], #__tealiumGDPRecModal a[href*='goToPreferences()'], .details-button, #__tealiumGDPRecModal a[onclick*='goToPreferences()'], #__tealiumGDPRecModal a[onclick*='showConsentPreferences'], #open_preferences, #editSettingsBtn"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -52,13 +52,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat1"
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat1, [data-consent-num='1']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "label[for=toggle_cat1]"
+                                            "selector": "label[for=toggle_cat1], [data-consent-num='1']"
                                         }
                                     },
                                     "type": "B"
@@ -82,13 +82,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat3"
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat3, [data-consent-num='3']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "label[for=toggle_cat3]"
+                                            "selector": "label[for=toggle_cat3], [data-consent-num='3']"
                                         }
                                     },
                                     "type": "F"
@@ -142,13 +142,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat7"
+                                            "selector": "#__tealiumGDPRcpPrefs #toggle_cat7, [data-consent-num='7']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "label[for=toggle_cat7]"
+                                            "selector": "label[for=toggle_cat7], [data-consent-num='7']"
                                         }
                                     },
                                     "type": "B"
@@ -322,7 +322,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit, #preferences_prompt_settings_submit, #__tealiumGDPRcpPrefs .t_cm_save_button"
+                        "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit, #preferences_prompt_settings_submit, #__tealiumGDPRcpPrefs .t_cm_save_button, #consentAcceptChoice"
                     }
                 },
                 "name": "SAVE_CONSENT"
