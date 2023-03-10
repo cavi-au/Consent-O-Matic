@@ -48,26 +48,51 @@
             },
             {
                 "action": {
-                    "type": "ifcss",
-                    "target": {
-                        "selector": "button.message-button",
-                        "textFilter": [
-                            "Manage Cookies",
-                            "Customize",
-                            "Konfigurieren"
-                        ]
-                    },
-                    "trueAction": {
-                        "type": "click",
-                        "target": {
-                            "selector": "button.message-button",
-                            "textFilter": [
-                                "Manage Cookies",
-                                "Customize",
-                                "Konfigurieren"
-                            ]
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "button.message-button",
+                                "textFilter": [
+                                    "Manage Cookies",
+                                    "Customize",
+                                    "Konfigurieren",
+                                    "Asetukset"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "button.message-button",
+                                    "textFilter": [
+                                        "Manage Cookies",
+                                        "Customize",
+                                        "Konfigurieren",
+                                        "Asetukset"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "p.message-component a",
+                                "textFilter": [
+                                    "Einstellungen anpassen"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "p.message-component a",
+                                    "textFilter": [
+                                        "Einstellungen anpassen"
+                                    ]
+                                }
+                            }
                         }
-                    }
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
