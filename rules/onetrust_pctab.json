@@ -83,7 +83,8 @@
                                     "textFilter": [
                                         "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
                                         "Personalised ads and content, ad and content measurement, audience insights and product development",
-                                        "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung"
+                                        "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
+                                        "Personalised ads, and ad measurement"
                                     ]
                                 },
                                 "trueAction": {
@@ -239,7 +240,8 @@
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Personlig tilpasning cookies",
-                                        "Personalisation Cookies"
+                                        "Personalisation Cookies",
+                                        "Personalised content, content measurement, audience insights, and product development"
                                     ]
                                 },
                                 "trueAction": {
