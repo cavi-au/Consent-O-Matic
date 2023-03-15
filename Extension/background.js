@@ -8,6 +8,11 @@ const STATUS = {
     "ERROR": 3,
     "HANDLED": 4
 }
+let recordedCookies = [];
+
+function cookieChanged(evt) {
+    recordedCookies.push(evt);
+}
 
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     switch (message.split("|")[0]) {
@@ -93,6 +98,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             setBadgeCheckmark("\u2714", sender.tab.id);
 
             tabStatusMap.set(sender.tab.id, STATUS.HANDLED);
+
+            console.log("Handled:", json);
 
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;

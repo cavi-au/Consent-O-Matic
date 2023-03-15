@@ -43,14 +43,17 @@ async function contentScriptRunner() {
 
                                 let engine = new ConsentEngine(config, consentTypes, (evt)=>{
                                     let result = {
-                                        "handled": evt.handled
+                                        url,
+                                        consentTypes
                                     };
 
+                                    Object.keys(evt).forEach((key)=>{
+                                        result[key] = evt[key];
+                                    })
+
+                                    let json = JSON.stringify(result);
+
                                     if(evt.handled) {
-                                        result.cmp = evt.cmpName;
-                                        result.clicks = evt.clicks;
-                                        result.url = url;
-    
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
                                     } else if(evt.error) {
                                         chrome.runtime.sendMessage("CMPError");
@@ -111,6 +114,8 @@ window.addEventListener("message", (event)=>{
     }
 });
 
-contentScriptRunner().catch((e)=>{
-    console.error(e);
+window.addEventListener("startCOM", ()=>{
+    contentScriptRunner().catch((e)=>{
+        console.error(e);
+    });
 });
