@@ -55,10 +55,10 @@ class Action {
             if (ConsentEngine.debugValues.clickDelay) {
                 return 150;
             } else if(ConsentEngine.singleton.pipEnabled) {
-        	// Reduce click wait based on number of clicks
-        	if (ConsentEngine.singleton.getClicksSoFar()>100) return 0;
-        	if (ConsentEngine.singleton.getClicksSoFar()>20) return 1;
-        	if (ConsentEngine.singleton.getClicksSoFar()>5) return 10;
+                // Reduce click wait based on number of clicks
+                if (ConsentEngine.singleton.getClicksSoFar()>100) return 0;
+                if (ConsentEngine.singleton.getClicksSoFar()>20) return 1;
+                if (ConsentEngine.singleton.getClicksSoFar()>5) return 10;
                 return 100;
             } else {
                 return 0;
@@ -178,7 +178,7 @@ class ClickAction extends Action {
                 });
             }
 
-            if(isShowing) {
+            if(isShowing && this.config.noTimeout !== true) {
                 await this.waitTimeout(this.timeout);
             }
 
@@ -199,7 +199,7 @@ class ClickAction extends Action {
 
             ConsentEngine.singleton.registerClick();
 
-            if(isShowing) {
+            if(isShowing && this.config.noTimeout !== true) {
                 await this.waitTimeout(this.timeout);
             }
         }
@@ -495,8 +495,6 @@ class HideAction extends Action {
                         let widthScale = width / targetWidth;
                         let heightScale = height / targetHeight;
     
-                        console.log(width, height, targetWidth, targetHeight, widthScale, heightScale);
-
                         scale = Math.min(widthScale, heightScale);
                     }
     

@@ -9,7 +9,7 @@
                         "target": {
                             "childFilter": {
                                 "target": {
-                                    "selector": ".otPcPanel, .otPcCenter"
+                                    "selector": ".otPcPanel, .otPcCenter, .otPcPopup"
                                 }
                             },
                             "selector": "#onetrust-consent-sdk"
@@ -22,7 +22,7 @@
                         "target": {
                             "childFilter": {
                                 "target": {
-                                    "selector": ".otPcPanel, .otPcCenter",
+                                    "selector": ".otPcPanel, .otPcCenter, .otPcPopup",
                                     "displayFilter": true
                                 }
                             },
@@ -87,7 +87,8 @@
                                                 "Functionality Cookies",
                                                 "Funktionelle Cookies",
                                                 "Udvid funktionalitet",
-                                                "Extend functionality"
+                                                "Extend functionality",
+                                                "Præferencer"
                                             ]
                                         },
                                         "trueAction": {
@@ -122,7 +123,14 @@
                                                 "Marketing Cookies",
                                                 "Cookies für Marketingzwecke",
                                                 "Tilpas annoncering",
-                                                "ADVERTISING"
+                                                "ADVERTISING",
+                                                "Målrettede cookies",
+                                                "Marketing-Technologien",
+                                                "MARKETING",
+                                                "PUBLICIDAD",
+                                                "PUBBLICITÀ",
+                                                "REKLAMY",
+                                                "RECLAME"
                                             ]
                                         },
                                         "trueAction": {
@@ -153,7 +161,14 @@
                                             "textFilter": [
                                                 "Performance Cookies",
                                                 "Measure content performance",
-                                                "Measure performance"
+                                                "Measure performance",
+                                                "Leistungs-Cookies",
+                                                "Performance-Technologien",
+                                                "ANALYSECOOKIES",
+                                                "ANALYSE",
+                                                "ANÁLISIS",
+                                                "ANALISI",
+                                                "ANALITYKA"
                                             ]
                                         },
                                         "trueAction": {
@@ -185,7 +200,8 @@
                                                 "Store and/or access information on a device",
                                                 "Opbevare og/eller tilgå oplysninger på en enhed",
                                                 "Informationen auf einem Gerät speichern und/oder abrufen",
-                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning"
+                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
+                                                "Specielle formål"
                                             ]
                                         },
                                         "trueAction": {
@@ -310,7 +326,14 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Cookies målrettet sociale medier",
-                                                "Social Media Cookies"
+                                                "Social Media Cookies",
+                                                "SOCIALE MEDIER",
+                                                "SOCIAL MEDIA",
+                                                "SOZIALE MEDIEN",
+                                                "REDES SOCIALES",
+                                                "RÉSEAUX SOCIAUX",
+                                                "Informasjonskapsler for sosiale medier",
+                                                "SOCIALE MEDIA"
                                             ]
                                         },
                                         "trueAction": {
@@ -340,7 +363,12 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Select personalised content",
-                                                "CONTENT PERSONALISATION"
+                                                "CONTENT PERSONALISATION",
+                                                "PERSONALISIERUNG VON INHALTEN",
+                                                "PERSONALIZACIÓN DEL CONTENIDO",
+                                                "PERSONALIZZAZIONE DEI CONTENUTI",
+                                                "PERSONALIZACJA TRESCI",
+                                                "INHOUDSPERSONALISATIE"
                                             ]
                                         },
                                         "trueAction": {
@@ -610,7 +638,12 @@
                                                 "Analyse Cookies",
                                                 "Statistical Cookies",
                                                 "Mål ydeevne",
-                                                "Måle- og analysecookies"
+                                                "Måle- og analysecookies",
+                                                "Statistiske cookies",
+                                                "Analytical Cookies",
+                                                "Statistik Cookies",
+                                                "Analytics",
+                                                "Statistik"
                                             ]
                                         },
                                         "trueAction": {
@@ -630,6 +663,35 @@
                                                         }
                                                     },
                                                     "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Precise geolocation data, and identification through device scanning"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "X"
                                                 }
                                             ]
                                         }

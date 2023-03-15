@@ -36,34 +36,35 @@ const translations = {
         "pt": "Dev"
     },
     "HIDE_OR_PIP_DESCRIPTION": {
-        "en": "Select between the two modes, 'Hide' or 'Picture in Picture'",
-        "da": "Vælg mellem de to tilstande, 'Skjul' eller 'Billede i billede'",
-        "de": "Wählen Sie zwischen den beiden Modi „Ausblenden“ oder „Bild im Bild“",
-        "pt": "Selecione entre os dois modos, 'Ocultar' ou 'Picture in Picture'"
+        "en": "How to display popups while they are being filled out",
+        "da": "Hvordan popups skal vises imens de udfyldes"
+    },
+    "HIDE_OR_PIP_HIDE_TITLE": {
+        "en": "Hide",
+        "da": "Skjul",
+        "de": "Ausblenden",
+        "pt": "Ocultar"
     },
     "HIDE_OR_PIP_HIDE_LABEL": {
-        "en": "'Hide' completely hides the CMP while answering it.",
-        "da": "'Skjul' skjuler CMP'en fuldstændigt, mens den besvares.",
-        "de": "„Ausblenden“ verbirgt das CMP vollständig, während es beantwortet wird.",
-        "pt": "'Ocultar' oculta completamente o CMP ao respondê-lo."
+        "en": "Hide the popup entirely while answering it",
+        "da": "Skjul popup'en fuldstændigt imens den besvares",
+        "de": "Verbirgt das popup, während es beantwortet wird"
+    },
+    "HIDE_OR_PIP_PIP_TITLE": {
+        "en": "Minimize",
+        "da": "Minimér"
     },
     "HIDE_OR_PIP_PIP_LABEL": {
-        "en": "'Picture in Picture' shows the CMP being answered in a small overlay.",
-        "da": "'Billede i billede' viser CMP'en, der besvares i en lille overlejring.",
-        "de": "'Picture in Picture' mostra o CMP sendo respondido em uma pequena sobreposição.",
-        "pt": "„Bild im Bild“ zeigt in einem kleinen Overlay, dass die CMP beantwortet wird."
+        "en": "Show the popup in a small overlay in the corner",
+        "da": "Vis popup'en i en lille overlejring i hjørnet"
     },
-    "SETTINGS": {
-        "en": "Settings",
-        "da": "Indstillinger",
-        "de": "Einstellungen",
-        "pt": "Definições"
+    "DISPLAY": {
+        "en": "Display",
+        "da": "Visning"
     },
-    "SETTINGS_DESCRIPTION": {
-        "en": "Configure general settings",
-        "da": "Konfigurer generelle indstillinger",
-        "de": "Allgemeine Einstellungen konfigurieren",
-        "pt": "Definir configurações gerais"
+    "DISPLAY_DESCRIPTION": {
+        "en": "Configure the appearance and behaviour of Consent-O-Matic",
+        "da": "Konfigurer Consent-O-Matic's udseende og opførsel"
     },
     "CHOICE_DESCRIPTION": {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
@@ -86,7 +87,7 @@ const translations = {
     "RULES_UPDATE_DESCRIPTION": {
         "en": "All the rule lists are updated automatically every 22-48 hours or you can",
         "da": "Alle listerne med regler opdateres automatisk engang hver 22-48 time, eller du kan",
-        "de": "Alle Regellisten werden automatisch alle 22-48 Stunden aktualisiert oder Sie können",
+        "de": "Alle Regellisten werden automatisch alle 22 bis 48 Stunden aktualisiert oder Sie können",
         "pt": "Todas as listas de regras são atualizadas automaticamente a cada 22-48 horas ou você pode"
     },
     "UPDATE_RULES_NOW": {
@@ -98,13 +99,13 @@ const translations = {
     "RULE_GENERATOR": {
         "en": "Rule List Generator",
         "da": "Regel liste generator",
-        "de": "Regellistegenerator",
+        "de": "Regellistengenerator",
         "pt": "Gerador de Lista de Regras"
     },
     "RULE_GENERATOR_DESCRIPTION": {
         "en": "As an alternative to writing JSON rules by hand it is also possible to create rules using this drag-n-drop editor:",
         "da": "Som alternativ til at skrive JSON-reglerne i hånden, er det også muligt at lave regler med denne drag-n-drop editor:",
-        "de": "Statt JSON Regeln manuell zu schreiben, können Sie alternativ Regeln erstellen mihilfe des drag-n-drop  Editor:",
+        "de": "Statt JSON-Regeln manuell zu schreiben, können Sie alternativ Regeln mithilfe des Drag-and-drop-Editors erstellen:",
         "pt": "Como alternativa a escrever regras JSON manualmente, também é possível criá-las usando este editor de arrastar e soltar:"
 
     },
@@ -123,7 +124,7 @@ const translations = {
     "ABOUT_DESCRIPTION": {
         "en": "Here you can see how many times a popup has been filled out and just how many clicks Consent-O-Matic has saved you.",
         "da": "Her kan du se hvor mange gange der er blevet udfyldt en popup for dig, og hvor mange klik Consent-O-Matic har sparet dig.",
-        "de": "Hier können Sie sehen wie häufig ein Popup ausgefüllt wurde und wie viele Klicks dank des Consent-O-Matic gespart wurden.",
+        "de": "Hier können Sie sehen, wie häufig ein Popup ausgefüllt wurde und wie viele Klicks dank Consent-O-Matic gespart wurden.",
         "pt": "Aqui você pode ver quantas vezes um pop-up foi preenchido e quantos cliques o Consent-O-Matic economizou para você."
     },
     "CLICKS_SAVED": {
@@ -141,7 +142,7 @@ const translations = {
     "SKIP_SUBMIT_DESCRIPTION": {
         "en": "Perform actions normally but do not submit the consent",
         "da": "Udfør handlinger normalt, men lad være med at indsende samtykket",
-        "de": "Aktionen normal ausführen, aber die Zustimmung nicht abgeben",
+        "de": "Aktionen normal ausführen, aber die Zustimmung nicht abschicken",
         "pt": "Execute as ações normalmente, mas não envie o consentimento"
     },
     "PAINT_MATCHERS_DESCRIPTION": {
@@ -153,13 +154,13 @@ const translations = {
     "DEBUG_CLICKS_DESCRIPTION": {
         "en": "Debug clicks to the log",
         "da": "Debug klik til loggen",
-        "de": "Debug Klicks im log",
+        "de": "Klicks im Debug-Log anzeigen",
         "pt": "Depurar cliques no log"
     },
     "ALWAYS_FORCE_UPDATE_DESCRIPTION": {
         "en": "Always force a reload of the rules on each page load",
         "da": "Tving genlæsning af reglerne ved hver side hentning",
-        "de": "Erzwingen ein Neuladen der Regeln bei jedem Laden einer Seite",
+        "de": "Erzwinge ein Neuladen der Regeln bei jedem Laden einer Seite",
         "pt": "Sempre force o recarregamento das regras em cada carregamento de página"
     },
     "SKIP_HIDE_DESCRIPTION": {
@@ -171,7 +172,7 @@ const translations = {
     "EXTRA_DEBUG_DESCRIPTION": {
         "en": "Enables extra debug logging",
         "da": "Aktiver ekstra debug logning",
-        "de": "Aktiviert zusätzliche Debug-logging",
+        "de": "Aktiviert zusätzliches Debug-Logging",
         "pt": "Habilita log adicional de depuração"
     },
     "INFORMATION_NAME": {
@@ -195,13 +196,13 @@ const translations = {
     "PREFERENCES_DESCRIPTION": {
         "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites.",
         "da": "Tillad websteder at huske valg, du laver (f.eks. dit brugernavn, sprog eller den region du er placeret i) og giver forbedrede, mere personlige funktioner. For eksempel kan disse cookies bruges til at huske dine loginoplysninger, ændringer, du har lavet til tekststørrelse, skrifttyper og andre dele af websider, som du kan tilpasse. De kan også bruges til at levere tjenester, du har bedt om, f.eks. at se en video eller kommentere på en blog. Oplysningerne i disse cookies bruges ikke til at spore din browsingaktivitet på andre hjemmesider.",
-        "de": "Erlauben Sie es den Websites, sich an die von Ihnen getroffene Wahl zu erinnern (z. B. an Ihren Benutzernamen, Sprache oder die Region, in der Sie sich befinden) und verbesserte, persönlichere Funktionen bereitzustellen. Diese Cookies können zum Beispiel verwendet werden, um Ihre Anmeldedaten, Änderungen an der Textgröße und Schriftarten und anderen Teile der Webseiten, die Sie anpassen können, zu speichern. Sie können auch dazu verwendet werden, um Dienste, die Sie angefordert haben, bereitzustellen, wie z. B. das Ansehen eines Videos oder das Kommentieren in einem Blog. Die Informationen in diesen Cookies werden nicht dazu verwendet, um Ihre Surfaktivitäten auf anderen Websites zu verfolgen.",
+        "de": "Erlauben Sie es den Websites, sich an die von Ihnen getroffene Wahl zu erinnern (z. B. an Ihren Benutzernamen, Sprache oder die Region, in der Sie sich befinden) und verbesserte, persönlichere Funktionen bereitzustellen. Diese Cookies können zum Beispiel verwendet werden, um Ihre Anmeldedaten, Änderungen an der Textgröße, Schriftarten und anderen Teile der Webseiten, die Sie anpassen können, zu speichern. Sie können auch dazu verwendet werden, um Dienste, die Sie angefordert haben, bereitzustellen, wie z. B. das Ansehen eines Videos oder das Kommentieren in einem Blog. Die Informationen in diesen Cookies werden nicht dazu verwendet, um Ihre Surfaktivitäten auf anderen Websites zu verfolgen.",
         "pt": "Permita que os sites lembrem as escolhas que você faz (como seu nome de usuário, idioma ou região em que você está localizado) e forneçam recursos aprimorados e mais personalizados. Por exemplo, esses cookies podem ser usados para lembrar seus detalhes de login, alterações feitas no tamanho do texto, fontes e outros atributos de páginas da web que você pode personalizar. Eles também podem ser usados para fornecer serviços que você solicitou, como assistir a um vídeo ou comentar em um blog. As informações nesses cookies não são usadas para rastrear sua atividade de navegação em outros sites."
     },
     "PERFORMANCE_NAME": {
         "en": "Performance and Analytics",
         "da": "Ydelse og analyse",
-        "de": "Leistung und Analytik",
+        "de": "Leistung und Analyse",
         "pt": "Desempenho e Analytics"
     },
     "PERFORMANCE_DESCRIPTION": {
@@ -213,13 +214,13 @@ const translations = {
     "CONTENT_NAME": {
         "en": "Content selection, delivery, and reporting",
         "da": "Indholdsvalg, levering og rapportering",
-        "de": "Auswahl, Bereitstellung und Berichterstattung von Inhalten",
+        "de": "Auswahl, Bereitstellung und Auswertung von Inhalten",
         "pt": "Seleção de conteúdo, entrega e relatórios"
     },
     "CONTENT_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what <b>content</b> was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.",
         "da": "Indsamling af oplysninger og kombination med tidligere indsamlede oplysninger, for at vælge og levere indhold til dig og for at måle levering og effektivitet af sådant indhold. Dette inkluderer tidligere indsamlet information om dine interesser for at vælge indhold, behandle data om, hvad <b>indhold</b> der blev vist, hvor ofte eller hvor længe det blev vist, hvornår og hvor det blev vist, og om du tog nogen handling relateret til indholdet, herunder for eksempel at klikke på indhold. Dataene vil blive brugt til at personliggøre indhold på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder.",
-        "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Inhalte für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität dieser Inhalte zu messen. Dies beinhaltet die Verwendung von zuvor gesammelten Informationen über Ihre Interessen zur Auswahl von Inhalten, der Verarbeitung von Daten darüber, welche <b>Inhalte</b> gezeigt wurden, wie häufig oder wie lange diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Inhalten durchgeführt haben, z. B. das Anklicken von Inhalten. Die Daten werden dazu verwendet Inhalte auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten, zu personalisieren.",
+        "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Inhalte für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität dieser Inhalte zu messen. Dies beinhaltet die Verwendung von zuvor gesammelten Informationen über Ihre Interessen zur Auswahl von Inhalten, der Verarbeitung von Daten darüber, welche <b>Inhalte</b> gezeigt wurden, wie häufig oder wie lange diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Inhalten durchgeführt haben, z. B. das Anklicken von Inhalten. Die Daten werden dazu verwendet, Inhalte auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten zu personalisieren.",
         "pt": "Coleta de informações e combinação com informações coletadas anteriormente para selecionar e fornecer conteúdo para você e para medir a entrega e a eficácia de tal conteúdo. Isso inclui o uso de informações coletadas anteriormente sobre seus interesses para selecionar conteúdo, processar dados sobre qual <b>conteúdo</b> foi exibido, com que frequência ou por quanto tempo foi exibido, quando e onde foi exibido e se você realizou alguma ação relacionados ao conteúdo, incluindo, por exemplo, clicar no conteúdo. Os dados serão usados para personalizar o conteúdo do próprio site, mas também em outros contextos, como outros sites, aplicativos, navegadores e dispositivos."
     },
     "AD_NAME": {
@@ -231,7 +232,7 @@ const translations = {
     "AD_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver advertisements, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what <b>advertisements</b> were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google",
         "da": "Indsamling af oplysninger og kombination med tidligere indsamlet information for at vælge og levere reklamer og for at måle levering og effektivitet af sådanne annoncer. Dette omfatter ved hjælp af tidligere indsamlede oplysninger om dine interesser for at vælge annoncer, behandlingsdata om, hvad <b>reklamer</b> der blev vist, hvor ofte de blev vist, hvornår og hvor de blev vist, og om du tog nogen handling relateret til annoncen, herunder for eksempel at klikke på en annonce eller foretage et køb. Dataene vil blive brugt til at personliggøre reklamer på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder.<br><br>Inkluderer:<br> Google",
-        "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Werbung für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität solcher Werbung zu messen. Dies beinhaltet die Verwendung von zuvor erfasster Informationen über Ihre Interessen zur Auswahl von Werbungen, der Verarbeitung von Daten darüber, welche <b>Werbungen</b> gezeigt wurden, wie häufig diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Werbungen durchgeführt haben, z. B. auf eine Anzeige klicken oder einen Kauf tätigen. Die Daten werden dazu verwendet Werbung auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten, zu personalisieren.<br><br>Beinhaltet auch:<br>Google",
+        "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Werbung für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität solcher Werbung zu messen. Dies beinhaltet die Verwendung von zuvor erfassten Informationen über Ihre Interessen zur Auswahl von Werbungen, der Verarbeitung von Daten darüber, welche <b>Werbungen</b> gezeigt wurden, wie häufig diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Werbungen durchgeführt haben, z. B. auf eine Anzeige klicken oder einen Kauf tätigen. Die Daten werden dazu verwendet, Werbung auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten zu personalisieren.<br><br>Beinhaltet auch:<br>Google",
         "pt": "Coleta de informações e combinação com informações coletadas anteriormente para selecionar e entregar anúncios e medir a entrega e eficácia de tais anúncios. Isso inclui o uso de informações coletadas anteriormente sobre seus interesses para selecionar anúncios, processar dados sobre quais <b>anúncios</b> foram exibidos, com que frequência foram exibidos, quando e onde foram exibidos e se você realizou alguma ação relacionada ao anúncio, incluindo, por exemplo, clicar em um anúncio ou fazer uma compra. Os dados serão usados para personalizar a publicidade no próprio site, mas também em outros contextos, como outros sites, aplicativos, navegadores e dispositivos.<br><br>Também inclui:<br>Google"
     },
     "OTHER_NAME": {
@@ -243,7 +244,7 @@ const translations = {
     "OTHER_DESCRIPTION": {
         "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category",
         "da": "Uklassificeret dataindsamling, for hvilket formålet ikke er tydeligt beskrevet af hjemmesiden, eller hvor dataindsamling og -behandlingen ikke passer til nogen anden kategori",
-        "de": "Nicht klassifizierte Datenerhebung, deren Zweck auf der Website nicht eindeutig beschrieben ist, oder deren Erhebung und Verarbeitung in keine andere Kategorie fällt",
+        "de": "Nicht klassifizierte Datenerhebung, deren Zweck auf der Website nicht eindeutig beschrieben ist oder deren Erhebung und Verarbeitung in keine andere Kategorie fällt",
         "pt": "Coleta de dados não classificados para as quais a finalidade não é claramente descrita pelo site ou onde a coleta e o processamento de dados não se enquadram em nenhuma outra categoria"
     },
     "AUTOFILL_NOT_WORKING": {
@@ -345,13 +346,13 @@ const translations = {
     "URL_LABEL": {
         "en": "Url",
         "da": "Url",
-        "de": "Url",
+        "de": "URLs",
         "pt": "Url"
     },
     "URL_LABEL_HELP": {
         "en": "The urls to test against, if one matches the matcher is true",
         "da": "Webadresserne til at teste op imod, hvis en af dem matcher, er sammenligneren sand",
-        "de": "Die URLs, gegen die getestet werden soll, wenn einer übereinstimmt, ist der Matcher wahr",
+        "de": "Die URLs, gegen die getestet werden soll. Wenn einer übereinstimmt, ist der Matcher wahr",
         "pt": "Os URLs para testar, se um corresponder, o matcher é verdadeiro"
     },
     "REGEXP_LABEL": {
@@ -471,7 +472,7 @@ const translations = {
     "FROM_PLUGIN_SOURCE": {
         "en": "From Plugin Sources",
         "da": "Fra Addon-kilderne",
-        "de": "Aus Plugin Quellen",
+        "de": "Aus Plugin-Quellen",
         "pt": "De Fontes de Plug-ins",
     },
     "LOAD": {
@@ -499,10 +500,10 @@ const translations = {
         "pt": "Do JSON Colado"
     },
     "CREATE_FROM_SCRATCH": {
-        "en": "..or Create a New Rule From Scratch:",
-        "da": "..eller opret en ny regel fra bunden:",
-        "de": "..oder eine neue Regel von Grund auf erstellen",
-        "pt": "..ou Crie uma Nova Regra do Zero:"
+        "en": "... or Create a New Rule From Scratch:",
+        "da": "... eller opret en ny regel fra bunden:",
+        "de": "... oder eine neue Regel von Grund auf erstellen:",
+        "pt": "... ou Crie uma Nova Regra do Zero:"
     },
     "CREATE_NEW_RULE": {
         "en": "Create New Rule",
@@ -531,13 +532,13 @@ const translations = {
     "NAME_OF_CMP_HELP": {
         "en": "This is the name that will be displayed to the user when the popup is detected",
         "da": "Dette er navnet som vil blive vist til brugeren når denne udbyder detekteres",
-        "de": "Dies ist der Name, der dem Benutzer angezeigt wird, wenn das Popup erkannt wird",
+        "de": "Der Name, der dem Benutzer angezeigt wird, wenn das Popup erkannt wird",
         "pt": "Este é o nome que será exibido ao usuário quando o pop-up for detectado"
     },
     "DRAG_HINT": {
         "en": "Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.",
         "da": "Hint: Træk imens CTRL holdes nede, kopierer det trækkede subtræ istedet for at flytte det",
-        "de": "Tipp: Wenn Sie bei gedrückter STRG-Taste draggen, wird der gewählte Teil des Baumdiagramms kopiert, anstatt ihn zu verschieben.",
+        "de": "Tipp: Wenn Sie bei gedrückter STRG-Taste ziehen, wird der gewählte Teil des Baumdiagramms kopiert, anstatt ihn zu verschieben.",
         "pt": "Dica: Arrastar mantendo a tecla CTRL pressionada irá copiará a subárvore arrastada ao invés de movê-la."
     },
     "DETECTORS": {
@@ -633,7 +634,7 @@ const translations = {
     "TEXT_FILTER_HELP": {
         "en": "A text filter applied to the found DOM nodes based on their content",
         "da": "Et tekstfilter anvendt på de fundne DOM-noder baseret på deres indhold",
-        "de": "Ein Textfilter, der auf die gefundenen DOM-Knoten basierend, auf ihrem Inhalt angewendet wird",
+        "de": "Ein Textfilter, der auf die gefundenen DOM-Knoten angewendet wird, basierend auf ihrem Inhalt",
         "pt": "Filtro de texto aplicado aos nós DOM encontrados com base em seu conteúdo"
     },
     "IFRAME_FILTER": {
@@ -657,7 +658,7 @@ const translations = {
     "DISPLAY_FILTER_HELP": {
         "en": "Only trigger if the DOM node has 'display' set to not 'none'",
         "da": "Match kun hvis DOM-noden har 'display' sat til noget andet end 'none'",
-        "de": "Wird nur ausgelöst, wenn der DOM-Knoten display nicht auf 'none' gesetzt ist.",
+        "de": "Wird nur ausgelöst, wenn der DOM-Knoten 'display' nicht auf 'none' gesetzt ist.",
         "pt": "Acionar apenas se o nó DOM tiver 'exibir' definido como não 'nenhum'"
     },
     "CHILD_FILTER": {
@@ -753,7 +754,7 @@ const translations = {
     "DOM_NODE_SELECTOR": {
         "en": "DOM node selector",
         "da": "DOM-nodevælger",
-        "de": "DOM-Knoten Wähler",
+        "de": "DOM-Knoten-Wähler",
         "pt": "Seletor de nó DOM"
     },
     "TARGET_SLIDE_HELP": {
@@ -807,7 +808,7 @@ const translations = {
     "WAIT_FOR_HELP": {
         "en": "The thing to wait for",
         "da": "Det der skal ventes på",
-        "de": "Die Sache, worauf gewartet werden soll",
+        "de": "Die Sache, auf die gewartet werden soll",
         "pt": "A coisa a esperar"
     },
     "RETRIES": {
@@ -819,7 +820,7 @@ const translations = {
     "RETRIES_HELP": {
         "en": "How many times to repeat the search",
         "da": "Hvor mange gange søgningen skal gentages",
-        "de": "Wie oft soll die Suche wiederholt wird",
+        "de": "Wie oft die Suche wiederholt wird",
         "pt": "Quantas vezes se deve repetir a pesquisa"
     },
     "WAIT_TIME": {
@@ -861,7 +862,7 @@ const translations = {
     "TYPE_HELP": {
         "en": "The type of consent that this block handles",
         "da": "Typen af samtykke denne block skal håndtere",
-        "de": "Die Art der Zustimmung, die diese Blockierung verarbeitet ",
+        "de": "Die Art der Zustimmung, die diese Blockierung verarbeitet",
         "pt": "O tipo de consentimento que este bloco trata"
     },
     "TYPE_A_OPTION": {
@@ -873,7 +874,7 @@ const translations = {
     "TYPE_B_OPTION": {
         "en": "B - Performance and Analytics",
         "da": "B - Ydelse og analyse",
-        "de": "B - Leistung und Analytik",
+        "de": "B - Leistung und Analyse",
         "pt": "B - Desempenho e Análise"
     },
     "TYPE_D_OPTION": {
@@ -1017,7 +1018,7 @@ const translations = {
     "SKIP_SUBMIT_CONFIRMATION": {
         "en": "Avoid having to confirm each time when sending reports about badly handled websites using the addon popup",
         "da": "Undgå at skulle bekræfte hver gang når der sendes rapport omkring dårligt håndterede websites via addon popuppen",
-        "de": "Vermeiden Sie nicht mehr jedes Mal bestätigen zu müssen, wenn Sie Berichte über schlecht gehandhabte Websites über das Addon-Popup senden.",
+        "de": "Nicht jedes Mal bestätigen, wenn Sie Berichte über schlecht gehandhabte Websites über das Addon-Popup senden.",
         "pt": "Evite ter que confirmar toda vez que enviar relatórios sobre sites mal administrados usando o pop-up do complemento"
     },
     "UTILITY": {
@@ -1029,8 +1030,8 @@ const translations = {
     "CMP": {
         "en": "Consent Management Provider",
         "da": "Samtykke-popup-udbyder",
-        "pt": "Consent Management Provider",
-        "de": "Einwilligungsverwaltungsanbieter"
+        "de": "Einwilligungsverwaltungsanbieter",
+        "pt": "Consent Management Provider"
     },
     "POPUPS_FILLED": {
         "en": "Popups Filled",
@@ -1118,13 +1119,13 @@ const translations = {
     "IF_ALLOW_ALL_ACTION_DESCRIPTION": {
         "en": "True, if the user has all consents allowed, false otherwise",
         "da": "Sandt, hvis brugeren har alle samtykker tilladt, falsk ellers",
-        "de": "Wahr, wenn dem Benutzer alle Einwilligungen erlaubt sind, andernfalls falsch",
+        "de": "Wahr, wenn der Benutzer alle Einwilligungen erlaubt hat, andernfalls falsch",
         "pt": "Verdadeiro, se o usuário tiver todos os consentimentos permitidos, falso caso contrário"
     },
     "IF_ALLOW_NONE_ACTION_DESCRIPTION": {
         "en": "True, if the user has all consents rejected, false otherwise",
         "da": "Sandt, hvis brugeren har alle samtykker afvist, falsk ellers",
-        "de": "Wahr, wenn dem Benutzer alle Einwilligungen abgelehnt hat, andernfalls false",
+        "de": "Wahr, wenn der Benutzer alle Einwilligungen abgelehnt hat, andernfalls falsch",
         "pt": "Verdadeiro, se o usuário tiver todos os consentimentos rejeitados, falso caso contrário"
     },
     "FOR_EACH_ACTION_DESCRIPTION": {
@@ -1176,10 +1177,10 @@ const translations = {
         "pt": "Ocultar da detecção"
     },
     "HIDE_FROM_DETECTION_HELP": {
-        "en": "Make sure this element and its children, is never detected by ConsentOMatic",
-        "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af ConsentOMatic",
-        "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von ConsentOMatic erkannt werden",
-        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo ConsentOMatic"
+        "en": "Make sure this element and its children, is never detected by Consent-O-Matic",
+        "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af Consent-O-Matic",
+        "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von Consent-O-Matic erkannt werden",
+        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo Consent-O-Matic"
     },
     "FORCE_HIDE": {
         "en": "Force hide",
@@ -1190,7 +1191,7 @@ const translations = {
     "FORCE_HIDE_HELP": {
         "en": "Force hiding this element, instead of using picture in picture",
         "da": "Tving at dette element bliver skjult i stedet for at bruge billede i billede",
-        "de": "Erzwingen Sie das Ausblenden dieses Elements, anstatt Bild in Bild zu verwenden",
+        "de": "Erzwingen Sie das Ausblenden dieses Elements, anstatt Bild-in-Bild zu verwenden",
         "pt": "Forçar a ocultação deste elemento, em vez de usar imagem em imagem"
     },
     "NEGATED_CHECKBOX_HELP": {
@@ -1203,34 +1204,81 @@ const translations = {
         "en": "RunRootedAction"
     },
     "RUN_ROOTED_ACTION_DESCRIPTION": {
-        "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards."
+        "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
+        "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root.",
+        "da": "Kør en handling forankret på det valgte dom-element. Ignorerer evt. gammel root og sætter gammel den igen bagefter.",
+        "pt": "",
     },
     "RUN_METHOD_ACTION": {
         "en": "RunMethodAction"
     },
     "RUN_METHOD_ACTION_DESCRIPTION": {
-        "en": "Runs a custom method."
+        "en": "Runs a custom method.",
+        "de": "Benutzerdefinierte Methode durchführen.",
+        "da": "Kører en custom metode"
     },
     "ADD_METHOD": {
-        "en": "Add method"
+        "en": "Add method",
+        "de": "Methode hinzufügen",
+        "da": "Tilføj metode"
     },
     "ADD_METHOD_PROMPT": {
-        "en": "Name of new method:"
+        "en": "Name of new method:",
+        "de": "Name der neuen Methode:",
+        "da": "Navnet på den nye metode:"
     },
     "IGNORE_OLD_ROOT": {
-        "en": "Ignore old root"
+        "en": "Ignore old root",
+        "de": "Alten Root ignorieren",
+        "da": "Ignorer gammel root"
     },
     "IGNORE_OLD_ROOT_HELP": {
-        "en": "Ignores any root set, and restarts from document"
+        "en": "Ignores any root set, and restarts from document",
+        "de": "Ignoriert jeden gesetzten Root und beginnt wieder beim Document",
+        "da": "Ignorerer hvis der var sat en gammel root, og starter fra document"
     },
     "METHOD": {
-        "en": "Method"
+        "en": "Method",
+        "de": "Methode",
+        "da": "Metode"
     },
     "METHOD_HELP": {
-        "en": "The method to run"
+        "en": "The method to run",
+        "de": "Die durchzuführende Methode",
+        "da": "Metoden der skal køres"
     },
     "NEGATED_URL_HELP": {
-        "en": "When enabled, this matcher matches, if none of the URL's match"
+        "en": "When enabled, this matcher matches, if none of the URL's match",
+        "de": "Wenn aktiviert, wird der Abgleich durchgeführt, wenn keine der URLs übereinstimmt",
+        "da": "Hvis aktiveret, matcher denne matcher, kun hvis ingen af webadresserne matcher"
+    },
+    "ONOFF_MATCHER": {
+        "en": "OnOff Matcher"
+
+    },
+    "ONOFF_MATCHER_DESCRIPTION": {
+        "en": "Uses 2 css queries to check if something is on or off"
+
+    },
+    "ONOFF_MATCHER_TRUE": {
+        "en": "On"
+
+    },
+    "ONOFF_MATCHER_FALSE": {
+        "en": "Off"
+
+    },
+    "ONOFF_MATCHER_TRUE_HELP": {
+        "en": "The css query used to check if this is on"
+    },
+    "ONOFF_MATCHER_FALSE_HELP": {
+        "en": "The css query used to check if this is off"
+    },
+    "CHILD_FILTER_NEAGTE": {
+        "en": "Negate child filter"
+    },
+    "CHILD_FILTER_NEAGTE_HELP": {
+        "en": "A negated child filter, filters this selector if a child is found"
     }
 };
 

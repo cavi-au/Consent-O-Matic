@@ -1,33 +1,93 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "Sirdata": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#sd-cmp[class^=\"sd-cmp\"]"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#sd-cmp"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#sd-cmp[class^=\"sd-cmp\"]"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#sd-cmp"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".sd-cmp-2riLW"
+                            },
+                            "action": {
+                                "type": "hide",
+                                "target": {
+                                    "selector": ":scope"
+                                }
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".sd-cmp-2riLW"
+                            },
+                            "forceHide": true
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
                 "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": "span[class^=\"sd-cmp\"]",
-                        "textFilter": "Set your choices"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "span[class^=\"sd-cmp\"]",
+                                "textFilter": [
+                                    "Set your choices",
+                                    "Paramétrer vos choix"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "span[class^=\"sd-cmp\"]",
+                                    "textFilter": [
+                                        "Set your choices",
+                                        "Paramétrer vos choix"
+                                    ]
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".sd-cmp-16t61.sd-cmp-2JYyd.sd-cmp-18g3C"
+                                }
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".sd-cmp-RkFPb"
+                            },
+                            "retries": 10,
+                            "waitTime": 250
+                        }
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
@@ -36,181 +96,217 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "foreach",
+                            "type": "runrooted",
                             "target": {
-                                "selector": "[role=\"checkbox\"]"
-                            },
-                            "parent": {
-                                "selector": "[class^=\"sd-cmp\"]"
+                                "selector": "#sd-cmp"
                             },
                             "action": {
-                                "type": "consent",
-                                "consents": [
+                                "type": "list",
+                                "actions": [
                                     {
-                                        "matcher": {
-                                            "type": "checkbox",
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".sd-cmp-RkFPb"
+                                        },
+                                        "action": {
+                                            "type": "foreach",
                                             "target": {
                                                 "selector": "input"
+                                            },
+                                            "action": {
+                                                "type": "consent",
+                                                "consents": [
+                                                    {
+                                                        "matcher": {
+                                                            "type": "checkbox",
+                                                            "target": {
+                                                                "selector": ":scope"
+                                                            }
+                                                        },
+                                                        "toggleAction": {
+                                                            "type": "click",
+                                                            "target": {
+                                                                "selector": ":scope"
+                                                            }
+                                                        },
+                                                        "type": "X"
+                                                    }
+                                                ]
                                             }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "X"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "span",
-                                        "textFilter": [
-                                            "Select basic ads",
-                                            "Create a personalised ads profile",
-                                            "Select personalised ads",
-                                            "Measure ad performance",
-                                            "Apply market research to generate audience insights",
-                                            "Non-personalized advertising"
-                                        ]
-                                    }
-                                },
-                                "selector": "div"
-                            },
-                            "parent": {
-                                "selector": "[class^=\"sd-cmp\"]"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
+                                        }
+                                    },
                                     {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".sd-cmp-RkFPb"
                                         },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "F"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "span",
-                                        "textFilter": [
-                                            "Create a personalised content profile",
-                                            "Select personalised content",
-                                            "Measure content performance"
-                                        ]
-                                    }
-                                },
-                                "selector": "div"
-                            },
-                            "parent": {
-                                "selector": "[class^=\"sd-cmp\"]"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "E"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "span",
-                                        "textFilter": "Audience measurement"
-                                    }
-                                },
-                                "selector": "div"
-                            },
-                            "parent": {
-                                "selector": "[class^=\"sd-cmp\"]"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "B"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "span",
-                                        "textFilter": "Store and/or access information on a device"
-                                    }
-                                },
-                                "selector": "div"
-                            },
-                            "parent": {
-                                "selector": "[class^=\"sd-cmp\"]"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "D"
+                                        "action": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".sd-cmp-vi0HZ",
+                                                        "textFilter": [
+                                                            "Personalized content",
+                                                            "Create a personalised content profile",
+                                                            "Select personalised content",
+                                                            "Measure content performance",
+                                                            "Contenu personnalisé",
+                                                            "Mesurer la performance du contenu"
+                                                        ]
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "foreach",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "action": {
+                                                            "type": "consent",
+                                                            "consents": [
+                                                                {
+                                                                    "matcher": {
+                                                                        "type": "checkbox",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "toggleAction": {
+                                                                        "type": "click",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "type": "E"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".sd-cmp-vi0HZ",
+                                                        "textFilter": [
+                                                            "Non-personalized advertising",
+                                                            "Personalized advertising",
+                                                            "Select personalised ads",
+                                                            "Create a personalised ads profile",
+                                                            "Select basic ads",
+                                                            "Measure ad performance",
+                                                            "Publicité standard",
+                                                            "Publicité personnalisée",
+                                                            "Sélectionner des publicités standard",
+                                                            "Créer un profil personnalisé de publicités",
+                                                            "Sélectionner des publicités personnalisées",
+                                                            "Mesurer la performance des publicités"
+                                                        ]
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "foreach",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "action": {
+                                                            "type": "consent",
+                                                            "consents": [
+                                                                {
+                                                                    "matcher": {
+                                                                        "type": "checkbox",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "toggleAction": {
+                                                                        "type": "click",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "type": "F"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".sd-cmp-vi0HZ",
+                                                        "textFilter": [
+                                                            "Audience measurement",
+                                                            "Apply market research to generate audience insights",
+                                                            "Develop and improve products",
+                                                            "Mesure d'audience",
+                                                            "Exploiter des études de marché afin de générer des données d’audience",
+                                                            "Développer et améliorer les produits"
+                                                        ]
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "foreach",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "action": {
+                                                            "type": "consent",
+                                                            "consents": [
+                                                                {
+                                                                    "matcher": {
+                                                                        "type": "checkbox",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "toggleAction": {
+                                                                        "type": "click",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "type": "B"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".sd-cmp-vi0HZ",
+                                                        "textFilter": [
+                                                            "Store and/or access information on a device",
+                                                            "Stocker et/ou accéder à des informations sur un terminal"
+                                                        ]
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "foreach",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        },
+                                                        "action": {
+                                                            "type": "consent",
+                                                            "consents": [
+                                                                {
+                                                                    "matcher": {
+                                                                        "type": "checkbox",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "toggleAction": {
+                                                                        "type": "click",
+                                                                        "target": {
+                                                                            "selector": ":scope"
+                                                                        }
+                                                                    },
+                                                                    "type": "D"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]
                             }
@@ -224,7 +320,10 @@
                     "type": "click",
                     "target": {
                         "selector": "button[class^=\"sd-cmp\"]",
-                        "textFilter": "Save"
+                        "textFilter": [
+                            "Save",
+                            "Enregistrer"
+                        ]
                     }
                 },
                 "name": "SAVE_CONSENT"

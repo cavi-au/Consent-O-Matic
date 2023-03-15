@@ -52,7 +52,9 @@
                     "target": {
                         "selector": "button.message-button",
                         "textFilter": [
-                            "Manage Cookies"
+                            "Manage Cookies",
+                            "Customize",
+                            "Konfigurieren"
                         ]
                     },
                     "trueAction": {
@@ -60,7 +62,9 @@
                         "target": {
                             "selector": "button.message-button",
                             "textFilter": [
-                                "Manage Cookies"
+                                "Manage Cookies",
+                                "Customize",
+                                "Konfigurieren"
                             ]
                         }
                     }
@@ -83,7 +87,7 @@
                             "target": {
                                 "selector": ":scope",
                                 "textFilter": [
-                                    "Site Vendors"
+                                    "\"NOT USED ATM\""
                                 ]
                             },
                             "falseAction": {
@@ -200,7 +204,13 @@
                         {
                             "type": "multiclick",
                             "target": {
-                                "selector": ".tcfv2-stack .accordion:not(.active)"
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "[role=\"switch\"]"
+                                    }
+                                },
+                                "selector": ".tcfv2-stack .accordion:not(.active)",
+                                "childFilterNegate": true
                             }
                         },
                         {
@@ -230,46 +240,102 @@
                                                 "consents": [
                                                     {
                                                         "matcher": {
-                                                            "type": "css",
-                                                            "target": {
-                                                                "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                            "type": "onoff",
+                                                            "onMatcher": {
+                                                                "target": {
+                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                }
+                                                            },
+                                                            "offMatcher": {
+                                                                "target": {
+                                                                    "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                }
                                                             }
                                                         },
                                                         "trueAction": {
                                                             "type": "click",
                                                             "target": {
                                                                 "selector": "span.on"
-                                                            }
+                                                            },
+                                                            "noTimeout": true
                                                         },
                                                         "falseAction": {
                                                             "type": "click",
                                                             "target": {
                                                                 "selector": "span.off"
-                                                            }
+                                                            },
+                                                            "noTimeout": true
                                                         },
                                                         "type": "X"
                                                     }
                                                 ]
                                             },
                                             "falseAction": {
-                                                "type": "consent",
-                                                "consents": [
-                                                    {
-                                                        "matcher": {
-                                                            "type": "css",
-                                                            "target": {
-                                                                "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
-                                                            }
-                                                        },
-                                                        "toggleAction": {
-                                                            "type": "click",
-                                                            "target": {
-                                                                "selector": "span.slider"
-                                                            }
-                                                        },
-                                                        "type": "X"
-                                                    }
-                                                ]
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": ".stack-toggles"
+                                                },
+                                                "trueAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle.choice"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle.choice"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": ".accept-toggle"
+                                                                }
+                                                            },
+                                                            "falseAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": ".reject-toggle"
+                                                                }
+                                                            },
+                                                            "type": "X"
+                                                        }
+                                                    ]
+                                                },
+                                                "falseAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "toggleAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.slider"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "type": "X"
+                                                        }
+                                                    ]
+                                                }
                                             }
                                         }
                                     },
@@ -298,46 +364,102 @@
                                                     "consents": [
                                                         {
                                                             "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
                                                             },
                                                             "trueAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.on"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "falseAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.off"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "type": "D"
                                                         }
                                                     ]
                                                 },
                                                 "falseAction": {
-                                                    "type": "consent",
-                                                    "consents": [
-                                                        {
-                                                            "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
-                                                                }
-                                                            },
-                                                            "toggleAction": {
-                                                                "type": "click",
-                                                                "target": {
-                                                                    "selector": "span.slider"
-                                                                }
-                                                            },
-                                                            "type": "D"
-                                                        }
-                                                    ]
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "D"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "D"
+                                                            }
+                                                        ]
+                                                    }
                                                 }
                                             }
                                         }
@@ -352,7 +474,9 @@
                                                 "Select basic ads",
                                                 "Create a personalised ads profile",
                                                 "Measure ad performance",
-                                                "Apply market research to generate audience insights"
+                                                "Apply market research to generate audience insights",
+                                                "Marketing-cookies",
+                                                "Cookies brugt af reklamepartnere (IAB)"
                                             ]
                                         },
                                         "trueAction": {
@@ -370,46 +494,102 @@
                                                     "consents": [
                                                         {
                                                             "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
                                                             },
                                                             "trueAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.on"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "falseAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.off"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "type": "F"
                                                         }
                                                     ]
                                                 },
                                                 "falseAction": {
-                                                    "type": "consent",
-                                                    "consents": [
-                                                        {
-                                                            "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
-                                                                }
-                                                            },
-                                                            "toggleAction": {
-                                                                "type": "click",
-                                                                "target": {
-                                                                    "selector": "span.slider"
-                                                                }
-                                                            },
-                                                            "type": "F"
-                                                        }
-                                                    ]
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "F"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "F"
+                                                            }
+                                                        ]
+                                                    }
                                                 }
                                             }
                                         }
@@ -438,46 +618,102 @@
                                                     "consents": [
                                                         {
                                                             "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
                                                             },
                                                             "trueAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.on"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "falseAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.off"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "type": "X"
                                                         }
                                                     ]
                                                 },
                                                 "falseAction": {
-                                                    "type": "consent",
-                                                    "consents": [
-                                                        {
-                                                            "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
-                                                                }
-                                                            },
-                                                            "toggleAction": {
-                                                                "type": "click",
-                                                                "target": {
-                                                                    "selector": "span.slider"
-                                                                }
-                                                            },
-                                                            "type": "X"
-                                                        }
-                                                    ]
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "X"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "X"
+                                                            }
+                                                        ]
+                                                    }
                                                 }
                                             }
                                         }
@@ -489,7 +725,8 @@
                                             "textFilter": [
                                                 "Select personalised content",
                                                 "Create a personalised content profile",
-                                                "Measure content performance"
+                                                "Measure content performance",
+                                                "Tilpas tjenester"
                                             ]
                                         },
                                         "trueAction": {
@@ -507,46 +744,348 @@
                                                     "consents": [
                                                         {
                                                             "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
                                                             },
                                                             "trueAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.on"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "falseAction": {
                                                                 "type": "click",
                                                                 "target": {
                                                                     "selector": "span.off"
-                                                                }
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "type": "E"
                                                         }
                                                     ]
                                                 },
                                                 "falseAction": {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "E"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "E"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".accordion",
+                                            "textFilter": [
+                                                "Analyse og produktudvikling"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "foreach",
+                                            "target": {
+                                                "selector": ".stack-row"
+                                            },
+                                            "action": {
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": "span.on"
+                                                },
+                                                "trueAction": {
                                                     "type": "consent",
                                                     "consents": [
                                                         {
                                                             "matcher": {
-                                                                "type": "css",
-                                                                "target": {
-                                                                    "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
                                                             },
-                                                            "toggleAction": {
+                                                            "trueAction": {
                                                                 "type": "click",
                                                                 "target": {
-                                                                    "selector": "span.slider"
+                                                                    "selector": "span.on"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "falseAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.off"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "type": "B"
+                                                        }
+                                                    ]
+                                                },
+                                                "falseAction": {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "B"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "B"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".accordion",
+                                            "textFilter": [
+                                                "Datenübermittlung an Partner in den USA"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "foreach",
+                                            "target": {
+                                                "selector": ".stack-row"
+                                            },
+                                            "action": {
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": "span.on"
+                                                },
+                                                "trueAction": {
+                                                    "type": "consent",
+                                                    "consents": [
+                                                        {
+                                                            "matcher": {
+                                                                "type": "onoff",
+                                                                "onMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                    }
+                                                                },
+                                                                "offMatcher": {
+                                                                    "target": {
+                                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                    }
                                                                 }
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.on"
+                                                                },
+                                                                "noTimeout": true
+                                                            },
+                                                            "falseAction": {
+                                                                "type": "click",
+                                                                "target": {
+                                                                    "selector": "span.off"
+                                                                },
+                                                                "noTimeout": true
                                                             },
                                                             "type": "E"
                                                         }
                                                     ]
+                                                },
+                                                "falseAction": {
+                                                    "type": "ifcss",
+                                                    "target": {
+                                                        "selector": ".stack-toggles"
+                                                    },
+                                                    "trueAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".accept-toggle.choice"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": ".reject-toggle.choice"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "trueAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".accept-toggle"
+                                                                    }
+                                                                },
+                                                                "falseAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": ".reject-toggle"
+                                                                    }
+                                                                },
+                                                                "type": "E"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "consent",
+                                                        "consents": [
+                                                            {
+                                                                "matcher": {
+                                                                    "type": "onoff",
+                                                                    "onMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"true\"]"
+                                                                        }
+                                                                    },
+                                                                    "offMatcher": {
+                                                                        "target": {
+                                                                            "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "toggleAction": {
+                                                                    "type": "click",
+                                                                    "target": {
+                                                                        "selector": "span.slider"
+                                                                    },
+                                                                    "noTimeout": true
+                                                                },
+                                                                "type": "E"
+                                                            }
+                                                        ]
+                                                    }
                                                 }
                                             }
                                         }

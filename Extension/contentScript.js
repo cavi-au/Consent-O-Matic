@@ -39,6 +39,8 @@ async function contentScriptRunner() {
                                 ConsentEngine.generalSettings = generalSettings;
                                 ConsentEngine.topFrameUrl = url;
         
+                                chrome.runtime.sendMessage("Searching");
+
                                 let engine = new ConsentEngine(config, consentTypes, (evt)=>{
                                     let result = {
                                         url,
@@ -53,6 +55,10 @@ async function contentScriptRunner() {
 
                                     if(evt.handled) {
                                         chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
+                                    } else if(evt.error) {
+                                        chrome.runtime.sendMessage("CMPError");
+                                    } else {
+                                        chrome.runtime.sendMessage("NothingFound");
                                     }
                                 });
         

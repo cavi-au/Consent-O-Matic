@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "nordpoolgroupopen": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-consent[ng-controller='CookieConsentKitController as cookieConsentCtrl']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-consent[ng-controller='CookieConsentKitController as cookieConsentCtrl']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "[ng-controller='CookieConsentKitController as cookieConsentCtrl'][id='main-content']"
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "a[href]"
+                        }
+                    }
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

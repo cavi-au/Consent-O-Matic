@@ -1,0 +1,194 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "suchenmobile.de": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#consentPageContentHolder"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#consentPageContentHolder"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": "._1qQsRL3d"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-1-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-1-toggle"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-5-toggle, #purpose-6-toggle, #purpose-8-toggle, #purpose-9-toggle, #purpose-10-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-5-toggle, #purpose-6-toggle, #purpose-8-toggle, #purpose-9-toggle, #purpose-10-toggle"
+                                                    }
+                                                },
+                                                "type": "E"
+                                            },
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-9-li-toggle, #purpose-10-li-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-9-li-toggle, #purpose-10-li-toggle"
+                                                    }
+                                                },
+                                                "type": "E"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-1-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-1-toggle"
+                                                    }
+                                                },
+                                                "type": "B"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-2-toggle, #purpose-3-toggle, #purpose-4-toggle, #purpose-7-toggle, #purpose-29-toggle, #purpose-31-toggle, #purpose-25-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-2-toggle, #purpose-3-toggle, #purpose-4-toggle, #purpose-7-toggle, #purpose-29-toggle, #purpose-31-toggle, #purpose-25-toggle"
+                                                    }
+                                                },
+                                                "type": "F"
+                                            },
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-2-li-toggle, #purpose-7-li-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-2-li-toggle, #purpose-7-li-toggle"
+                                                    }
+                                                },
+                                                "type": "F"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "#purpose-24-toggle, #purpose-26-toggle, #purpose-30-toggle"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "#purpose-24-toggle, #purpose-26-toggle, #purpose-30-toggle"
+                                                    }
+                                                },
+                                                "type": "X"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#agree-bottom"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

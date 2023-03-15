@@ -1,0 +1,103 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "complianz": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cmplz-cookiebanner-container"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".cmplz-cookiebanner"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cmplz-view-preferences"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cmplz-statistics-optin"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cmplz-statistics-optin"
+                                }
+                            }
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cmplz-preferences-optin"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cmplz-preferences-optin"
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "type": "F",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cmplz-marketing-optin"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cmplz-marketing-optin"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cmplz-save-preferences"
+                    }
+                }
+            },
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cmplz-cookiebanner"
+                    }
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

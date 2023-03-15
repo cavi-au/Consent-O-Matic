@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "cookiebot": {
         "detectors": [
             {
@@ -7,15 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
-                        }
-                    }
-                ],
-                "showingMatcher": [
-                    {
-                        "type": "css",
-                        "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog",
                             "displayFilter": true
                         }
                     }
@@ -316,6 +308,21 @@
                                 ],
                                 "displayFilter": true
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": "strong",
+                                        "textFilter": [
+                                            "Save cookie settings"
+                                        ]
+                                    }
+                                },
+                                "selector": ".cb-button",
+                                "displayFilter": true
+                            }
                         }
                     ]
                 },
@@ -335,6 +342,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#CybotCookiebotDialog"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cb-cookieoverlay"
                             }
                         }
                     ]

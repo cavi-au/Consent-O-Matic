@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "trustarc_popup_hider": {
         "detectors": [
             {
@@ -25,10 +25,21 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": ".truste_box_overlay"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".truste_box_overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".truste_overlay"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },

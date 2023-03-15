@@ -1,194 +1,167 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "ibuenda": {
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "nouvelobs": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#iubenda-cs-banner"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".gdpr-glm-standard"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".iubenda-cs-customize-btn"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".gdpr-glm-standard"
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".gdpr-glm-standard"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".gdpr-glm-params"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#iubenda-cs-banner .iubenda-cs-customize-btn"
+                        "selector": "[data-gdpr-action='settings'].gdpr-glm-button"
                     }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "type": "list",
-                    "actions": [
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "selector": ".purposes-item"
-                            },
-                            "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".gdpr-glm-params__purpose"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
                                 "type": "consent",
                                 "consents": [
                                     {
                                         "matcher": {
                                             "type": "checkbox",
                                             "target": {
-                                                "selector": "input"
+                                                "selector": "[data-gdpr-params-purpose='analytics']"
                                             }
                                         },
                                         "toggleAction": {
                                             "type": "click",
                                             "target": {
-                                                "selector": "input"
+                                                "selector": "[data-gdpr-params-purpose='analytics']"
                                             }
                                         },
-                                        "type": "X"
+                                        "type": "B"
                                     }
                                 ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "label",
-                                        "textFilter": "Basic interactions & functionalities"
-                                    }
-                                },
-                                "selector": ".purposes-item"
                             },
-                            "action": {
+                            {
                                 "type": "consent",
                                 "consents": [
                                     {
                                         "matcher": {
                                             "type": "checkbox",
                                             "target": {
-                                                "selector": "input"
+                                                "selector": "[data-gdpr-params-purpose='social']"
                                             }
                                         },
                                         "toggleAction": {
                                             "type": "click",
                                             "target": {
-                                                "selector": "input"
+                                                "selector": "[data-gdpr-params-purpose='social']"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='personalization']"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='personalization']"
+                                            }
+                                        },
+                                        "type": "E"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='ads']"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='ads']"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='mediaPlatforms']"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "[data-gdpr-params-purpose='mediaPlatforms']"
                                             }
                                         },
                                         "type": "A"
                                     }
                                 ]
                             }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "label",
-                                        "textFilter": "Experience enhancement"
-                                    }
-                                },
-                                "selector": ".purposes-item"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "E"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "label",
-                                        "textFilter": "Measurement"
-                                    }
-                                },
-                                "selector": ".purposes-item"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "B"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "foreach",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": "label",
-                                        "textFilter": "Targeting & Advertising"
-                                    }
-                                },
-                                "selector": ".purposes-item"
-                            },
-                            "action": {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input"
-                                            }
-                                        },
-                                        "type": "F"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                        ]
+                    }
                 },
                 "name": "DO_CONSENT"
             },
@@ -196,7 +169,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#iubFooterBtn"
+                        "selector": "[data-gdpr-action='save']"
                     }
                 },
                 "name": "SAVE_CONSENT"

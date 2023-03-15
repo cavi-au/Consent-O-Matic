@@ -51,9 +51,9 @@ class ConsentEngine {
         window.addEventListener("DOMContentLoaded", ()=>{
             self.handleMutations([]);
         });
-        this.domScannerInterval = setInterval(()=>{
+        this.domScannerIntervalID = setInterval(()=>{
             self.handleMutations([]);
-        },250);
+        }, 500);
     }
 
 
@@ -171,7 +171,7 @@ class ConsentEngine {
                 clearTimeout(self.queueId);
             }
 
-            clearInterval(self.domScannerInterval);
+            clearInterval(self.domScannerIntervalID);
 
             self.handledCallback({
                 handled: false
@@ -183,8 +183,8 @@ class ConsentEngine {
     async handleMutations(mutations) {
         const self = this;
 
-        if (this.queueId == null) {
-            this.queueId = setTimeout(() => {
+        if (this.queueId == null && !self.checkRunning) {
+            this.queueId = setTimeout(async () => {
                 self.queueId = null;
                 try {
                     self.checkForCMPs();
@@ -195,8 +195,17 @@ class ConsentEngine {
         }
     }
 
-    checkForCMPs() {
+    async checkForCMPs() {
         const self = this;
+
+        self.checkRunning = true;
+
+        //Wait for a super small while, to make async
+        await new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve();
+            }, 0);
+        });
 
         if (ConsentEngine.debugValues.debugLog) {
             console.groupCollapsed("findCMP");
@@ -227,7 +236,7 @@ class ConsentEngine {
             this.triedCMPs.add(cmp.name);
 
             //Check if popup shows, then do consent stuff
-            let numberOfTries = 10;
+            let numberOfTries = 5;
             async function checkIsShowing() {
                 if (cmp.isShowing()) {
                     self.currentCMP = cmp;
@@ -249,6 +258,8 @@ class ConsentEngine {
                                     cmp.stopObservers();
                                 }
                             }
+
+                            self.checkRunning = false;
 
                             self.startObserver();
                             self.handleMutations([]);
@@ -339,6 +350,11 @@ class ConsentEngine {
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
+                                self.handledCallback({
+                                    handled: false,
+                                    error: true
+                                });
+                                
                                 publish({
                                     handled: false,
                                     cmpName: cmp.name,
@@ -347,12 +363,6 @@ class ConsentEngine {
                                     consentTypes: self.consentTypes,
                                     debugSettings: ConsentEngine.debugValues,
                                     generalSettings: ConsentEngine.generalSettings,
-                                    error: ""+e
-                                });
-
-                                self.handledCallback({
-                                    handled: false,
-                                    cmpName: cmp.name,
                                     error: ""+e
                                 });
                             }
@@ -365,7 +375,9 @@ class ConsentEngine {
                                 }
                             }
                             clearTimeout(self.stopEngineId);
-                            clearInterval(self.domScannerInterval);
+                            clearInterval(self.domScannerIntervalID);
+
+                            self.checkRunning = false;
                         }
                     }, 0);
                 } else {
@@ -377,6 +389,7 @@ class ConsentEngine {
                             console.groupEnd();
                             console.log(cmp.name + " - Not showing");
                         }
+                        self.checkRunning = false;
                         self.startObserver();
                         self.startStopTimeout()
                         self.handleMutations([]);
@@ -384,7 +397,9 @@ class ConsentEngine {
                 }
             }
 
-            checkIsShowing();
+            await checkIsShowing();
+        } else {
+            self.checkRunning = false;
         }
     }
 

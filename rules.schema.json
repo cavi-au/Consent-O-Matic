@@ -62,6 +62,16 @@
                 "target": {"$ref": "#/$defs/DOMSelection"}
             }
         },
+        "OnOffMatcher": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "onMatcher", "offMatcher"],
+            "properties": {
+                "type": {"const": "onoff"},
+                "onMatcher": {"$ref": "#/$defs/DOMSelection"},
+                "offMatcher": {"$ref": "#/$defs/DOMSelection"}
+            }
+        },
         "CheckboxMatcher": {
             "type": "object",
             "additionalProperties": false,
@@ -75,28 +85,44 @@
         },
 
         "Method": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["name"],
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "enum": [
-                        "OPEN_OPTIONS",
-                        "DO_CONSENT",
-                        "SAVE_CONSENT",
-                        "HIDE_CMP",
-                        "UTILITY"
-                    ]
+            "oneOf": [
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["name"],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "enum": [
+                                "OPEN_OPTIONS",
+                                "DO_CONSENT",
+                                "SAVE_CONSENT",
+                                "HIDE_CMP",
+                                "UTILITY"
+                            ]
+                        },
+                        "action": {"$ref": "#/$defs/Actions"}
+                    }
                 },
-                "action": {"$ref": "#/$defs/Actions"},
-                "custom": {"type": "boolean"}
-            }
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["name", "custom"],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "action": {"$ref": "#/$defs/Actions"},
+                        "custom": { "enum": [ true ] }
+                    }
+                }
+            ]
         },
 
         "Actions": {
             "oneOf": [
                 {"$ref": "#/$defs/ClickAction"},
+                {"$ref": "#/$defs/MultiClickAction"},
                 {"$ref": "#/$defs/ListAction"},
                 {"$ref": "#/$defs/ConsentAction"},
                 {"$ref": "#/$defs/SlideAction"},
@@ -107,6 +133,7 @@
                 {"$ref": "#/$defs/HideAction"},
                 {"$ref": "#/$defs/CloseAction"},
                 {"$ref": "#/$defs/IfAllowAllAction"},
+                {"$ref": "#/$defs/IfAllowNoneAction"},
                 {"$ref": "#/$defs/RunMethodAction"},
                 {"$ref": "#/$defs/RunRootedAction"}
             ]
@@ -120,6 +147,16 @@
                 "target": {"$ref": "#/$defs/DOMSelection"},
                 "parent": {"$ref": "#/$defs/DOMSelection"},
                 "openInTab": {"type": "boolean"}
+            }
+        },
+        "MultiClickAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target"],
+            "properties": {
+                "type": {"const": "multiclick"},
+                "target": {"$ref": "#/$defs/DOMSelection"},
+                "parent": {"$ref": "#/$defs/DOMSelection"}
             }
         },
         "ListAction": {
@@ -265,7 +302,16 @@
                 "falseAction": {"$ref": "#/$defs/Actions"}
             }
         },
-
+        "IfAllowNoneAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type"],
+            "properties": {
+                "type": {"const": "ifallownone"},
+                "trueAction": {"$ref": "#/$defs/Actions"},
+                "falseAction": {"$ref": "#/$defs/Actions"}
+            }
+        },
         "DOMSelection": {
             "oneOf": [
                 {"type": "null"},
@@ -314,7 +360,8 @@
                 },
                 "displayFilter": {"type": "boolean"},
                 "iframeFilter": {"type": "boolean"},
-                "childFilter": {"$ref": "#/$defs/DOMSelection"}
+                "childFilter": {"$ref": "#/$defs/DOMSelection"},
+                "childFilterNegate": {"type": "boolean"}
             }
         },
 

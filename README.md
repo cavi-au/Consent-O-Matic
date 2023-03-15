@@ -25,6 +25,7 @@
 * [Consent](#consent-1)
    * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
+* [Installing From Source](#installing-from-source)
 
 ## Introduction
 
@@ -48,16 +49,18 @@ Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 202
 Consent-O-Matic currently works with these CMPs:
 
 * Autodesk
-* EvidonBanner
-* EvidonIFrame
+* begadi.com
+* chandago
 * consentmanager.net
-* cookieLab
 * cookiebar
 * cookiebot
 * cookiecontrolcivic
 * cookieinformation
+* cookieLab
 * didomi.io
 * dr.dk
+* EvidonBanner
+* EvidonIFrame
 * ez-cookie
 * future
 * ikeaToast
@@ -68,21 +71,20 @@ Consent-O-Matic currently works with these CMPs:
 * optanon-alternative
 * quantcast
 * quantcast2
+* SFR
 * sharethis
 * sourcepoint
 * sourcepointframe
 * sourcepointpopup
+* springer
 * tealium.com
 * theGuardian
 * trustarcbar
 * trustarcframe
 * umf.dk
 * uniconsent
-* wordpressgdpr
-* chandago
-* SFR
 * Webedia
-* springer
+* wordpressgdpr
 
 ## Extending Consent-O-Matic
 
@@ -318,7 +320,7 @@ Example:
       "type": "click",
       "target": {
          "selector": ".myTrueButton"
-      }  
+      }
    },
    "falseAction": {
       "type": "click",
@@ -592,3 +594,13 @@ Putting it all together, here is a full example of a CMP "myCMP" that has 2 cons
    }
 }
 ```
+
+## Installing from source
+
+### Chrome
+
+Follow [these steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked). Make sure you select the _Extension_ directory.
+
+### Firefox
+
+Follow [these steps](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing). Make sure you select the _Extension\/manifest.json_ file.

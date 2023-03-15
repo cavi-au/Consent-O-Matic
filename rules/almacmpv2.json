@@ -1,0 +1,265 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "almacmpv2": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#alma-cmpv2-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".almacmp-background-overlay",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".almacmp-background-overlay"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#almacmp-modalSettingBtn"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".almacmp-box"
+                            },
+                            "parent": {
+                                "selector": "#almacmp-tab-content-purposes"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "span",
+                                            "textFilter": [
+                                                "Tavallisten mainosten valinta",
+                                                "Personoidun mainosprofiilin muodostaminen",
+                                                "Personoitujen mainosten valinta",
+                                                "Mainonnan ja sen tehokkuuden mittaaminen",
+                                                "Markkinatutkimusten soveltaminen käyttäjäymmärryksen luomiseksi"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "span",
+                                            "textFilter": [
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
+                                                "Tarkkojen sijaintitietojen käyttö",
+                                                "Laitteen ominaisuuksien aktiivinen skannaus tunnistamista varten"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "span",
+                                            "textFilter": [
+                                                "Personoidun sisältöprofiilin muodostaminen",
+                                                "Personoidun sisällön valinta",
+                                                "Sisällön ja sen tehokkuuden mittaaminen"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id^='purposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "span",
+                                            "textFilter": [
+                                                "Tuotekehitys",
+                                                "Alma Median kohderyhmien jakaminen"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*='urposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*='urposeConsents'], [id*='specialFeatureConsents']"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*=LegitimateInterests]"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[id^='almacmp-save']"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

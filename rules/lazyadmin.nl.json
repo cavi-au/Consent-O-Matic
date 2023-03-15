@@ -1,0 +1,319 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "lazyadmin.nl": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".notice-title",
+                            "textFilter": [
+                                "Privacy",
+                                "Управление на вашата поверителност",
+                                "Administri la seva privacitat",
+                                "管理您的隐私",
+                                "Upravljajte Vašom privatnošću",
+                                "Správa vašeho soukromí",
+                                "Administrer dit privatliv",
+                                "Jouw Privacy Beheren",
+                                "Hallake oma isikuandmete kaitset",
+                                "Hallinnoi tietosuojaa",
+                                "Gérer la protection de votre vie privée",
+                                "Privatsphäre",
+                                "Διαχείριση του Απορρήτου Σας",
+                                "Adatvédelmi beállítások kezelése",
+                                "Gestisci la tua privacy",
+                                "Pārvaldiet savu konfidencialitāti",
+                                "Tvarkykite savo privatumą",
+                                "Manage Privatezza Tiegħek",
+                                "Administrer ditt personvern",
+                                "Zarządzaj swoją prywatnością",
+                                "Faça a Gestão da Sua Privacidade",
+                                "Gestionare opțiuni de confidențialitate",
+                                "Управляйте конфиденциальностью",
+                                "Spravujte si svoje súkromie",
+                                "Upravljajte svojo zasebnost",
+                                "Gestione su Privacidad",
+                                "Hantera din integritet",
+                                "Gizliliğinizi Yönetin",
+                                "We use cookies",
+                                "We gebruiken cookies"
+                            ],
+                            "iframeFilter": true
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".notice-title",
+                            "textFilter": [
+                                "Privacy",
+                                "Управление на вашата поверителност",
+                                "Administri la seva privacitat",
+                                "管理您的隐私",
+                                "Upravljajte Vašom privatnošću",
+                                "Správa vašeho soukromí",
+                                "Administrer dit privatliv",
+                                "Jouw Privacy Beheren",
+                                "Hallake oma isikuandmete kaitset",
+                                "Hallinnoi tietosuojaa",
+                                "Gérer la protection de votre vie privée",
+                                "Privatsphäre",
+                                "Διαχείριση του Απορρήτου Σας",
+                                "Adatvédelmi beállítások kezelése",
+                                "Gestisci la tua privacy",
+                                "Pārvaldiet savu konfidencialitāti",
+                                "Tvarkykite savo privatumą",
+                                "Manage Privatezza Tiegħek",
+                                "Administrer ditt personvern",
+                                "Zarządzaj swoją prywatnością",
+                                "Faça a Gestão da Sua Privacidade",
+                                "Gestionare opțiuni de confidențialitate",
+                                "Управляйте конфиденциальностью",
+                                "Spravujte si svoje súkromie",
+                                "Upravljajte svojo zasebnost",
+                                "Gestione su Privacidad",
+                                "Hantera din integritet",
+                                "Gizliliğinizi Yönetin",
+                                "We use cookies",
+                                "We gebruiken cookies"
+                            ],
+                            "iframeFilter": true,
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#en"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#manageSettings"
+                            }
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": "ul li.ng-tns-c73-2"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Store and/or access information on a device"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "D"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Precise geolocation data, and identification through device scanning",
+                                        "Analytics"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Personalised ads and content, ad and content measurement, audience insights and product development",
+                                        "Social Media",
+                                        "Advertising",
+                                        "Direct Marketing"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Strictly Necessary Cookies",
+                                        "Functional"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "p",
+                                    "textFilter": [
+                                        "Use precise geolocation data",
+                                        "Actively scan device characteristics for identification"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "#mat-slider.state-true"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#mat-slider"
+                                                }
+                                            },
+                                            "type": "X"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#saveAndExit"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".mat-dialog-title.confirmationDialogTitle"
+                            },
+                            "retries": 10,
+                            "waitTime": 50
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".mat-dialog-title.confirmationDialogTitle"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".mat-focus-indicator.okButton.mat-raised-button.mat-button-base"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

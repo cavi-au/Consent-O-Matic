@@ -29,19 +29,46 @@ class Consent {
     }
 
     async setEnabled(enabled) {
-        if(this.enabledMatcher != null && this.toggleAction != null) {
-            if(this.isEnabled() && !enabled) {
-                await this.toggle();
-            } else if(!this.isEnabled() && enabled) {
-                await this.toggle();
+        if(this.toggleAction != null) {
+            if(this.enabledMatcher == null) {
+                //Toggle is only supported with a matcher
+                if (ConsentEngine.debugValues.debugLog) {
+                    throw new Error("Toggle consent action, without a matcher: "+JSON.stringify(this.config));
+                }
+                return;
+            }
+            try {
+                if(this.isEnabled() !== enabled) {
+                    await this.toggle();
+                }
+            } catch(e) {
+                if (ConsentEngine.debugValues.debugLog) {
+                    console.error("Error toggling:", e, this.config);
+                }
             }
         } else {
-            if(enabled) {
-                if(this.trueAction != null) {
-                    await this.trueAction.execute();
+            let handled = false;
+
+            //If we have OnOffMatcher, we can reduce clicks to only happen when state is wrong
+            if(this.enabledMatcher != null && this.enabledMatcher instanceof OnOffMatcher) {
+                try {
+                    if(this.isEnabled() && !enabled) {
+                        await this.falseAction.execute();
+                    } else if(!this.isEnabled() && enabled) {
+                        await this.trueAction.execute();
+                    }
+                    handled = true;
+                } catch(e) {
+                    if (ConsentEngine.debugValues.debugLog) {
+                        console.error("Error pushing on/off:", e, this.config);
+                    }
                 }
-            } else {
-                if(this.falseAction != null) {
+            }
+
+            if(!handled) {
+                if(enabled) {
+                    await this.trueAction.execute();
+                } else {
                     await this.falseAction.execute();
                 }
             }

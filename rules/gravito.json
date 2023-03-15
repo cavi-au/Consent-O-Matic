@@ -1,0 +1,434 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "gravito": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cmp-modal"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[class^=gravito][class$=CMP-background-overlay]"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "[class^='gravito'][class*='CMP-background-overlay']"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "[class^='gravitoCMP-modal-layer']"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#modalSettingBtn"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".gravitoCMP-box,[class^='gravito'][class*='CMP-accordion-div']"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
+                                                "Laitteen ominaisuuksien aktiivinen skannaus tunnistamista varten",
+                                                "Lagra och/eller få åtkomst till information på en enhet",
+                                                "Läsa av enhetens egenskaper aktivt för identifiering"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Tilastolliset evästeet",
+                                                "Yksilöivä analytiikka ja markkinointi",
+                                                "Yksilöivä analytiikka",
+                                                "Tarkkojen sijaintitietojen käyttö",
+                                                "Insamling av data",
+                                                "Utveckla och förbättra produkter",
+                                                "Statistical cookies",
+                                                "Analytics Cookies",
+                                                "Analytik",
+                                                "Analyytikkaevästeet",
+                                                "Análisis",
+                                                "Analytique"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Toiminnalliset evästeet",
+                                                "Functional cookies",
+                                                "Preference Cookies",
+                                                "Benutzereinstellungen",
+                                                "Asetusevästeet",
+                                                "Preferencia",
+                                                "Préférence"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "A"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Markkinointi",
+                                                "Markkinoinnin evästeet",
+                                                "Målgruppsanpassning och personifiering",
+                                                "Personoitu sisältö, sisällön mittaus, käyttäjäymmärrys ja tuotekehitys"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Personoitujen mainosten ja sisällön näyttäminen, mainonnan ja sisällön mittaus, käyttäjäymmärrys sekä tuotekehitys",
+                                                "Tavalliset mainokset ja mainonnan mittaus",
+                                                "Personoitu mainosprofiili ja personoitujen mainosten näyttäminen",
+                                                "Personanpassade annonser och innehåll, annons- och innehållsmätning samt målgruppsinsikter",
+                                                "Marketing & advertising cookies",
+                                                "Advertising Cookies",
+                                                "Marketing",
+                                                "Mainosevästeet",
+                                                "Publicitarias",
+                                                "Publicité"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box__title,[class^='gravito'][class*='box-title']",
+                                            "textFilter": [
+                                                "Använda exakta uppgifter om geografisk positionering"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id*='LegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#gravitoCMP-tab-button-vendors"
+                            },
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gravitoCMP-tab-button-vendors"
+                                        }
+                                    },
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "selector": ".gravitoCMP-box"
+                                        },
+                                        "action": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id^='vendorConsents'], [id^='nonTCFVendorsConsents']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id^='vendorConsents'], [id^='nonTCFVendorsConsents']"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                },
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "[id^='vendorLegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "[id^='vendorLegitimateInterests']"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#modalAcceptSelectedBtn"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#modalAcceptSelectedBtn"
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#selectedSettingBtn"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#selectedSettingBtn"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
