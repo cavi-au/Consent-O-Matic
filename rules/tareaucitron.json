@@ -272,7 +272,7 @@
             {
                 "name": "SAVE_CONSENT",
                 "action": {
-                    "type": "multiclick",
+                    "type": "click",
                     "target": {
                         "selector": ".tarteaucitronValidate, .tarteaucitronClosePanel, #tarteaucitronClosePanel"
                     }
