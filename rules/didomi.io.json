@@ -67,8 +67,7 @@
                                                 "Lagre og/eller få tilgang til informasjon på en enhet",
                                                 "Velg grunnleggende annonser",
                                                 "Velg personlige annonser",
-                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
-                                                "Conservation et accès aux informations de géolocalisation pour réaliser des études marketing"
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö"
                                             ]
                                         },
                                         "trueAction": {
@@ -122,7 +121,7 @@
                                                 "Tavallisten mainosten valinta",
                                                 "Personoitujen mainosten valinta",
                                                 "Cookies Publicitaires et de personnalisation",
-                                                "Conservation et accès aux informations de géolocalisation à des fins de publicité ciblée"
+                                                "Promotion de nos contenus, produits et services"
                                             ]
                                         },
                                         "trueAction": {
@@ -167,7 +166,8 @@
                                                 "Personoidun sisällön valinta",
                                                 "Mesurer la performance des publicités",
                                                 "Promotion et personnalisation des contenus",
-                                                "Personnalisation du contenu éditorial et mesure de la performance"
+                                                "Personnalisation du contenu éditorial et mesure de la performance",
+                                                "Mesure et analyse d'audience"
                                             ]
                                         },
                                         "trueAction": {
@@ -249,7 +249,8 @@
                                                 "Evästeet analysointia ja kehittämistä varten",
                                                 "Markkinatutkimusten soveltaminen käyttäjäymmärryksen luomiseksi",
                                                 "Sisällön ja sen tehokkuuden mittaaminen",
-                                                "Cookies fonctionnels et statistiques d'usage du site"
+                                                "Audience Measurement",
+                                                "Elaboration de statistiques destinées à améliorer le fonctionnement des Sites et des Services"
                                             ]
                                         },
                                         "trueAction": {
@@ -283,7 +284,9 @@
                                                 "Personalization",
                                                 "Contenus cartographiques, infographiques et ludique",
                                                 "Ces identifiants permettent d'interagir avec les plateformes vidéos.",
-                                                "Activation des services interactifs proposés par des tiers"
+                                                "Activation des services interactifs proposés par des tiers",
+                                                "La gestion des paiements des Services",
+                                                "Nécessaires au fonctionnement du service"
                                             ]
                                         },
                                         "trueAction": {
