@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "yahoo_consent": {
         "detectors": [
             {
@@ -16,7 +16,9 @@
                         "type": "css",
                         "target": {
                             "selector": "#consent-page .consent-form .title",
-                            "textFilter": "Yahoo"
+                            "textFilter": [
+                                "Yahoo"
+                            ]
                         }
                     }
                 ]
@@ -203,6 +205,26 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".thirdparty-embed .control input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".oathAsThirdParty .control input"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
                         }
                     ]
                 },
