@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".c-cookie-banner"
+                            "selector": ".c-cookie-banner .o-container"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".c-cookie-banner"
+                            "selector": ".c-cookie-banner .o-container"
                         }
                     }
                 ]
