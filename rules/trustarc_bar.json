@@ -1,47 +1,61 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "trustarcbar": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "parent": null,
-                    "target": {
-                        "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "parent": null,
-                    "target": {
-                        "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#truste-consent-content, .truste-consent-content, #truste-consent-track"
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
-                            "parent": null,
+                            "type": "waitcss",
                             "target": {
-                                "displayFilter": true,
-                                "selector": "#truste-show-consent"
+                                "selector": "#truste-show-consent, #truste-show-consent_",
+                                "displayFilter": true
                             },
-                            "type": "waitcss"
+                            "retries": 10,
+                            "waitTime": 250
                         },
                         {
-                            "parent": null,
+                            "type": "click",
                             "target": {
-                                "selector": "#truste-show-consent"
-                            },
-                            "type": "click"
+                                "selector": "#truste-show-consent, #truste-show-consent_"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "UTILITY"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
             }
         ]
     }
