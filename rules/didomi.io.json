@@ -67,7 +67,8 @@
                                                 "Lagre og/eller få tilgang til informasjon på en enhet",
                                                 "Velg grunnleggende annonser",
                                                 "Velg personlige annonser",
-                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö"
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
+                                                "Conservation et accès aux informations de géolocalisation pour réaliser des études marketing"
                                             ]
                                         },
                                         "trueAction": {
@@ -120,7 +121,9 @@
                                                 "Personoidun mainosprofiilin muodostaminen",
                                                 "Tavallisten mainosten valinta",
                                                 "Personoitujen mainosten valinta",
-                                                "Cookies Publicitaires et de personnalisation"
+                                                "Cookies Publicitaires et de personnalisation",
+                                                "Promotion de nos contenus, produits et services",
+                                                "Conservation et accès aux informations de géolocalisation à des fins de publicité ciblée"
                                             ]
                                         },
                                         "trueAction": {
@@ -165,7 +168,8 @@
                                                 "Personoidun sisällön valinta",
                                                 "Mesurer la performance des publicités",
                                                 "Promotion et personnalisation des contenus",
-                                                "Personnalisation du contenu éditorial et mesure de la performance"
+                                                "Personnalisation du contenu éditorial et mesure de la performance",
+                                                "Mesure et analyse d'audience"
                                             ]
                                         },
                                         "trueAction": {
@@ -246,7 +250,10 @@
                                                 "Cookies for analysis and development",
                                                 "Evästeet analysointia ja kehittämistä varten",
                                                 "Markkinatutkimusten soveltaminen käyttäjäymmärryksen luomiseksi",
-                                                "Sisällön ja sen tehokkuuden mittaaminen"
+                                                "Sisällön ja sen tehokkuuden mittaaminen",
+                                                "Audience Measurement",
+                                                "Elaboration de statistiques destinées à améliorer le fonctionnement des Sites et des Services",
+                                                "Cookies fonctionnels et statistiques d'usage du site"
                                             ]
                                         },
                                         "trueAction": {
@@ -280,7 +287,9 @@
                                                 "Personalization",
                                                 "Contenus cartographiques, infographiques et ludique",
                                                 "Ces identifiants permettent d'interagir avec les plateformes vidéos.",
-                                                "Activation des services interactifs proposés par des tiers"
+                                                "Activation des services interactifs proposés par des tiers",
+                                                "La gestion des paiements des Services",
+                                                "Nécessaires au fonctionnement du service"
                                             ]
                                         },
                                         "trueAction": {

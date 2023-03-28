@@ -1,0 +1,168 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "alandsbanken": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ppms_cm_popup_overlay, #ppms_cm_bar_overlay"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ppms_cm_popup_overlay, #ppms_cm_bar-exclamation-mark-icon",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ppms_cm_popup_overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ppms_cm_bar_overlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ppms_cm_open-popup"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ppms_cm_open-popup"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "#consent-switcher--analytics.checked"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-switcher--analytics"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "#ppms_cm_consent_switcher_toggle--remarketing.checked"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ppms_cm_consent_switcher_toggle--remarketing"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "#consent-switcher--feedback.checked"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-switcher--feedback"
+                                        }
+                                    },
+                                    "type": "D"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "#consent-switcher--custom_consent.checked"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-switcher--custom_consent"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ppms_cm_save-choices"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

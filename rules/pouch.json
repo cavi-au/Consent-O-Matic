@@ -1,0 +1,189 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "pouch": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".container.cookie-notice-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".container.cookie-notice-container"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cookie-notice"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".modal.is-active"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookie-notice-dismiss .is-default"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".choice.is-active .choice-label",
+                                            "textFilter": [
+                                                "Targeting"
+                                            ]
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".choice .choice-label",
+                                            "textFilter": [
+                                                "Targeting"
+                                            ]
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".choice .choice-label",
+                                            "textFilter": [
+                                                "Analytics & Performance"
+                                            ]
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".choice.is-active .choice-label",
+                                            "textFilter": [
+                                                "Analytics & Performance"
+                                            ]
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".choice .choice-label",
+                                            "textFilter": [
+                                                "Functionality"
+                                            ]
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".choice.is-active .choice-label",
+                                            "textFilter": [
+                                                "Functionality"
+                                            ]
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".choice .choice-label",
+                                            "textFilter": [
+                                                "Tracking"
+                                            ]
+                                        }
+                                    },
+                                    "type": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".choice.is-active .choice-label",
+                                            "textFilter": [
+                                                "Functionality"
+                                            ]
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".choice .choice-label",
+                                            "textFilter": [
+                                                "Necessary"
+                                            ]
+                                        }
+                                    },
+                                    "type": "X"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".modal.is-active .button.is-primary"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

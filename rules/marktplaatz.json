@@ -1,0 +1,207 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "marktplaats.nl": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".hz-Consent-submit-button"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".hz-Consent-submit-button",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".hz-Consent-vendor-content"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".hz-Purpose-header",
+                                    "textFilter": [
+                                        "Basisadvertenties selecteren",
+                                        "Een gepersonaliseerd advertentieprofiel aanmaken",
+                                        "Gepersonaliseerde advertenties selecteren",
+                                        "Prestaties van advertenties meten",
+                                        "Marktonderzoek toepassen om inzichten in het publiek te genereren",
+                                        "Matching via Adobe"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "foreach",
+                                    "target": {
+                                        "selector": ".hz-Switch"
+                                    },
+                                    "action": {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "type": "F"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".hz-Purpose-header",
+                                    "textFilter": [
+                                        "Een gepersonaliseerd content profiel aanmaken",
+                                        "Gepersonaliseerde content selecteren",
+                                        "Content prestaties meten"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "foreach",
+                                    "target": {
+                                        "selector": ".hz-Switch"
+                                    },
+                                    "action": {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "type": "E"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".hz-Purpose-header",
+                                    "textFilter": [
+                                        "Producten ontwikkelen en verbeteren"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "foreach",
+                                    "target": {
+                                        "selector": ".hz-Switch"
+                                    },
+                                    "action": {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "type": "B"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".hz-Purpose-header",
+                                    "textFilter": [
+                                        "Informatie op een apparaat opslaan en/of openen"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "foreach",
+                                    "target": {
+                                        "selector": ".hz-Switch"
+                                    },
+                                    "action": {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "input"
+                                                    }
+                                                },
+                                                "type": "D"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".hz-Consent-submit-button"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

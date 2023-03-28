@@ -1,0 +1,286 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "tarteaucitron": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#tarteaucitronAlertBig, #tarteaucitronAlertSmall",
+                            "displayFilter": true
+                        },
+                        "parent": {
+                            "selector": "#tarteaucitronRoot"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#tarteaucitron"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#tarteaucitronCloseAlert",
+                        "displayFilter": true
+                    }
+                }
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "A",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_api",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_api"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_api"
+                                }
+                            }
+                        },
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_analytic",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_analytic"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_analytic"
+                                }
+                            }
+                        },
+                        {
+                            "type": "F",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_ads",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_ads"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_ads"
+                                }
+                            }
+                        },
+                        {
+                            "type": "E",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_video",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_video"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_video"
+                                }
+                            }
+                        },
+                        {
+                            "type": "E",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_support",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_support"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_support"
+                                }
+                            }
+                        },
+                        {
+                            "type": "E",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_social",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_social"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_social"
+                                }
+                            }
+                        },
+                        {
+                            "type": "E",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_comment",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_comment"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_comment"
+                                }
+                            }
+                        },
+                        {
+                            "type": "X",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_other",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_other"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_other"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".tarteaucitronValidate, .tarteaucitronClosePanel, #tarteaucitronClosePanel"
+                    }
+                }
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
