@@ -126,7 +126,8 @@
                                 "target": {
                                     "selector": "p",
                                     "textFilter": [
-                                        "Store and/or access information on a device"
+                                        "Store and/or access information on a device",
+                                        "Informatie op een apparaat opslaan en/of openen"
                                     ]
                                 },
                                 "trueAction": {
@@ -134,9 +135,16 @@
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "#mat-slider.state-true"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-true"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-false"
+                                                    }
                                                 }
                                             },
                                             "toggleAction": {
@@ -164,9 +172,16 @@
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "#mat-slider.state-true"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-true"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-false"
+                                                    }
                                                 }
                                             },
                                             "toggleAction": {
@@ -188,7 +203,10 @@
                                         "Personalised ads and content, ad and content measurement, audience insights and product development",
                                         "Social Media",
                                         "Advertising",
-                                        "Direct Marketing"
+                                        "Direct Marketing",
+                                        "Gepersonaliseerde advertenties en inhoud, advertentie- en inhoudsmeting, doelgroep inzichten en productontwikkeling.",
+                                        "Advertenties",
+                                        "Sociale media"
                                     ]
                                 },
                                 "trueAction": {
@@ -196,9 +214,16 @@
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "#mat-slider.state-true"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-true"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-false"
+                                                    }
                                                 }
                                             },
                                             "toggleAction": {
@@ -218,7 +243,9 @@
                                     "selector": "p",
                                     "textFilter": [
                                         "Strictly Necessary Cookies",
-                                        "Functional"
+                                        "Functional",
+                                        "Strikt noodzakelijke cookies",
+                                        "Functionele cookies"
                                     ]
                                 },
                                 "trueAction": {
@@ -226,9 +253,16 @@
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "#mat-slider.state-true"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-true"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-false"
+                                                    }
                                                 }
                                             },
                                             "toggleAction": {
@@ -248,7 +282,9 @@
                                     "selector": "p",
                                     "textFilter": [
                                         "Use precise geolocation data",
-                                        "Actively scan device characteristics for identification"
+                                        "Actively scan device characteristics for identification",
+                                        "Precieze geolocatie gegevens gebruiken",
+                                        "De apparaat kenmerken actief scannen voor identificatie"
                                     ]
                                 },
                                 "trueAction": {
@@ -256,9 +292,16 @@
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "#mat-slider.state-true"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-true"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "#mat-slider.state-false"
+                                                    }
                                                 }
                                             },
                                             "toggleAction": {
