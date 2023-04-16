@@ -230,7 +230,8 @@
                                             "type": "click",
                                             "target": {
                                                 "selector": "input"
-                                            }
+                                            },
+                                            "noTimeout": true
                                         },
                                         "type": "X"
                                     }
