@@ -70,17 +70,8 @@
                                             "selector": "label[for=\"functional_cookies\"]"
                                         }
                                     },
-                                    "falseAction": {
-                                        "type": "wait",
-                                        "waitTime": 0
-                                    },
                                     "type": "A"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
+                                },
                                 {
                                     "matcher": {
                                         "type": "checkbox",
@@ -93,10 +84,6 @@
                                         "target": {
                                             "selector": "label[for=\"marketing_cookies\"]"
                                         }
-                                    },
-                                    "falseAction": {
-                                        "type": "wait",
-                                        "waitTime": 0
                                     },
                                     "type": "F"
                                 }
