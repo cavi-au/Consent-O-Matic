@@ -123,7 +123,8 @@
                                                 "Personoitujen mainosten valinta",
                                                 "Cookies Publicitaires et de personnalisation",
                                                 "Promotion de nos contenus, produits et services",
-                                                "Conservation et accès aux informations de géolocalisation à des fins de publicité ciblée"
+                                                "Conservation et accès aux informations de géolocalisation à des fins de publicité ciblée",
+                                                "Publicités personnalisées de l'éditeur"
                                             ]
                                         },
                                         "trueAction": {
@@ -159,7 +160,10 @@
                                                 "Contact",
                                                 "Personnalisation de votre service",
                                                 "Sélectionner du contenu personnalisé",
-                                                "Sélectionner des publicités standard",
+                                                "Sélectionner des publicités standard",  
+                                                "Recommandations personnalisées de programmes",
+                                                "Contenus interactifs proposés par des tiers",
+                                                "Contenus cartographiques et infographiques",
                                                 "Skapa en personanpassad innehållsprofil",
                                                 "Välja personanpassat innehåll",
                                                 "Opprette en personlig innholdsprofil",
@@ -169,7 +173,8 @@
                                                 "Mesurer la performance des publicités",
                                                 "Promotion et personnalisation des contenus",
                                                 "Personnalisation du contenu éditorial et mesure de la performance",
-                                                "Mesure et analyse d'audience"
+                                                "Mesure et analyse d'audience",
+                                                "Personnalisation des contenus et des services"
                                             ]
                                         },
                                         "trueAction": {
