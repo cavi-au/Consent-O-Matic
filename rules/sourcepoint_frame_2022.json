@@ -371,7 +371,8 @@
                                             "textFilter": [
                                                 "Store and/or access information on a device",
                                                 "Use precise geolocation data",
-                                                "Actively scan device characteristics for identification"
+                                                "Actively scan device characteristics for identification",
+                                                "Informatie op een apparaat opslaan en/of openen"
                                             ]
                                         },
                                         "trueAction": {
@@ -501,7 +502,8 @@
                                                 "Measure ad performance",
                                                 "Apply market research to generate audience insights",
                                                 "Marketing-cookies",
-                                                "Cookies brugt af reklamepartnere (IAB)"
+                                                "Cookies brugt af reklamepartnere (IAB)",
+                                                "Marketing"
                                             ]
                                         },
                                         "trueAction": {
@@ -751,7 +753,8 @@
                                                 "Select personalised content",
                                                 "Create a personalised content profile",
                                                 "Measure content performance",
-                                                "Tilpas tjenester"
+                                                "Tilpas tjenester",
+                                                "Personalisatie"
                                             ]
                                         },
                                         "trueAction": {
@@ -1110,6 +1113,33 @@
                                                                 "type": "E"
                                                             }
                                                         ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".accordion",
+                                            "textFilter": [
+                                                "Sociale media"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "foreach",
+                                            "target": {
+                                                "selector": ".stack-row"
+                                            },
+                                            "action": {
+                                                "type": "ifcss",
+                                                "target": {
+                                                    "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
+                                                },
+                                                "trueAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "button[role=\"switch\"][aria-checked=\"false\"]"
                                                     }
                                                 }
                                             }
