@@ -1,0 +1,149 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "pepper": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div.popover-content"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div.popover-content"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "ifallownone",
+                    "falseAction": {
+                        "type": "ifallowall",
+                        "falseAction": {
+                            "type": "click",
+                            "target": {
+                                "selector": "button[data-t=\"showSettingsBtn\"]"
+                            }
+                        }
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "form[data-t=\"cookiesSettings\"]"
+                    },
+                    "trueAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input.checkbox-input[id=\"8\"]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "label.checkbox[for=\"8\"]"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input.checkbox-input[id=\"9\"]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "label.checkbox[for=\"9\"]"
+                                            }
+                                        },
+                                        "type": "A"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "input.checkbox-input[id=\"10\"]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "input.checkbox-input[id=\"10\"]"
+                                            }
+                                        },
+                                        "type": "B"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifallownone",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button.hide--toW3[data-t=\"continueWithoutAcceptingBtn\"]"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "ifallowall",
+                        "trueAction": {
+                            "type": "click",
+                            "target": {
+                                "selector": "button[data-t=\"acceptAllBtn\"]"
+                            }
+                        },
+                        "falseAction": {
+                            "type": "click",
+                            "target": {
+                                "selector": "button[type=\"submit\"]"
+                            }
+                        }
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
