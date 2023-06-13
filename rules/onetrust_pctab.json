@@ -52,7 +52,8 @@
                                     "textFilter": [
                                         "Opbevare og/eller tilgå oplysninger på en enhed",
                                         "Store and/or access information on a device",
-                                        "Informationen auf einem Gerät speichern und/oder abrufen"
+                                        "Informationen auf einem Gerät speichern und/oder abrufen",
+                                        "Archiviare e/o accedere a informazioni su un dispositivo"
                                     ]
                                 },
                                 "trueAction": {
@@ -84,7 +85,8 @@
                                         "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
                                         "Personalised ads and content, ad and content measurement, audience insights and product development",
                                         "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
-                                        "Personalised ads, and ad measurement"
+                                        "Personalised ads, and ad measurement",
+                                        "Annunci e contenuti personalizzati, valutazione degli annunci e del contenuto, osservazioni del pubblico e sviluppo di prodotti"
                                     ]
                                 },
                                 "trueAction": {
@@ -116,7 +118,8 @@
                                         "Performance Cookies",
                                         "Leistungs-Cookies",
                                         "Ydeevne og analytik cookies",
-                                        "Analytics Cookies"
+                                        "Analytics Cookies",
+                                        "Cookie di prestazione"
                                     ]
                                 },
                                 "trueAction": {
@@ -147,7 +150,8 @@
                                     "textFilter": [
                                         "Bruge præcise geoplaceringsoplysninger",
                                         "Use precise geolocation data",
-                                        "Genaue Standortdaten verwenden"
+                                        "Genaue Standortdaten verwenden",
+                                        "Utilizzare dati di geolocalizzazione precisi"
                                     ]
                                 },
                                 "trueAction": {
@@ -178,7 +182,8 @@
                                     "textFilter": [
                                         "Reklamecookies",
                                         "Advertising Cookies",
-                                        "Werbe-Cookies"
+                                        "Werbe-Cookies",
+                                        "Cookie per pubblicità mirata"
                                     ]
                                 },
                                 "trueAction": {
@@ -210,7 +215,8 @@
                                         "Funktionelle cookies",
                                         "Functional Cookies",
                                         "Funktionale Cookies",
-                                        "Funktionelle"
+                                        "Funktionelle",
+                                        "Cookie di funzionalità"
                                     ]
                                 },
                                 "trueAction": {
@@ -241,7 +247,8 @@
                                     "textFilter": [
                                         "Personlig tilpasning cookies",
                                         "Personalisation Cookies",
-                                        "Personalised content, content measurement, audience insights, and product development"
+                                        "Personalised content, content measurement, audience insights, and product development",
+                                        "Annunci e contenuti personalizzati, valutazione degli annunci e del contenuto, osservazioni del pubblico e sviluppo di prodotti"
                                     ]
                                 },
                                 "trueAction": {
@@ -332,7 +339,8 @@
                                     "selector": ".ot-grp-hdr1, .group-toggle",
                                     "textFilter": [
                                         "Third-party privacy enhanced cookies",
-                                        "Sociale medier"
+                                        "Sociale medier",
+                                        "Cookie dei social media"
                                     ]
                                 },
                                 "trueAction": {
