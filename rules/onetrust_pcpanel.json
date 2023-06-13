@@ -89,7 +89,9 @@
                                                 "Udvid funktionalitet",
                                                 "Extend functionality",
                                                 "Præferencer",
-                                                "Functional"
+                                                "Functional",
+                                                "Cookie funzionali",
+                                                "Cookie di funzionalità"
                                             ]
                                         },
                                         "trueAction": {
@@ -131,7 +133,8 @@
                                                 "PUBLICIDAD",
                                                 "PUBBLICITÀ",
                                                 "REKLAMY",
-                                                "RECLAME"
+                                                "RECLAME",
+                                                "Cookie di targeting"
                                             ]
                                         },
                                         "trueAction": {
@@ -171,7 +174,8 @@
                                                 "ANALISI",
                                                 "ANALITYKA",
                                                 "Performance Technologies",
-                                                "Audience Measurement"
+                                                "Audience Measurement",
+                                                "Cookie di prestazione"
                                             ]
                                         },
                                         "trueAction": {
