@@ -38,6 +38,18 @@
                             "target": {
                                 "selector": ".truste_overlay"
                             }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#trustarc-banner-overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".truste-consent-track-class"
+                            }
                         }
                     ]
                 },
@@ -51,7 +63,7 @@
                         "displayFilter": true
                     },
                     "retries": 100,
-                    "waitTime": 250,
+                    "waitTime": 50,
                     "negated": true
                 },
                 "name": "OPEN_OPTIONS"
