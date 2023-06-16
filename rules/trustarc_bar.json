@@ -32,8 +32,8 @@
                                 "selector": "#truste-show-consent, #truste-show-consent_",
                                 "displayFilter": true
                             },
-                            "retries": 10,
-                            "waitTime": 250
+                            "retries": 50,
+                            "waitTime": 50
                         },
                         {
                             "type": "click",

@@ -34,8 +34,8 @@
                             "target": {
                                 "selector": ".shp"
                             },
-                            "retries": 10,
-                            "waitTime": 250
+                            "retries": 50,
+                            "waitTime": 50
                         },
                         {
                             "type": "click",
@@ -51,8 +51,8 @@
                             "target": {
                                 "selector": ".cookiecat, .pdynamicbutton .advance, .listItem"
                             },
-                            "retries": 10,
-                            "waitTime": 250
+                            "retries": 50,
+                            "waitTime": 50
                         },
                         {
                             "type": "ifcss",
@@ -73,8 +73,8 @@
                                         "target": {
                                             "selector": ".switch span.on"
                                         },
-                                        "retries": 20,
-                                        "waitTime": 250
+                                        "retries": 50,
+                                        "waitTime": 50
                                     }
                                 ]
                             }
@@ -671,8 +671,8 @@
                             "target": {
                                 "selector": ".close"
                             },
-                            "retries": 1000,
-                            "waitTime": 250
+                            "retries": 100,
+                            "waitTime": 50
                         },
                         {
                             "type": "click",
