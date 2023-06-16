@@ -61,9 +61,21 @@
                             "forceHide": true
                         },
                         {
-                            "type": "click",
+                            "type": "ifcss",
                             "target": {
                                 "selector": "#onetrust-pc-btn-handler, #cookie-consent-preferences"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#onetrust-pc-btn-handler, #cookie-consent-preferences"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#onetrust-accept-btn-handler"
+                                }
                             }
                         }
                     ]
