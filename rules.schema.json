@@ -50,7 +50,8 @@
             "oneOf": [
                 {"$ref": "#/$defs/CssMatcher"},
                 {"$ref": "#/$defs/CheckboxMatcher"},
-                {"$ref": "#/$defs/URLMatcher"}
+                {"$ref": "#/$defs/URLMatcher"},
+                {"$ref": "#/$defs/OnOffMatcher"}
             ]
         },
         "CssMatcher": {
