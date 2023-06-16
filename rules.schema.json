@@ -49,7 +49,8 @@
         "Matcher": {
             "oneOf": [
                 {"$ref": "#/$defs/CssMatcher"},
-                {"$ref": "#/$defs/CheckboxMatcher"}
+                {"$ref": "#/$defs/CheckboxMatcher"},
+                {"$ref": "#/$defs/URLMatcher"}
             ]
         },
         "CssMatcher": {
@@ -80,6 +81,17 @@
                 "type": {"const": "checkbox"},
                 "parent": {"$ref": "#/$defs/DOMSelection"},
                 "target": {"$ref": "#/$defs/DOMSelection"},
+                "negated": {"type": "boolean"}
+            }
+        },
+        "URLMatcher": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["url", "type"],
+            "properties": {
+                "type": {"const": "url"},
+                "url": {"oneOf": [{"type": "array", "items": {"type": "string"}}, {"type": "string"}]},
+                "regexp": {"type": "boolean"},
                 "negated": {"type": "boolean"}
             }
         },
