@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#cookie-law-info-bar"
+                            "selector": "#cookie-law-info-bar, #cookie-bar, #cookiebar"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#cookie-law-info-bar",
+                            "selector": "#cookie-law-info-bar, #cookie-bar, #cookiebar",
                             "displayFilter": true
                         }
                     }
@@ -27,7 +27,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#cookie-law-info-bar .cli_settings_button"
+                        "selector": "#cookie-law-info-bar .cli_settings_button, #cb-pref, #cookie-bar-button-customize"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -337,18 +337,64 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "[data-id=checkbox-non-necessary]"
+                                            "selector": "#cookiebar-third-party-input > input"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "[data-id=checkbox-non-necessary]"
+                                            "selector": "input#cookiebar-third-party"
                                         }
                                     },
-                                    "type": "E"
+                                    "type": "F"
                                 }
                             ]
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".m_border"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "parent": {
+                                            "selector": "label",
+                                            "textFilter": [
+                                                "Incorporamento di Twitter.",
+                                                "Incorporamento di YouTube.",
+                                                "Incorporamento di Flickr.",
+                                                "Google Custom Search Engine funzione di ricerca avanzata del sito."
+                                            ]
+                                        },
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -358,12 +404,23 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cli_setting_save_button"
+                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected"
                     }
                 },
                 "name": "SAVE_CONSENT"
             },
             {
+                "action": {
+                "type": "list",
+                "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookie-bar, #cookie-bar-prompt, #cookie-dialog"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
