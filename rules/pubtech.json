@@ -1,0 +1,356 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "pubtech": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#pubtech-cmp"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#pt-msg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#pt-actions button:first-child"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".pt-8U5, .pt-_vV"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "nav > button",
+                                            "textFilter": "Funzionalità"
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "nav > button",
+                                                "textFilter": "Funzionalità"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".pt-y7I",
+                                            "textFilter": [
+                                                "I Cookie di funzionalità sono opzionali ed il loro scopo riguarda una delle seguenti o simili: contattare l’utente, registrazione ed autenticazione, gestione database di utenti, uso di live chat, comunicazione via canali web, gestione e interazione richieste di supporto e contatto e gestione dei tag."
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".pt-aWf > label"
+                                                        }
+                                                    },
+                                                    "type": "A"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "nav > button",
+                                            "textFilter": "Misurazione"
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "nav > button",
+                                                "textFilter": "Misurazione"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".pt-y7I",
+                                            "textFilter": [
+                                                "I Cookie di misurazioni sono opzionali ed il loro scopo riguarda una delle seguenti o simili: statistica, raccolta dati e sondaggi online, A/B testing, Heat Mapping, registrazione sessioni e misurazioni performance."
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".pt-aWf > label"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": "nav > button",
+                                            "textFilter": "Pubblicitari"
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "nav > button",
+                                                "textFilter": "Pubblicitari"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "list",
+                                        "actions": [
+                                            {
+                                                "type": "foreach",
+                                                "target": {
+                                                    "selector": ".pt-yhT, div.pt-27Z.pt-17T.pt-1y7.pt-1nR"
+                                                },
+                                                "action": {
+                                                    "type": "list",
+                                                    "actions": [
+                                                        {
+                                                            "type": "ifcss",
+                                                            "parent": {
+                                                                "selector": "div",
+                                                                "textFilter": [
+                                                                    "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                                    "Utilizzare dati di geolocalizzazione precisi",
+                                                                    "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
+                                                                ]
+                                                            },
+                                                            "target": {
+                                                                "selector": ".pt-aWf > label, label"
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "consent",
+                                                                "consents": [
+                                                                    {
+                                                                        "matcher": {
+                                                                            "type": "checkbox",
+                                                                            "target": {
+                                                                                "selector": "input"
+                                                                            }
+                                                                        },
+                                                                        "toggleAction": {
+                                                                            "type": "click",
+                                                                            "target": {
+                                                                                "selector": "label"
+                                                                            }
+                                                                        },
+                                                                        "type": "D"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ifcss",
+                                                            "parent": {
+                                                                "selector": "div",
+                                                                "textFilter": [
+                                                                    "Selezionare annunci basici (basic ads)",
+                                                                    "Creare un profilo di annunci personalizzati",
+                                                                    "Selezionare annunci personalizzati",
+                                                                    "Valutare le performance degli annunci",
+                                                                    "Applicare ricerche di mercato per generare approfondimenti sul pubblico"
+                                                                    ]
+                                                            },
+                                                            "target": {
+                                                                "selector": ".pt-aWf > label, label"
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "consent",
+                                                                "consents": [
+                                                                    {
+                                                                        "matcher": {
+                                                                            "type": "checkbox",
+                                                                            "target": {
+                                                                                "selector": "input"
+                                                                            }
+                                                                        },
+                                                                        "toggleAction": {
+                                                                            "type": "click",
+                                                                            "target": {
+                                                                                "selector": "label"
+                                                                            }
+                                                                        },
+                                                                        "type": "F"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ifcss",
+                                                            "parent": {
+                                                                "selector": "div",
+                                                                "textFilter": [
+                                                                    "Creare un profilo di contenuto personalizzato",
+                                                                    "Selezionare contenuti personalizzati"
+                                                                ]
+                                                            },
+                                                            "target": {
+                                                                "selector": ".pt-aWf > label, label"
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "consent",
+                                                                "consents": [
+                                                                    {
+                                                                        "matcher": {
+                                                                            "type": "checkbox",
+                                                                            "target": {
+                                                                                "selector": "input"
+                                                                            }
+                                                                        },
+                                                                        "toggleAction": {
+                                                                            "type": "click",
+                                                                            "target": {
+                                                                                "selector": "label"
+                                                                            }
+                                                                        },
+                                                                        "type": "E"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ifcss",
+                                                            "parent": {
+                                                                "selector": "div",
+                                                                "textFilter": [
+                                                                    "Valutare le performance dei contenuti"
+                                                                ]
+                                                            },
+                                                            "target": {
+                                                                "selector": ".pt-aWf > label, label"
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "consent",
+                                                                "consents": [
+                                                                    {
+                                                                        "matcher": {
+                                                                            "type": "checkbox",
+                                                                            "target": {
+                                                                                "selector": "input"
+                                                                            }
+                                                                        },
+                                                                        "toggleAction": {
+                                                                            "type": "click",
+                                                                            "target": {
+                                                                                "selector": "label"
+                                                                            }
+                                                                        },
+                                                                        "type": "B"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ifcss",
+                                                            "parent": {
+                                                                "selector": "div",
+                                                                "textFilter": [
+                                                                    "Sviluppare e perfezionare i prodotti"
+                                                                ]
+                                                            },
+                                                            "target": {
+                                                                "selector": ".pt-aWf > label, label"
+                                                            },
+                                                            "trueAction": {
+                                                                "type": "consent",
+                                                                "consents": [
+                                                                    {
+                                                                        "matcher": {
+                                                                            "type": "checkbox",
+                                                                            "target": {
+                                                                                "selector": "input"
+                                                                            }
+                                                                        },
+                                                                        "toggleAction": {
+                                                                            "type": "click",
+                                                                            "target": {
+                                                                                "selector": "label"
+                                                                            }
+                                                                        },
+                                                                        "type": "X"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#pt-actions button:first-child",
+                        "textFilter": [
+                            "Accetto I Selezionati",
+                            "Seleziona"
+                        ]
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#pubtech-cmp"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
