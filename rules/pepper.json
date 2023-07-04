@@ -9,6 +9,19 @@
                         "target": {
                             "selector": "div.popover-content"
                         }
+                    },
+                    {
+                        "type": "url",
+                        "url": [
+                            "www.mydealz.de",
+                            "www.hotukdeals.com",
+                            "www.dealabs.com",
+                            "nl.pepper.com",
+                            "www.pepper.pl",
+                            "www.pepper.it",
+                            "www.preisjaeger.at",
+                            "www.chollometro.com"
+                        ]
                     }
                 ],
                 "showingMatcher": [
