@@ -197,6 +197,11 @@ class GDPRConfig {
                 "name": "dontHideProgressDialog",
                 "description": "Dont hide ConsentOMatic progress dialog",
                 "value": debugValues.dontHideProgressDialog
+            },
+            {
+                "name": "skipOpenMethod",
+                "description": "Executing the program except for the open method",
+                "value": debugValues.skipOpenMethod
             }
         ];
     }
@@ -310,7 +315,9 @@ GDPRConfig.defaultDebugFlags = {
     "debugLog": false,
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
-    "dontHideProgressDialog": false
+    "dontHideProgressDialog": false,
+    "skipOpemMethod": false
+
 };
 
 GDPRConfig.defaultRuleLists = [

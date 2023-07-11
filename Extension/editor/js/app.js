@@ -41,7 +41,7 @@ document.addEventListener("keyup", (evt) => {
             }
         }
     }
-
+    
     if(evt.key === "Enter") {
         let list = evt.target.closest("ul.list");
         if(list != null) {
@@ -54,6 +54,8 @@ document.addEventListener("keyup", (evt) => {
         }
     }
 });
+
+
 
 document.querySelector(".loadButton").addEventListener("click", () => {
     let selectedKey = document.querySelector("#knownRules").value;
@@ -238,6 +240,13 @@ function loadFromDom(cmpDom, name) {
 
     saveButton.addEventListener("click", async () => {
         saveCmp(cmpDom);
+    });
+
+    document.addEventListener("keydown", (evt) => {
+        evt.preventDefault();
+        if (ctrlPressed && evt.key === "s") {
+            saveCmp(cmpDom);
+        };
     });
 
     let exportButton = document.querySelector(".step3 .export");
