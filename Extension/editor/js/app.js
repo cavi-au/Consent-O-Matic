@@ -40,8 +40,7 @@ document.addEventListener("keyup", (evt) => {
                 undoObj.element.parentNode.removeChild(undoObj.element);
             }
         }
-    }
-    
+    }    
     if(evt.key === "Enter") {
         let list = evt.target.closest("ul.list");
         if(list != null) {
@@ -54,8 +53,6 @@ document.addEventListener("keyup", (evt) => {
         }
     }
 });
-
-
 
 document.querySelector(".loadButton").addEventListener("click", () => {
     let selectedKey = document.querySelector("#knownRules").value;

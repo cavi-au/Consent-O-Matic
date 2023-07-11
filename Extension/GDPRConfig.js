@@ -316,7 +316,7 @@ GDPRConfig.defaultDebugFlags = {
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
     "dontHideProgressDialog": false,
-    "skipOpemMethod": false
+    "skipOpenMethod": false
 
 };
 
