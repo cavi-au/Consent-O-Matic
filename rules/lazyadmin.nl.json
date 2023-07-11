@@ -116,7 +116,7 @@
                 "action": {
                     "type": "foreach",
                     "target": {
-                        "selector": "ul li.ng-tns-c73-2"
+                        "selector": "ul li"
                     },
                     "action": {
                         "type": "list",
@@ -127,7 +127,8 @@
                                     "selector": "p",
                                     "textFilter": [
                                         "Store and/or access information on a device",
-                                        "Informatie op een apparaat opslaan en/of openen"
+                                        "Informatie op een apparaat opslaan en/of openen",
+                                        "Informationen auf einem Gerät speichern und/oder abrufen"
                                     ]
                                 },
                                 "trueAction": {
@@ -164,7 +165,9 @@
                                     "selector": "p",
                                     "textFilter": [
                                         "Precise geolocation data, and identification through device scanning",
-                                        "Analytics"
+                                        "Analytics",
+                                        "Genaue Standortdaten und Abfrage von Geräteeigenschaften zur Identifikation",
+                                        "Analytik"
                                     ]
                                 },
                                 "trueAction": {
@@ -206,7 +209,10 @@
                                         "Direct Marketing",
                                         "Gepersonaliseerde advertenties en inhoud, advertentie- en inhoudsmeting, doelgroep inzichten en productontwikkeling.",
                                         "Advertenties",
-                                        "Sociale media"
+                                        "Sociale media",
+                                        "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessungen, Erkenntnisse über Zielgruppen und Produktentwicklungen",
+                                        "Strikt erforderliche Cookies",
+                                        "Soziale Medien"
                                     ]
                                 },
                                 "trueAction": {
@@ -245,7 +251,11 @@
                                         "Strictly Necessary Cookies",
                                         "Functional",
                                         "Strikt noodzakelijke cookies",
-                                        "Functionele cookies"
+                                        "Functionele cookies",
+                                        "Funktional",
+                                        "Werbung",
+                                        "Direktmarketing",
+                                        "Datenaustausch"
                                     ]
                                 },
                                 "trueAction": {
