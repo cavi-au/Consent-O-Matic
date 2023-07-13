@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cookie-banner, .consent-form__submit"
+                            "selector": ".cookie-banner .o-cookie-message .o-cookie-message--active, .consent-form__submit[data-trackable='manage-cookies-accept']"
                         }
                     }
                 ],
