@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#__tealiumGDPRecModal > *, #__tealiumDNS_banner > *,#cookie-banner .cookie-banner_header.bg-brandBase",
+                            "selector": "#__tealiumGDPRecModal > *,#__tealiumGDPRcpPrefs #__tealiumDNS_banner > *,#cookie-banner .cookie-banner_header.bg-brandBase, #consent-preferences",
                             "displayFilter": true
                         }
                     }
