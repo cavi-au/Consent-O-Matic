@@ -1,6 +1,7 @@
 {
   "references": [
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/asus.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/allekringloopwinkels.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/airbnb.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/alandsbanken.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/admiral.json",
