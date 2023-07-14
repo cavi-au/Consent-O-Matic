@@ -58,7 +58,9 @@
                                     "Manage Cookies",
                                     "Customize",
                                     "Konfigurieren",
-                                    "Asetukset"
+                                    "Asetukset",
+                                    "Learn More",
+                                    "Instellingen beheren"
                                 ]
                             },
                             "trueAction": {
@@ -69,7 +71,9 @@
                                         "Manage Cookies",
                                         "Customize",
                                         "Konfigurieren",
-                                        "Asetukset"
+                                        "Asetukset",
+                                        "Learn More",
+                                        "Instellingen beheren"
                                     ]
                                 }
                             }
