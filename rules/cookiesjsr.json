@@ -1,0 +1,122 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookiesjsr": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookiesjsr"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookiesjsr--app"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookiesjsr-settings"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service-group #tab-performance",
+                                "textFilter": [
+                                    "Prestazione"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookiesjsr-service-group #tab-performance",
+                                    "textFilter": [
+                                        "Prestazione"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Google reCAPTCHA"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Google reCAPTCHA"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookiesjsr-layer--actions .save"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiesjsr"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

@@ -160,6 +160,7 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/clickio.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/pubtech.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/contentpass.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/chefcookie.json"
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/chefcookie.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookiesjsr.json"
   ]
 }
