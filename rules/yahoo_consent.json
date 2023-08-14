@@ -15,10 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#consent-page .consent-form .title",
-                            "textFilter": [
-                                "Yahoo"
-                            ]
+                            "selector": "#consent-page .consent-form"
                         }
                     }
                 ]
