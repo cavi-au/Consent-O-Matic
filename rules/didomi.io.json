@@ -36,6 +36,24 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".didomi-button-standard.standard-button",
+                                "textFilter": [
+                                    "Settings"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".didomi-button-standard.standard-button",
+                                    "textFilter": [
+                                        "Settings"
+                                    ]
+                                }
+                            }
+                        },
+                        {
                             "type": "waitcss",
                             "target": {
                                 "selector": "#didomi-purpose-cookies"
