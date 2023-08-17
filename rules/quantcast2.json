@@ -77,7 +77,9 @@
                                             "selector": "div",
                                             "textFilter": [
                                                 "Information storage and access",
-                                                "Opbevare og/eller tilgå oplysninger på en enhed"
+                                                "Opbevare og/eller tilgå oplysninger på en enhed",
+                                                "Actively scan device characteristics for identification",
+                                                "Store and/or access information on a device"
                                             ]
                                         },
                                         "trueAction": {
@@ -108,7 +110,9 @@
                                             "textFilter": [
                                                 "Personalization",
                                                 "Vælge tilpassede annoncer",
-                                                "Oprette en tilpasset annonceprofil"
+                                                "Oprette en tilpasset annonceprofil",
+                                                "Create a personalised ads profile",
+                                                "Select personalised ads"
                                             ]
                                         },
                                         "trueAction": {
@@ -172,7 +176,9 @@
                                                 "Content selection, delivery, reporting",
                                                 "Oprette en tilpasset indholdsprofil",
                                                 "Vælge tilpasset indhold",
-                                                "Content personalization"
+                                                "Content personalization",
+                                                "Select personalised content",
+                                                "Create a personalised content profile"
                                             ]
                                         },
                                         "trueAction": {
@@ -204,7 +210,8 @@
                                                 "Measurement",
                                                 "Måle indholdseffektivitet",
                                                 "Udvikle og forbedre produkter",
-                                                "Aktivt scanne enhedskarakteristika til identifikation"
+                                                "Aktivt scanne enhedskarakteristika til identifikation",
+                                                "Apply market research to generate audience insights"
                                             ]
                                         },
                                         "trueAction": {
@@ -234,7 +241,9 @@
                                             "selector": "div",
                                             "textFilter": [
                                                 "Other Partners",
-                                                "Bruge præcise geoplaceringsoplysninger"
+                                                "Bruge præcise geoplaceringsoplysninger",
+                                                "Develop and improve products",
+                                                "Use precise geolocation data"
                                             ]
                                         },
                                         "trueAction": {
