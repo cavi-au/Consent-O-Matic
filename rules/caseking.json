@@ -1,0 +1,143 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "caseking": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie_consent_modal"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie_consent_modal.ck_modal",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookie_consent_modal"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ckLbOverlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ckCookieConsentButton"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_A[src*='-on.']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_A[src*='-off.']"
+                                            }
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckCookieConsentToggle_A[src*='-off.']"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckCookieConsentToggle_A[src*='-on.']"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_M[src*='-on.']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_M[src*='-off.']"
+                                            }
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckCookieConsentToggle_M[src*='-off.']"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckCookieConsentToggle_M[src*='-on.']"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ckCookieConsentButton"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
