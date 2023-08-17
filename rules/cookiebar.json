@@ -347,6 +347,37 @@
                                         }
                                     },
                                     "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"non-necessary\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "[data-target=\"non-necessary\"]"
+                                                }
+                                            },
+                                            "selector": ".cli-tab-header"
+                                        }
+                                    },
+                                    "type": "A"
                                 }
                             ]
                         },
@@ -360,6 +391,9 @@
                                 "actions": [
                                     {
                                         "type": "ifcss",
+                                        "target": {
+                                            "selector": "input"
+                                        },
                                         "parent": {
                                             "selector": "label",
                                             "textFilter": [
@@ -368,9 +402,6 @@
                                                 "Incorporamento di Flickr.",
                                                 "Google Custom Search Engine funzione di ricerca avanzata del sito."
                                             ]
-                                        },
-                                        "target": {
-                                            "selector": "input"
                                         },
                                         "trueAction": {
                                             "type": "consent",
@@ -404,15 +435,15 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected"
+                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, #cliModalClose"
                     }
                 },
                 "name": "SAVE_CONSENT"
             },
             {
                 "action": {
-                "type": "list",
-                "actions": [
+                    "type": "list",
+                    "actions": [
                         {
                             "type": "hide",
                             "target": {
