@@ -12,7 +12,8 @@ async function contentScriptRunner() {
         });
     }
     
-    url = url.substring(url.indexOf("://")+3, url.indexOf("/", 8));
+    const urlObj = new URL(url);
+    url = urlObj.host;
 
     GDPRConfig.isActive(url).then(async (active) => {
         if (active) {
