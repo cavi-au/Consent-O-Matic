@@ -1,156 +1,169 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
   "pricerunnerdk": {
-    "detectors": [
-      {
-        "presentMatcher": [
+      "detectors": [
           {
-            "type": "css",
-            "target": {
-              "selector": "#consent",
-              "textFilter": "Cookiepolitik"
-            }
+              "presentMatcher": [
+                  {
+                      "type": "css",
+                      "target": {
+                          "selector": "#consent",
+                          "textFilter": [
+                              "Cookiepolitik",
+                              "Cookiepolicy",
+                              "Cookie policy"
+                          ]
+                      }
+                  }
+              ],
+              "showingMatcher": [
+                  {
+                      "type": "css",
+                      "target": {
+                          "selector": "#consent",
+                          "textFilter": [
+                              "Cookiepolitik",
+                              "Cookiepolicy",
+                              "Cookie policy"
+                          ],
+                          "displayFilter": true
+                      }
+                  }
+              ]
           }
-        ],
-        "showingMatcher": [
+      ],
+      "methods": [
           {
-            "type": "css",
-            "target": {
-              "selector": "#consent",
-              "textFilter": "Cookiepolitik",
-              "displayFilter": true
-            }
-          }
-        ]
-      }
-    ],
-    "methods": [
-      {
-        "name": "HIDE_CMP"
-      },
-      {
-        "action": {
-          "type": "click",
-          "target": {
-            "selector": "#consent button",
-            "textFilter": "Indstillinger"
-          }
-        },
-        "name": "OPEN_OPTIONS"
-      },
-      {
-        "action": {
-          "type": "foreach",
-          "target": {
-            "childFilter": {
-              "target": {
-                "selector": ":scope > label > input[type=\"checkbox\"]"
-              }
-            },
-            "selector": "div"
+              "action": {
+                  "type": "list",
+                  "actions": [
+                      {
+                          "type": "hide",
+                          "target": {
+                              "selector": "#consent"
+                          }
+                      },
+                      {
+                          "type": "hide",
+                          "target": {
+                              "selector": "[data-testid='contentmodal-backdrop']"
+                          }
+                      },
+                      {
+                          "type": "hide",
+                          "target": {
+                              "selector": ".vm5CX8hylh.VBA0yzXTNW.UiB_JlUat1"
+                          }
+                      },
+                      {
+                          "type": "hide",
+                          "target": {
+                              "selector": ".teGOym6Mts.bQBX2wGwEp"
+                          }
+                      }
+                  ]
+              },
+              "name": "HIDE_CMP"
           },
-          "action": {
-            "type": "list",
-            "actions": [
-              {
-                "type": "ifcss",
-                "target": {
-                  "selector": "h2",
-                  "textFilter": "Funktionelle cookies"
-                },
-                "trueAction": {
-                  "type": "consent",
-                  "consents": [
-                    {
-                      "matcher": {
-                        "type": "checkbox",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
-                      },
-                      "toggleAction": {
-                        "type": "click",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
-                      },
-                      "type": "A"
-                    }
-                  ]
-                }
+          {
+              "action": {
+                  "type": "click",
+                  "target": {
+                      "selector": "#consent button",
+                      "textFilter": [
+                          "Indstillinger",
+                          "Inställningar",
+                          "Settings"
+                      ]
+                  }
               },
-              {
-                "type": "ifcss",
-                "target": {
-                  "selector": "h2",
-                  "textFilter": "Statistikcookies"
-                },
-                "trueAction": {
-                  "type": "consent",
-                  "consents": [
-                    {
-                      "matcher": {
-                        "type": "checkbox",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
+              "name": "OPEN_OPTIONS"
+          },
+          {
+              "action": {
+                  "type": "list",
+                  "actions": [
+                      {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input[data-option-name='FUNCTIONAL']"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "input[data-option-name='FUNCTIONAL']"
+                                      }
+                                  },
+                                  "type": "A"
+                              }
+                          ]
                       },
-                      "toggleAction": {
-                        "type": "click",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
+                      {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input[data-option-name='ANALYTICS']"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "input[data-option-name='ANALYTICS']"
+                                      }
+                                  },
+                                  "type": "B"
+                              }
+                          ]
                       },
-                      "type": "B"
-                    }
+                      {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input[data-option-name='TARGETING']"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "input[data-option-name='TARGETING']"
+                                      }
+                                  },
+                                  "type": "B"
+                              }
+                          ]
+                      }
                   ]
-                }
               },
-              {
-                "type": "ifcss",
-                "target": {
-                  "selector": "h2",
-                  "textFilter": "Markedsføringscookies"
-                },
-                "trueAction": {
-                  "type": "consent",
-                  "consents": [
-                    {
-                      "matcher": {
-                        "type": "checkbox",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
-                      },
-                      "toggleAction": {
-                        "type": "click",
-                        "target": {
-                          "selector": "input[type=checkbox]"
-                        }
-                      },
-                      "type": "F"
-                    }
-                  ]
-                }
-              }
-            ]
+              "name": "DO_CONSENT"
+          },
+          {
+              "action": {
+                  "type": "click",
+                  "target": {
+                      "selector": "div > div > div > div > div > div > button",
+                      "textFilter": [
+                          "Gem indstillinger",
+                          "Spara inställningar",
+                          "Save settings"
+                      ]
+                  }
+              },
+              "name": "SAVE_CONSENT"
+          },
+          {
+              "name": "UTILITY"
           }
-        },
-        "name": "DO_CONSENT"
-      },
-      {
-        "action": {
-          "type": "click",
-          "target": {
-            "selector": "div > div > div > div > div > div > button",
-            "textFilter": "Gem indstillinger"
-          }
-        },
-        "name": "SAVE_CONSENT"
-      },
-      {
-        "name": "UTILITY"
-      }
-    ]
+      ]
   }
 }

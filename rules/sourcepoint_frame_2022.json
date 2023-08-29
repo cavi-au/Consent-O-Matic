@@ -60,7 +60,8 @@
                                     "Konfigurieren",
                                     "Asetukset",
                                     "Learn More",
-                                    "Instellingen beheren"
+                                    "Instellingen beheren",
+                                    "GESTIRE LE IMPOSTAZIONI"
                                 ]
                             },
                             "trueAction": {
@@ -73,7 +74,8 @@
                                         "Konfigurieren",
                                         "Asetukset",
                                         "Learn More",
-                                        "Instellingen beheren"
+                                        "Instellingen beheren",
+                                        "GESTIRE LE IMPOSTAZIONI"
                                     ]
                                 }
                             }
@@ -376,7 +378,10 @@
                                                 "Store and/or access information on a device",
                                                 "Use precise geolocation data",
                                                 "Actively scan device characteristics for identification",
-                                                "Informatie op een apparaat opslaan en/of openen"
+                                                "Informatie op een apparaat opslaan en/of openen",
+                                                "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                "Utilizzare dati di geolocalizzazione precisi",
+                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
                                             ]
                                         },
                                         "trueAction": {
@@ -507,7 +512,9 @@
                                                 "Apply market research to generate audience insights",
                                                 "Marketing-cookies",
                                                 "Cookies brugt af reklamepartnere (IAB)",
-                                                "Marketing"
+                                                "Marketing",
+                                                "Annunci basici, profilo di annunci personalizzati e valutazione dell’annuncio",
+                                                "Selezionare annunci personalizzati"
                                             ]
                                         },
                                         "trueAction": {
@@ -631,7 +638,9 @@
                                             "selector": ".accordion",
                                             "textFilter": [
                                                 "Share pseudonymised user data between platforms",
-                                                "Develop and improve products"
+                                                "Develop and improve products",
+                                                "Contenuti personalizzati, valutazione dei contenuti e osservazioni del pubblico",
+                                                "Sviluppare e perfezionare i prodotti"
                                             ]
                                         },
                                         "trueAction": {

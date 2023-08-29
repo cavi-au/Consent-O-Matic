@@ -1,0 +1,432 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookiesjsr": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookiesjsr"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookiesjsr--app"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookiesjsr-settings"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service-group #tab-performance",
+                                "textFilter": [
+                                    "Prestazione",
+                                    "Cookie di prestazione"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookiesjsr-service-group #tab-performance",
+                                    "textFilter": [
+                                        "Prestazione",
+                                        "Cookie di prestazione"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Google reCAPTCHA"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Google reCAPTCHA"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Google Tag Manager"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Google Tag Manager"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Infogram"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Infogram"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Microsoft Power BI"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Microsoft Power BI"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "OpenStreetMap"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "OpenStreetMap"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service-group #tab-tracking",
+                                "textFilter": [
+                                    "Cookie di tracciamento"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookiesjsr-service-group #tab-tracking",
+                                    "textFilter": [
+                                        "Cookie di tracciamento"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Google Analytics"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Google Analytics"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Matomo"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Matomo"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "New Relic"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "New Relic"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service-group #tab-video",
+                                "textFilter": [
+                                    "Video"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookiesjsr-service-group #tab-video",
+                                    "textFilter": [
+                                        "Video"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cookiesjsr-service h3",
+                                "textFilter": [
+                                    "Video forniti da YouTube, Vimeo"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookiesjsr-switch"
+                                            },
+                                            "parent": {
+                                                "selector": ".cookiesjsr-service",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".cookiesjsr-service--description h3",
+                                                        "textFilter": [
+                                                            "Video forniti da YouTube, Vimeo"
+                                                        ]
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookiesjsr-layer--actions .save"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiesjsr"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
