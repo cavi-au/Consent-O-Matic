@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "kk.dk": {
+    "visa": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner"
+                            "selector": "#CookieReportsPanel"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner",
+                            "selector": "#CookieReportsOverlay",
                             "displayFilter": true
                         }
                     }
@@ -25,14 +25,31 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#sliding-popup"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CookieReportsOverlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CookieReportsBanner"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".wscrBannerLink"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -46,13 +63,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "#wscr_drawer_consent_opt_2"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "#wscr_drawer_consent_opt_2"
                                         }
                                     },
                                     "type": "A"
@@ -66,13 +83,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-statistics"
+                                            "selector": "#wscr_drawer_consent_opt_3"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-statistics"
+                                            "selector": "#wscr_drawer_consent_opt_3"
                                         }
                                     },
                                     "type": "B"
@@ -86,36 +103,16 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-analytics"
+                                            "selector": "#wscr_drawer_consent_opt_4"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-analytics"
+                                            "selector": "#wscr_drawer_consent_opt_4"
                                         }
                                     },
-                                    "type": "B"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-social"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#cookie-category-social"
-                                        }
-                                    },
-                                    "type": "X"
+                                    "type": "F"
                                 }
                             ]
                         }
@@ -127,7 +124,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".eu-cookie-compliance-save-preferences-button"
+                        "selector": ".wscrOk"
                     }
                 },
                 "name": "SAVE_CONSENT"
