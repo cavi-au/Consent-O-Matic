@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#xtxNavigationOffCookiePolicy"
+                            "selector": ".xtx-privacy-cookie"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#xtxNavigationOffCookiePolicy",
+                            "selector": ".xtx-privacy-cookie",
                             "displayFilter": true
                         }
                     }
