@@ -1,0 +1,92 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "amazon": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#sp-cc, [data-testid='consent-manager-main-content']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#sp-cc, [data-testid='consent-manager-main-content']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#sp-cc-customize"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#sp-cc-customize"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "css",
+                                            "target": {
+                                                "selector": "[data-a-input-name='ADVERTISING'] [value='on'][checked='']"
+                                            }
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "[data-a-input-name='ADVERTISING'] [value='on']"
+                                            }
+                                        },
+                                        "falseAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "[data-a-input-name='ADVERTISING'] [value='off']"
+                                            }
+                                        },
+                                        "type": "A"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#savePrefs .a-button-input"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

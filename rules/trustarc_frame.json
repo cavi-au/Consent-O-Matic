@@ -107,7 +107,8 @@
                                                 "Functional",
                                                 "Funktionalitets",
                                                 "Funktionelle Cookies",
-                                                "Funktionalitets- og profilcookies"
+                                                "Funktionalitets- og profilcookies",
+                                                "Functional/Performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -249,7 +250,8 @@
                                             "selector": ".gwt-InlineHTML",
                                             "textFilter": [
                                                 "Personalised ads, ad measurement, and audience insights",
-                                                "Reklame- og Targetingcookies"
+                                                "Reklame- og Targetingcookies",
+                                                "Advertising"
                                             ]
                                         },
                                         "trueAction": {

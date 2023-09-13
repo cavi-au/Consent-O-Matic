@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "kk.dk": {
+    "bouwinfo": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner"
+                            "selector": ".bi-cookie-alert-main-screen"
                         }
                     }
                 ],
@@ -15,8 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner",
-                            "displayFilter": true
+                            "selector": ".bi-cookie-alert-main-screen"
                         }
                     }
                 ]
@@ -25,14 +24,37 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#sliding-popup"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".bi-cookie-alert-background"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".bi-cookie-alert-main-screen"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".bi-cookie-alert-more-info-screen"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".bi-cookie-alert-more-info"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -46,33 +68,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "[name='bi_cookie_alert_category'][value='analytics']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
-                                        }
-                                    },
-                                    "type": "A"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-statistics"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#cookie-category-statistics"
+                                            "selector": "[name='bi_cookie_alert_category'][value='analytics']"
                                         }
                                     },
                                     "type": "B"
@@ -86,36 +88,16 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-analytics"
+                                            "selector": "[name='bi_cookie_alert_category'][value='ads']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-analytics"
+                                            "selector": "[name='bi_cookie_alert_category'][value='ads']"
                                         }
                                     },
-                                    "type": "B"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-social"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#cookie-category-social"
-                                        }
-                                    },
-                                    "type": "X"
+                                    "type": "F"
                                 }
                             ]
                         }
@@ -127,7 +109,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".eu-cookie-compliance-save-preferences-button"
+                        "selector": ".bi-cookie-alert-save-settings"
                     }
                 },
                 "name": "SAVE_CONSENT"

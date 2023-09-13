@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "usercentrics": {
+    "justmusic": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".uc-banner-wrapper,.uc-banner-content"
+                            "selector": "#PrivacyCategoryAlert"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".uc-banner-wrapper,.uc-banner-content",
+                            "selector": "#PrivacyCategoryAlert",
                             "displayFilter": true
                         }
                     }
@@ -24,107 +24,132 @@
         ],
         "methods": [
             {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#PrivacyCategoryAlert"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".modal-backdrop"
+                            }
+                        }
+                    ]
+                },
                 "name": "HIDE_CMP"
             },
             {
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#uc-btn-more-info-banner"
+                        "selector": "#ToggleSettings"
                     }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "type": "list",
-                    "actions": [
-                        {
-                            "type": "ifcss",
-                            "target": {
-                                "childFilter": {
-                                    "target": {
-                                        "selector": ".switch1.off"
-                                    }
-                                },
-                                "selector": "#change-secondary-state"
-                            },
-                            "trueAction": {
-                                "type": "click",
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".row.pc-block"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
                                 "target": {
-                                    "selector": "#change-secondary-state"
-                                }
-                            }
-                        },
-                        {
-                            "type": "waitcss",
-                            "target": {
-                                "selector": ".uc-inner-content"
-                            },
-                            "retries": 50,
-                            "waitTime": 50
-                        },
-                        {
-                            "type": "list",
-                            "actions": [
-                                {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Functional"
+                                    ]
+                                },
+                                "trueAction": {
                                     "type": "consent",
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "checkbox",
+                                                "type": "css",
                                                 "target": {
-                                                    "selector": ".toggle-category-functional"
+                                                    "selector": ".tri-state-switch.active"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".toggle-category-functional"
+                                                    "selector": ".tri-state-switch"
                                                 }
                                             },
                                             "type": "A"
                                         }
                                     ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Analysis"
+                                    ]
                                 },
-                                {
+                                "trueAction": {
                                     "type": "consent",
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "checkbox",
+                                                "type": "css",
                                                 "target": {
-                                                    "selector": ".toggle-category-marketing"
+                                                    "selector": ".tri-state-switch.active"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".toggle-category-marketing"
+                                                    "selector": ".tri-state-switch"
                                                 }
                                             },
-                                            "type": "F"
-                                        },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Marketing"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
                                         {
                                             "matcher": {
-                                                "type": "checkbox",
+                                                "type": "css",
                                                 "target": {
-                                                    "selector": ".toggle-category-customCategory-b29ea549-ecfb-46ac-9b69-4f70ffcc7b34"
+                                                    "selector": ".tri-state-switch.active"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".toggle-category-customCategory-b29ea549-ecfb-46ac-9b69-4f70ffcc7b34"
+                                                    "selector": ".tri-state-switch"
                                                 }
                                             },
                                             "type": "F"
                                         }
                                     ]
                                 }
-                            ]
-                        }
-                    ]
+                            }
+                        ]
+                    }
                 },
                 "name": "DO_CONSENT"
             },
@@ -132,7 +157,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".uc-save-settings-button"
+                        "selector": "#ConfirmSettings"
                     }
                 },
                 "name": "SAVE_CONSENT"

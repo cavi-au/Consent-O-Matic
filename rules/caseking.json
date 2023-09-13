@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "kk.dk": {
+    "caseking": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner"
+                            "selector": "#cookie_consent_modal"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".eu-cookie-compliance-banner",
+                            "selector": "#cookie_consent_modal.ck_modal",
                             "displayFilter": true
                         }
                     }
@@ -25,14 +25,31 @@
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#sliding-popup"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookie_consent_modal"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ckLbOverlay"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ckCookieConsentButton"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -44,35 +61,28 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-functional"
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_A[src*='-on.']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_A[src*='-off.']"
+                                            }
                                         }
                                     },
-                                    "toggleAction": {
+                                    "trueAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "#ckCookieConsentToggle_A[src*='-off.']"
                                         }
                                     },
-                                    "type": "A"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-statistics"
-                                        }
-                                    },
-                                    "toggleAction": {
+                                    "falseAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-statistics"
+                                            "selector": "#ckCookieConsentToggle_A[src*='-on.']"
                                         }
                                     },
                                     "type": "B"
@@ -84,38 +94,31 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-analytics"
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_M[src*='-on.']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#ckCookieConsentToggle_M[src*='-off.']"
+                                            }
                                         }
                                     },
-                                    "toggleAction": {
+                                    "trueAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-analytics"
+                                            "selector": "#ckCookieConsentToggle_M[src*='-off.']"
                                         }
                                     },
-                                    "type": "B"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookie-category-social"
-                                        }
-                                    },
-                                    "toggleAction": {
+                                    "falseAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-social"
+                                            "selector": "#ckCookieConsentToggle_M[src*='-on.']"
                                         }
                                     },
-                                    "type": "X"
+                                    "type": "F"
                                 }
                             ]
                         }
@@ -127,7 +130,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".eu-cookie-compliance-save-preferences-button"
+                        "selector": "#ckCookieConsentButton"
                     }
                 },
                 "name": "SAVE_CONSENT"

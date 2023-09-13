@@ -34,70 +34,125 @@
             },
             {
                 "action": {
-                    "type": "consent",
-                    "consents": [
+                    "type": "list",
+                    "actions": [
                         {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "input"
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_functional"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label, input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_functional"
+                                        }
+                                    },
+                                    "type": "A"
                                 },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_functional"
-                                }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "label, input"
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_statistic"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label, input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_statistic"
+                                        }
+                                    },
+                                    "type": "A"
                                 },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_functional"
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_marketing"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label, input"
+                                        },
+                                        "parent": {
+                                            "selector": "#switch-cookie_cat_marketing"
+                                        }
+                                    },
+                                    "type": "F"
                                 }
-                            },
-                            "type": "A"
+                            ]
                         },
                         {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "input"
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cookie_cat_functional"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cookie_cat_functional"
+                                        }
+                                    },
+                                    "type": "A"
                                 },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_statistic"
-                                }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "label, input"
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cookie_cat_statistic"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cookie_cat_statistic"
+                                        }
+                                    },
+                                    "type": "B"
                                 },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_statistic"
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cookie_cat_marketing"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cookie_cat_marketing"
+                                        }
+                                    },
+                                    "type": "F"
                                 }
-                            },
-                            "type": "A"
-                        },
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "input"
-                                },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_marketing"
-                                }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "label, input"
-                                },
-                                "parent": {
-                                    "selector": "#switch-cookie_cat_marketing"
-                                }
-                            },
-                            "type": "F"
+                            ]
                         }
                     ]
                 },
@@ -170,6 +225,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#coiOverlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#coiConsentBanner"
                             }
                         }
                     ]
