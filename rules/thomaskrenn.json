@@ -1,0 +1,124 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "thomaskrenn": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".xtx-privacy-cookie"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".xtx-privacy-cookie",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".xtx-privacy-cookie"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".xtx-privacy-cookie.ConsentOMatic-CMP-PIP"
+                                    }
+                                },
+                                "selector": "div"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".xtxNavigationOffCanvasOverlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "[type='checkbox']"
+                                },
+                                "parent": {
+                                    "selector": "[label='Informational cookies']"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[type='checkbox']"
+                                },
+                                "parent": {
+                                    "selector": "[label='Informational cookies']"
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "[type='checkbox']"
+                                },
+                                "parent": {
+                                    "selector": "[label='Analysis cookies']"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[type='checkbox']"
+                                },
+                                "parent": {
+                                    "selector": "[label='Analysis cookies']"
+                                }
+                            },
+                            "type": "B"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[data-cookie-overlay-save]"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
