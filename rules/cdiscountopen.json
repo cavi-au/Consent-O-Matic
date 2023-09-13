@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".tc-privacy-iab-banner",
+                            "selector": ".tc-privacy-iab-banner,#popin_tc_privacy",
                             "displayFilter": true
                         }
                     }
@@ -56,7 +56,7 @@
                         {
                             "type": "click",
                             "target": {
-                                "selector": "#popin_tc_privacy_button"
+                                "selector": "#popin_tc_privacy_button,#footer_tc_privacy_button"
                             }
                         }
                     ]
