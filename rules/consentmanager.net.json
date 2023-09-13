@@ -100,7 +100,8 @@
                                                 "Create a personalised ads profile",
                                                 "Select personalised ads",
                                                 "Measure ad performance",
-                                                "Apply market research to generate audience insights"
+                                                "Apply market research to generate audience insights",
+                                                "Processing the Consumer’s Personal Data for Targeted Advertising (Virginia)"
                                             ]
                                         },
                                         "trueAction": {
@@ -243,7 +244,8 @@
                                         "target": {
                                             "selector": ".cmpvendname",
                                             "textFilter": [
-                                                "Develop and improve products"
+                                                "Develop and improve products",
+                                                "Sale of the Consumer’s Personal Data (Virginia)"
                                             ]
                                         },
                                         "trueAction": {
