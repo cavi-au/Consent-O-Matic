@@ -1,0 +1,170 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "justmusic": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#PrivacyCategoryAlert"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#PrivacyCategoryAlert",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#PrivacyCategoryAlert"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".modal-backdrop"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ToggleSettings"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".row.pc-block"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Functional"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".tri-state-switch.active"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".tri-state-switch"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Analysis"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".tri-state-switch.active"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".tri-state-switch"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "div",
+                                    "textFilter": [
+                                        "Marketing"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": ".tri-state-switch.active"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".tri-state-switch"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ConfirmSettings"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
