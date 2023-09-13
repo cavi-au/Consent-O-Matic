@@ -36,6 +36,24 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".didomi-button-standard.standard-button",
+                                "textFilter": [
+                                    "Settings"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".didomi-button-standard.standard-button",
+                                    "textFilter": [
+                                        "Settings"
+                                    ]
+                                }
+                            }
+                        },
+                        {
                             "type": "waitcss",
                             "target": {
                                 "selector": "#didomi-purpose-cookies"
@@ -72,7 +90,9 @@
                                                 "Archiviare e/o accedere a informazioni su un dispositivo",
                                                 "Utilizzare dati di geolocalizzazione precisi",
                                                 "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
-                                                "Archiviazione e accesso alle informazioni di geolocalizzazione per studi di marketing"
+                                                "Archiviazione e accesso alle informazioni di geolocalizzazione per studi di marketing",
+                                                "Relier différents terminaux",
+                                                "Informatie op een apparaat opslaan en/of openen"
                                             ]
                                         },
                                         "trueAction": {
@@ -134,7 +154,14 @@
                                                 "Creare un profilo di annunci personalizzati",
                                                 "Selezionare annunci basici (basic ads)",
                                                 "Marketing e targeting",
-                                                "Archiviazione e accesso alle informazioni di geolocalizzazione per scopi pubblicitari mirati"
+                                                "Archiviazione e accesso alle informazioni di geolocalizzazione per scopi pubblicitari mirati",
+                                                "Prestaties van advertenties meten",
+                                                "Gepersonaliseerde advertenties selecteren",
+                                                "Basisadvertenties selecteren",
+                                                "Een gepersonaliseerd advertentieprofiel aanmaken",
+                                                "Opslag en toegang tot geolocatie-informatie voor gerichte reclamedoeleinden",
+                                                "Social Media",
+                                                "Advertenties online kansspelen"
                                             ]
                                         },
                                         "trueAction": {
@@ -170,7 +197,7 @@
                                                 "Contact",
                                                 "Personnalisation de votre service",
                                                 "Sélectionner du contenu personnalisé",
-                                                "Sélectionner des publicités standard",  
+                                                "Sélectionner des publicités standard",
                                                 "Recommandations personnalisées de programmes",
                                                 "Contenus interactifs proposés par des tiers",
                                                 "Contenus cartographiques et infographiques",
@@ -187,7 +214,10 @@
                                                 "Personnalisation des contenus et des services",
                                                 "Selezionare contenuti personalizzati",
                                                 "Creare un profilo di contenuto personalizzato",
-                                                "Misurazione delle performance dei contenuti"
+                                                "Misurazione delle performance dei contenuti",
+                                                "Content prestaties meten",
+                                                "Een gepersonaliseerd content profiel aanmaken",
+                                                "Gepersonaliseerde content selecteren"
                                             ]
                                         },
                                         "trueAction": {
@@ -223,7 +253,8 @@
                                                 "Utvikle og forbedre produkter",
                                                 "Tuotekehitys",
                                                 "Activation de l'affiliation",
-                                                "Sviluppare e perfezionare i prodotti"
+                                                "Sviluppare e perfezionare i prodotti",
+                                                "Producten ontwikkelen en verbeteren"
                                             ]
                                         },
                                         "trueAction": {
@@ -275,7 +306,12 @@
                                                 "Cookies fonctionnels et statistiques d'usage du site",
                                                 "Valutare le performance degli annunci",
                                                 "Valutare le performance dei contenuti",
-                                                "Analisi / Misurazioni"
+                                                "Analisi / Misurazioni",
+                                                "Mettre en correspondance et combiner des sources de données hors ligne",
+                                                "Collecte de données statistiques et A/B Testing",
+                                                "Marktonderzoek toepassen om inzichten in het publiek te genereren",
+                                                "Gezamenlijke groepsprofielen",
+                                                "Uitgebreide meting"
                                             ]
                                         },
                                         "trueAction": {
@@ -311,7 +347,8 @@
                                                 "Ces identifiants permettent d'interagir avec les plateformes vidéos.",
                                                 "Activation des services interactifs proposés par des tiers",
                                                 "La gestion des paiements des Services",
-                                                "Nécessaires au fonctionnement du service"
+                                                "Nécessaires au fonctionnement du service",
+                                                "Personnalisation du service"
                                             ]
                                         },
                                         "trueAction": {
@@ -404,6 +441,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#didomi-consent-popup"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".didomi-popup-view"
                             }
                         }
                     ]
