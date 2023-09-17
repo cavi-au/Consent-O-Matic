@@ -267,9 +267,10 @@ class ConsentEngine {
                                         console.groupEnd();
                                     }
                                 }
-
-                                if (ConsentEngine.debugValues.debugLog) {
-                                    console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
+                                if(!ConsentEngine.debugValues.skipOpenMethod) {
+                                    if (ConsentEngine.debugValues.debugLog) {
+                                        console.groupCollapsed(cmp.name + " - OPEN_OPTIONS");
+                                    }
                                 }
                                 await cmp.runMethod("OPEN_OPTIONS", self.consentTypes);
                                 if (ConsentEngine.debugValues.debugLog) {
