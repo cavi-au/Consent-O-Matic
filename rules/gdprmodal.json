@@ -1,0 +1,206 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "gdprmodal": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#gdpr-modal #gdpr-consent-content"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#gdpr-modal #gdpr-consent-content",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#gdpr-modal"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-twitter"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-twitter"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-facebook"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-facebook"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-taboola"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-taboola"
+                                        }
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-nativo"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-nativo"
+                                        }
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-blueconic"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-blueconic"
+                                        }
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-realm"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-realm"
+                                        }
+                                    },
+                                    "type": "E"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-parsely"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-parsely"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-google-analytics"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-google-analytics"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#gdpr-service-chartbeat"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#gdpr-service-chartbeat"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#continue"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#continue"
+                    }
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
