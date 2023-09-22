@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CookieConsent"
+                            "selector": "#CookieConsent .modal-content .modal-header"
                         }
                     }
                 ],
