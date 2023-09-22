@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#coiOverlay, #coiSummery, #coiConsentBanner, #coi-banner-wrapper"
+                            "selector": "#coiOverlay, #coiSummery, #coiConsentBanner, #coi-banner-wrapper, .coi-consent-summary"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#coiOverlay, #coiSummery, #coiConsentBanner, #coi-banner-wrapper",
+                            "selector": "#coiOverlay, #coiSummery, #coiConsentBanner, #coi-banner-wrapper, .coi-consent-summary",
                             "displayFilter": true
                         }
                     }
@@ -165,25 +165,25 @@
                         {
                             "type": "ifcss",
                             "target": {
-                                "selector": "#coiConsentBanner #declineButton, #coiOverlay #declineButton",
+                                "selector": "#coiConsentBanner #declineButton, #coiOverlay #declineButton,#declineButton",
                                 "displayFilter": true
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#coiConsentBanner #declineButton, #coiOverlay #declineButton"
+                                    "selector": "#coiConsentBanner #declineButton, #coiOverlay #declineButton,#declineButton"
                                 }
                             },
                             "falseAction": {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "#coiConsentBanner #updateButton, #coiOverlay #updateButton",
+                                    "selector": "#coiConsentBanner #updateButton, #coiOverlay #updateButton,#updateButton",
                                     "displayFilter": true
                                 },
                                 "trueAction": {
                                     "type": "click",
                                     "target": {
-                                        "selector": "#coiConsentBanner #updateButton, #coiOverlay #updateButton"
+                                        "selector": "#coiConsentBanner #updateButton, #coiOverlay #updateButton,#updateButton"
                                     }
                                 },
                                 "falseAction": {
@@ -231,6 +231,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#coiConsentBanner"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#CI-consent-popup"
                             }
                         }
                     ]
