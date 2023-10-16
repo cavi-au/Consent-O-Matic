@@ -7,7 +7,15 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog, #cookiebanner",
                             "displayFilter": true
                         }
                     }
@@ -40,6 +48,13 @@
                             "type": "click",
                             "target": {
                                 "selector": ".js-cookie-settings",
+                                "displayFilter": true
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-toggle='collapse']",
                                 "displayFilter": true
                             }
                         }
@@ -323,6 +338,13 @@
                                 "selector": ".cb-button",
                                 "displayFilter": true
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[onclick='handleCustomConsent();']",
+                                "displayFilter": true
+                            }
                         }
                     ]
                 },
@@ -348,6 +370,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#cb-cookieoverlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiebanner"
                             }
                         }
                     ]
