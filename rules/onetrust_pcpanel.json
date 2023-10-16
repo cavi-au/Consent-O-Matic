@@ -91,7 +91,15 @@
                                                 "Præferencer",
                                                 "Functional",
                                                 "Cookie funzionali",
-                                                "Cookie di funzionalità"
+                                                "Cookie di funzionalità",
+                                                "Personalisation of our website",
+                                                "Cookies fonctionnels",
+                                                "Cookies de funcionalidad",
+                                                "Cookies de desempenho",
+                                                "Functionele cookies",
+                                                "Funktionalitetscookies",
+                                                "Funktionella cookies",
+                                                "Cookies de fonctionnalité"
                                             ]
                                         },
                                         "trueAction": {
@@ -134,7 +142,18 @@
                                                 "PUBBLICITÀ",
                                                 "REKLAMY",
                                                 "RECLAME",
-                                                "Cookie di targeting"
+                                                "Cookie di targeting",
+                                                "Technisch nicht notwendige Cookies",
+                                                "Cookies non essentiels",
+                                                "Niet-essentiële cookies",
+                                                "Cookie non essenziali",
+                                                "Ccookies no esenciales",
+                                                "Cookies não essenciais",
+                                                "Non-Essential Cookies",
+                                                "Google & IAB TCF 2 Purposes of Processing",
+                                                "Consent to the use of IAB Transparence & Consent Framework (TCF)",
+                                                "Markedsføringscookies",
+                                                "Cookies pour une publicité ciblée"
                                             ]
                                         },
                                         "trueAction": {
@@ -176,7 +195,15 @@
                                                 "Performance Technologies",
                                                 "Audience Measurement",
                                                 "Cookie di prestazione",
-                                                "Analizzare il pubblico e le performance dei contenuti"
+                                                "Analizzare il pubblico e le performance dei contenuti",
+                                                "Statistics and analysis",
+                                                "Analytic Cookies",
+                                                "Cookies de performance",
+                                                "Cookie di performance",
+                                                "Cookies de rendimiento",
+                                                "Performance-Cookies",
+                                                "Prestatiecookies",
+                                                "Prestanda-cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -210,7 +237,8 @@
                                                 "Informationen auf einem Gerät speichern und/oder abrufen",
                                                 "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
                                                 "Specielle formål",
-                                                "Archiviare e/o accedere a informazioni su un dispositivo"
+                                                "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                "Visitor identification"
                                             ]
                                         },
                                         "trueAction": {
@@ -245,7 +273,8 @@
                                                 "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
                                                 "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessungen, Erkenntnisse über Zielgruppen und Produktentwicklungen",
                                                 "Annunci e contenuti personalizzati, valutazione degli annunci e del contenuto, osservazioni del pubblico e sviluppo di prodotti",
-                                                "Targeting and Sponsor Cookies"
+                                                "Targeting and Sponsor Cookies",
+                                                "Cookies dirigidas"
                                             ]
                                         },
                                         "trueAction": {
@@ -348,7 +377,9 @@
                                                 "Informasjonskapsler for sosiale medier",
                                                 "SOCIALE MEDIA",
                                                 "Personalizzare navigazione e contenuti",
-                                                "Altri cookie non tecnici (non standard IAB)"
+                                                "Altri cookie non tecnici (non standard IAB)",
+                                                "Cookies das redes sociais",
+                                                "Sociala medier-cookies"
                                             ]
                                         },
                                         "trueAction": {
@@ -383,7 +414,11 @@
                                                 "PERSONALIZACIÓN DEL CONTENIDO",
                                                 "PERSONALIZZAZIONE DEI CONTENUTI",
                                                 "PERSONALIZACJA TRESCI",
-                                                "INHOUDSPERSONALISATIE"
+                                                "INHOUDSPERSONALISATIE",
+                                                "Communications",
+                                                "Doelgroepgerichte cookies",
+                                                "Riktade cookies",
+                                                "Personalised content, content measurement, audience insights, and product development"
                                             ]
                                         },
                                         "trueAction": {
