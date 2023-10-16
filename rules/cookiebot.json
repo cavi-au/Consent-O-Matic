@@ -73,13 +73,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences, [name='preferences']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences, [name='preferences']"
                                         }
                                     },
                                     "type": "A"
@@ -88,13 +88,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics,[name='statistics']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics, [name='statistics']"
                                         }
                                     },
                                     "type": "B"
@@ -103,13 +103,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing,[name='marketing']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing, [name='marketing']"
                                         }
                                     },
                                     "type": "F"
