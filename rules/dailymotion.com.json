@@ -31,7 +31,8 @@
                     "type": "click",
                     "target": {
                         "selector": ".TCF2Popup__personalize___NeAe-"
-                    }
+                    },
+                    "openInTab": true
                 },
                 "name": "OPEN_OPTIONS"
             },
