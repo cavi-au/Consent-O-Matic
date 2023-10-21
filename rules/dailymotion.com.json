@@ -382,7 +382,13 @@
                             }
                         },
                         {
-                            "type": "close"
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".TCF2ConsentPage__saveButton___56I8A"
+                            },
+                            "trueAction": {
+                                "type": "close"
+                            }
                         }
                     ]
                 },
