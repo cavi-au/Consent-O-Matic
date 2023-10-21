@@ -102,13 +102,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "D"
@@ -171,13 +171,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "F"
@@ -217,7 +217,9 @@
                                                 "Misurazione delle performance dei contenuti",
                                                 "Content prestaties meten",
                                                 "Een gepersonaliseerd content profiel aanmaken",
-                                                "Gepersonaliseerde content selecteren"
+                                                "Gepersonaliseerde content selecteren",
+                                                "Affichage des contenus",
+                                                "Promotion de contenus sur la base de la navigation"
                                             ]
                                         },
                                         "trueAction": {
@@ -227,13 +229,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "E"
@@ -264,13 +266,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "X"
@@ -321,13 +323,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "B"
@@ -358,13 +360,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ":scope > .didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
                                                         }
                                                     },
                                                     "type": "A"
