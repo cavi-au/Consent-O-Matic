@@ -1,0 +1,84 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "turnier.de": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-page"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".message-page",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".js-show-purposes"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "[for=\"CookiePurposes_1_\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "wait",
+                                        "waitTime": 200
+                                    },
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[for=\"CookiePurposes_1_\"]"
+                                        }
+                                    }
+                                ]
+                            },
+                            "type": "B"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".js-save"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
