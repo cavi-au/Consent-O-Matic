@@ -107,7 +107,8 @@
                                                 "Functional",
                                                 "Funktionalitets",
                                                 "Funktionelle Cookies",
-                                                "Funktionalitets- og profilcookies"
+                                                "Funktionalitets- og profilcookies",
+                                                "Functional/Performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -134,13 +135,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "A"
@@ -183,13 +184,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "F"
@@ -229,13 +230,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "D"
@@ -249,7 +250,8 @@
                                             "selector": ".gwt-InlineHTML",
                                             "textFilter": [
                                                 "Personalised ads, ad measurement, and audience insights",
-                                                "Reklame- og Targetingcookies"
+                                                "Reklame- og Targetingcookies",
+                                                "Advertising"
                                             ]
                                         },
                                         "trueAction": {
@@ -276,13 +278,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "F"
@@ -322,13 +324,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "E"
@@ -369,13 +371,13 @@
                                                     "trueAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.off[role='option'], span.consentyes"
+                                                            "selector": ".switch span.off[role='option'], span.consentyes, .switch span.off[role='button']"
                                                         }
                                                     },
                                                     "falseAction": {
                                                         "type": "click",
                                                         "target": {
-                                                            "selector": ".switch span.on[role='option'], span.consentno"
+                                                            "selector": ".switch span.on[role='option'], span.consentno,.switch span.on[role='button']"
                                                         }
                                                     },
                                                     "type": "X"
@@ -443,8 +445,7 @@
                                             "target": {
                                                 "selector": "h3",
                                                 "textFilter": [
-                                                    "Analytics",
-                                                    "Performance Cookies"
+                                                    "Analytics"
                                                 ]
                                             },
                                             "trueAction": {
