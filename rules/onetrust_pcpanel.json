@@ -153,7 +153,9 @@
                                                 "Google & IAB TCF 2 Purposes of Processing",
                                                 "Consent to the use of IAB Transparence & Consent Framework (TCF)",
                                                 "Markedsføringscookies",
-                                                "Cookies pour une publicité ciblée"
+                                                "Cookies pour une publicité ciblée",
+                                                "Kohdentaminen",
+                                                "Personoidut mainokset ja mainonnan mittaus"
                                             ]
                                         },
                                         "trueAction": {
@@ -203,7 +205,8 @@
                                                 "Cookies de rendimiento",
                                                 "Performance-Cookies",
                                                 "Prestatiecookies",
-                                                "Prestanda-cookies"
+                                                "Prestanda-cookies",
+                                                "Suorituskyky"
                                             ]
                                         },
                                         "trueAction": {
@@ -338,7 +341,10 @@
                                                 "Actively scan device characteristics for identification",
                                                 "Aktivt scanne enhedskarakteristika til identifikation",
                                                 "Geräteeigenschaften zur Identifikation aktiv abfragen",
-                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
+                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
+                                                "Automaattisesti lähetettävien laitetietojen käyttö laitteiden tunnistamisessa",
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
+                                                "Tarkat sijaintitiedot ja laitteen tunnistaminen laitetta skannaamalla"
                                             ]
                                         },
                                         "trueAction": {
@@ -379,7 +385,8 @@
                                                 "Personalizzare navigazione e contenuti",
                                                 "Altri cookie non tecnici (non standard IAB)",
                                                 "Cookies das redes sociais",
-                                                "Sociala medier-cookies"
+                                                "Sociala medier-cookies",
+                                                "Sosiaalinen media"
                                             ]
                                         },
                                         "trueAction": {
@@ -418,7 +425,9 @@
                                                 "Communications",
                                                 "Doelgroepgerichte cookies",
                                                 "Riktade cookies",
-                                                "Personalised content, content measurement, audience insights, and product development"
+                                                "Personalised content, content measurement, audience insights, and product development",
+                                                "Toimivuus",
+                                                "Personoitu sisältö, sisällön mittaus, käyttäjäymmärrys ja tuotekehitys"
                                             ]
                                         },
                                         "trueAction": {
