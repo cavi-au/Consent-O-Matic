@@ -51,78 +51,146 @@
             },
             {
                 "action": {
-                    "type": "click",
+                    "type": "ifcss",
                     "target": {
                         "selector": "#ensModalBanner"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#ensModalBanner"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#ensOpenModal"
+                        }
                     }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "type": "consent",
-                    "consents": [
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "#AdvertisingSlide"
-                                }
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#ensModalBanner"
+                    },
+                    "trueAction": {
+                        "type": "consent",
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#AdvertisingSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#AdvertisingSlide"
+                                    }
+                                },
+                                "type": "F"
                             },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#AdvertisingSlide"
-                                }
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "[id='Recommendations and TestingSlide']"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[id='Recommendations and TestingSlide']"
+                                    }
+                                },
+                                "type": "E"
                             },
-                            "type": "F"
-                        },
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "[id='Recommendations and TestingSlide']"
-                                }
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#FunctionalitySlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#FunctionalitySlide"
+                                    }
+                                },
+                                "type": "A"
                             },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "[id='Recommendations and TestingSlide']"
-                                }
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#AnalyticsSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#AnalyticsSlide"
+                                    }
+                                },
+                                "type": "B"
+                            }
+                        ]
+                    },
+                    "falseAction": {
+                        "type": "consent",
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#FunctionalSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#FunctionalSlide"
+                                    }
+                                },
+                                "type": "A"
                             },
-                            "type": "E"
-                        },
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "#FunctionalitySlide"
-                                }
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#PerformanceSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#PerformanceSlide"
+                                    }
+                                },
+                                "type": "B"
                             },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#FunctionalitySlide"
-                                }
-                            },
-                            "type": "A"
-                        },
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "#AnalyticsSlide"
-                                }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#AnalyticsSlide"
-                                }
-                            },
-                            "type": "B"
-                        }
-                    ]
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "[id=\"Marketing and Social NetworksSlide\"]"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[id=\"Marketing and Social NetworksSlide\"]"
+                                    }
+                                },
+                                "type": "E"
+                            }
+                        ]
+                    }
                 },
                 "name": "DO_CONSENT"
             },
