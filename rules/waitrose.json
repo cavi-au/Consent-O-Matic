@@ -90,10 +90,19 @@
             },
             {
                 "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": "[data-testid='submit']"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": 200
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-testid='submit']"
+                            }
+                        }
+                    ]
                 },
                 "name": "SAVE_CONSENT"
             },
