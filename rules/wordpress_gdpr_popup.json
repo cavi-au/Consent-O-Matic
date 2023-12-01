@@ -1,0 +1,164 @@
+{
+	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "wordpressgdpr_popup": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wordpress-gdpr-popup"
+                    },
+                    "type": "css"
+                },
+                "showingMatcher": {
+                    "parent": null,
+                    "target": {
+                        "displayFilter": true,
+                        "selector": ".wordpress-gdpr-popup-container"
+                    },
+                    "type": "css"
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wordpress-gdpr-popup-preferences"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "foreach",
+                            "parent": {
+                                "selector": "wordpress-gdpr-popup"
+                            },
+                            "target": {
+                                "selector": ".wordpress-gdpr-privacy-settings-popup-services-container"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".wordpress-gdpr-popup-privacy-settings-service-category",
+                                            "textFilter": "Marketing"
+                                        },
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".wordpress-gdpr-popup-privacy-settings-service-category",
+                                                "textFilter": "Marketing"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "parent": {
+                                            "selector": ".wordpress-gdpr-privacy-settings-popup-services"
+                                        },
+                                        "target": {
+                                            "selector": ".wordpress-gdpr-popup-privacy-settings-services-content-title-box",
+                                            "textFilter": [
+                                                "Google Tag Manager"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "parent": {
+                                                            "selector": ".wordpress-gdpr-popup-privacy-settings-services-content-title-box",
+                                                            "textFilter": [
+                                                                "Google Tag Manager"
+                                                            ]                                                        },
+                                                        "target": {
+                                                            "selector": "input.gdpr-service-switch"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "parent": {
+                                            "selector": ".wordpress-gdpr-privacy-settings-popup-services"
+                                        },
+                                        "target": {
+                                            "selector": ".wordpress-gdpr-popup-privacy-settings-services-content-title-box",
+                                            "textFilter": [
+                                                "Facebook Pixel"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "parent": {
+                                                            "selector": ".wordpress-gdpr-popup-privacy-settings-services-content-title-box",
+                                                            "textFilter": [
+                                                                "Facebook Pixel"
+                                                            ]                                                        },
+                                                        "target": {
+                                                            "selector": "input.gdpr-service-switch"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "parent": null,
+                    "target": {
+                        "selector": ".wordpress-gdpr-privacy-settings-popup-services-accept-all"
+                    },
+                    "type": "click"
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".wordpress-gdpr-popup-overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".wordpress-gdpr-privacy-settings-popup"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            }
+        ]
+    }
+}

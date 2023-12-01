@@ -1,0 +1,123 @@
+{
+	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "avia": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".avia-cookie-consent-wrap"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".avia-cookie-consent",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".avia-cookie-consent"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".avia-button",
+                        "textFilter": [
+                            "impostazioni"
+                        ]
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".tab_titles"
+                            },
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "selector": ".tab",
+                                        "textFilter": [
+                                            "Altri servizi esterni"
+                                        ]
+                                    },
+                                    {
+                                        "type": "foreach",
+                                        "target": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "label",
+                                                    "textFilter": [
+                                                        "Clicca per attivare/disattivare Google Webfonts.",
+                                                        "Clicca per attivare/disattivare Google Maps.",
+                                                        "Clicca per attivare/disattivare Google reCaptcha.",
+                                                        "Clicca per abilitare/disabilitare gli incorporamenti video."
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".av-toggle-switch"
+                                        },
+                                        "action": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "label"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".avia-button",
+                        "textFilter": [
+                            "Accettare le impostazioni"
+                        ]
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

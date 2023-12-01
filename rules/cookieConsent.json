@@ -1,0 +1,71 @@
+{
+	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookieConsent": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".cookieConsentWrapper"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".cookieConsentWrapper"
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cookieConsentWrapper"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".cookieConsent__Button",
+                        "textFilter": [
+                            "Preferences",
+                            "Preferenze"
+                        ]
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                        "actions": [
+                            {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookieConsent__Button--Close"
+                                }
+                            },
+                            {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookieConsent__Button",
+                                    "textFilter": [
+                                        "Accetta"
+                                    ]
+                                }
+                            }
+                        ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

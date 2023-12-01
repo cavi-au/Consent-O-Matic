@@ -12,7 +12,7 @@
                 "showingMatcher": {
                     "type": "css",
                     "target": {
-                        "selector": "#cookiescript_wrapper",
+                        "selector": "#cookiescript_injected",
                         "displayFilter": true
                     }
                 }
@@ -23,12 +23,18 @@
                 "action": {
                     "type": "hide",
                     "target": {
-                        "selector": "#cookiescript_wrapper"
+                        "selector": "#cookiescript_injected"
                     }
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "target": {
+                        "selector": "#cookiescript_manage"
+                    },
+                    "type": "click"
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -44,7 +50,39 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": "label",
-                                    "textFilter": "STATISTISKE"
+                                    "textFilter": [
+                                        "Funzionalità"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "input"
+                                                }
+                                            },
+                                            "type": "A"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "STATISTISKE",
+                                        "Statistici"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -71,7 +109,11 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": "label",
-                                    "textFilter": "MARKETING"
+                                    "textFilter": [
+                                        "MARKETING",
+                                        "Targeting",
+                                        "Di profilazione"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -98,7 +140,10 @@
                                 "type": "ifcss",
                                 "target": {
                                     "selector": "label",
-                                    "textFilter": "FUNKTIONELLE"
+                                    "textFilter": [
+                                        "FUNKTIONELLE",
+                                        "Performance"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -130,7 +175,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#cookiescript_reject"
+                        "selector": "#cookiescript_save"
                     }
                 },
                 "name": "SAVE_CONSENT"

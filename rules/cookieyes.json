@@ -1,0 +1,162 @@
+{
+	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookieyes": {
+        "detectors": [
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".cky-consent-container"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": ".cky-consent-container",
+                        "displayFilter": true
+                    }
+                }
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cky-consent-container"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "target": {
+                        "selector": ".cky-btn-customize"
+                    },
+                    "type": "click"
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ckyDetailCategoryfunctional"
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                                "target": {
+                                                "selector": "#ckySwitchfunctional"
+                                            }
+                                        },
+                                        "type": "A"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ckyDetailCategoryanalytics"
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                                "target": {
+                                                "selector": "#ckySwitchanalytics"
+                                            }
+                                        },
+                                        "type": "B"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ckyDetailCategoryperformance"
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                                "target": {
+                                                "selector": "#ckySwitchperformance"
+                                            }
+                                        },
+                                        "type": "B"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ckyDetailCategoryadvertisement"
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                                "target": {
+                                                "selector": "#ckySwitchadvertisement"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "#ckyDetailCategoryother"
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                                "target": {
+                                                "selector": "#ckySwitchother"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cky-btn-preferences"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
