@@ -199,12 +199,12 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/contentpass.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/chefcookie.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookiesjsr.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/wordpress_gdpr_popup.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookieyes.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookieConsent.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/easycookieinfo.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookie-notice.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/cookie-consent.json",
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/avia.json"
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/wordpress_gdpr_popup.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookieyes.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookieConsent.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/easycookieinfo.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookie-notice.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookie_consent.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/avia.json"
   ]
 }
