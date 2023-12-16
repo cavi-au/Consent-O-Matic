@@ -29,35 +29,26 @@
                         "selector": "#cookie-law"
                     }
                 }
-            },
-            {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#cookie-law-info-bar"
-                    }
-                }
             }
         ],
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#cookie-law-bar"
-                    }
-                },
-                "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#cookie-law"
-                    }
-                },
-                "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#cookie-law-info-bar"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookie-law-bar"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookie-law"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },

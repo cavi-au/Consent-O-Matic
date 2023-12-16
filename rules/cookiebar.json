@@ -447,7 +447,7 @@
                         {
                             "type": "hide",
                             "target": {
-                                "selector": "#cookie-bar, #cookie-bar-prompt, #cookie-dialog"
+                                "selector": "#cookie-bar, #cookie-bar-prompt, #cookie-dialog, #cookie-law-info-bar"
                             }
                         }
                     ]
