@@ -12814,5 +12814,43 @@
           "name": "UTILITY"
       }
   ]
+},
+"cookielaw": {
+  "detectors": [
+      {
+          "presentMatcher": {
+              "type": "css",
+              "target": {
+                  "selector": "#cookie-law-bar"
+              }
+          },
+          "showingMatcher": {
+              "type": "css",
+              "target": {
+                  "selector": "#cookie-law-bar"
+              }
+          }
+      }
+  ],
+  "methods": [
+      {
+          "action": {
+              "type": "hide",
+              "target": {
+                  "selector": "#cookie-law-bar"
+              }
+          },
+          "name": "HIDE_CMP"
+      },
+      {
+          "name": "OPEN_OPTIONS"
+      },
+      {
+          "name": "SAVE_CONSENT"
+      },
+      {
+          "name": "UTILITY"
+      }
+  ]
 }
 }

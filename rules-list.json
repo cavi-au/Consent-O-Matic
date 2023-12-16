@@ -206,6 +206,7 @@
     "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookie-notice.json",
     "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookie_consent.json",
     "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/avia.json",
-    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/gdpr_cookie_consent.json"
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/gdpr_cookie_consent.json",
+    "https://raw.githubusercontent.com/MattLomb/Consent-O-Matic/master/rules/cookielaw.json"
   ]
 }
