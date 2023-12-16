@@ -15,6 +15,28 @@
                         "selector": "#cookie-law-bar"
                     }
                 }
+            },
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookie-law"
+                    }
+                },
+                "showingMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookie-law"
+                    }
+                }
+            },
+            {
+                "presentMatcher": {
+                    "type": "css",
+                    "target": {
+                        "selector": "#cookie-law-info-bar"
+                    }
+                }
             }
         ],
         "methods": [
@@ -23,6 +45,18 @@
                     "type": "hide",
                     "target": {
                         "selector": "#cookie-law-bar"
+                    }
+                },
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cookie-law"
+                    }
+                },
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cookie-law-info-bar"
                     }
                 },
                 "name": "HIDE_CMP"
