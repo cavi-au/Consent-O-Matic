@@ -12616,5 +12616,203 @@
           "name": "UTILITY"
       }
   ]
+},
+"gdpr_cookie_consent": {
+  "detectors": [
+      {
+          "presentMatcher": {
+              "type": "css",
+              "target": {
+                  "selector": "#gdpr-cookie-consent-bar"
+              }
+          },
+          "showingMatcher": {
+              "type": "css",
+              "target": {
+                  "selector": "#gdpr-cookie-consent-bar",
+                  "displayFilter": true
+              }
+          }
+      }
+  ],
+  "methods": [
+      {
+          "action": {
+              "type": "hide",
+              "target": {
+                  "selector": "#gdpr-cookie-consent-bar"
+              }
+          },
+          "name": "HIDE_CMP"
+      },
+      {
+          "action": {
+              "target": {
+                  "selector": "#cookie_action_settings",
+                  "textFilter": [
+                      "Impostazioni"
+                  ]
+              },
+              "type": "click"
+          },
+          "name": "OPEN_OPTIONS"
+      },
+      {
+          "action": {
+              "type": "list",
+              "actions": [
+                  {
+                      "type": "foreach",
+                      "target": {
+                          "selector": "li.category-item",
+                          "childFilter": {
+                              "target": {
+                                  "selector": "a.btn",
+                                  "textFilter": [
+                                      "Marketing"
+                                  ]
+                              }
+                          }
+                      },
+                      "action": {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "#gdpr_messagebar_body_button_marketing"
+                                      }
+                                  },
+                                  "type": "F"
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "type": "foreach",
+                      "target": {
+                          "selector": "li.category-item",
+                          "childFilter": {
+                              "target": {
+                                  "selector": "a.btn",
+                                  "textFilter": [
+                                      "Analytics"
+                                  ]
+                              }
+                          }
+                      },
+                      "action": {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "#gdpr_messagebar_body_button_analytics"
+                                      }
+                                  },
+                                  "type": "B"
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "type": "foreach",
+                      "target": {
+                          "selector": "li.category-item",
+                          "childFilter": {
+                              "target": {
+                                  "selector": "a.btn",
+                                  "textFilter": [
+                                      "Preferenze"
+                                  ]
+                              }
+                          }
+                      },
+                      "action": {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "#gdpr_messagebar_body_button_preferences"
+                                      }
+                                  },
+                                  "type": "A"
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "type": "foreach",
+                      "target": {
+                          "selector": "li.category-item",
+                          "childFilter": {
+                              "target": {
+                                  "selector": "a.btn",
+                                  "textFilter": [
+                                      "Altri"
+                                  ]
+                              }
+                          }
+                      },
+                      "action": {
+                          "type": "consent",
+                          "consents": [
+                              {
+                                  "matcher": {
+                                      "type": "checkbox",
+                                      "target": {
+                                          "selector": "input"
+                                      }
+                                  },
+                                  "toggleAction": {
+                                      "type": "click",
+                                      "target": {
+                                          "selector": "#gdpr_messagebar_body_button_unclassified"
+                                      }
+                                  },
+                                  "type": "X"
+                              }
+                          ]
+                      }
+                  }
+              ]
+          },
+          "name": "DO_CONSENT"
+      },
+      {
+          "action": {
+              "type": "click",
+              "target": {
+                  "selector": "#cookie_action_save"
+              }
+          },
+          "name": "SAVE_CONSENT"
+      },
+      {
+          "name": "UTILITY"
+      }
+  ]
 }
 }
