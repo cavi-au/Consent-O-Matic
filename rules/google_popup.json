@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "google_popup": {
         "detectors": [
             {
@@ -28,7 +28,9 @@
                         "type": "css",
                         "target": {
                             "selector": "[role=\"dialog\"]",
-                            "textFilter": "g.co/privacytools"
+                            "textFilter": [
+                                "g.co/privacytools"
+                            ]
                         }
                     }
                 ]
@@ -44,38 +46,55 @@
                     "target": {
                         "selector": "[role=\"dialog\"] button, [role=\"dialog\"] a",
                         "textFilter": [
-                            "Pasmaak",
-                            "Fərdiləşdirin",
-                            "Prilagodi",
-                            "Personalitza",
-                            "Přizpůsobit",
-                            "Addasu",
-                            "Přizpůsobit",
-                            "Tilpas",
-                            "Anpassen",
-                            "Kohanda",
-                            "Customise",
-                            "Personalizar",
-                            "Pertsonalizatu",
-                            "I-customize",
-                            "Saincheap",
-                            "Personalizar",
-                            "Sesuaikan",
-                            "Personalizza",
-                            "Aanpassen",
-                            "Personnaliser",
-			    "More options",
-			    "Flere alternativer",
-			    "Weitere Optionen",
-			    "Flere valgmuligheder",
-			    "Plus d'options",
-			    "Fler alternativ",
-			    "Más opciones",
-			    "Mais opções",
-			    "Meer opties",
-			    "Więcej opcji",
-			    "Več možnosti",
-			    "További lehetőségek"
+                            "Meer opsies",
+                            "Digər seçimlər",
+                            "Više opcija",
+                            "Més opcions",
+                            "Další možnosti",
+                            "Rhagor o ddewisiadau",
+                            "Flere valgmuligheder",
+                            "Weitere Optionen",
+                            "Rohkem valikuid",
+                            "More options",
+                            "Más opciones",
+                            "Aukera gehiago",
+                            "Higit pang opsyon",
+                            "Plus d'options",
+                            "Tuilleadh roghanna",
+                            "Máis opcións",
+                            "Više opcija",
+                            "Opsi lainnya",
+                            "Fleiri valkostir",
+                            "Izinketho eziningi",
+                            "Altre opzioni",
+                            "Chaguo zaidi",
+                            "Papildu opcijas",
+                            "Daugiau parinkčių",
+                            "További lehetőségek",
+                            "Lagi pilihan",
+                            "Meer opties",
+                            "Flere alternativer",
+                            "Boshqa variantlar",
+                            "Więcej opcji",
+                            "Mais opções",
+                            "Mai multe opțiuni",
+                            "Opsione të tjera",
+                            "Ďalšie možnosti",
+                            "Več možnosti",
+                            "Još opcija",
+                            "Lisäasetukset",
+                            "Fler alternativ",
+                            "Lựa chọn khác",
+                            "Daha fazla seçenek",
+                            "Περισσότερες επιλογές",
+                            "Дадатковыя параметры",
+                            "Още опции",
+                            "Кошумча параметрлер",
+                            "Повеќе опции",
+                            "Бусад сонголт",
+                            "Другие варианты",
+                            "Још опција",
+                            "Більше варіантів"
                         ]
                     }
                 },
