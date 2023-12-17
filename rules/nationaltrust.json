@@ -1,22 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "harvester": {
+    "nationaltrust": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cookie-manager.cookie-manager__modal"
-                        }
-                    }
-                ],
-                "showingMatcher": [
-                    {
-                        "type": "css",
-                        "target": {
-                            "selector": ".cookie-manager.cookie-manager__modal",
-                            "displayFilter": true
+                            "selector": "#cookieOptions.nt-cookie-popup"
                         }
                     }
                 ]
@@ -27,7 +18,7 @@
                 "action": {
                     "type": "hide",
                     "target": {
-                        "selector": ".cookie-manager.cookie-manager__modal"
+                        "selector": ".cookie-preferences-forms"
                     }
                 },
                 "name": "HIDE_CMP"
@@ -36,43 +27,59 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cookie-manager__button--secondary[data-v-2ba34a1e=\"\"]",
-                        "textFilter": [
-                            "Manage cookies"
-                        ]
+                        "selector": "[data-tst=\"manage-cookies\"]"
                     }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "type": "list",
-                    "actions": [
+                    "type": "consent",
+                    "consents": [
                         {
-                            "type": "click",
-                            "target": {
-                                "selector": "#switch-toggle-2"
-                            }
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[for=\"personalisation-yes\"]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[for=\"personalisation-no\"]"
+                                }
+                            },
+                            "type": "A"
                         },
                         {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#switch-toggle-2"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#switch-toggle-2"
-                                        }
-                                    },
-                                    "type": "A"
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"analytics-yes\"]"
                                 }
-                            ]
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"analytics-no\"]"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"marketing-yes\"]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"marketing-no\"]"
+                                }
+                            },
+                            "type": "E"
                         }
                     ]
                 },
@@ -82,7 +89,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cookie-manager__button.cookie-manager__button--secondary[data-v-5cca015c=''][style='']"
+                        "selector": "[data-tst=\"save-close\"]"
                     }
                 },
                 "name": "SAVE_CONSENT"
