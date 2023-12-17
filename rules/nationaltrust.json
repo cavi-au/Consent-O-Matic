@@ -10,6 +10,15 @@
                             "selector": "#cookieOptions.nt-cookie-popup"
                         }
                     }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookieOptions.nt-cookie-popup",
+                            "displayFilter": true
+                        }
+                    }
                 ]
             }
         ],
@@ -79,7 +88,7 @@
                                     "selector": "[data-tst=\"marketing-no\"]"
                                 }
                             },
-                            "type": "E"
+                            "type": "F"
                         }
                     ]
                 },
