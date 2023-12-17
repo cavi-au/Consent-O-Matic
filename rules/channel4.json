@@ -1,0 +1,224 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "channel4": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-consent-banner .all4-cc-popup-roadblock"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".all4-cc-popup__content-area",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cookie-consent-banner"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[aria-label=\"Manage cookie preferences\"]"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"false\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Channel 4 Promotions"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"true\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Channel 4 Promotions"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"false\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Targeted Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"true\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Targeted Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"false\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Web Messaging"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"true\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Targeted Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "type": "D"
+                                },
+                                {
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "External Content"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".all4-cc-check-box[aria-checked=\"true\"]"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "p",
+                                                    "textFilter": [
+                                                        "Targeted Advertising"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": ".all4-cc-popup__child-element"
+                                        }
+                                    },
+                                    "type": "D"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[aria-label=\"Save cookie preferences and continue\"]"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
