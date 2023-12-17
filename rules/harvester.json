@@ -10,6 +10,15 @@
                             "selector": ".cookie-manager.cookie-manager__modal"
                         }
                     }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookie-manager.cookie-manager__modal",
+                            "displayFilter": true
+                        }
+                    }
                 ]
             }
         ],
@@ -37,22 +46,33 @@
             },
             {
                 "action": {
-                    "type": "consent",
-                    "consents": [
+                    "type": "list",
+                    "actions": [
                         {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "#switch-toggle-2"
+                            "type": "click",
+                            "target": {
+                                "selector": "#switch-toggle-2"
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#switch-toggle-2"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#switch-toggle-2"
+                                        }
+                                    },
+                                    "type": "A"
                                 }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#switch-toggle-2"
-                                }
-                            },
-                            "type": "A"
+                            ]
                         }
                     ]
                 },
@@ -62,7 +82,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".ce-disable.cookie-manager__button.cookie-manager__button--secondary[data-v-5cca015c=\"\"]"
+                        "selector": ".cookie-manager__button.cookie-manager__button--secondary[data-v-5cca015c=''][style='']"
                     }
                 },
                 "name": "SAVE_CONSENT"
