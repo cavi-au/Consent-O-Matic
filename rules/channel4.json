@@ -7,7 +7,16 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".all4-cc-popup-roadblock"
+                            "selector": "#cookie-consent-banner .all4-cc-popup-roadblock"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".all4-cc-popup__content-area",
+                            "displayFilter": true
                         }
                     }
                 ]
