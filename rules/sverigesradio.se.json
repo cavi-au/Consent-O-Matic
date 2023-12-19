@@ -51,19 +51,23 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "span",
-                                            "textFilter": [
-                                                "Inställningar"
-                                            ]
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Inställningar"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
                                         }
                                     },
-                                    "trueAction": {
+                                    "toggleAction": {
                                         "type": "list",
                                         "actions": [
-                                            {
-                                                "type": "wait",
-                                                "waitTime": 250
-                                            },
                                             {
                                                 "type": "click",
                                                 "target": {
@@ -86,19 +90,23 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "span",
-                                            "textFilter": [
-                                                "Statistik och prestanda"
-                                            ]
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Statistik och prestanda"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
                                         }
                                     },
-                                    "trueAction": {
+                                    "toggleAction": {
                                         "type": "list",
                                         "actions": [
-                                            {
-                                                "type": "wait",
-                                                "waitTime": 250
-                                            },
                                             {
                                                 "type": "click",
                                                 "target": {
@@ -121,19 +129,23 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "span",
-                                            "textFilter": [
-                                                "Innehåll från andra webbplatser"
-                                            ]
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Innehåll från andra webbplatser"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
                                         }
                                     },
-                                    "trueAction": {
+                                    "toggleAction": {
                                         "type": "list",
                                         "actions": [
-                                            {
-                                                "type": "wait",
-                                                "waitTime": 250
-                                            },
                                             {
                                                 "type": "click",
                                                 "target": {
@@ -157,10 +169,6 @@
                 "action": {
                     "type": "list",
                     "actions": [
-                        {
-                            "type": "wait",
-                            "waitTime": 250
-                        },
                         {
                             "type": "click",
                             "target": {
