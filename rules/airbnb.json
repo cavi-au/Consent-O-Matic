@@ -47,7 +47,24 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "button.f3dg75g"
+                        "selector": "[data-testid='main-cookies-banner-container'] button",
+                        "textFilter": [
+                            "Cookieindstillinger",
+                            "Inställningar för cookies",
+                            "Innstillinger for informasjonskapsler",
+                            "Evästeasetukset",
+                            "Cookie-Einstellungen",
+                            "Cookievoorkeuren",
+                            "Cookievoorkeuren",
+                            "Cookie Preferences",
+                            "Préférences de cookies",
+                            "Preferenze dei cookie",
+                            "Preferencias de cookies",
+                            "Preferências de Cookies",
+                            "Προτιμήσεις cookie",
+                            "Küpsiste eelistused",
+                            "Ustawienia plików cookie"
+                        ]
                     }
                 },
                 "name": "OPEN_OPTIONS"
