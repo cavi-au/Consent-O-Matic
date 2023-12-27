@@ -2,22 +2,21 @@ chrome.tabs.query({
     active: true,
     currentWindow: true
 }, (tabs) => {
-    let url = tabs[0].url;
-    url = url.substring(url.indexOf("://") + 3, url.indexOf("/", 8));
+    const hostname = new URL(tabs[0].url).hostname;
 
     let activeInput = document.querySelector(".siteselector input");
-    document.querySelector("#site").textContent = url;
-    document.querySelector("#unhandled_site").textContent = url;
+    document.querySelector("#site").textContent = hostname;
+    document.querySelector("#unhandled_site").textContent = hostname;
     document.querySelector("#settings").addEventListener("click", function () {
         chrome.runtime.openOptionsPage();
         window.close();
     });
 
-    GDPRConfig.isActive(url).then((active) => {
+    GDPRConfig.isActive(hostname).then((active) => {
         activeInput.checked = active;
     });
     activeInput.addEventListener("input", () => {
-        GDPRConfig.setPageActive(url, activeInput.checked);
+        GDPRConfig.setPageActive(hostname, activeInput.checked);
     });
 
     GDPRConfig.getDebugValues().then((settings) => {
@@ -32,7 +31,7 @@ chrome.tabs.query({
         document.querySelector("#unhandled").addEventListener("click", () => {
             document.querySelector(".fronttab").style.display = "none";
             document.querySelector(".unhandledtab").style.display = "block";
-            if (settings.skipSubmitConfirmation){
+            if (settings.skipSubmitConfirmation) {
                 document.querySelector("#unhandled_send").click();
             }
         });
@@ -42,7 +41,7 @@ chrome.tabs.query({
             window.close();
         });
         document.querySelector("#unhandled_send").addEventListener("click", () => {
-            fetch("https://gdprconsent.projects.cavi.au.dk/report.php?url=" + encodeURIComponent(url));
+            fetch("https://gdprconsent.projects.cavi.au.dk/report.php?url=" + encodeURIComponent(hostname));
             document.querySelector(".unhandledtab").style.display = "none";
             document.querySelector(".unhandledtab_complete").style.display = "block";
             setTimeout(() => {
@@ -52,6 +51,6 @@ chrome.tabs.query({
     });
 });
 
-window.addEventListener("DOMContentLoaded", ()=>{
+window.addEventListener("DOMContentLoaded", () => {
     Language.doLanguage();
 });
