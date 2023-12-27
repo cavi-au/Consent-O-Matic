@@ -1,95 +1,133 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-    }
-    body {
-        background: #00309a;
-        background: linear-gradient(to right, rgba(0,48,154,1) 0%,rgba(0,22,91,1) 100%);
-        color: white;
-        padding: 2em;
-        min-width: 20em;
-        max-width: 40em;
-        overflow-x: hidden;
-    }
-    img {
-        width: 3em;
-        height: 3em;
-        padding: 1em;
-        padding-left: 0;
-    }
-    .fronttab {
-	display: flex;
-    }
-    .unhandledtab_complete {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-    }
-    .siteselector {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        padding-bottom: 1em;
-        padding-top: 0.5em;
-    }
-    button, input {
-        padding: 1em;
-        margin: 0.5em 0;
-    }
-    input, button {
-	border: 1px solid black;
-	background: rgba(100,100,200,0.2);
-	transition: background 0.2s ease-in-out;
-	color: white;
-	cursor: pointer;
-    }
-    #unhandled_send {
-	background: rgba(100, 100, 255, 0.3)
-    }
-    #unhandled_send:hover {
-	background: rgba(100, 100, 255, 0.6)
-    }
-    button:hover {
-	background: rgba(100,100,200,0.5);
-    }
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #00309a;
+            background: linear-gradient(to right, rgba(0, 48, 154, 1) 0%, rgba(0, 22, 91, 1) 100%);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 0.8em;
+            color: white;
+            padding: 2em;
+            min-width: 20em;
+            max-width: 40em;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 3em;
+            height: 3em;
+            padding: 1em;
+            padding-left: 0;
+        }
+
+        .fronttab {
+            display: flex;
+        }
+
+        .fronttab__contents {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .notworking,
+        .keeprunning {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1em;
+        }
+
+        .unhandledtab_complete {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .siteselector {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        button,
+        input {
+            padding: 1em;
+            margin: 0.5em 0;
+        }
+
+        input,
+        button {
+            border: 1px solid black;
+            background: rgba(100, 100, 200, 0.2);
+            transition: background 0.2s ease-in-out;
+            color: white;
+            cursor: pointer;
+        }
+
+        #unhandled_send {
+            background: rgba(100, 100, 255, 0.3)
+        }
+
+        #unhandled_send:hover {
+            background: rgba(100, 100, 255, 0.6)
+        }
+
+        button:hover {
+            background: rgba(100, 100, 200, 0.5);
+        }
     </style>
     <script src="GDPRConfig.js"></script>
     <script src="language.js"></script>
-    </head>
-    <body>
-	<div class="fronttab">
-            <img src="logo.svg">
-            <div>
+</head>
+
+<body>
+    <div class="fronttab">
+        <img class="fronttab__image" src="logo.svg">
+        <div class="fronttab__contents">
+            <div class="notworking">
                 <div>[[AUTOFILL_NOT_WORKING]]</div>
-                <button id="unhandled">[[LET_US_KNOW]]</button>
-                <br><br>
+                <div>
+                    <button id="unhandled">[[LET_US_KNOW]]</button>
+                </div>
+            </div>
+            <div class="keeprunning">
                 <div>[[KEEP_RUNNING]]</div>
-            <div class="siteselector"><input type="checkbox" checked><span id="site"></span></div>
-            <button id="settings">[[MORE_ADDON_SETTINGS]]</button>
+                <label class="siteselector"><input type="checkbox" checked><span id="site"></label>
             </div>
             <div>
+                <button id="settings">[[MORE_ADDON_SETTINGS]]</button>
             </div>
-            <script src="GDPRConfig.js"></script>
-            <script src="popup.js"></script>
-	</div>
-	<div class="unhandledtab" style="display:none">
-                <div>[[ARE_YOU_SURE]]</div>
-		<em><span id="unhandled_site"></span></em>
-                <div>[[UNHANDLED_EXPLAINER]]</div>
-                <button id="unhandled_cancel">[[CANCEL]]</button>
-                <button id="unhandled_send">[[SEND]]</button>
-		<input type="checkbox" id="no-confirmation"><label for="no-confirmation">[[NO-CONFIRM]]</label>
-	</div>
-	<div class="unhandledtab_complete" style="display:none">
-            <img src="logo.svg">
-            <div>[[THANKS]]</div>
-	</div>
-    </body>
+        </div>
+    </div>
+    <div>
+    </div>
+    <script src="GDPRConfig.js"></script>
+    <script src="popup.js"></script>
+    </div>
+    <div class="unhandledtab" style="display:none">
+        <div>[[ARE_YOU_SURE]]</div>
+        <em><span id="unhandled_site"></span></em>
+        <div>[[UNHANDLED_EXPLAINER]]</div>
+        <button id="unhandled_cancel">[[CANCEL]]</button>
+        <button id="unhandled_send">[[SEND]]</button>
+        <input type="checkbox" id="no-confirmation"><label for="no-confirmation">[[NO-CONFIRM]]</label>
+    </div>
+    <div class="unhandledtab_complete" style="display:none">
+        <img src="logo.svg">
+        <div>[[THANKS]]</div>
+    </div>
+</body>
+
 </html>
