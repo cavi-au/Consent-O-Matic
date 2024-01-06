@@ -3,37 +3,40 @@
     "complianz": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#cmplz-cookiebanner-container"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cmplz-cookiebanner-container"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": ".cmplz-cookiebanner"
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cmplz-cookiebanner",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
             {
-                "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
                     "target": {
                         "selector": ".cmplz-view-preferences"
                     }
-                }
+                },
+                "name": "OPEN_OPTIONS"
             },
             {
-                "name": "DO_CONSENT",
                 "action": {
                     "type": "consent",
                     "consents": [
                         {
-                            "type": "B",
                             "matcher": {
                                 "type": "checkbox",
                                 "target": {
@@ -45,7 +48,8 @@
                                 "target": {
                                     "selector": "#cmplz-statistics-optin"
                                 }
-                            }
+                            },
+                            "type": "B"
                         },
                         {
                             "matcher": {
@@ -63,7 +67,6 @@
                             "type": "A"
                         },
                         {
-                            "type": "F",
                             "matcher": {
                                 "type": "checkbox",
                                 "target": {
@@ -75,19 +78,21 @@
                                 "target": {
                                     "selector": "#cmplz-marketing-optin"
                                 }
-                            }
+                            },
+                            "type": "F"
                         }
                     ]
-                }
+                },
+                "name": "DO_CONSENT"
             },
             {
-                "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
                     "target": {
                         "selector": ".cmplz-save-preferences"
                     }
-                }
+                },
+                "name": "SAVE_CONSENT"
             },
             {
                 "action": {
@@ -97,6 +102,9 @@
                     }
                 },
                 "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
