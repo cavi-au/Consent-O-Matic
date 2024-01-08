@@ -49,6 +49,18 @@
                             "target": {
                                 "selector": ".xtxNavigationOffCanvasOverlay"
                             }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#data-offcanvas-content"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "[data-offcanvas-content='']"
+                            }
                         }
                     ]
                 },
