@@ -1,209 +1,159 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "Autodesk": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "target": {
-                        "selector": "#adsk-eprivacy-body"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "target": {
-                        "displayFilter": true,
-                        "selector": "#adsk-eprivacy-body"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".adsk-gdpr-content"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".adsk-gdpr-content",
+                            "displayFilter": true
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "hide",
                     "target": {
-                        "selector": "#adsk-eprivacy-body"
-                    },
-                    "type": "hide"
+                        "selector": ".wape-gdpr-settings-MuiPaper-elevation1"
+                    }
                 },
                 "name": "HIDE_CMP"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
                         "selector": "#adsk-eprivacy-privacy-details"
-                    },
-                    "type": "click"
+                    }
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "action": {
-                        "actions": [
-                            {
-                                "target": {
-                                    "selector": "h4",
-                                    "textFilter": [
-                                        "Online experience"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "falseAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='no']"
-                                                },
-                                                "type": "click"
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": 25000
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#yes-to-improve .Mui-checked"
                                             },
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='yes']"
-                                                },
-                                                "type": "click"
+                                            "parent": {
+                                                "selector": ".content-container-categories-improve-control"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#no-to-improve .Mui-checked"
                                             },
-                                            "type": "E"
+                                            "parent": {
+                                                "selector": ".content-container-categories-improve-control"
+                                            }
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            },
-                            {
-                                "target": {
-                                    "selector": "h4",
-                                    "textFilter": [
-                                        "Communication"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "falseAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='no']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='yes']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "F"
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#yes-to-improve"
+                                        },
+                                        "parent": {
+                                            "selector": ".content-container-categories-improve-control"
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            },
-                            {
-                                "target": {
-                                    "selector": "h4",
-                                    "textFilter": [
-                                        "Customer feedback"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "falseAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='no']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='yes']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "X"
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#no-to-improve"
+                                        },
+                                        "parent": {
+                                            "selector": ".content-container-categories-improve-control"
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            },
-                            {
-                                "target": {
-                                    "selector": "h4",
-                                    "textFilter": [
-                                        "Digital advertising"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "falseAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='no']"
-                                                },
-                                                "type": "click"
+                                    },
+                                    "type": "E"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "[aria-label='yes-to-customize'] .Mui-checked"
                                             },
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='yes']"
-                                                },
-                                                "type": "click"
+                                            "parent": {
+                                                "selector": ".content-container-categories-customize"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "[aria-label='no-to-customize'] .Mui-checked"
                                             },
-                                            "type": "F"
+                                            "parent": {
+                                                "selector": ".content-container-categories-customize"
+                                            }
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            },
-                            {
-                                "target": {
-                                    "selector": "h4",
-                                    "textFilter": [
-                                        "Troubleshooting"
-                                    ]
-                                },
-                                "trueAction": {
-                                    "consents": [
-                                        {
-                                            "falseAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='no']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "trueAction": {
-                                                "target": {
-                                                    "selector": "input[data-category-selector='yes']"
-                                                },
-                                                "type": "click"
-                                            },
-                                            "type": "X"
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[aria-label='yes-to-customize']"
+                                        },
+                                        "parent": {
+                                            "selector": ".content-container-categories-customize"
                                         }
-                                    ],
-                                    "type": "consent"
-                                },
-                                "type": "ifcss"
-                            }
-                        ],
-                        "type": "list"
-                    },
-                    "target": {
-                        "selector": "#adsk-eprivacy-form .adsk-eprivacy-category-container"
-                    },
-                    "type": "foreach"
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[aria-label='no-to-customize']"
+                                        },
+                                        "parent": {
+                                            "selector": ".content-container-categories-customize"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
+                    "type": "click",
                     "target": {
-                        "selector": "#adsk-eprivacy-continue-btn"
-                    },
-                    "type": "click"
+                        "selector": "[aria-label='continue-to-site']"
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
