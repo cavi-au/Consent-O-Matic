@@ -46,10 +46,6 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "wait",
-                            "waitTime": 25000
-                        },
-                        {
                             "type": "consent",
                             "consents": [
                                 {
