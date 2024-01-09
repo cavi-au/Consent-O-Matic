@@ -1,0 +1,121 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "lenovo": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#_evidon-barrier-wrapper"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#_evidon-barrier-wrapper"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#evidon-prefdiag-overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#evidon-prefdiag-background"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#_evidon-banner-cookiebuttontext"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#advertising-toggle-chk"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#advertising-toggle-chk"
+                                }
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#analytics-toggle-chk"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#analytics-toggle-chk"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#social_media-toggle-chk"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#social_media-toggle-chk"
+                                }
+                            },
+                            "type": "B"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#evidon-prefdiag-decline"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
