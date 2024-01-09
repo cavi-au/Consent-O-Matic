@@ -19,34 +19,33 @@
         ],
         "methods": [
             {
-                "name": "HIDE_CMP",
                 "action": {
                     "type": "hide",
                     "target": {
                         "selector": "#tarteaucitron"
                     }
-                }
+                },
+                "name": "HIDE_CMP"
             },
             {
-                "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
                     "target": {
                         "selector": "#tarteaucitronCloseAlert",
                         "displayFilter": true
                     }
-                }
+                },
+                "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
                     "type": "consent",
                     "consents": [
                         {
-                            "type": "A",
                             "matcher": {
                                 "type": "css",
                                 "target": {
-                                    "selector": "#tarteaucitronServicesTitle_api",
+                                    "selector": "#tarteaucitronServicesTitle_campaigns",
                                     "displayFilter": true
                                 }
                             },
@@ -56,7 +55,7 @@
                                     "selector": ".tarteaucitronAllow"
                                 },
                                 "parent": {
-                                    "selector": "#tarteaucitronServicesTitle_api"
+                                    "selector": "#tarteaucitronServicesTitle_campaigns"
                                 }
                             },
                             "falseAction": {
@@ -65,12 +64,12 @@
                                     "selector": ".tarteaucitronDeny"
                                 },
                                 "parent": {
-                                    "selector": "#tarteaucitronServicesTitle_api"
+                                    "selector": "#tarteaucitronServicesTitle_campaigns"
                                 }
-                            }
+                            },
+                            "type": "E"
                         },
                         {
-                            "type": "B",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -95,10 +94,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_analytic"
                                 }
-                            }
+                            },
+                            "type": "B"
                         },
                         {
-                            "type": "F",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -123,10 +122,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_ads"
                                 }
-                            }
+                            },
+                            "type": "F"
                         },
                         {
-                            "type": "E",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -151,10 +150,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_video"
                                 }
-                            }
+                            },
+                            "type": "E"
                         },
                         {
-                            "type": "E",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -179,10 +178,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_support"
                                 }
-                            }
+                            },
+                            "type": "E"
                         },
                         {
-                            "type": "E",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -207,10 +206,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_social"
                                 }
-                            }
+                            },
+                            "type": "E"
                         },
                         {
-                            "type": "E",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -235,10 +234,10 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_comment"
                                 }
-                            }
+                            },
+                            "type": "E"
                         },
                         {
-                            "type": "X",
                             "matcher": {
                                 "type": "css",
                                 "target": {
@@ -263,20 +262,49 @@
                                 "parent": {
                                     "selector": "#tarteaucitronServicesTitle_other"
                                 }
-                            }
+                            },
+                            "type": "X"
+                        },
+                        {
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "#tarteaucitronServicesTitle_api",
+                                    "displayFilter": true
+                                }
+                            },
+                            "trueAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronAllow"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_api"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "multiclick",
+                                "target": {
+                                    "selector": ".tarteaucitronDeny"
+                                },
+                                "parent": {
+                                    "selector": "#tarteaucitronServicesTitle_api"
+                                }
+                            },
+                            "type": "A"
                         }
                     ]
                 },
                 "name": "DO_CONSENT"
             },
             {
-                "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
                     "target": {
                         "selector": ".tarteaucitronValidate, .tarteaucitronClosePanel, #tarteaucitronClosePanel"
                     }
-                }
+                },
+                "name": "SAVE_CONSENT"
             },
             {
                 "name": "UTILITY"

@@ -1,0 +1,226 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "onethemarket": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#app-container #cookie-notification"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#app-container #cookie-notification"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ccc-overlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ccc-module"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#cookie-notification .text-link",
+                        "textFilter": [
+                            "Manage options"
+                        ]
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[aria-controls='iab-purpose-controls']"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[aria-controls='iab-specialFeatureOptins-controls']"
+                            }
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".optional-cookie"
+                            },
+                            "action": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".optional-cookie-header",
+                                            "textFilter": [
+                                                "Store and/or access information on a device",
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".optional-cookie-header",
+                                            "textFilter": [
+                                                "Select basic ads",
+                                                "Create a personalised ads profile",
+                                                "Select personalised ads",
+                                                "Measure ad performance"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "type": "F"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".optional-cookie-header",
+                                            "textFilter": [
+                                                "Create a personalised content profile",
+                                                "Measure content performance",
+                                                "Select personalised content"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "type": "E"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".optional-cookie-header",
+                                            "textFilter": [
+                                                "Apply market research to generate audience insights",
+                                                "Develop and improve products"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".checkbox-toggle-input"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ccc-dismiss-button"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

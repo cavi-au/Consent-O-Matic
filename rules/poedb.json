@@ -1,0 +1,376 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "poedb": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ncmp__banner.ncmp__active"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ncmp__banner.ncmp__active",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#ncmp__modal"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[onclick*='showModal']"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-1 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "D"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-2 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-3 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-4 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-5 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "E"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-6 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "E"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-7 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-8 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-9 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#ncmp__nav-purpose-10 a"
+                                    }
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "trueAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-on"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".ncmp__toggle-vendors-off"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".ncmp__btn-danger"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

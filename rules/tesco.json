@@ -1,0 +1,123 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "tesco": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[aria-labelledby=\"beans-cookies-notification-headline\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "title",
+                            "textFilter": [
+                                "Manage your cookie preferences"
+                            ]
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ddsweb-tesco-logo__svg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".styled__Anchor-sc-16kp6v-0"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "title",
+                        "textFilter": [
+                            "Manage your cookie preferences"
+                        ]
+                    },
+                    "trueAction": {
+                        "type": "consent",
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "type": "css",
+                                    "target": {
+                                        "selector": "#experience-allowed-option"
+                                    }
+                                },
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#experience-allowed-option"
+                                    }
+                                },
+                                "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#experience-notallowed-option"
+                                    }
+                                },
+                                "type": "B"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "css",
+                                    "target": {
+                                        "selector": "#advertising-allowed-option"
+                                    }
+                                },
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#advertising-allowed-option"
+                                    }
+                                },
+                                "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#advertising-notallowed-option"
+                                    }
+                                },
+                                "type": "F"
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

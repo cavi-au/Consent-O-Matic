@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "alandsbanken": {
+    "piwikproconsent": {
         "detectors": [
             {
                 "presentMatcher": [
@@ -48,14 +48,18 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "wait",
+                            "waitTime": 1000
+                        },
+                        {
                             "type": "ifcss",
                             "target": {
-                                "selector": "#ppms_cm_open-popup"
+                                "selector": "#ppms_cm_content_expander_show_btn"
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#ppms_cm_open-popup"
+                                    "selector": "#ppms_cm_content_expander_show_btn"
                                 }
                             }
                         }

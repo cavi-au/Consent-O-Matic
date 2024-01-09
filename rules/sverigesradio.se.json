@@ -1,0 +1,190 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "sverigesradio.se": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": [
+                            "sverigesradio.se"
+                        ]
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-popover"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookie-popover"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#showConsentDialogBtn"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Inställningar"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "list",
+                                        "actions": [
+                                            {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Inställningar"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "type": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Statistik och prestanda"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "list",
+                                        "actions": [
+                                            {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Statistik och prestanda"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "input"
+                                        },
+                                        "parent": {
+                                            "childFilter": {
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Innehåll från andra webbplatser"
+                                                    ]
+                                                }
+                                            },
+                                            "selector": "label"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "list",
+                                        "actions": [
+                                            {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span",
+                                                    "textFilter": [
+                                                        "Innehåll från andra webbplatser"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "type": "X"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "button",
+                                "textFilter": [
+                                    "Godkänn valda"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

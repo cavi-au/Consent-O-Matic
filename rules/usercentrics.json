@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".uc-banner-wrapper"
+                            "selector": ".uc-banner-wrapper,.uc-banner-content"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".uc-banner-wrapper",
+                            "selector": ".uc-banner-wrapper,.uc-banner-content",
                             "displayFilter": true
                         }
                     }
@@ -40,12 +40,29 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "ifcss",
+                            "target": {
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".switch1.off"
+                                    }
+                                },
+                                "selector": "#change-secondary-state"
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#change-secondary-state"
+                                }
+                            }
+                        },
+                        {
                             "type": "waitcss",
                             "target": {
                                 "selector": ".uc-inner-content"
                             },
-                            "retries": 10,
-                            "waitTime": 250
+                            "retries": 50,
+                            "waitTime": 50
                         },
                         {
                             "type": "list",
@@ -87,6 +104,21 @@
                                                 }
                                             },
                                             "type": "F"
+                                        },
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": ".toggle-category-customCategory-b29ea549-ecfb-46ac-9b69-4f70ffcc7b34"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": ".toggle-category-customCategory-b29ea549-ecfb-46ac-9b69-4f70ffcc7b34"
+                                                }
+                                            },
+                                            "type": "F"
                                         }
                                     ]
                                 }
@@ -97,6 +129,12 @@
                 "name": "DO_CONSENT"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".uc-save-settings-button"
+                    }
+                },
                 "name": "SAVE_CONSENT"
             },
             {

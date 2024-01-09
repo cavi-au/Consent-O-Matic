@@ -1,0 +1,211 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "rsonline": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ensNotifyBanner[aria-label='Consent Banner']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#ensNotifyBanner[aria-label='Consent Banner']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ensModalWrapper"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ensModalBG"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ensNotifyBanner"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#ensModalBanner"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#ensModalBanner"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#ensOpenModal"
+                        }
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#ensModalBanner"
+                    },
+                    "trueAction": {
+                        "type": "consent",
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#AdvertisingSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#AdvertisingSlide"
+                                    }
+                                },
+                                "type": "F"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "[id='Recommendations and TestingSlide']"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[id='Recommendations and TestingSlide']"
+                                    }
+                                },
+                                "type": "E"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#FunctionalitySlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#FunctionalitySlide"
+                                    }
+                                },
+                                "type": "A"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#AnalyticsSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#AnalyticsSlide"
+                                    }
+                                },
+                                "type": "B"
+                            }
+                        ]
+                    },
+                    "falseAction": {
+                        "type": "consent",
+                        "consents": [
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#FunctionalSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#FunctionalSlide"
+                                    }
+                                },
+                                "type": "A"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "#PerformanceSlide"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#PerformanceSlide"
+                                    }
+                                },
+                                "type": "B"
+                            },
+                            {
+                                "matcher": {
+                                    "type": "checkbox",
+                                    "target": {
+                                        "selector": "[id=\"Marketing and Social NetworksSlide\"]"
+                                    }
+                                },
+                                "toggleAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[id=\"Marketing and Social NetworksSlide\"]"
+                                    }
+                                },
+                                "type": "E"
+                            }
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ensSave"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
