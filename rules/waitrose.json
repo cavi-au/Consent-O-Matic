@@ -1,0 +1,114 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "waitrose": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[aria-labelledby='CookieAlertModalHeading']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[aria-labelledby='CookieAlertModalHeading']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[data-testid='manage-cookies']"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#functional-cookies-confirm"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#functional-cookies-deny"
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#analytics-cookies-confirm"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#analytics-cookies-deny"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#marketing-cookies-confirm"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#marketing-cookies-deny"
+                                }
+                            },
+                            "type": "F"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": 200
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-testid='submit']"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

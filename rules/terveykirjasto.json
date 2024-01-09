@@ -1,41 +1,54 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "DRCC": {
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "terveyskirjasto": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#drcc-overlay"
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#general-cookies-modal"
+                        }
                     }
-                },
-                "showingMatcher": {
-                    "type": "css",
-                    "target": {
-                        "selector": "#drcc-overlay",
-                        "displayFilter": true
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#general-cookies-modal",
+                            "displayFilter": true
+                        }
                     }
-                }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "#drcc-overlay"
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#edit-cookies-modal"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#edit-cookies-modal___BV_modal_backdrop_"
+                            }
+                        }
+                    ]
                 },
                 "name": "HIDE_CMP"
             },
             {
                 "action": {
-                    "type": "waitcss",
+                    "type": "click",
                     "target": {
-                        "selector": "div.drcc-cookie-categories"
-                    },
-                    "retries": 10,
-                    "waitTime": 250
+                        "selector": ".btn.mr-3.btn-secondary"
+                    }
                 },
                 "name": "OPEN_OPTIONS"
             },
@@ -43,7 +56,7 @@
                 "action": {
                     "type": "foreach",
                     "target": {
-                        "selector": "div.drcc-checkbox"
+                        "selector": ".row.type-box"
                     },
                     "action": {
                         "type": "list",
@@ -51,7 +64,10 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "input[name=\"preferences\"]"
+                                    "selector": "h2",
+                                    "textFilter": [
+                                        "Toiminnalliset"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -60,13 +76,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": "input"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": "label"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "type": "A"
@@ -77,7 +93,10 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "input[name=\"statistics\"]"
+                                    "selector": "h2",
+                                    "textFilter": [
+                                        "Tilastolliset"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -86,13 +105,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": "input"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": "label"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "type": "B"
@@ -103,7 +122,10 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "input[name=\"marketing\"]"
+                                    "selector": "h2",
+                                    "textFilter": [
+                                        "Markkinointi"
+                                    ]
                                 },
                                 "trueAction": {
                                     "type": "consent",
@@ -112,13 +134,13 @@
                                             "matcher": {
                                                 "type": "checkbox",
                                                 "target": {
-                                                    "selector": "input"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "toggleAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": "label"
+                                                    "selector": ".custom-control-input"
                                                 }
                                             },
                                             "type": "F"
@@ -135,10 +157,13 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".submitChosen"
+                        "selector": ".btn.btn-tk-blue"
                     }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }

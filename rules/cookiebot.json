@@ -7,7 +7,15 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog",
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#CybotCookiebotDialogBodyButtonAccept, #CybotCookiebotDialogBody, #CybotCookiebotDialogBodyLevelButtonPreferences, #cb-cookieoverlay, #CybotCookiebotDialog, #cookiebanner",
                             "displayFilter": true
                         }
                     }
@@ -42,6 +50,13 @@
                                 "selector": ".js-cookie-settings",
                                 "displayFilter": true
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-toggle='collapse']",
+                                "displayFilter": true
+                            }
                         }
                     ]
                 },
@@ -58,13 +73,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences, [name='preferences']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonPreferences, [name='preferences']"
                                         }
                                     },
                                     "type": "A"
@@ -73,13 +88,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics,[name='statistics']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonStatistics, [name='statistics']"
                                         }
                                     },
                                     "type": "B"
@@ -88,13 +103,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing,[name='marketing']"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing"
+                                            "selector": "#CybotCookiebotDialogBodyLevelButtonMarketing, [name='marketing']"
                                         }
                                     },
                                     "type": "F"
@@ -323,6 +338,13 @@
                                 "selector": ".cb-button",
                                 "displayFilter": true
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[onclick='handleCustomConsent();']",
+                                "displayFilter": true
+                            }
                         }
                     ]
                 },
@@ -348,6 +370,12 @@
                             "type": "hide",
                             "target": {
                                 "selector": "#cb-cookieoverlay"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiebanner"
                             }
                         }
                     ]

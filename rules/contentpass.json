@@ -1,0 +1,412 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "contentpass": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".privacy-cp-wall"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".privacy-cp-wall__wrapper_cmp"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#privacy-cp-wall-settings"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "._acc_box .glv-1 .p-name",
+                                "textFilter": [
+                                    "Archiviare e/o accedere a informazioni su un dispositivo"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-1",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".p-name",
+                                                        "textFilter": "Archiviare e/o accedere a informazioni su un dispositivo"
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "D"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-2 .p-name",
+                                "textFilter": [
+                                    "Selezionare annunci basici (basic ads)"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-2"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-3 .p-name",
+                                "textFilter": [
+                                    "Creare un profilo di annunci personalizzati"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-3"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-4 .p-name",
+                                "textFilter": [
+                                    "Selezionare annunci personalizzati"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-4"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-5 .p-name",
+                                "textFilter": [
+                                    "Creare un profilo di contenuto personalizzato"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-5"
+                                            }
+                                        },
+                                        "type": "E"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-6 .p-name",
+                                "textFilter": [
+                                    "Selezionare contenuti personalizzati"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-6"
+                                            }
+                                        },
+                                        "type": "E"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-7 .p-name",
+                                "textFilter": [
+                                    "Valutare le performance degli annunci"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-7"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-8 .p-name",
+                                "textFilter": [
+                                    "Valutare le performance dei contenuti"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-8"
+                                            }
+                                        },
+                                        "type": "B"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-9 .p-name",
+                                "textFilter": [
+                                    "Applicare ricerche di mercato per generare approfondimenti sul pubblico" 
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-9"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-10 .p-name",
+                                "textFilter": [
+                                    "Sviluppare e perfezionare i prodotti"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-10"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-1 .p-name",
+                                "textFilter": [
+                                    "Utilizzare dati di geolocalizzazione precisi"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-1",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".p-name",
+                                                        "textFilter": "Utilizzare dati di geolocalizzazione precisi"
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "D"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".glv-2 .p-name",
+                                "textFilter": [
+                                    "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "trueAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cont-button > button.agree"
+                                            },
+                                            "parent": {
+                                                "selector": ".glv-2",
+                                                "childFilter": {
+                                                    "target": {
+                                                        "selector": ".p-name",
+                                                        "textFilter": "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione"
+                                                     }
+                                                }
+                                            }
+                                        },
+                                        "type": "D"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#rcs_save"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".privacy-cp-wall"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ac-notice"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#ac-Overlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

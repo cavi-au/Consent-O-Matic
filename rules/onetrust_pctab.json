@@ -119,7 +119,9 @@
                                         "Leistungs-Cookies",
                                         "Ydeevne og analytik cookies",
                                         "Analytics Cookies",
-                                        "Cookie di prestazione"
+                                        "Cookie di prestazione",
+                                        "Session Replay Cookies",
+                                        "Session Replay Cookie"
                                     ]
                                 },
                                 "trueAction": {
@@ -216,7 +218,8 @@
                                         "Functional Cookies",
                                         "Funktionale Cookies",
                                         "Funktionelle",
-                                        "Cookie di funzionalità"
+                                        "Cookie di funzionalità",
+                                        "Cookies de fonctionnalité"
                                     ]
                                 },
                                 "trueAction": {
@@ -279,7 +282,10 @@
                                     "textFilter": [
                                         "Målrettede cookies",
                                         "Targeting cookies",
-                                        "Målrettede"
+                                        "Målrettede",
+                                        "Social Media Cookies",
+                                        "Cookies pour une publicité ciblée",
+                                        "Cookies « réseaux sociaux »"
                                     ]
                                 },
                                 "trueAction": {

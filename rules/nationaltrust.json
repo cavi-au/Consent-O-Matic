@@ -1,0 +1,111 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "nationaltrust": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookieOptions.nt-cookie-popup"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookieOptions.nt-cookie-popup",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cookie-preferences-forms"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[data-tst=\"manage-cookies\"]"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[for=\"personalisation-yes\"]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[for=\"personalisation-no\"]"
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"analytics-yes\"]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"analytics-no\"]"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"marketing-yes\"]"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-tst=\"marketing-no\"]"
+                                }
+                            },
+                            "type": "F"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[data-tst=\"save-close\"]"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

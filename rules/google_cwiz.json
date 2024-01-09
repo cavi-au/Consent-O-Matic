@@ -13,7 +13,7 @@
                                 }
                             },
                             "selector": "body[jscontroller] c-wiz",
-                            "textFilter": "Google Analytics"
+                            "textFilter": ["Google Analytics", "g.co/privacytools"]
                         }
                     }
                 ],
