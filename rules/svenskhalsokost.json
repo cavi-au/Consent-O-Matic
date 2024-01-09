@@ -1,0 +1,110 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "svenskhalsokost": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookie-accept"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookie-accept-wrapper"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cookie-accept"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ca-show-details"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ca-select-functional #functional"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ca-select-functional #functional"
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ca-select-statistical #statistical"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ca-select-statistical #statistical"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#ca-select-marketing #marketing"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#ca-select-marketing #marketing"
+                                }
+                            },
+                            "type": "F"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#ca-update"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
