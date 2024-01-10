@@ -28,7 +28,8 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "div.popover-content"
+                            "selector": "div.popover-content",
+                            "displayFilter": true
                         }
                     }
                 ]
@@ -55,74 +56,80 @@
             },
             {
                 "action": {
-                    "type": "ifcss",
-                    "target": {
-                        "selector": "form[data-t=\"cookiesSettings\"]"
-                    },
-                    "trueAction": {
-                        "type": "list",
-                        "actions": [
-                            {
-                                "type": "consent",
-                                "consents": [
-                                    {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input.checkbox-input[id=\"8\"]"
-                                            }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "label.checkbox[for=\"8\"]"
-                                            }
-                                        },
-                                        "type": "F"
-                                    }
-                                ]
+                    "type": "ifallownone",
+                    "falseAction": {
+                        "type": "ifallowall",
+                        "falseAction": {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "form[data-t=\"cookiesSettings\"]"
                             },
-                            {
-                                "type": "consent",
-                                "consents": [
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
                                     {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input.checkbox-input[id=\"9\"]"
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input.checkbox-input[id=\"8\"]"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "label.checkbox[for=\"8\"]"
+                                                    }
+                                                },
+                                                "type": "F"
                                             }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "label.checkbox[for=\"9\"]"
-                                            }
-                                        },
-                                        "type": "A"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "consent",
-                                "consents": [
+                                        ]
+                                    },
                                     {
-                                        "matcher": {
-                                            "type": "checkbox",
-                                            "target": {
-                                                "selector": "input.checkbox-input[id=\"10\"]"
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input.checkbox-input[id=\"9\"]"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "label.checkbox[for=\"9\"]"
+                                                    }
+                                                },
+                                                "type": "A"
                                             }
-                                        },
-                                        "toggleAction": {
-                                            "type": "click",
-                                            "target": {
-                                                "selector": "input.checkbox-input[id=\"10\"]"
+                                        ]
+                                    },
+                                    {
+                                        "type": "consent",
+                                        "consents": [
+                                            {
+                                                "matcher": {
+                                                    "type": "checkbox",
+                                                    "target": {
+                                                        "selector": "input.checkbox-input[id=\"10\"]"
+                                                    }
+                                                },
+                                                "toggleAction": {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "input.checkbox-input[id=\"10\"]"
+                                                    }
+                                                },
+                                                "type": "B"
                                             }
-                                        },
-                                        "type": "B"
+                                        ]
                                     }
                                 ]
                             }
-                        ]
+                        }
                     }
                 },
                 "name": "DO_CONSENT"
@@ -148,6 +155,9 @@
                             "type": "click",
                             "target": {
                                 "selector": "button[type=\"submit\"]"
+                            },
+                            "parent": {
+                                "selector": "[data-t='cookiesSettings']"
                             }
                         }
                     }
