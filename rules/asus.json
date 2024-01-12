@@ -44,13 +44,19 @@
                     "trueAction": {
                         "type": "click",
                         "target": {
-                            "selector": "#cookie-policy-info .cookie-btn-box .btn-ok"
+                            "selector": ".btn-asus.btn-ok.btn-read-ck"
+                        },
+                        "parent": {
+                            "selector": "#cookie-policy-info"
                         }
                     },
                     "falseAction": {
                         "type": "click",
                         "target": {
-                            "selector": "#cookie-policy-info .cookie-btn-box .btn-setting"
+                            "selector": ".btn-asus.btn-reject"
+                        },
+                        "parent": {
+                            "selector": "#cookie-policy-info"
                         }
                     }
                 },
