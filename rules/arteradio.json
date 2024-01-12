@@ -44,25 +44,25 @@
                                 "type": "onoff",
                                 "onMatcher": {
                                     "target": {
-                                        "selector": "#swichana[data-value='off']"
+                                        "selector": "#swichana[data-value='on']"
                                     }
                                 },
                                 "offMatcher": {
                                     "target": {
-                                        "selector": "#swichana[data-value='on']"
+                                        "selector": "#swichana[data-value='off']"
                                     }
                                 }
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#swichana_railoff"
+                                    "selector": "#swichana_railon"
                                 }
                             },
                             "falseAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#swichana_railon"
+                                    "selector": "#swichana_railoff"
                                 }
                             },
                             "type": "B"
@@ -72,25 +72,25 @@
                                 "type": "onoff",
                                 "onMatcher": {
                                     "target": {
-                                        "selector": "#swichrsx[data-value='off']"
+                                        "selector": "#swichrsx[data-value='on']"
                                     }
                                 },
                                 "offMatcher": {
                                     "target": {
-                                        "selector": "#swichrsx[data-value='on']"
+                                        "selector": "#swichrsx[data-value='off']"
                                     }
                                 }
                             },
                             "trueAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#swichrsx_railoff"
+                                    "selector": "#swichrsx_railon"
                                 }
                             },
                             "falseAction": {
                                 "type": "click",
                                 "target": {
-                                    "selector": "#swichrsx_railon"
+                                    "selector": "#swichrsx_railoff"
                                 }
                             },
                             "type": "F"
