@@ -36,7 +36,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#more_information"
+                        "selector": "[title='Change cookie preferences']"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -53,25 +53,35 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "strong",
-                                    "textFilter": [
-                                        "Performance"
-                                    ]
+                                    "selector": "#pmcat-performance"
                                 },
                                 "trueAction": {
                                     "type": "consent",
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "[title*='cookies will be permitted when you save your settings']"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "[title='Performance cookies will be permitted when you save your settings']"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "[title='Performance cookies will be blocked when you save your settings'],[title='Performance cookies are blocked']"
+                                                    }
                                                 }
                                             },
-                                            "toggleAction": {
+                                            "trueAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": "button"
+                                                    "selector": "[title='Performance cookies will be blocked when you save your settings'],[title='Performance cookies are blocked']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "[title='Performance cookies will be permitted when you save your settings']"
                                                 }
                                             },
                                             "type": "B"
@@ -82,25 +92,35 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": "strong",
-                                    "textFilter": [
-                                        "Marketing"
-                                    ]
+                                    "selector": "#pmcat-targeting"
                                 },
                                 "trueAction": {
                                     "type": "consent",
                                     "consents": [
                                         {
                                             "matcher": {
-                                                "type": "css",
-                                                "target": {
-                                                    "selector": "[title*='cookies will be permitted when you save your settings']"
+                                                "type": "onoff",
+                                                "onMatcher": {
+                                                    "target": {
+                                                        "selector": "[title='Marketing cookies will be permitted when you save your settings']"
+                                                    }
+                                                },
+                                                "offMatcher": {
+                                                    "target": {
+                                                        "selector": "[title='Marketing cookies are blocked'],[title='Marketing cookies will be blocked when you save your settings']"
+                                                    }
                                                 }
                                             },
-                                            "toggleAction": {
+                                            "trueAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": "button"
+                                                    "selector": "[title='Marketing cookies are blocked'],[title='Marketing cookies will be blocked when you save your settings']"
+                                                }
+                                            },
+                                            "falseAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "[title='Marketing cookies will be permitted when you save your settings']"
                                                 }
                                             },
                                             "type": "F"
