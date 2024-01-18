@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#bnp_cookie_banner",
+                            "selector": "#bnp_container",
                             "displayFilter": true
                         }
                     }
@@ -102,10 +102,6 @@
                                 ]
                             },
                             {
-                                "type": "wait",
-                                "waitTime": 2500
-                            },
-                            {
                                 "type": "consent",
                                 "consents": [
                                     {
@@ -131,6 +127,12 @@
                 "name": "DO_CONSENT"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#mcp_savesettings"
+                    }
+                },
                 "name": "SAVE_CONSENT"
             },
             {
