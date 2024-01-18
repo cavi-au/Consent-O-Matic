@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#cookie-law-info-bar, #cookie-bar, #cookiebar",
+                            "selector": "#cookie-law-info-bar, #cookie-bar, #cookiebar,#cookie-bar-eu",
                             "displayFilter": true
                         }
                     }
@@ -27,7 +27,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#cookie-law-info-bar .cli_settings_button, #cb-pref, #cookie-bar-button-customize"
+                        "selector": "#cookie-law-info-bar .cli_settings_button, #cb-pref, #cookie-bar-button-customize, .cookiebar-setting-button"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -378,6 +378,36 @@
                                         }
                                     },
                                     "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".functional-option .toggle-button.active"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".functional-option .toggle-button"
+                                        }
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": ".performance-option .toggle-button.active"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".performance-option .toggle-button"
+                                        }
+                                    },
+                                    "type": "B"
                                 }
                             ]
                         },
@@ -435,7 +465,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, #cliModalClose"
+                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, #cliModalClose, .cookiebar-close-button"
                     }
                 },
                 "name": "SAVE_CONSENT"
@@ -447,7 +477,7 @@
                         {
                             "type": "hide",
                             "target": {
-                                "selector": "#cookie-bar, #cookie-bar-prompt, #cookie-dialog"
+                                "selector": "#cookie-bar, #cookie-bar-prompt, #cookie-dialog, #cookie-bar-eu"
                             }
                         }
                     ]
