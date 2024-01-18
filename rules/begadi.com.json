@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cookie-footer"
+                            "selector": ".amgdprcookie-bar-container"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cookie-footer",
+                            "selector": ".amgdprcookie-bar-container",
                             "displayFilter": true
                         }
                     }
@@ -40,46 +40,36 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookies-filter-2"
+                                            "selector": "#switch-box-1"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookies-filter-2"
+                                            "selector": "#switch-box-1"
                                         }
                                     },
-                                    "type": "A"
-                                },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
                                 {
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookies-filter-3"
+                                            "selector": "#switch-box-2"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookies-filter-3"
+                                            "selector": "#switch-box-2"
                                         }
                                     },
                                     "type": "B"
-                                },
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "#cookies-filter-4"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "#cookies-filter-4"
-                                        }
-                                    },
-                                    "type": "D"
                                 }
                             ]
                         }
@@ -91,8 +81,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#cookie-right",
-                        "displayFilter": true
+                        "selector": "#btn-cookie-allow"
                     }
                 },
                 "name": "SAVE_CONSENT"
