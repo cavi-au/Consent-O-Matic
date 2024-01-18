@@ -307,7 +307,7 @@ The slide event will simulate that the mouse dragged `target` the distance from 
 
 ### If Css
 
-This action is used as control flow, running another action depending on of a DOM selection finds an element or not.
+This action is used as control flow, running another action depending on if a DOM selection finds an element or not.
 
 Example:
 ```json
@@ -468,7 +468,7 @@ Example:
 
 `matcher` is the matcher used to check which state the consent is in. For a [checkbox matcher](#checkbox), the consent is given if the checkbox is checked. For a [css matcher](#css) the consent is given if the matcher finds a DOM selection.
 
-`trueAction` and `falseAction` are actions used if consent instead has to be given by pressing one of two buttons, rather than being toggled on/off. These will be run depending on the users selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
+`trueAction` and `falseAction` are actions used if consent instead has to be given by pressing one of two buttons, rather than being toggled on/off. These will be run depending on the user's selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
 
 If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
 
