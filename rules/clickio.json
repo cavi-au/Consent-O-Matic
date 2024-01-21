@@ -48,7 +48,8 @@
                                         "target": {
                                             "selector": ".cl-consent-node-h4",
                                             "textFilter": [
-                                                "Archiviare e/o accedere a informazioni su un dispositivo"
+                                                "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                "Store and/or access information on a device"
                                             ]
                                         },
                                         "trueAction": {
@@ -74,7 +75,11 @@
                                                 "Selezionare annunci basici (basic ads)",
                                                 "Creare un profilo di annunci personalizzati",
                                                 "Selezionare annunci personalizzati",
-                                                "Pubblicare tecnicamente annunci o contenuti"
+                                                "Pubblicare tecnicamente annunci o contenuti",
+                                                "Use limited data to select advertising",
+                                                "Create profiles for personalised advertising",
+                                                "Use profiles to select personalised advertising",
+                                                "Measure advertising performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -98,7 +103,10 @@
                                             "selector": ".cl-consent-node-h4",
                                             "textFilter": [
                                                 "Creare un profilo di contenuto personalizzato",
-                                                "Selezionare contenuti personalizzati"
+                                                "Selezionare contenuti personalizzati",
+                                                "Create profiles to personalise content",
+                                                "Use profiles to select personalised content",
+                                                "Measure content performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -123,7 +131,10 @@
                                             "textFilter": [
                                                 "Valutare le performance degli annunci",
                                                 "Valutare le performance dei contenuti",
-                                                "Applicare ricerche di mercato per generare approfondimenti sul pubblico"
+                                                "Applicare ricerche di mercato per generare approfondimenti sul pubblico",
+                                                "Understand audiences through statistics or combinations of data from different sources",
+                                                "Use limited data to select content",
+                                                "Match and combine data from other data sources"
                                             ]
                                         },
                                         "trueAction": {
@@ -147,7 +158,10 @@
                                             "selector": ".cl-consent-node-h4",
                                             "textFilter": [
                                                 "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
-                                                "Ricevere e usare le caratteristiche che il dispositivo invia automaticamente ai fini dell’identificazione"
+                                                "Ricevere e usare le caratteristiche che il dispositivo invia automaticamente ai fini dell’identificazione",
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification",
+                                                "Identify devices based on information transmitted automatically"
                                             ]
                                         },
                                         "trueAction": {
@@ -174,7 +188,9 @@
                                                 "Utilizzare dati di geolocalizzazione precisi",
                                                 "Garantire la sicurezza, prevenire frodi e debug",
                                                 "Abbinare e combinare fonti di dati offline",
-                                                "Collegare diversi dispositivi"
+                                                "Collegare diversi dispositivi",
+                                                "Develop and improve services",
+                                                "Ensure security, prevent and detect fraud, and fix errors"
                                             ]
                                         },
                                         "trueAction": {
@@ -191,8 +207,55 @@
                                                 }
                                             ]
                                         }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cl-consent-node-h4",
+                                            "textFilter": [
+                                                "Link different devices"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cl-consent-node-input"
+                                                        }
+                                                    },
+                                                    "type": "A"
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[title='Legitimate interest']"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cl-consent-tabs__content.cl-consent-active [data-role='alloff']"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "[title='Manage partners']"
+                            }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cl-consent-tabs__content.cl-consent-active [data-role='alloff']"
                             }
                         }
                     ]
@@ -201,17 +264,23 @@
             },
             {
                 "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": ".cl-consent__btn--outline"
-                    },
-                    "parent": {
-                        "selector": ".cl-consent__buttons--three-btns",
-                        "textFilter": [
-                            "Salva impostazioni",
-                            "Accetta selezionati"
-                        ]
-                    }
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cl-consent__btn.cl-consent__btn--outline.cl-consent-node-a"
+                            },
+                            "parent": {
+                                "selector": ".cl-consent__buttons--three-btns",
+                                "textFilter": [
+                                    "Salva impostazioni",
+                                    "Accetta selezionati",
+                                    "Agree to selected"
+                                ]
+                            }
+                        }
+                    ]
                 },
                 "name": "SAVE_CONSENT"
             },
