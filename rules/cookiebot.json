@@ -345,6 +345,12 @@
                                 "selector": "[onclick='handleCustomConsent();']",
                                 "displayFilter": true
                             }
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".submitChosen"
+                            }
                         }
                     ]
                 },
