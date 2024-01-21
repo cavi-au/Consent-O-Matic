@@ -136,7 +136,11 @@
                                         "target": {
                                             "selector": ".cmpvendname",
                                             "textFilter": [
-                                                "Ad selection, delivery, reporting"
+                                                "Ad selection, delivery, reporting",
+                                                "Measure advertising performance",
+                                                "Use profiles to select personalised advertising",
+                                                "Create profiles for personalised advertising",
+                                                "Use limited data to select advertising"
                                             ]
                                         },
                                         "trueAction": {
@@ -209,7 +213,9 @@
                                         "target": {
                                             "selector": ".cmpvendname",
                                             "textFilter": [
-                                                "Measurement"
+                                                "Measurement",
+                                                "Understand audiences through statistics or combinations of data from different sources",
+                                                "Deliver and present advertising and content"
                                             ]
                                         },
                                         "trueAction": {
@@ -245,7 +251,9 @@
                                             "selector": ".cmpvendname",
                                             "textFilter": [
                                                 "Develop and improve products",
-                                                "Sale of the Consumer’s Personal Data (Virginia)"
+                                                "Sale of the Consumer’s Personal Data (Virginia)",
+                                                "Ensure security, prevent and detect fraud, and fix errors",
+                                                "Develop and improve services"
                                             ]
                                         },
                                         "trueAction": {
@@ -271,6 +279,41 @@
                                                         }
                                                     },
                                                     "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".cmpvendname",
+                                            "textFilter": [
+                                                "Create profiles to personalise content"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "css",
+                                                        "target": {
+                                                            "selector": ".cmponofftext",
+                                                            "textFilter": [
+                                                                "on"
+                                                            ]
+                                                        },
+                                                        "parent": {
+                                                            "selector": ".cmptdchoice"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".cmpimgyesno, .cmptogglespan"
+                                                        }
+                                                    },
+                                                    "type": "E"
                                                 }
                                             ]
                                         }
