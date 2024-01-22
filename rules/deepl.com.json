@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#dl_cookieBanner"
+                            "selector": "[data-testid='dl-cookieBanner']"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".dl_cookieBanner_outer",
+                            "selector": "[data-testid='dl-cookieBanner']",
                             "displayFilter": true
                         }
                     }
@@ -34,6 +34,12 @@
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[data-testid='cookie-banner-strict-toggle-more-options']"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -47,13 +53,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-checkbox-performance"
+                                            "selector": "[data-testid='cookie-banner-strict-checkbox-performance'] input"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-checkbox-performance"
+                                            "selector": "[data-testid='cookie-banner-strict-checkbox-performance'] input"
                                         }
                                     },
                                     "type": "B"
@@ -67,13 +73,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-checkbox-comfort"
+                                            "selector": "[data-testid='cookie-banner-strict-checkbox-comfort'] input"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-checkbox-comfort"
+                                            "selector": "[data-testid='cookie-banner-strict-checkbox-comfort'] input"
                                         }
                                     },
                                     "type": "A"
@@ -88,7 +94,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".dl_cookieBanner--buttonSelected"
+                        "selector": "[data-testid='cookie-banner-strict-accept-selected']"
                     }
                 },
                 "name": "SAVE_CONSENT"
