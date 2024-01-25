@@ -463,9 +463,21 @@
             },
             {
                 "action": {
-                    "type": "click",
+                    "type": "ifcss",
                     "target": {
-                        "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, #cliModalClose, .cookiebar-close-button"
+                        "selector": "#cliModalClose"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, .cookiebar-close-button"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".cli_setting_save_button, #cookiebar-save-customized, #m-AcceptSelected, #cliModalClose, .cookiebar-close-button"
+                        }
                     }
                 },
                 "name": "SAVE_CONSENT"
