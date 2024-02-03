@@ -56,23 +56,31 @@
                             }
                         },
                         {
-                            "type": "click",
+                            "type": "ifcss",
                             "target": {
-                                "selector": ".message-container .message-button",
-                                "textFilter": [
-                                    "Ret indstillinger",
-                                    "Cookie Settings",
-                                    "Voir les paramètres",
-                                    "Options",
-                                    "Manage my cookies",
-                                    "Settings",
-                                    "Einstellungen",
-                                    "Instellen",
-                                    "Mijn instellingen beheren",
-                                    "Hantera cookies",
-                                    "Manage",
-                                    "Configure Preferences"
-                                ]
+                                "selector": ".sp_choice_type_SAVE_AND_EXIT",
+                                "iframeFilter": true,
+                                "displayFilter": true
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".message-container .message-button",
+                                    "textFilter": [
+                                        "Ret indstillinger",
+                                        "Cookie Settings",
+                                        "Voir les paramètres",
+                                        "Options",
+                                        "Manage my cookies",
+                                        "Settings",
+                                        "Einstellungen",
+                                        "Instellen",
+                                        "Mijn instellingen beheren",
+                                        "Hantera cookies",
+                                        "Manage",
+                                        "Configure Preferences"
+                                    ]
+                                }
                             }
                         }
                     ]
