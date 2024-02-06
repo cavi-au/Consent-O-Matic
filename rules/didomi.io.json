@@ -92,7 +92,8 @@
                                                 "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
                                                 "Archiviazione e accesso alle informazioni di geolocalizzazione per studi di marketing",
                                                 "Relier différents terminaux",
-                                                "Informatie op een apparaat opslaan en/of openen"
+                                                "Informatie op een apparaat opslaan en/of openen",
+                                                "Stocker et/ou accéder à des informations sur un appareil"
                                             ]
                                         },
                                         "trueAction": {
@@ -161,7 +162,16 @@
                                                 "Een gepersonaliseerd advertentieprofiel aanmaken",
                                                 "Opslag en toegang tot geolocatie-informatie voor gerichte reclamedoeleinden",
                                                 "Social Media",
-                                                "Advertenties online kansspelen"
+                                                "Advertenties online kansspelen",
+                                                "Utiliser des données limitées pour sélectionner la publicité",
+                                                "Beperkte gegevens gebruiken om advertenties te selecteren",
+                                                "Profielen gebruiken voor de selectie van gepersonaliseerde advertenties",
+                                                "Create profiles for personalised advertising",
+                                                "Measure advertising performance",
+                                                "Use limited data to select advertising",
+                                                "Use profiles to select personalised advertising",
+                                                "Storage and access to geolocation information to carry out marketing studies",
+                                                "Analyses commerciales et marketing sur la base de la géolocalisation"
                                             ]
                                         },
                                         "trueAction": {
@@ -219,7 +229,13 @@
                                                 "Een gepersonaliseerd content profiel aanmaken",
                                                 "Gepersonaliseerde content selecteren",
                                                 "Affichage des contenus",
-                                                "Promotion de contenus sur la base de la navigation"
+                                                "Promotion de contenus sur la base de la navigation",
+                                                "Mesurer la performance des contenus",
+                                                "Utiliser des données limitées pour sélectionner le contenu",
+                                                "Use limited data to select content",
+                                                "Contentprestaties meten",
+                                                "Gepersonaliseerde content",
+                                                "Beperkte gegevens gebruiken om content te selecteren"
                                             ]
                                         },
                                         "trueAction": {
@@ -256,7 +272,9 @@
                                                 "Tuotekehitys",
                                                 "Activation de l'affiliation",
                                                 "Sviluppare e perfezionare i prodotti",
-                                                "Producten ontwikkelen en verbeteren"
+                                                "Producten ontwikkelen en verbeteren",
+                                                "Fonctionnement des sites - Amélioration des services",
+                                                "Diensten ontwikkelen en verbeteren"
                                             ]
                                         },
                                         "trueAction": {
@@ -313,7 +331,9 @@
                                                 "Collecte de données statistiques et A/B Testing",
                                                 "Marktonderzoek toepassen om inzichten in het publiek te genereren",
                                                 "Gezamenlijke groepsprofielen",
-                                                "Uitgebreide meting"
+                                                "Uitgebreide meting",
+                                                "Comprendre les publics par le biais de statistiques ou de combinaisons de données provenant de différentes sources",
+                                                "Publieksgroepen begrijpen aan de hand van statistieken of combinaties van gegevens uit verschillende bronnen"
                                             ]
                                         },
                                         "trueAction": {
@@ -350,7 +370,8 @@
                                                 "Activation des services interactifs proposés par des tiers",
                                                 "La gestion des paiements des Services",
                                                 "Nécessaires au fonctionnement du service",
-                                                "Personnalisation du service"
+                                                "Personnalisation du service",
+                                                "Analyser activement les caractéristiques de l’appareil pour l’identification"
                                             ]
                                         },
                                         "trueAction": {
