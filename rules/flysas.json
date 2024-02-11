@@ -95,6 +95,26 @@
                                     "type": "B"
                                 }
                             ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[element='cookiePerformanceTab']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[element='cookiePerformanceTab']"
+                                        }
+                                    },
+                                    "type": "A"
+                                }
+                            ]
                         }
                     ]
                 },
