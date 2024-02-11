@@ -369,6 +369,24 @@
                                         }
                                     ]
                                 }
+                            },
+                            {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": ".ot-grp-hdr1, .group-toggle",
+                                    "textFilter": [
+                                        "Non-essential cookies"
+                                    ]
+                                },
+                                "trueAction": {
+                                    "type": "ifallowall",
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".ot-grp-hdr1 input, .group-toggle input"
+                                        }
+                                    }
+                                }
                             }
                         ]
                     }
