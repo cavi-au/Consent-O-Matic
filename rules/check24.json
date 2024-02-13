@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".c24-cookie-consent-wrapper"
+                            "selector": ".c24-cookie-consent-notice"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".c24-cookie-consent-wrapper",
+                            "selector": ".c24-cookie-consent-notice",
                             "displayFilter": true
                         }
                     }
@@ -28,7 +28,8 @@
                     "type": "hide",
                     "target": {
                         "selector": ".c24-cookie-consent-wrapper"
-                    }
+                    },
+                    "forceHide": true
                 },
                 "name": "HIDE_CMP"
             },
@@ -80,6 +81,12 @@
                 "name": "DO_CONSENT"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".c24-cookie-consent-buttonlink"
+                    }
+                },
                 "name": "SAVE_CONSENT"
             },
             {
