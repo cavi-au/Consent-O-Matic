@@ -33,17 +33,20 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "wait",
-                            "waitTime": 2500
-                        },
-                        {
                             "type": "consent",
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "css",
-                                        "target": {
-                                            "selector": "[name='cookies-usage'][value='on']"
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-usage'][value='on']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-usage'][value='off']"
+                                            }
                                         }
                                     },
                                     "trueAction": {
@@ -67,9 +70,16 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "css",
-                                        "target": {
-                                            "selector": "[name='cookies-campaigns'][value='on']"
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-campaigns'][value='on']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-campaigns'][value='off']"
+                                            }
                                         }
                                     },
                                     "trueAction": {
@@ -84,7 +94,7 @@
                                             "selector": "[name='cookies-campaigns'][value='off']"
                                         }
                                     },
-                                    "type": "X"
+                                    "type": "F"
                                 }
                             ]
                         },
@@ -93,9 +103,16 @@
                             "consents": [
                                 {
                                     "matcher": {
-                                        "type": "css",
-                                        "target": {
-                                            "selector": "[name='cookies-settings'][value='on']"
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-settings'][value='on']"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "[name='cookies-settings'][value='off']"
+                                            }
                                         }
                                     },
                                     "trueAction": {
