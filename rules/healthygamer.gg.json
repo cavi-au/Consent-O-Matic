@@ -10,7 +10,9 @@
                             ".*\\.healthygamer\\.gg"
                         ],
                         "regexp": true
-                    },
+                    }
+                ],
+                "showingMatcher": [
                     {
                         "type": "css",
                         "target": {
