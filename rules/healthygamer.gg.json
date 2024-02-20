@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "healthygamer.cc": {
+    "healthygamer.gg": {
         "detectors": [
             {
                 "presentMatcher": [
