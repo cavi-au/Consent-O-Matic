@@ -33,6 +33,12 @@
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".eu-cookie-compliance-manage-preferences-button"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
@@ -46,13 +52,13 @@
                                     "matcher": {
                                         "type": "checkbox",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "#cookie-category-functional, #cookie-category-preference"
                                         }
                                     },
                                     "toggleAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#cookie-category-functional"
+                                            "selector": "#cookie-category-functional, #cookie-category-preference"
                                         }
                                     },
                                     "type": "A"
@@ -116,6 +122,26 @@
                                         }
                                     },
                                     "type": "X"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cookie-category-advertising"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cookie-category-advertising"
+                                        }
+                                    },
+                                    "type": "F"
                                 }
                             ]
                         }
