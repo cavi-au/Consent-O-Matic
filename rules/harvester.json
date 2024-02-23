@@ -36,7 +36,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cookie-manager__button--secondary[data-v-2ba34a1e=\"\"]",
+                        "selector": ".cookie-manager__button--secondary",
                         "textFilter": [
                             "Manage cookies"
                         ]
@@ -48,12 +48,6 @@
                 "action": {
                     "type": "list",
                     "actions": [
-                        {
-                            "type": "click",
-                            "target": {
-                                "selector": "#switch-toggle-2"
-                            }
-                        },
                         {
                             "type": "consent",
                             "consents": [
