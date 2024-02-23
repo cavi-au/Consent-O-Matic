@@ -28,7 +28,11 @@ class Tools {
             }
         } else {
             if (parent != null) {
-                possibleTargets = Array.from(parent.querySelectorAll(options.selector));
+                if (!!parent.shadowRoot) {
+                    possibleTargets = Array.from(parent.shadowRoot.querySelectorAll(options.selector));
+                } else {
+                    possibleTargets = Array.from(parent.querySelectorAll(options.selector));
+                }
             } else {
                 if (Tools.base != null) {
                     possibleTargets = Array.from(Tools.base.querySelectorAll(options.selector));
