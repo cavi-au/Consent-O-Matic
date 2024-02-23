@@ -59,6 +59,7 @@ Consent-O-Matic currently works with these CMPs:
 * cookieLab
 * didomi.io
 * dr.dk
+* DPG Media
 * EvidonBanner
 * EvidonIFrame
 * ez-cookie
