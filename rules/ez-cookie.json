@@ -51,6 +51,14 @@
                     "type": "list",
                     "actions": [
                         {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#ez-cookie-dialog .ez-cmp-purpose, #ez-cookie-dialog .ez-cmp-specialFeature"
+                            },
+                            "retries": 100,
+                            "waitTime": 50
+                        },
+                        {
                             "type": "foreach",
                             "target": {
                                 "selector": "#ez-cookie-dialog .ez-cmp-purpose, #ez-cookie-dialog .ez-cmp-specialFeature"
