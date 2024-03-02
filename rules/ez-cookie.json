@@ -126,7 +126,11 @@
                                                 "Create a personalised ads profile",
                                                 "Select personalised ads",
                                                 "Apply market research to generate audience insights",
-                                                "Measure ad performance"
+                                                "Measure ad performance",
+                                                "Use limited data to select advertising",
+                                                "Create profiles for personalised advertising",
+                                                "Measure advertising performance",
+                                                "Use profiles to select personalised advertising"
                                             ]
                                         },
                                         "trueAction": {
@@ -157,7 +161,9 @@
                                             "textFilter": [
                                                 "Create a personalised content profile",
                                                 "Select personalised content",
-                                                "Measure content performance"
+                                                "Measure content performance",
+                                                "Use limited data to select content",
+                                                "Create profiles to personalise content"
                                             ]
                                         },
                                         "trueAction": {
@@ -186,7 +192,9 @@
                                         "target": {
                                             "selector": ".ez-cmp-purpose-name, .ez-cmp-specialFeature-name",
                                             "textFilter": [
-                                                "Develop and improve products"
+                                                "Develop and improve products",
+                                                "Develop and improve services",
+                                                "Understand audiences through statistics or combinations of data from different sources"
                                             ]
                                         },
                                         "trueAction": {
