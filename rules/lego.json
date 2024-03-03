@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[class*='CookieModalstyles__ModalContent']"
+                            "selector": "[data-test='cookie-modal-content']"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[class*='CookieModalstyles__ModalContent']",
+                            "selector": "[data-test='cookie-modal-content']",
                             "displayFilter": true
                         }
                     }
@@ -36,7 +36,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "[class*='CookieModalstyles__ExpandingLink']"
+                        "selector": "[data-test='cookie-modal-dropdown']"
                     }
                 },
                 "name": "OPEN_OPTIONS"
