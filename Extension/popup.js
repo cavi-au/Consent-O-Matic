@@ -2,8 +2,8 @@ chrome.tabs.query({
     active: true,
     currentWindow: true
 }, (tabs) => {
-    let url = tabs[0].url;
-    url = url.substring(url.indexOf("://") + 3, url.indexOf("/", 8));
+    const urlObj = new URL(tabs[0].url);
+    const url = urlObj.host;
 
     let activeInput = document.querySelector(".siteselector input");
     document.querySelector("#site").textContent = url;
