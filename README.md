@@ -188,7 +188,7 @@ Most actions and matchers have some target that they apply to. For this reason, 
 }
 ```
 
-There are 2 parts, `parent` and `target`. The `parent` is optional but if it exists it will be resolved first, and used as the starting point for `target`. This allows you to construct very complicated selections of elements that wouldn't otherwise be possible with a single plain CSS selector.
+There are 2 parts, `parent` and `target`. The `parent` is optional but if it exists it will be resolved first, and used as the starting point for `target`. This allows you to construct very complicated selections of elements that wouldn't otherwise be possible with a single plain CSS selector. One example of such is selecting into shadow DOM - where using parent to target the element with the shadow allows querying its children with the selector.
 
 All the parameters to `parent` and `target` except `selector` are optional.
 

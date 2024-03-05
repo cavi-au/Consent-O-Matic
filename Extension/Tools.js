@@ -27,19 +27,16 @@ class Tools {
                 console.log("Special :scope handling, selecting current root:", possibleTargets);
             }
         } else {
+            let top = document;
             if (parent != null) {
-                if (!!parent.shadowRoot) {
-                    possibleTargets = Array.from(parent.shadowRoot.querySelectorAll(options.selector));
-                } else {
-                    possibleTargets = Array.from(parent.querySelectorAll(options.selector));
-                }
-            } else {
-                if (Tools.base != null) {
-                    possibleTargets = Array.from(Tools.base.querySelectorAll(options.selector));
-                } else {
-                    possibleTargets = Array.from(document.querySelectorAll(options.selector));
-                }
+                top = parent;
+            } else if (Tools.base != null){
+                top = Tools.base;
             }
+            if (!!top.shadowRoot){
+                top = top.shadowRoot;
+            }
+            possibleTargets = Array.from(top.querySelectorAll(options.selector));
         }
 
         const clonedPossibleTargets = possibleTargets.slice();
