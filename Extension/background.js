@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);
-            return Promise.resolve("Response already sent...");
+            return false;
         }
 
         case "GetRuleList": {

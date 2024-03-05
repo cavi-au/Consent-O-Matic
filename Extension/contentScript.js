@@ -1,9 +1,9 @@
 async function contentScriptRunner() {
     if (document.contentType!=="text/html") return;
+
+    // Figure out the URL
     let url = location.href;
-    
     let insideIframe = window !== window.parent;
-    
     if(insideIframe) {
         //We are inside an iframe, request the actual tab url to check if we are active
         url = await new Promise((resolve, reject)=>{
@@ -12,7 +12,6 @@ async function contentScriptRunner() {
             });
         });
     }
-    
     const urlObj = new URL(url);
     url = urlObj.host;
 
