@@ -1,0 +1,66 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "dpgmedia": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#pg-modal"
+                        },
+                        "parent": {
+                            "selector": "#pg-shadow-host"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#pg-modal"
+                        },
+                        "parent": {
+                            "selector": "#pg-shadow-host"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#pg-modal #pg-first-layer #pg-footer #pg-configure-btn"
+                    },
+                    "parent": {
+                        "selector": "#pg-shadow-host"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#pg-modal #pg-second-layer #pg-footer #pg-reject-btn"
+                    },
+                    "parent": {
+                        "selector": "#pg-shadow-host"
+                    }
+                }
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
