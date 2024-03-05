@@ -15,6 +15,7 @@ document.addEventListener("keydown", (evt) => {
 });
 
 document.addEventListener("blur", (evt)=>{
+    if (!evt.target.closest) return;
     let list = evt.target.closest("ul.list");
 
     if(list != null && evt.target.matches("input")) {
@@ -240,8 +241,8 @@ function loadFromDom(cmpDom, name) {
     });
 
     document.addEventListener("keydown", (evt) => {
-        evt.preventDefault();
         if (ctrlPressed && evt.key === "s") {
+            evt.preventDefault();
             saveCmp(cmpDom);
         };
     });
