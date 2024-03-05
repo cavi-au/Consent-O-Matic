@@ -337,6 +337,11 @@ class ConsentEngine {
                             clearInterval(self.domScannerIntervalID);
 
                             self.checkRunning = false;
+
+                            // Remove focus from anything inside the closed popups
+                            window.focus();
+                            if (document.activeElement) document.activeElement.blur();
+                            document.body.focus();
                         }
                     }, 0);
                 } else {
