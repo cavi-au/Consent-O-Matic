@@ -1,4 +1,5 @@
 async function contentScriptRunner() {
+    if (document.contentType!=="text/html") return;
     let url = location.href;
     
     let insideIframe = window !== window.parent;
@@ -40,7 +41,6 @@ async function contentScriptRunner() {
                                 ConsentEngine.topFrameUrl = url;
         
                                 chrome.runtime.sendMessage("Searching");
-
                                 let engine = new ConsentEngine(config, consentTypes, (evt)=>{
                                     let result = {
                                         "handled": evt.handled
@@ -86,21 +86,24 @@ function getCalculatedStyles() {
     });
 }
 
-let observer = new MutationObserver((mutations)=>{
-    mutations.forEach((mutation)=>{
-        mutation.addedNodes.forEach((node)=>{
-            if(node.matches != null && node.matches("body")) {
-                getCalculatedStyles();
-                observer.disconnect();
-            }
-        })
+// Observe styles in order to temporarily restore them if a popup kills them
+let topContentTag = document.querySelector("html");
+if (topContentTag){
+    let observer = new MutationObserver((mutations)=>{
+        mutations.forEach((mutation)=>{
+            mutation.addedNodes.forEach((node)=>{
+                if(node.matches != null && node.matches("body")) {
+                    getCalculatedStyles();
+                    observer.disconnect();
+                }
+            })
+        });
     });
-});
 
-observer.observe(document.querySelector("html"), {
-    childList: true
-});
-
+    observer.observe(topContentTag, {
+        childList: true
+    });
+}
 window.addEventListener("message", (event)=>{
     try {
         if(event.data.enforceScrollBehaviours != null) {
