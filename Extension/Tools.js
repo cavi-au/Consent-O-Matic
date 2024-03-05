@@ -27,14 +27,21 @@ class Tools {
                 console.log("Special :scope handling, selecting current root:", possibleTargets);
             }
         } else {
+    	    // Find the right point to start from
             let top = document;
             if (parent != null) {
                 top = parent;
             } else if (Tools.base != null){
                 top = Tools.base;
             }
-            if (!!top.shadowRoot){
+
+    	    // Consider shadow roots, even closed ones
+            if (top.shadowRoot){
                 top = top.shadowRoot;
+            } else if (top.openOrClosedShadowRoot){ // Firefox
+    	        top = top.openOrClosedShadowRoot;
+            } else if (top instanceof HTMLElement && chrome && chrome.dom && chrome.dom.openOrClosedShadowRoot(top)){ // Chromium
+    	        top = chrome.dom.openOrClosedShadowRoot(top);
             }
             possibleTargets = Array.from(top.querySelectorAll(options.selector));
         }
