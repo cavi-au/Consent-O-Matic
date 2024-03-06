@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A137F982930D8D0003A3F07 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F962930D8D0003A3F07 /* minimize.svg */; };
+		7A137F992930D8D0003A3F07 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F962930D8D0003A3F07 /* minimize.svg */; };
+		7A137F9A2930D8D0003A3F07 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F972930D8D0003A3F07 /* hide.svg */; };
+		7A137F9B2930D8D0003A3F07 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F972930D8D0003A3F07 /* hide.svg */; };
 		7A27C71C27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
 		7A27C71D27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
 		7A84BB8A27BCFB98000AC8E0 /* language.js in Resources */ = {isa = PBXBuildFile; fileRef = 7A84BB8927BCFB98000AC8E0 /* language.js */; };
@@ -17,8 +21,8 @@
 		7ABDB9F7279FED16001F98FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9F5279FED16001F98FD /* Main.storyboard */; };
 		7ABDBA00279FED16001F98FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9FF279FED16001F98FD /* AppDelegate.swift */; };
 		7ABDBA03279FED16001F98FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA01279FED16001F98FD /* Main.storyboard */; };
-		7ABDBA0B279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ABDBA0A279FED16001F98FD /* Consent-O-Matic Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7ABDBA15279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ABDBA14279FED16001F98FD /* Consent-O-Matic Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ABDBA0B279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7ABDBA0A279FED16001F98FD /* Consent-O-Matic Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ABDBA15279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7ABDBA14279FED16001F98FD /* Consent-O-Matic Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7ABDBA1B279FED16001F98FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9DE279FED13001F98FD /* Main.html */; };
 		7ABDBA1C279FED16001F98FD /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9DE279FED13001F98FD /* Main.html */; };
 		7ABDBA1F279FED16001F98FD /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9E1279FED13001F98FD /* Style.css */; };
@@ -93,31 +97,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7ABDBA2E279FED16001F98FD /* Embed App Extensions */ = {
+		7ABDBA2E279FED16001F98FD /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7ABDBA0B279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed App Extensions */,
+				7ABDBA0B279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ABDBA35279FED16001F98FD /* Embed App Extensions */ = {
+		7ABDBA35279FED16001F98FD /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7ABDBA15279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed App Extensions */,
+				7ABDBA15279FED16001F98FD /* Consent-O-Matic Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A137F962930D8D0003A3F07 /* minimize.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = minimize.svg; path = ../../Extension/minimize.svg; sourceTree = "<group>"; };
+		7A137F972930D8D0003A3F07 /* hide.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hide.svg; path = ../../Extension/hide.svg; sourceTree = "<group>"; };
 		7A27C71B27A2A2D0008AECB6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		7A84BB8927BCFB98000AC8E0 /* language.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = language.js; path = ../../Extension/language.js; sourceTree = "<group>"; };
 		7ABDB9DF279FED13001F98FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
@@ -294,6 +300,8 @@
 		7ABDBA39279FED18001F98FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A137F972930D8D0003A3F07 /* hide.svg */,
+				7A137F962930D8D0003A3F07 /* minimize.svg */,
 				7A84BB8927BCFB98000AC8E0 /* language.js */,
 				7ABDBA3A279FED18001F98FD /* Tools.js */,
 				7ABDBA3B279FED18001F98FD /* Action.js */,
@@ -331,7 +339,7 @@
 				7ABDB9E7279FED16001F98FD /* Sources */,
 				7ABDB9E8279FED16001F98FD /* Frameworks */,
 				7ABDB9E9279FED16001F98FD /* Resources */,
-				7ABDBA2E279FED16001F98FD /* Embed App Extensions */,
+				7ABDBA2E279FED16001F98FD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -350,7 +358,7 @@
 				7ABDB9F9279FED16001F98FD /* Sources */,
 				7ABDB9FA279FED16001F98FD /* Frameworks */,
 				7ABDB9FB279FED16001F98FD /* Resources */,
-				7ABDBA35279FED16001F98FD /* Embed App Extensions */,
+				7ABDBA35279FED16001F98FD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -404,7 +412,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					7ABDB9EA279FED16001F98FD = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -481,6 +489,7 @@
 				7ABDBA77279FED18001F98FD /* editor in Resources */,
 				7ABDBA74279FED18001F98FD /* icon_48.png in Resources */,
 				7ABDBA67279FED18001F98FD /* icon_96.png in Resources */,
+				7A137F982930D8D0003A3F07 /* minimize.svg in Resources */,
 				7ABDBA6A279FED18001F98FD /* ConsentEngine.js in Resources */,
 				7ABDBA78279FED18001F98FD /* contentScript.js in Resources */,
 				7ABDBA66279FED18001F98FD /* popup.js in Resources */,
@@ -488,6 +497,7 @@
 				7ABDBA68279FED18001F98FD /* content.css in Resources */,
 				7ABDBA69279FED18001F98FD /* background.js in Resources */,
 				7ABDBA6D279FED18001F98FD /* Detector.js in Resources */,
+				7A137F9A2930D8D0003A3F07 /* hide.svg in Resources */,
 				7ABDBA73279FED18001F98FD /* options.html in Resources */,
 				7ABDBA71279FED18001F98FD /* GDPRConfig.js in Resources */,
 				7ABDBA6F279FED18001F98FD /* icon_128.png in Resources */,
@@ -510,6 +520,7 @@
 				7ABDBA62279FED18001F98FD /* editor in Resources */,
 				7ABDBA5F279FED18001F98FD /* icon_48.png in Resources */,
 				7ABDBA52279FED18001F98FD /* icon_96.png in Resources */,
+				7A137F992930D8D0003A3F07 /* minimize.svg in Resources */,
 				7ABDBA55279FED18001F98FD /* ConsentEngine.js in Resources */,
 				7ABDBA63279FED18001F98FD /* contentScript.js in Resources */,
 				7ABDBA51279FED18001F98FD /* popup.js in Resources */,
@@ -517,6 +528,7 @@
 				7ABDBA53279FED18001F98FD /* content.css in Resources */,
 				7ABDBA54279FED18001F98FD /* background.js in Resources */,
 				7ABDBA58279FED18001F98FD /* Detector.js in Resources */,
+				7A137F9B2930D8D0003A3F07 /* hide.svg in Resources */,
 				7ABDBA5E279FED18001F98FD /* options.html in Resources */,
 				7ABDBA5C279FED18001F98FD /* GDPRConfig.js in Resources */,
 				7ABDBA5A279FED18001F98FD /* icon_128.png in Resources */,
@@ -731,7 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -743,7 +755,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -762,7 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -774,7 +786,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -797,7 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -812,7 +824,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -835,7 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -850,7 +862,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -871,8 +883,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Consent-O-Matic.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -885,7 +898,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -903,8 +916,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Consent-O-Matic.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -917,7 +931,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -939,8 +953,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Consent-O-Matic.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -954,7 +969,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -978,8 +993,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Consent-O-Matic.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -993,7 +1009,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.13;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
