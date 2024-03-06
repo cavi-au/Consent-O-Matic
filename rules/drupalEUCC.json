@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "kk.dk": {
+    "drupalEUCC": {
         "detectors": [
             {
                 "presentMatcher": [
@@ -36,7 +36,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".eu-cookie-compliance-manage-preferences-button"
+                        "selector": ".eu-cookie-compliance-manage-preferences-button, .eu-cookie-compliance-buttons .js-cookie-customize-settings"
                     }
                 },
                 "name": "OPEN_OPTIONS"
