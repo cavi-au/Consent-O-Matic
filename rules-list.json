@@ -71,6 +71,7 @@
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/gondola.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/google_cwiz.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/google_popup.json",
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/google_eomdialog.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/google_consentdomain_1.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/google_consentdomain_2.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/gov.uk.json",
