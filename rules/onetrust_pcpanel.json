@@ -100,7 +100,21 @@
                                                 "Funktionalitetscookies",
                                                 "Funktionella cookies",
                                                 "Cookies de fonctionnalité",
-                                                "Customer Experience"
+                                                "Customer Experience",
+                                                "Funktionelle",
+                                                "Preferenser",
+                                                "Käyttökokemus",
+                                                "Komfort",
+                                                "Comfort",
+                                                "Voorkeuren",
+                                                "Préférences",
+                                                "Preferencias",
+                                                "Preferenze",
+                                                "Preferencje",
+                                                "Preferences",
+                                                "Gewährleistung der Sicherheit, Verhinderung und Aufdeckung von Betrug und Fehlerbehebung .",
+                                                "Identifikation von Geräten anhand automatisch übermittelter Informationen",
+                                                "Measure ad performance"
                                             ]
                                         },
                                         "trueAction": {
@@ -120,6 +134,173 @@
                                                         }
                                                     },
                                                     "type": "A"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Performance Cookies",
+                                                "Measure content performance",
+                                                "Measure performance",
+                                                "Leistungs-Cookies",
+                                                "Performance-Technologien",
+                                                "ANALYSECOOKIES",
+                                                "ANALYSE",
+                                                "ANÁLISIS",
+                                                "ANALISI",
+                                                "ANALITYKA",
+                                                "Performance Technologies",
+                                                "Audience Measurement",
+                                                "Cookie di prestazione",
+                                                "Analizzare il pubblico e le performance dei contenuti",
+                                                "Statistics and analysis",
+                                                "Analytic Cookies",
+                                                "Cookies de performance",
+                                                "Cookie di performance",
+                                                "Cookies de rendimiento",
+                                                "Performance-Cookies",
+                                                "Prestatiecookies",
+                                                "Prestanda-cookies",
+                                                "Suorituskyky",
+                                                "Statistiske",
+                                                "Statistiikka",
+                                                "Analytisch",
+                                                "Statistiek",
+                                                "Statistique",
+                                                "Estadísticas",
+                                                "Statistici",
+                                                "Statystyczne",
+                                                "Statistics",
+                                                "Analyse von Zielgruppen durch Statistiken oder Kombinationen von Daten aus verschiedenen Quellen",
+                                                "Abgleichung und Kombination von Daten aus unterschiedlichen Quellen",
+                                                "Verknüpfung verschiedener Endgeräte",
+                                                "Apply market research to generate audience insights",
+                                                "Statistik",
+                                                "Analytics",
+                                                "Statistik Cookies",
+                                                "Analytical Cookies",
+                                                "Statistiske cookies",
+                                                "Måle- og analysecookies",
+                                                "Mål ydeevne",
+                                                "Statistical Cookies",
+                                                "Analyse Cookies",
+                                                "Externí analýzy",
+                                                "Analytics Cookies"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "B"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Actively scan device characteristics for identification",
+                                                "Aktivt scanne enhedskarakteristika til identifikation",
+                                                "Geräteeigenschaften zur Identifikation aktiv abfragen",
+                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
+                                                "Automaattisesti lähetettävien laitetietojen käyttö laitteiden tunnistamisessa",
+                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
+                                                "Tarkat sijaintitiedot ja laitteen tunnistaminen laitetta skannaamalla",
+                                                "Use precise geolocation data",
+                                                "Bruge præcise geoplaceringsoplysninger",
+                                                "Genaue Standortdaten verwenden",
+                                                "Utilizzare dati di geolocalizzazione precisi",
+                                                "Precise geolocation data, and identification through device scanning",
+                                                "Verwendung genauer Standortdaten",
+                                                "Speichern von oder Zugriff auf Informationen auf einem Endgerät",
+                                                "Visitor identification",
+                                                "Archiviare e/o accedere a informazioni su un dispositivo",
+                                                "Specielle formål",
+                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
+                                                "Informationen auf einem Gerät speichern und/oder abrufen",
+                                                "Opbevare og/eller tilgå oplysninger på en enhed",
+                                                "Store and/or access information on a device"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "D"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".ot-cat-header, .category-header",
+                                            "textFilter": [
+                                                "Select personalised content",
+                                                "CONTENT PERSONALISATION",
+                                                "PERSONALISIERUNG VON INHALTEN",
+                                                "PERSONALIZACIÓN DEL CONTENIDO",
+                                                "PERSONALIZZAZIONE DEI CONTENUTI",
+                                                "PERSONALIZACJA TRESCI",
+                                                "INHOUDSPERSONALISATIE",
+                                                "Communications",
+                                                "Doelgroepgerichte cookies",
+                                                "Riktade cookies",
+                                                "Personalised content, content measurement, audience insights, and product development",
+                                                "Toimivuus",
+                                                "Personoitu sisältö, sisällön mittaus, käyttäjäymmärrys ja tuotekehitys",
+                                                "Content measurement, audience insights, and product development.",
+                                                "Create a personalised content profile"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "matcher": {
+                                                        "type": "checkbox",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "toggleAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": "input.category-switch-handler"
+                                                        }
+                                                    },
+                                                    "type": "E"
                                                 }
                                             ]
                                         }
@@ -156,129 +337,31 @@
                                                 "Markedsføringscookies",
                                                 "Cookies pour une publicité ciblée",
                                                 "Kohdentaminen",
-                                                "Personoidut mainokset ja mainonnan mittaus"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Performance Cookies",
-                                                "Measure content performance",
-                                                "Measure performance",
-                                                "Leistungs-Cookies",
-                                                "Performance-Technologien",
-                                                "ANALYSECOOKIES",
-                                                "ANALYSE",
-                                                "ANÁLISIS",
-                                                "ANALISI",
-                                                "ANALITYKA",
-                                                "Performance Technologies",
-                                                "Audience Measurement",
-                                                "Cookie di prestazione",
-                                                "Analizzare il pubblico e le performance dei contenuti",
-                                                "Statistics and analysis",
-                                                "Analytic Cookies",
-                                                "Cookies de performance",
-                                                "Cookie di performance",
-                                                "Cookies de rendimiento",
-                                                "Performance-Cookies",
-                                                "Prestatiecookies",
-                                                "Prestanda-cookies",
-                                                "Suorituskyky"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "B"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Store and/or access information on a device",
-                                                "Opbevare og/eller tilgå oplysninger på en enhed",
-                                                "Informationen auf einem Gerät speichern und/oder abrufen",
-                                                "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
-                                                "Specielle formål",
-                                                "Archiviare e/o accedere a informazioni su un dispositivo",
-                                                "Visitor identification"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "D"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Personalised ads and content, ad and content measurement, audience insights and product development",
-                                                "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
-                                                "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
-                                                "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
-                                                "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessungen, Erkenntnisse über Zielgruppen und Produktentwicklungen",
-                                                "Annunci e contenuti personalizzati, valutazione degli annunci e del contenuto, osservazioni del pubblico e sviluppo di prodotti",
+                                                "Personoidut mainokset ja mainonnan mittaus",
+                                                "Verwendung reduzierter Daten zur Auswahl von Werbeanzeigen",
+                                                "Erstellung von Profilen für personalisierte Werbung",
+                                                "Verwendung von Profilen zur Auswahl personalisierter Werbung",
+                                                "Messung der Werbeleistung",
+                                                "Bereitstellung und Anzeige von Werbung und Inhalten",
+                                                "Messung des Erfolgs von Werbekampagnen durch TTD",
+                                                "Personalised ads, and ad measurement",
+                                                "Select personalised ads",
+                                                "Create a personalised ads profile",
+                                                "Select basic ads",
+                                                "Basic ads, and ad measurement",
+                                                "Personalised ads profile and display",
+                                                "Reklamowe",
+                                                "Eigenwerbung",
+                                                "Markkinointi",
+                                                "Marknadsföring",
+                                                "Cookies dirigidas",
                                                 "Targeting and Sponsor Cookies",
-                                                "Cookies dirigidas"
+                                                "Annunci e contenuti personalizzati, valutazione degli annunci e del contenuto, osservazioni del pubblico e sviluppo di prodotti",
+                                                "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessungen, Erkenntnisse über Zielgruppen und Produktentwicklungen",
+                                                "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
+                                                "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                                "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
+                                                "Personalised ads and content, ad and content measurement, audience insights and product development"
                                             ]
                                         },
                                         "trueAction": {
@@ -298,73 +381,6 @@
                                                         }
                                                     },
                                                     "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Use precise geolocation data",
-                                                "Bruge præcise geoplaceringsoplysninger",
-                                                "Genaue Standortdaten verwenden",
-                                                "Utilizzare dati di geolocalizzazione precisi"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "D"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Actively scan device characteristics for identification",
-                                                "Aktivt scanne enhedskarakteristika til identifikation",
-                                                "Geräteeigenschaften zur Identifikation aktiv abfragen",
-                                                "Scansione attiva delle caratteristiche del dispositivo ai fini dell’identificazione",
-                                                "Automaattisesti lähetettävien laitetietojen käyttö laitteiden tunnistamisessa",
-                                                "Tietojen tallennus laitteelle ja/tai laitteella olevien tietojen käyttö",
-                                                "Tarkat sijaintitiedot ja laitteen tunnistaminen laitetta skannaamalla"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "D"
                                                 }
                                             ]
                                         }
@@ -416,226 +432,8 @@
                                         "target": {
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
-                                                "Select personalised content",
-                                                "CONTENT PERSONALISATION",
-                                                "PERSONALISIERUNG VON INHALTEN",
-                                                "PERSONALIZACIÓN DEL CONTENIDO",
-                                                "PERSONALIZZAZIONE DEI CONTENUTI",
-                                                "PERSONALIZACJA TRESCI",
-                                                "INHOUDSPERSONALISATIE",
-                                                "Communications",
-                                                "Doelgroepgerichte cookies",
-                                                "Riktade cookies",
-                                                "Personalised content, content measurement, audience insights, and product development",
-                                                "Toimivuus",
-                                                "Personoitu sisältö, sisällön mittaus, käyttäjäymmärrys ja tuotekehitys"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "E"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Develop and improve products"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "X"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Apply market research to generate audience insights"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "X"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Create a personalised content profile"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "X"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Personalised ads, and ad measurement",
-                                                "Select personalised ads",
-                                                "Create a personalised ads profile"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Select basic ads",
-                                                "Basic ads, and ad measurement",
-                                                "Personalised ads profile and display"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Measure ad performance"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Content measurement, audience insights, and product development."
+                                                "Develop and improve products",
+                                                "Entwicklung und Verbesserung der Angebote"
                                             ]
                                         },
                                         "trueAction": {
@@ -665,74 +463,6 @@
                                             "selector": ".ot-cat-header, .category-header",
                                             "textFilter": [
                                                 "Recommended Cookies"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "X"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Analytics Cookies",
-                                                "Externí analýzy",
-                                                "Analyse Cookies",
-                                                "Statistical Cookies",
-                                                "Mål ydeevne",
-                                                "Måle- og analysecookies",
-                                                "Statistiske cookies",
-                                                "Analytical Cookies",
-                                                "Statistik Cookies",
-                                                "Analytics",
-                                                "Statistik"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "checkbox",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": "input.category-switch-handler"
-                                                        }
-                                                    },
-                                                    "type": "B"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".ot-cat-header, .category-header",
-                                            "textFilter": [
-                                                "Precise geolocation data, and identification through device scanning"
                                             ]
                                         },
                                         "trueAction": {
