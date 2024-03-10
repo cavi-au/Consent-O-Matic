@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "linkedin_popup": {
         "detectors": [
             {
@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "div[type=\"COOKIE_CONSENT\"] [data-tracking-control-name^=\"ga-cookie.consent.manage\"]"
+                            "selector": "div[type=\"COOKIE_CONSENT\"]"
                         }
                     }
                 ],
@@ -15,7 +15,8 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "div[type=\"COOKIE_CONSENT\"] [data-tracking-control-name^=\"ga-cookie.consent.manage\"]"
+                            "selector": "div[type=\"COOKIE_CONSENT\"]",
+                            "displayFilter": true
                         }
                     }
                 ]
@@ -38,7 +39,13 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "div[type=\"COOKIE_CONSENT\"] [data-tracking-control-name^=\"ga-cookie.consent.manage\"]"
+                        "selector": "[data-tracking-control-name*=\"global-alerts-alert-link-cta\"]",
+                        "textFilter": [
+                            "settings"
+                        ]
+                    },
+                    "parent": {
+                        "selector": "div[type=\"COOKIE_CONSENT\"]"
                     }
                 },
                 "name": "UTILITY"
