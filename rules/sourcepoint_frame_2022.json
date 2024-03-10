@@ -61,7 +61,8 @@
                                     "Asetukset",
                                     "Learn More",
                                     "Instellingen beheren",
-                                    "GESTIRE LE IMPOSTAZIONI"
+                                    "GESTIRE LE IMPOSTAZIONI",
+                                    "Instellingen"
                                 ]
                             },
                             "trueAction": {
@@ -75,7 +76,8 @@
                                         "Asetukset",
                                         "Learn More",
                                         "Instellingen beheren",
-                                        "GESTIRE LE IMPOSTAZIONI"
+                                        "GESTIRE LE IMPOSTAZIONI",
+                                        "Instellingen"
                                     ]
                                 }
                             }
