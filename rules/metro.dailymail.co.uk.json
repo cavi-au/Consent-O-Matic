@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".controls_RjJCE"
+                            "selector": "[data-project='mol-fe-cmp']"
                         }
                     }
                 ],
@@ -15,8 +15,11 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".controls_RjJCE",
+                            "selector": ".container_riSbm",
                             "displayFilter": true
+                        },
+                        "parent": {
+                            "selector": "[data-project='mol-fe-cmp']"
                         }
                     }
                 ]
@@ -49,8 +52,12 @@
                     "target": {
                         "selector": "button",
                         "textFilter": [
-                            "Cookie Settings"
+                            "Cookie Settings",
+                            "Manage Settings"
                         ]
+                    },
+                    "parent": {
+                        "selector": ".controls_RjJCE"
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -72,7 +79,7 @@
                                         "target": {
                                             "selector": ".rowName_f4zjg",
                                             "textFilter": [
-                                                "Store and/or access information on a device"
+                                                "Store"
                                             ]
                                         },
                                         "trueAction": {
@@ -101,7 +108,8 @@
                                         "target": {
                                             "selector": ".rowName_f4zjg",
                                             "textFilter": [
-                                                "Use precise geolocation data"
+                                                "Use precise geolocation data",
+                                                "Actively scan device characteristics for identification"
                                             ]
                                         },
                                         "trueAction": {
@@ -209,35 +217,6 @@
                                                         }
                                                     },
                                                     "type": "F"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "ifcss",
-                                        "target": {
-                                            "selector": ".rowName_f4zjg",
-                                            "textFilter": [
-                                                "Actively scan device characteristics for identification"
-                                            ]
-                                        },
-                                        "trueAction": {
-                                            "type": "consent",
-                                            "consents": [
-                                                {
-                                                    "matcher": {
-                                                        "type": "css",
-                                                        "target": {
-                                                            "selector": ".toggle_aViZP.enabled_Kd4lm"
-                                                        }
-                                                    },
-                                                    "toggleAction": {
-                                                        "type": "click",
-                                                        "target": {
-                                                            "selector": ".toggle_aViZP"
-                                                        }
-                                                    },
-                                                    "type": "D"
                                                 }
                                             ]
                                         }
