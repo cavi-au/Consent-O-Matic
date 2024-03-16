@@ -53,7 +53,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cookie--btn-secondary"
+                        "selector": "#banner-manage"
                     }
                 },
                 "name": "OPEN_OPTIONS"
