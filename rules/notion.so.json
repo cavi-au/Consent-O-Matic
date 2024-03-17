@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".jsx-539809080.visibility-partial.container"
+                            "selector": ".cookiePreferencesBanner_visibilityPartial__P_Qcr"
                         },
                         "parent": {
                             "selector": "#__next"
@@ -18,7 +18,8 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".jsx-539809080.visibility-partial.container"
+                            "selector": ".cookiePreferencesBanner_visibilityPartial__P_Qcr",
+                            "displayFilter": true
                         },
                         "parent": {
                             "selector": "#__next",
