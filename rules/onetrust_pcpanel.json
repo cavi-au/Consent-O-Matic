@@ -238,7 +238,8 @@
                                                 "Præcise geoplaceringsoplysninger og identifikation gennem enhedsscanning",
                                                 "Informationen auf einem Gerät speichern und/oder abrufen",
                                                 "Opbevare og/eller tilgå oplysninger på en enhed",
-                                                "Store and/or access information on a device"
+                                                "Store and/or access information on a device",
+                                                "Bruge præcise geografiske placeringsoplysninger"
                                             ]
                                         },
                                         "trueAction": {
@@ -361,7 +362,10 @@
                                                 "Personalisierte Anzeigen und Inhalte, Anzeigen- und Inhaltsmessung, Erkenntnisse über Zielgruppen und Produktentwicklung",
                                                 "Tilpasse annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
                                                 "Tilpassede annoncer og tilpasset indhold, annonce- og indholdsmåling, målgruppeindsigter og produktudvikling",
-                                                "Personalised ads and content, ad and content measurement, audience insights and product development"
+                                                "Personalised ads and content, ad and content measurement, audience insights and product development",
+                                                "Tilpasset annoncering og indhold, annoncerings- og indholdsmåling, målgruppeundersøgelser og udvikling af tjenester",
+                                                "Måle annonceringseffektivitet",
+                                                "Bruge begrænsede oplysninger til at vælge annoncering"
                                             ]
                                         },
                                         "trueAction": {
