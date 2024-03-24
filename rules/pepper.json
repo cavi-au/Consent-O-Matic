@@ -74,13 +74,13 @@
                                                 "matcher": {
                                                     "type": "checkbox",
                                                     "target": {
-                                                        "selector": "input.checkbox-input[id=\"8\"]"
+                                                        "selector": "input.checkbox-input[id='11']"
                                                     }
                                                 },
                                                 "toggleAction": {
                                                     "type": "click",
                                                     "target": {
-                                                        "selector": "label.checkbox[for=\"8\"]"
+                                                        "selector": "label.checkbox[for='11']"
                                                     }
                                                 },
                                                 "type": "F"
@@ -94,13 +94,13 @@
                                                 "matcher": {
                                                     "type": "checkbox",
                                                     "target": {
-                                                        "selector": "input.checkbox-input[id=\"9\"]"
+                                                        "selector": "input.checkbox-input[id=\"12\"]"
                                                     }
                                                 },
                                                 "toggleAction": {
                                                     "type": "click",
                                                     "target": {
-                                                        "selector": "label.checkbox[for=\"9\"]"
+                                                        "selector": "input.checkbox-input[id=\"12\"]"
                                                     }
                                                 },
                                                 "type": "A"
@@ -114,13 +114,13 @@
                                                 "matcher": {
                                                     "type": "checkbox",
                                                     "target": {
-                                                        "selector": "input.checkbox-input[id=\"10\"]"
+                                                        "selector": "input.checkbox-input[id=\"13\"]"
                                                     }
                                                 },
                                                 "toggleAction": {
                                                     "type": "click",
                                                     "target": {
-                                                        "selector": "input.checkbox-input[id=\"10\"]"
+                                                        "selector": "input.checkbox-input[id=\"13\"]"
                                                     }
                                                 },
                                                 "type": "B"
@@ -140,7 +140,7 @@
                     "trueAction": {
                         "type": "click",
                         "target": {
-                            "selector": "button.hide--toW3[data-t=\"continueWithoutAcceptingBtn\"]"
+                            "selector": "[data-t=\"continueWithoutAcceptingBtn\"]"
                         }
                     },
                     "falseAction": {
@@ -148,7 +148,7 @@
                         "trueAction": {
                             "type": "click",
                             "target": {
-                                "selector": "button[data-t=\"acceptAllBtn\"]"
+                                "selector": "[data-t='acceptAllBtn']"
                             }
                         },
                         "falseAction": {
