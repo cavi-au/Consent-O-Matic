@@ -1,5 +1,6 @@
 {
   "references": [
+    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/healthygamer.gg.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/admiral.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/affinity.json",
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules/airbnb.json",
