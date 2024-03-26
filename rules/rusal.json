@@ -24,51 +24,19 @@
         ],
         "methods": [
             {
-                "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": ".cookie[data-cookie='']"
-                    }
-                },
                 "name": "HIDE_CMP"
             },
             {
-                "action": {
-                    "type": "click",
-                    "target": {
-                        "selector": "[data-cookie-customize='']"
-                    }
-                },
                 "name": "OPEN_OPTIONS"
             },
             {
-                "action": {
-                    "type": "consent",
-                    "consents": [
-                        {
-                            "matcher": {
-                                "type": "checkbox",
-                                "target": {
-                                    "selector": "#analytical-cookies"
-                                }
-                            },
-                            "toggleAction": {
-                                "type": "click",
-                                "target": {
-                                    "selector": "#analytical-cookies"
-                                }
-                            },
-                            "type": "B"
-                        }
-                    ]
-                },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "[data-cookie-settings-ok='']"
+                        "selector": "[data-cookie-close]"
                     }
                 },
                 "name": "SAVE_CONSENT"
