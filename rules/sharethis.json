@@ -1,177 +1,197 @@
 {
-	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
     "sharethis": {
         "detectors": [
             {
-                "presentMatcher": {
-                    "parent": null,
-                    "target": {
-                        "selector": ".app_gdpr"
-                    },
-                    "type": "css"
-                },
-                "showingMatcher": {
-                    "parent": null,
-                    "target": {
-                        "selector": ".app_gdpr .popup_popup"
-                    },
-                    "type": "css"
-                }
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#st-cmp-v2"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".st-cmp-app"
+                        }
+                    }
+                ]
             }
         ],
         "methods": [
             {
                 "action": {
+                    "type": "list",
                     "actions": [
                         {
-                            "parent": null,
+                            "type": "click",
                             "target": {
                                 "selector": ".app_gdpr .intro_showPurposes"
-                            },
-                            "type": "click"
+                            }
                         }
-                    ],
-                    "type": "list"
+                    ]
                 },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
-                    "consents": [
-                        {
-                            "description": "Vendor - Information storage and access",
-                            "matcher": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Information storage and access"
-                                },
+                    "type": "foreach",
+                    "target": {
+                        "selector": ".st-switch"
+                    },
+                    "action": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifcss",
                                 "target": {
-                                    "selector": ".switch_switch input"
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Develop and improve services",
+                                        "Understand audiences through statistics or combinations of data from different sources"
+                                    ]
                                 },
-                                "type": "checkbox"
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "[data-checked='true']"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span.slider"
+                                                }
+                                            },
+                                            "type": "B"
+                                        }
+                                    ]
+                                }
                             },
-                            "toggleAction": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Information storage and access"
-                                },
+                            {
+                                "type": "ifcss",
                                 "target": {
-                                    "selector": ".switch_switch"
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Store and/or access information on a device",
+                                        "Use precise geolocation data",
+                                        "Actively scan device characteristics for identification"
+                                    ]
                                 },
-                                "type": "click"
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "[data-checked='true']"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span.slider"
+                                                }
+                                            },
+                                            "type": "D"
+                                        }
+                                    ]
+                                }
                             },
-                            "type": "D"
-                        },
-                        {
-                            "description": "Vendor - Ad selection, delivery, reporting",
-                            "matcher": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Ad selection, delivery, reporting"
-                                },
+                            {
+                                "type": "ifcss",
                                 "target": {
-                                    "selector": ".switch_switch input"
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Create profiles to personalise content",
+                                        "Use profiles to select personalised content",
+                                        "Measure content performance",
+                                        "Use limited data to select content"
+                                    ]
                                 },
-                                "type": "checkbox"
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "[data-checked='true']"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span.slider"
+                                                }
+                                            },
+                                            "type": "E"
+                                        }
+                                    ]
+                                }
                             },
-                            "toggleAction": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Ad selection, delivery, reporting"
-                                },
+                            {
+                                "type": "ifcss",
                                 "target": {
-                                    "selector": ".switch_switch"
+                                    "selector": "label",
+                                    "textFilter": [
+                                        "Create profiles for personalised advertising",
+                                        "Use limited data to select advertising",
+                                        "Use profiles to select personalised advertising",
+                                        "Measure advertising performance"
+                                    ]
                                 },
-                                "type": "click"
-                            },
-                            "type": "F"
-                        },
-                        {
-                            "description": "Vendor - Personalisation",
-                            "matcher": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Personalisation"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch input"
-                                },
-                                "type": "checkbox"
-                            },
-                            "toggleAction": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Personalisation"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch"
-                                },
-                                "type": "click"
-                            },
-                            "type": "E"
-                        },
-                        {
-                            "description": "Vendor - Content selection, delivery, reporting",
-                            "matcher": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Content selection, delivery, reporting"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch input"
-                                },
-                                "type": "checkbox"
-                            },
-                            "toggleAction": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Content selection, delivery, reporting"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch"
-                                },
-                                "type": "click"
-                            },
-                            "type": "E"
-                        },
-                        {
-                            "description": "Vendor - Measurement",
-                            "matcher": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Measurement"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch input"
-                                },
-                                "type": "checkbox"
-                            },
-                            "toggleAction": {
-                                "parent": {
-                                    "selector": ".purposes_purposes",
-                                    "textFilter": "Measurement"
-                                },
-                                "target": {
-                                    "selector": ".switch_switch"
-                                },
-                                "type": "click"
-                            },
-                            "type": "B"
-                        }
-                    ],
-                    "type": "consent"
+                                "trueAction": {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "css",
+                                                "target": {
+                                                    "selector": "[data-checked='true']"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "span.slider"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
                 },
                 "name": "DO_CONSENT"
             },
             {
                 "action": {
-                    "parent": null,
+                    "type": "click",
                     "target": {
-                        "selector": ".app_gdpr .details_save"
-                    },
-                    "type": "click"
+                        "selector": ".st-text",
+                        "textFilter": [
+                            "Save & Exit"
+                        ]
+                    }
                 },
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
             }
         ]
     }
