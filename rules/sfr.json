@@ -420,6 +420,34 @@
                                         }
                                     },
                                     "type": "X"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "onoff",
+                                        "onMatcher": {
+                                            "target": {
+                                                "selector": "#Z3V11 .A"
+                                            }
+                                        },
+                                        "offMatcher": {
+                                            "target": {
+                                                "selector": "#Z3V11 .R"
+                                            }
+                                        }
+                                    },
+                                    "trueAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#Z3V11 .R"
+                                        }
+                                    },
+                                    "falseAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#Z3V11 .A"
+                                        }
+                                    },
+                                    "type": "E"
                                 }
                             ]
                         }
