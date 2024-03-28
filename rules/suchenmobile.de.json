@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#consentPageContentHolder"
+                            "selector": ".consent-settings_component_consentPage__PvCMp"
                         }
                     }
                 ],
@@ -15,7 +15,8 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#consentPageContentHolder"
+                            "selector": ".consent-settings_component_consentPage__PvCMp",
+                            "displayFilter": true
                         }
                     }
                 ]
@@ -35,7 +36,7 @@
                         {
                             "type": "foreach",
                             "target": {
-                                "selector": "._1qQsRL3d"
+                                "selector": ".purpose_component_ucPurpose__OFnMj"
                             },
                             "action": {
                                 "type": "list",
