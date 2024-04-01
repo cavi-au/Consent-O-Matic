@@ -36,7 +36,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".CookieConsent__secondaryButton___jzCXF",
+                        "selector": ".CookieConsent__button___19AgL",
                         "textFilter": [
                             "Cookie-inställningar"
                         ]
@@ -96,7 +96,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".CookieConsent__primaryButton___Th47k"
+                        "selector": ".CookieConsent__button___19AgL.CookieConsent__primary___lAepb"
                     }
                 },
                 "name": "SAVE_CONSENT"
