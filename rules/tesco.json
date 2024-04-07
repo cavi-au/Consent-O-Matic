@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[aria-labelledby=\"beans-cookies-notification-headline\"]"
+                            "selector": "[aria-labelledby=\"ddsweb-cookies-notification-headline\"]"
                         }
                     }
                 ]
@@ -42,7 +42,10 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".styled__Anchor-sc-16kp6v-0"
+                        "selector": "a",
+                        "textFilter": [
+                            "Manage cookies"
+                        ]
                     }
                 },
                 "name": "OPEN_OPTIONS"
