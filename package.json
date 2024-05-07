@@ -1,6 +1,6 @@
 {
-  "name": "popup-o-matic",
-  "version": "42",
+  "name": "consent-o-matic",
+  "version": "1.1.0",
   "description": "A chrome extension that tries to do the opposite of Consent-O-Matic",
   "license": "MIT",
   "repository": {

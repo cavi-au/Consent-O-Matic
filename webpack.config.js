@@ -8,11 +8,13 @@ module.exports = {
       './Extension/contentScript.js',
       "./Extension/manifest.json",
       "./Extension/content.scss",
-      ...glob.sync(__dirname + "/Extension/*.png"),
+      "./Extension/icon_48.png",
+      "./Extension/icon_96.png",
       ...glob.sync(__dirname + "/Extension/*.svg")
     ],
     ui: [
       './Extension/options.js',
+      './Extension/popup.js',
       './Extension/ui.scss',
       ...glob.sync(__dirname + "/Extension/*.html")
     ],

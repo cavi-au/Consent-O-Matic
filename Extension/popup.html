@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         body {
-            font-size: 0.8em;
+            font - size: 0.8em;
             padding: 2em;
-            overflow-x: hidden;
+            overflow - x: hidden;
         }
 
         img {
             width: 3em;
             height: 3em;
             padding: 1em;
-            padding-left: 0;
+            padding - left: 0;
         }
 
         .fronttab {
@@ -24,42 +24,42 @@
 
         .fronttab__contents {
             display: flex;
-            flex-direction: column;
+            flex - direction: column;
             gap: 1em;
         }
 
         .notworking,
         .keeprunning {
             display: flex;
-            flex-direction: column;
+            flex - direction: column;
             gap: 0.1em;
         }
 
         .unhandledtab_complete {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            flex - direction: column;
+            align - items: center;
+            justify - content: center;
         }
 
         .siteselector {
             display: flex;
-            justify-content: left;
-            align-items: center;
+            justify - content: left;
+            align - items: center;
             gap: 0.5em;
         }
 
         button,
-        input {
+            input {
             padding: 1em;
             margin: 0.5em 0;
         }
 
         input,
-        button {
+            button {
             border: 1px solid black;
             background: rgba(100, 100, 200, 0.2);
-            transition: background 0.2s ease-in-out;
+            transition: background 0.2s ease -in -out;
             color: white;
             cursor: pointer;
         }
@@ -76,7 +76,7 @@
             background: rgba(100, 100, 200, 0.5);
         }
     </script>
-    <link rel="stylesheet" href="ui.css"> 
+    <link rel="stylesheet" href="ui.css">
     <script src="GDPRConfig.js"></script>
     <script src="language.js"></script>
 </head>
@@ -100,11 +100,6 @@
             </div>
         </div>
     </div>
-    <div>
-    </div>
-    <script src="GDPRConfig.js"></script>
-    <script src="popup.js"></script>
-    </div>
     <div class="unhandledtab" style="display:none">
         <div>[[ARE_YOU_SURE]]</div>
         <em><span id="unhandled_site"></span></em>
@@ -117,6 +112,7 @@
         <img src="logo.svg">
         <div>[[THANKS]]</div>
     </div>
+    <script src="ui.js"></script>
 </body>
 
 </html>

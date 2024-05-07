@@ -1,7 +1,5 @@
 import GDPRConfig from './GDPRConfig.js';
 
-console.log("8hsudhusdh");
-
 const STATUS = {
     "INIT": 0,
     "NOTHING": 1,
