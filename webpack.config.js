@@ -5,16 +5,18 @@ module.exports = {
   entry: {
     service: ['./Extension/background.js'],
     content: [
-	'./Extension/contentScript.js',
-	"./Extension/manifest.json", 
-	"./Extension/content.css",
-	...glob.sync(__dirname + "/Extension/*.png"),
-	...glob.sync(__dirname + "/Extension/*.svg")
+      './Extension/contentScript.js',
+      "./Extension/manifest.json",
+      "./Extension/content.scss",
+      ...glob.sync(__dirname + "/Extension/*.png"),
+      ...glob.sync(__dirname + "/Extension/*.svg")
     ],
     ui: [
-	'./Extension/options.js',
-	...glob.sync(__dirname + "/Extension/*.html")
-
+      './Extension/options.js',
+      ...glob.sync(__dirname + "/Extension/*.html")
+    ],
+    editor: [
+      // TODO
     ]
   },
   output: {
@@ -25,12 +27,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|json|svg|html|css)/,
+        test: /\.(png|json|svg|html)/,
         type: 'asset/resource',
         generator: {
-		filename: '[name][ext]'
+          filename: '[name][ext]'
         }
-      }
+      },
+      {
+        test: /\.(sc|sa)ss$/i,
+        type: 'asset/resource',
+        use: [
+          "sass-loader"
+        ],
+        generator: {
+          filename: '[name].css'
+        }
+      },      
     ]
   },
 }

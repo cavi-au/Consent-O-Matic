@@ -4,13 +4,15 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Sass Compile",
-            "type": "shell",
-            "command": "sass Extension/editor/scss/main.scss Extension/editor/css/main.css",
-            "group": "build",
-            "problemMatcher": [
-                "$node-sass"
-            ]
+            "type": "npm",
+            "script": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "label": "npm: build",
+            "detail": "webpack"
         }
     ]
 }
