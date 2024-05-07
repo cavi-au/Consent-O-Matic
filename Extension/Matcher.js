@@ -1,4 +1,7 @@
-class Matcher {
+import ConsentEngine from "./ConsentEngine.js";
+import Tools from "./Tools.js";
+
+export default class Matcher {
     static createMatcher(config) {
         switch(config.type) {
             case "css": return new CssMatcher(config);

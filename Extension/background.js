@@ -1,6 +1,7 @@
-/**
- * 
- */
+import GDPRConfig from './GDPRConfig.js';
+
+console.log("8hsudhusdh");
+
 const STATUS = {
     "INIT": 0,
     "NOTHING": 1,
@@ -10,6 +11,8 @@ const STATUS = {
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
+    console.log("Got msg", message);
+    try {
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);
@@ -115,18 +118,22 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
         default:
             console.warn("Unhandled message:", message);
     }
+    } catch (ex){
+	console.log(ex);
+    }
 });
 
 function setBadgeCheckmark(text, id) {
-    chrome.browserAction.setBadgeText({
-        text: text,
-        tabId: id
-    });
-
-    chrome.browserAction.setBadgeBackgroundColor({
-        color: "white",
-        tabId: id
-    });
+    if (chrome.browserAction){
+        chrome.browserAction.setBadgeText({
+            text: text,
+            tabId: id
+        });
+        chrome.browserAction.setBadgeBackgroundColor({
+            color: "white",
+            tabId: id
+        });
+    }
 }
 
 function fetchRules(forceUpdate) {

@@ -1,4 +1,8 @@
-class Action {
+import ConsentEngine from "./ConsentEngine.js";
+import Consent from "./Consent.js";
+import Tools from "./Tools.js";
+
+export default class Action {
     static createAction(config, cmp) {
         try {
             switch (config.type) {

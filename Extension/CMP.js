@@ -1,4 +1,8 @@
-class CMP {
+import Detector from "./Detector.js";
+import Action from "./Action.js";
+import ConsentEngine from "./ConsentEngine.js";
+
+export default class CMP {
     constructor(name, config) {
         let self = this;
 

@@ -1,4 +1,6 @@
-class Detector {
+import Matcher from "./Matcher.js";
+
+export default class Detector {
     constructor(config) {
         this.config = config;
 

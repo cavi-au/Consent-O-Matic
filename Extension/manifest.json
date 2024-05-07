@@ -4,36 +4,26 @@
 	"author": "CAVI - Aarhus University",
 	"homepage_url": "https://github.com/cavi-au/Consent-O-Matic",
 	"version": "1.0.13",
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"permissions": [
 		"activeTab",
 		"tabs",
 		"storage"
 	],
-	"browser_action": {
-		"default_title": "Consent-O-Matic",
-		"default_popup": "popup.html"
-	},
-	"background": {
-		"scripts": ["GDPRConfig.js", "background.js"],
-		"persistent": false
-	},
-	"web_accessible_resources": ["auto.html"],	
+	"host_permissions": ["<all_urls>"],
+        "action": {
+                "default_title": "Consent-O-Matic",
+                "default_popup": "popup.html"
+        },
+        "background": {
+                "service_worker": "service.js",
+                "scripts": ["service.js"]
+        },
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
 			"js": [
-				"Tools.js",
-				"GDPRConfig.js",
-				"language.js",
-				"Matcher.js",
-				"Consent.js",
-				"Action.js",
-				"Detector.js",
-				"CMP.js",
-				"ConsentEngine.js",
-				"AutomaticDetection.js",
-				"contentScript.js"
+				"content.js"
 			],
 			"css": [
 				"content.css"

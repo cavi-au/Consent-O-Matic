@@ -1,4 +1,6 @@
-class ConsentEngine {
+import CMP from "./CMP.js";
+
+export default class ConsentEngine {
     constructor(config, consentTypes, handledCallback) {
         let self = this;
 

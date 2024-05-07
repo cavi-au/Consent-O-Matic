@@ -1,4 +1,6 @@
-class Tools {
+import ConsentEngine from "./ConsentEngine.js";
+
+export default class Tools {
     static setBase(base) {
         Tools.base = base;
     }

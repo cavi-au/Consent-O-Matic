@@ -1,0 +1,17 @@
+{
+  "name": "popup-o-matic",
+  "version": "42",
+  "description": "A chrome extension that tries to do the opposite of Consent-O-Matic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cavi-au/Consent-O-Matic"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "glob": "^10.3.12",
+    "webpack-cli": "^5.1.4"
+  }
+}

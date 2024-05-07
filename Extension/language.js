@@ -1497,7 +1497,7 @@ const translations = {
     }
 };
 
-class Language {
+export default class Language {
     static getString(key, subs) {
         //Find browser language
         let lang = navigator.language.substring(0, 2);
@@ -1583,7 +1583,3 @@ class Language {
         });
     }
 }
-
-GDPRConfig.getDebugValues().then((debugValues) => {
-    Language.debugTranslations = debugValues.debugTranslations;
-});

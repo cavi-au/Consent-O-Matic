@@ -1,4 +1,6 @@
-class GDPRConfig {
+import Language from './language.js';
+
+export default class GDPRConfig {
     static getStatistics() {
         return new Promise((resolve, reject)=>{
             chrome.storage.local.get({
