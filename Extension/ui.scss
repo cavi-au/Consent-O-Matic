@@ -1,0 +1,243 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: top;
+    background: #00309a;
+    background: linear-gradient(to right, rgba(0, 48, 154, 1) 0%, rgba(0, 22, 91, 1) 100%);
+    max-width: 50em;
+    min-width: 20em;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    line-height: 1.25em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.header {
+    border-top: 1px solid #2f1988;
+    border-bottom: 1px solid #2f1988;
+
+    ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        background: rgba(100, 100, 200, 0.2);
+        cursor: pointer;
+        padding: 1em;
+        margin: 0;
+        transition: background 0.20s ease-in-out;
+
+        &:hover {
+            background: rgba(100, 100, 200, 0.5);
+        }
+        &.active {
+            opacity: 1 !important;
+            background: rgba(100, 100, 255, 0.7);
+        }
+    }
+}
+
+
+.prehead {
+    position: relative;
+    padding: 1em;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    margin-bottom: 0em;
+    background: rgb(44, 69, 193);
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1.2em;
+    }
+    
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        opacity: 0.8;
+        font-weight: normal;
+        font-size: 1em;
+    }
+    
+    img {
+        height: 5em;
+        margin-right: 1em;
+    }
+}
+
+.description {
+    padding: 2em;
+    padding-bottom: 0.5em;
+}
+
+.configurator {
+    flex: 1 0 auto;
+    background: white;
+    color: black;
+
+    h2 {
+        display: inline-block;
+        font-size: 1.1em;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 0.75em;
+        margin-top: 0;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0em;
+        padding-left: 0em;
+
+        li {
+            background: rgba(0, 0, 100, 0.025);
+            position: relative;
+            padding: 1em;
+            padding-left: 6em;
+            padding-right: 2em;
+            margin-left: 0;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba(0, 0, 100, 0.075);
+            }
+
+            &.active {
+                background: rgba(100, 255, 100, 0.2);
+                &:hover {
+                    background: rgba(50, 255, 50, 0.2);
+                }
+            }
+        }
+    }
+
+    .slider {
+        position: absolute;
+        left: 1.75em;
+        height: 20px;
+        width: 44px;
+        pointer-events: none;
+
+        input {
+            display: none;
+        }
+    }    
+
+    .knob {
+        cursor: pointer;
+        background-color: #ccc;
+        border-radius: 1em;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: absolute;
+        transition: .4s;
+
+        &:before {
+            background-color: #fff;
+            border-radius: 1em;
+            bottom: 2px;
+            content: "";
+            height: 16px;
+            left: 2px;
+            position: absolute;
+            transition: .25s;
+            width: 16px;
+        }
+    }    
+
+    input:checked+.knob {
+        background-color: #66bb6a;
+        &:before {
+            transform: translateX(24px);
+        }
+    }
+}
+
+.rulelist li {
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+    cursor: initial !important;
+
+    button {
+        pointer-events: all;
+        position: absolute;
+        left: 2em;
+        border: 0;
+        cursor: pointer;
+
+        &:hover {
+            background: red;
+        }
+    }
+}
+
+.ruleoptions, .logoptions {
+    padding: 2em;
+    padding-top: 0;
+}
+
+.helptext {
+    padding: 2em;
+    padding-bottom: 0;
+}
+
+.saves {
+    text-align: center;
+    padding: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    #clicks {
+        font-size: 2em;
+    }
+}
+
+.logList {
+    padding: 2em;
+    border-spacing: 0;
+    margin: auto;
+
+    th {
+        background: #cedcff;
+        font-weight: normal;
+        padding: 0.25em 1em;
+    }
+    tr:first-child th {
+        font-weight: bold;
+    }
+    td {
+        text-align: center;
+    }
+    tr:not(:first-child):nth-child(2n) th {
+        background: #eef2ff;
+    }
+    tr:not(:first-child):nth-child(2n+1) th {
+        background: #e6eafd;
+    }
+}

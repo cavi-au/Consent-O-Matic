@@ -13,11 +13,10 @@ module.exports = {
     ],
     ui: [
       './Extension/options.js',
+      './Extension/ui.scss',
       ...glob.sync(__dirname + "/Extension/*.html")
     ],
-    editor: [
-      // TODO
-    ]
+
   },
   output: {
     publicPath: "",
