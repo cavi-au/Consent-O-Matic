@@ -4,3 +4,6 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/watcherTasks.xml
+node_modules/
+dist/
+package-lock.json
