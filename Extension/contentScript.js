@@ -111,7 +111,7 @@ if (topContentTag){
 }
 window.addEventListener("message", (event)=>{
     try {
-        if(event.data.enforceScrollBehaviours != null) {
+        if(event.data?.enforceScrollBehaviours != null) {
             ConsentEngine.enforceScrollBehaviours(event.data.enforceScrollBehaviours);
         }
     }catch(e) {
