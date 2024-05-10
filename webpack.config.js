@@ -19,7 +19,11 @@ module.exports = {
       './Extension/ui.scss',
       ...glob.sync(__dirname + "/Extension/*.html")
     ],
-
+    editor: [
+      ...glob.sync(__dirname + "/Extension/editor/js/*.js"),
+      './Extension/editor/scss/main.scss',
+      ...glob.sync(__dirname + "/Extension/editor/*.html")
+    ]
   },
   output: {
     publicPath: "",

@@ -1,3 +1,9 @@
+import { replaceNodeWithClone, loadTemplate, switchView} from "./utils"; "utils.js";
+import { JsonParser } from "./jsonParser.js";
+import { CaviDraggable } from "./draggable.js";
+import { DomParser } from "./domParser.js";
+import Language from "../../Language.js";
+
 let cmpJson = null;
 let customCmpJson = null;
 let textCmpJson = null;

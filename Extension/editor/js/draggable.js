@@ -1,4 +1,4 @@
-class CaviDraggable {
+export class CaviDraggable {
     constructor(html, options) {
         this.html = html;
 

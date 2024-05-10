@@ -1,14 +1,16 @@
+import Language from "../../Language.js";
+
 /**
  * Replaces the given node with a clone of the node, effectively clearing all event listeners.
  * @param {HTMLElement} node 
  */
-function replaceNodeWithClone(node) {
+export function replaceNodeWithClone(node) {
     let clone = node.cloneNode(true);
     node.parentNode.replaceChild(clone, node);
     return clone;
 }
 
-async function loadTemplate(id) {
+export async function loadTemplate(id) {
     let response = await fetch("./templates.html");
     let text = await response.text();
 
@@ -42,6 +44,6 @@ async function fetchJson(url) {
     return json;
 }
 
-function switchView(step) {
+export function switchView(step) {
     document.querySelector("body").setAttribute("data-view", step);
 }

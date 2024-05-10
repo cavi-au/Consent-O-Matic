@@ -1,4 +1,7 @@
-class JsonParser {
+import Language from "../../Language.js";
+import {loadTemplate} from "./utils.js";
+
+export class JsonParser {
     static async parseCmp(json) {
         return await JsonParser.loadTemplate("cmp", json);
     }

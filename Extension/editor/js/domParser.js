@@ -1,4 +1,4 @@
-class DomParser {
+export class DomParser {
     static async parseDom(dom) {
         if(dom != null) {
             let result = {};

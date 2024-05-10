@@ -60,13 +60,13 @@ if (document.querySelector(".configurator")){
         });
     });
 
-    GDPRConfig.getConsentTypes().then((consentTypes) => {
+    let consentPromise = GDPRConfig.getConsentTypes().then((consentTypes) => {
         consentTypes.forEach((consentType) => {
             addToggleItem(optionsUL, consentType.type, consentType.name, consentType.description, consentType.value);
         });
     });
 
-    GDPRConfig.getDebugFlags().then((debugFlags) => {
+    let debugPromise = GDPRConfig.getDebugFlags().then((debugFlags) => {
         debugFlags.forEach((debugFlag) => {
             let optionLi = addToggleItem(debugUL, debugFlag.name, debugFlag.name, debugFlag.description, debugFlag.value);
             let input = optionLi.querySelector("input");
@@ -269,10 +269,10 @@ if (document.querySelector(".configurator")){
     });
 
     document.querySelector("#rulesEditor").addEventListener("click", () => {
-        location.href = "/editor/index.html";
+        location.href = "/editor.html";
     });
 
-    window.addEventListener("DOMContentLoaded", ()=>{
+    Promise.all([consentPromise, debugPromise]).then(()=>{
         Language.doLanguage();
     });
 }
