@@ -4,87 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        body {
-            font - size: 0.8em;
-            padding: 2em;
-            overflow - x: hidden;
-        }
-
-        img {
-            width: 3em;
-            height: 3em;
-            padding: 1em;
-            padding - left: 0;
-        }
-
-        .fronttab {
-            display: flex;
-        }
-
-        .fronttab__contents {
-            display: flex;
-            flex - direction: column;
-            gap: 1em;
-        }
-
-        .notworking,
-        .keeprunning {
-            display: flex;
-            flex - direction: column;
-            gap: 0.1em;
-        }
-
-        .unhandledtab_complete {
-            display: flex;
-            flex - direction: column;
-            align - items: center;
-            justify - content: center;
-        }
-
-        .siteselector {
-            display: flex;
-            justify - content: left;
-            align - items: center;
-            gap: 0.5em;
-        }
-
-        button,
-            input {
-            padding: 1em;
-            margin: 0.5em 0;
-        }
-
-        input,
-            button {
-            border: 1px solid black;
-            background: rgba(100, 100, 200, 0.2);
-            transition: background 0.2s ease -in -out;
-            color: white;
-            cursor: pointer;
-        }
-
-        #unhandled_send {
-            background: rgba(100, 100, 255, 0.3)
-        }
-
-        #unhandled_send:hover {
-            background: rgba(100, 100, 255, 0.6)
-        }
-
-        button:hover {
-            background: rgba(100, 100, 200, 0.5);
-        }
-    </script>
     <link rel="stylesheet" href="ui.css">
-    <script src="GDPRConfig.js"></script>
-    <script src="language.js"></script>
 </head>
 
-<body>
-    <div class="fronttab">
-        <img class="fronttab__image" src="logo.svg">
-        <div class="fronttab__contents">
+<body class="popup">
+    <div class="pane fronttab">
+        <img src="logo.svg">
+        <div class="pane">
             <div class="notworking">
                 <div>[[AUTOFILL_NOT_WORKING]]</div>
                 <div>
@@ -100,15 +26,18 @@
             </div>
         </div>
     </div>
-    <div class="unhandledtab" style="display:none">
+    <div class="pane unhandledtab" style="display:none">
         <div>[[ARE_YOU_SURE]]</div>
         <em><span id="unhandled_site"></span></em>
         <div>[[UNHANDLED_EXPLAINER]]</div>
-        <button id="unhandled_cancel">[[CANCEL]]</button>
-        <button id="unhandled_send">[[SEND]]</button>
-        <input type="checkbox" id="no-confirmation"><label for="no-confirmation">[[NO-CONFIRM]]</label>
+        <div>
+            <button id="unhandled_cancel">[[CANCEL]]</button>
+            <button id="unhandled_send">[[SEND]]</button>
+        </div>
+        <div class="centeredlabel"><input type="checkbox" id="no-confirmation"><label
+                for="no-confirmation">[[NO-CONFIRM]]</label></div>
     </div>
-    <div class="unhandledtab_complete" style="display:none">
+    <div class="pane unhandledtab_complete" style="display:none">
         <img src="logo.svg">
         <div>[[THANKS]]</div>
     </div>

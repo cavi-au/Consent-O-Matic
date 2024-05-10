@@ -5,9 +5,6 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <link rel="stylesheet" href="ui.css">
-    <style>
-        min-height: 100vh;
-    </style>
 </head>
 
 <body>
@@ -41,54 +38,6 @@
             <div class="helptext">
                 [[DISPLAY_DESCRIPTION]]
             </div>
-	    <style>
-		.configurator ul li.hideOrPip {
-		    padding: 2em;
-		}
-		#hideOrPip {
-		    display: flex;
-		    align-items: flex-start;
-		    flex-wrap: wrap;
-		    margin-top: 1em;
-		}
-		#hideOrPip > div {
-		    flex: 1 1 auto;
-		    width: 50%;
-		    min-width: 15em;
-		    box-sizing: border-box;
-		}
-		#hideOrPip input {
-		    display: none;
-		}
-		#hideOrPip label {
-		    display: block;
-		    text-align: center;
-		    padding: 1em;
-		    cursor: pointer;
-		    background: rgba(0,0,0,0.02);
-		    
-		}
-		#hideOrPip label:hover {
-		    background: rgba(255,255,255,0.2);
-		}
-		#hideOrPip img {
-width: 12em;
-height: 10em;
-object-fit: contain;
-background: #e6e6e6;
-border: none;
-box-shadow: 0.2em 0.2em 0.5em rgba(0,0,0,0.1);
-display: block;
-margin: 1em auto;
-		}
-		#hideOrPip input:checked + label {
-		    background: rgba(100, 255, 100, 0.2);
-		}
-		#hideOrPip input:checked + label img {
-		    background: rgba(50, 255, 50, 0.2);
-		    box-shadow: 0em 0em 0.2em rgba(0,0,0,0.2);
-		}
-	    </style>
             <ul class="settingsList">
                 <li class="hideOrPip">
                     <div>[[HIDE_OR_PIP_DESCRIPTION]]</div>
@@ -122,7 +71,10 @@ margin: 1em auto;
                 <p>
                     [[RULE_GENERATOR_DESCRIPTION]]
                 </p>
-                <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
+                <p>
+                    <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
+                </p>
+
             </div>
         </div>
         <div class="tab tab_about" style="display:none" id="aboutTab" role="tabpanel" tabindex="0">
@@ -171,7 +123,11 @@ SOFTWARE.
             <ul class="flags">
                 <!-- debugflags -->
             </ul>
-	    <button id="clearDebugFlags">Clear Debug flags</button>
+            <div class="helptext">
+                <p>
+                    <button id="clearDebugFlags">Clear Debug flags</button>
+                </p>
+            </div>
         </div>
     </div>
     <script src="ui.js"></script>
