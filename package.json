@@ -13,7 +13,7 @@
   "dependencies": {
     "glob": "^10.3.12",
     "html-minimizer-webpack-plugin": "^5.0.0",
-    "node-sass": "^9.0.0",
+    "sass": "^1.77.0",
     "sass-loader": "^14.2.1",
     "webpack-cli": "^5.1.4"
   }
