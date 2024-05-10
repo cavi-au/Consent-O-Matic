@@ -1,5 +1,5 @@
 import GDPRConfig from './GDPRConfig.js';
-import Language from './language.js';
+import Language from './Language.js';
 
 let frontTab = document.querySelector(".fronttab");
 if (frontTab){

@@ -1,5 +1,5 @@
 import GDPRConfig from './GDPRConfig.js';
-import Language from './language.js';
+import Language from './Language.js';
 
 if (document.querySelector(".configurator")){
     let optionsUL = document.querySelector(".configurator ul.categorylist");
