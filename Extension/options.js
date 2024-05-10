@@ -153,6 +153,7 @@ if (document.querySelector(".configurator")){
                 evt.stopPropagation();
             }
         });
+        Language.doLanguage(optionLI);
         return optionLI;
     }
 
@@ -279,11 +280,6 @@ if (document.querySelector(".configurator")){
             permAPI.request({
                 "origins": [
                     "<all_urls>"
-                ],
-                "permissions": [
-                    "activeTab",
-                    "storage",
-                    "tabs"
                 ]
             }).then(()=>{
                 attemptPermissions();
@@ -309,9 +305,7 @@ if (document.querySelector(".configurator")){
         attemptPermissions();
     }
 
-    Promise.all([consentPromise, debugPromise]).then(()=>{
-        Language.doLanguage();
-    });
+    Language.doLanguage();
 }
 
 
