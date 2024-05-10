@@ -157,6 +157,12 @@ button, input {
     background: white;
     color: black;
 
+    #permissions {
+        padding: 1em 3em;
+        background: #fffeda;
+        border-bottom: 2px solid #e8e146;
+    }
+
     h2 {
         display: inline-block;
         font-size: 1.1em;

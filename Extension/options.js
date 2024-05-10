@@ -9,7 +9,7 @@ if (document.querySelector(".configurator")){
 
     optionsUL.innerHTML = "";
 
-    let menuTabs = document.querySelectorAll(".header .menuitem")
+    let menuTabs = document.querySelectorAll(".header .menuitem");
 
     menuTabs.forEach((menuTab) => {
         menuTab.addEventListener("click", (evt)=>{
@@ -271,6 +271,43 @@ if (document.querySelector(".configurator")){
     document.querySelector("#rulesEditor").addEventListener("click", () => {
         location.href = "/editor.html";
     });
+
+    // Check if we need to show the onboarding permissions panel
+    let permAPI = (typeof browser!="undefined")?browser.permissions:chrome.permissions;
+    if (permAPI){
+        document.querySelector("#permissions button").addEventListener("click", ()=>{
+            permAPI.request({
+                "origins": [
+                    "<all_urls>"
+                ],
+                "permissions": [
+                    "activeTab",
+                    "storage",
+                    "tabs"
+                ]
+            }).then(()=>{
+                attemptPermissions();
+            });
+        });
+
+        function attemptPermissions(){
+            permAPI.getAll().then((grantedPermissions)=>{
+                console.log(grantedPermissions);
+                if ((!grantedPermissions) || (!grantedPermissions.origins) || (!grantedPermissions.permissions)
+                    || (!grantedPermissions.origins.includes("<all_urls>"))
+                    || (!grantedPermissions.permissions.includes("tabs"))
+                    || (!grantedPermissions.permissions.includes("activeTab"))
+                    || (!grantedPermissions.permissions.includes("storage"))
+                ){
+                    document.querySelector("#permissions").style.display = "block";
+                } else {
+                    document.querySelector("#permissions").style.display = "none";
+                }
+            });
+        }
+
+        attemptPermissions();
+    }
 
     Promise.all([consentPromise, debugPromise]).then(()=>{
         Language.doLanguage();
