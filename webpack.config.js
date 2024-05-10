@@ -1,3 +1,4 @@
+const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const path = require('path');
 const glob = require("glob");
 module.exports = {
@@ -46,4 +47,11 @@ module.exports = {
       },      
     ]
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      '...',
+      new HtmlMinimizerPlugin(),
+     ],
+  },  
 }
