@@ -1,5 +1,3 @@
-import Language from './language.js';
-
 export default class GDPRConfig {
     static getStatistics() {
         return new Promise((resolve, reject)=>{
@@ -152,47 +150,47 @@ export default class GDPRConfig {
         return [
             {
                 "name": "clickDelay",
-                "description": Language.getString("CLICK_DELAY_DESCRIPTION"),
+                "description": "[[CLICK_DELAY_DESCRIPTION]]",
                 "value": debugValues.clickDelay
             },
             {
                 "name": "skipSubmit",
-                "description": Language.getString("SKIP_SUBMIT_DESCRIPTION"),
+                "description": "[[SKIP_SUBMIT_DESCRIPTION]]",
                 "value": debugValues.skipSubmit
             },
             {
                 "name": "paintMatchers",
-                "description": Language.getString("PAINT_MATCHERS_DESCRIPTION"),
+                "description": "[[PAINT_MATCHERS_DESCRIPTION]]",
                 "value": debugValues.paintMatchers
             },
             {
                 "name": "debugClicks",
-                "description": Language.getString("DEBUG_CLICKS_DESCRIPTION"),
+                "description": "[[DEBUG_CLICKS_DESCRIPTION]]",
                 "value": debugValues.debugClicks
             },
             {
                 "name": "alwaysForceRulesUpdate",
-                "description": Language.getString("ALWAYS_FORCE_UPDATE_DESCRIPTION"),
+                "description": "[[ALWAYS_FORCE_UPDATE_DESCRIPTION]]",
                 "value": debugValues.alwaysForceRulesUpdate
             },
             {
                 "name": "skipHideMethod",
-                "description": Language.getString("SKIP_HIDE_DESCRIPTION"),
+                "description": "[[SKIP_HIDE_DESCRIPTION]]",
                 "value": debugValues.skipHideMethod
             },
             {
                 "name": "debugLog",
-                "description": Language.getString("EXTRA_DEBUG_DESCRIPTION"),
+                "description": "[[EXTRA_DEBUG_DESCRIPTION]]",
                 "value": debugValues.debugLog
             },
             {
                 "name": "debugTranslations",
-                "description": Language.getString("DEBUG_TRANSLATION_DESCRIPTION"),
+                "description": "[[DEBUG_TRANSLATION_DESCRIPTION]]",
                 "value": debugValues.debugTranslations
             },
             {
                 "name": "skipSubmitConfirmation",
-                "description": Language.getString("SKIP_SUBMIT_CONFIRMATION"),
+                "description": "[[SKIP_SUBMIT_CONFIRMATION]]",
                 "value": debugValues.skipSubmitConfirmation
             },
             {
@@ -213,38 +211,38 @@ export default class GDPRConfig {
 
         return [
             {
-                "name": Language.getString("PREFERENCES_NAME"),
-                "description": Language.getString("PREFERENCES_DESCRIPTION"),
+                "name": "[[PREFERENCES_NAME]]",
+                "description": "[[PREFERENCES_DESCRIPTION]]",
                 "type": "A",
                 "value": consentValues.A
             },
             {
-                "name": Language.getString("PERFORMANCE_NAME"),
-                "description": Language.getString("PERFORMANCE_DESCRIPTION"),
+                "name": "[[PERFORMANCE_NAME]]",
+                "description": "[[PERFORMANCE_DESCRIPTION]]",
                 "type": "B",
                 "value": consentValues.B
             },
             {
-                "name": Language.getString("INFORMATION_NAME"),
-                "description": Language.getString("INFORMATION_DESCRIPTION"),
+                "name": "[[INFORMATION_NAME]]",
+                "description": "[[INFORMATION_DESCRIPTION]]",
                 "type": "D",
                 "value": consentValues.D
             },
             {
-                "name": Language.getString("CONTENT_NAME"),
-                "description": Language.getString("CONTENT_DESCRIPTION"),
+                "name": "[[CONTENT_NAME]]",
+                "description": "[[CONTENT_DESCRIPTION]]",
                 "type": "E",
                 "value": consentValues.E
             },
             {
-                "name": Language.getString("AD_NAME"),
-                "description": Language.getString("AD_DESCRIPTION"),
+                "name": "[[AD_NAME]]",
+                "description": "[[AD_DESCRIPTION]]",
                 "type": "F",
                 "value": consentValues.F
             },
             {
-                "name": Language.getString("OTHER_NAME"),
-                "description": Language.getString("OTHER_DESCRIPTION"),
+                "name": "[[OTHER_NAME]]",
+                "description": "[[OTHER_DESCRIPTION]]",
                 "type": "X",
                 "value": consentValues.X
             }
