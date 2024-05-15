@@ -283,6 +283,7 @@ if (optionsUL){
                 ]
             }).then(()=>{
                 attemptPermissions();
+                document.querySelector("#failedpermissions").style.display = "block";
             });
         });
 
@@ -296,6 +297,7 @@ if (optionsUL){
                     || (!grantedPermissions.permissions.includes("storage"))
                 ){
                     document.querySelector("#permissions").style.display = "block";
+                    setTimeout(attemptPermissions, 1500);
                 } else {
                     document.querySelector("#permissions").style.display = "none";
                 }
