@@ -1,8 +1,8 @@
 import GDPRConfig from './GDPRConfig.js';
 import Language from './Language.js';
 
-if (document.querySelector(".configurator")){
-    let optionsUL = document.querySelector(".configurator ul.categorylist");
+let optionsUL = document.querySelector(".configurator ul.categorylist");
+if (optionsUL){
     let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
     let debugUL = document.querySelector(".configurator .tab_dbg ul.flags");
     let aboutTable = document.querySelector(".configurator .tab_about table.logList");
