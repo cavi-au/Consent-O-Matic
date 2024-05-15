@@ -279,7 +279,7 @@ if (optionsUL){
         document.querySelector("#permissions button").addEventListener("click", ()=>{
             permAPI.request({
                 "origins": [
-                    "http://*/*","https://*/*"
+                    "<all_urls>"
                 ]
             }).then(()=>{
                 attemptPermissions();
