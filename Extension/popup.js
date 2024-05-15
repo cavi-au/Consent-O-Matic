@@ -31,7 +31,7 @@ if (frontTab){
 
             confirmationInput.addEventListener("input", () => {
                 settings.skipSubmitConfirmation = confirmationInput.checked;
-                GDPRConfig.setDebugFlags(settings);
+                GDPRConfig.setValuesFlags(settings);
             });
 
             document.querySelector("#unhandled").addEventListener("click", () => {

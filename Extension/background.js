@@ -231,10 +231,12 @@ async function fetchRulesList(ruleList) {
 }
 
 // Show onboarding page on first load 
-chrome.runtime.onInstalled.addListener(({reason})=>{
-    if (reason === chrome.runtime.OnInstalledReason.INSTALL || reason=="install") {
+GDPRConfig.getDebugValues().then((config)=>{
+    if (config.autoOpenOptionsTab){
+        config.autoOpenOptionsTab = false;
+        GDPRConfig.setDebugValues(config);
         chrome.tabs.create({ url: chrome.runtime.getURL("options.html") }, function (tab) {
             console.log("Launched initial onboarding page");
         });
     }
-});
+})

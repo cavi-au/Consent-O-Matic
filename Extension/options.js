@@ -86,7 +86,7 @@ if (optionsUL){
     });
 
     document.querySelector("#clearDebugFlags").addEventListener("click", ()=>{
-        GDPRConfig.setDebugFlags({}).then(()=>{
+        GDPRConfig.setDebugValues({}).then(()=>{
             GDPRConfig.getDebugFlags().then((debugFlags)=>{
                 debugFlags.forEach((debugFlag)=>{
                     let optionLi = document.querySelector("ul.flags li[data-name='"+debugFlag.name+"']");
@@ -233,7 +233,7 @@ if (optionsUL){
         debugUL.querySelectorAll("li input").forEach((input) => {
             debugFlags[input.id] = input.checked;
         });
-        GDPRConfig.setDebugFlags(debugFlags);
+        GDPRConfig.setDebugValues(debugFlags);
     }
 
     function updateLog() {
