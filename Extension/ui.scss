@@ -143,7 +143,7 @@ button, input {
     color: white;
     cursor: pointer;        
     &:hover {
-        background: rgb(145, 164, 226);
+        background: #3244a2;
     }
     &[type="url"]{
         color: black;
@@ -172,7 +172,11 @@ button, input {
         margin-top: 0;
     }
 
-    ul {
+    .permissionslist li {
+        margin-top: 1.5em;
+    }
+
+    .categorylist, .settingsList, .flags, .rulelist {
         list-style: none;
         margin-left: 0em;
         padding-left: 0em;

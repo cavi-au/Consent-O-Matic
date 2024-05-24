@@ -31,7 +31,7 @@
                 <p>
                     In order to function this extension asks for the following permissions:
                 </p>
-                <ul>
+                <ul class="permissionslist">
                     <li><h2>Access to read all pages</h2><div>We search each page you visit for consent-related popups that we know how to handle</div></li>
                     <li><h2>Information about tab URLs</h2><div>You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address</li>
                     <li><h2>Storage</h2><div>Your preferences and settings are stored directly in your browser</div></li>
@@ -42,6 +42,20 @@
                 <p>
                     <button>Grant Permissions</button>
                 </p>                
+                <div id="failedpermissions" style="display:none">
+                    <em>Please note:</em>
+                    Some browsers do not allow us to popup the permission request. You have to manually allow <b>Access to read all pages</b> through the settings:
+                    <ul>
+                        <li>
+                            <b>Safari (Mac)</b><br>
+                            Settings > Extensions > Consent-O-Matic > Always Allow on Every Website
+                        </li>
+                        <li>
+                            <b>Safari (iOS)</b><br>
+                            Settings > Safari > Extensions > Consent-O-Matic > Permissions > All Websites > Allow
+                        </li>
+                    </ul>
+                </div>
             </div>            
             <div class="helptext">
                 [[CHOICE_DESCRIPTION]]

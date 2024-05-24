@@ -202,6 +202,11 @@ export default class GDPRConfig {
                 "name": "skipOpenMethod",
                 "description": "Executing the program except for the open method",
                 "value": debugValues.skipOpenMethod
+            },
+            {
+                "name": "autoOpenOptionsTab",
+                "description": "Automatically open the options tab next time the extension loads",
+                "value": debugValues.autoOpenOptionsTab
             }
         ];
     }
@@ -261,10 +266,10 @@ export default class GDPRConfig {
         });
     }
     
-    static setDebugFlags(newDebugFlags) {
+    static setDebugValues(newDebugValues) {
         return new Promise((resolve, reject)=>{
             chrome.storage.sync.set({
-                debugFlags: newDebugFlags
+                debugFlags: newDebugValues
             }, () => {
                 resolve();
             });
@@ -316,8 +321,8 @@ GDPRConfig.defaultDebugFlags = {
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
     "dontHideProgressDialog": false,
-    "skipOpenMethod": false
-
+    "skipOpenMethod": false,
+    "autoOpenOptionsTab": true
 };
 
 GDPRConfig.defaultRuleLists = [

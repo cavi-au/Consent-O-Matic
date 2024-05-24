@@ -1,8 +1,8 @@
 import GDPRConfig from './GDPRConfig.js';
 import Language from './Language.js';
 
-if (document.querySelector(".configurator")){
-    let optionsUL = document.querySelector(".configurator ul.categorylist");
+let optionsUL = document.querySelector(".configurator ul.categorylist");
+if (optionsUL){
     let ruleUL = document.querySelector(".configurator .tab_rl .rulelist");
     let debugUL = document.querySelector(".configurator .tab_dbg ul.flags");
     let aboutTable = document.querySelector(".configurator .tab_about table.logList");
@@ -86,7 +86,7 @@ if (document.querySelector(".configurator")){
     });
 
     document.querySelector("#clearDebugFlags").addEventListener("click", ()=>{
-        GDPRConfig.setDebugFlags({}).then(()=>{
+        GDPRConfig.setDebugValues({}).then(()=>{
             GDPRConfig.getDebugFlags().then((debugFlags)=>{
                 debugFlags.forEach((debugFlag)=>{
                     let optionLi = document.querySelector("ul.flags li[data-name='"+debugFlag.name+"']");
@@ -233,7 +233,7 @@ if (document.querySelector(".configurator")){
         debugUL.querySelectorAll("li input").forEach((input) => {
             debugFlags[input.id] = input.checked;
         });
-        GDPRConfig.setDebugFlags(debugFlags);
+        GDPRConfig.setDebugValues(debugFlags);
     }
 
     function updateLog() {
@@ -283,6 +283,7 @@ if (document.querySelector(".configurator")){
                 ]
             }).then(()=>{
                 attemptPermissions();
+                document.querySelector("#failedpermissions").style.display = "block";
             });
         });
 
@@ -290,12 +291,13 @@ if (document.querySelector(".configurator")){
             permAPI.getAll().then((grantedPermissions)=>{
                 console.log(grantedPermissions);
                 if ((!grantedPermissions) || (!grantedPermissions.origins) || (!grantedPermissions.permissions)
-                    || (!(grantedPermissions.origins.includes("<all_urls>")||grantedPermissions.origins.includes("*://*/*")))
+                    || ((!grantedPermissions.origins.includes("<all_urls>")) && (!grantedPermissions.origins.includes("*://*/*")))
                     || (!grantedPermissions.permissions.includes("tabs"))
                     || (!grantedPermissions.permissions.includes("activeTab"))
                     || (!grantedPermissions.permissions.includes("storage"))
                 ){
                     document.querySelector("#permissions").style.display = "block";
+                    setTimeout(attemptPermissions, 1500);
                 } else {
                     document.querySelector("#permissions").style.display = "none";
                 }
