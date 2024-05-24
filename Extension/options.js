@@ -290,7 +290,7 @@ if (document.querySelector(".configurator")){
             permAPI.getAll().then((grantedPermissions)=>{
                 console.log(grantedPermissions);
                 if ((!grantedPermissions) || (!grantedPermissions.origins) || (!grantedPermissions.permissions)
-                    || (!grantedPermissions.origins.includes("<all_urls>"))
+                    || (!(grantedPermissions.origins.includes("<all_urls>")||grantedPermissions.origins.includes("*://*/*")))
                     || (!grantedPermissions.permissions.includes("tabs"))
                     || (!grantedPermissions.permissions.includes("activeTab"))
                     || (!grantedPermissions.permissions.includes("storage"))
