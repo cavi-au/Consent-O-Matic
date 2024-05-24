@@ -317,6 +317,46 @@ const translations = {
         "pt": "Mais configurações do Add-on",
         "fr": "Paramètres de l'extension"
     },
+    "PERMISSIONS_DESCRIPTION": {
+        "en": "In order to function this extension asks for the following permissions",
+        "da": "For at fungere korrekt har denne udviddelse brug for adgang til følgende"
+    },
+    "PERMISSIONS_READ": {
+        "en": "Access to read all pages",
+        "da": "Adgang til at læse alle sider"
+    },
+    "PERMISSIONS_READ_DETAIL": {
+        "en": "We search each page you visit for consent-related popups that we know how to handle",
+        "da": "Vi gennemsøger alle sider du besøger for at finde popups som vi kan finde ud af at håndtere"
+    },
+    "PERMISSIONS_TABS": {
+        "en": "Information about tab URLs",
+        "da": "Information om fanebladets URL"
+    },
+    "PERMISSIONS_TABS_DETAIL": {
+        "en": "You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address",
+        "da": "Du kan slå udviddelsen til/fra side for side ved at klikke på ikonet. For at se om den er slået til har den brug for at læse adressen"
+    },
+    "PERMISSIONS_STORAGE": {
+        "en": "Storage",
+        "da": "Opbevaring af data"
+    },
+    "PERMISSIONS_STORAGE_DETAIL": {
+        "en": "Your preferences and settings are stored directly in your browser",
+        "da": "Dine valg og indstillinger gemmes direkte i din browser"
+    },
+    "PERMISSIONS_NONE": {
+        "en": "Without these permissions it will simply do nothing.",
+        "da": "Uden adgang vil udviddelsen ikke kunne gøre noget overhovedet."
+    },
+    "PERMISSIONS_GRANT": {
+        "en": "Grant Permissions",
+        "da": "Giv Adgang"
+    },
+    "PERMISSIONS_FAIL": {
+        "en": "Some browsers do not allow us to popup the permission request. You have to manually allow 'Access to read all pages' through the settings",
+        "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne"
+    },
     "EDITOR_HEADER": {
         "en": "GDPR Consent Rules Editor",
         "da": "GDPR samtykke regel-editor",
