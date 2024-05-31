@@ -1,8 +1,6 @@
 import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 
-console.log("1");
-
 async function contentScriptRunner() {
     if (document.contentType!=="text/html") return;
 

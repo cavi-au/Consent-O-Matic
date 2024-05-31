@@ -62,7 +62,7 @@ if (optionsUL){
 
     let consentPromise = GDPRConfig.getConsentTypes().then((consentTypes) => {
         consentTypes.forEach((consentType) => {
-            addToggleItem(optionsUL, consentType.type, consentType.name, consentType.description, consentType.value);
+            addToggleItem(optionsUL, consentType.type, Language.getString(consentType.name), Language.getString(consentType.description), consentType.value);
         });
     });
 
@@ -110,7 +110,7 @@ if (optionsUL){
         let optionLI = document.createElement("li");
         optionLI.setAttribute("data-name", name);
 
-        let uuid = uuidv4();
+        let uuid = uuidv4();        
 
         const optionHtml = `
             <label class="slider" for="${type}">

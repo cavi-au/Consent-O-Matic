@@ -216,38 +216,38 @@ export default class GDPRConfig {
 
         return [
             {
-                "name": "[[PREFERENCES_NAME]]",
-                "description": "[[PREFERENCES_DESCRIPTION]]",
+                "name": "PREFERENCES_NAME",
+                "description": "PREFERENCES_DESCRIPTION",
                 "type": "A",
                 "value": consentValues.A
             },
             {
-                "name": "[[PERFORMANCE_NAME]]",
-                "description": "[[PERFORMANCE_DESCRIPTION]]",
+                "name": "PERFORMANCE_NAME",
+                "description": "PERFORMANCE_DESCRIPTION",
                 "type": "B",
                 "value": consentValues.B
             },
             {
-                "name": "[[INFORMATION_NAME]]",
-                "description": "[[INFORMATION_DESCRIPTION]]",
+                "name": "INFORMATION_NAME",
+                "description": "INFORMATION_DESCRIPTION",
                 "type": "D",
                 "value": consentValues.D
             },
             {
-                "name": "[[CONTENT_NAME]]",
-                "description": "[[CONTENT_DESCRIPTION]]",
+                "name": "CONTENT_NAME",
+                "description": "CONTENT_DESCRIPTION",
                 "type": "E",
                 "value": consentValues.E
             },
             {
-                "name": "[[AD_NAME]]",
-                "description": "[[AD_DESCRIPTION]]",
+                "name": "AD_NAME",
+                "description": "AD_DESCRIPTION",
                 "type": "F",
                 "value": consentValues.F
             },
             {
-                "name": "[[OTHER_NAME]]",
-                "description": "[[OTHER_DESCRIPTION]]",
+                "name": "OTHER_NAME",
+                "description": "OTHER_DESCRIPTION",
                 "type": "X",
                 "value": consentValues.X
             }
