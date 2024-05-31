@@ -44,7 +44,8 @@ const translations = {
     "HIDE_OR_PIP_DESCRIPTION": {
         "en": "How to display popups while they are being filled out",
         "da": "Hvordan popups skal vises imens de udfyldes",
-        "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
+        "de": "Wie man Popups anzeigt, während sie ausgefüllt werden",
+         "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
     },
     "HIDE_OR_PIP_HIDE_TITLE": {
         "en": "Hide",
@@ -62,21 +63,29 @@ const translations = {
     "HIDE_OR_PIP_PIP_TITLE": {
         "en": "Minimize",
         "da": "Minimér",
+        "de": "Minimieren",
+        "pt": "Minimizar",
         "fr": "Minimiser"
     },
     "HIDE_OR_PIP_PIP_LABEL": {
         "en": "Show the popup in a small overlay in the corner",
         "da": "Vis popup'en i en lille overlejring i hjørnet",
+        "de": "Das Popup in einem kleinen Overlay in der Ecke anzeigen",
+        "pt": "Mostrar o popup numa pequena sobreposição no canto",
         "fr": "Afficher le popup dans une petite superposition dans un coin"
     },
     "DISPLAY": {
         "en": "Display",
         "da": "Visning",
+        "de": "Anziege",
+        "pt": "Apresentação",
         "fr": "Affichage"
     },
     "DISPLAY_DESCRIPTION": {
         "en": "Configure the appearance and behaviour of Consent-O-Matic",
         "da": "Konfigurer Consent-O-Matic's udseende og opførsel",
+        "de": "Konfiguration des Aussehens und Verhaltens von Consent-O-Matic",
+        "pt": "Configure a aparência e o comportamento do Consent-O-Matic",
         "fr": "Configurez l'apparence et le comportement de Consent-O-Matic"
     },
     "CHOICE_DESCRIPTION": {
@@ -319,43 +328,73 @@ const translations = {
     },
     "PERMISSIONS_DESCRIPTION": {
         "en": "In order to function this extension asks for the following permissions",
-        "da": "For at fungere korrekt har denne udviddelse brug for adgang til følgende"
+        "da": "For at fungere korrekt har denne udviddelse brug for adgang til følgende",
+        "de": "Um zu funktionieren, benötigt diese Erweiterung die folgenden Berechtigungen",
+        "pt": "Para funcionar, esta extensão pede as seguintes permissões",
+        "fr": "Pour fonctionner, cette extension demande les autorisations suivantes"
     },
     "PERMISSIONS_READ": {
         "en": "Access to read all pages",
-        "da": "Adgang til at læse alle sider"
+        "da": "Adgang til at læse alle sider",
+        "de": "Zugang zum Lesen aller Seiten",
+        "pt": "Acesso para ler todas as páginas",
+        "fr": "Accès à la lecture de toutes les pages"
     },
     "PERMISSIONS_READ_DETAIL": {
         "en": "We search each page you visit for consent-related popups that we know how to handle",
-        "da": "Vi gennemsøger alle sider du besøger for at finde popups som vi kan finde ud af at håndtere"
+        "da": "Vi gennemsøger alle sider du besøger for at finde popups som vi kan finde ud af at håndtere",
+        "de": "Wir durchsuchen jede Seite, die Sie besuchen, nach zustimmungsrelevanten Popups",
+        "pt": "Procuramos em cada página que visita popups relacionados com o consentimento que sabemos como tratar",
+        "fr": "Nous recherchons sur chaque page que vous visitez la bannière de consentement liées au consentement que nous savons gérer"
     },
     "PERMISSIONS_TABS": {
         "en": "Information about tab URLs",
-        "da": "Information om fanebladets URL"
+        "da": "Information om fanebladets URL",
+        "de": "Informationen über Tab URLs",
+        "pt": "Informações sobre URLs de separadores",
+        "fr": "informations sur les URL des onglets"
     },
     "PERMISSIONS_TABS_DETAIL": {
         "en": "You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address",
-        "da": "Du kan slå udviddelsen til/fra side for side ved at klikke på ikonet. For at se om den er slået til har den brug for at læse adressen"
+        "da": "Du kan slå udviddelsen til/fra side for side ved at klikke på ikonet. For at se om den er slået til har den brug for at læse adressen",
+        "de": "Sie können die Erweiterung für jede Seite einzeln ein- und ausschalten, indem Sie auf das Icon klicken. Um zu überprüfen, ob sie aktiviert ist, muss die Adresse bekannt sein",
+        "pt": "Pode ativar/desativar a extensão numa base de página a página, clicando no ícone. Para verificar se está activada, é necessário conhecer o endereço",
+        "fr": "Vous pouvez activer/désactiver l'extension page par page en cliquant sur l'icône. Pour vérifier si l'extension est activée, il faut connaître l'adresse suivante"
     },
     "PERMISSIONS_STORAGE": {
         "en": "Storage",
-        "da": "Opbevaring af data"
+        "da": "Opbevaring af data",
+        "de": "Lagerung",
+        "pt": "Armazenamento",
+        "fr": "stockage"
     },
     "PERMISSIONS_STORAGE_DETAIL": {
         "en": "Your preferences and settings are stored directly in your browser",
-        "da": "Dine valg og indstillinger gemmes direkte i din browser"
+        "da": "Dine valg og indstillinger gemmes direkte i din browser",
+        "de": "Ihre Präferenzen und Einstellungen werden direkt in Ihrem Browser gespeichert",
+        "pt": "As suas preferências e definições são armazenadas diretamente no seu browser",
+        "fr": "Vos préférences et vos paramètres sont stockés directement dans votre navigateur"
     },
     "PERMISSIONS_NONE": {
         "en": "Without these permissions it will simply do nothing.",
-        "da": "Uden adgang vil udviddelsen ikke kunne gøre noget overhovedet."
+        "da": "Uden adgang vil udviddelsen ikke kunne gøre noget overhovedet.",
+        "de": "Ohne diese Berechtigung wird das Tool nicht funktionieren",
+        "pt": "Sem estas permissões, não fará nada.",
+        "fr": "Sans ces autorisations, il ne fera rien."
     },
     "PERMISSIONS_GRANT": {
         "en": "Grant Permissions",
-        "da": "Giv Adgang"
+        "da": "Giv Adgang",
+        "de": "Gib Zugang",
+        "pt": "Conceder autorizações",
+        "fr": "Accorder des autorisations"
     },
     "PERMISSIONS_FAIL": {
         "en": "Some browsers do not allow us to popup the permission request. You have to manually allow 'Access to read all pages' through the settings",
-        "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne"
+        "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne",
+        "de": "Einige Browser erlauben es uns nicht, die Berechtigungsanfrage zu öffnen. Sie müssen manuell erlauben",
+        "pt": "Alguns navegadores não permitem que apareça o pedido de autorização. Tem de autorizar manualmente o 'Acesso para ler todas as páginas' através das definições",
+        "fr": "Certains navigateurs ne nous permettent pas d'afficher la demande d'autorisation. Vous devez autoriser manuellement 'Accès à la lecture de toutes les pages' dans les paramètres."
     },
     "EDITOR_HEADER": {
         "en": "GDPR Consent Rules Editor",
@@ -1442,17 +1481,22 @@ const translations = {
     },
     "RUN_ROOTED_ACTION": {
         "en": "RunRootedAction",
+        "da": "RunRootedAction",
+        "de": "RunRootedAction",
+        "pt": "RunRootedAction",
         "fr": "RunRootedAction"
     },
     "RUN_ROOTED_ACTION_DESCRIPTION": {
         "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
         "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root.",
         "da": "Kør en handling forankret på det valgte dom-element. Ignorerer evt. gammel root og sætter gammel den igen bagefter.",
-        "pt": "",
         "fr": "Exécute une action enracinée à l'élément DOM sélectionné. Ignore toute racine actuelle définie et rétablit l'ancienne racine par la suite."
     },
     "RUN_METHOD_ACTION": {
         "en": "RunMethodAction",
+        "da": "RunMethodAction",
+        "de": "RunMethodAction",
+        "pt": "RunMethodAction",
         "fr": "RunMethodAction"
     },
     "RUN_METHOD_ACTION_DESCRIPTION": {
@@ -1505,6 +1549,9 @@ const translations = {
     },
     "ONOFF_MATCHER": {
         "en": "OnOff Matcher",
+        "de": "OnOff Matcher",
+        "da": "OnOff Matcher",
+        "pt": "OnOff Matcher",
         "fr": "Matcher OnOff"
     },
     "ONOFF_MATCHER_DESCRIPTION": {
