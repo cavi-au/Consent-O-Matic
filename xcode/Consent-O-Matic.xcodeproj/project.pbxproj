@@ -7,14 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A137F982930D8D0003A3F07 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F962930D8D0003A3F07 /* minimize.svg */; };
-		7A137F992930D8D0003A3F07 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F962930D8D0003A3F07 /* minimize.svg */; };
-		7A137F9A2930D8D0003A3F07 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F972930D8D0003A3F07 /* hide.svg */; };
-		7A137F9B2930D8D0003A3F07 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7A137F972930D8D0003A3F07 /* hide.svg */; };
+		527677642BEA3ED400052839 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 527677592BEA38B100052839 /* manifest.json */; };
+		527677652BEA3ED500052839 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 527677592BEA38B100052839 /* manifest.json */; };
+		527677662BEA3EF600052839 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 527677592BEA38B100052839 /* manifest.json */; };
+		527677732BEA3F1B00052839 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677602BEA38B100052839 /* minimize.svg */; };
+		527677742BEA3F1B00052839 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677572BEA38B100052839 /* logo.svg */; };
+		527677752BEA3F1B00052839 /* ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677562BEA38B100052839 /* ui.js */; };
+		527677762BEA3F1B00052839 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 5276775D2BEA38B100052839 /* content.css */; };
+		527677772BEA3F1B00052839 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 527677592BEA38B100052839 /* manifest.json */; };
+		527677782BEA3F1B00052839 /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5276775F2BEA38B100052839 /* icon_48.png */; };
+		527677792BEA3F1B00052839 /* service.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677632BEA38B100052839 /* service.js */; };
+		5276777A2BEA3F1B00052839 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775E2BEA38B100052839 /* options.html */; };
+		5276777B2BEA3F1B00052839 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677612BEA38B100052839 /* content.js */; };
+		5276777C2BEA3F1B00052839 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677582BEA38B100052839 /* hide.svg */; };
+		5276777D2BEA3F1B00052839 /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 527677622BEA38B100052839 /* icon_96.png */; };
+		5276777E2BEA3F1B00052839 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775B2BEA38B100052839 /* popup.html */; };
+		5276777F2BEA3F1B00052839 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677602BEA38B100052839 /* minimize.svg */; };
+		527677802BEA3F1B00052839 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677572BEA38B100052839 /* logo.svg */; };
+		527677812BEA3F1B00052839 /* ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677562BEA38B100052839 /* ui.js */; };
+		527677822BEA3F1B00052839 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 5276775D2BEA38B100052839 /* content.css */; };
+		527677832BEA3F1B00052839 /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5276775F2BEA38B100052839 /* icon_48.png */; };
+		527677842BEA3F1B00052839 /* service.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677632BEA38B100052839 /* service.js */; };
+		527677852BEA3F1B00052839 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775E2BEA38B100052839 /* options.html */; };
+		527677862BEA3F1B00052839 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677612BEA38B100052839 /* content.js */; };
+		527677872BEA3F1B00052839 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677582BEA38B100052839 /* hide.svg */; };
+		527677882BEA3F1B00052839 /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 527677622BEA38B100052839 /* icon_96.png */; };
+		527677892BEA3F1B00052839 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775B2BEA38B100052839 /* popup.html */; };
+		5276778A2BEA3F1C00052839 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677602BEA38B100052839 /* minimize.svg */; };
+		5276778B2BEA3F1C00052839 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677572BEA38B100052839 /* logo.svg */; };
+		5276778C2BEA3F1C00052839 /* ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677562BEA38B100052839 /* ui.js */; };
+		5276778D2BEA3F1C00052839 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 5276775D2BEA38B100052839 /* content.css */; };
+		5276778E2BEA3F1C00052839 /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5276775F2BEA38B100052839 /* icon_48.png */; };
+		5276778F2BEA3F1C00052839 /* service.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677632BEA38B100052839 /* service.js */; };
+		527677902BEA3F1C00052839 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775E2BEA38B100052839 /* options.html */; };
+		527677912BEA3F1C00052839 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677612BEA38B100052839 /* content.js */; };
+		527677922BEA3F1C00052839 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677582BEA38B100052839 /* hide.svg */; };
+		527677932BEA3F1C00052839 /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 527677622BEA38B100052839 /* icon_96.png */; };
+		527677942BEA3F1C00052839 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775B2BEA38B100052839 /* popup.html */; };
+		527677952BEA3F1D00052839 /* minimize.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677602BEA38B100052839 /* minimize.svg */; };
+		527677962BEA3F1D00052839 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677572BEA38B100052839 /* logo.svg */; };
+		527677972BEA3F1D00052839 /* ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677562BEA38B100052839 /* ui.js */; };
+		527677982BEA3F1D00052839 /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 5276775D2BEA38B100052839 /* content.css */; };
+		527677992BEA3F1D00052839 /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5276775F2BEA38B100052839 /* icon_48.png */; };
+		5276779A2BEA3F1D00052839 /* service.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677632BEA38B100052839 /* service.js */; };
+		5276779B2BEA3F1D00052839 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775E2BEA38B100052839 /* options.html */; };
+		5276779C2BEA3F1D00052839 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 527677612BEA38B100052839 /* content.js */; };
+		5276779D2BEA3F1D00052839 /* hide.svg in Resources */ = {isa = PBXBuildFile; fileRef = 527677582BEA38B100052839 /* hide.svg */; };
+		5276779E2BEA3F1D00052839 /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 527677622BEA38B100052839 /* icon_96.png */; };
+		5276779F2BEA3F1D00052839 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5276775B2BEA38B100052839 /* popup.html */; };
+		52A6BEBF2BEE67C6001CA729 /* ui.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBA2BEE67C6001CA729 /* ui.css */; };
+		52A6BEC02BEE67C6001CA729 /* ui.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBA2BEE67C6001CA729 /* ui.css */; };
+		52A6BEC12BEE67C6001CA729 /* ui.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBA2BEE67C6001CA729 /* ui.css */; };
+		52A6BEC22BEE67C6001CA729 /* ui.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBA2BEE67C6001CA729 /* ui.css */; };
+		52A6BEC32BEE67C6001CA729 /* templates.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBB2BEE67C6001CA729 /* templates.html */; };
+		52A6BEC42BEE67C6001CA729 /* templates.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBB2BEE67C6001CA729 /* templates.html */; };
+		52A6BEC52BEE67C6001CA729 /* templates.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBB2BEE67C6001CA729 /* templates.html */; };
+		52A6BEC62BEE67C6001CA729 /* templates.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBB2BEE67C6001CA729 /* templates.html */; };
+		52A6BEC72BEE67C6001CA729 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBC2BEE67C6001CA729 /* editor.js */; };
+		52A6BEC82BEE67C6001CA729 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBC2BEE67C6001CA729 /* editor.js */; };
+		52A6BEC92BEE67C6001CA729 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBC2BEE67C6001CA729 /* editor.js */; };
+		52A6BECA2BEE67C6001CA729 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBC2BEE67C6001CA729 /* editor.js */; };
+		52A6BECB2BEE67C6001CA729 /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBD2BEE67C6001CA729 /* editor.html */; };
+		52A6BECC2BEE67C6001CA729 /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBD2BEE67C6001CA729 /* editor.html */; };
+		52A6BECD2BEE67C6001CA729 /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBD2BEE67C6001CA729 /* editor.html */; };
+		52A6BECE2BEE67C6001CA729 /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBD2BEE67C6001CA729 /* editor.html */; };
+		52A6BECF2BEE67C6001CA729 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBE2BEE67C6001CA729 /* main.css */; };
+		52A6BED02BEE67C6001CA729 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBE2BEE67C6001CA729 /* main.css */; };
+		52A6BED12BEE67C6001CA729 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBE2BEE67C6001CA729 /* main.css */; };
+		52A6BED22BEE67C6001CA729 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 52A6BEBE2BEE67C6001CA729 /* main.css */; };
 		7A27C71C27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
 		7A27C71D27A2A2D0008AECB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A27C71B27A2A2D0008AECB6 /* Icon.png */; };
-		7A84BB8A27BCFB98000AC8E0 /* language.js in Resources */ = {isa = PBXBuildFile; fileRef = 7A84BB8927BCFB98000AC8E0 /* language.js */; };
-		7A84BB8B27BCFB98000AC8E0 /* language.js in Resources */ = {isa = PBXBuildFile; fileRef = 7A84BB8927BCFB98000AC8E0 /* language.js */; };
 		7ABDB9EF279FED16001F98FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9EE279FED16001F98FD /* AppDelegate.swift */; };
 		7ABDB9F1279FED16001F98FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9F0279FED16001F98FD /* SceneDelegate.swift */; };
 		7ABDB9F4279FED16001F98FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9F2279FED16001F98FD /* LaunchScreen.storyboard */; };
@@ -35,48 +97,6 @@
 		7ABDBA26279FED16001F98FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDB9E4279FED16001F98FD /* Assets.xcassets */; };
 		7ABDBA27279FED16001F98FD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9E6279FED16001F98FD /* SafariWebExtensionHandler.swift */; };
 		7ABDBA28279FED16001F98FD /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABDB9E6279FED16001F98FD /* SafariWebExtensionHandler.swift */; };
-		7ABDBA4F279FED18001F98FD /* Tools.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3A279FED18001F98FD /* Tools.js */; };
-		7ABDBA50279FED18001F98FD /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3B279FED18001F98FD /* Action.js */; };
-		7ABDBA51279FED18001F98FD /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3C279FED18001F98FD /* popup.js */; };
-		7ABDBA52279FED18001F98FD /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3D279FED18001F98FD /* icon_96.png */; };
-		7ABDBA53279FED18001F98FD /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3E279FED18001F98FD /* content.css */; };
-		7ABDBA54279FED18001F98FD /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3F279FED18001F98FD /* background.js */; };
-		7ABDBA55279FED18001F98FD /* ConsentEngine.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA40279FED18001F98FD /* ConsentEngine.js */; };
-		7ABDBA56279FED18001F98FD /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA41279FED18001F98FD /* popup.html */; };
-		7ABDBA57279FED18001F98FD /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA42279FED18001F98FD /* options.js */; };
-		7ABDBA58279FED18001F98FD /* Detector.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA43279FED18001F98FD /* Detector.js */; };
-		7ABDBA59279FED18001F98FD /* Matcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA44279FED18001F98FD /* Matcher.js */; };
-		7ABDBA5A279FED18001F98FD /* icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA45279FED18001F98FD /* icon_128.png */; };
-		7ABDBA5B279FED18001F98FD /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA46279FED18001F98FD /* manifest.json */; };
-		7ABDBA5C279FED18001F98FD /* GDPRConfig.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA47279FED18001F98FD /* GDPRConfig.js */; };
-		7ABDBA5D279FED18001F98FD /* Consent.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA48279FED18001F98FD /* Consent.js */; };
-		7ABDBA5E279FED18001F98FD /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA49279FED18001F98FD /* options.html */; };
-		7ABDBA5F279FED18001F98FD /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4A279FED18001F98FD /* icon_48.png */; };
-		7ABDBA60279FED18001F98FD /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4B279FED18001F98FD /* logo.svg */; };
-		7ABDBA61279FED18001F98FD /* CMP.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4C279FED18001F98FD /* CMP.js */; };
-		7ABDBA62279FED18001F98FD /* editor in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4D279FED18001F98FD /* editor */; };
-		7ABDBA63279FED18001F98FD /* contentScript.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4E279FED18001F98FD /* contentScript.js */; };
-		7ABDBA64279FED18001F98FD /* Tools.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3A279FED18001F98FD /* Tools.js */; };
-		7ABDBA65279FED18001F98FD /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3B279FED18001F98FD /* Action.js */; };
-		7ABDBA66279FED18001F98FD /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3C279FED18001F98FD /* popup.js */; };
-		7ABDBA67279FED18001F98FD /* icon_96.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3D279FED18001F98FD /* icon_96.png */; };
-		7ABDBA68279FED18001F98FD /* content.css in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3E279FED18001F98FD /* content.css */; };
-		7ABDBA69279FED18001F98FD /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA3F279FED18001F98FD /* background.js */; };
-		7ABDBA6A279FED18001F98FD /* ConsentEngine.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA40279FED18001F98FD /* ConsentEngine.js */; };
-		7ABDBA6B279FED18001F98FD /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA41279FED18001F98FD /* popup.html */; };
-		7ABDBA6C279FED18001F98FD /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA42279FED18001F98FD /* options.js */; };
-		7ABDBA6D279FED18001F98FD /* Detector.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA43279FED18001F98FD /* Detector.js */; };
-		7ABDBA6E279FED18001F98FD /* Matcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA44279FED18001F98FD /* Matcher.js */; };
-		7ABDBA6F279FED18001F98FD /* icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA45279FED18001F98FD /* icon_128.png */; };
-		7ABDBA70279FED18001F98FD /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA46279FED18001F98FD /* manifest.json */; };
-		7ABDBA71279FED18001F98FD /* GDPRConfig.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA47279FED18001F98FD /* GDPRConfig.js */; };
-		7ABDBA72279FED18001F98FD /* Consent.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA48279FED18001F98FD /* Consent.js */; };
-		7ABDBA73279FED18001F98FD /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA49279FED18001F98FD /* options.html */; };
-		7ABDBA74279FED18001F98FD /* icon_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4A279FED18001F98FD /* icon_48.png */; };
-		7ABDBA75279FED18001F98FD /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4B279FED18001F98FD /* logo.svg */; };
-		7ABDBA76279FED18001F98FD /* CMP.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4C279FED18001F98FD /* CMP.js */; };
-		7ABDBA77279FED18001F98FD /* editor in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4D279FED18001F98FD /* editor */; };
-		7ABDBA78279FED18001F98FD /* contentScript.js in Resources */ = {isa = PBXBuildFile; fileRef = 7ABDBA4E279FED18001F98FD /* contentScript.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,10 +142,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7A137F962930D8D0003A3F07 /* minimize.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = minimize.svg; path = ../../Extension/minimize.svg; sourceTree = "<group>"; };
-		7A137F972930D8D0003A3F07 /* hide.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hide.svg; path = ../../Extension/hide.svg; sourceTree = "<group>"; };
+		527677562BEA38B100052839 /* ui.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ui.js; path = ../../dist/ui.js; sourceTree = "<group>"; };
+		527677572BEA38B100052839 /* logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = logo.svg; path = ../../dist/logo.svg; sourceTree = "<group>"; };
+		527677582BEA38B100052839 /* hide.svg */ = {isa = PBXFileReference; lastKnownFileType = text; name = hide.svg; path = ../../dist/hide.svg; sourceTree = "<group>"; };
+		527677592BEA38B100052839 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../dist/manifest.json; sourceTree = "<group>"; };
+		5276775B2BEA38B100052839 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = ../../dist/popup.html; sourceTree = "<group>"; };
+		5276775D2BEA38B100052839 /* content.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = content.css; path = ../../dist/content.css; sourceTree = "<group>"; };
+		5276775E2BEA38B100052839 /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../dist/options.html; sourceTree = "<group>"; };
+		5276775F2BEA38B100052839 /* icon_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_48.png; path = ../../dist/icon_48.png; sourceTree = "<group>"; };
+		527677602BEA38B100052839 /* minimize.svg */ = {isa = PBXFileReference; lastKnownFileType = text; name = minimize.svg; path = ../../dist/minimize.svg; sourceTree = "<group>"; };
+		527677612BEA38B100052839 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = ../../dist/content.js; sourceTree = "<group>"; };
+		527677622BEA38B100052839 /* icon_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_96.png; path = ../../dist/icon_96.png; sourceTree = "<group>"; };
+		527677632BEA38B100052839 /* service.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = service.js; path = ../../dist/service.js; sourceTree = "<group>"; };
+		52A6BEBA2BEE67C6001CA729 /* ui.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = ui.css; path = ../../dist/ui.css; sourceTree = "<group>"; };
+		52A6BEBB2BEE67C6001CA729 /* templates.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = templates.html; path = ../../dist/templates.html; sourceTree = "<group>"; };
+		52A6BEBC2BEE67C6001CA729 /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = editor.js; path = ../../dist/editor.js; sourceTree = "<group>"; };
+		52A6BEBD2BEE67C6001CA729 /* editor.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = editor.html; path = ../../dist/editor.html; sourceTree = "<group>"; };
+		52A6BEBE2BEE67C6001CA729 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = ../../dist/main.css; sourceTree = "<group>"; };
 		7A27C71B27A2A2D0008AECB6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		7A84BB8927BCFB98000AC8E0 /* language.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = language.js; path = ../../Extension/language.js; sourceTree = "<group>"; };
 		7ABDB9DF279FED13001F98FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		7ABDB9E1279FED13001F98FD /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		7ABDB9E2279FED13001F98FD /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -148,27 +182,6 @@
 		7ABDBA14279FED16001F98FD /* Consent-O-Matic Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Consent-O-Matic Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABDBA19279FED16001F98FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABDBA1A279FED16001F98FD /* Consent-O-Matic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Consent-O-Matic.entitlements"; sourceTree = "<group>"; };
-		7ABDBA3A279FED18001F98FD /* Tools.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Tools.js; path = "../../../Consent-O-Matic/Extension/Tools.js"; sourceTree = "<group>"; };
-		7ABDBA3B279FED18001F98FD /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Action.js; path = "../../../Consent-O-Matic/Extension/Action.js"; sourceTree = "<group>"; };
-		7ABDBA3C279FED18001F98FD /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = "../../../Consent-O-Matic/Extension/popup.js"; sourceTree = "<group>"; };
-		7ABDBA3D279FED18001F98FD /* icon_96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_96.png; path = "../../../Consent-O-Matic/Extension/icon_96.png"; sourceTree = "<group>"; };
-		7ABDBA3E279FED18001F98FD /* content.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = content.css; path = "../../../Consent-O-Matic/Extension/content.css"; sourceTree = "<group>"; };
-		7ABDBA3F279FED18001F98FD /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../../Consent-O-Matic/Extension/background.js"; sourceTree = "<group>"; };
-		7ABDBA40279FED18001F98FD /* ConsentEngine.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ConsentEngine.js; path = "../../../Consent-O-Matic/Extension/ConsentEngine.js"; sourceTree = "<group>"; };
-		7ABDBA41279FED18001F98FD /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "../../../Consent-O-Matic/Extension/popup.html"; sourceTree = "<group>"; };
-		7ABDBA42279FED18001F98FD /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = "../../../Consent-O-Matic/Extension/options.js"; sourceTree = "<group>"; };
-		7ABDBA43279FED18001F98FD /* Detector.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Detector.js; path = "../../../Consent-O-Matic/Extension/Detector.js"; sourceTree = "<group>"; };
-		7ABDBA44279FED18001F98FD /* Matcher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Matcher.js; path = "../../../Consent-O-Matic/Extension/Matcher.js"; sourceTree = "<group>"; };
-		7ABDBA45279FED18001F98FD /* icon_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_128.png; path = "../../../Consent-O-Matic/Extension/icon_128.png"; sourceTree = "<group>"; };
-		7ABDBA46279FED18001F98FD /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../Consent-O-Matic/Extension/manifest.json"; sourceTree = "<group>"; };
-		7ABDBA47279FED18001F98FD /* GDPRConfig.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = GDPRConfig.js; path = "../../../Consent-O-Matic/Extension/GDPRConfig.js"; sourceTree = "<group>"; };
-		7ABDBA48279FED18001F98FD /* Consent.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Consent.js; path = "../../../Consent-O-Matic/Extension/Consent.js"; sourceTree = "<group>"; };
-		7ABDBA49279FED18001F98FD /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = "../../../Consent-O-Matic/Extension/options.html"; sourceTree = "<group>"; };
-		7ABDBA4A279FED18001F98FD /* icon_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_48.png; path = "../../../Consent-O-Matic/Extension/icon_48.png"; sourceTree = "<group>"; };
-		7ABDBA4B279FED18001F98FD /* logo.svg */ = {isa = PBXFileReference; lastKnownFileType = text; name = logo.svg; path = "../../../Consent-O-Matic/Extension/logo.svg"; sourceTree = "<group>"; };
-		7ABDBA4C279FED18001F98FD /* CMP.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = CMP.js; path = "../../../Consent-O-Matic/Extension/CMP.js"; sourceTree = "<group>"; };
-		7ABDBA4D279FED18001F98FD /* editor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = editor; path = "../../../Consent-O-Matic/Extension/editor"; sourceTree = "<group>"; };
-		7ABDBA4E279FED18001F98FD /* contentScript.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = contentScript.js; path = "../../../Consent-O-Matic/Extension/contentScript.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,30 +313,23 @@
 		7ABDBA39279FED18001F98FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7A137F972930D8D0003A3F07 /* hide.svg */,
-				7A137F962930D8D0003A3F07 /* minimize.svg */,
-				7A84BB8927BCFB98000AC8E0 /* language.js */,
-				7ABDBA3A279FED18001F98FD /* Tools.js */,
-				7ABDBA3B279FED18001F98FD /* Action.js */,
-				7ABDBA3C279FED18001F98FD /* popup.js */,
-				7ABDBA3D279FED18001F98FD /* icon_96.png */,
-				7ABDBA3E279FED18001F98FD /* content.css */,
-				7ABDBA3F279FED18001F98FD /* background.js */,
-				7ABDBA40279FED18001F98FD /* ConsentEngine.js */,
-				7ABDBA41279FED18001F98FD /* popup.html */,
-				7ABDBA42279FED18001F98FD /* options.js */,
-				7ABDBA43279FED18001F98FD /* Detector.js */,
-				7ABDBA44279FED18001F98FD /* Matcher.js */,
-				7ABDBA45279FED18001F98FD /* icon_128.png */,
-				7ABDBA46279FED18001F98FD /* manifest.json */,
-				7ABDBA47279FED18001F98FD /* GDPRConfig.js */,
-				7ABDBA48279FED18001F98FD /* Consent.js */,
-				7ABDBA49279FED18001F98FD /* options.html */,
-				7ABDBA4A279FED18001F98FD /* icon_48.png */,
-				7ABDBA4B279FED18001F98FD /* logo.svg */,
-				7ABDBA4C279FED18001F98FD /* CMP.js */,
-				7ABDBA4D279FED18001F98FD /* editor */,
-				7ABDBA4E279FED18001F98FD /* contentScript.js */,
+				52A6BEBD2BEE67C6001CA729 /* editor.html */,
+				52A6BEBC2BEE67C6001CA729 /* editor.js */,
+				52A6BEBE2BEE67C6001CA729 /* main.css */,
+				52A6BEBB2BEE67C6001CA729 /* templates.html */,
+				52A6BEBA2BEE67C6001CA729 /* ui.css */,
+				5276775D2BEA38B100052839 /* content.css */,
+				527677612BEA38B100052839 /* content.js */,
+				527677582BEA38B100052839 /* hide.svg */,
+				5276775F2BEA38B100052839 /* icon_48.png */,
+				527677622BEA38B100052839 /* icon_96.png */,
+				527677572BEA38B100052839 /* logo.svg */,
+				527677592BEA38B100052839 /* manifest.json */,
+				527677602BEA38B100052839 /* minimize.svg */,
+				5276775E2BEA38B100052839 /* options.html */,
+				5276775B2BEA38B100052839 /* popup.html */,
+				527677632BEA38B100052839 /* service.js */,
+				527677562BEA38B100052839 /* ui.js */,
 			);
 			name = Resources;
 			path = "Shared (Extension)";
@@ -412,7 +418,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					7ABDB9EA279FED16001F98FD = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -457,8 +463,25 @@
 				7ABDB9F4279FED16001F98FD /* LaunchScreen.storyboard in Resources */,
 				7ABDBA1B279FED16001F98FD /* Main.html in Resources */,
 				7ABDBA21279FED16001F98FD /* Script.js in Resources */,
+				527677732BEA3F1B00052839 /* minimize.svg in Resources */,
+				527677742BEA3F1B00052839 /* logo.svg in Resources */,
+				527677752BEA3F1B00052839 /* ui.js in Resources */,
+				527677762BEA3F1B00052839 /* content.css in Resources */,
+				527677772BEA3F1B00052839 /* manifest.json in Resources */,
+				527677782BEA3F1B00052839 /* icon_48.png in Resources */,
+				527677792BEA3F1B00052839 /* service.js in Resources */,
+				5276777A2BEA3F1B00052839 /* options.html in Resources */,
+				5276777B2BEA3F1B00052839 /* content.js in Resources */,
+				5276777C2BEA3F1B00052839 /* hide.svg in Resources */,
+				5276777D2BEA3F1B00052839 /* icon_96.png in Resources */,
+				52A6BECB2BEE67C6001CA729 /* editor.html in Resources */,
+				5276777E2BEA3F1B00052839 /* popup.html in Resources */,
+				52A6BEBF2BEE67C6001CA729 /* ui.css in Resources */,
 				7ABDBA25279FED16001F98FD /* Assets.xcassets in Resources */,
 				7ABDB9F7279FED16001F98FD /* Main.storyboard in Resources */,
+				52A6BEC32BEE67C6001CA729 /* templates.html in Resources */,
+				52A6BECF2BEE67C6001CA729 /* main.css in Resources */,
+				52A6BEC72BEE67C6001CA729 /* editor.js in Resources */,
 				7A27C71C27A2A2D0008AECB6 /* Icon.png in Resources */,
 				7ABDBA1F279FED16001F98FD /* Style.css in Resources */,
 			);
@@ -468,12 +491,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A6BEC42BEE67C6001CA729 /* templates.html in Resources */,
 				7A27C71D27A2A2D0008AECB6 /* Icon.png in Resources */,
+				527677662BEA3EF600052839 /* manifest.json in Resources */,
 				7ABDBA20279FED16001F98FD /* Style.css in Resources */,
 				7ABDBA03279FED16001F98FD /* Main.storyboard in Resources */,
 				7ABDBA22279FED16001F98FD /* Script.js in Resources */,
 				7ABDBA26279FED16001F98FD /* Assets.xcassets in Resources */,
 				7ABDBA1C279FED16001F98FD /* Main.html in Resources */,
+				5276777F2BEA3F1B00052839 /* minimize.svg in Resources */,
+				527677802BEA3F1B00052839 /* logo.svg in Resources */,
+				527677812BEA3F1B00052839 /* ui.js in Resources */,
+				52A6BEC82BEE67C6001CA729 /* editor.js in Resources */,
+				52A6BEC02BEE67C6001CA729 /* ui.css in Resources */,
+				527677822BEA3F1B00052839 /* content.css in Resources */,
+				527677832BEA3F1B00052839 /* icon_48.png in Resources */,
+				527677842BEA3F1B00052839 /* service.js in Resources */,
+				527677852BEA3F1B00052839 /* options.html in Resources */,
+				527677862BEA3F1B00052839 /* content.js in Resources */,
+				527677872BEA3F1B00052839 /* hide.svg in Resources */,
+				52A6BECC2BEE67C6001CA729 /* editor.html in Resources */,
+				527677882BEA3F1B00052839 /* icon_96.png in Resources */,
+				52A6BED02BEE67C6001CA729 /* main.css in Resources */,
+				527677892BEA3F1B00052839 /* popup.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,30 +521,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABDBA65279FED18001F98FD /* Action.js in Resources */,
-				7ABDBA75279FED18001F98FD /* logo.svg in Resources */,
-				7ABDBA6C279FED18001F98FD /* options.js in Resources */,
-				7ABDBA6B279FED18001F98FD /* popup.html in Resources */,
-				7ABDBA70279FED18001F98FD /* manifest.json in Resources */,
-				7ABDBA77279FED18001F98FD /* editor in Resources */,
-				7ABDBA74279FED18001F98FD /* icon_48.png in Resources */,
-				7ABDBA67279FED18001F98FD /* icon_96.png in Resources */,
-				7A137F982930D8D0003A3F07 /* minimize.svg in Resources */,
-				7ABDBA6A279FED18001F98FD /* ConsentEngine.js in Resources */,
-				7ABDBA78279FED18001F98FD /* contentScript.js in Resources */,
-				7ABDBA66279FED18001F98FD /* popup.js in Resources */,
-				7ABDBA6E279FED18001F98FD /* Matcher.js in Resources */,
-				7ABDBA68279FED18001F98FD /* content.css in Resources */,
-				7ABDBA69279FED18001F98FD /* background.js in Resources */,
-				7ABDBA6D279FED18001F98FD /* Detector.js in Resources */,
-				7A137F9A2930D8D0003A3F07 /* hide.svg in Resources */,
-				7ABDBA73279FED18001F98FD /* options.html in Resources */,
-				7ABDBA71279FED18001F98FD /* GDPRConfig.js in Resources */,
-				7ABDBA6F279FED18001F98FD /* icon_128.png in Resources */,
-				7ABDBA72279FED18001F98FD /* Consent.js in Resources */,
-				7ABDBA64279FED18001F98FD /* Tools.js in Resources */,
-				7A84BB8A27BCFB98000AC8E0 /* language.js in Resources */,
-				7ABDBA76279FED18001F98FD /* CMP.js in Resources */,
+				52A6BEC12BEE67C6001CA729 /* ui.css in Resources */,
+				527677652BEA3ED500052839 /* manifest.json in Resources */,
+				5276778A2BEA3F1C00052839 /* minimize.svg in Resources */,
+				5276778B2BEA3F1C00052839 /* logo.svg in Resources */,
+				52A6BEC52BEE67C6001CA729 /* templates.html in Resources */,
+				52A6BECD2BEE67C6001CA729 /* editor.html in Resources */,
+				52A6BED12BEE67C6001CA729 /* main.css in Resources */,
+				5276778C2BEA3F1C00052839 /* ui.js in Resources */,
+				5276778D2BEA3F1C00052839 /* content.css in Resources */,
+				5276778E2BEA3F1C00052839 /* icon_48.png in Resources */,
+				5276778F2BEA3F1C00052839 /* service.js in Resources */,
+				527677902BEA3F1C00052839 /* options.html in Resources */,
+				527677912BEA3F1C00052839 /* content.js in Resources */,
+				527677922BEA3F1C00052839 /* hide.svg in Resources */,
+				527677932BEA3F1C00052839 /* icon_96.png in Resources */,
+				527677942BEA3F1C00052839 /* popup.html in Resources */,
+				52A6BEC92BEE67C6001CA729 /* editor.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,30 +545,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABDBA50279FED18001F98FD /* Action.js in Resources */,
-				7ABDBA60279FED18001F98FD /* logo.svg in Resources */,
-				7ABDBA57279FED18001F98FD /* options.js in Resources */,
-				7ABDBA56279FED18001F98FD /* popup.html in Resources */,
-				7ABDBA5B279FED18001F98FD /* manifest.json in Resources */,
-				7ABDBA62279FED18001F98FD /* editor in Resources */,
-				7ABDBA5F279FED18001F98FD /* icon_48.png in Resources */,
-				7ABDBA52279FED18001F98FD /* icon_96.png in Resources */,
-				7A137F992930D8D0003A3F07 /* minimize.svg in Resources */,
-				7ABDBA55279FED18001F98FD /* ConsentEngine.js in Resources */,
-				7ABDBA63279FED18001F98FD /* contentScript.js in Resources */,
-				7ABDBA51279FED18001F98FD /* popup.js in Resources */,
-				7ABDBA59279FED18001F98FD /* Matcher.js in Resources */,
-				7ABDBA53279FED18001F98FD /* content.css in Resources */,
-				7ABDBA54279FED18001F98FD /* background.js in Resources */,
-				7ABDBA58279FED18001F98FD /* Detector.js in Resources */,
-				7A137F9B2930D8D0003A3F07 /* hide.svg in Resources */,
-				7ABDBA5E279FED18001F98FD /* options.html in Resources */,
-				7ABDBA5C279FED18001F98FD /* GDPRConfig.js in Resources */,
-				7ABDBA5A279FED18001F98FD /* icon_128.png in Resources */,
-				7ABDBA5D279FED18001F98FD /* Consent.js in Resources */,
-				7ABDBA4F279FED18001F98FD /* Tools.js in Resources */,
-				7A84BB8B27BCFB98000AC8E0 /* language.js in Resources */,
-				7ABDBA61279FED18001F98FD /* CMP.js in Resources */,
+				52A6BEC22BEE67C6001CA729 /* ui.css in Resources */,
+				527677642BEA3ED400052839 /* manifest.json in Resources */,
+				527677952BEA3F1D00052839 /* minimize.svg in Resources */,
+				527677962BEA3F1D00052839 /* logo.svg in Resources */,
+				52A6BEC62BEE67C6001CA729 /* templates.html in Resources */,
+				52A6BECE2BEE67C6001CA729 /* editor.html in Resources */,
+				52A6BED22BEE67C6001CA729 /* main.css in Resources */,
+				527677972BEA3F1D00052839 /* ui.js in Resources */,
+				527677982BEA3F1D00052839 /* content.css in Resources */,
+				527677992BEA3F1D00052839 /* icon_48.png in Resources */,
+				5276779A2BEA3F1D00052839 /* service.js in Resources */,
+				5276779B2BEA3F1D00052839 /* options.html in Resources */,
+				5276779C2BEA3F1D00052839 /* content.js in Resources */,
+				5276779D2BEA3F1D00052839 /* hide.svg in Resources */,
+				5276779E2BEA3F1D00052839 /* icon_96.png in Resources */,
+				5276779F2BEA3F1D00052839 /* popup.html in Resources */,
+				52A6BECA2BEE67C6001CA729 /* editor.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,9 +688,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -721,9 +749,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -743,7 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -755,7 +785,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -774,7 +804,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -786,7 +816,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -809,7 +839,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -824,7 +854,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -847,7 +877,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -862,7 +892,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -885,7 +915,8 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Consent-O-Matic.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -897,8 +928,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -918,7 +949,8 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Consent-O-Matic.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -930,8 +962,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -955,7 +987,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -968,8 +1001,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -995,7 +1028,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 18;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QP7836JDJP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1008,8 +1042,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
