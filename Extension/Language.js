@@ -77,7 +77,7 @@ const translations = {
     "DISPLAY": {
         "en": "Display",
         "da": "Visning",
-        "de": "Anziege",
+        "de": "Anzeige",
         "pt": "Apresentação",
         "fr": "Affichage"
     },
