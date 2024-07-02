@@ -186,7 +186,7 @@ class URLMatcher extends Matcher {
     }
 
     matches() {
-        if (ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugRules) {
             console.log("URL Matcher:", ConsentEngine.topFrameUrl, this.config);
         }
 
@@ -201,7 +201,7 @@ class URLMatcher extends Matcher {
             for(let url of urls) {
                 let regexp = new RegExp(url);
                 if(regexp.exec(ConsentEngine.topFrameUrl) !== null) {
-                    if (ConsentEngine.debugValues.debugLog) {
+                    if (ConsentEngine.debugValues.debugRules) {
                         console.log("Matched URL regexp:", url);
                     }
                     matched = true;
@@ -211,7 +211,7 @@ class URLMatcher extends Matcher {
         } else {
             for(let url of urls) {
                 if(ConsentEngine.topFrameUrl.indexOf(url) > -1) {
-                    if (ConsentEngine.debugValues.debugLog) {
+                    if (ConsentEngine.debugValues.debugRules) {
                         console.log("Matched URL:", url);
                     }
                     matched = true;
@@ -225,7 +225,7 @@ class URLMatcher extends Matcher {
             matched = !matched;
         }
 
-        if (ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugRules) {
             console.log("Did URLMatcher match (after negate):", matched);
         }
 

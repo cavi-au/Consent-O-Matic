@@ -90,7 +90,7 @@ export default class CMP {
     }
 
     detect() {
-        if(ConsentEngine.debugValues.debugLog) {
+        if(ConsentEngine.debugValues.debugRules) {
             console.groupCollapsed("Testing:", this.name);
         }
         try {
@@ -98,17 +98,17 @@ export default class CMP {
                 return detector.detect();
             });
 
-            if(detector != null && ConsentEngine.debugValues.debugLog) {
+            if(detector != null && ConsentEngine.debugValues.debugRules) {
                 console.log("Triggered detector: ", detector);
             }
 
-            if(ConsentEngine.debugValues.debugLog) {
+            if(ConsentEngine.debugValues.debugRules) {
                 console.groupEnd();
             }
     
             return detector != null;
         } catch(e) {
-            if(ConsentEngine.debugValues.debugLog) {
+            if(ConsentEngine.debugValues.debugRules) {
                 console.warn(e);
                 console.groupEnd();
             }

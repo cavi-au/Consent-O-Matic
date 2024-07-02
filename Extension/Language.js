@@ -214,6 +214,10 @@ const translations = {
         "pt": "Habilita log adicional de depuração",
         "fr": "Active l'enregistrement de débogage supplémentaire"
     },
+    "RULES_DEBUG_DESCRIPTION": {
+        "en": "Enables debug logging of rule engine",
+        "da": "Aktiver debug logning af udførsel af regler"
+    },
     "INFORMATION_NAME": {
         "en": "Information Storage and Access",
         "da": "Opbevaring og adgang til information",

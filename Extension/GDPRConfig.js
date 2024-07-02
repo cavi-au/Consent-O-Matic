@@ -184,6 +184,11 @@ export default class GDPRConfig {
                 "value": debugValues.debugLog
             },
             {
+                "name": "debugRules",
+                "description": "[[RULES_DEBUG_DESCRIPTION]]",
+                "value": debugValues.debugRules
+            },
+            {
                 "name": "debugTranslations",
                 "description": "[[DEBUG_TRANSLATION_DESCRIPTION]]",
                 "value": debugValues.debugTranslations
@@ -318,6 +323,7 @@ GDPRConfig.defaultDebugFlags = {
     "alwaysForceRulesUpdate": false,
     "skipHideMethod": false,
     "debugLog": false,
+    "debugRules": false,
     "debugTranslations": false,
     "skipSubmitConfirmation": false,
     "dontHideProgressDialog": false,

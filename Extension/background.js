@@ -66,7 +66,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
                 setBadgeCheckmark("\u2717", sender.tab.id);
                 tabStatusMap.set(sender.tab.id, STATUS.ERROR);
             }
-
+	    reply();
             return false;
         }
 
@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
                 setBadgeCheckmark("", sender.tab.id);
                 tabStatusMap.set(sender.tab.id, STATUS.NOTHING);
             }
-
+	    reply();
             return false;
         }
 
@@ -84,7 +84,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
                 setBadgeCheckmark("\uD83D\uDD0E", sender.tab.id);
                 tabStatusMap.set(sender.tab.id, STATUS.SEARCHING);
             }
-
+	    reply();
             return false;
         }
 
@@ -109,7 +109,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
                 GDPRConfig.setStatistics(entries);
             });
-
+	    reply();
             return false;
         }
 
@@ -169,8 +169,11 @@ function fetchRules(forceUpdate) {
                             };
                         } else {
                             //Reuse cached entry even though its out of date at this point
+                            console.log("Failed to fetch CoM rule list, check the URL", ruleList);
                             if(entry != null) {
                                 rules.push(entry.rules);
+                            } else {
+                        	console.log("Giving up entirely on rule list, no cache available either",ruleList);
                             }
                         }
                     }

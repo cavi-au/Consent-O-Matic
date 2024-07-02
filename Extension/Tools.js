@@ -25,7 +25,7 @@ export default class Tools {
 
             }
 
-            if(ConsentEngine.debugValues.debugLog) {
+            if(ConsentEngine.debugValues.debugRules) {
                 console.log("Special :scope handling, selecting current root:", possibleTargets);
             }
         } else {
@@ -135,7 +135,7 @@ export default class Tools {
             });
         }
 
-        if(ConsentEngine.debugValues.debugLog) {
+        if(ConsentEngine.debugValues.debugRules) {
             console.groupCollapsed("findElement:", options.selector, possibleTargets.length);
             console.log("Options:", options, "Parent:", parent);
             console.log("Possible targets before filter: ", clonedPossibleTargets);

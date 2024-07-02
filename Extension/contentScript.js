@@ -21,56 +21,59 @@ async function contentScriptRunner() {
     GDPRConfig.isActive(url).then(async (active) => {
         if (active) {
             chrome.runtime.sendMessage("GetRuleList", (fetchedRules)=>{
-    
-                GDPRConfig.getCustomRuleLists().then((customRules)=>{
-                    fetchedRules.forEach((ruleObj)=>{
-                        delete ruleObj["$schema"];
-                    });
-                    delete customRules["$schema"];
-    
-                    // Concat rule-lists to engine config in order
-                    let config = Object.assign({}, ...fetchedRules, customRules);
-    
-                    GDPRConfig.getConsentValues().then((consentTypes)=>{
-                        GDPRConfig.getDebugValues().then((debugValues)=>{
-                            GDPRConfig.getGeneralSettings().then((generalSettings)=>{
-                                if(debugValues.debugLog) {
-                                    console.log("FetchedRules:", fetchedRules);
-                                    console.log("CustomRules:", customRules);
-                                }
-                
-                                ConsentEngine.debugValues = debugValues;
-                                ConsentEngine.generalSettings = generalSettings;
-                                ConsentEngine.topFrameUrl = url;
+                if (!fetchedRules) {
+                    console.log("Failed to connect with service worker for getRuleList msg", fetchedRules);
+                } else {
+                    GDPRConfig.getCustomRuleLists().then((customRules)=>{
+                        fetchedRules.forEach((ruleObj)=>{
+                            delete ruleObj["$schema"];
+                        });
+                        delete customRules["$schema"];
         
-                                chrome.runtime.sendMessage("Searching");
-                                let engine = new ConsentEngine(config, consentTypes, (evt)=>{
-                                    let result = {
-                                        "handled": evt.handled
-                                    };
-
-                                    if(evt.handled) {
-                                        result.cmp = evt.cmpName;
-                                        result.clicks = evt.clicks;
-                                        result.url = url;
+                        // Concat rule-lists to engine config in order
+                        let config = Object.assign({}, ...fetchedRules, customRules);
+        
+                        GDPRConfig.getConsentValues().then((consentTypes)=>{
+                            GDPRConfig.getDebugValues().then((debugValues)=>{
+                                GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+                                    if(debugValues.debugLog) {
+                                        console.log("FetchedRules:", fetchedRules);
+                                        console.log("CustomRules:", customRules);
+                                    }
+                    
+                                    ConsentEngine.debugValues = debugValues;
+                                    ConsentEngine.generalSettings = generalSettings;
+                                    ConsentEngine.topFrameUrl = url;
+            
+                                    chrome.runtime.sendMessage("Searching");
+                                    let engine = new ConsentEngine(config, consentTypes, (evt)=>{
+                                        let result = {
+                                            "handled": evt.handled
+                                        };
     
-                                        chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
-                                    } else if(evt.error) {
-                                        chrome.runtime.sendMessage("CMPError");
-                                    } else {
-                                        chrome.runtime.sendMessage("NothingFound");
+                                        if(evt.handled) {
+                                            result.cmp = evt.cmpName;
+                                            result.clicks = evt.clicks;
+                                            result.url = url;
+        
+                                            chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
+                                        } else if(evt.error) {
+                                            chrome.runtime.sendMessage("CMPError");
+                                        } else {
+                                            chrome.runtime.sendMessage("NothingFound");
+                                        }
+                                    });
+            
+                                    ConsentEngine.singleton = engine;
+            
+                                    if(debugValues.debugLog) {
+                                        console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                                     }
                                 });
-        
-                                ConsentEngine.singleton = engine;
-        
-                                if(debugValues.debugLog) {
-                                    console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
-                                }
                             });
                         });
                     });
-                });
+                }
             });
         }
     });
