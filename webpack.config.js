@@ -28,9 +28,15 @@ module.exports = {
   output: {
     publicPath: "",
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
+    parser: {
+	javascript: {
+	    exportsPresence: "error",
+	    importExportsPresence: "error"
+	}
+    },
     rules: [
       {
         test: /\.(png|json|svg|html)/,

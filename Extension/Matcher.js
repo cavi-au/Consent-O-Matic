@@ -1,7 +1,7 @@
 import ConsentEngine from "./ConsentEngine.js";
 import Tools from "./Tools.js";
 
-export default class Matcher {
+export class Matcher {
     static createMatcher(config) {
         switch(config.type) {
             case "css": return new CssMatcher(config);
@@ -64,7 +64,7 @@ export default class Matcher {
     }
 }
 
-class OnOffMatcher extends Matcher {
+export class OnOffMatcher extends Matcher {
     constructor(config) {
         super(config);
     }
@@ -143,7 +143,7 @@ class OnOffMatcher extends Matcher {
     }
 }
 
-class CssMatcher extends Matcher {
+export class CssMatcher extends Matcher {
     constructor(config) {
         super(config);
     }
@@ -155,7 +155,7 @@ class CssMatcher extends Matcher {
     }
 }
 
-class CheckboxMatcher extends Matcher {
+export class CheckboxMatcher extends Matcher {
     constructor(config) {
         super(config);
     }
@@ -176,7 +176,7 @@ class CheckboxMatcher extends Matcher {
     }
 }
 
-class URLMatcher extends Matcher {
+export class URLMatcher extends Matcher {
     constructor(config) {
         super(config);
     }

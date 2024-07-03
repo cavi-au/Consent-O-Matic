@@ -1,6 +1,6 @@
 import ConsentEngine from "./ConsentEngine.js";
 import Action from "./Action.js";
-import Matcher from "./Matcher.js";
+import {Matcher,OnOffMatcher} from "./Matcher.js";
 
 export default class Consent {
     constructor(config, cmp) {
