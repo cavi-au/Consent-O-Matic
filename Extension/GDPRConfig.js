@@ -300,7 +300,27 @@ export default class GDPRConfig {
             });
         });
     }
-}
+
+
+    static getHandledCallback() {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.get({
+                handledCallback: GDPRConfig.defaultHandledCallback
+            }, (result) => {
+                resolve(Function(result.handledCallback));
+            });
+        });
+    }
+
+    static setHandledCallback(handledCallback) {
+        return new Promise((resolve, reject) => {
+            chrome.storage.sync.set({
+                handledCallback: handledCallback
+            }, () => {
+                resolve();
+            });
+        });
+    }
 
 GDPRConfig.defaultValues = {
     "A": false,
@@ -334,3 +354,5 @@ GDPRConfig.defaultDebugFlags = {
 GDPRConfig.defaultRuleLists = [
     "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules-list.json",
 ];
+
+GDPRConfig.defaultHandledCallback = "";
