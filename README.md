@@ -103,7 +103,7 @@ The extension only communicates with the net by itself in two situations:
 
 We highly recommend installing directly through the official extension store of your browser:
 * [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
-* [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) (Desktop / Mobile)
+* [Firefox](https://addons.mozilla.org/addon/consent-o-matic/) (Desktop / Mobile)
 * [Safari](https://apps.apple.com/gb/app/consent-o-matic/id1606897889) (MacOS / iOS / iPadOS / visionOS)
 
 Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
