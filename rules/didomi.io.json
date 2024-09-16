@@ -120,6 +120,7 @@
                                     {
                                         "type": "ifcss",
                                         "target": {
+                                            "selector": ".didomi-components-accordion",
                                             "textFilter": [
                                                 "Create a personalised ads profile",
                                                 "Apply market research to generate audience insights",
