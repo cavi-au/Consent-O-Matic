@@ -43,11 +43,5 @@
 	"icons": {
 		"48": "icon_48.png",
 		"96": "icon_96.png"
-	},
-	"browser_specific_settings": {
-		"gecko": {
-			"id": "gdpr@cavi.au.dk",
-			"strict_min_version": "109.0"
-		}
 	}
 }
