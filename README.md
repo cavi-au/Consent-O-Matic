@@ -118,9 +118,10 @@ Lastly, if you intend to review or make changes to the code, you can build and i
 git clone https://github.com/cavi-au/Consent-O-Matic.git
 cd Consent-O-Matic
 npm install
-npm run build
 ```
-Then proceed as above for installing release archives but point the browser at the `dist` folder.
+and then run one of ```npm run build-firefox``` or ```npm run build-chromium``` or ```npm run build-safari```
+
+For Firefox or Chromium you can now proceed as above for installing release archives but point the browser at the `build` folder or a folder where you extracted the zip from build/dist/. Safari requires loading the XCode project to further build an app.
 
 We do not recommend installing from source.
 
