@@ -105,6 +105,8 @@ We highly recommend installing directly through the official extension store of 
 * [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
 * [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) (Desktop / Mobile)
 * [Safari](https://apps.apple.com/gb/app/consent-o-matic/id1606897889) (MacOS / iOS / iPadOS / visionOS)
+* [Edge](https://microsoftedge.microsoft.com/addons/detail/eflcfflijdiekjkegjghbchoncjhfkda) (Windows / MacOS)
+
 
 Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
 
