@@ -123,14 +123,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
 function setBadgeCheckmark(text, id) {
     if (chrome.browserAction){
-        chrome.browserAction.setBadgeText({
-            text: text,
-            tabId: id
-        });
-        chrome.browserAction.setBadgeBackgroundColor({
-            color: "white",
-            tabId: id
-        });
+        if (chrome.browserAction.setBadgeText){
+            chrome.browserAction.setBadgeText({
+                text: text,
+                tabId: id
+            });
+        }
+        if (chrome.browserAction.setBadgeBackgroundColor){
+            chrome.browserAction.setBadgeBackgroundColor({
+                color: "white",
+                tabId: id
+            });
+        }
     }
 }
 
