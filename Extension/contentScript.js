@@ -32,11 +32,11 @@ async function contentScriptRunner() {
         
                         // Concat rule-lists to engine config in order
                         let config = Object.assign({}, ...fetchedRules, customRules);
-        
-                        GDPRConfig.getConsentValues().then((consentTypes)=>{
-                            GDPRConfig.getDebugValues().then((debugValues)=>{
-                                GDPRConfig.getGeneralSettings().then((generalSettings)=>{
-                                    if(debugValues.debugLog) {
+
+                        GDPRConfig.getConsentValues().then((consentTypes) => {
+                            GDPRConfig.getDebugValues().then((debugValues) => {
+                                GDPRConfig.getGeneralSettings().then((generalSettings) => {
+                                    if (debugValues.debugLog) {
                                         console.log("FetchedRules:", fetchedRules);
                                         console.log("CustomRules:", customRules);
                                     }
@@ -55,18 +55,21 @@ async function contentScriptRunner() {
                                             result.cmp = evt.cmpName;
                                             result.clicks = evt.clicks;
                                             result.url = url;
-        
-                                            chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
-                                        } else if(evt.error) {
+                                            window.postMessage({type: "FROM_EXTENSION", message: "CMPHandled"}, "*");
+                                            if (window.parent != null) {
+                                                window.parent.postMessage({type: "FROM_EXTENSION", message: "CMPHandled" }, "*");
+                                            }
+                                            chrome.runtime.sendMessage("HandledCMP|" + JSON.stringify(result));
+                                        } else if (evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
                                         } else {
                                             chrome.runtime.sendMessage("NothingFound");
                                         }
                                     });
-            
+
                                     ConsentEngine.singleton = engine;
-            
-                                    if(debugValues.debugLog) {
+
+                                    if (debugValues.debugLog) {
                                         console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                                     }
                                 });
@@ -80,13 +83,14 @@ async function contentScriptRunner() {
 }
 
 window.consentScrollBehaviours = {};
+
 function getCalculatedStyles() {
-    ["html","html body"].forEach(element=>{
+    ["html", "html body"].forEach(element => {
         let node = document.querySelector(element);
         if (node) {
             let styles = window.getComputedStyle(node);
-            window.consentScrollBehaviours[element+".consent-scrollbehaviour-override"] = ["position","overflow","overflow-y"].map(property=>{
-                return {property:property, value:styles[property]}
+            window.consentScrollBehaviours[element + ".consent-scrollbehaviour-override"] = ["position", "overflow", "overflow-y"].map(property => {
+                return {property: property, value: styles[property]}
             });
         }
     });
@@ -94,11 +98,11 @@ function getCalculatedStyles() {
 
 // Observe styles in order to temporarily restore them if a popup kills them
 let topContentTag = document.querySelector("html");
-if (topContentTag){
-    let observer = new MutationObserver((mutations)=>{
-        mutations.forEach((mutation)=>{
-            mutation.addedNodes.forEach((node)=>{
-                if(node.matches != null && node.matches("body")) {
+if (topContentTag) {
+    let observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.matches != null && node.matches("body")) {
                     getCalculatedStyles();
                     observer.disconnect();
                 }
@@ -110,16 +114,16 @@ if (topContentTag){
         childList: true
     });
 }
-window.addEventListener("message", (event)=>{
+window.addEventListener("message", (event) => {
     try {
-        if(event.data?.enforceScrollBehaviours != null) {
+        if (event.data?.enforceScrollBehaviours != null) {
             ConsentEngine.enforceScrollBehaviours(event.data.enforceScrollBehaviours);
         }
-    }catch(e) {
+    } catch (e) {
         console.error("Error inside message listener:", e);
     }
 });
 
-contentScriptRunner().catch((e)=>{
+contentScriptRunner().catch((e) => {
     console.error(e);
 });

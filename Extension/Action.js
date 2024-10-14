@@ -204,7 +204,10 @@ class ClickAction extends Action {
             ConsentEngine.singleton.registerClick();
 
             if(isShowing && this.config.noTimeout !== true) {
-                await this.waitTimeout(this.timeout);
+                let timeout = this.timeout;
+                if (timeout > 10) {
+                    await this.waitTimeout(timeout);
+                }
             }
         }
     }
