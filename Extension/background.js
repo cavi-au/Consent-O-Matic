@@ -8,9 +8,19 @@ const STATUS = {
     "HANDLED": 4
 }
 
+let sessionVariables = {};
+
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     console.log("Got msg", message);
     try {
+    if (typeof (message) === "object") {
+        if (message.type === "SAVE_VARIABLE") {
+            sessionVariables[sender.tab.id] = message.data;
+        } else if (message.type === "GET_VARIABLE") {
+            reply(sessionVariables[sender.tab.id]);
+        }
+    }
+
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);

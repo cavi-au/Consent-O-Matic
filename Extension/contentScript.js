@@ -1,6 +1,17 @@
 import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 
+function sendFinishingEvent(message) {
+    let wind = window;
+    while (wind != null) {
+        wind.postMessage(message, "*");
+        if (wind.parent === wind) {
+            break;
+        }
+        wind = wind.parent;
+    }
+}
+
 async function contentScriptRunner() {
     if (document.contentType!=="text/html") return;
 
@@ -54,29 +65,42 @@ async function contentScriptRunner() {
                                             type: "FROM_EXTENSION",
                                             extension: "Consent-O-Matic"
                                         }
-    
-                                        if(evt.handled) {
+
+                                        let sendEvent = true;
+
+                                        if (evt.handled) {
                                             result.cmp = evt.cmpName;
                                             result.clicks = evt.clicks;
                                             result.url = url;
                                             chrome.runtime.sendMessage("HandledCMP|" + JSON.stringify(result));
                                             message.message = "CMPHandled";
+                                            chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
+                                            console.log("Handled CMP: ", evt.cmpName);
                                         } else if (evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
                                             message.message = "CMPError";
                                             message.error = evt.error;
+                                            chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
+                                            console.log("Error occurred: ", evt.error);
                                         } else {
+                                            sendEvent = false;
+                                            ((message) => {
+                                                chrome.runtime.sendMessage({type: "GET_VARIABLE"}, (response) => {
+                                                    if (response === "true") {
+                                                        console.log("CMP already handled");
+                                                        return;
+                                                    }
+                                                    message.message = "NothingFound";
+                                                    chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
+                                                    sendFinishingEvent(message);
+                                                });
+                                            })(message);
                                             chrome.runtime.sendMessage("NothingFound");
                                             message.message = "NothingFound";
                                         }
 
-                                        let wind = window;
-                                        while (wind != null) {
-                                            wind.postMessage(message, "*");
-                                            if (wind.parent === wind) {
-                                                break;
-                                            }
-                                            wind = wind.parent;
+                                        if (sendEvent) {
+                                            sendFinishingEvent(message);
                                         }
                                     });
 
@@ -108,6 +132,11 @@ function getCalculatedStyles() {
         }
     });
 }
+
+chrome.runtime.sendMessage({
+    type: "SAVE_VARIABLE",
+    data: ""
+});
 
 // Observe styles in order to temporarily restore them if a popup kills them
 let topContentTag = document.querySelector("html");
