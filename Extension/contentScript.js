@@ -55,9 +55,13 @@ async function contentScriptRunner() {
                                             result.cmp = evt.cmpName;
                                             result.clicks = evt.clicks;
                                             result.url = url;
-                                            window.postMessage({type: "FROM_EXTENSION", message: "CMPHandled"}, "*");
-                                            if (window.parent != null) {
+                                            let wind = window;
+                                            while (wind != null) {
                                                 window.parent.postMessage({type: "FROM_EXTENSION", message: "CMPHandled" }, "*");
+                                                if (wind.parent === wind) {
+                                                    break;
+                                                }
+                                                wind = wind.parent;
                                             }
                                             chrome.runtime.sendMessage("HandledCMP|" + JSON.stringify(result));
                                         } else if (evt.error) {

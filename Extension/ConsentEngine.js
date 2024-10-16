@@ -301,7 +301,9 @@ export default class ConsentEngine {
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupCollapsed(cmp.name + " - SAVE_CONSENT");
                                     }
-                                    await cmp.runMethod("SAVE_CONSENT", self.consentTypes);
+                                    let consentTypes = JSON.parse(JSON.stringify(self.consentTypes));
+                                    consentTypes["IS_LAST"] = true;
+                                    await cmp.runMethod("SAVE_CONSENT", consentTypes);
                                     if (ConsentEngine.debugValues.debugLog) {
                                         console.groupEnd();
                                     }

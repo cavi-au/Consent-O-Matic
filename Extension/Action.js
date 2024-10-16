@@ -6,25 +6,41 @@ export default class Action {
     static createAction(config, cmp) {
         try {
             switch (config.type) {
-                case "click": return new ClickAction(config, cmp);
-                case "multiclick": return new MultiClickAction(config, cmp);
-                case "list": return new ListAction(config, cmp);
-                case "consent": return new ConsentAction(config, cmp);
-                case "ifcss": return new IfCssAction(config, cmp);
-                case "waitcss": return new WaitCssAction(config, cmp);
-                case "foreach": return new ForEachAction(config, cmp);
-                case "hide": return new HideAction(config, cmp);
-                case "slide": return new SlideAction(config, cmp);
-                case "close": return new CloseAction(config, cmp);
-                case "wait": return new WaitAction(config, cmp);
-                case "ifallowall": return new IfAllowAllAction(config, cmp);
-                case "ifallownone": return new IfAllowNoneAction(config, cmp);
-                case "runrooted": return new RunRootedAction(config, cmp);
-                case "runmethod": return new RunMethodAction(config, cmp);
-                default: throw "Unknown action type: " + config.type;
+                case "click":
+                    return new ClickAction(config, cmp);
+                case "multiclick":
+                    return new MultiClickAction(config, cmp);
+                case "list":
+                    return new ListAction(config, cmp);
+                case "consent":
+                    return new ConsentAction(config, cmp);
+                case "ifcss":
+                    return new IfCssAction(config, cmp);
+                case "waitcss":
+                    return new WaitCssAction(config, cmp);
+                case "foreach":
+                    return new ForEachAction(config, cmp);
+                case "hide":
+                    return new HideAction(config, cmp);
+                case "slide":
+                    return new SlideAction(config, cmp);
+                case "close":
+                    return new CloseAction(config, cmp);
+                case "wait":
+                    return new WaitAction(config, cmp);
+                case "ifallowall":
+                    return new IfAllowAllAction(config, cmp);
+                case "ifallownone":
+                    return new IfAllowNoneAction(config, cmp);
+                case "runrooted":
+                    return new RunRootedAction(config, cmp);
+                case "runmethod":
+                    return new RunMethodAction(config, cmp);
+                default:
+                    throw "Unknown action type: " + config.type;
             }
         } catch (e) {
-            if(ConsentEngine.debugValues.debugLog) {
+            if (ConsentEngine.debugValues.debugLog) {
                 console.error(e);
             }
             return new NopAction(config, cmp);
@@ -36,7 +52,7 @@ export default class Action {
 
         this.config = config;
 
-        if(ConsentEngine.debugValues.debugLog) {
+        if (ConsentEngine.debugValues.debugLog) {
             //Override execute, with logging variant
             let realExecute = this.execute;
 
@@ -58,11 +74,11 @@ export default class Action {
         } else {
             if (ConsentEngine.debugValues.clickDelay) {
                 return 150;
-            } else if(ConsentEngine.singleton.pipEnabled) {
+            } else if (ConsentEngine.singleton.pipEnabled) {
                 // Reduce click wait based on number of clicks
-                if (ConsentEngine.singleton.getClicksSoFar()>100) return 0;
-                if (ConsentEngine.singleton.getClicksSoFar()>20) return 1;
-                if (ConsentEngine.singleton.getClicksSoFar()>5) return 10;
+                if (ConsentEngine.singleton.getClicksSoFar() > 100) return 0;
+                if (ConsentEngine.singleton.getClicksSoFar() > 20) return 1;
+                if (ConsentEngine.singleton.getClicksSoFar() > 5) return 10;
                 return 100;
             } else {
                 return 0;
@@ -88,12 +104,14 @@ export default class Action {
 
     async waitTimeout(timeout) {
         return new Promise((resolve) => {
-            setTimeout(() => { resolve(); }, timeout);
+            setTimeout(() => {
+                resolve();
+            }, timeout);
         });
     }
 
     getNumSteps() {
-        console.warn("Missing getNumSteps on: "+this.constructor.name);
+        console.warn("Missing getNumSteps on: " + this.constructor.name);
         return 0;
     }
 }
@@ -117,7 +135,7 @@ class ListAction extends Action {
     getNumSteps() {
         let steps = 0;
 
-        this.actions.forEach((action)=>{
+        this.actions.forEach((action) => {
             steps += action.getNumSteps();
         });
 
@@ -148,7 +166,9 @@ class WaitAction extends Action {
     async execute(param) {
         let self = this;
         await new Promise((resolve, reject) => {
-            setTimeout(() => { resolve() }, self.config.waitTime);
+            setTimeout(() => {
+                resolve()
+            }, self.config.waitTime);
         });
     }
 
@@ -164,14 +184,15 @@ class ClickAction extends Action {
     }
 
     async execute(param) {
+        let isLast = param != null && param["IS_LAST"] === true;
         let result = Tools.find(this.config);
 
         if (result.target != null) {
             let pipScroll = false;
-            if(ConsentEngine.singleton.pipEnabled) {
+            if (ConsentEngine.singleton.pipEnabled) {
                 pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
             }
-    
+
             let isShowing = result.target.offsetHeight !== 0;
 
             if (isShowing && (ConsentEngine.debugValues.clickDelay || pipScroll)) {
@@ -182,7 +203,7 @@ class ClickAction extends Action {
                 });
             }
 
-            if(isShowing && this.config.noTimeout !== true) {
+            if (isShowing && this.config.noTimeout !== true) {
                 await this.waitTimeout(this.timeout);
             }
 
@@ -191,23 +212,20 @@ class ClickAction extends Action {
             }
 
             if (ConsentEngine.debugValues.clickDelay || pipScroll) {
-                result.target.focus({ preventScroll: true });
+                result.target.focus({preventScroll: true});
             }
 
             if (this.config.openInTab) {
                 //Handle osx behaving differently?
-                result.target.dispatchEvent(new MouseEvent("click", { ctrlKey: true, shiftKey: true }));
+                result.target.dispatchEvent(new MouseEvent("click", {ctrlKey: true, shiftKey: true}));
             } else {
                 result.target.click();
             }
 
             ConsentEngine.singleton.registerClick();
 
-            if(isShowing && this.config.noTimeout !== true) {
-                let timeout = this.timeout;
-                if (timeout > 10) {
-                    await this.waitTimeout(timeout);
-                }
+            if (isShowing && this.config.noTimeout !== true && !isLast) {
+                await this.waitTimeout(this.timeout);
             }
         }
     }
@@ -228,19 +246,19 @@ class MultiClickAction extends Action {
         if (ConsentEngine.debugValues.debugClicks) {
             console.log("MultiClicking:", results);
         }
-	results.forEach(result=>{
-	    if (result.target!=null){
-		result.target.click();
-	    }
-	});
-        
+        results.forEach(result => {
+            if (result.target != null) {
+                result.target.click();
+            }
+        });
+
         // TODO: Register more clicks simultaneously
-	results.forEach(result=>{
-	    if (result.target!=null){
-    		ConsentEngine.singleton.registerClick();
-    	    }
-    	});
-        
+        results.forEach(result => {
+            if (result.target != null) {
+                ConsentEngine.singleton.registerClick();
+            }
+        });
+
         // TODO: Consider how this should be shown in PiP?
     }
 
@@ -309,11 +327,11 @@ class IfCssAction extends Action {
     getNumSteps() {
         let steps = 0;
 
-        if(this.trueAction != null) {
+        if (this.trueAction != null) {
             steps += this.trueAction.getNumSteps();
         }
 
-        if(this.falseAction != null) {
+        if (this.falseAction != null) {
             steps += this.falseAction.getNumSteps();
         }
 
@@ -417,7 +435,7 @@ class ForEachAction extends Action {
     constructor(config, cmp) {
         super(config);
 
-        if(this.config.action != null) {
+        if (this.config.action != null) {
             this.action = Action.createAction(this.config.action, cmp);
         } else {
             console.warn("Missing action on ForEach: ", this);
@@ -425,7 +443,7 @@ class ForEachAction extends Action {
     }
 
     async execute(param) {
-        if(this.action != null) {
+        if (this.action != null) {
             let results = Tools.find(this.config, true);
             let oldBase = Tools.base;
 
@@ -441,7 +459,7 @@ class ForEachAction extends Action {
     }
 
     getNumSteps() {
-        if(this.action != null) {
+        if (this.action != null) {
             return this.action.getNumSteps();
         }
 
@@ -456,7 +474,7 @@ class HideAction extends Action {
     }
 
     async execute(param) {
-        if(ConsentEngine.debugValues.skipHideMethod) {
+        if (ConsentEngine.debugValues.skipHideMethod) {
             return;
         }
 
@@ -466,51 +484,51 @@ class HideAction extends Action {
         if (result.target != null) {
             this.cmp.hiddenTargets.push(result.target);
 
-            if(this.config.hideFromDetection === true) {
+            if (this.config.hideFromDetection === true) {
                 result.target.classList.add("ConsentOMatic-CMP-NoDetect");
             }
 
-            if(ConsentEngine.generalSettings.hideInsteadOfPIP || this.config.forceHide === true) {
+            if (ConsentEngine.generalSettings.hideInsteadOfPIP || this.config.forceHide === true) {
                 result.target.classList.add("ConsentOMatic-CMP-Hider");
             } else {
                 ConsentEngine.singleton.enablePip();
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
-                
-                if(typeof result.target.savedStyles === "undefined") {
+
+                if (typeof result.target.savedStyles === "undefined") {
                     result.target.savedStyles = result.target.getAttribute("style");
                 }
 
                 function setStyles() {
-                    if(!result.target.matches(".ConsentOMatic-CMP-PIP")) {
+                    if (!result.target.matches(".ConsentOMatic-CMP-PIP")) {
                         return;
                     }
 
                     let preview = document.querySelector(".ConsentOMatic-Progres-Preview");
                     let scale = 0.25;
-                    if(preview != null) {
+                    if (preview != null) {
                         let width = preview.offsetWidth - 4;
                         let height = preview.offsetHeight - 4;
-    
+
                         let targetWidth = result.target.offsetWidth;
                         let targetHeight = result.target.offsetHeight;
-    
-                        if(result.target.offsetHeight === 0) {
+
+                        if (result.target.offsetHeight === 0) {
                             result.target.style.setProperty("height", "100%", "important");
                             targetHeight = result.target.offsetHeight;
                         }
 
                         let widthScale = width / targetWidth;
                         let heightScale = height / targetHeight;
-    
+
                         scale = Math.min(widthScale, heightScale);
                     }
-    
+
                     result.target.style.setProperty("position", "fixed", "important");
-                    result.target.style.setProperty("left", "initial","important");
-                    result.target.style.setProperty("top","initial","important");
-                    result.target.style.setProperty("right",  "0px", "important");
+                    result.target.style.setProperty("left", "initial", "important");
+                    result.target.style.setProperty("top", "initial", "important");
+                    result.target.style.setProperty("right", "0px", "important");
                     result.target.style.setProperty("bottom", "2px", "important");
-                    result.target.style.setProperty("transform", "translateY(-4rem) scale("+scale+")", "important");
+                    result.target.style.setProperty("transform", "translateY(-4rem) scale(" + scale + ")", "important");
                     result.target.style.setProperty("transform-origin", "right bottom", "important");
                     result.target.style.setProperty("transition", "transform 0.15s ease-in-out", "important");
                     result.target.style.setProperty("contain", "paint", "important");
@@ -523,17 +541,17 @@ class HideAction extends Action {
 
                 setStyles();
 
-                await new Promise((resolve)=>{
-                    requestAnimationFrame(()=>{
+                await new Promise((resolve) => {
+                    requestAnimationFrame(() => {
                         resolve();
                     });
                 });
 
                 let entriesSeen = new Set();
 
-                let observer = new ResizeObserver((entries)=>{
-                    for(let entry of entries) {
-                        if(!entriesSeen.has(entry.target)) {
+                let observer = new ResizeObserver((entries) => {
+                    for (let entry of entries) {
+                        if (!entriesSeen.has(entry.target)) {
                             entriesSeen.add(entry.target);
                         } else {
                             setStyles();
@@ -550,7 +568,7 @@ class HideAction extends Action {
 
                 this.cmp.observers.push(observer);
 
-                let observer2 = new MutationObserver((mutations)=>{
+                let observer2 = new MutationObserver((mutations) => {
                     setStyles();
                 });
 
@@ -673,7 +691,7 @@ class IfAllowAllAction extends Action {
     constructor(config, cmp) {
         super(config);
         this.cmp = cmp;
- 
+
         if (config.trueAction != null) {
             this.trueAction = Action.createAction(config.trueAction, cmp);
         }
@@ -685,10 +703,10 @@ class IfAllowAllAction extends Action {
 
     async execute(consentTypes) {
         let allTrue = true;
-        Object.keys(consentTypes).forEach((key)=>{
+        Object.keys(consentTypes).forEach((key) => {
             let value = consentTypes[key];
 
-            if(value === false) {
+            if (value === false) {
                 allTrue = false;
             }
         });
@@ -707,11 +725,11 @@ class IfAllowAllAction extends Action {
     getNumSteps() {
         let steps = 0;
 
-        if(this.trueAction != null) {
+        if (this.trueAction != null) {
             steps += this.trueAction.getNumSteps();
         }
 
-        if(this.falseAction != null) {
+        if (this.falseAction != null) {
             steps += this.falseAction.getNumSteps();
         }
 
@@ -723,7 +741,7 @@ class IfAllowNoneAction extends Action {
     constructor(config, cmp) {
         super(config);
         this.cmp = cmp;
- 
+
         if (config.trueAction != null) {
             this.trueAction = Action.createAction(config.trueAction, cmp);
         }
@@ -736,10 +754,10 @@ class IfAllowNoneAction extends Action {
     async execute(consentTypes) {
         let allFalse = true;
 
-        Object.keys(consentTypes).forEach((key)=>{
+        Object.keys(consentTypes).forEach((key) => {
             let value = consentTypes[key];
 
-            if(value === true) {
+            if (value === true) {
                 allFalse = false;
             }
         });
@@ -758,11 +776,11 @@ class IfAllowNoneAction extends Action {
     getNumSteps() {
         let steps = 0;
 
-        if(this.trueAction != null) {
+        if (this.trueAction != null) {
             steps += this.trueAction.getNumSteps();
         }
 
-        if(this.falseAction != null) {
+        if (this.falseAction != null) {
             steps += this.falseAction.getNumSteps();
         }
 
@@ -775,7 +793,7 @@ class RunRootedAction extends Action {
         super(config);
         this.cmp = cmp;
 
-        if(this.config.action != null) {
+        if (this.config.action != null) {
             this.action = Action.createAction(this.config.action, cmp);
         } else {
             console.warn("Missing action on RunRooted: ", this);
@@ -783,23 +801,23 @@ class RunRootedAction extends Action {
     }
 
     async execute(params) {
-        if(this.config.action != null) {
+        if (this.config.action != null) {
 
             //Save root
             let oldRoot = Tools.getBase();
 
             //Reset to null root
-            if(this.config.ignoreOldRoot === true) {
+            if (this.config.ignoreOldRoot === true) {
                 Tools.setBase(null);
             }
 
             //Find new root
             let result = Tools.find(this.config);
 
-            if(result.target != null) {
+            if (result.target != null) {
                 //Set new root
                 Tools.setBase(result.target);
-                
+
                 //RUN
                 await this.action.execute(params);
             }
@@ -810,7 +828,7 @@ class RunRootedAction extends Action {
     }
 
     getNumSteps() {
-        if(this.action != null) {
+        if (this.action != null) {
             return this.action.getNumSteps();
         }
 
@@ -825,20 +843,20 @@ class RunMethodAction extends Action {
     }
 
     async execute(params) {
-        if(this.config.method == null) {
+        if (this.config.method == null) {
             console.warn("Missing option 'method' on RunMethodAction");
             return;
         }
 
         let methodName = this.config.method.toUpperCase();
 
-        if(!this.cmp.hasMethod(methodName)) {
-            console.warn("CMP does not have method ["+methodName+"]", this.cmp);
+        if (!this.cmp.hasMethod(methodName)) {
+            console.warn("CMP does not have method [" + methodName + "]", this.cmp);
             return;
         }
 
-        if(!this.cmp.isCustomMethod(methodName)) {
-            console.warn("CMP method ["+methodName+"] is not a custom method!");
+        if (!this.cmp.isCustomMethod(methodName)) {
+            console.warn("CMP method [" + methodName + "] is not a custom method!");
             return;
         }
 
@@ -846,7 +864,7 @@ class RunMethodAction extends Action {
     }
 
     getNumSteps() {
-        if(this.cmp.hasMethod(this.config.method)) {
+        if (this.cmp.hasMethod(this.config.method)) {
             return this.cmp.getNumStepsForMethod(this.config.method);
         }
 
