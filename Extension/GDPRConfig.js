@@ -332,5 +332,5 @@ GDPRConfig.defaultDebugFlags = {
 };
 
 GDPRConfig.defaultRuleLists = [
-    "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules-list.json",
+    "https://raw.githubusercontent.com/evincedbenyaakobi/Consent-O-Matic/master/rules-list.json",
 ];

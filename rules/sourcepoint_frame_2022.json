@@ -87,7 +87,8 @@
                             "target": {
                                 "selector": "p.message-component a",
                                 "textFilter": [
-                                    "Einstellungen anpassen"
+                                    "Einstellungen anpassen",
+                                    "View options"
                                 ]
                             },
                             "trueAction": {
@@ -95,7 +96,8 @@
                                 "target": {
                                     "selector": "p.message-component a",
                                     "textFilter": [
-                                        "Einstellungen anpassen"
+                                        "Einstellungen anpassen",
+                                        "View options"
                                     ]
                                 }
                             }
