@@ -57,7 +57,7 @@ async function contentScriptRunner() {
                                             result.url = url;
                                             let wind = window;
                                             while (wind != null) {
-                                                window.parent.postMessage({type: "FROM_EXTENSION", message: "CMPHandled" }, "*");
+                                                wind.postMessage({type: "FROM_EXTENSION", message: "CMPHandled" }, "*");
                                                 if (wind.parent === wind) {
                                                     break;
                                                 }
