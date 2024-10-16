@@ -50,24 +50,33 @@ async function contentScriptRunner() {
                                         let result = {
                                             "handled": evt.handled
                                         };
+                                        let message = {
+                                            type: "FROM_EXTENSION",
+                                            extension: "Consent-O-Matic"
+                                        }
     
                                         if(evt.handled) {
                                             result.cmp = evt.cmpName;
                                             result.clicks = evt.clicks;
                                             result.url = url;
-                                            let wind = window;
-                                            while (wind != null) {
-                                                wind.postMessage({type: "FROM_EXTENSION", message: "CMPHandled" }, "*");
-                                                if (wind.parent === wind) {
-                                                    break;
-                                                }
-                                                wind = wind.parent;
-                                            }
                                             chrome.runtime.sendMessage("HandledCMP|" + JSON.stringify(result));
+                                            message.message = "CMPHandled";
                                         } else if (evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
+                                            message.message = "CMPError";
+                                            message.error = evt.error;
                                         } else {
                                             chrome.runtime.sendMessage("NothingFound");
+                                            message.message = "NothingFound";
+                                        }
+
+                                        let wind = window;
+                                        while (wind != null) {
+                                            wind.postMessage(message, "*");
+                                            if (wind.parent === wind) {
+                                                break;
+                                            }
+                                            wind = wind.parent;
                                         }
                                     });
 
