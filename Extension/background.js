@@ -16,8 +16,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     if (typeof (message) === "object") {
         if (message.type === "SAVE_VARIABLE") {
             sessionVariables[sender.tab.id] = message.data;
+            return false;
         } else if (message.type === "GET_VARIABLE") {
             reply(sessionVariables[sender.tab.id]);
+            return false;
         }
     }
 
