@@ -1,6 +1,12 @@
 import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 
+
+chrome.runtime.sendMessage({
+    type: "SAVE_VARIABLE",
+    data: ""
+});
+
 function sendFinishingEvent(message) {
     let wind = window;
     while (wind != null) {
@@ -63,10 +69,11 @@ async function contentScriptRunner() {
                                         };
                                         let message = {
                                             type: "FROM_EXTENSION",
-                                            extension: "Consent-O-Matic"
+                                            extension: "Consent-O-Matic",
+                                            href: location.href,
+                                            url: url,
+                                            insideIframe: insideIframe
                                         }
-
-                                        let sendEvent = true;
 
                                         if (evt.handled) {
                                             result.cmp = evt.cmpName;
@@ -83,25 +90,11 @@ async function contentScriptRunner() {
                                             chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
                                             console.log("Error occurred: ", evt.error);
                                         } else {
-                                            sendEvent = false;
-                                            ((message) => {
-                                                chrome.runtime.sendMessage({type: "GET_VARIABLE"}, (response) => {
-                                                    if (response === "true") {
-                                                        console.log("CMP already handled");
-                                                        return;
-                                                    }
-                                                    message.message = "NothingFound";
-                                                    chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
-                                                    sendFinishingEvent(message);
-                                                });
-                                            })(message);
                                             chrome.runtime.sendMessage("NothingFound");
                                             message.message = "NothingFound";
                                         }
 
-                                        if (sendEvent) {
-                                            sendFinishingEvent(message);
-                                        }
+                                        sendFinishingEvent(message);
                                     });
 
                                     ConsentEngine.singleton = engine;
@@ -132,11 +125,6 @@ function getCalculatedStyles() {
         }
     });
 }
-
-chrome.runtime.sendMessage({
-    type: "SAVE_VARIABLE",
-    data: ""
-});
 
 // Observe styles in order to temporarily restore them if a popup kills them
 let topContentTag = document.querySelector("html");

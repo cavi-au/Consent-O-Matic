@@ -8,21 +8,9 @@ const STATUS = {
     "HANDLED": 4
 }
 
-let sessionVariables = {};
-
 chrome.runtime.onMessage.addListener(function (message, sender, reply) {
     console.log("Got msg", message);
     try {
-    if (typeof (message) === "object") {
-        if (message.type === "SAVE_VARIABLE") {
-            sessionVariables[sender.tab.id] = message.data;
-            return false;
-        } else if (message.type === "GET_VARIABLE") {
-            reply(sessionVariables[sender.tab.id]);
-            return false;
-        }
-    }
-
     switch (message.split("|")[0]) {
         case "GetTabUrl": {
             reply(sender.tab.url);
@@ -109,7 +97,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;
-                
+
                 if (!entries.cmps.hasOwnProperty(json.cmp)){
                     entries.cmps[json.cmp] = {
                         filledForms: 0,
