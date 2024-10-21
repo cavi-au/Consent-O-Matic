@@ -1,12 +1,6 @@
 import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 
-
-chrome.runtime.sendMessage({
-    type: "SAVE_VARIABLE",
-    data: ""
-});
-
 function sendFinishingEvent(message) {
     let wind = window;
     while (wind != null) {
@@ -81,13 +75,11 @@ async function contentScriptRunner() {
                                             result.url = url;
                                             chrome.runtime.sendMessage("HandledCMP|" + JSON.stringify(result));
                                             message.message = "CMPHandled";
-                                            chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
                                             console.log("Handled CMP: ", evt.cmpName);
                                         } else if (evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
                                             message.message = "CMPError";
                                             message.error = evt.error;
-                                            chrome.runtime.sendMessage({type: "SAVE_VARIABLE", data: "true"});
                                             console.log("Error occurred: ", evt.error);
                                         } else {
                                             chrome.runtime.sendMessage("NothingFound");
