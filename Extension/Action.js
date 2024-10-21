@@ -164,6 +164,7 @@ class ClickAction extends Action {
     }
 
     async execute(param) {
+        let isLast = param != null && param["IS_LAST"] === true;
         let result = Tools.find(this.config);
 
         if (result.target != null) {
@@ -171,7 +172,7 @@ class ClickAction extends Action {
             if(ConsentEngine.singleton.pipEnabled) {
                 pipScroll = result.target.closest(".ConsentOMatic-CMP-PIP") != null;
             }
-    
+
             let isShowing = result.target.offsetHeight !== 0;
 
             if (isShowing && (ConsentEngine.debugValues.clickDelay || pipScroll)) {
@@ -203,7 +204,7 @@ class ClickAction extends Action {
 
             ConsentEngine.singleton.registerClick();
 
-            if(isShowing && this.config.noTimeout !== true) {
+            if (isShowing && this.config.noTimeout !== true && !isLast) {
                 await this.waitTimeout(this.timeout);
             }
         }
@@ -230,14 +231,14 @@ class MultiClickAction extends Action {
 		result.target.click();
 	    }
 	});
-        
+
         // TODO: Register more clicks simultaneously
 	results.forEach(result=>{
 	    if (result.target!=null){
     		ConsentEngine.singleton.registerClick();
     	    }
     	});
-        
+
         // TODO: Consider how this should be shown in PiP?
     }
 
@@ -472,7 +473,7 @@ class HideAction extends Action {
             } else {
                 ConsentEngine.singleton.enablePip();
                 result.target.classList.add("ConsentOMatic-CMP-PIP");
-                
+
                 if(typeof result.target.savedStyles === "undefined") {
                     result.target.savedStyles = result.target.getAttribute("style");
                 }
@@ -487,10 +488,10 @@ class HideAction extends Action {
                     if(preview != null) {
                         let width = preview.offsetWidth - 4;
                         let height = preview.offsetHeight - 4;
-    
+
                         let targetWidth = result.target.offsetWidth;
                         let targetHeight = result.target.offsetHeight;
-    
+
                         if(result.target.offsetHeight === 0) {
                             result.target.style.setProperty("height", "100%", "important");
                             targetHeight = result.target.offsetHeight;
@@ -498,10 +499,10 @@ class HideAction extends Action {
 
                         let widthScale = width / targetWidth;
                         let heightScale = height / targetHeight;
-    
+
                         scale = Math.min(widthScale, heightScale);
                     }
-    
+
                     result.target.style.setProperty("position", "fixed", "important");
                     result.target.style.setProperty("left", "initial","important");
                     result.target.style.setProperty("top","initial","important");
@@ -670,7 +671,7 @@ class IfAllowAllAction extends Action {
     constructor(config, cmp) {
         super(config);
         this.cmp = cmp;
- 
+
         if (config.trueAction != null) {
             this.trueAction = Action.createAction(config.trueAction, cmp);
         }
@@ -720,7 +721,7 @@ class IfAllowNoneAction extends Action {
     constructor(config, cmp) {
         super(config);
         this.cmp = cmp;
- 
+
         if (config.trueAction != null) {
             this.trueAction = Action.createAction(config.trueAction, cmp);
         }
@@ -796,7 +797,7 @@ class RunRootedAction extends Action {
             if(result.target != null) {
                 //Set new root
                 Tools.setBase(result.target);
-                
+
                 //RUN
                 await this.action.execute(params);
             }

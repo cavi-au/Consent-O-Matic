@@ -97,7 +97,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 
             GDPRConfig.getStatistics().then((entries)=>{
                 entries.clicks += json.clicks;
-                
+
                 if (!entries.cmps.hasOwnProperty(json.cmp)){
                     entries.cmps[json.cmp] = {
                         filledForms: 0,

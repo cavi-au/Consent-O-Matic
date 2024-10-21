@@ -20,7 +20,8 @@
                                 "Mijn instellingen beheren",
                                 "Hantera cookies",
                                 "Manage",
-                                "Configure Preferences"
+                                "Configure Preferences",
+                                "Altre opzioni"
                             ],
                             "displayFilter": true
                         }
@@ -78,7 +79,8 @@
                                         "Mijn instellingen beheren",
                                         "Hantera cookies",
                                         "Manage",
-                                        "Configure Preferences"
+                                        "Configure Preferences",
+                                        "Altre opzioni"
                                     ]
                                 }
                             }

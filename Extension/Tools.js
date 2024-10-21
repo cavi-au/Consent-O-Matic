@@ -12,7 +12,7 @@ export default class Tools {
     static findElement(options, parent = null, multiple = false) {
         let possibleTargets = null;
 
-        if(options.selector.trim() === ":scope") {
+        if(options.selector === undefined || options.selector.trim() === ":scope") {
             //Select current root
             if(parent != null) {
                 possibleTargets = [parent];
