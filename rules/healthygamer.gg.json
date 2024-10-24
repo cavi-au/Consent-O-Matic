@@ -1,0 +1,67 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "healthygamer.gg": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": [
+                            ".*\\.healthygamer\\.gg"
+                        ],
+                        "regexp": true
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div.modal-inner"
+                        },
+                        "parent": {
+                            "selector": "dialog.hg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button.modal-confirm.header5"
+                        },
+                        "parent": {
+                            "selector": "div.modal-buttons"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button.modal-dismiss.header5"
+                        },
+                        "parent": {
+                            "selector": "div.modal-buttons"
+                        }
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
