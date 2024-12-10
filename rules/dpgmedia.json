@@ -39,7 +39,7 @@
                         "selector": "#pg-modal #pg-first-layer #pg-footer #pg-configure-btn"
                     },
                     "parent": {
-                        "selector": "#pg-shadow-root-host"
+                        "selector": "#pg-root-shadow-host"
                     }
                 }
             },
@@ -54,7 +54,7 @@
                         "selector": "#pg-modal #pg-second-layer #pg-footer #pg-reject-btn"
                     },
                     "parent": {
-                        "selector": "#pg-shadow-root-host"
+                        "selector": "#pg-root-shadow-host"
                     }
                 }
             },
