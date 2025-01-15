@@ -57,9 +57,9 @@ export default class Consent {
             if(this.enabledMatcher != null && this.enabledMatcher instanceof OnOffMatcher) {
                 try {
                     if(this.isEnabled() && !enabled) {
-                        await this.falseAction.execute();
+                        await this.falseAction?.execute();
                     } else if(!this.isEnabled() && enabled) {
-                        await this.trueAction.execute();
+                        await this.trueAction?.execute();
                     }
                     handled = true;
                 } catch(e) {
@@ -71,9 +71,9 @@ export default class Consent {
 
             if(!handled) {
                 if(enabled) {
-                    await this.trueAction.execute();
+                    await this.trueAction?.execute();
                 } else {
-                    await this.falseAction.execute();
+                    await this.falseAction?.execute();
                 }
             }
         }
