@@ -1,70 +1,76 @@
 {
-  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-  "worldshop.eu": {
-      "detectors": [
-          {
-              "presentMatcher": [
-                  {
-                      "type": "css",
-                      "target": {
-                          "selector": ".wsx-global-cookie-consent-adjust-cookies",
-                          "textFilter": [
-                              "Manage cookies"
-                          ],
-                          "displayFilter": true
-                      }
-                  }
-              ]
-          }
-      ],
-      "methods": [
-          {
-              "name": "HIDE_CMP"
-          },
-          {
-              "name": "OPEN_OPTIONS"
-          },
-          {
-              "name": "DO_CONSENT"
-          },
-          {
-              "name": "SAVE_CONSENT"
-          },
-          {
-              "action": {
-                  "type": "list",
-                  "actions": [
-                      {
-                          "type": "wait",
-                          "waitTime": 250
-                      },
-                      {
-                          "type": "click",
-                          "target": {
-                              "selector": ".button-all"
-                          }
-                      },
-                      {
-                          "type": "ifcss",
-                          "target": {
-                              "selector": ".button-all",
-                              "iframeFilter": true,
-                              "displayFilter": true
-                          },
-                          "falseAction": {
-                              "type": "click",
-                              "target": {
-                                  "selector": ".wsx-global-cookie-consent-adjust-cookies",
-                                  "textFilter": [
-                                      "Manage cookies"
-                                  ]
-                              }
-                          }
-                      }
-                  ]
-              },
-              "name": "UTILITY"
-          }
-      ]
-  }
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "worldshop.eu": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".wsx-global-cookie-consent-adjust-cookies",
+                            "textFilter": [
+                                "Manage cookies",
+                                "Cookies anpassen",
+                                "Adapter les cookies",
+                                "Seleziona i cookie"
+                            ],
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "wait",
+                            "waitTime": 250
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".button-all"
+                            }
+                        },
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".button-all",
+                                "iframeFilter": true,
+                                "displayFilter": true
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".wsx-global-cookie-consent-adjust-cookies",
+                                    "textFilter": [
+                                        "Manage cookies",
+                                        "Cookies anpassen",
+                                        "Adapter les cookies",
+                                        "Seleziona i cookie"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "name": "UTILITY"
+            }
+        ]
+    }
 }
