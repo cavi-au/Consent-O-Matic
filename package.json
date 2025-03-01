@@ -8,13 +8,17 @@
     "url": "https://github.com/cavi-au/Consent-O-Matic"
   },
   "scripts": {
-    "build": "webpack"
+    "build-firefox": "webpack --env target=firefox",
+    "build-chromium": "webpack --env target=chromium",
+    "build-safari": "webpack --env target=safari"
   },
   "dependencies": {
+    "copy-webpack-plugin": "^12.0.2",
     "glob": "^10.3.12",
     "html-minimizer-webpack-plugin": "^5.0.0",
     "sass": "^1.77.0",
     "sass-loader": "^14.2.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "zip-webpack-plugin": "^4.0.1"
   }
 }

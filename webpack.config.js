@@ -1,13 +1,15 @@
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const PACKAGE = require('./package.json');
+const ZipPlugin = require('zip-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 const glob = require("glob");
-module.exports = {
+module.exports = env=>({
   mode: 'production',
   entry: {
     service: ['./Extension/background.js'],
     content: [
       './Extension/contentScript.js',
-      "./Extension/manifest.json",
       "./Extension/content.scss",
       "./Extension/icon_48.png",
       "./Extension/icon_96.png",
@@ -28,7 +30,7 @@ module.exports = {
   output: {
     publicPath: "",
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'build')
   },
   module: {
     parser: {
@@ -63,5 +65,13 @@ module.exports = {
       '...',
       new HtmlMinimizerPlugin(),
      ],
-  },  
-}
+  },
+  plugins: [
+    new CopyPlugin({patterns: [{from: "Extension/manifest."+env.target+".json", to: "manifest.json",force:true }]}),
+    new ZipPlugin({
+      path: 'dist/',
+      filename: PACKAGE.name+"-v"+PACKAGE.version+"-unpacked-release-"+env.target+".zip",
+      exclude: [/^dist/]
+    })
+  ]
+});

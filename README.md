@@ -103,8 +103,10 @@ The extension only communicates with the net by itself in two situations:
 
 We highly recommend installing directly through the official extension store of your browser:
 * [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
-* [Firefox](https://addons.mozilla.org/firefox/addon/consent-o-matic/) (Desktop / Mobile)
+* [Firefox](https://addons.mozilla.org/addon/consent-o-matic/) (Desktop / Mobile)
 * [Safari](https://apps.apple.com/gb/app/consent-o-matic/id1606897889) (MacOS / iOS / iPadOS / visionOS)
+* [Edge](https://microsoftedge.microsoft.com/addons/detail/eflcfflijdiekjkegjghbchoncjhfkda) (Windows / MacOS)
+
 
 Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
 
@@ -118,9 +120,10 @@ Lastly, if you intend to review or make changes to the code, you can build and i
 git clone https://github.com/cavi-au/Consent-O-Matic.git
 cd Consent-O-Matic
 npm install
-npm run build
 ```
-Then proceed as above for installing release archives but point the browser at the `dist` folder.
+and then run one of ```npm run build-firefox``` or ```npm run build-chromium``` or ```npm run build-safari```
+
+For Firefox or Chromium you can now proceed as above for installing release archives but point the browser at the `build` folder or a folder where you extracted the zip from build/dist/. Safari requires loading the XCode project to further build an app.
 
 We do not recommend installing from source.
 
