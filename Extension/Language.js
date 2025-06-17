@@ -30,7 +30,7 @@ const translations = {
     "ABOUT": {
         "en": "About",
         "da": "Info",
-        "de": "Information",
+        "de": "Statistiken",
         "pt": "Sobre",
         "fr": "À Propos"
     },
@@ -57,7 +57,7 @@ const translations = {
     "HIDE_OR_PIP_HIDE_LABEL": {
         "en": "Hide the popup entirely while answering it",
         "da": "Skjul popup'en fuldstændigt imens den besvares",
-        "de": "Verbirgt das popup, während es beantwortet wird",
+        "de": "Verbirgt das Popup, während es beantwortet wird",
         "fr": "Cacher complètement la popup pendant la réponse"
     },
     "HIDE_OR_PIP_PIP_TITLE": {
@@ -216,6 +216,7 @@ const translations = {
     },
     "RULES_DEBUG_DESCRIPTION": {
         "en": "Enables debug logging of rule engine",
+        "de": "Aktiviert Debug-Logging der Regelsteuerung",
         "da": "Aktiver debug logning af udførsel af regler"
     },
     "INFORMATION_NAME": {
@@ -394,10 +395,10 @@ const translations = {
         "fr": "Accorder des autorisations"
     },
     "PERMISSIONS_FAIL": {
-        "en": "Some browsers do not allow us to popup the permission request. You have to manually allow 'Access to read all pages' through the settings",
-        "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne",
-        "de": "Einige Browser erlauben es uns nicht, die Berechtigungsanfrage zu öffnen. Sie müssen manuell erlauben",
-        "pt": "Alguns navegadores não permitem que apareça o pedido de autorização. Tem de autorizar manualmente o 'Acesso para ler todas as páginas' através das definições",
+        "en": "Some browsers do not allow us to popup the permission request. You have to manually allow 'Access to read all pages' through the settings.",
+        "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne.",
+        "de": "Einige Browser erlauben es uns nicht, eine Berechtigungsanfrage zu senden. Sie müssen manuell 'Auf Ihre Daten für alle Websites zugreifen' in den Einstellungen zulassen.",
+        "pt": "Alguns navegadores não permitem que apareça o pedido de autorização. Tem de autorizar manualmente o 'Acesso para ler todas as páginas' através das definições.",
         "fr": "Certains navigateurs ne nous permettent pas d'afficher la demande d'autorisation. Vous devez autoriser manuellement 'Accès à la lecture de toutes les pages' dans les paramètres."
     },
     "EDITOR_HEADER": {
