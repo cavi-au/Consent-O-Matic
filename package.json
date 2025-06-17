@@ -1,7 +1,7 @@
 {
   "name": "consent-o-matic",
   "version": "1.1.5",
-  "description": "A chrome extension that tries to do the opposite of Consent-O-Matic",
+  "description": "A browser extension that tries to fill out GDPR consent popups for you",
   "license": "MIT",
   "repository": {
     "type": "git",
