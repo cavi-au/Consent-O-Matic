@@ -67,7 +67,17 @@ module.exports = env=>({
      ],
   },
   plugins: [
-    new CopyPlugin({patterns: [{from: "Extension/manifest."+env.target+".json", to: "manifest.json",force:true }]}),
+    new CopyPlugin({patterns: [{
+        from: "Extension/manifest." + env.target + ".json",
+        to: "manifest.json",
+        force: true,
+        transform(content, path) {
+            // Parse the manifest JSON and inject version
+            const manifest = JSON.parse(content.toString());
+            manifest.version = PACKAGE.version;
+            return JSON.stringify(manifest, null, 2);
+        }
+    }]}),
     new ZipPlugin({
       path: 'dist/',
       filename: PACKAGE.name+"-v"+PACKAGE.version+"-unpacked-release-"+env.target+".zip",
