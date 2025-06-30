@@ -5,5 +5,4 @@
 .idea/vcs.xml
 .idea/watcherTasks.xml
 node_modules/
-build/
-package-lock.json
+dist/
