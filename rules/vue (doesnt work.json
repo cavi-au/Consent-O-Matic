@@ -1,16 +1,16 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "dpgmedia": {
+    "vue": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#pg-modal"
+                            "selector": ".cc_inner"
                         },
                         "parent": {
-                            "selector": "#pg-root-shadow-host"
+                            "selector": ".cc_main"
                         }
                     }
                 ],
@@ -18,10 +18,10 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#pg-modal"
+                            "selector": ".cc_inner"
                         },
                         "parent": {
-                            "selector": "#pg-root-shadow-host"
+                            "selector": ".cc_main"
                         }
                     }
                 ]
@@ -36,10 +36,10 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#pg-modal #pg-first-layer #pg-footer #pg-configure-btn"
+                        "selector": ".cc_inner .cc_buttons .button_outer"
                     },
                     "parent": {
-                        "selector": "#pg-root-shadow-host"
+                        "selector": ".cc_main"
                     }
                 }
             },
@@ -51,10 +51,10 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#pg-modal #pg-second-layer #pg-footer #pg-footer-content #footer-buttons #pg-reject-btn"
+                        "selector": ".cc_inner .cc_buttons .button_outer .button_main"
                     },
                     "parent": {
-                        "selector": "#pg-root-shadow-host"
+                        "selector": ".cc_main"
                     }
                 }
             },
