@@ -362,6 +362,64 @@
                                         "target": {
                                             "selector": ".didomi-components-accordion",
                                             "textFilter": [
+                                                "Expérience enrichie"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
+                                                "Publicité ciblée"
+                                            ]
+                                        },
+                                        "trueAction": {
+                                            "type": "consent",
+                                            "consents": [
+                                                {
+                                                    "trueAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(2)"
+                                                        }
+                                                    },
+                                                    "falseAction": {
+                                                        "type": "click",
+                                                        "target": {
+                                                            "selector": ".didomi-consent-popup-data-processing__buttons .didomi-components-radio__option:nth-child(1)"
+                                                        }
+                                                    },
+                                                    "type": "X"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "ifcss",
+                                        "target": {
+                                            "selector": ".didomi-components-accordion",
+                                            "textFilter": [
                                                 "Contenus vidéo et audio",
                                                 "Contenus cartographiques/infographiques",
                                                 "Personalization",

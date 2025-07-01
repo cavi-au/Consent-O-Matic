@@ -25,9 +25,51 @@
         "methods": [
             {
                 "action": {
-                    "type": "click",
+                    "type": "ifcss",
                     "target": {
                         "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings, #prefslink, #gdpr_change_settings, #advanced_consent_options, #__tealiumGDPRecModal a[href*='showConsentPreferences'], #__tealiumGDPRecModal a[href*='goToPreferences()'], .details-button, #__tealiumGDPRecModal a[onclick*='goToPreferences()'], #__tealiumGDPRecModal a[onclick*='showConsentPreferences'], #open_preferences, #editSettingsBtn,#to_pref"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#__tealiumGDPRecModal .consent_prefs_button, #sliding-popup .popup-actions .eu-cookie-change-settings, #prefslink, #gdpr_change_settings, #advanced_consent_options, #__tealiumGDPRecModal a[href*='showConsentPreferences'], #__tealiumGDPRecModal a[href*='goToPreferences()'], .details-button, #__tealiumGDPRecModal a[onclick*='goToPreferences()'], #__tealiumGDPRecModal a[onclick*='showConsentPreferences'], #open_preferences, #editSettingsBtn,#to_pref"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "ifcss",
+                        "target": {
+                            "selector": "#explicit-consent-prompt-manage",
+                            "textFilter": [
+                                "Let me choose"
+                            ]
+                        },
+                        "trueAction": {
+                            "type": "click",
+                            "target": {
+                                "selector": "#explicit-consent-prompt-manage",
+                                "textFilter": [
+                                    "Let me choose"
+                                ]
+                            }
+                        },
+                        "falseAction": {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".consent_prompt_button.consent_prompt_button_preferences",
+                                "textFilter": [
+                                    "Manage Preferences"
+                                ]
+                            },
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".consent_prompt_button.consent_prompt_button_preferences",
+                                    "textFilter": [
+                                        "Manage Preferences"
+                                    ]
+                                }
+                            }
+                        }
                     }
                 },
                 "name": "OPEN_OPTIONS"
@@ -238,8 +280,15 @@
                                         "type": "css",
                                         "target": {
                                             "textFilter": [
-                                                "Allow functional cookies?"
+                                                "Allow functional cookies?",
+                                                "These cookies allow us to provide enhanced functionality and personalise content for you."
                                             ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-preferences-dialog-toggle-functional,#toggle_cat6"
                                         }
                                     },
                                     "trueAction": {
@@ -266,14 +315,21 @@
                                         "type": "css",
                                         "target": {
                                             "textFilter": [
-                                                "Allow performance cookies?"
+                                                "Allow performance cookies?",
+                                                "These cookies tell us how customers use our site and provide information to"
                                             ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-preferences-dialog-toggle-performance"
                                         }
                                     },
                                     "trueAction": {
                                         "type": "click",
                                         "target": {
-                                            "selector": "#analytics_yes"
+                                            "selector": "#analytics_yes,"
                                         }
                                     },
                                     "falseAction": {
@@ -294,8 +350,15 @@
                                         "type": "css",
                                         "target": {
                                             "textFilter": [
-                                                "Allow advertising cookies?"
+                                                "Allow advertising cookies?",
+                                                "These cookies help us decide which products, services and offers may be relevant for you. We use this data to customise the marketing content you see on websites, apps and social media"
                                             ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#consent-preferences-dialog-toggle-marketing,#toggle_cat3"
                                         }
                                     },
                                     "trueAction": {
@@ -320,9 +383,27 @@
             },
             {
                 "action": {
-                    "type": "click",
+                    "type": "ifcss",
                     "target": {
-                        "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit, #preferences_prompt_settings_submit, #__tealiumGDPRcpPrefs .t_cm_save_button, #consentAcceptChoice,#preferences_prompt_submit_pref"
+                        "selector": ".privacy_prompt_button",
+                        "textFilter": [
+                            "Save Settings"
+                        ]
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".privacy_prompt_button",
+                            "textFilter": [
+                                "Save Settings"
+                            ]
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#__tealiumGDPRcpPrefs #preferences_prompt_submit, #preferences_prompt_settings_submit, #__tealiumGDPRcpPrefs .t_cm_save_button, #consentAcceptChoice,#preferences_prompt_submit_pref,#consent-preferences-dialog-save"
+                        }
                     }
                 },
                 "name": "SAVE_CONSENT"
