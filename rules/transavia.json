@@ -1,0 +1,120 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "transavia": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#transavia-consent-banner"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".CookieBanner-module__banner--BBXiD"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+				"action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#transavia-consent-banner"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+				"action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button[data-testid='button-set-preferences']"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+				"action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifallowall",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "button[data-testid='button-accept-all-cookies']"
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifallownone",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "button[data-testid='button-accept-no-cookies']"
+                                }
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cb-check-c"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cb-check-c"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#cb-check-d"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#cb-check-d"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+				"action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button[data-testid='button-save-preferences']"
+                    }
+                }
+            }
+        ]
+    }
+}
