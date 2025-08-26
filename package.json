@@ -3,22 +3,57 @@
   "version": "1.1.5",
   "description": "A browser extension that tries to fill out GDPR consent popups for you",
   "license": "MIT",
+
+  "main": "./dist/esm/consent-o-matic.esm.js",
+  "module": "./dist/esm/consent-o-matic.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/consent-o-matic.esm.js"
+    }
+  },
+  "files": [
+    "dist",
+    "Extension/*.js",
+    "rules"
+  ],
+  "keywords": [
+    "gdpr",
+    "consent",
+    "cookie",
+    "privacy",
+    "compliance",
+    "browser-extension",
+    "esm",
+    "typescript",
+    "javascript",
+    "web",
+    "automation"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/cavi-au/Consent-O-Matic"
   },
+  "bugs": {
+    "url": "https://github.com/cavi-au/Consent-O-Matic/issues"
+  },
+  "homepage": "https://github.com/cavi-au/Consent-O-Matic#readme",
+  "author": "Cavi",
   "scripts": {
+    "build-esm": "webpack --env target=esm",
     "build-firefox": "webpack --env target=firefox",
     "build-chromium": "webpack --env target=chromium",
     "build-safari": "webpack --env target=safari",
-    "build": "webpack --env target=firefox && webpack --env target=chromium && webpack --env target=safari"
+    "build": "webpack --env target=firefox && webpack --env target=chromium && webpack --env target=safari",
+    "build-lib": "npm run build-esm",
+    "prepublishOnly": "npm run build-lib"
   },
-  "dependencies": {
+  "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
     "glob": "^10.3.12",
     "html-minimizer-webpack-plugin": "^5.0.0",
     "sass": "^1.77.0",
     "sass-loader": "^16.0.5",
+    "webpack": "^5.90.0",
     "webpack-cli": "^5.1.4",
     "zip-webpack-plugin": "^4.0.1"
   }

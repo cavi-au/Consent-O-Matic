@@ -1,0 +1,49 @@
+# Build outputs
+build/
+dist/*.zip
+
+# Development files
+Extension/editor/
+Extension/*.html
+Extension/*.scss
+Extension/*.svg
+Extension/*.png
+Extension/background.js
+Extension/contentScript.js
+Extension/options.js
+Extension/popup.js
+Extension/ui.scss
+Extension/content.scss
+
+# Browser extension specific
+Extension/manifest.*.json
+xcode/
+*.xcodeproj/
+
+# Development tools
+webpack.config.js
+*.config.js
+.editorconfig
+.gitignore
+
+# Documentation
+README.md
+README-npm.md
+
+# Package management
+package-lock.json
+yarn.lock
+
+# CI/CD
+.github/
+.git/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
