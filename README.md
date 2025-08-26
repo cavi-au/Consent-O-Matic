@@ -119,7 +119,7 @@ Lastly, if you intend to review or make changes to the code, you can build and i
 ```
 git clone https://github.com/cavi-au/Consent-O-Matic.git
 cd Consent-O-Matic
-npm install
+npm install --include dev
 ```
 and then run one of ```npm run build-firefox``` or ```npm run build-chromium``` or ```npm run build-safari```
 
