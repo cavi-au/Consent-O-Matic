@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+  "capitalone": {
+    "methods": [
+      {
+        "name": "HIDE_CMP",
+        "action": {
+          "type": "hide",
+          "target": {
+            "selector": "#system-imessage"
+          }
+        }
+      },
+      {
+        "name": "OPEN_OPTIONS",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#system-ialert-button"
+          }
+        }
+      },
+      {
+        "name": "DO_CONSENT",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#system-ialert-button"
+          }
+        }
+      },
+      {
+        "name": "SAVE_CONSENT",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#ccc-submit-btn"
+          }
+        }
+      },
+      {
+        "name": "UTILITY"
+      }
+    ],
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#system-imessage"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
