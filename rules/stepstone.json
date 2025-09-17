@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+  "stepstone": {
+    "methods": [
+      {
+        "name": "HIDE_CMP",
+        "action": {
+          "type": "hide",
+          "target": {
+            "selector": "#explicit_consent"
+          }
+        }
+      },
+      {
+        "name": "OPEN_OPTIONS",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#ccmgt_explicit_accept"
+          }
+        }
+      },
+      {
+        "name": "DO_CONSENT",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#ccmgt_explicit_accept"
+          }
+        }
+      },
+      {
+        "name": "SAVE_CONSENT",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": "#ccmgt_explicit_accept"
+          }
+        }
+      }
+    ],
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#explicit_consent"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
