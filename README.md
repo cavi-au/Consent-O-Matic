@@ -180,15 +180,15 @@ If your favorite CMP is missing from the current list, feel free to either creat
 A rule list for Consent-O-Matic is a JSON structure that contains the rules for detecting a CMP (Consent Management Provider), and
 dealing with the CMP popup when it is detected.
 
-Each CMP is a named entry and contains 2 parts, `detectors` and `methods`.
+Each CMP is a named entry and contains 2 parts, `detectors` and `methods`. Name should correspond to correctly capitalized and whitespaced name of the CMP (will be shown in the About section of extension's settings).
 
 ```json
 {
-   "myCMP": {
+   "MyCMP": {
       "detectors": [ ... ],
       "methods": [ ... ]
    },
-   "anotherCMP": {
+   "AnotherCMP": {
       "detectors": [ ... ],
       "methods": [ ... ]
    },
@@ -595,11 +595,11 @@ As seen in the addon settings, in the same order:
 
 ### Full example
 
-Putting it all together, here is a full example of a CMP "myCMP" that has 2 consent categories to toggle.
+Putting it all together, here is a full example of a CMP "MyCMP" that has 2 consent categories to toggle.
 
 ```json
 {
-   "myCMP": {
+   "MyCMP": {
       "detectors": [
          {
             "presentMatcher": {
