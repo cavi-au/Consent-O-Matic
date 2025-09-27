@@ -91,36 +91,43 @@ Consent-O-Matic currently works with these CMPs:
 ### Permissions
 
 Consent-O-Matic uses the following set of permissions in the browser when installed:
+
 * Access to read all pages - It searches each page you visit for consent-related popups that it knows how to handle
 * Information about tab URLs - You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address of the page you are visiting
 * Storage - Your preferences and settings are stored directly in your browser
 
 The extension only communicates with the net by itself in two situations:
+
 * When fetching and updating rule lists
 * When you report a website as not working through the extension icon menu
 
 ## Installation
 
 We highly recommend installing directly through the official extension store of your browser:
+
 * [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
 * [Firefox](https://addons.mozilla.org/addon/consent-o-matic/) (Desktop / Mobile)
 * [Safari](https://apps.apple.com/gb/app/consent-o-matic/id1606897889) (MacOS / iOS / iPadOS / visionOS)
 * [Edge](https://microsoftedge.microsoft.com/addons/detail/eflcfflijdiekjkegjghbchoncjhfkda) (Windows / MacOS)
 
-
 Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
 
 ### Installing from Archived Release
+
 As an alternative to extension stores you can manually download and extract one of the published versions from the [Releases](https://github.com/cavi-au/Consent-O-Matic/releases) page on Github.
-<br/>If you do that you have to use the developer feature of the browser to [Load Unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) (Chrome) or [Load Temporary Addon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing) (Firefox) and point it at the manifest.json in the unpacked zip-directory.
+
+If you do that you have to use the developer feature of the browser to [Load Unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) (Chrome) or [Load Temporary Addon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing) (Firefox) and point it at the manifest.json in the unpacked zip-directory.
 
 ### Building from Source
+
 Lastly, if you intend to review or make changes to the code, you can build and install directly from the source code:
+
 ```
 git clone https://github.com/cavi-au/Consent-O-Matic.git
 cd Consent-O-Matic
 npm install
 ```
+
 and then run one of ```npm run build-firefox``` or ```npm run build-chromium``` or ```npm run build-safari```
 
 For Firefox or Chromium you can now proceed as above for installing release archives but point the browser at the `build` folder or a folder where you extracted the zip from build/dist/. Safari requires loading the XCode project to further build an app.
@@ -158,6 +165,7 @@ If more than 1 detector is added to a CMP, the CMP counts as detected if any of 
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
 
 Detector structure:
+
 ```
 {
    "presentMatcher": [{ ... }],
@@ -188,6 +196,7 @@ SAVE_CONSENT
 ```
 
 Methods take on the form:
+
 ```
 {
    "name": " ... ",
@@ -247,6 +256,7 @@ The selection method works by using the css selector from `selector` and then fi
 * `childFilter` is a fully new DOM selection, that then filters on the original selection, based on if a selection was made by `childFilter` or not.
 
 Here is an example DOM selection:
+
 ```json
 "parent": {
    "selector": ".myParent",
@@ -262,6 +272,7 @@ Here is an example DOM selection:
    "selector": ".myTarget"
 }
 ```
+
 This selector first tries to find the `parent` which is a DOM element with the class `myParent` that is inside an iframe and has a child DOM element with the class `myChild` that contains the text "Gregor".
 
 Then, using this parent as "root", it tries to find a DOM element with the class `myTarget`.
@@ -279,6 +290,7 @@ Actions are the part of Consent-O-Matic that actually do stuff. Some actions do 
 This action simulates a mouse click on its target.
 
 Example:
+
 ```json
 {
    "type": "click",
@@ -299,6 +311,7 @@ In this example we only use a simple `target` with a `textFilter` but full [DOM 
 This action runs a list of actions in order.
 
 Example:
+
 ```json
 {
    "type": "list",
@@ -313,6 +326,7 @@ Example:
 The consent action takes an array of consents, and tries to apply the users consent selections.
 
 Example:
+
 ```json
 {
    "type": "consent",
@@ -327,6 +341,7 @@ Example:
 Some consent forms use a slider to set a consent level, this action supports simulating sliding with such a slider.
 
 Example:
+
 ```json
 {
    "type": "slide",
@@ -355,6 +370,7 @@ The slide event will simulate that the mouse dragged `target` the distance from 
 This action is used as control flow, running another action depending on if a DOM selection finds an element or not.
 
 Example:
+
 ```json
 {
    "type": "ifcss",
@@ -384,6 +400,7 @@ Example:
 This action waits until the DOM selector finds a DOM element that matches. This is mostly used if something in the consent form loads slowly and needs to be waited for.
 
 Example:
+
 ```json
 {
    "type": "waitcss",
@@ -407,6 +424,7 @@ Example:
 If some set of actions needs to be run several times, but with different DOM nodes as root, the for each action can be used. It runs its action 1 time for each DOM element that is selected by its DOM selection; all actions run inside the for each loop will see the DOM as starting from the currently selected node.
 
 Example:
+
 ```json
 {
    "type": "foreach",
@@ -424,6 +442,7 @@ Example:
 This action waits the given amount of milliseconds before continuing.
 
 Example:
+
 ```json
 {
    "type": "wait",
@@ -436,6 +455,7 @@ Example:
 This action sets css class 'ConsentOMatic-CMP-Hider' on the DOM selection. The default css rules will then set opacity to 0 on the element.
 
 Example:
+
 ```json
 {
    "type": "hide",
@@ -450,6 +470,7 @@ Example:
 This action closes the current tab, useful for consent providers like Evidon, which likes to open new tabs with the consent dashboard inside.
 
 Example:
+
 ```json
 {
    "type": "close"
@@ -465,6 +486,7 @@ Matchers are used to check for the presence of some DOM selection, or the state 
 This matcher checks for the presence of a DOM selection, and return that it matches if it exists.
 
 Example:
+
 ```json
 {
    "type": "css",
@@ -479,6 +501,7 @@ Example:
 This matcher checks the state of an `<input type='checkbox' />` and returns that it matches if the checkbox is checked.
 
 Example:
+
 ```json
 {
    "type": "checkbox",
@@ -499,6 +522,7 @@ Each consent has a type, that matches the consent categories inside Consent-O-Ma
 Usually the consent is given either as a toggle, or a set of buttons on/off. Therefore `consent` has a mechanism for each of these cases.
 
 Example:
+
 ```json
 {
    "type": "A",
@@ -643,4 +667,3 @@ Putting it all together, here is a full example of a CMP "myCMP" that has 2 cons
    }
 }
 ```
-
