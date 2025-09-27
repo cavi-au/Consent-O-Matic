@@ -15,14 +15,14 @@
         * [List](#list)
         * [Consent](#consent)
         * [Slide](#slide)
-        * [If Css](#if-css)
-        * [Wait For Css](#wait-for-css)
+        * [If CSS](#if-css)
+        * [Wait For CSS](#wait-for-css)
         * [For Each](#for-each)
         * [Wait](#wait)
         * [Hide](#hide)
         * [Close](#close)
     * [Matchers](#matchers)
-        * [Css](#css)
+        * [CSS](#css)
         * [Checkbox](#checkbox)
     * [Consent](#consent-1)
     * [Consent Categories](#consent-categories)
@@ -255,7 +255,7 @@ There are 2 parts, `parent` and `target`. The `parent` is optional but if it exi
 
 All the parameters to `parent` and `target` except `selector` are optional.
 
-The selection method works by using the css selector from `selector` and then filtering the resulting DOM nodes via the various available filters:
+The selection method works by using the CSS selector from `selector` and then filtering the resulting DOM nodes via the various available filters:
 
 * `textFilter` filters all nodes that do not include the given text. It can also be given as an array `"textFilter":["filter1", "filter2"]` and then it filters all nodes that do not include one of the given text filters.
 
@@ -377,7 +377,7 @@ Example:
 
 The slide event will simulate that the mouse dragged `target` the distance from `target` to `dragTarget` on the given `axis`.
 
-#### If Css
+#### If CSS
 
 This action is used as control flow, running another action depending on if a DOM selection finds an element or not.
 
@@ -407,7 +407,7 @@ Example:
 `trueAction` is an action that will be run if the DOM selection finds an element.
 `falseAction` will be run when the DOM selection does not find an element.
 
-#### Wait For Css
+#### Wait For CSS
 
 This action waits until the DOM selector finds a DOM element that matches. This is mostly used if something in the consent form loads slowly and needs to be waited for.
 
@@ -429,7 +429,7 @@ Example:
 
 `waitTime` determines the time between retry attempts. Defaults to 250.
 
-`negated` makes wait for css wait until the target is NOT found.
+`negated` makes "Wait For CSS" wait until the target is NOT found.
 
 #### For Each
 
@@ -464,7 +464,7 @@ Example:
 
 #### Hide
 
-This action sets css class 'ConsentOMatic-CMP-Hider' on the DOM selection. The default css rules will then set opacity to 0 on the element.
+This action sets CSS class 'ConsentOMatic-CMP-Hider' on the DOM selection. The default CSS rules will then set opacity to 0 on the element.
 
 Example:
 
@@ -493,7 +493,7 @@ Example:
 
 Matchers are used to check for the presence of some DOM selection, or the state of some DOM selection.
 
-#### Css
+#### CSS
 
 This matcher checks for the presence of a DOM selection, and return that it matches if it exists.
 
@@ -549,7 +549,7 @@ Example:
 
 `toggleAction` this action is used to select consent if the popup uses a toggle or a switch to communicate consent. The action will be run if the matcher says the consent is in a state different from what the user has asked it to be, otherwise it will not be run.
 
-`matcher` is the matcher used to check which state the consent is in. For a [checkbox matcher](#checkbox), the consent is given if the checkbox is checked. For a [css matcher](#css) the consent is given if the matcher finds a DOM selection.
+`matcher` is the matcher used to check which state the consent is in. For a [checkbox matcher](#checkbox), the consent is given if the checkbox is checked. For a [CSS matcher](#css) the consent is given if the matcher finds a DOM selection.
 
 `trueAction` and `falseAction` are actions used if consent instead has to be given by pressing one of two buttons, rather than being toggled on/off. These will be run depending on the user's selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
 
