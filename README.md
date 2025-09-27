@@ -157,7 +157,7 @@ dealing with the CMP popup when it is detected.
 
 Each CMP is a named entry and contains 2 parts, `detectors` and `methods`.
 
-```
+```json
 {
    "myCMP": {
       "detectors": [ ... ],
@@ -178,7 +178,7 @@ Detectors are the part that detects if a certain rule set should be applied. Bas
 
 Detector structure:
 
-```
+```json
 {
    "presentMatcher": [{ ... }],
    "showingMatcher": [{ ... }]
@@ -209,7 +209,7 @@ SAVE_CONSENT
 
 Methods take on the form:
 
-```
+```json
 {
    "name": " ... ",
    "action": { ... }
