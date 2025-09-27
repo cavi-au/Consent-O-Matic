@@ -172,7 +172,7 @@ If your favorite CMP is missing from the current list, feel free to either creat
    * [CSS](#css)
    * [Checkbox](#checkbox)
 * [Consent](#consent-1)
-* [Consent Categories](#consent-categories)
+   * [Consent Categories](#consent-categories)
 * [Full example](#full-example)
 
 ### Basic Structure
