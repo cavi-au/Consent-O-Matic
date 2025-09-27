@@ -49,6 +49,8 @@ Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 202
 
 Consent-O-Matic currently works with these CMPs:
 
+<table><tr><td valign="top">
+
 * Autodesk
 * begadi.com
 * chandago
@@ -62,6 +64,10 @@ Consent-O-Matic currently works with these CMPs:
 * dr.dk
 * DPG Media
 * EvidonBanner
+
+</td>
+<td valign="top">
+
 * EvidonIFrame
 * ez-cookie
 * future
@@ -75,6 +81,10 @@ Consent-O-Matic currently works with these CMPs:
 * quantcast2
 * SFR
 * sharethis
+
+</td>
+<td valign="top">
+
 * sourcepoint
 * sourcepointframe
 * sourcepointpopup
@@ -87,6 +97,8 @@ Consent-O-Matic currently works with these CMPs:
 * uniconsent
 * Webedia
 * wordpressgdpr
+
+</td></tr></table>
 
 ### Permissions
 
