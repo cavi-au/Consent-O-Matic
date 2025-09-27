@@ -28,7 +28,7 @@
     * [Consent Categories](#consent-categories)
     * [Full example](#full-example)
 
-# Introduction
+## Introduction
 
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
 Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you tire of submitting the same information over and over. If only there were a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
@@ -37,7 +37,7 @@ Consent-O-Matic is a browser extension that recognizes a great deal of those CMP
 
 And since it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help) to make the extension even easier for others to use.
 
-## Further reading
+### Further reading
 
 Paper: [Dark Patterns After the GDPR](https://doi.org/10.1145/3313831.3376321)
 
@@ -45,7 +45,7 @@ PDF: [Dark Patterns After the GDPR](https://arxiv.org/pdf/2001.02479.pdf)
 
 Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
 
-## Compatible CMPs
+### Compatible CMPs
 
 Consent-O-Matic currently works with these CMPs:
 
@@ -88,7 +88,7 @@ Consent-O-Matic currently works with these CMPs:
 * Webedia
 * wordpressgdpr
 
-## Permissions
+### Permissions
 
 Consent-O-Matic uses the following set of permissions in the browser when installed:
 * Access to read all pages - It searches each page you visit for consent-related popups that it knows how to handle
@@ -99,7 +99,7 @@ The extension only communicates with the net by itself in two situations:
 * When fetching and updating rule lists
 * When you report a website as not working through the extension icon menu
 
-# Installation
+## Installation
 
 We highly recommend installing directly through the official extension store of your browser:
 * [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
@@ -110,11 +110,11 @@ We highly recommend installing directly through the official extension store of 
 
 Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
 
-## Installing from Archived Release
+### Installing from Archived Release
 As an alternative to extension stores you can manually download and extract one of the published versions from the [Releases](https://github.com/cavi-au/Consent-O-Matic/releases) page on Github.
 <br/>If you do that you have to use the developer feature of the browser to [Load Unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) (Chrome) or [Load Temporary Addon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing) (Firefox) and point it at the manifest.json in the unpacked zip-directory.
 
-## Building from Source
+### Building from Source
 Lastly, if you intend to review or make changes to the code, you can build and install directly from the source code:
 ```
 git clone https://github.com/cavi-au/Consent-O-Matic.git
@@ -127,14 +127,11 @@ For Firefox or Chromium you can now proceed as above for installing release arch
 
 We do not recommend installing from source.
 
-
-
-
-# Extending Consent-O-Matic
+## Extending Consent-O-Matic
 
 If your favorite CMP is missing from the current list, feel free to either create a custom list that you can add (click the extension icon in your browser, click "More add-on settings", click "Rule lists", and enter the URL of your custom list.). If you **really** want to contribute, feel free to create a Pull Request while you're at it.
 
-## Basic Structure
+### Basic Structure
 
 A rule list for Consent-O-Matic is a JSON structure that contains the rules for detecting a CMP (Consent Management Provider), and
 dealing with the CMP popup when it is detected.
@@ -156,7 +153,7 @@ Each CMP is a named entry and contains 2 parts, `detectors` and `methods`.
 
 If more than 1 detector is added to a CMP, the CMP counts as detected if any of the detectors trigger.
 
-### Detectors
+#### Detectors
 
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
 
@@ -176,7 +173,7 @@ Both the present and showing matcher follow the common structure of [`Matchers`]
 
 Both the present and showing matcher can be multiple matchers, only triggering the detector if all of the matchers (respectively for present and showing) apply.
 
-### Methods
+#### Methods
 
 Methods are collections of actions. There are 4 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`, `HIDE_CMP`
 
@@ -200,7 +197,9 @@ Methods take on the form:
 
 where the name is one of the 4 supported methods and action is the [action](#actions) to execute.
 
-## DOM Selection
+---
+
+### DOM Selection
 
 Most actions and matchers have some target that they apply to. For this reason, Consent-O-Matic has a DOM selection mechanism that can easily help with selecting the correct DOM element.
 
@@ -269,11 +268,13 @@ Then, using this parent as "root", it tries to find a DOM element with the class
 
 This could then be the target of an action or matcher.
 
-## Actions
+---
+
+### Actions
 
 Actions are the part of Consent-O-Matic that actually do stuff. Some actions do something to a target selection, others have to do with control flow.
 
-### Click
+#### Click
 
 This action simulates a mouse click on its target.
 
@@ -293,7 +294,7 @@ Example:
 
 In this example we only use a simple `target` with a `textFilter` but full [DOM selection](#dom-selection) is supported.
 
-### List
+#### List
 
 This action runs a list of actions in order.
 
@@ -307,7 +308,7 @@ Example:
 
 `actions` is an array of actions that will all be run in order.
 
-### Consent
+#### Consent
 
 The consent action takes an array of consents, and tries to apply the users consent selections.
 
@@ -321,7 +322,7 @@ Example:
 
 `consents` is an array of [Consent](#consent-1) types
 
-### Slide
+#### Slide
 
 Some consent forms use a slider to set a consent level, this action supports simulating sliding with such a slider.
 
@@ -349,7 +350,7 @@ Example:
 
 The slide event will simulate that the mouse dragged `target` the distance from `target` to `dragTarget` on the given `axis`.
 
-### If Css
+#### If Css
 
 This action is used as control flow, running another action depending on if a DOM selection finds an element or not.
 
@@ -378,7 +379,7 @@ Example:
 `trueAction` is an action that will be run if the DOM selection finds an element.
 `falseAction` will be run when the DOM selection does not find an element.
 
-### Wait For Css
+#### Wait For Css
 
 This action waits until the DOM selector finds a DOM element that matches. This is mostly used if something in the consent form loads slowly and needs to be waited for.
 
@@ -401,7 +402,7 @@ Example:
 
 `negated` makes wait for css wait until the target is NOT found.
 
-### For Each
+#### For Each
 
 If some set of actions needs to be run several times, but with different DOM nodes as root, the for each action can be used. It runs its action 1 time for each DOM element that is selected by its DOM selection; all actions run inside the for each loop will see the DOM as starting from the currently selected node.
 
@@ -418,7 +419,7 @@ Example:
 
 `action` is the action to run for each found DOM element.
 
-### Wait
+#### Wait
 
 This action waits the given amount of milliseconds before continuing.
 
@@ -430,7 +431,7 @@ Example:
 }
 ```
 
-### Hide
+#### Hide
 
 This action sets css class 'ConsentOMatic-CMP-Hider' on the DOM selection. The default css rules will then set opacity to 0 on the element.
 
@@ -444,7 +445,7 @@ Example:
 }
 ```
 
-### Close
+#### Close
 
 This action closes the current tab, useful for consent providers like Evidon, which likes to open new tabs with the consent dashboard inside.
 
@@ -455,11 +456,11 @@ Example:
 }
 ```
 
-## Matchers
+### Matchers
 
 Matchers are used to check for the presence of some DOM selection, or the state of some DOM selection.
 
-### Css
+#### Css
 
 This matcher checks for the presence of a DOM selection, and return that it matches if it exists.
 
@@ -473,7 +474,7 @@ Example:
 }
 ```
 
-### Checkbox
+#### Checkbox
 
 This matcher checks the state of an `<input type='checkbox' />` and returns that it matches if the checkbox is checked.
 
@@ -487,7 +488,9 @@ Example:
 }
 ```
 
-## Consent
+---
+
+### Consent
 
 This is what is used inside [Consent Actions](#consent) and defines the actual consent that the user should be giving or not giving.
 
@@ -516,7 +519,7 @@ Example:
 
 If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
 
-### Consent Categories
+#### Consent Categories
 
 As seen in the addon settings, in the same order:
 
@@ -527,7 +530,9 @@ As seen in the addon settings, in the same order:
 * F: Ad selection, delivery, and reporting
 * X: Other Purposes
 
-## Full example
+---
+
+### Full example
 
 Putting it all together, here is a full example of a CMP "myCMP" that has 2 consent categories to toggle.
 
