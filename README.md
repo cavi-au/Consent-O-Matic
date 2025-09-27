@@ -1,5 +1,41 @@
 # Consent-O-Matic
 
+<table><tr><td>
+   <picture>
+     <source srcset="Extension/logo.svg" width="150" media="(width >= 710px)">
+     <img src="Extension/logo.svg" width="550" alt="">
+   </picture>
+</td><td>
+   <div>
+      <a href="https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd">
+         <picture>
+            <source srcset="https://i.imgur.com/XBIE9pk.png" height="60" media="(width >= 710px)">
+            <img src="https://i.imgur.com/XBIE9pk.png" width="56%" alt="Chrome Web Store (also for Chromium-based browsers)">
+         </picture>
+      </a>
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/consent-o-matic/">
+         <picture>
+            <source srcset="https://i.imgur.com/ZluoP7T.png" height="60" media="(width >= 710px)">
+            <img src="https://i.imgur.com/ZluoP7T.png" width="41%" alt="Firefox add-ons">
+         </picture>
+      </a>
+   </div>
+   <div>
+      <a href="https://apps.apple.com/us/app/consent-o-matic/id1606897889">
+         <picture>
+            <source srcset="https://i.imgur.com/LC92P1Y.png" height="60" media="(width >= 710px)">
+            <img src="https://i.imgur.com/LC92P1Y.png" width="56%" alt="Mac App Store for Safari on iOS and macOS">
+         </picture>
+      </a>
+      <a href="https://microsoftedge.microsoft.com/addons/detail/consentomatic/eflcfflijdiekjkegjghbchoncjhfkda">
+         <picture>
+            <source srcset="https://i.imgur.com/Jog9cQP.png" height="60" media="(width >= 710px)">
+            <img src="https://i.imgur.com/Jog9cQP.png" width="41%" alt="Microsoft Store for Edge">
+         </picture>
+      </a>
+   </div>
+</td></tr></table>
+
 * [Introduction](#introduction)
     * [Further reading](#further-reading)
     * [Compatible CMPs](#compatible-cmps)
@@ -115,14 +151,9 @@ The extension only communicates with the net by itself in two situations:
 
 ## Installation
 
-We highly recommend installing directly through the official extension store of your browser:
+We highly recommend installing directly through the official extension store of your browser ([mentioned at the top](#consent-o-matic)). Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
 
-* [Chrome](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) (and other Chromium-based browsers)
-* [Firefox](https://addons.mozilla.org/addon/consent-o-matic/) (Desktop / Mobile)
-* [Safari](https://apps.apple.com/gb/app/consent-o-matic/id1606897889) (MacOS / iOS / iPadOS / visionOS)
-* [Edge](https://microsoftedge.microsoft.com/addons/detail/eflcfflijdiekjkegjghbchoncjhfkda) (Windows / MacOS)
-
-Installing through the official channels will automatically keep you up-to-date with new versions when they are released.
+It is also possible to get the extension by other means.
 
 ### Installing from Archived Release
 
