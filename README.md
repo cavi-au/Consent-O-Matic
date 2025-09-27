@@ -36,42 +36,12 @@
    </div>
 </td></tr></table>
 
-* [Introduction](#introduction)
-    * [Further reading](#further-reading)
-    * [Compatible CMPs](#compatible-cmps)
-    * [Permissions](#permissions)
-* [Installation](#installation)
-* [Extending Consent-O-Matic](#extending-consent-o-matic)
-    * [Basic Structure](#basic-structure)
-        * [Detectors](#detectors)
-        * [Methods](#methods)
-    * [DOM Selection](#dom-selection)
-    * [Actions](#actions)
-        * [Click](#click)
-        * [List](#list)
-        * [Consent](#consent)
-        * [Slide](#slide)
-        * [If CSS](#if-css)
-        * [Wait For CSS](#wait-for-css)
-        * [For Each](#for-each)
-        * [Wait](#wait)
-        * [Hide](#hide)
-        * [Close](#close)
-    * [Matchers](#matchers)
-        * [CSS](#css)
-        * [Checkbox](#checkbox)
-    * [Consent](#consent-1)
-    * [Consent Categories](#consent-categories)
-    * [Full example](#full-example)
-
-## Introduction
-
 You like websites to respect your right to privacy, and your browser clears cookies when you close it.
 Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you tire of submitting the same information over and over. If only there were a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
 
 Consent-O-Matic is a browser extension that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your cookie preferences upon installation, it will autofill those forms for you when it encounters them—and let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
 
-And since it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can contribute by adding new rules, updating old rules, or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help) to make the extension even easier for others to use.
+And since it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can [contribute by adding new rules, updating old rules](#extending-consent-o-matic), or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help) to make the extension even easier for others to use.
 
 ### Further reading
 
@@ -81,7 +51,7 @@ PDF: [Dark Patterns After the GDPR](https://arxiv.org/pdf/2001.02479.pdf)
 
 Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
 
-### Compatible CMPs
+## Compatible CMPs
 
 Consent-O-Matic currently works with these CMPs:
 
@@ -136,7 +106,7 @@ Consent-O-Matic currently works with these CMPs:
 
 </td></tr></table>
 
-### Permissions
+## Permissions
 
 Consent-O-Matic uses the following set of permissions in the browser when installed:
 
@@ -180,6 +150,30 @@ We do not recommend installing from source.
 ## Extending Consent-O-Matic
 
 If your favorite CMP is missing from the current list, feel free to either create a custom list that you can add (click the extension icon in your browser, click "More add-on settings", click "Rule lists", and enter the URL of your custom list.). If you **really** want to contribute, feel free to create a Pull Request while you're at it.
+
+### Rule elements
+
+* [Basic Structure](#basic-structure)
+   * [Detectors](#detectors)
+   * [Methods](#methods)
+* [DOM Selection](#dom-selection)
+* [Actions](#actions)
+   * [Click](#click)
+   * [List](#list)
+   * [Consent](#consent)
+   * [Slide](#slide)
+   * [If CSS](#if-css)
+   * [Wait For CSS](#wait-for-css)
+   * [For Each](#for-each)
+   * [Wait](#wait)
+   * [Hide](#hide)
+   * [Close](#close)
+* [Matchers](#matchers)
+   * [CSS](#css)
+   * [Checkbox](#checkbox)
+* [Consent](#consent-1)
+* [Consent Categories](#consent-categories)
+* [Full example](#full-example)
 
 ### Basic Structure
 
