@@ -62,7 +62,7 @@ Because Consent-O-Matic is an open-source project, anyone can contribute to its 
 
 Consent-O-Matic currently works with more than 200 CMPs (see full list [here](https://github.com/cavi-au/Consent-O-Matic/tree/master/rules)), including major platforms like UserCentrics, CookieBot, OneTrust, as well as cookie banners for specific websites. 
 
-## Permissions
+## Privacy
 
 Consent-O-Matic uses the following set of permissions in the browser when installed:
 
@@ -70,7 +70,7 @@ Consent-O-Matic uses the following set of permissions in the browser when instal
 * Information about tab URLs - You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address of the page you are visiting
 * Storage - Your preferences and settings are stored directly in your browser
 
-The extension only communicates with the net by itself in two situations:
+The extension only communicates with the web in two situations:
 
 * When fetching and updating rule lists
 * When you report a website as not working through the extension icon menu
