@@ -36,75 +36,31 @@
    </div>
 </td></tr></table>
 
-You like websites to respect your right to privacy, and your browser clears cookies when you close it.
-Consequently, you get the same cookie-consent box each and every time you visit the same websites. And you tire of submitting the same information over and over. If only there were a way to automate your way out of this pickle? Lucky for you, Consent-O-Matic exists.
+Most websites today want to process your data and ask for consent using cookie banners. While these banners are meant to give you control, in practice they often result in repetitive and time-consuming clicks—especially if your browser clears cookies when you close it. The same banner reappears, and you find yourself making the same choices again and again.
 
-Consent-O-Matic is a browser extension that recognizes a great deal of those CMP (Consent Management Provider) pop-ups that we've all grown to both love and hate. But since you've told it your cookie preferences upon installation, it will autofill those forms for you when it encounters them—and let you know that it did so, with a satisfying little checkmark next to its icon. Nice.
+Consent-O-Matic is a browser extension designed to solve this problem. Developed by the Centre for Advanced Visualization and Interaction (CAVI) at Aarhus University, the tool automatically handles consent banners on your behalf. After you set your preferences during installation, Consent-O-Matic will recognize many common Consent Management Platform (CMP) banners, apply your choices, and confirm with a little checkmark next to the extension icon.
 
-And since it's an open project by the Centre for Advanced Visualisation and Interaction (CAVI) at Aarhus University, regular people can [contribute by adding new rules, updating old rules](#extending-consent-o-matic), or even adding to the documentation (like these very paragraphs you're reading now, written by someone who just happened to discover the project and wanted to help) to make the extension even easier for others to use.
+Because Consent-O-Matic is an open-source project, anyone can contribute to its improvement by [adding new rules, updating old rules](#extending-consent-o-matic), or updating documentation. This collaborative approach ensures that the extension keeps pace with the constantly changing landscape of online consent banners—and makes it easier for everyone to safeguard their data with less hassle.
+
 
 ### Further reading
+#### Academic Papers
+- [Nouwens, M., Liccardi, I., Veale, M., Karger, D., & Kagal, L. (2020, April). Dark patterns after the GDPR: Scraping consent pop-ups and demonstrating their influence. In Proceedings of the 2020 CHI conference on human factors in computing systems](https://doi.org/10.1145/3313831.3376321). [Open source PDF](https://arxiv.org/pdf/2001.02479.pdf)
+- [Nouwens, M., Bagge, R., Kristensen, J. B., & Klokmose, C. N. (2022, April). Consent-o-Matic: Automatically answering consent pop-ups using adversarial interoperability. In CHI Conference on Human Factors in Computing Systems Extended Abstracts](https://doi.org/10.1145/3491101.3519683) [Open source PDF](https://web.archive.org/web/20220505144232id_/https://dl.acm.org/doi/pdf/10.1145/3491101.3519683)
+- [Nouwens, M., Kristensen, J. B., Maalt, K., & Bagge, R. (2025, April). A Cross-Country Analysis of GDPR Cookie Banners and Flexible Methods For Scraping Them. In Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems](https://doi.org/10.1145/3706598.3713648)
 
-Paper: [Dark Patterns After the GDPR](https://doi.org/10.1145/3313831.3376321)
-
-PDF: [Dark Patterns After the GDPR](https://arxiv.org/pdf/2001.02479.pdf)
-
-Press: [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
+#### Other mentions
+- Recommended by the Dutch Data Protection Authority: [Privacy risks and protecting your privacy when accepting cookies](https://www.autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/cookies/privacy-risks-and-protecting-your-privacy-when-accepting-cookies)
+- Recommended by Mozilla: [Top anti-tracking extensions](https://addons.mozilla.org/blog/top-anti-tracking-extensions/)
+- [Open-Source ‘Consent-O-Matic’ Tool Lets Anyone Automatically Stop Websites From Tracking Them (Vice, September 2022)](https://www.vice.com/en/article/y3p5q5/open-source-consent-o-matic-tool-lets-anyone-automatically-stop-websites-from-tracking-them)
+- [How to stop annoying cookie pop-ups from ruining your browsing (TheNextWeb, May 2022)](https://thenextweb.com/news/how-to-stop-cookie-pop-ups-from-ruining-your-browsing)
+- [How to Avoid Those Infuriating Cookie Pop-Ups (Wired, 2021)](https://www.wired.com/story/avoid-cookie-popups-gdpr/)
+- [Virksomheder narrer brugerne til mere dataovervågning (PROSA, March 2020, in Danish)](https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)<sup>[\[Internet Archive\]](https://web.archive.org/web/20200511044414/https://www.prosa.dk/artikel/virksomheder-narrer-brugerne-til-mere-dataovervaagning/)</sup>
+- [Accepterer du cookies? Her er fire metoder til at undgå overvågning på nettet (DR, January 2020, in Danish)](https://www.dr.dk/nyheder/viden/teknologi/accepterer-du-cookies-her-er-fire-metoder-til-undgaa-overvaagning-paa-nettet)
 
 ## Compatible CMPs
 
-Consent-O-Matic currently works with these CMPs:
-
-<table><tr><td valign="top">
-
-* Autodesk
-* begadi.com
-* chandago
-* consentmanager.net
-* cookiebar
-* cookiebot
-* cookiecontrolcivic
-* cookieinformation
-* cookieLab
-* didomi.io
-* dr.dk
-* DPG Media
-* EvidonBanner
-
-</td>
-<td valign="top">
-
-* EvidonIFrame
-* ez-cookie
-* future
-* ikeaToast
-* lemonde.fr
-* oil
-* onetrust
-* optanon
-* optanon-alternative
-* quantcast
-* quantcast2
-* SFR
-* sharethis
-
-</td>
-<td valign="top">
-
-* sourcepoint
-* sourcepointframe
-* sourcepointpopup
-* springer
-* tealium.com
-* theGuardian
-* trustarcbar
-* trustarcframe
-* umf.dk
-* uniconsent
-* Webedia
-* wordpressgdpr
-
-</td></tr></table>
+Consent-O-Matic currently works with more than 200 CMPs (see full list [here](https://github.com/cavi-au/Consent-O-Matic/tree/master/rules), including major platforms like UserCentrics, CookieBot, OneTrust, as well as cookie banners for specific websites. 
 
 ## Permissions
 
@@ -180,7 +136,7 @@ If your favorite CMP is missing from the current list, feel free to either creat
 A rule list for Consent-O-Matic is a JSON structure that contains the rules for detecting a CMP (Consent Management Provider), and
 dealing with the CMP popup when it is detected.
 
-Each CMP is a named entry and contains 2 parts, `detectors` and `methods`. Name should correspond to correctly capitalized and whitespaced name of the CMP (will be shown in the About section of extension's settings).
+Each CMP is a named entry and contains 2 parts, `detectors` and `methods`. The name should ideally be the actual name of the underlying CMP (correctly capitalized and whitespaced) or of the website if it is unique to that domain. The name will be shown in the About section of extension's settings, so make it user-friendly.
 
 ```json
 {
