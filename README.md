@@ -73,7 +73,9 @@ Consent-O-Matic uses the following set of permissions in the browser when instal
 The extension only communicates with the web in two situations:
 
 * When fetching and updating rule lists
-* When you report a website as not working through the extension icon menu
+* When you report a website as not working through the extension icon menu (the **Let us know!** button)
+
+The URL of the website reported through the extension icon is [sent](https://github.com/cavi-au/Consent-O-Matic/blob/master/Extension/popup.js#L50) to a [website hosted by Aarhus University](https://gdprconsent.projects.cavi.au.dk/report.php) in the form of a URI-encoded query string (e.g., LinkedIn will be reported as `https://gdprconsent.projects.cavi.au.dk/report.php?url=www.linkedin.com`). These submissions will be reflected on a [page containing summary of all submissions](https://gdprconsent.projects.cavi.au.dk/reports.php), from which you can see the number of submissions per domain name.
 
 ## Installation
 
