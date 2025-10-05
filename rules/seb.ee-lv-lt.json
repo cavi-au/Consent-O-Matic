@@ -1,0 +1,142 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "seb.ee-lv-lt": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookiesMessage"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cookiesMessage",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+				"action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "#cookiesMessage"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".modal-backdrop"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+				"action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookies-first-page-message a[rel='cookie-settings']"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+				"action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifallowall",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".btn.btn-outline-primary.accept-selected"
+                                }
+                            }
+                        },
+                        {
+                            "type": "ifallownone",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".btn.accept-mandatory"
+                                }
+                            }
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-simplified_login'] > span::after"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-simplified_login']"
+                                        }
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-statistical'] > span::after"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-statistical']"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "matcher": {
+                                        "type": "css",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-marketing'] > span::after"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "label[for='cookie-category-marketing']"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+				"action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".btn.btn-primary.accept-selected"
+                    }
+                }
+            }
+        ]
+    }
+}

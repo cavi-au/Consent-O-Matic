@@ -1,0 +1,238 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "swedbank": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#component-cookie-banner"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#component-cookie-banner",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            },
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ui-cookie-consent__container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".ui-cookie-consent__container",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#component-cookie-banner"
+                    },
+                    "trueAction": {
+                        "type": "hide",
+                        "target": {
+                            "selector": "#component-cookie-banner"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "hide",
+                        "target": {
+                            "selector": "#cookie-consent"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#component-cookie-banner"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookie-banner-initial-customize"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "details"
+                        },
+                        "parent": {
+                            "selector": ".ui-cookie-consent__settings"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#component-cookie-banner"
+                    },
+                    "trueAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifallowall",
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#cookie-banner-initial-accept-all"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ifallownone",
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#cookie-banner-accept-essentials"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": ".cookie-form input[name='functi']"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookie-form input[name='functi']"
+                                            }
+                                        },
+                                        "type": "B"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": ".cookie-form input[name='market']"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cookie-form input[name='market']"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "falseAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "ifallowall",
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": ".ui-cookie-consent__accept-button"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "ifallownone",
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": ".ui-cookie-consent__decline-button"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "#cookie-consent-category-ANALYTICAL"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "#cookie-consent-category-ANALYTICAL"
+                                            }
+                                        },
+                                        "type": "B"
+                                    },
+                                    {
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": "#cookie-consent-category-TARGETING"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": "#cookie-consent-category-TARGETING"
+                                            }
+                                        },
+                                        "type": "F"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#component-cookie-banner"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "#cookie-banner-customize-customize"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".ui-cookie-consent__save-choice-button"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
