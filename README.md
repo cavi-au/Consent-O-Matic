@@ -60,7 +60,7 @@ Because Consent-O-Matic is an open-source project, anyone can contribute to its 
 
 ## Compatible CMPs
 
-Consent-O-Matic currently works with more than 200 CMPs (see full list [here](https://github.com/cavi-au/Consent-O-Matic/tree/master/rules), including major platforms like UserCentrics, CookieBot, OneTrust, as well as cookie banners for specific websites. 
+Consent-O-Matic currently works with more than 200 CMPs (see full list [here](https://github.com/cavi-au/Consent-O-Matic/tree/master/rules)), including major platforms like UserCentrics, CookieBot, OneTrust, as well as cookie banners for specific websites. 
 
 ## Permissions
 
