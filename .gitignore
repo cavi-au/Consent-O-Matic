@@ -6,3 +6,4 @@
 .idea/watcherTasks.xml
 node_modules/
 dist/
+.DS_Store
