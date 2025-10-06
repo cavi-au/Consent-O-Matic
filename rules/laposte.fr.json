@@ -1,0 +1,63 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "LaPoste.fr": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#footer_tc_privacy"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#footer_tc_privacy",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#footer_tc_privacy_button_3",
+                        "textFilter": [
+                            "Reject proposed privacy settings",
+                            "Continuer sans accepter"
+                        ]
+                    },
+                    "parent": {
+                        "selector": "#footer_tc_privacy_container_button"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#footer_tc_privacy_button_3",
+                        "textFilter": [
+                            "Personalize privacy settings",
+                            "Gérer mes choix"
+                        ]
+                    },
+                    "parent": {
+                        "selector": "#footer_tc_privacy_container_button"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            }
+        ]
+    }
+}
