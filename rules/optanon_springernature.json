@@ -7,7 +7,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cc-preferences[data-cc-preferences]"
+                            "selector": ".cc-banner--is-tcf"
                         }
                     }
                 ],
@@ -15,7 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".cc-preferences[data-cc-preferences] .cc-preferences__dialog"
+                            "selector": ".cc-banner--is-tcf"
                         }
                     }
                 ]
@@ -24,32 +24,27 @@
         "methods": [
             {
                 "action": {
-                    "type": "list",
-                    "actions": [
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": ".cc-banner[data-cc-banner]"
-                            }
-                        },
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": ".cc-preferences[data-cc-preferences]"
-                            }
-                        }
-                    ]
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cc-banner--is-tcf"
+                    }
                 },
                 "name": "HIDE_CMP"
             },
             {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cc-banner__button-preferences"
+                    }
+                },
                 "name": "OPEN_OPTIONS"
             },
             {
                 "action": {
                     "type": "foreach",
                     "target": {
-                        "selector": ".cc-preferences__category"
+                        "selector": ".cc-preferences__body"
                     },
                     "action": {
                         "type": "list",
@@ -57,7 +52,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".cc-preferences__category-header",
+                                    "selector": ".cc-preferences__category-heading",
                                     "textFilter": [
                                         "Cookies that measure website use"
                                     ]
@@ -69,19 +64,19 @@
                                             "matcher": {
                                                 "type": "css",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                    "selector": ".cc-switch__input"
                                                 }
                                             },
                                             "trueAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                    "selector": ".cc-switch__input[checked=\"true\"]"
                                                 }
                                             },
                                             "falseAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                    "selector": ".cc-switch__input[checked=\"false\"]"
                                                 }
                                             },
                                             "type": "B"
@@ -92,7 +87,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".cc-preferences__category-header",
+                                    "selector": ".cc-preferences__category-heading",
                                     "textFilter": [
                                         "Cookies that help with our communications and marketing"
                                     ]
@@ -104,19 +99,19 @@
                                             "matcher": {
                                                 "type": "css",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                    "selector": ".cc-switch__input"
                                                 }
                                             },
                                             "trueAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                    "selector": ".cc-switch__input[checked=\"true\"]"
                                                 }
                                             },
                                             "falseAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                    "selector": ".cc-switch__input[checked=\"false\"]"
                                                 }
                                             },
                                             "type": "F"
@@ -127,7 +122,7 @@
                             {
                                 "type": "ifcss",
                                 "target": {
-                                    "selector": ".cc-preferences__category-header",
+                                    "selector": ".cc-preferences__category-heading",
                                     "textFilter": [
                                         "Cookies that help show personalised advertising"
                                     ]
@@ -139,19 +134,19 @@
                                             "matcher": {
                                                 "type": "css",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"][checked]"
+                                                    "selector": ".cc-switch__input"
                                                 }
                                             },
                                             "trueAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"on\"]"
+                                                    "selector": ".cc-switch__input[checked=\"true\"]"
                                                 }
                                             },
                                             "falseAction": {
                                                 "type": "click",
                                                 "target": {
-                                                    "selector": ".cc-radio__input[value=\"off\"]"
+                                                    "selector": ".cc-switch__input[checked=\"false\"]"
                                                 }
                                             },
                                             "type": "F"
