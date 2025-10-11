@@ -1,0 +1,130 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Skyscanner": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookie-banner-wrapper"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookie-banner-wrapper"
+                        }
+                    }
+                ]
+            },
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#PrivacySettings_wrapper"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#PrivacySettings_wrapper"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+				"action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cookie-banner-wrapper"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+				"action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button[data-tracking-element-id='cookie_banner_accept_all']"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "a[data-tracking-element-id='cookie_banner_manage_settings']"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+				"action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#PrivacySettings_switch-Information"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#PrivacySettings_switch-Information"
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#PrivacySettings_switch-Adverts"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#PrivacySettings_switch-Adverts"
+                                }
+                            },
+                            "type": "F"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+				"action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#PrivacySettings_switch-Information"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": ".bpk-button--primary"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
