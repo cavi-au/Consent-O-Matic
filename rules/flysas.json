@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
-    "flysas": {
+    "SAS": {
         "detectors": [
             {
                 "presentMatcher": [
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".flysas.modal.open.null"
+                            "selector": "h2[aria-label='SAS & Cookies']"
                         }
                     }
                 ],
@@ -15,8 +15,7 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": ".flysas.modal.open.null",
-                            "displayFilter": true
+                            "selector": "h2[aria-label='SAS & Cookies']"
                         }
                     }
                 ]
@@ -24,113 +23,84 @@
         ],
         "methods": [
             {
+                "name": "HIDE_CMP",
                 "action": {
-                    "type": "list",
-                    "actions": [
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": "[s4s-modal-id='privacyModal']"
-                            }
-                        },
-                        {
-                            "type": "hide",
-                            "target": {
-                                "selector": "[s4s-modal-id='privacySettingsModal']"
-                            }
-                        }
-                    ]
-                },
-                "name": "HIDE_CMP"
+                    "type": "hide",
+                    "target": {
+                        "selector": "dialog.evvpf73"
+                    }
+                }
             },
             {
+                "name": "OPEN_OPTIONS",
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".privacy.configure"
+                        "selector": "div._1kyfr9o3 > button:first-child"
                     }
-                },
-                "name": "OPEN_OPTIONS"
+                }
             },
             {
+                "name": "DO_CONSENT",
                 "action": {
-                    "type": "list",
-                    "actions": [
+                    "type": "consent",
+                    "consents": [
                         {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "[element='cookieMarketingTab']"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "[element='cookieMarketingTab']"
-                                        }
-                                    },
-                                    "type": "F"
+                            "type": "A",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(2) button[data-state='checked']"
                                 }
-                            ]
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(2) button"
+                                }
+                            }
                         },
                         {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "[element='cookieAnalyticsTab']"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "[element='cookieAnalyticsTab']"
-                                        }
-                                    },
-                                    "type": "B"
+                            "type": "B",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(3) button[data-state='checked']"
                                 }
-                            ]
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(3) button"
+                                }
+                            }
                         },
                         {
-                            "type": "consent",
-                            "consents": [
-                                {
-                                    "matcher": {
-                                        "type": "checkbox",
-                                        "target": {
-                                            "selector": "[element='cookiePerformanceTab']"
-                                        }
-                                    },
-                                    "toggleAction": {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "[element='cookiePerformanceTab']"
-                                        }
-                                    },
-                                    "type": "A"
+                            "type": "F",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(4) button[data-state='checked']"
                                 }
-                            ]
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "div._1kyfr9o7 > div._1kyfr9o9:nth-child(4) button"
+                                }
+                            }
                         }
                     ]
-                },
-                "name": "DO_CONSENT"
+                }
             },
             {
+                "name": "SAVE_CONSENT",
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": ".cookie.save"
+                        "selector": "div._1kyfr9o3 > button:first-child"
                     }
-                },
-                "name": "SAVE_CONSENT"
-            },
-            {
-                "name": "UTILITY"
+                }
             }
         ]
     }
