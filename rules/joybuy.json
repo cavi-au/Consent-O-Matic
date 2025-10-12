@@ -1,0 +1,133 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Joybuy": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div[class^='cookiesManage_cookiesWrapper']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div[class^='cookiesManage_cookiesWrapper']"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "div[class^='cookiesManage_cookiesWrapper']"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "body > div[role='presentation']"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "div[class^='cookiesManage_btnWrapper'] > button:first-child"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "A",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(2) .MuiSwitch-input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(2) .MuiSwitch-input"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "B",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(3) .MuiSwitch-input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(3) .MuiSwitch-input"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "F",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(4) .MuiSwitch-input"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "div[class^='settingList_cookiesSettingWrapper'] > div:nth-child(4) .MuiSwitch-input"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "div.MuiDialog-container > div.MuiPaper-root > div:last-child > button"
+                    }
+                }
+            }
+        ]
+    }
+}
