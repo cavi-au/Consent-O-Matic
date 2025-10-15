@@ -1,0 +1,102 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "termsfeed": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#termsfeed-com---nb"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#termsfeed-com---nb",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cc-nb-changep"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "A",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=functionality]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=functionality]"
+                                }
+                            }
+                        },
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=tracking]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=tracking]"
+                                }
+                            }
+                        },
+                        {
+                            "type": "F",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=targeting]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cc-custom-checkbox[name=targeting]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cc-cp-foot-save"
+                    }
+                }
+            }
+        ]
+    }
+}
