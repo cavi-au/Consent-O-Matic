@@ -1,0 +1,52 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "pantip.com": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".pt-snackbar"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".pt-snackbar"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button.btn-primary:nth-child(1)",
+                        "textFilter": [
+                            "ยอมรับ"
+                        ]
+                    },
+                    "parent": {
+                        "selector": ".pt-snackbar"
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}

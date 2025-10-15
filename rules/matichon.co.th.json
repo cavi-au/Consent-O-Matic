@@ -1,0 +1,50 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "matichon.co.th": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#pdpa-popup"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#pdpa-popup"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".pdpa-btn",
+                        "textFilter": [
+                            "ยอมรับ"
+                        ]
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
+
