@@ -1,0 +1,28 @@
+{
+	"$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+	"wcp": {
+		"detectors": [
+			{
+				"presentMatcher": [
+					{
+						"type": "css",
+						"target": {
+							"selector": "#wcpConsentBannerCtrl"
+						}
+					}
+				]
+			}
+		],
+		"methods": [
+			{
+				"name": "DO_CONSENT",
+				"action": {
+					"type": "click",
+					"target": {
+						"selector": "#wcpConsentBannerCtrl div:last-child button:nth-child(2)"
+					}
+				}
+			}
+		]
+	}
+}
