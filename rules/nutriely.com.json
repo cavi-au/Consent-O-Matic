@@ -1,0 +1,50 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "nutriely.com": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div",
+                            "textFilter": "Let's talk about cookies."
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div",
+                            "textFilter": "Let's talk about cookies.",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button",
+                            "textFilter": "Accept all"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "button",
+                            "textFilter": "Only essentials"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
