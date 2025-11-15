@@ -36,39 +36,44 @@ async function contentScriptRunner() {
                         GDPRConfig.getConsentValues().then((consentTypes)=>{
                             GDPRConfig.getDebugValues().then((debugValues)=>{
                                 GDPRConfig.getGeneralSettings().then((generalSettings)=>{
-                                    if(debugValues.debugLog) {
-                                        console.log("FetchedRules:", fetchedRules);
-                                        console.log("CustomRules:", customRules);
-                                    }
-                    
-                                    ConsentEngine.debugValues = debugValues;
-                                    ConsentEngine.generalSettings = generalSettings;
-                                    ConsentEngine.topFrameUrl = url;
-            
-                                    chrome.runtime.sendMessage("Searching");
-                                    let engine = new ConsentEngine(config, consentTypes, (evt)=>{
-                                        let result = {
-                                            "handled": evt.handled
-                                        };
-    
-                                        if(evt.handled) {
-                                            result.cmp = evt.cmpName;
-                                            result.clicks = evt.clicks;
-                                            result.url = url;
+                                    GDPRConfig.getHandledCallback().then((handledCallback)=>{
+                                        if(debugValues.debugLog) {
+                                            console.log("FetchedRules:", fetchedRules);
+                                            console.log("CustomRules:", customRules);
+                                        }
+                        
+                                        ConsentEngine.debugValues = debugValues;
+                                        ConsentEngine.generalSettings = generalSettings;
+                                        ConsentEngine.topFrameUrl = url;
+                
+                                        chrome.runtime.sendMessage("Searching");
+                                        let engine = new ConsentEngine(config, consentTypes, (evt)=>{
+                                            let result = {
+                                                "handled": evt.handled
+                                            };
         
-                                            chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
-                                        } else if(evt.error) {
-                                            chrome.runtime.sendMessage("CMPError");
-                                        } else {
-                                            chrome.runtime.sendMessage("NothingFound");
+                                            if(evt.handled) {
+                                                result.cmp = evt.cmpName;
+                                                result.clicks = evt.clicks;
+                                                result.url = url;
+            
+                                                chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
+                                                handledCallback("HandledCMP", result);
+                                            } else if(evt.error) {
+                                                chrome.runtime.sendMessage("CMPError");
+                                                handledCallback("CMPError");
+                                            } else {
+                                                chrome.runtime.sendMessage("NothingFound");
+                                                handledCallback("NothingFound");
+                                            }
+                                        });
+                
+                                        ConsentEngine.singleton = engine;
+                
+                                        if(debugValues.debugLog) {
+                                            console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
                                         }
                                     });
-            
-                                    ConsentEngine.singleton = engine;
-            
-                                    if(debugValues.debugLog) {
-                                        console.log("ConsentEngine loaded " + engine.cmps.length + " of " + Object.keys(config).length + " rules");
-                                    }
                                 });
                             });
                         });
