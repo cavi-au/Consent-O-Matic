@@ -1,0 +1,207 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Joybuy": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div[class^='cookieManageDrawer_cookiesWrap']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "div[class^='cookieManageDrawer_cookiesWrap']"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "div[class^='cookieManageDrawer_cookiesWrap']"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "body > div[role='presentation']"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "div[class^='cookieManageDrawer_btnWrapper'] > button",
+                        "textFilter": [
+                            "Customize",
+                            "Aanpassen",
+                            "Anpassen",
+                            "Personnaliser",
+                            "自定义"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "A",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Functional",
+                                                "Functionele",
+                                                "Funktionale",
+                                                "fonctionnels",
+                                                "功能性"
+                                            ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Functional",
+                                                "Functionele",
+                                                "Funktionale",
+                                                "fonctionnels",
+                                                "功能性"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "B",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Analytics",
+                                                "Analytische",
+                                                "Analyse",
+                                                "analytiques",
+                                                "分析性"
+                                            ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Analytics",
+                                                "Analytische",
+                                                "Analyse",
+                                                "analytiques",
+                                                "分析性"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "F",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Targeting / Advertising",
+                                                "Targeting- / Advertentie",
+                                                "Werbe",
+                                                "de ciblage/publicité",
+                                                "广告性"
+                                            ]
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": ".MuiSwitch-input"
+                                        },
+                                        "parent": {
+                                            "selector": "div[class^='settingDrawer_title']",
+                                            "textFilter": [
+                                                "Targeting / Advertising",
+                                                "Targeting- / Advertentie",
+                                                "Werbe",
+                                                "de ciblage/publicité",
+                                                "广告性"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button",
+                        "textFilter": [
+                            "Confirm my choices",
+                            "Bevestig mijn keuzes",
+                            "Meine Auswahl bestätigen",
+                            "Confirmer mes choix",
+                            "确认我的选择"
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
