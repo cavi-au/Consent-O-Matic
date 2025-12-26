@@ -1,0 +1,195 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "modulargrid": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": [
+                            "modulargrid.net",
+                            "modulargrid.com"
+                        ]
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cc-main"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cc-main button[data-role], #cc-main .pm__footer .pm__btn[data-role]",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#cc-main button[data-role=\"show\"]"
+                            },
+                            "retries": 50,
+                            "waitTime": 200
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#cc-main button[data-role=\"show\"]"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#cc-main .pm__footer .pm__btn[data-role=\"save\"]"
+                            },
+                            "retries": 50,
+                            "waitTime": 200
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "#cc-main .pm__footer .pm__btn[data-role=\"save\"]"
+                            },
+                            "retries": 50,
+                            "waitTime": 200
+                        },
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#cc-main .pm__footer .pm__btn[data-role=\"save\"]"
+                            }
+                        }
+                    ]
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "list",
+                        "actions": [
+                            {
+                                "type": "waitcss",
+                                "target": {
+                                    "selector": "#cc-main button[data-role=\"all\"], #cc-main .pm__btn[data-role=\"all\"]"
+                                },
+                                "retries": 50,
+                                "waitTime": 200
+                            },
+                            {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cc-main button[data-role=\"all\"], #cc-main .pm__btn[data-role=\"all\"]"
+                                }
+                            }
+                        ]
+                    },
+                    "falseAction": {
+                        "type": "ifallownone",
+                        "trueAction": {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "waitcss",
+                                    "target": {
+                                        "selector": "#cc-main button[data-role=\"necessary\"], #cc-main .pm__btn[data-role=\"necessary\"]"
+                                    },
+                                    "retries": 50,
+                                    "waitTime": 200
+                                },
+                                {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "#cc-main button[data-role=\"necessary\"], #cc-main .pm__btn[data-role=\"necessary\"]"
+                                    }
+                                }
+                            ]
+                        },
+                        "falseAction": {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "runmethod",
+                                    "method": "OPEN_OPTIONS"
+                                },
+                                {
+                                    "type": "consent",
+                                    "consents": [
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "#cc-main input.section__toggle[value=\"analytics\"]"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#cc-main input.section__toggle[value=\"analytics\"]"
+                                                }
+                                            },
+                                            "type": "B"
+                                        },
+                                        {
+                                            "matcher": {
+                                                "type": "checkbox",
+                                                "target": {
+                                                    "selector": "#cc-main input.section__toggle[value=\"marketing\"]"
+                                                }
+                                            },
+                                            "toggleAction": {
+                                                "type": "click",
+                                                "target": {
+                                                    "selector": "#cc-main input.section__toggle[value=\"marketing\"]"
+                                                }
+                                            },
+                                            "type": "F"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "runmethod",
+                                    "method": "SAVE_CONSENT"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#cc-main"
+                    },
+                    "hideFromDetection": true
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
