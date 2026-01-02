@@ -1,0 +1,50 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "taotesting_nextgen": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".notification-wrapper .cookie-policy-content"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".notification-wrapper .cookie-policy-content"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                         {
+                              "type": "A",
+                              "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": ".notification-actions button.primary"
+                                    }
+                              },
+                              "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": ".notification-actions button.secondary"
+                                    }
+                              }
+                         }
+                    ]
+                }
+            }
+        ]
+    }
+}
