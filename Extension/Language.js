@@ -45,7 +45,7 @@ const translations = {
         "en": "How to display popups while they are being filled out",
         "da": "Hvordan popups skal vises imens de udfyldes",
         "de": "Wie man Popups anzeigt, während sie ausgefüllt werden",
-        "pt": "Como exibir pop-ups enquanto eles estão a ser preenchidos",
+        "pt": "Como exibir pop-ups enquanto são preenchidos",
         "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
     },
     "HIDE_OR_PIP_HIDE_TITLE": {
@@ -199,7 +199,7 @@ const translations = {
         "en": "Always force a reload of the rules on each page load",
         "da": "Tving genlæsning af reglerne ved hver side hentning",
         "de": "Erzwinge ein Neuladen der Regeln bei jedem Laden einer Seite",
-        "pt": "Sempre que uma página é carregada, forçar a recarga das regras",
+        "pt": "Forçar sempre a atualização das regras ao carregar a página",
         "fr": "Forcer toujours le rechargement des règles à chaque chargement de page"
     },
     "SKIP_HIDE_DESCRIPTION": {
@@ -254,7 +254,7 @@ const translations = {
         "en": "Performance and Analytics",
         "da": "Ydelse og analyse",
         "de": "Leistung und Analyse",
-        "pt": "Desempenho e análises",
+        "pt": "Desempenho e análise",
         "fr": "Performance et analyses"
     },
     "PERFORMANCE_DESCRIPTION": {
@@ -464,7 +464,7 @@ const translations = {
         "en": "Detector",
         "da": "Detektor",
         "de": "Detektor",
-        "pt": "Detector",
+        "pt": "Detetor",
         "fr": "Détecteur"
     },
     "CSS_MATCHER": {
