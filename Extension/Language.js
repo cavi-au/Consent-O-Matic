@@ -974,7 +974,7 @@ const translations = {
         "en": "The target to perform a slide gesture on",
         "da": "Målet der skal udføres en slidebevægelse på",
         "de": "Das Ziel, auf dem eine Schiebegeste ausgeführt werden soll",
-        "pt": "O alvo para executar um gesto de deslizamento",
+        "pt": "O alvo para realizar um gesto de deslizar em",
         "fr": "La cible pour effectuer un geste de glissement"
     },
     "DRAG_TARGET": {
@@ -1002,7 +1002,7 @@ const translations = {
         "en": "Direction of the slide",
         "da": "Retningen for slidebevægelsen",
         "de": "Richtung des Schiebereglers",
-        "pt": "Direção do deslizamento",
+        "pt": "Direção do deslize",
         "fr": "Direction du glissement"
     },
     "X": {
@@ -1030,21 +1030,21 @@ const translations = {
         "en": "The thing to wait for",
         "da": "Det der skal ventes på",
         "de": "Die Sache, auf die gewartet werden soll",
-        "pt": "A coisa a esperar",
+        "pt": "A coisa pela qual esperar",
         "fr": "La chose à attendre"
     },
     "RETRIES": {
         "en": "retries",
         "da": "forsøg",
         "de": "Wiederholungen",
-        "pt": "novas tentativas",
+        "pt": "tentativas",
         "fr": "tentatives"
     },
     "RETRIES_HELP": {
         "en": "How many times to repeat the search",
         "da": "Hvor mange gange søgningen skal gentages",
         "de": "Wie oft die Suche wiederholt wird",
-        "pt": "Quantas vezes se deve repetir a pesquisa",
+        "pt": "Quantas vezes repetir a pesquisa",
         "fr": "Combien de fois répéter la recherche"
     },
     "WAIT_TIME": {
@@ -1072,14 +1072,14 @@ const translations = {
         "en": "If enabled, waits until selected DOM node no longer exists",
         "da": "Hvis aktiveret, venter, indtil valgte DOM-node ikke længere eksisterer",
         "de": "Falls aktiviert, wird gewartet, bis der ausgewählte DOM-Knoten nicht mehr existiert.",
-        "pt": "Se ativado, espera até que o nó DOM selecionado não exista mais",
+        "pt": "Se ativado, aguarda até que o nó DOM selecionado não exista mais",
         "fr": "Si activé, attend que le nœud DOM sélectionné n'existe plus"
     },
     "ACTION_WAIT_TIME_HELP": {
         "en": "The amount of time to wait before continuing with the next action.",
         "da": "Den tid, der skal ventes, før der fortsættes med den næste handling.",
         "de": "Die Zeitspanne, die gewartet werden soll, bevor mit der nächsten Aktion fortgefahren wird.",
-        "pt": "A quantidade de tempo a esperar antes de avançar para a próxima ação.",
+        "pt": "O tempo de espera antes de continuar com a próxima ação.",
         "fr": "La durée à attendre avant de passer à l'action suivante."
     },
     "TYPE": {
@@ -1100,28 +1100,28 @@ const translations = {
         "en": "A - Preferences and Functionality",
         "da": "A - Præferencer og funktionalitet",
         "de": "A - Präferenzen und Funktionalität",
-        "pt": "A - Preferências e Funcionalidade",
+        "pt": "A - Preferências e funcionalidade",
         "fr": "A - Préférences et fonctionnalités"
     },
     "TYPE_B_OPTION": {
         "en": "B - Performance and Analytics",
         "da": "B - Ydelse og analyse",
         "de": "B - Leistung und Analyse",
-        "pt": "B - Desempenho e Análise",
+        "pt": "B - Desempenho e análise",
         "fr": "B - Performance et Analytics"
     },
     "TYPE_D_OPTION": {
         "en": "D - Information Storage and Access",
         "da": "D - Opbevaring og adgang til information",
         "de": "D - Informationsspeicherung und -zugriff",
-        "pt": "D - Armazenamento e Acesso à Informação",
+        "pt": "D - Armazenamento e acesso à informação",
         "fr": "D - Stockage et accès à l'information"
     },
     "TYPE_E_OPTION": {
         "en": "E - Content selection, delivery, and reporting",
         "da": "E - Indholdsvalg, levering og rapportering",
         "de": "E - Auswahl, Bereitstellung und Berichterstattung von Inhalten",
-        "pt": "E - Seleção de conteúdo, entrega e relatórios",
+        "pt": "E - Seleção, entrega e relatórios de conteúdo",
         "fr": "E - Sélection de contenu, livraison et rapports"
     },
     "TYPE_F_OPTION": {
@@ -1135,7 +1135,7 @@ const translations = {
         "en": "X - Other Purposes",
         "da": "X - Andre formål",
         "de": "X - Andere Zwecke",
-        "pt": "X - Outras Finalidades",
+        "pt": "X - Outros fins",
         "fr": "X - Autres finalités"
     },
     "CONSENT_MATCHER": {
@@ -1149,7 +1149,7 @@ const translations = {
         "en": "If this matcher triggers a match, it means the consent is currently given",
         "da": "Hvis denne matcher udløser et match, betyder det at samtykket i øjeblikket er givet",
         "de": "Wenn dieser Abgleich eine Übereinstimmung auslöst, bedeutet dies, dass die Zustimmung derzeit gegeben ist",
-        "pt": "Se este 'matcher' acionar uma correspondência, significa que o consentimento foi dado no momento",
+        "pt": "Se este comparador acionar uma correspondência, significa que o consentimento foi dado atualmente",
         "fr": "Si ce correspondant déclenche une correspondance, cela signifie que le consentement est actuellement donné"
     },
     "TOGGLE_ACTION": {
@@ -1170,21 +1170,21 @@ const translations = {
         "en": "Use this action to set consent to true, non toggle style",
         "da": "Brug denne handling til at indstille samtykke til sandt, ikke til/fra-tilstand",
         "de": "Verwenden Sie diese Aktion, um die Zustimmung auf wahr zu setzen, ohne Umschaltstil",
-        "pt": "Use esta ação para definir o consentimento como verdadeiro, sem alternância de estilo",
+        "pt": "Use esta ação para definir o consentimento como verdadeiro, estilo não alternável",
         "fr": "Utilisez cette action pour définir le consentement à vrai, non style basculant"
     },
     "CONSENT_FALSE_ACTION_HELP": {
         "en": "Use this action to set consent to false, non toggle style",
         "da": "Brug denne handling til at indstille samtykke til falsk, ikke til/fra-tilstand",
         "de": "Verwenden Sie diese Aktion, um die Zustimmung auf falsch zu setzen, ohne Umschaltstil",
-        "pt": "Use esta ação para definir o consentimento como falso, sem alternância de estilo",
+        "pt": "Use esta ação para definir o consentimento como falso, estilo não alternável",
         "fr": "Utilisez cette action pour définir le consentement à faux, non style basculant"    
     },
     "DEBUG_TRANSLATION_DESCRIPTION": {
         "en": "When translation is missing, dont default to english, but instead show debug token.",
         "da": "Brug ikke som standard engelsk, hvis en oversættelse mangler.",
         "de": "Wenn die Übersetzung fehlt, nicht standardmäßig Englisch, sondern Debug-Token anzeigen.",
-        "pt": "Quando não houver tradução, não use inglês como padrão, mas mostre o token de debugging.",
+        "pt": "Quando a tradução estiver em falta, não utilize o inglês como padrão, mas mostre o token de depuração.",
         "fr": "Lorsque la traduction est manquante, ne pas utiliser l'anglais par défaut, mais afficher plutôt le jeton de débogage."
     },
     "HIDE_CMP": {
@@ -1233,14 +1233,14 @@ const translations = {
         "en": "Are you sure?",
         "da": "Er du sikker?",
         "de": "Sind Sie sicher?",
-        "pt": "Tem certeza?",
+        "pt": "Tem a certeza?",
         "fr": "Êtes-vous sûr ?"
     },
     "UNHANDLED_EXPLAINER": {
         "en": "The site will be added to our list of sites to review",
         "da": "Siden bliver tilføjet til vores liste af sider der skal gennemgåes",
         "de": "Die Website wird in unsere Liste der zu überprüfenden Websites aufgenommen",
-        "pt": "O site é adicionado à nossa lista de sites para revisão",
+        "pt": "O site será adicionado à nossa lista de sites a serem analisados",
         "fr": "Le site sera ajouté à notre liste de sites à examiner"
     },
     "CANCEL": {
@@ -1254,42 +1254,42 @@ const translations = {
         "en": "Submit",
         "da": "Indsend",
         "de": "Einsenden",
-        "pt": "Enviar",
+        "pt": "Submeter",
         "fr": "Envoyer"
     },
     "THANKS": {
         "en": "Thank you!",
         "da": "Mange tak!",
         "de": "Vielen Dank!",
-        "pt": "Obrigada!",
+        "pt": "Obrigado!",
         "fr": "Merci !"
     },
     "NO-CONFIRM": {
         "en": "Don't ask next time",
         "da": "Spørg ikke næste gang",
         "de": "Nächstes Mal nicht fragen",
-        "pt": "Não perguntar na próxima vez",
+        "pt": "Não perguntar da próxima vez",
         "fr": "Ne pas demander la prochaine fois"
     },
     "SKIP_SUBMIT_CONFIRMATION": {
         "en": "Avoid having to confirm each time when sending reports about badly handled websites using the addon popup",
         "da": "Undgå at skulle bekræfte hver gang når der sendes rapport omkring dårligt håndterede websites via addon popuppen",
         "de": "Nicht jedes Mal bestätigen, wenn Sie Berichte über schlecht gehandhabte Websites über das Addon-Popup senden.",
-        "pt": "Evite ter que confirmar toda vez que enviar relatórios sobre sites mal administrados usando o pop-up do complemento",
+        "pt": "Evite ter de confirmar sempre que enviar relatórios sobre sites mal administrados usando o pop-up do complemento.",
         "fr": "Évitez de devoir confirmer à chaque fois lors de l'envoi de rapports sur des sites mal gérés à l'aide de la fenêtre contextuelle de l'extension"
     },
     "UTILITY": {
         "en": "UTILITY",
         "da": "UTILITY",
         "de": "DIENSTPROGRAMM",
-        "pt": "UTILITY",
+        "pt": "UTILIDADE",
         "fr": "UTILITAIRE"
     },
     "CMP": {
         "en": "Consent Management Provider",
         "da": "Samtykke-popup-udbyder",
         "de": "Einwilligungsverwaltungsanbieter",
-        "pt": "Consent Management Provider",
+        "pt": "Fornecedor de gestão de consentimentos",
         "fr": "Fournisseur de gestion du consentement"
     },
     "POPUPS_FILLED": {
@@ -1302,7 +1302,7 @@ const translations = {
     "CLICKS_MADE": {
         "en": "Clicks Made",
         "da": "Antal Klik",
-        "pt": "Cliques Feitos",
+        "pt": "Cliques efetuados",
         "de": "Klicks gemacht",
         "fr": "Clics effectués"
     },
@@ -1310,7 +1310,7 @@ const translations = {
         "en": "Hide instead of using Picture In Picture",
         "da": "Skjul istedet for at bruge billed i billed",
         "de": "Ausblenden statt Bild-in-Bild verwenden",
-        "pt": "Ocultar em vez de usar Picture In Picture",
+        "pt": "Ocultar em vez de usar Picture-in-picture",
         "fr": "Cacher au lieu d'utiliser le Picture In Picture"
     },
     "IF_ALLOW_ALL_ACTION": {
@@ -1331,21 +1331,21 @@ const translations = {
         "en": "Used to detect the presence of a CMP",
         "da": "Bruges til at detektere tilstedeværelsen af en CMP",
         "de": "Wird verwendet, um das Vorhandensein eines CMP zu erkennen",
-        "pt": "Usado para detectar a presença de um CMP",
+        "pt": "Utilizado para detetar a presença de um CMP",
         "fr": "Utilisé pour détecter la présence d'un CMP"
     },
     "CSS_MATCHER_DESCRIPTION": {
         "en": "Matches if the css selector is found",
         "da": "Matcher, hvis css-vælgeren er fundet",
         "de": "Stimmt überein, wenn der CSS-Selektor gefunden wird",
-        "pt": "Corresponde se o seletor css for encontrado",
+        "pt": "Compara se o seletor css for encontrado",
         "fr": "Correspond si le sélecteur CSS est trouvé"
     },
     "CHECKBOX_MATCHER_DESCRIPTION": {
         "en": "Matches if the checkbox is found, and checked",
         "da": "Matcher, hvis afkrydsningsfeltet er fundet og markeret",
         "de": "Stimmt überein, wenn das Kontrollkästchen gefunden und aktiviert wird",
-        "pt": "Corresponde se a caixa de seleção for encontrada e marcada",
+        "pt": "Compara se a caixa de seleção for encontrada e estiver marcada",
         "fr": "Correspond si la case à cocher est trouvée et cochée"
     },
     "CLICK_ACTION_DESCRIPTION": {
@@ -1359,14 +1359,14 @@ const translations = {
         "en": "Clicks all elements found by the css selector at once",
         "da": "Klik på alle elementerne fundet af css-vælgeren på én gang",
         "de": "Klickt alle vom CSS-Selektor gefundenen Elemente auf einmal an",
-        "pt": "",
+        "pt": "Clica em todos os elementos encontrados pelo seletor css de uma só vez",
         "fr": "Clique sur tous les éléments trouvés par le sélecteur CSS en une fois"
     },
     "CONSENT_ACTION_DESCRIPTION": {
         "en": "Handles consent based on users choice",
         "da": "Håndterer samtykke baseret på brugernes valg",
         "de": "Verarbeitet die Zustimmung basierend auf der Wahl des Benutzers",
-        "pt": "Lida com o consentimento com base na escolha dos usuários",
+        "pt": "Lida com o consentimento com base na escolha dos utilizadores",
         "fr": "Traite le consentement en fonction du choix des utilisateurs"
     },
     "LIST_ACTION_DESCRIPTION": {
@@ -1380,7 +1380,7 @@ const translations = {
         "en": "Waits until a css selector is found",
         "da": "Venter indtil en css-vælger er fundet",
         "de": "Wartet, bis ein CSS-Selektor gefunden wird",
-        "pt": "Aguarda até que um seletor css seja encontrado",
+        "pt": "Espera até que um seletor CSS seja encontrado",
         "fr": "Attend qu'un sélecteur CSS soit trouvé"
     },
     "IF_CSS_ACTION_DESCRIPTION": {
@@ -1394,14 +1394,14 @@ const translations = {
         "en": "True, if the user has all consents allowed, false otherwise",
         "da": "Sandt, hvis brugeren har alle samtykker tilladt, falsk ellers",
         "de": "Wahr, wenn der Benutzer alle Einwilligungen erlaubt hat, andernfalls falsch",
-        "pt": "Verdadeiro, se o usuário tiver todos os consentimentos permitidos, falso caso contrário",
+        "pt": "Verdadeiro, se o utilizador tiver todas as autorizações permitidas, falso caso contrário",
         "fr": "Vrai si l'utilisateur a tous les consentements autorisés, sinon faux"
     },
     "IF_ALLOW_NONE_ACTION_DESCRIPTION": {
         "en": "True, if the user has all consents rejected, false otherwise",
         "da": "Sandt, hvis brugeren har alle samtykker afvist, falsk ellers",
         "de": "Wahr, wenn der Benutzer alle Einwilligungen abgelehnt hat, andernfalls falsch",
-        "pt": "Verdadeiro, se o usuário tiver todos os consentimentos rejeitados, falso caso contrário",
+        "pt": "Verdadeiro, se o utilizador tiver todas as autorizações rejeitadas, falso caso contrário",
         "fr": "Vrai si l'utilisateur a tous les consentements rejetés, sinon faux"
     },
     "FOR_EACH_ACTION_DESCRIPTION": {
@@ -1422,14 +1422,14 @@ const translations = {
         "en": "Closes the current window/tab",
         "da": "Lukker det aktuelle vindue/faneblad",
         "de": "Schließt das aktuelle Fenster/Tab",
-        "pt": "Fecha a janela/guia atual",
+        "pt": "Fecha a janela/separador atual",
         "fr": "Ferme la fenêtre/onglet actuel"
     },
     "HIDE_ACTION_DESCRIPTION": {
         "en": "Hides the element found with the given css selector.",
         "da": "Skjuler elementet fundet med den givne css-vælger.",
         "de": "Blendet das Element aus, das mit dem angegebenen CSS-Selektor gefunden wurde.",
-        "pt": "Oculta o elemento encontrado com o seletor css fornecido.",
+        "pt": "Oculta o elemento encontrado com o seletor CSS fornecido.",
         "fr": "Masque l'élément trouvé avec le sélecteur CSS donné."
     },
     "WAIT_ACTION_DESCRIPTION": {
@@ -1443,14 +1443,14 @@ const translations = {
         "en": "Used to handle consent, inside a ConsentAction",
         "da": "Bruges til at håndtere samtykke inde i en ConsentHandling",
         "de": "Wird verwendet, um die Zustimmung innerhalb einer ConsentAction zu verarbeiten",
-        "pt": "Usado para lidar com o consentimento, dentro de um ConsentAction",
+        "pt": "Usado para lidar com o consentimento, dentro de uma ConsentAction",
         "fr": "Utilisé pour gérer le consentement, à l'intérieur d'une ConsentAction"
     },
     "DOM_SELECTOR_DESCRIPTION": {
         "en": "A css selector, with filters",
         "da": "En css-vælger med filtre",
         "de": "Ein CSS-Selektor mit Filtern",
-        "pt": "Um seletor css, com filtros",
+        "pt": "Um seletor CSS, com filtros",
         "fr": "Un sélecteur CSS, avec des filtres"
     },
     "HIDE_FROM_DETECTION": {
@@ -1464,28 +1464,28 @@ const translations = {
         "en": "Make sure this element and its children, is never detected by Consent-O-Matic",
         "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af Consent-O-Matic",
         "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von Consent-O-Matic erkannt werden",
-        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo Consent-O-Matic",
+        "pt": "Certifique-se de que este elemento e os seus filhos nunca sejam detetados pelo Consent-O-Matic",
         "fr": "Assurez-vous que cet élément et ses enfants ne sont jamais détectés par Consent-O-Matic"
     },
     "FORCE_HIDE": {
         "en": "Force hide",
         "da": "Tving skjul",
         "de": "Ausblenden erzwingen",
-        "pt": "Forçar ocultação",
+        "pt": "Ocultar à força",
         "fr": "Forcer la dissimulation"
     },
     "FORCE_HIDE_HELP": {
         "en": "Force hiding this element, instead of using picture in picture",
         "da": "Tving at dette element bliver skjult i stedet for at bruge billede i billede",
         "de": "Erzwingen Sie das Ausblenden dieses Elements, anstatt Bild-in-Bild zu verwenden",
-        "pt": "Forçar a ocultação deste elemento, em vez de usar imagem em imagem",
+        "pt": "Forçar a ocultação deste elemento, em vez de usar Picture-in-picture",
         "fr": "Forcer la dissimulation de cet élément, au lieu d'utiliser l'image dans l'image"
     },
     "NEGATED_CHECKBOX_HELP": {
         "en": "If checked, the checkbox count as checked when not checked, and vice versa",
         "da": "Hvis markeret, tæller afkrydsningsfeltet som markeret, når det ikke er markeret, og omvendt",
         "de": "Wenn es aktiviert ist, zählt das Kontrollkästchen als aktiviert, wenn es nicht aktiviert ist, und umgekehrt",
-        "pt": "Se marcada, a caixa de seleção conta como marcada quando não marcada e vice-versa",
+        "pt": "Se marcada, a caixa de seleção conta como marcada quando não estiver marcada e vice-versa.",
         "fr": "Si cochée, la case à cocher est considérée comme cochée lorsqu'elle n'est pas cochée, et vice versa"
     },
     "RUN_ROOTED_ACTION": {
@@ -1499,7 +1499,7 @@ const translations = {
         "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
         "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root.",
         "da": "Kør en handling forankret på det valgte dom-element. Ignorerer evt. gammel root og sætter gammel den igen bagefter.",
-        "pt": "",
+        "pt": "Executa uma ação com origem no elemento dom selecionado. Ignora qualquer raiz atual definida e define a raiz antiga posteriormente.",
         "fr": "Exécute une action enracinée à l'élément DOM sélectionné. Ignore toute racine actuelle définie et rétablit l'ancienne racine par la suite."
     },
     "RUN_METHOD_ACTION": {
@@ -1513,56 +1513,56 @@ const translations = {
         "en": "Runs a custom method.",
         "de": "Benutzerdefinierte Methode durchführen.",
         "da": "Kører en custom metode",
-        "pt": "",
+        "pt": "Executa um método personalizado.",
         "fr": "Exécute une méthode personnalisée."
     },
     "ADD_METHOD": {
         "en": "Add method",
         "de": "Methode hinzufügen",
         "da": "Tilføj metode",
-        "pt": "",
+        "pt": "Adicionar método",
         "fr": "Ajouter une méthode"
     },
     "ADD_METHOD_PROMPT": {
         "en": "Name of new method:",
         "de": "Name der neuen Methode:",
         "da": "Navnet på den nye metode:",
-        "pt": "",
+        "pt": "Nome do novo método:",
         "fr": "Nom de la nouvelle méthode :"
     },
     "IGNORE_OLD_ROOT": {
         "en": "Ignore old root",
         "de": "Alten Root ignorieren",
         "da": "Ignorer gammel root",
-        "pt": "",
+        "pt": "Ignorar raiz antiga",
         "fr": "Ignorer l'ancien root"
     },
     "IGNORE_OLD_ROOT_HELP": {
         "en": "Ignores any root set, and restarts from document",
         "de": "Ignoriert jeden gesetzten Root und beginnt wieder beim Document",
         "da": "Ignorerer hvis der var sat en gammel root, og starter fra document",
-        "pt": "",
+        "pt": "Ignora qualquer conjunto raiz e reinicia a partir do documento",
         "fr": "Ignore tout root défini et redémarre depuis le document"
     },
     "METHOD": {
         "en": "Method",
         "de": "Methode",
         "da": "Metode",
-        "pt": "",
+        "pt": "Método",
         "fr": "Méthode"
     },
     "METHOD_HELP": {
         "en": "The method to run",
         "de": "Die durchzuführende Methode",
         "da": "Metoden der skal køres",
-        "pt": "",
+        "pt": "O método a executar",
         "fr": "La méthode à exécuter"
     },
     "NEGATED_URL_HELP": {
         "en": "When enabled, this matcher matches, if none of the URL's match",
         "de": "Wenn aktiviert, wird der Abgleich durchgeführt, wenn keine der URLs übereinstimmt",
         "da": "Hvis aktiveret, matcher denne matcher, kun hvis ingen af webadresserne matcher",
-        "pt": "",
+        "pt": "Quando ativado, este comparador faz a correspondência, se nenhuma das URLs corresponder",
         "fr": "Lorsqu'activé, ce correspondant correspond si aucune des URL ne correspond"
     },
     "ONOFF_MATCHER": {
@@ -1574,37 +1574,37 @@ const translations = {
     },
     "ONOFF_MATCHER_DESCRIPTION": {
         "en": "Uses 2 css queries to check if something is on or off",
-        "pt": "",
+        "pt": "Utiliza duas consultas CSS para verificar se algo está ativado ou desativado.",
         "fr": "Utilise 2 requêtes CSS pour vérifier si quelque chose est activé ou désactivé"
     },
     "ONOFF_MATCHER_TRUE": {
         "en": "On",
-        "pt": "",
+        "pt": "Ativado",
         "fr": "On"
     },
     "ONOFF_MATCHER_FALSE": {
         "en": "Off",
-        "pt": "",
+        "pt": "Desativado",
         "fr": "Off"
     },
     "ONOFF_MATCHER_TRUE_HELP": {
         "en": "The css query used to check if this is on",
-        "pt": "",
+        "pt": "A consulta CSS usada para verificar se isto está ativado",
         "fr": "La requête CSS utilisée pour vérifier si c'est activé"
     },
     "ONOFF_MATCHER_FALSE_HELP": {
         "en": "The css query used to check if this is off",
-        "pt": "",
+        "pt": "A consulta CSS usada para verificar se isso está desativado",
         "fr": "La requête CSS utilisée pour vérifier si c'est désactivé"
     },
     "CHILD_FILTER_NEGATE": {
         "en": "Negate child filter",
-        "pt": "",
+        "pt": "Negar filtro filho",
         "fr": "Nier le filtre enfant"
     },
     "CHILD_FILTER_NEGATE_HELP": {
         "en": "A negated child filter, filters this selector if a child is found",
-        "pt": "",
+        "pt": "Um filtro de filho negado filtra este seletor se um filho for encontrado",
         "fr": "Un filtre enfant nié filtre ce sélecteur s'il y a un enfant"
     }
 };
