@@ -303,42 +303,42 @@ const translations = {
         "en": "Unclassified data collection for which the purpose is not clearly described by the website or where the data collection and processing does not fit any other category",
         "da": "Uklassificeret dataindsamling, for hvilket formålet ikke er tydeligt beskrevet af hjemmesiden, eller hvor dataindsamling og -behandlingen ikke passer til nogen anden kategori",
         "de": "Nicht klassifizierte Datenerhebung, deren Zweck auf der Website nicht eindeutig beschrieben ist oder deren Erhebung und Verarbeitung in keine andere Kategorie fällt",
-        "pt": "Coleta de dados não classificados para as quais a finalidade não é claramente descrita pelo site ou onde a coleta e o processamento de dados não se enquadram em nenhuma outra categoria",
+        "pt": "Recolha de dados não classificados cuja finalidade não é claramente descrita pelo site ou cuja recolha e tratamento não se enquadram em nenhuma outra categoria",
         "fr": "Collecte de données non classifiées pour lesquelles la finalité n'est pas clairement décrite par le site web, ou lorsque la collecte et le traitement des données ne correspondent à aucune autre catégorie."
     },
     "AUTOFILL_NOT_WORKING": {
         "en": "GDPR autofill didn't work?",
         "da": "Virkede autoudfyldningen ikke?",
         "de": "GDPR-Autofill hat nicht funktioniert?",
-        "pt": "O preenchimento automático do GDPR não funcionou?",
+        "pt": "O preenchimento automático do RGPD não funcionou?",
         "fr": "Le remplissage automatique du RGPD n'a pas fonctionné ?"
     },
     "LET_US_KNOW": {
         "en": "Let us know!",
         "da": "Fortæl os!",
         "de": "Lassen Sie es uns wissen!",
-        "pt": "Nos informe!",
+        "pt": "Informe-nos!",
         "fr": "Faites-le nous savoir !"
     },
     "KEEP_RUNNING": {
         "en": "Keep running on this site?",
         "da": "Fortsæt med at køre på denne side?",
         "de": "Weiter auf dieser Website ausführen?",
-        "pt": "Continuar executando neste site?",
+        "pt": "Continuar a utilizar neste site?",
         "fr": "Continuer l'exécution sur ce site ?"
     },
     "MORE_ADDON_SETTINGS": {
         "en": "More Add-on Settings",
         "da": "Flere addon indstillinger",
         "de": "Weitere Add-on-Einstellungen",
-        "pt": "Mais configurações do Add-on",
+        "pt": "Mais definições da extensão",
         "fr": "Paramètres de l'extension"
     },
     "PERMISSIONS_DESCRIPTION": {
         "en": "In order to function this extension asks for the following permissions",
         "da": "For at fungere korrekt har denne udviddelse brug for adgang til følgende",
         "de": "Um zu funktionieren, benötigt diese Erweiterung die folgenden Berechtigungen",
-        "pt": "Para funcionar, esta extensão pede as seguintes permissões",
+        "pt": "Para funcionar, esta extensão solicita as seguintes permissões",
         "fr": "Pour fonctionner, cette extension demande les autorisations suivantes"
     },
     "PERMISSIONS_READ": {
@@ -352,7 +352,7 @@ const translations = {
         "en": "We search each page you visit for consent-related popups that we know how to handle",
         "da": "Vi gennemsøger alle sider du besøger for at finde popups som vi kan finde ud af at håndtere",
         "de": "Wir durchsuchen jede Seite, die Sie besuchen, nach zustimmungsrelevanten Popups",
-        "pt": "Procuramos em cada página que visita popups relacionados com o consentimento que sabemos como tratar",
+        "pt": "Procuramos em cada página que visita pop-ups relacionados com consentimento com os quais sabemos lidar",
         "fr": "Nous recherchons sur chaque page que vous visitez la bannière de consentement liées au consentement que nous savons gérer"
     },
     "PERMISSIONS_TABS": {
@@ -366,7 +366,7 @@ const translations = {
         "en": "You can turn the extension on/off on a page-by-page basis by clicking the icon. To check if it is enabled it needs to know the address",
         "da": "Du kan slå udviddelsen til/fra side for side ved at klikke på ikonet. For at se om den er slået til har den brug for at læse adressen",
         "de": "Sie können die Erweiterung für jede Seite einzeln ein- und ausschalten, indem Sie auf das Icon klicken. Um zu überprüfen, ob sie aktiviert ist, muss die Adresse bekannt sein",
-        "pt": "Pode ativar/desativar a extensão numa base de página a página, clicando no ícone. Para verificar se está activada, é necessário conhecer o endereço",
+        "pt": "Pode ativar/desativar a extensão página a página ao clicar no ícone. Para verificar se está ativada, é necessário saber o endereço",
         "fr": "Vous pouvez activer/désactiver l'extension page par page en cliquant sur l'icône. Pour vérifier si l'extension est activée, il faut connaître l'adresse suivante"
     },
     "PERMISSIONS_STORAGE": {
@@ -380,35 +380,35 @@ const translations = {
         "en": "Your preferences and settings are stored directly in your browser",
         "da": "Dine valg og indstillinger gemmes direkte i din browser",
         "de": "Ihre Präferenzen und Einstellungen werden direkt in Ihrem Browser gespeichert",
-        "pt": "As suas preferências e definições são armazenadas diretamente no seu browser",
+        "pt": "As suas preferências e definições são armazenadas diretamente no seu navegador",
         "fr": "Vos préférences et vos paramètres sont stockés directement dans votre navigateur"
     },
     "PERMISSIONS_NONE": {
         "en": "Without these permissions it will simply do nothing.",
         "da": "Uden adgang vil udviddelsen ikke kunne gøre noget overhovedet.",
         "de": "Ohne diese Berechtigung wird das Tool nicht funktionieren",
-        "pt": "Sem estas permissões, não fará nada.",
+        "pt": "Sem estas permissões, simplesmente não fará nada.",
         "fr": "Sans ces autorisations, il ne fera rien."
     },
     "PERMISSIONS_GRANT": {
         "en": "Grant Permissions",
         "da": "Giv Adgang",
         "de": "Gib Zugang",
-        "pt": "Conceder autorizações",
+        "pt": "Conceder permissões",
         "fr": "Accorder des autorisations"
     },
     "PERMISSIONS_FAIL": {
         "en": "Some browsers do not allow us to popup the permission request. You have to manually allow 'Access to read all pages' through the settings.",
         "da": "Nogle browsere tillader ikke at vi viser en popup og spørger om adgang. Du skal manuelt tillade 'Adgang til at læse alle sider' igennem indstillingerne.",
         "de": "Einige Browser erlauben es uns nicht, eine Berechtigungsanfrage zu senden. Sie müssen manuell 'Auf Ihre Daten für alle Websites zugreifen' in den Einstellungen zulassen.",
-        "pt": "Alguns navegadores não permitem que apareça o pedido de autorização. Tem de autorizar manualmente o 'Acesso para ler todas as páginas' através das definições.",
+        "pt": "Alguns navegadores não permitem que exibamos a solicitação de permissão. Será necessário permitir manualmente o «Acesso para ler todas as páginas» através das definições.",
         "fr": "Certains navigateurs ne nous permettent pas d'afficher la demande d'autorisation. Vous devez autoriser manuellement 'Accès à la lecture de toutes les pages' dans les paramètres."
     },
     "EDITOR_HEADER": {
         "en": "GDPR Consent Rules Editor",
         "da": "GDPR samtykke regel-editor",
         "de": "Editor für die GDPR-Zustimmungsregeln",
-        "pt": "Editor de regras de consentimento GDPR",
+        "pt": "Editor de regras de consentimento do RGPD",
         "fr": "Éditeur de règles de consentement RGPD"
     },
     "MENU": {
@@ -429,7 +429,7 @@ const translations = {
         "en": "Save Custom Rule",
         "da": "Gem brugerdefineret regel",
         "de": "Benutzerdefinierte Regel speichern",
-        "pt": "Salvar regra customizada",
+        "pt": "Guardar regra personalizada",
         "fr": "Enregistrer la règle personnalisée"
     },
     "EXPORT_JSON": {
@@ -443,21 +443,21 @@ const translations = {
         "en": "Collapse All",
         "da": "Skjul alle",
         "de": "Alle ausblenden",
-        "pt": "Recolher Todos",
+        "pt": "Recolher tudo",
         "fr": "Réduire tout"
     },
     "UNCOLLAPSE_ALL": {
         "en": "Uncollapse all",
         "da": "Vis alle",
         "de": "Alle anzeigen",
-        "pt": "Expandir Todos",
+        "pt": "Expandir tudo",
         "fr": "Développer tout"
     },
     "DRAGGABLE_ELEMENTS": {
         "en": "Draggable Elements",
         "da": "Trækbare elementer",
         "de": "Verschiebbare Elemente",
-        "pt": "Elementos Arrastáveis",
+        "pt": "Elementos arrastáveis",
         "fr": "Éléments déplaçables"
     },
     "DETECTOR": {
@@ -485,7 +485,7 @@ const translations = {
         "en": "Matches 'location.origin' against a list of urls",
         "da": "Matcher 'location.origin' mod en liste over URL'er",
         "de": "Gleicht 'location.origin' mit einer Liste von URLs ab",
-        "pt": "Corresponde a 'location.origin' a uma lista de URLs",
+        "pt": "Compara 'location.origin' com uma lista de URLs",
         "fr": "Correspond à 'location.origin' par rapport à une liste d'URLs"
     },
     "URL_LABEL": {
@@ -499,7 +499,7 @@ const translations = {
         "en": "The urls to test against, if one matches the matcher is true",
         "da": "Webadresserne til at teste op imod, hvis en af dem matcher, er sammenligneren sand",
         "de": "Die URLs, gegen die getestet werden soll. Wenn einer übereinstimmt, ist der Matcher wahr",
-        "pt": "Os URLs para testar, se um corresponder, o matcher é verdadeiro",
+        "pt": "Os URLs a serem testados; se um deles corresponder, o comparador será verdadeiro.",
         "fr": "Les URLs à tester, si l'une d'entre elles correspond, le sélecteur est vrai"
     },
     "REGEXP_LABEL": {
@@ -625,21 +625,21 @@ const translations = {
         "en": "Trash",
         "da": "Papirkurv",
         "de": "Papierkorb",
-        "pt": "Lixeira",
+        "pt": "Lixo",
         "fr": "Corbeille"
     },
     "LOAD_RULES": {
         "en": "Load Rules",
         "da": "Indlæs regler",
         "de": "Regeln laden",
-        "pt": "Carregar Regras",
+        "pt": "Carregar regras",
         "fr": "Charger les règles"
     },
     "FROM_PLUGIN_SOURCE": {
         "en": "From Plugin Sources",
         "da": "Fra Addon-kilderne",
         "de": "Aus Plugin-Quellen",
-        "pt": "De Fontes de Plug-ins",
+        "pt": "Das fontes de plugins",
         "fr": "Depuis les sources de plugin"
     },
     "LOAD": {
@@ -653,35 +653,35 @@ const translations = {
         "en": "From Your Custom Rules",
         "da": "Fra dine brugerdefinerede regler",
         "de": "Von Ihren benutzerdefinierten Regeln",
-        "pt": "De suas regras personalizadas",
+        "pt": "A partir das suas regras personalizadas",
         "fr": "À partir de vos règles personnalisées"
     },
     "DELETE": {
         "en": "Delete",
         "da": "Slet",
         "de": "Löschen",
-        "pt": "Excluir",
+        "pt": "Eliminar",
         "fr": "Supprimer"
     },
     "FROM_PASTED_JSON": {
         "en": "From Pasted JSON",
         "da": "Fra indsat JSON",
         "de": "Aus JSON einfügen",
-        "pt": "Do JSON Colado",
+        "pt": "Do JSON colado",
         "fr": "Depuis JSON collé"
     },
     "CREATE_FROM_SCRATCH": {
         "en": "... or Create a New Rule From Scratch:",
         "da": "... eller opret en ny regel fra bunden:",
         "de": "... oder eine neue Regel von Grund auf erstellen:",
-        "pt": "... ou Crie uma Nova Regra do Zero:",
+        "pt": "... ou crie uma nova regra do zero:",
         "fr": "... ou Créez une nouvelle règle à partir de zéro :"
     },
     "CREATE_NEW_RULE": {
         "en": "Create New Rule",
         "da": "Opret ny regel",
         "de": "Neue Regel erstellen",
-        "pt": "Criar Nova Regra",
+        "pt": "Criar nova regra",
         "fr": "Créer une nouvelle règle"
     },
     "SELECT": {
@@ -695,7 +695,7 @@ const translations = {
         "en": "Consent Management Popup Provider Settings",
         "da": "Indstillinger for samtykke popup-udbyder",
         "de": "Popup-Anbietereinstellungen für die Zustimmungsverwaltung",
-        "pt": "Configurações do fornecedor de Consent Management Popup",
+        "pt": "Definições do fornecedor de pop-ups de gestão de consentimento",
         "fr": "Paramètres du fournisseur de fenêtre contextuelle de gestion du consentement"
     },
     "NAME_OF_CMP": {
@@ -709,28 +709,28 @@ const translations = {
         "en": "This is the name that will be displayed to the user when the popup is detected",
         "da": "Dette er navnet som vil blive vist til brugeren når denne udbyder detekteres",
         "de": "Der Name, der dem Benutzer angezeigt wird, wenn das Popup erkannt wird",
-        "pt": "Este é o nome que será exibido ao usuário quando o pop-up for detectado",
+        "pt": "Este é o nome que será exibido ao utilizador quando o pop-up for detetado",
         "fr": "Il s'agit du nom qui sera affiché à l'utilisateur lorsque la fenêtre contextuelle est détectée"
     },
     "DRAG_HINT": {
         "en": "Hint: Dragging while holding CTRL will copy the dragged subtree instead of moving it.",
         "da": "Hint: Træk imens CTRL holdes nede, kopierer det trækkede subtræ istedet for at flytte det",
         "de": "Tipp: Wenn Sie bei gedrückter STRG-Taste ziehen, wird der gewählte Teil des Baumdiagramms kopiert, anstatt ihn zu verschieben.",
-        "pt": "Dica: Arrastar mantendo a tecla CTRL pressionada irá copiará a subárvore arrastada ao invés de movê-la.",
+        "pt": "Dica: Arrastar enquanto mantém pressionada a tecla CTRL irá copiar a subárvore arrastada em vez de movê-la.",
         "fr": "Astuce : Faites glisser en maintenant la touche CTRL enfoncée pour copier la sous-arborescence déplacée au lieu de la déplacer."
     },
     "DETECTORS": {
         "en": "Detectors:",
         "da": "Detektorer:",
         "de": "Detektoren:",
-        "pt": "Detectores:",
+        "pt": "Detetores:",
         "fr": "Détecteurs:"
     },
     "DETECTORS_HELP": {
         "en": "Detectors are used to determine when a consent popup of this type has appeared on the screen. There can often be multiple detectors for the same popup if different variants exist (bottom bar, middle popup etc)",
         "da": "Detektorer bruges til at afgøre, hvornår en samtykke-popup af denne type er dukket op på skærmen. Der kan ofte være flere detektorer for den samme popup, hvis der findes forskellige varianter (nederste bjælke, midterste popup osv.)",
         "de": "Detektoren werden verwendet, um festzustellen, wann ein Popup-Fenster dieser Art auf dem Bildschirm erscheint. Es kann oft mehrere Detektoren für dasselbe Popup geben, wenn verschiedene Varianten existieren (unterer Balken, mittleres Popup usw.)",
-        "pt": "Detectores são usados para determinar quando um pop-up de consentimento desse tipo apareceu na tela. Muitas vezes, pode haver vários detectores para o mesmo pop-up se existirem diferentes variantes (barra inferior, pop-up do meio, etc.)",
+        "pt": "Os detetores são usados para determinar quando um pop-up de consentimento deste tipo apareceu no ecrã. Muitas vezes, pode haver vários detetores para o mesmo pop-up, se existirem diferentes variantes (barra inferior, pop-up no meio, etc.)",
         "fr": "Les détecteurs sont utilisés pour déterminer quand une fenêtre contextuelle de consentement de ce type apparaît à l'écran. Il peut souvent y avoir plusieurs détecteurs pour la même fenêtre contextuelle si différentes variantes existent (barre inférieure, fenêtre contextuelle du milieu, etc.)"
     },
     "METHODS": {
@@ -744,7 +744,7 @@ const translations = {
         "en": "Methods are executed when a popup has been detected by a detector. They serve different purposes such as opening and saving the consent configuration dialog.",
         "da": "Metoder udføres, når en popup er blevet detekteret af en detektor. De tjener forskellige formål, såsom at åbne og gemme dialogboksen for samtykkekonfiguration.",
         "de": "Methoden werden ausgeführt, wenn ein Popup von einem Detektor erkannt wurde. Sie dienen verschiedenen Zwecken, z. B. Öffnen und Speichern des Konfigurationsdialogs für die Zustimmung.",
-        "pt": "Métodos executados quando um pop-up é identificado por um detector. Eles servem a propósitos diferentes, como abrir e salvar a caixa de diálogo de configuração de consentimento.",
+        "pt": "Os métodos são executados quando um pop-up é detetado por um detetor. Eles têm diferentes finalidades, como abrir e guardar a caixa de diálogo de configuração de consentimento.",
         "fr": "Les méthodes sont exécutées lorsqu'une fenêtre contextuelle est détectée par un détecteur. Elles servent à différents objectifs, tels que l'ouverture et l'enregistrement de la boîte de dialogue de configuration du consentement."
     },
     "PRESENT_MATCHER": {
@@ -758,7 +758,7 @@ const translations = {
         "en": "This matcher determines whether a CMP popup is present on the page",
         "da": "Denne matcher afgør, om der er en CMP-popup på siden",
         "de": "Dieser Matcher bestimmt, ob ein CMP-Popup auf der Seite vorhanden ist",
-        "pt": "Este 'matcher' determina se um pop-up de CMP existe na página",
+        "pt": "Este comparador determina se um pop-up CMP está presente na página",
         "fr": "Ce comparateur détermine si une fenêtre contextuelle CMP est présente sur la page"
     },
     "SHOWING_MATCHER": {
@@ -772,7 +772,7 @@ const translations = {
         "en": "This matcher determines if a CMP popup is currently showing",
         "da": "Denne matcher afgør, om en CMP-popup i øjeblikket vises",
         "de": "Dieser Vergleicher ermittelt, ob ein CMP-Popup derzeit angezeigt wird",
-        "pt": "Este 'matcher' determina se um pop-up de CMP está sendo exibido no momento",
+        "pt": "Este comparador determina se um pop-up CMP está a ser exibido no momento",
         "fr": "Ce comparateur détermine si une fenêtre contextuelle CMP est actuellement affichée"
     },
     "TARGET": {
@@ -786,7 +786,7 @@ const translations = {
         "en": "The target of the selection",
         "da": "Målet for udvælgelsen",
         "de": "Das Ziel der Auswahl",
-        "pt": "O alvo da seleção",
+        "pt": "O objetivo da seleção",
         "fr": "La cible de la sélection"
     },
     "PARENT": {
@@ -800,7 +800,7 @@ const translations = {
         "en": "An optional parent to search for before starting the search for the target from there",
         "da": "En valgfri forælder at søge efter, før du søgningen efter målet startes derfra",
         "de": "Ein optionales Elternteil, nach dem gesucht wird, bevor die Suche nach dem Ziel von dort aus beginnt",
-        "pt": "Pai opcional prévio de busca, antes de iniciar a pesquisa do alvo",
+        "pt": "Um pai opcional a ser pesquisado antes de iniciar a pesquisa pelo alvo a partir daí",
         "fr": "Un parent facultatif à rechercher avant de commencer la recherche de la cible à partir de là"
     },
     "SELECTOR": {
@@ -828,7 +828,7 @@ const translations = {
         "en": "A text filter applied to the found DOM nodes based on their content",
         "da": "Et tekstfilter anvendt på de fundne DOM-noder baseret på deres indhold",
         "de": "Ein Textfilter, der auf die gefundenen DOM-Knoten angewendet wird, basierend auf ihrem Inhalt",
-        "pt": "Filtro de texto aplicado aos nós DOM encontrados com base em seu conteúdo",
+        "pt": "Um filtro de texto aplicado aos nós DOM encontrados com base no seu conteúdo",
         "fr": "Un filtre texte appliqué aux nœuds DOM trouvés en fonction de leur contenu"
     },
     "IFRAME_FILTER": {
@@ -842,7 +842,7 @@ const translations = {
         "en": "Only trigger if inside an iframe",
         "da": "Match kun hvis inde i en iframe",
         "de": "Nur auslösen, wenn innerhalb eines iframe",
-        "pt": "Só acionar se estiver dentro de um iframe",
+        "pt": "Apenas acionar se estiver dentro de um iframe",
         "fr": "Déclencher uniquement s'il est à l'intérieur d'un iframe"
     },
     "DISPLAY_FILTER": {
@@ -856,7 +856,7 @@ const translations = {
         "en": "Only trigger if the DOM node has 'display' set to not 'none'",
         "da": "Match kun hvis DOM-noden har 'display' sat til noget andet end 'none'",
         "de": "Wird nur ausgelöst, wenn der DOM-Knoten 'display' nicht auf 'none' gesetzt ist.",
-        "pt": "Acionar apenas se o nó DOM tiver 'exibir' definido como não 'nenhum'",
+        "pt": "Apenas acionar se o nó DOM tiver 'display' definido diferente de 'none'",
         "fr": "Déclencher uniquement si le nœud DOM a 'display' défini sur autre chose que 'none'"
     },
     "CHILD_FILTER": {
@@ -869,7 +869,7 @@ const translations = {
         "en": "Only trigger if child matching this DOM node selector is found",
         "da": "Match kun, hvis der findes et barn, der matcher denne DOM-nodevælger",
         "de": "Nur auslösen, wenn ein Kind gefunden wird, das diesem DOM-Knoten-Selektor entspricht",
-        "pt": "Acionar apenas se o filho correspondente a este seletor de nó DOM for encontrado",
+        "pt": "Apenas acionar se for encontrado um filho que corresponda a este seletor de nó DOM",
         "fr": "Déclencher uniquement si un enfant correspondant à ce sélecteur de nœud DOM est trouvé"
     },
     "ACTIONS": {
@@ -883,7 +883,7 @@ const translations = {
         "en": "Each of these actions will be performed in order",
         "da": "Hver af disse handlinger vil blive udført i rækkefølge",
         "de": "Jede dieser Aktionen wird der Reihe nach durchgeführt",
-        "pt": "Cada uma dessas ações será executada em ordem",
+        "pt": "Cada uma destas ações será realizada por ordem",
         "fr": "Chacune de ces actions sera exécutée dans l'ordre"
     },
     "SELECTOR_HELP_LIST": {
@@ -904,7 +904,7 @@ const translations = {
         "en": "The action to perform for each of the targets found by the selector",
         "da": "Den handling, der skal udføres for hvert af målene fundet af vælgeren",
         "de": "Die Aktion, die für jedes der vom Selektor gefundenen Ziele durchgeführt werden soll",
-        "pt": "A ação a ser executada para cada um dos destinos encontrados pelo seletor",
+        "pt": "A ação a ser executada para cada um dos alvos encontrados pelo seletor",
         "fr": "L'action à effectuer pour chacune des cibles trouvées par le sélecteur"
     },
     "IF_TRUE_ACTION": {
@@ -918,7 +918,7 @@ const translations = {
         "en": "The action to execute if true",
         "da": "Handlingen, der skal udføres, hvis sand",
         "de": "Die Aktion, die ausgeführt werden soll, wenn wahr",
-        "pt": "A ação a ser executada se for verdadeira",
+        "pt": "A ação a executar se verdadeiro",
         "fr": "L'action à effectuer si vrai"
     },
     "IF_FALSE_ACTION": {
@@ -932,7 +932,7 @@ const translations = {
         "en": "The action to execute if false",
         "da": "Handlingen, der skal udføres, hvis falsk",
         "de": "Die Aktion, die ausgeführt werden soll, wenn falsch",
-        "pt": "A ação a ser executada se for falsa",
+        "pt": "A ação a ser executada se falso",
         "fr": "L'action à effectuer si faux"    
     },
     "SELECTOR_CLICK_HELP": {
@@ -953,7 +953,7 @@ const translations = {
         "en": "If what is clicked is a link then optionally check this box to open it in a new tab",
         "da": "Hvis det, der klikkes på, er et link, så marker valgfrit dette felt for at åbne det i en ny fane",
         "de": "Wenn es sich bei dem angeklickten Element um einen Link handelt, können Sie dieses Kästchen ankreuzen, um ihn in einem neuen Tab zu öffnen.",
-        "pt": "Se o que for clicado for um link, você pode marcar opcionalmente esta caixa para abri-lo em uma nova aba",
+        "pt": "Se o que for clicado for um link, marque esta caixa opcionalmente para abri-lo numa nova aba.",
         "fr": "Si ce qui est cliqué est un lien, cochez éventuellement cette case pour l'ouvrir dans un nouvel onglet"
     },
     "SELECTOR_HIDE_HELP": {
