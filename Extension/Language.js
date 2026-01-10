@@ -46,7 +46,7 @@ const translations = {
         "da": "Hvordan popups skal vises imens de udfyldes",
         "de": "Wie man Popups anzeigt, während sie ausgefüllt werden",
         "pt": "Como exibir pop-ups enquanto eles estão a ser preenchidos",
-         "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
+        "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
     },
     "HIDE_OR_PIP_HIDE_TITLE": {
         "en": "Hide",
