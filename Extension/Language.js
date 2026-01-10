@@ -1338,7 +1338,7 @@ const translations = {
         "en": "Matches if the css selector is found",
         "da": "Matcher, hvis css-vælgeren er fundet",
         "de": "Stimmt überein, wenn der CSS-Selektor gefunden wird",
-        "pt": "Compara se o seletor css for encontrado",
+        "pt": "Compara se o seletor CSS for encontrado",
         "fr": "Correspond si le sélecteur CSS est trouvé"
     },
     "CHECKBOX_MATCHER_DESCRIPTION": {
@@ -1352,14 +1352,14 @@ const translations = {
         "en": "Clicks the element found by the css selector",
         "da": "Klik på elementet fundet af css-vælgeren",
         "de": "Klickt auf das vom CSS-Selektor gefundene Element",
-        "pt": "Clica no elemento encontrado pelo seletor css",
+        "pt": "Clica no elemento encontrado pelo seletor CSS",
         "fr": "Clique sur l'élément trouvé par le sélecteur CSS"
     },
     "MULTICLICK_ACTION_DESCRIPTION": {
         "en": "Clicks all elements found by the css selector at once",
         "da": "Klik på alle elementerne fundet af css-vælgeren på én gang",
         "de": "Klickt alle vom CSS-Selektor gefundenen Elemente auf einmal an",
-        "pt": "Clica em todos os elementos encontrados pelo seletor css de uma só vez",
+        "pt": "Clica em todos os elementos encontrados pelo seletor CSS de uma só vez",
         "fr": "Clique sur tous les éléments trouvés par le sélecteur CSS en une fois"
     },
     "CONSENT_ACTION_DESCRIPTION": {
@@ -1387,7 +1387,7 @@ const translations = {
         "en": "True if the css selector can be found, false otherwise",
         "da": "Sandt, hvis css-vælgeren kan findes, ellers falsk",
         "de": "Wahr, wenn der CSS-Selektor gefunden werden kann, andernfalls falsch",
-        "pt": "Verdadeiro se o seletor css puder ser encontrado, falso caso contrário",
+        "pt": "Verdadeiro se o seletor CSS puder ser encontrado, falso caso contrário",
         "fr": "Vrai si le sélecteur CSS peut être trouvé, sinon faux"
     },
     "IF_ALLOW_ALL_ACTION_DESCRIPTION": {
