@@ -10,21 +10,21 @@ const translations = {
         "en": "Your Choice - Applied Everywhere",
         "da": "Dit valg - Anvendt overalt",
         "de": "Ihre Wahl - Überall angewendet",
-        "pt": "Sua Escolha - Aplicadada em todos os lugares",
+        "pt": "A sua escolha - Aplicada em todos os lugares",
         "fr": "Votre choix - Appliqué Partout"
     },
     "YOUR_CHOICE": {
         "en": "Your Choice",
         "da": "Dit valg",
         "de": "Ihre Wahl",
-        "pt": "Sua Escolha",
+        "pt": "A sua escolha",
         "fr": "Votre choix"
     },
     "RULE_LIST": {
         "en": "Rule Lists",
         "da": "Regler",
         "de": "Regellisten",
-        "pt": "Lista de Regras",
+        "pt": "Lista de regras",
         "fr": "Listes de règles"
     },
     "ABOUT": {
@@ -45,6 +45,7 @@ const translations = {
         "en": "How to display popups while they are being filled out",
         "da": "Hvordan popups skal vises imens de udfyldes",
         "de": "Wie man Popups anzeigt, während sie ausgefüllt werden",
+        "pt": "Como exibir pop-ups enquanto eles estão a ser preenchidos",
          "fr": "Comment afficher les popups pendant qu'ils sont entrain d'être remplis"
     },
     "HIDE_OR_PIP_HIDE_TITLE": {
@@ -58,6 +59,7 @@ const translations = {
         "en": "Hide the popup entirely while answering it",
         "da": "Skjul popup'en fuldstændigt imens den besvares",
         "de": "Verbirgt das Popup, während es beantwortet wird",
+        "pt": "Ocultar totalmente a janela pop-up enquanto responde",
         "fr": "Cacher complètement la popup pendant la réponse"
     },
     "HIDE_OR_PIP_PIP_TITLE": {
@@ -71,7 +73,7 @@ const translations = {
         "en": "Show the popup in a small overlay in the corner",
         "da": "Vis popup'en i en lille overlejring i hjørnet",
         "de": "Das Popup in einem kleinen Overlay in der Ecke anzeigen",
-        "pt": "Mostrar o popup numa pequena sobreposição no canto",
+        "pt": "Mostrar o pop-up numa pequena sobreposição no canto",
         "fr": "Afficher le popup dans une petite superposition dans un coin"
     },
     "DISPLAY": {
@@ -92,56 +94,56 @@ const translations = {
         "en": "Configure what categories of tracking you would like to allow. Consent-O-Matic then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
         "da": "Konfigurer hvilke tracking-kategorier du gerne vil tillade. Så vil Consent-O-Matic udfylde samtykke-popups så godt den kan baseret på dine valg. Som standard bliver alt tracking afvist.",
         "de": "Legen Sie fest, welche Kategorien von Tracking Sie zulassen möchten. Consent-O-Matic füllt dann, basierend auf Ihren Voreinstellungen, die Zustimmungs-Popups so gut wie möglich aus. Standardmäßig wird jegliches Tracking abgelehnt.",
-        "pt": "Configure quais categorias de rastreamento você gostaria de permitir. O Consent-O-Matic preenche os pop-ups de consentimento da melhor forma possível com base em suas preferências. Todos os rastreamentos são rejeitados por padrão.",
+        "pt": "Configure quais categorias de rastreamento deseja permitir. O Consent-O-Matic preenche as janelas pop-up de consentimento da melhor forma possível, com base nas suas preferências. Por predefinição, é rejeitado todo o rastreamento.",
         "fr": "Configurez les catégories de suivi que vous souhaitez autoriser. Consent-O-Matic remplit ensuite les popups de consentement de la meilleure façon possible en fonction de vos préférences. Tout suivi est rejeté par défaut."
     },
     "RULES_DESCRIPTION": {
         "en": "Consent-O-Matic comes with a set of rules that tell it how to understand each kind of GDPR consent popup. You can add more sources of rules here - or even create your own list and share it with others!",
         "da": "Sammen med Consent-O-Matic følger et sæt af regler der beskriver hvordan hver enkelt slags GDPR-samtykke-popup skal behandles. Du kan tilføje flere regel-kilder her - eller oprette din egen liste og dele den med andre!",
         "de": "Consent-O-Matic wird mit einer Reihe von Regeln geliefert, die ihm sagen, wie es jede Art von GDPR-Einwilligungs-Popup verstehen soll. Sie können hier weitere Quellen für Regeln hinzufügen - oder sogar Ihre eigene Liste erstellen und sie mit anderen teilen!",
-        "pt": "O Consent-O-Matic vem com um conjunto de regras de como entender cada tipo de pop-up de consentimento do GDPR. Você pode adicionar mais regras aqui - ou até mesmo criar sua própria lista e compartilhá-la com outras pessoas!",
+        "pt": "O Consent-O-Matic vem com um conjunto de regras que lhe indicam como compreender cada tipo de pop-up de consentimento do RGPD. Pode adicionar mais fontes de regras aqui - ou até criar a sua própria lista e partilhá-la com outras pessoas!",
         "fr": "Consent-O-Matic est livré avec un ensemble de règles qui lui indiquent comment comprendre chaque type de popup de consentement GDPR. Vous pouvez ajouter plus de sources de règles ici - ou même créer votre propre liste et la partager avec d'autres!"
     },
     "ADD_LIST": {
         "en": "Add List",
         "da": "Tilføj liste",
         "de": "Liste hinzufügen",
-        "pt": "Adicionar Lista",
+        "pt": "Adicionar lista",
         "fr": "Ajouter liste"
     },
     "RULES_UPDATE_DESCRIPTION": {
         "en": "All the rule lists are updated automatically every 22-48 hours or you can",
         "da": "Alle listerne med regler opdateres automatisk engang hver 22-48 time, eller du kan",
         "de": "Alle Regellisten werden automatisch alle 22 bis 48 Stunden aktualisiert oder Sie können",
-        "pt": "Todas as listas de regras são atualizadas automaticamente a cada 22-48 horas ou você pode",
+        "pt": "Todas as listas de regras são atualizadas automaticamente a cada 22-48 horas ou pode",
         "fr": "Toutes les listes de règles sont mises à jour automatiquement toutes les 22-48 heures ou vous pouvez"
     },
     "UPDATE_RULES_NOW": {
         "en": "Update Rules Now",
         "da": "Opdater regler nu",
         "de": "Die Regeln jetzt aktualisieren",
-        "pt": "Atualizar Regras Agora",
+        "pt": "Atualizar as regras agora",
         "fr": "Mettre à jour les règles maintenant"
     },
     "RULE_GENERATOR": {
         "en": "Rule List Generator",
         "da": "Regel liste generator",
         "de": "Regellistengenerator",
-        "pt": "Gerador de Lista de Regras",
+        "pt": "Gerador de listas de regras",
         "fr": "Générateur de Liste de Règles"
     },
     "RULE_GENERATOR_DESCRIPTION": {
         "en": "As an alternative to writing JSON rules by hand it is also possible to create rules using this drag-n-drop editor:",
         "da": "Som alternativ til at skrive JSON-reglerne i hånden, er det også muligt at lave regler med denne drag-n-drop editor:",
         "de": "Statt JSON-Regeln manuell zu schreiben, können Sie alternativ Regeln mithilfe des Drag-and-drop-Editors erstellen:",
-        "pt": "Como alternativa a escrever regras JSON manualmente, também é possível criá-las usando este editor de arrastar e soltar:",
+        "pt": "Como alternativa à criação manual de regras JSON, também é possível criar regras através deste editor de arrastar e soltar:",
         "fr": "En tant qu'alternative à la rédaction manuelle de règles JSON, il est également possible de créer des règles à l'aide de cet éditeur de glisser-déposer :"
     },
     "OPEN_RULE_GENERATOR": {
         "en": "Open Rule Editor",
         "da": "Redigér Regler",
         "de": "Regeleditor öffnen",
-        "pt": "Abrir Editor de Regras",
+        "pt": "Abrir editor de regras",
         "fr": "Ouvrir l'Éditeur de Règles"
     },
     "CLEAR": {
@@ -155,21 +157,21 @@ const translations = {
         "en": "Here you can see how many times a popup has been filled out and just how many clicks Consent-O-Matic has saved you.",
         "da": "Her kan du se hvor mange gange der er blevet udfyldt en popup for dig, og hvor mange klik Consent-O-Matic har sparet dig.",
         "de": "Hier können Sie sehen, wie häufig ein Popup ausgefüllt wurde und wie viele Klicks dank Consent-O-Matic gespart wurden.",
-        "pt": "Aqui você pode ver quantas vezes um pop-up foi preenchido e quantos cliques o Consent-O-Matic economizou para você.",
+        "pt": "Aqui pode ver quantas vezes um pop-up foi preenchido e quantos cliques o Consent-O-Matic já lhe poupou.",
         "fr": "Ici, vous pouvez voir combien de fois un popup a été remplie et combien de clics Consent-O-Matic vous a économisés."
     },
     "CLICKS_SAVED": {
         "en": "clicks saved",
         "da": "klik sparet",
         "de": "gesparte Klicks",
-        "pt": "cliques economizados",
+        "pt": "cliques poupados",
         "fr": "clics économisés"
     },
     "CLICK_DELAY_DESCRIPTION": {
         "en": "Wait a short time between performing each action or mouse gesture",
         "da": "Vent en kort periode i mellem udførslen af hver handling eller muse gesture",
         "de": "Eine kurze Zeit zwischen den einzelnen Aktionen oder Mausgesten warten",
-        "pt": "Aguarde um pouco entre a execução de cada ação ou movimento do mouse",
+        "pt": "Aguarde um pouco entre cada ação ou movimento do rato",
         "fr": "Attendez un court laps de temps entre chaque action ou geste de la souris"
     },
     "SKIP_SUBMIT_DESCRIPTION": {
@@ -183,117 +185,118 @@ const translations = {
         "en": "Visual feedback while matching consent choices",
         "da": "Visuel feedback mens samtykkevalg matches",
         "de": "Visuelles Feedback beim Abgleich von Einwilligungsentscheidungen",
-        "pt": "Feedback visual ao combinar opções de consentimento",
+        "pt": "Feedback visual durante a seleção das opções de consentimento",
         "fr": "Retour visuel pendant la correspondance des choix de consentement"
     },
     "DEBUG_CLICKS_DESCRIPTION": {
         "en": "Debug clicks to the log",
         "da": "Debug klik til loggen",
         "de": "Klicks im Debug-Log anzeigen",
-        "pt": "Depurar cliques no log",
+        "pt": "Depurar cliques no registo (log)",
         "fr": "Déboguer les clics dans le journal"
     },
     "ALWAYS_FORCE_UPDATE_DESCRIPTION": {
         "en": "Always force a reload of the rules on each page load",
         "da": "Tving genlæsning af reglerne ved hver side hentning",
         "de": "Erzwinge ein Neuladen der Regeln bei jedem Laden einer Seite",
-        "pt": "Sempre force o recarregamento das regras em cada carregamento de página",
+        "pt": "Sempre que uma página é carregada, forçar a recarga das regras",
         "fr": "Forcer toujours le rechargement des règles à chaque chargement de page"
     },
     "SKIP_HIDE_DESCRIPTION": {
         "en": "Skips the HIDE_CMP method, to better see what's going on behind the scenes.",
         "da": "Spring HIDE_CMP metoden over, for bedre at se hvad der foregår bag kulisserne.",
         "de": "Überspringt die HIDE_CMP-Methode, um besser sehen zu können, was hinter den Kulissen vor sich geht.",
-        "pt": "Ignora o método HIDE_CMP, para ver melhor o que está acontecendo nos bastidores.",
+        "pt": "Ignora o método HIDE_CMP, para ver mais claramente o que está a acontecer nos \"bastidores\".",
         "fr": "Saute la méthode HIDE_CMP, pour mieux voir ce qui se passe en coulisses."
     },
     "EXTRA_DEBUG_DESCRIPTION": {
         "en": "Enables extra debug logging",
         "da": "Aktiver ekstra debug logning",
         "de": "Aktiviert zusätzliches Debug-Logging",
-        "pt": "Habilita log adicional de depuração",
+        "pt": "Ativa o registo (log) de depuração adicional",
         "fr": "Active l'enregistrement de débogage supplémentaire"
     },
     "RULES_DEBUG_DESCRIPTION": {
         "en": "Enables debug logging of rule engine",
         "de": "Aktiviert Debug-Logging der Regelsteuerung",
+        "pt": "Permite o registo (log) de depuração do motor de regras",
         "da": "Aktiver debug logning af udførsel af regler"
     },
     "INFORMATION_NAME": {
         "en": "Information Storage and Access",
         "da": "Opbevaring og adgang til information",
         "de": "Informationsspeicherung und -zugriff",
-        "pt": "Armazenamento e Acesso à Informação",
+        "pt": "Armazenamento e acesso à informação",
         "fr": "Stockage et accès à l'information"
     },
     "INFORMATION_DESCRIPTION": {
         "en": "Storage of information or access to information that is already stored on your device - such as advertising identifiers, device identifiers, cookies, and similar technologies.",
         "da": "Lagring af information eller adgang til information, der allerede er gemt på din enhed - såsom reklame-id'er, enhedsidentifikatorer, cookies og lignende teknologier.",
         "de": "Speicherung von Informationen oder Zugriff auf Informationen, die bereits auf Ihrem Gerät gespeichert sind - wie Werbekennungen, Gerätekennungen, Cookies und ähnliche Technologien.",
-        "pt": "Armazenamento de informações ou acesso à informações que já estão armazenadas em seu dispositivo - como identificadores publicitários, identificadores de dispositivo, cookies e tecnologias semelhantes.",
+        "pt": "Armazenamento de informações ou acesso a informações que já estão armazenadas no seu dispositivo - tais como identificadores de publicidade, identificadores de dispositivos, cookies e tecnologias semelhantes.",
         "fr": "Stockage d'informations ou accès à des informations déjà stockées sur votre appareil - telles que les identifiants publicitaires, les identifiants de périphérique, les cookies et des technologies similaires."
     },
     "PREFERENCES_NAME": {
         "en": "Preferences and Functionality",
         "da": "Præferencer og funktionalitet",
         "de": "Präferenzen und Funktionalitäten",
-        "pt": "Preferências e Funcionalidade",
+        "pt": "Preferências e funcionalidade",
         "fr": "Préférences et fonctionnalités"
     },
     "PREFERENCES_DESCRIPTION": {
         "en": "Allow sites to remember choices you make (such as your user name, language or the region you are located in) and provide enhanced, more personal features. For instance, these cookies can be used to remember your login details, changes you have made to text size, fonts and other parts of web pages that you can customize. They may also be used to provide services you have asked for such as watching a video or commenting on a blog. The information in these cookies is not used to track your browsing activity on other websites.",
         "da": "Tillad websteder at huske valg, du laver (f.eks. dit brugernavn, sprog eller den region du er placeret i) og giver forbedrede, mere personlige funktioner. For eksempel kan disse cookies bruges til at huske dine loginoplysninger, ændringer, du har lavet til tekststørrelse, skrifttyper og andre dele af websider, som du kan tilpasse. De kan også bruges til at levere tjenester, du har bedt om, f.eks. at se en video eller kommentere på en blog. Oplysningerne i disse cookies bruges ikke til at spore din browsingaktivitet på andre hjemmesider.",
         "de": "Erlauben Sie es den Websites, sich an die von Ihnen getroffene Wahl zu erinnern (z. B. an Ihren Benutzernamen, Sprache oder die Region, in der Sie sich befinden) und verbesserte, persönlichere Funktionen bereitzustellen. Diese Cookies können zum Beispiel verwendet werden, um Ihre Anmeldedaten, Änderungen an der Textgröße, Schriftarten und anderen Teile der Webseiten, die Sie anpassen können, zu speichern. Sie können auch dazu verwendet werden, um Dienste, die Sie angefordert haben, bereitzustellen, wie z. B. das Ansehen eines Videos oder das Kommentieren in einem Blog. Die Informationen in diesen Cookies werden nicht dazu verwendet, um Ihre Surfaktivitäten auf anderen Websites zu verfolgen.",
-        "pt": "Permita que os sites lembrem as escolhas que você faz (como seu nome de usuário, idioma ou região em que você está localizado) e forneçam recursos aprimorados e mais personalizados. Por exemplo, esses cookies podem ser usados para lembrar seus detalhes de login, alterações feitas no tamanho do texto, fontes e outros atributos de páginas da web que você pode personalizar. Eles também podem ser usados para fornecer serviços que você solicitou, como assistir a um vídeo ou comentar em um blog. As informações nesses cookies não são usadas para rastrear sua atividade de navegação em outros sites.",
+        "pt": "Permitir que os sites memorizem as suas escolhas (como o seu nome de utilizador, idioma ou região em que se encontra) e forneçam funcionalidades melhoradas e mais personalizadas. Por exemplo, estes cookies podem ser usados para memorizar os seus dados de login, alterações que tenha feito no tamanho do texto, tipos de letra e outras partes das páginas web que pode personalizar. Também podem ser usados para fornecer serviços que tenha solicitado, como assistir a um vídeo ou comentar num blogue. As informações contidas nestes cookies não são utilizadas para rastrear a sua atividade de navegação noutros sites.",
         "fr": "Permettez aux sites de se souvenir des choix que vous faites (comme votre nom d'utilisateur, la langue ou la région dans laquelle vous vous trouvez) et de fournir des fonctionnalités améliorées et plus personnelles. Par exemple, ces cookies peuvent être utilisés pour mémoriser vos informations de connexion, les modifications que vous avez apportées à la taille du texte, aux polices et à d'autres parties des pages Web que vous pouvez personnaliser. Ils peuvent également être utilisés pour fournir des services que vous avez demandés, tels que regarder une vidéo ou commenter un blog. Les informations contenues dans ces cookies ne sont pas utilisées pour suivre votre activité de navigation sur d'autres sites Web."
     },
     "PERFORMANCE_NAME": {
         "en": "Performance and Analytics",
         "da": "Ydelse og analyse",
         "de": "Leistung und Analyse",
-        "pt": "Desempenho e Analytics",
+        "pt": "Desempenho e análises",
         "fr": "Performance et analyses"
     },
     "PERFORMANCE_DESCRIPTION": {
         "en": "The collection of information, and combination with previously collected information, to measure, understand, and report, on your usage of the services. This allows websites to count visits and traffic sources so they can measure and improve the performance of the site. It helps them know which pages are the most and least popular, see how visitors move around the site, and where visitors come from.",
         "da": "Indsamling af oplysninger og kombination med tidligere indsamlede oplysninger, til at måle, forstå og rapporterer på din brug af tjenesterne. Dette gør det muligt for websteder at tælle besøg og trafikkilder, så de kan måle og forbedre ydeevnen på webstedet. Det hjælper dem med at vide, hvilke sider der er mest og mindst populære, se hvordan besøgende bevæger sig rundt på webstedet, og hvor besøgende kommer fra.",
         "de": "Die Sammlung von Informationen und die Kombination mit zuvor gesammelten Informationen, um Ihre Nutzung der Dienste zu messen, zu verstehen und darüber zu berichten. Auf diese Weise können Websites Besuche und Quellen zählen, damit sie die Leistung der Website messen und verbessern können. Auf diese Weise erfahren sie, welche Seiten am beliebtesten und am unbeliebtesten sind, wie sich die Besucher auf der Website bewegen und woher sie kommen.",
-        "pt": "Coleta de informações e combinação com informações coletadas anteriormente para medir, entender e relatar o seu uso dos serviços. Isso permite que os sites contem visitas e origens de tráfego para que possam medir e melhorar o desempenho do site. Isso os ajuda a saber quais páginas são as mais e menos populares, ver como os visitantes navegam pelo site e de onde vêm os visitantes.",
+        "pt": "A recolha de informações e a combinação com informações recolhidas anteriormente para medir, compreender e relatar a sua utilização dos serviços. Isso permite que os sites possam fazer a contagem de visitas e fontes de tráfego para que possam medir e melhorar o desempenho do site. Isso ajuda-os a saber quais são as páginas mais e menos populares, ver como os visitantes navegam pelo site e de onde vêm os visitantes.",
         "fr": "Collecte d'informations et combinaison avec des informations précédemment collectées, pour mesurer, comprendre et rapporter votre utilisation des services. Cela permet aux sites web de compter les visites et les sources de trafic afin qu'ils puissent mesurer et améliorer la performance du site. Cela les aide à savoir quelles pages sont les plus populaires et les moins populaires, à voir comment les visiteurs se déplacent sur le site et d'où viennent les visiteurs."
     },
     "CONTENT_NAME": {
         "en": "Content selection, delivery, and reporting",
         "da": "Indholdsvalg, levering og rapportering",
         "de": "Auswahl, Bereitstellung und Auswertung von Inhalten",
-        "pt": "Seleção de conteúdo, entrega e relatórios",
+        "pt": "Seleção, entrega e relatórios de conteúdo",
         "fr": "Sélection, livraison et rapport de contenu"
     },
     "CONTENT_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what <b>content</b> was shown, how often or how long it was shown, when and where it was shown, and whether you took any action related to the content, including for example clicking on content. The data will be used to personalise content on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.",
         "da": "Indsamling af oplysninger og kombination med tidligere indsamlede oplysninger, for at vælge og levere indhold til dig og for at måle levering og effektivitet af sådant indhold. Dette inkluderer tidligere indsamlet information om dine interesser for at vælge indhold, behandle data om, hvad <b>indhold</b> der blev vist, hvor ofte eller hvor længe det blev vist, hvornår og hvor det blev vist, og om du tog nogen handling relateret til indholdet, herunder for eksempel at klikke på indhold. Dataene vil blive brugt til at personliggøre indhold på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder.",
         "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Inhalte für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität dieser Inhalte zu messen. Dies beinhaltet die Verwendung von zuvor gesammelten Informationen über Ihre Interessen zur Auswahl von Inhalten, der Verarbeitung von Daten darüber, welche <b>Inhalte</b> gezeigt wurden, wie häufig oder wie lange diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Inhalten durchgeführt haben, z. B. das Anklicken von Inhalten. Die Daten werden dazu verwendet, Inhalte auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten zu personalisieren.",
-        "pt": "Coleta de informações e combinação com informações coletadas anteriormente para selecionar e fornecer conteúdo para você e para medir a entrega e a eficácia de tal conteúdo. Isso inclui o uso de informações coletadas anteriormente sobre seus interesses para selecionar conteúdo, processar dados sobre qual <b>conteúdo</b> foi exibido, com que frequência ou por quanto tempo foi exibido, quando e onde foi exibido e se você realizou alguma ação relacionados ao conteúdo, incluindo, por exemplo, clicar no conteúdo. Os dados serão usados para personalizar o conteúdo do próprio site, mas também em outros contextos, como outros sites, aplicativos, navegadores e dispositivos.",
+        "pt": "Recolha de informações e combinação com informações recolhidas anteriormente, para selecionar e fornecer conteúdo para si, e medir a entrega e a eficácia desse conteúdo. Isso inclui o uso de informações recolhidas anteriormente sobre os seus interesses para selecionar conteúdo, processar dados sobre qual <b>conteúdo</b> foi exibido, com que frequência ou por quanto tempo foi exibido, quando e onde foi exibido e se tomou alguma ação relacionada ao conteúdo, incluindo, por exemplo, clicar no conteúdo. Os dados serão utilizados para personalizar o conteúdo no próprio website, mas também noutros contextos, tais como outros websites, aplicações, navegadores e dispositivos.",
         "fr": "Collecte d'informations et combinaison avec des informations collectées précédemment, afin de sélectionner et de livrer du contenu pour vous, ainsi que de mesurer la livraison et l'efficacité de ce contenu. Cela inclut l'utilisation d'informations précédemment collectées sur vos centres d'intérêt pour sélectionner du contenu, le traitement des données sur le contenu qui a été affiché, à quelle fréquence ou pendant combien de temps il a été affiché, quand et où il a été affiché, et si vous avez pris des mesures liées au contenu, telles que cliquer sur le contenu, par exemple. Les données seront utilisées pour personnaliser le contenu sur le site web lui-même, mais également dans d'autres contextes tels que d'autres sites web, applications, navigateurs et appareils."
     },
     "AD_NAME": {
         "en": "Ad selection, delivery, and reporting",
         "da": "Annoncevalg, levering og rapportering",
         "de": "Anzeigenauswahl, -zustellung  und -berichterstattung",
-        "pt": "Seleção, exibição e relatórios de anúncios",
+        "pt": "Seleção, entrega e relatórios de anúncios",
         "fr": "Sélection, livraison et rapport publicitaire"
     },
     "AD_DESCRIPTION": {
         "en": "Collection of information, and combination with previously collected information, to select and deliver advertisements, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what <b>advertisements</b> were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. The data will be used to personalise advertising on the website itself, but also in other contexts such as other websites, apps, browsers, and devices.<br><br>Also includes:<br>Google",
         "da": "Indsamling af oplysninger og kombination med tidligere indsamlet information for at vælge og levere reklamer og for at måle levering og effektivitet af sådanne annoncer. Dette omfatter ved hjælp af tidligere indsamlede oplysninger om dine interesser for at vælge annoncer, behandlingsdata om, hvad <b>reklamer</b> der blev vist, hvor ofte de blev vist, hvornår og hvor de blev vist, og om du tog nogen handling relateret til annoncen, herunder for eksempel at klikke på en annonce eller foretage et køb. Dataene vil blive brugt til at personliggøre reklamer på selve hjemmesiden, men også i andre sammenhænge som andre hjemmesider, apps, browsere og enheder.<br><br>Inkluderer:<br> Google",
         "de": "Sammlung von Informationen und Kombination mit zuvor gesammelten Informationen, um Werbung für Sie auszuwählen und bereitzustellen und um die Bereitstellung und Effektivität solcher Werbung zu messen. Dies beinhaltet die Verwendung von zuvor erfassten Informationen über Ihre Interessen zur Auswahl von Werbungen, der Verarbeitung von Daten darüber, welche <b>Werbungen</b> gezeigt wurden, wie häufig diese gezeigt wurden, wann und wo sie gezeigt wurden und ob Sie irgendeine Aktion im Zusammenhang mit den Werbungen durchgeführt haben, z. B. auf eine Anzeige klicken oder einen Kauf tätigen. Die Daten werden dazu verwendet, Werbung auf der Website selbst, aber auch in anderen Kontexten wie anderen Websites, Apps, Browsern und Geräten zu personalisieren.<br><br>Beinhaltet auch:<br>Google",
-        "pt": "Coleta de informações e combinação com informações coletadas anteriormente para selecionar e entregar anúncios e medir a entrega e eficácia de tais anúncios. Isso inclui o uso de informações coletadas anteriormente sobre seus interesses para selecionar anúncios, processar dados sobre quais <b>anúncios</b> foram exibidos, com que frequência foram exibidos, quando e onde foram exibidos e se você realizou alguma ação relacionada ao anúncio, incluindo, por exemplo, clicar em um anúncio ou fazer uma compra. Os dados serão usados para personalizar a publicidade no próprio site, mas também em outros contextos, como outros sites, aplicativos, navegadores e dispositivos.<br><br>Também inclui:<br>Google",
+        "pt": "Recolha de informações e combinação com informações recolhidas anteriormente para selecionar e apresentar anúncios, bem como para medir a apresentação e a eficácia desses anúncios. Isto inclui a utilização de informações recolhidas anteriormente sobre os seus interesses para selecionar anúncios, o processamento de dados sobre quais <b>anúncios</b> foram apresentados, com que frequência foram apresentados, quando e onde foram apresentados e se tomou alguma ação relacionada com o anúncio, incluindo, por exemplo, clicar num anúncio ou fazer uma compra. Os dados serão utilizados para personalizar a publicidade no próprio website, mas também noutros contextos, tais como outros websites, aplicações, navegadores e dispositivos.<br><br>Também inclui:<br>Google",
         "fr": "Collecte d'informations et combinaison avec des informations collectées précédemment, afin de sélectionner et de diffuser des publicités, ainsi que de mesurer la livraison et l'efficacité de ces publicités. Cela inclut l'utilisation d'informations précédemment collectées sur vos centres d'intérêt pour sélectionner des publicités, le traitement des données sur les publicités qui ont été diffusées, à quelle fréquence elles ont été diffusées, quand et où elles ont été diffusées, et si vous avez pris des mesures liées à la publicité, telles que cliquer sur une publicité ou effectuer un achat. Les données seront utilisées pour personnaliser la publicité sur le site web lui-même, mais également dans d'autres contextes tels que d'autres sites web, applications, navigateurs et appareils.<br><br>Comprend également :<br>Google"
     },
     "OTHER_NAME": {
         "en": "Other Purposes",
         "da": "Andre formål",
         "de": "Andere Zwecke",
-        "pt": "Outras Finalidades",
+        "pt": "Outros fins",
         "fr": "Autres fins"
     },
     "OTHER_DESCRIPTION": {
@@ -1356,6 +1359,7 @@ const translations = {
         "en": "Clicks all elements found by the css selector at once",
         "da": "Klik på alle elementerne fundet af css-vælgeren på én gang",
         "de": "Klickt alle vom CSS-Selektor gefundenen Elemente auf einmal an",
+        "pt": "",
         "fr": "Clique sur tous les éléments trouvés par le sélecteur CSS en une fois"
     },
     "CONSENT_ACTION_DESCRIPTION": {
@@ -1495,6 +1499,7 @@ const translations = {
         "en": "Run an action rooted at the selected dom element. Ignores any current root set, and sets old root afterwards.",
         "de": "Führt eine Aktion aus, die auf dem ausgewählten DOM-Element wurzelt. Ignoriert jeden aktuellen Root und setzt anschließend den alten Root.",
         "da": "Kør en handling forankret på det valgte dom-element. Ignorerer evt. gammel root og sætter gammel den igen bagefter.",
+        "pt": "",
         "fr": "Exécute une action enracinée à l'élément DOM sélectionné. Ignore toute racine actuelle définie et rétablit l'ancienne racine par la suite."
     },
     "RUN_METHOD_ACTION": {
@@ -1508,48 +1513,56 @@ const translations = {
         "en": "Runs a custom method.",
         "de": "Benutzerdefinierte Methode durchführen.",
         "da": "Kører en custom metode",
+        "pt": "",
         "fr": "Exécute une méthode personnalisée."
     },
     "ADD_METHOD": {
         "en": "Add method",
         "de": "Methode hinzufügen",
         "da": "Tilføj metode",
+        "pt": "",
         "fr": "Ajouter une méthode"
     },
     "ADD_METHOD_PROMPT": {
         "en": "Name of new method:",
         "de": "Name der neuen Methode:",
         "da": "Navnet på den nye metode:",
+        "pt": "",
         "fr": "Nom de la nouvelle méthode :"
     },
     "IGNORE_OLD_ROOT": {
         "en": "Ignore old root",
         "de": "Alten Root ignorieren",
         "da": "Ignorer gammel root",
+        "pt": "",
         "fr": "Ignorer l'ancien root"
     },
     "IGNORE_OLD_ROOT_HELP": {
         "en": "Ignores any root set, and restarts from document",
         "de": "Ignoriert jeden gesetzten Root und beginnt wieder beim Document",
         "da": "Ignorerer hvis der var sat en gammel root, og starter fra document",
+        "pt": "",
         "fr": "Ignore tout root défini et redémarre depuis le document"
     },
     "METHOD": {
         "en": "Method",
         "de": "Methode",
         "da": "Metode",
+        "pt": "",
         "fr": "Méthode"
     },
     "METHOD_HELP": {
         "en": "The method to run",
         "de": "Die durchzuführende Methode",
         "da": "Metoden der skal køres",
+        "pt": "",
         "fr": "La méthode à exécuter"
     },
     "NEGATED_URL_HELP": {
         "en": "When enabled, this matcher matches, if none of the URL's match",
         "de": "Wenn aktiviert, wird der Abgleich durchgeführt, wenn keine der URLs übereinstimmt",
         "da": "Hvis aktiveret, matcher denne matcher, kun hvis ingen af webadresserne matcher",
+        "pt": "",
         "fr": "Lorsqu'activé, ce correspondant correspond si aucune des URL ne correspond"
     },
     "ONOFF_MATCHER": {
@@ -1561,30 +1574,37 @@ const translations = {
     },
     "ONOFF_MATCHER_DESCRIPTION": {
         "en": "Uses 2 css queries to check if something is on or off",
+        "pt": "",
         "fr": "Utilise 2 requêtes CSS pour vérifier si quelque chose est activé ou désactivé"
     },
     "ONOFF_MATCHER_TRUE": {
         "en": "On",
+        "pt": "",
         "fr": "On"
     },
     "ONOFF_MATCHER_FALSE": {
         "en": "Off",
+        "pt": "",
         "fr": "Off"
     },
     "ONOFF_MATCHER_TRUE_HELP": {
         "en": "The css query used to check if this is on",
+        "pt": "",
         "fr": "La requête CSS utilisée pour vérifier si c'est activé"
     },
     "ONOFF_MATCHER_FALSE_HELP": {
         "en": "The css query used to check if this is off",
+        "pt": "",
         "fr": "La requête CSS utilisée pour vérifier si c'est désactivé"
     },
     "CHILD_FILTER_NEGATE": {
         "en": "Negate child filter",
+        "pt": "",
         "fr": "Nier le filtre enfant"
     },
     "CHILD_FILTER_NEGATE_HELP": {
         "en": "A negated child filter, filters this selector if a child is found",
+        "pt": "",
         "fr": "Un filtre enfant nié filtre ce sélecteur s'il y a un enfant"
     }
 };
