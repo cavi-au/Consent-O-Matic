@@ -342,7 +342,18 @@ export default class ConsentEngine {
 
                             // Remove focus from anything inside the closed popups
                             window.focus();
-                            if (document.activeElement) document.activeElement.blur();
+                            if (document.activeElement) {
+                                // Only blur if the active element is inside the CMP popup
+                                let shouldBlur = false;
+                                cmp.hiddenTargets.forEach((target) => {
+                                    if (target.contains(document.activeElement)) {
+                                        shouldBlur = true;
+                                    }
+                                });
+                                if (shouldBlur) {
+                                    document.activeElement.blur();
+                                }
+                            }
                             document.body.focus();
                         }
                     }, 0);
