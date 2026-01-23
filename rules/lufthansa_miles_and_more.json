@@ -1,0 +1,133 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "lufthansa_miles_and_more": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "dialog.plugindialog__base.open"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "dialog.plugindialog__base.open",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": "dialog.plugindialog__base.open"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__personalizeSelectionLink"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifallowall",
+                            "trueAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
+                                        }
+                                    },
+                                    {
+                                        "type": "waitcss",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                                        },
+                                        "retries": 50,
+                                        "waitTime": 100
+                                    },
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptAll"
+                                        }
+                                    }
+                                ]
+                            },
+                            "falseAction": {
+                                "type": "list",
+                                "actions": [
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
+                                        }
+                                    },
+                                    {
+                                        "type": "waitcss",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                                        },
+                                        "retries": 50,
+                                        "waitTime": 100
+                                    },
+                                    {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptNecessary"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptAllPersonalize"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptSelection"
+                        }
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
