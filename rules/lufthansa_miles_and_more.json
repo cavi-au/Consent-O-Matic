@@ -51,56 +51,82 @@
                     "type": "list",
                     "actions": [
                         {
-                            "type": "ifallowall",
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                            },
                             "trueAction": {
                                 "type": "list",
                                 "actions": [
                                     {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
-                                        }
-                                    },
-                                    {
-                                        "type": "waitcss",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                                        "type": "ifallowall",
+                                        "trueAction": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "waitcss",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                                                    },
+                                                    "retries": 50,
+                                                    "waitTime": 100
+                                                },
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptAll"
+                                                    }
+                                                }
+                                            ]
                                         },
-                                        "retries": 50,
-                                        "waitTime": 100
-                                    },
-                                    {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptAll"
+                                        "falseAction": {
+                                            "type": "list",
+                                            "actions": [
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "waitcss",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
+                                                    },
+                                                    "retries": 50,
+                                                    "waitTime": 100
+                                                },
+                                                {
+                                                    "type": "click",
+                                                    "target": {
+                                                        "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptNecessary"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     }
                                 ]
                             },
                             "falseAction": {
-                                "type": "list",
-                                "actions": [
-                                    {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.open:not(.cookieconsent__dialog) .plugindialog__footerButtonAccept"
-                                        }
-                                    },
-                                    {
-                                        "type": "waitcss",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open"
-                                        },
-                                        "retries": 50,
-                                        "waitTime": 100
-                                    },
-                                    {
-                                        "type": "click",
-                                        "target": {
-                                            "selector": "dialog.plugindialog__base.cookieconsent__dialog.open .cookieconsent__buttonAcceptNecessary"
-                                        }
+                                "type": "ifallowall",
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "dialog.plugindialog__base.open .plugindialog__footerButtonAccept"
                                     }
-                                ]
+                                },
+                                "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "dialog.plugindialog__base.open .plugindialog__footerButtonCancel"
+                                    }
+                                }
                             }
                         }
                     ]
