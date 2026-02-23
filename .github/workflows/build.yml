@@ -1,0 +1,45 @@
+name: Build/release
+
+on:
+  push:
+    ## Run on tags starting with `v*`
+    tags:
+      - 'v*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release:
+    continue-on-error: false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '18'
+
+      - name: "Install dependencies for build"
+        run: "npm install"
+
+      - name: "Run build"
+        run: "npm run build-chromium"
+
+      # I think otherwise a the bundles get excluded
+      - name: "Delete gitignore"
+        run: "rm .gitignore"
+
+      - name: 'Upload Release'
+        uses: ncipollo/release-action@v1.12.0
+        with:
+           artifacts: "build/dist/extension-consent-autodeny-${{github.ref_name}}.zip"
+           token: ${{ secrets.GITHUB_TOKEN }}
+
+           draft: true
+           allowUpdates: true
