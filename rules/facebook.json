@@ -7,7 +7,15 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[data-testid=\"cookie-policy-manage-dialog\"]"
+                            "selector": "div[role='dialog']",
+                            "textFilter": [
+                                "Autoriser l\u2019utilisation des cookies",
+                                "Autoriser l'utilisation des cookies",
+                                "Allow the use of cookies",
+                                "Verwendung von Cookies",
+                                "Uso de cookies",
+                                "Utilizzo dei cookie"
+                            ]
                         }
                     }
                 ],
@@ -15,7 +23,15 @@
                     {
                         "type": "css",
                         "target": {
-                            "selector": "[data-testid=\"cookie-policy-manage-dialog\"]",
+                            "selector": "div[role='dialog']",
+                            "textFilter": [
+                                "Autoriser l\u2019utilisation des cookies",
+                                "Autoriser l'utilisation des cookies",
+                                "Allow the use of cookies",
+                                "Verwendung von Cookies",
+                                "Uso de cookies",
+                                "Utilizzo dei cookie"
+                            ],
                             "displayFilter": true
                         }
                     }
@@ -24,37 +40,57 @@
         ],
         "methods": [
             {
-                "action": {
-                    "type": "hide",
-                    "target": {
-                        "selector": "[data-testid=\"cookie-policy-manage-dialog\"]"
-                    }
-                },
-                "name": "HIDE_CMP"
-            },
-            {
                 "name": "OPEN_OPTIONS"
             },
             {
+                "name": "DO_CONSENT",
                 "action": {
                     "type": "ifallowall",
                     "trueAction": {
                         "type": "click",
                         "target": {
-                            "selector": "[data-cookiebanner=\"accept_only_essential_button\"]"
+                            "selector": "div[role='dialog'] div[role='button']",
+                            "textFilter": [
+                                "Autoriser tous les cookies",
+                                "Allow all cookies",
+                                "Alle Cookies erlauben",
+                                "Permitir todas las cookies",
+                                "Consenti tutti i cookie"
+                            ]
                         }
                     },
                     "falseAction": {
                         "type": "click",
                         "target": {
-                            "selector": "[data-cookiebanner=\"accept_button\"]"
+                            "selector": "div[role='dialog'] div[role='button']",
+                            "textFilter": [
+                                "Refuser les cookies optionnels",
+                                "Decline optional cookies",
+                                "Optionale Cookies ablehnen",
+                                "Rechazar cookies opcionales",
+                                "Rifiuta i cookie facoltativi"
+                            ]
                         }
                     }
-                },
-                "name": "DO_CONSENT"
+                }
             },
             {
                 "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "div[role='dialog']",
+                        "textFilter": [
+                            "Autoriser l\u2019utilisation des cookies",
+                            "Autoriser l'utilisation des cookies",
+                            "Allow the use of cookies",
+                            "Verwendung von Cookies"
+                        ]
+                    }
+                }
             },
             {
                 "name": "UTILITY"
