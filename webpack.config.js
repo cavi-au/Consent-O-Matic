@@ -66,6 +66,9 @@ module.exports = env=>({
       new HtmlMinimizerPlugin(),
      ],
   },
+  performance: {
+    hints: false
+  },
   plugins: [
     new CopyPlugin({patterns: [{
         from: "Extension/manifest." + env.target + ".json",
