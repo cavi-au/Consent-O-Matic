@@ -462,7 +462,7 @@ const translations = {
         "da": "Detektor",
         "de": "Detektor",
         "pt": "Detector",
-        "pt": "Détecteur"
+        "fr": "Détecteur"
     },
     "CSS_MATCHER": {
         "en": "CssMatcher",
