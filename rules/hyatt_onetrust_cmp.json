@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+  "support-hyatt": {
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#onetrust-banner-sdk"
+            }
+          }
+        ],
+        "showingMatcher": [
+          {
+            "type": "css",
+            "target": {
+              "selector": "#onetrust-banner-sdk",
+              "displayFilter": true
+            }
+          }
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "name": "HIDE_CMP",
+        "action": {
+          "type": "hide",
+          "target": {
+            "selector": "#onetrust-banner-sdk"
+          }
+        }
+      },
+      {
+        "name": "SAVE_CONSENT",
+        "action": {
+          "type": "ifcss",
+          "target": {
+            "selector": "#onetrust-reject-all-handler"
+          },
+          "trueAction": {
+            "type": "click",
+            "target": {
+              "selector": "#onetrust-reject-all-handler"
+            }
+          },
+          "falseAction": {
+            "type": "click",
+            "target": {
+              "selector": "#onetrust-accept-btn-handler"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
