@@ -1,0 +1,346 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "fides": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#fides-overlay, #fides-modal, #fides-banner, #fides-banner-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#fides-overlay, #fides-banner, #fides-banner-container, #fides-modal",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#fides-manage-preferences-button, button.fides-manage-preferences-button",
+                        "textFilter": [
+                            "Your Privacy Choices",
+                            "Customise",
+                            "Customize",
+                            "Manage preferences",
+                            "Manage privacy preferences"
+                        ],
+                        "displayFilter": true
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Store and/or access information on a device"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Store and/or access information on a device"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "D"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use limited data to select advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use limited data to select advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Create profiles for personalised advertising",
+                                        "Create profiles for personalized advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Create profiles for personalised advertising",
+                                        "Create profiles for personalized advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use profiles to select personalised advertising",
+                                        "Use profiles to select personalized advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use profiles to select personalised advertising",
+                                        "Use profiles to select personalized advertising"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "F"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Measure advertising performance"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Measure advertising performance"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Measure content performance"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Measure content performance"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Understand audiences through statistics",
+                                        "Understand audiences"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Understand audiences through statistics",
+                                        "Understand audiences"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Develop and improve services",
+                                        "Develop and improve products"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Develop and improve services",
+                                        "Develop and improve products"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "E"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use precise geolocation data"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Use precise geolocation data"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "X"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Actively scan device characteristics"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                }
+                            },
+                            "toggleAction": {
+                                "parent": {
+                                    "selector": ".fides-notice-toggle",
+                                    "textFilter": [
+                                        "Actively scan device characteristics"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input.fides-toggle-input"
+                                },
+                                "type": "click"
+                            },
+                            "type": "X"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#fides-save-button, button.fides-save-button",
+                        "textFilter": [
+                            "Confirm My Choices",
+                            "Save",
+                            "Confirm"
+                        ],
+                        "displayFilter": true
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            }
+        ]
+    }
+}
