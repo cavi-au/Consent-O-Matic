@@ -1,0 +1,155 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "transcend": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#transcend-consent-manager"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#consentManagerMainDialog"
+                        },
+                        "parent": {
+                            "selector": "#transcend-consent-manager"
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#consentManagerMainDialog"
+                    },
+                    "parent": {
+                        "selector": "#transcend-consent-manager"
+                    }
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button.button:nth-child(2)"
+                    },
+                    "parent": {
+                        "selector": "#transcend-consent-manager"
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[name='Personalized Advertising']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[name='Personalized Advertising']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[name='Personalized Experience']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[name='Personalized Experience']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "type": "E"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "[name='Analytics']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "[name='Analytics']"
+                                        },
+                                        "parent": {
+                                            "selector": "#transcend-consent-manager"
+                                        }
+                                    },
+                                    "type": "B"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "[type='submit']"
+                    },
+                    "parent": {
+                        "selector": "#transcend-consent-manager"
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
