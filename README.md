@@ -13,7 +13,7 @@
             <img src="https://i.imgur.com/XBIE9pk.png" width="56%" alt="Chrome Web Store (also for Chromium-based browsers)">
          </picture>
       </a>
-      <a href="https://addons.mozilla.org/en-US/firefox/addon/consent-o-matic/">
+      <a href="https://addons.mozilla.org/firefox/addon/consent-o-matic/">
          <picture>
             <source srcset="https://i.imgur.com/ZluoP7T.png" height="60" media="(width >= 710px)">
             <img src="https://i.imgur.com/ZluoP7T.png" width="41%" alt="Firefox add-ons">
