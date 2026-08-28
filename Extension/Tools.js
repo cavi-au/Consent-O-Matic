@@ -1,6 +1,44 @@
 import ConsentEngine from "./ConsentEngine.js";
 
 export default class Tools {
+    /**
+     * Normalizes text for language-insensitive comparison in textFilter.
+     *
+     * Cookie banners are rarely written in English, and a plain lowercase
+     * substring match fails on several characters that look identical to a
+     * user but differ by codepoint:
+     *
+     *  - Accents: a rule written "Funktionalität" will not match a page that
+     *    renders "Funktionalitat", or the same string in NFD form.
+     *  - Typographic apostrophes: U+2019 (') vs U+0027 ('). Sites and rules
+     *    disagree constantly, and one character is enough to miss the button.
+     *  - Non-breaking spaces (U+00A0) and other Unicode whitespace, which are
+     *    common in European layouts and never equal a plain space.
+     *
+     * Normalizing both sides only ever makes matching more permissive, so
+     * existing rules keep working.
+     */
+    static normalizeText(str) {
+        if (str == null) {
+            return "";
+        }
+
+        return String(str)
+            .normalize("NFKD")
+            // Strip combining diacritics: à -> a, ü -> u, ç -> c
+            .replace(/[\u0300-\u036f]/g, "")
+            // Typographic apostrophes and primes -> straight apostrophe
+            .replace(/[\u2018\u2019\u201A\u201B\u2032\u00B4\u0060]/g, "'")
+            // Typographic quotes -> straight quote
+            .replace(/[\u201C\u201D\u201E\u201F\u2033]/g, "\"")
+            // Dashes -> hyphen
+            .replace(/[\u2010-\u2015\u2212]/g, "-")
+            // Any whitespace run, including NBSP, -> single space
+            .replace(/[\s\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000]+/g, " ")
+            .trim()
+            .toLowerCase();
+    }
+
     static setBase(base) {
         Tools.base = base;
     }
@@ -51,16 +89,14 @@ export default class Tools {
         const clonedPossibleTargets = possibleTargets.slice();
 
         if (options.textFilter != null) {
-            let filterMultipleSpacesRegex = /\s{2,}/gm;
-
             possibleTargets = possibleTargets.filter((possibleTarget) => {
-                let textContent = possibleTarget.textContent.toLowerCase().replace(filterMultipleSpacesRegex, " ");
+                let textContent = Tools.normalizeText(possibleTarget.textContent);
 
                 if (Array.isArray(options.textFilter)) {
                     let foundText = false;
 
                     for (let text of options.textFilter) {
-                        if (textContent.indexOf(text.toLowerCase().replace(filterMultipleSpacesRegex, " ")) !== -1) {
+                        if (textContent.indexOf(Tools.normalizeText(text)) !== -1) {
                             foundText = true;
                             break;
                         }
@@ -68,7 +104,7 @@ export default class Tools {
 
                     return foundText;
                 } else if (options.textFilter != null) {
-                    return textContent.indexOf(options.textFilter.toLowerCase()) !== -1;
+                    return textContent.indexOf(Tools.normalizeText(options.textFilter)) !== -1;
                 }
             });
         }
