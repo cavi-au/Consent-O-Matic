@@ -1,0 +1,278 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "cookieyes": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cky-consent-container"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cky-consent-container:not(.cky-hide), .cky-modal.cky-modal-open",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cky-consent-container"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cky-modal"
+                            }
+                        },
+                        {
+                            "type": "hide",
+                            "target": {
+                                "selector": ".cky-overlay"
+                            }
+                        }
+                    ]
+                },
+                "name": "HIDE_CMP"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": ".cky-modal.cky-modal-open, .cky-consent-bar.cky-consent-bar-expand"
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-cky-tag=\"settings-button\"], .cky-btn-customize, [data-cky-tag=\"donotsell-button\"], .cky-btn-do-not-sell"
+                                }
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".cky-modal.cky-modal-open, .cky-consent-bar.cky-consent-bar-expand"
+                            },
+                            "retries": 20,
+                            "waitTime": 250
+                        }
+                    ]
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "description": "Functional cookies",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckySwitchfunctional"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckySwitchfunctional"
+                                        }
+                                    },
+                                    "type": "A"
+                                },
+                                {
+                                    "description": "Analytics cookies",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckySwitchanalytics"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckySwitchanalytics"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "description": "Performance cookies",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckySwitchperformance"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckySwitchperformance"
+                                        }
+                                    },
+                                    "type": "B"
+                                },
+                                {
+                                    "description": "Advertisement cookies",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckySwitchadvertisement"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckySwitchadvertisement"
+                                        }
+                                    },
+                                    "type": "F"
+                                },
+                                {
+                                    "description": "Other cookies",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckySwitchothers"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckySwitchothers"
+                                        }
+                                    },
+                                    "type": "X"
+                                },
+                                {
+                                    "description": "CCPA: Do not sell my personal information (opt-out checkbox)",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "target": {
+                                            "selector": "#ckyCCPAOptOut"
+                                        },
+                                        "negated": true
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "target": {
+                                            "selector": "#ckyCCPAOptOut"
+                                        }
+                                    },
+                                    "type": "F"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "foreach",
+                            "target": {
+                                "selector": ".cky-accordion",
+                                "childFilter": {
+                                    "target": {
+                                        "selector": ".cky-switch input[type=\"checkbox\"]:not(#ckySwitchfunctional):not(#ckySwitchanalytics):not(#ckySwitchperformance):not(#ckySwitchadvertisement):not(#ckySwitchothers)"
+                                    }
+                                }
+                            },
+                            "action": {
+                                "type": "consent",
+                                "consents": [
+                                    {
+                                        "description": "Custom / unknown CookieYes category",
+                                        "matcher": {
+                                            "type": "checkbox",
+                                            "target": {
+                                                "selector": ".cky-switch input[type=\"checkbox\"]"
+                                            }
+                                        },
+                                        "toggleAction": {
+                                            "type": "click",
+                                            "target": {
+                                                "selector": ".cky-switch input[type=\"checkbox\"]"
+                                            }
+                                        },
+                                        "type": "X"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "ifcss",
+                    "target": {
+                        "selector": "#ckyCCPAOptOut"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "[data-cky-tag=\"optout-confirm-button\"], .cky-btn-confirm"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "ifallowall",
+                        "trueAction": {
+                            "type": "click",
+                            "target": {
+                                "selector": "[data-cky-tag=\"detail-accept-button\"], .cky-btn-accept"
+                            }
+                        },
+                        "falseAction": {
+                            "type": "ifallownone",
+                            "trueAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "[data-cky-tag=\"detail-reject-button\"], .cky-btn-reject"
+                                }
+                            },
+                            "falseAction": {
+                                "type": "ifcss",
+                                "target": {
+                                    "selector": "[data-cky-tag=\"detail-save-button\"], .cky-btn-preferences"
+                                },
+                                "trueAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[data-cky-tag=\"detail-save-button\"], .cky-btn-preferences"
+                                    }
+                                },
+                                "falseAction": {
+                                    "type": "click",
+                                    "target": {
+                                        "selector": "[data-cky-tag=\"detail-reject-button\"], .cky-btn-reject"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
