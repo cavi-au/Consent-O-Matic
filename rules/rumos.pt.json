@@ -1,0 +1,142 @@
+{
+  "Rumos (rumos.pt)": {
+    "detectors": [
+      {
+        "presentMatcher": [
+          {
+            "type": "url",
+            "url": "^(?:www\\.)?rumos\\.pt$",
+            "regexp": true
+          },
+          {
+            "type": "css",
+            "target": {
+              "selector": ".cookies-wrapper #cookie-functional"
+            }
+          },
+          {
+            "type": "css",
+            "target": {
+              "selector": ".cookies-wrapper #cookie-analytical"
+            }
+          },
+          {
+            "type": "css",
+            "target": {
+              "selector": ".cookies-wrapper #cookie-advertising"
+            }
+          }
+        ],
+        "showingMatcher": {
+          "type": "css",
+          "target": {
+            "selector": ".cookies-wrapper.visible-box",
+            "displayFilter": true
+          }
+        }
+      }
+    ],
+    "methods": [
+      {
+        "name": "OPEN_OPTIONS",
+        "action": {
+          "type": "list",
+          "actions": [
+            {
+              "type": "ifcss",
+              "target": {
+                "selector": ".cookies-wrapper.visible-box .cookies-description:not(.hidden) .cookies-settings-link button",
+                "displayFilter": true
+              },
+              "trueAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-description:not(.hidden) .cookies-settings-link button",
+                  "displayFilter": true
+                }
+              }
+            },
+            {
+              "type": "waitcss",
+              "target": {
+                "selector": ".cookies-wrapper.visible-box .cookies-settings.visible #cookie-functional",
+                "displayFilter": true
+              },
+              "retries": 20,
+              "waitTime": 100
+            }
+          ]
+        }
+      },
+      {
+        "name": "DO_CONSENT",
+        "action": {
+          "type": "consent",
+          "consents": [
+            {
+              "type": "A",
+              "matcher": {
+                "type": "checkbox",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible #cookie-functional",
+                  "displayFilter": true
+                }
+              },
+              "toggleAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible label[for=\"cookie-functional\"]",
+                  "displayFilter": true
+                }
+              }
+            },
+            {
+              "type": "B",
+              "matcher": {
+                "type": "checkbox",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible #cookie-analytical",
+                  "displayFilter": true
+                }
+              },
+              "toggleAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible label[for=\"cookie-analytical\"]",
+                  "displayFilter": true
+                }
+              }
+            },
+            {
+              "type": "F",
+              "matcher": {
+                "type": "checkbox",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible #cookie-advertising",
+                  "displayFilter": true
+                }
+              },
+              "toggleAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".cookies-wrapper.visible-box .cookies-settings.visible label[for=\"cookie-advertising\"]",
+                  "displayFilter": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "SAVE_CONSENT",
+        "action": {
+          "type": "click",
+          "target": {
+            "selector": ".cookies-wrapper.visible-box .cookies-settings.visible #submit-preferences",
+            "displayFilter": true
+          }
+        }
+      }
+    ]
+  }
+}
