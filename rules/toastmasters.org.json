@@ -1,0 +1,107 @@
+{
+    "toastmasters.org": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": "^(www\\.)?toastmasters\\.org$",
+                        "regexp": true
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#cc-main .cm__btn[data-role=\"show\"]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "html.show--consent #cc-main .cm, html.show--preferences #cc-main .pm",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP"
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "ifcss",
+                            "target": {
+                                "selector": "html.show--preferences #cc-main .pm",
+                                "displayFilter": true
+                            },
+                            "falseAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cc-main .cm__btn[data-role=\"show\"]"
+                                }
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "html.show--preferences #cc-main input.section__toggle[value=\"analytics\"]"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": {
+                                    "selector": "#cc-main input.section__toggle[value=\"analytics\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": "#cc-main input.section__toggle[value=\"analytics\"]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": "#cc-main .pm__btn[data-role=\"save\"]"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": "html.show--consent #cc-main .cm, html.show--preferences #cc-main .pm",
+                                "displayFilter": true
+                            },
+                            "negated": true
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
