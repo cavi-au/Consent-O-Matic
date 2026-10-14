@@ -1,0 +1,157 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "Zaask": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": [
+                            "zaask.pt",
+                            "zaask.es"
+                        ]
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[class^='styles__CookiesBackground']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "url",
+                        "url": [
+                            "zaask.pt",
+                            "zaask.es"
+                        ]
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[class^='styles__CookiesBackground']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button[class^='styles__ViewMoreButton']",
+                        "displayFilter": true
+                    }
+                },
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": [
+                                        "Cookies Preferências",
+                                        "Cookies Preferencias"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input[type='checkbox']"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": [
+                                        "Cookies Preferências",
+                                        "Cookies Preferencias"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "label",
+                                    "displayFilter": true
+                                }
+                            },
+                            "type": "A"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": [
+                                        "Cookies Estatísticas",
+                                        "Cookies Estadísticas"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "input[type='checkbox']"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": [
+                                        "Cookies Estatísticas",
+                                        "Cookies Estadísticas"
+                                    ]
+                                },
+                                "target": {
+                                    "selector": "label",
+                                    "displayFilter": true
+                                }
+                            },
+                            "type": "B"
+                        },
+                        {
+                            "matcher": {
+                                "type": "checkbox",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": "Cookies Marketing"
+                                },
+                                "target": {
+                                    "selector": "input[type='checkbox']"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[class^='cookie-section__Wrapper']",
+                                    "textFilter": "Cookies Marketing"
+                                },
+                                "target": {
+                                    "selector": "label",
+                                    "displayFilter": true
+                                }
+                            },
+                            "type": "F"
+                        }
+                    ]
+                },
+                "name": "DO_CONSENT"
+            },
+            {
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button[class^='styles__AcceptSelection']",
+                        "displayFilter": true
+                    }
+                },
+                "name": "SAVE_CONSENT"
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
