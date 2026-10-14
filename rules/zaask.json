@@ -6,26 +6,30 @@
                 "presentMatcher": [
                     {
                         "type": "url",
-                        "url": "zaask.pt"
+                        "url": [
+                            "zaask.pt",
+                            "zaask.es"
+                        ]
                     },
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#__next h1",
-                            "textFilter": "Utilizamos cookies"
+                            "selector": "[class^='styles__CookiesBackground']"
                         }
                     }
                 ],
                 "showingMatcher": [
                     {
                         "type": "url",
-                        "url": "zaask.pt"
+                        "url": [
+                            "zaask.pt",
+                            "zaask.es"
+                        ]
                     },
                     {
                         "type": "css",
                         "target": {
-                            "selector": "#__next h1",
-                            "textFilter": "Utilizamos cookies",
+                            "selector": "[class^='styles__CookiesBackground']",
                             "displayFilter": true
                         }
                     }
@@ -37,8 +41,7 @@
                 "action": {
                     "type": "click",
                     "target": {
-                        "selector": "#__next button",
-                        "textFilter": "Ver detalhes",
+                        "selector": "button[class^='styles__ViewMoreButton']",
                         "displayFilter": true
                     }
                 },
@@ -53,7 +56,10 @@
                                 "type": "checkbox",
                                 "parent": {
                                     "selector": "[class^='cookie-section__Wrapper']",
-                                    "textFilter": "Cookies Preferências"
+                                    "textFilter": [
+                                        "Cookies Preferências",
+                                        "Cookies Preferencias"
+                                    ]
                                 },
                                 "target": {
                                     "selector": "input[type='checkbox']"
@@ -63,7 +69,10 @@
                                 "type": "click",
                                 "parent": {
                                     "selector": "[class^='cookie-section__Wrapper']",
-                                    "textFilter": "Cookies Preferências"
+                                    "textFilter": [
+                                        "Cookies Preferências",
+                                        "Cookies Preferencias"
+                                    ]
                                 },
                                 "target": {
                                     "selector": "label",
@@ -77,7 +86,10 @@
                                 "type": "checkbox",
                                 "parent": {
                                     "selector": "[class^='cookie-section__Wrapper']",
-                                    "textFilter": "Cookies Estatísticas"
+                                    "textFilter": [
+                                        "Cookies Estatísticas",
+                                        "Cookies Estadísticas"
+                                    ]
                                 },
                                 "target": {
                                     "selector": "input[type='checkbox']"
@@ -87,7 +99,10 @@
                                 "type": "click",
                                 "parent": {
                                     "selector": "[class^='cookie-section__Wrapper']",
-                                    "textFilter": "Cookies Estatísticas"
+                                    "textFilter": [
+                                        "Cookies Estatísticas",
+                                        "Cookies Estadísticas"
+                                    ]
                                 },
                                 "target": {
                                     "selector": "label",
