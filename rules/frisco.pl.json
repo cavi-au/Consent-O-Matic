@@ -1,0 +1,169 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "frisco.pl": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "url",
+                        "url": "(^|\\.)frisco\\.pl$",
+                        "regexp": true
+                    },
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookies-consents-modal button.secondary"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cookies-consents-modal button.secondary",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": ".cookies-consents-modal"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "target": {
+                                "selector": ".cookies-consents-modal button.secondary"
+                            }
+                        },
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".cookies-consents.edit .cookies-switches"
+                            },
+                            "retries": 10,
+                            "waitTime": 250
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "description": "Advertising cookies",
+                            "type": "F",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch.active",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Reklamowe pliki cookies", "Advertising cookies"]
+                                        }
+                                    }
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Reklamowe pliki cookies", "Advertising cookies"]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "description": "Analytical cookies",
+                            "type": "B",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch.active",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Analityczne pliki cookies", "Analytical cookies"]
+                                        }
+                                    }
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Analityczne pliki cookies", "Analytical cookies"]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "description": "Extended conversions: name and e-mail address shared with Google",
+                            "type": "F",
+                            "matcher": {
+                                "type": "css",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch.active",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Konwersje rozszerzone", "Extended conversions"]
+                                        }
+                                    }
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": {
+                                    "selector": ".cookies-switches button.switch",
+                                    "childFilter": {
+                                        "target": {
+                                            "selector": "p.title",
+                                            "textFilter": ["Konwersje rozszerzone", "Extended conversions"]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cookies-consents.edit button.cta",
+                        "textFilter": ["Akceptuję wybrane", "Accept selected"]
+                    }
+                }
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
