@@ -60,6 +60,73 @@ if (optionsUL){
         });
     });
 
+    // Consent-O-Matic Plus: global default behaviour
+    GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+        let modeForm = document.querySelector("#defaultMode");
+        modeForm.elements["defaultMode"].value = generalSettings.defaultMode;
+        modeForm.addEventListener("input", ()=>{
+            GDPRConfig.setGeneralSettings({defaultMode: modeForm.elements["defaultMode"].value});
+        });
+    });
+
+    // Consent-O-Matic Plus: per-site preferences
+    let siteTable = document.querySelector("#sitesTab table.siteList");
+    const modeLabels = {
+        ask: "PLUS_MODE_ASK",
+        acceptAll: "PLUS_ACCEPT_ALL",
+        rejectAll: "PLUS_REJECT_ALL",
+        subset: "PLUS_USE_SUBSET",
+        custom: "PLUS_MODE_CUSTOM"
+    };
+    const categoryNames = {A: "PREFERENCES_NAME", B: "PERFORMANCE_NAME", D: "INFORMATION_NAME", E: "CONTENT_NAME", F: "AD_NAME", X: "OTHER_NAME"};
+
+    function updateSiteList() {
+        GDPRConfig.getSitePreferences().then((prefs)=>{
+            let tbody = siteTable.querySelector("tbody");
+            tbody.innerHTML = "";
+            let hosts = Object.keys(prefs).sort();
+            document.querySelector("#sitesTab .sitesempty").style.display = hosts.length === 0 ? "block" : "none";
+            siteTable.style.display = hosts.length === 0 ? "none" : "table";
+            hosts.forEach((host)=>{
+                let pref = prefs[host];
+                let tr = document.createElement("tr");
+                let cell = document.createElement("th");
+                cell.textContent = host;
+                tr.appendChild(cell);
+
+                cell = document.createElement("td");
+                cell.textContent = Language.getString(modeLabels[pref.mode] || pref.mode);
+                if (pref.mode === "custom" && pref.values != null) {
+                    let allowed = Object.keys(categoryNames).filter((k)=>pref.values[k]).map((k)=>Language.getString(categoryNames[k]));
+                    cell.textContent += ": " + (allowed.length > 0 ? allowed.join(", ") : "\u2013");
+                }
+                tr.appendChild(cell);
+
+                cell = document.createElement("td");
+                cell.textContent = pref.updated ? new Date(pref.updated).toLocaleDateString() : "";
+                tr.appendChild(cell);
+
+                cell = document.createElement("td");
+                let remove = document.createElement("button");
+                remove.textContent = Language.getString("PLUS_SITES_REMOVE");
+                remove.setAttribute("aria-label", Language.getString("PLUS_SITES_REMOVE") + " " + host);
+                remove.addEventListener("click", ()=>{
+                    GDPRConfig.setSitePreference(host, null).then(updateSiteList);
+                });
+                cell.appendChild(remove);
+                tr.appendChild(cell);
+                tbody.appendChild(tr);
+            });
+        });
+    }
+    updateSiteList();
+    chrome.storage.onChanged.addListener((changes, area)=>{
+        if (area === "local" && changes.sitePreferences != null) updateSiteList();
+    });
+    document.querySelector("#clearSites").addEventListener("click", ()=>{
+        GDPRConfig.clearSitePreferences().then(updateSiteList);
+    });
+
     let consentPromise = GDPRConfig.getConsentTypes().then((consentTypes) => {
         consentTypes.forEach((consentType) => {
             addToggleItem(optionsUL, consentType.type, Language.getString(consentType.name), Language.getString(consentType.description), consentType.value);

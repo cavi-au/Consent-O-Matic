@@ -17,6 +17,19 @@
                     <button id="unhandled">[[LET_US_KNOW]]</button>
                 </div>
             </div>
+            <div class="plussite">
+                <label for="sitemode"><b>[[PLUS_POPUP_THIS_SITE]]</b></label>
+                <select id="sitemode">
+                    <option value="">[[PLUS_USE_GLOBAL]]</option>
+                    <option value="ask">[[PLUS_MODE_ASK]]</option>
+                    <option value="acceptAll">[[PLUS_ACCEPT_ALL]]</option>
+                    <option value="rejectAll">[[PLUS_REJECT_ALL]]</option>
+                    <option value="subset">[[PLUS_USE_SUBSET]]</option>
+                    <option value="custom" disabled>[[PLUS_MODE_CUSTOM]]</option>
+                </select>
+                <small id="globalmode"></small>
+                <small id="reloadhint" style="display:none">[[PLUS_SITE_RELOAD_HINT]]</small>
+            </div>
             <div class="keeprunning">
                 <div>[[KEEP_RUNNING]]</div>
                 <label class="siteselector"><input type="checkbox" checked><span id="site"></label>

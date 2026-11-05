@@ -246,6 +246,34 @@ export default class ConsentEngine {
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
+                            // Consent-O-Matic Plus: decide what to answer (per-site preference,
+                            // global setting, or ask the user via the unified popup) before touching the CMP
+                            clearTimeout(self.stopEngineId);
+                            if (ConsentEngine.decisionProvider != null) {
+                                let decision = null;
+                                try {
+                                    decision = await ConsentEngine.decisionProvider(cmp.name);
+                                } catch (e) {
+                                    console.error("Consent-O-Matic Plus: could not resolve a decision:", e);
+                                }
+
+                                if (decision == null) {
+                                    // User chose "Not now" (or something failed): leave the site's own banner alone
+                                    if (ConsentEngine.debugValues.debugLog) {
+                                        console.log(cmp.name + " - no decision, leaving CMP untouched");
+                                    }
+                                    clearInterval(self.domScannerIntervalID);
+                                    self.checkRunning = false;
+                                    self.handledCallback({
+                                        handled: false,
+                                        dismissed: true
+                                    });
+                                    return;
+                                }
+
+                                self.consentTypes = decision;
+                            }
+
                             try {
                                 self.numClicks = 0;
 
@@ -474,3 +502,9 @@ export default class ConsentEngine {
 }
 
 ConsentEngine.singleton = null;
+
+/**
+ * Optional async function(cmpName) => consentValues|null, set by the content script.
+ * Returning null means "do nothing on this page".
+ */
+ConsentEngine.decisionProvider = null;

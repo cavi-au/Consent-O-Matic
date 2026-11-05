@@ -1,3 +1,7 @@
+# Consent-O-Matic Plus
+
+> This fork adds a unified, accessible consent popup (Accept all / Reject all non-essential / Use my preferences / Customize), global settings, per-site preferences and our own bundled rules (`rules-plus/`). See **[docs/PLUS_DESIGN.md](docs/PLUS_DESIGN.md)** for the design, flow chart, backend and status. Build with `npm run build-chromium`, load `build/` unpacked in Chrome, test with `npm run test:e2e`.
+
 # Consent-O-Matic
 
 <table><tr><td>

@@ -1,4 +1,139 @@
 const translations = {
+    "PLUS_SHORT_A": {
+        "en": "Remember your settings such as language, region or login."
+    },
+    "PLUS_SHORT_B": {
+        "en": "Count visits and measure how the site is used."
+    },
+    "PLUS_SHORT_D": {
+        "en": "Store or access information on your device."
+    },
+    "PLUS_SHORT_E": {
+        "en": "Personalised content based on your profile."
+    },
+    "PLUS_SHORT_F": {
+        "en": "Ads and tracking for advertising, including across sites."
+    },
+    "PLUS_SHORT_X": {
+        "en": "Purposes the site doesn't fit into the categories above."
+    },
+    "PLUS_NAME": {
+        "en": "Consent-O-Matic Plus"
+    },
+    "PLUS_PROMPT_TITLE": {
+        "en": "This site wants to use cookies"
+    },
+    "PLUS_PROMPT_BODY": {
+        "en": "is asking for your consent. Pick an option once and we'll fill in the site's cookie banner for you."
+    },
+    "PLUS_ACCEPT_ALL": {
+        "en": "Accept all"
+    },
+    "PLUS_REJECT_ALL": {
+        "en": "Reject all non-essential"
+    },
+    "PLUS_USE_SUBSET": {
+        "en": "Use my preferences"
+    },
+    "PLUS_SUBSET_ALLOWS": {
+        "en": "Allows only: %1%"
+    },
+    "PLUS_SUBSET_NOTHING": {
+        "en": "Your preferences currently allow no optional cookies"
+    },
+    "PLUS_CUSTOMIZE": {
+        "en": "Customize…"
+    },
+    "PLUS_CUSTOMIZE_SUB": {
+        "en": "Choose categories for this site only"
+    },
+    "PLUS_CUSTOMIZE_LEGEND": {
+        "en": "Allow these categories"
+    },
+    "PLUS_SAVE_CHOICES": {
+        "en": "Save my choices"
+    },
+    "PLUS_REMEMBER": {
+        "en": "Remember my choice for %1%"
+    },
+    "PLUS_NOT_NOW": {
+        "en": "Not now (show the site's banner)"
+    },
+    "PLUS_GLOBAL_SETTINGS": {
+        "en": "Global settings"
+    },
+    "PLUS_DEFAULT_MODE_TITLE": {
+        "en": "When a cookie banner appears"
+    },
+    "PLUS_DEFAULT_MODE_DESCRIPTION": {
+        "en": "Choose what Consent-O-Matic Plus does on sites where you haven't saved a choice yet. Choices you save for a specific site always win over this setting."
+    },
+    "PLUS_MODE_ASK": {
+        "en": "Ask me with the unified popup"
+    },
+    "PLUS_MODE_ASK_DETAIL": {
+        "en": "Show one consistent popup with Accept all, Reject all non-essential, Use my preferences and Customize."
+    },
+    "PLUS_MODE_SUBSET": {
+        "en": "Automatically use my preferences"
+    },
+    "PLUS_MODE_SUBSET_DETAIL": {
+        "en": "Silently allow only the categories switched on below."
+    },
+    "PLUS_MODE_REJECT": {
+        "en": "Automatically reject all non-essential"
+    },
+    "PLUS_MODE_REJECT_DETAIL": {
+        "en": "Silently refuse every optional category."
+    },
+    "PLUS_MODE_ACCEPT": {
+        "en": "Automatically accept all"
+    },
+    "PLUS_MODE_ACCEPT_DETAIL": {
+        "en": "Silently allow every category."
+    },
+    "PLUS_MODE_CUSTOM": {
+        "en": "Custom for this site"
+    },
+    "PLUS_SUBSET_TITLE": {
+        "en": "My preferences"
+    },
+    "PLUS_SITES_TAB": {
+        "en": "Site choices"
+    },
+    "PLUS_SITES_DESCRIPTION": {
+        "en": "Sites where you saved a choice. These override the global setting. Remove a site to go back to the global setting there."
+    },
+    "PLUS_SITES_EMPTY": {
+        "en": "You haven't saved a choice for any site yet."
+    },
+    "PLUS_SITES_SITE": {
+        "en": "Site"
+    },
+    "PLUS_SITES_CHOICE": {
+        "en": "Choice"
+    },
+    "PLUS_SITES_SAVED": {
+        "en": "Saved"
+    },
+    "PLUS_SITES_REMOVE": {
+        "en": "Remove"
+    },
+    "PLUS_SITES_CLEAR": {
+        "en": "Remove all site choices"
+    },
+    "PLUS_POPUP_THIS_SITE": {
+        "en": "On this site"
+    },
+    "PLUS_USE_GLOBAL": {
+        "en": "Use global setting"
+    },
+    "PLUS_GLOBAL_IS": {
+        "en": "Global setting: %1%"
+    },
+    "PLUS_SITE_RELOAD_HINT": {
+        "en": "Reload the page to apply a new choice."
+    },
     "EXTENSION_NAME": {
         "en": "Consent-O-Matic",
         "da": "Consent-O-Matic",

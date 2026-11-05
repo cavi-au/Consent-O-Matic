@@ -18,6 +18,26 @@ if (frontTab){
             window.close();
         });
 
+        // Consent-O-Matic Plus: per-site choice for the current site
+        let siteMode = document.querySelector("#sitemode");
+        const globalLabels = {
+            ask: "PLUS_MODE_ASK",
+            acceptAll: "PLUS_MODE_ACCEPT",
+            rejectAll: "PLUS_MODE_REJECT",
+            subset: "PLUS_MODE_SUBSET"
+        };
+        Promise.all([GDPRConfig.getSitePreference(url), GDPRConfig.getGeneralSettings()]).then(([pref, general]) => {
+            siteMode.value = pref == null ? "" : pref.mode;
+            document.querySelector("#globalmode").textContent =
+                Language.getString("PLUS_GLOBAL_IS", [null, Language.getString(globalLabels[general.defaultMode] || "PLUS_MODE_ASK")]);
+        });
+        siteMode.addEventListener("change", () => {
+            let mode = siteMode.value;
+            GDPRConfig.setSitePreference(url, mode === "" ? null : {mode: mode}).then(() => {
+                document.querySelector("#reloadhint").style.display = "block";
+            });
+        });
+
         GDPRConfig.isActive(url).then((active) => {
             activeInput.checked = active;
         });

@@ -18,6 +18,7 @@
     <div class="header">
         <ul role="tablist">
             <li class="menuitem choices active" role="tab" tabindex="0" aria-controls="categoryListTab" aria-selected="true">[[YOUR_CHOICE]]</li>
+            <li class="menuitem sites" role="tab" tabindex="-1" aria-controls="sitesTab" aria-selected="false">[[PLUS_SITES_TAB]]</li>
             <li class="menuitem general" role="tab" tabindex="-1" aria-controls="generalTab" aria-selected="false">[[DISPLAY]]</li>
             <li class="menuitem rules" role="tab" tabindex="-1" aria-controls="rulesListTab" aria-selected="false">[[RULE_LIST]]</li>
             <li class="menuitem about" role="tab" tabindex="-1" aria-controls="aboutTab" aria-selected="false">[[ABOUT]]</li>
@@ -57,12 +58,36 @@
                     </ul>
                 </div>
             </div>            
+            <div class="helptext plusmode">
+                <h2>[[PLUS_DEFAULT_MODE_TITLE]]</h2>
+                <p>[[PLUS_DEFAULT_MODE_DESCRIPTION]]</p>
+                <form id="defaultMode" class="modelist">
+                    <label><input type="radio" name="defaultMode" value="ask"><span><b>[[PLUS_MODE_ASK]]</b><br>[[PLUS_MODE_ASK_DETAIL]]</span></label>
+                    <label><input type="radio" name="defaultMode" value="subset"><span><b>[[PLUS_MODE_SUBSET]]</b><br>[[PLUS_MODE_SUBSET_DETAIL]]</span></label>
+                    <label><input type="radio" name="defaultMode" value="rejectAll"><span><b>[[PLUS_MODE_REJECT]]</b><br>[[PLUS_MODE_REJECT_DETAIL]]</span></label>
+                    <label><input type="radio" name="defaultMode" value="acceptAll"><span><b>[[PLUS_MODE_ACCEPT]]</b><br>[[PLUS_MODE_ACCEPT_DETAIL]]</span></label>
+                </form>
+            </div>
             <div class="helptext">
-                [[CHOICE_DESCRIPTION]]
+                <h2>[[PLUS_SUBSET_TITLE]]</h2>
+                <p>[[CHOICE_DESCRIPTION]]</p>
             </div>
             <ul class="categorylist">
                 <!-- categories -->
             </ul>
+        </div>
+        <div class="tab tab_sites" style="display:none" id="sitesTab" role="tabpanel" tabindex="0">
+            <div class="helptext">
+                [[PLUS_SITES_DESCRIPTION]]
+            </div>
+            <p class="sitesempty">[[PLUS_SITES_EMPTY]]</p>
+            <table class="siteList">
+                <thead><tr><th>[[PLUS_SITES_SITE]]</th><th>[[PLUS_SITES_CHOICE]]</th><th>[[PLUS_SITES_SAVED]]</th><th></th></tr></thead>
+                <tbody></tbody>
+            </table>
+            <div class="logoptions">
+                <button id="clearSites">[[PLUS_SITES_CLEAR]]</button>
+            </div>
         </div>
         <div class="tab tab_settings" style="display:none" id="generalTab" role="tabpanel" tabindex="0">
             <div class="helptext">

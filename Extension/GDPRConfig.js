@@ -281,15 +281,148 @@ export default class GDPRConfig {
         });
     }    
 
-    static setGeneralSettings(newGeneralSettings) {
+    static async setGeneralSettings(newGeneralSettings) {
+        // Merge so that callers updating one setting don't wipe the others
+        const current = await GDPRConfig.getGeneralSettings();
         return new Promise((resolve, reject)=>{
             chrome.storage.sync.set({
-                generalSettings: newGeneralSettings
+                generalSettings: Object.assign({}, current, newGeneralSettings)
             }, () => {
                 resolve();
             });
         });
     }    
+
+    /* ------------------------------------------------------------------
+     * Consent-O-Matic Plus: global overrides and per-site preferences
+     *
+     * Resolution order when a CMP is detected on <host>:
+     *   1. sitePreferences[host]          (per-site override, storage.local)
+     *   2. generalSettings.defaultMode    (global behaviour, storage.sync)
+     * A mode of "ask" means the unified in-page popup is shown.
+     * ------------------------------------------------------------------ */
+
+    static normalizeHost(host) {
+        if (host == null) return "";
+        // Preferences are per site, so ignore the port and a leading "www."
+        return ("" + host).toLowerCase().replace(/:\d+$/, "").replace(/^www\./, "");
+    }
+
+    static getSitePreferences() {
+        return new Promise((resolve)=>{
+            chrome.storage.local.get({
+                sitePreferences: {}
+            }, (result)=>{
+                resolve(result.sitePreferences || {});
+            });
+        });
+    }
+
+    static async getSitePreference(host) {
+        const prefs = await GDPRConfig.getSitePreferences();
+        return prefs[GDPRConfig.normalizeHost(host)] || null;
+    }
+
+    static async setSitePreference(host, preference) {
+        host = GDPRConfig.normalizeHost(host);
+        if (host === "") return;
+        const prefs = await GDPRConfig.getSitePreferences();
+        if (preference == null) {
+            delete prefs[host];
+        } else {
+            if (!GDPRConfig.MODES.includes(preference.mode)) {
+                throw new Error("Unknown consent mode: " + preference.mode);
+            }
+            const stored = {
+                mode: preference.mode,
+                updated: Date.now()
+            };
+            if (preference.mode === "custom") {
+                stored.values = GDPRConfig.sanitizeValues(preference.values);
+            }
+            prefs[host] = stored;
+        }
+        return new Promise((resolve)=>{
+            chrome.storage.local.set({
+                sitePreferences: prefs
+            }, ()=>{
+                resolve();
+            });
+        });
+    }
+
+    static clearSitePreferences() {
+        return new Promise((resolve)=>{
+            chrome.storage.local.set({
+                sitePreferences: {}
+            }, ()=>{
+                resolve();
+            });
+        });
+    }
+
+    static sanitizeValues(values) {
+        const result = {};
+        Object.keys(GDPRConfig.defaultValues).forEach((key)=>{
+            result[key] = values != null && values[key] === true;
+        });
+        return result;
+    }
+
+    /**
+     * Turns a mode into the consent values the engine understands ({A: bool, B: bool, ...}).
+     * Returns null for "ask" since that needs a user decision.
+     */
+    static valuesForMode(mode, subsetValues, customValues) {
+        switch (mode) {
+            case "acceptAll": {
+                const all = {};
+                Object.keys(GDPRConfig.defaultValues).forEach((key)=>{ all[key] = true; });
+                return all;
+            }
+            case "rejectAll":
+                return GDPRConfig.sanitizeValues({});
+            case "subset":
+                return GDPRConfig.sanitizeValues(subsetValues);
+            case "custom":
+                return GDPRConfig.sanitizeValues(customValues);
+            default:
+                return null;
+        }
+    }
+
+    /**
+     * Works out what should happen on the given host.
+     * Returns {mode, values, source} where source is "site" or "global".
+     * values is null when mode is "ask".
+     */
+    static async resolveDecision(host) {
+        const [sitePref, generalSettings, subsetValues] = await Promise.all([
+            GDPRConfig.getSitePreference(host),
+            GDPRConfig.getGeneralSettings(),
+            GDPRConfig.getConsentValues()
+        ]);
+
+        let mode = generalSettings.defaultMode;
+        let source = "global";
+        let customValues = null;
+
+        if (sitePref != null && GDPRConfig.MODES.includes(sitePref.mode)) {
+            mode = sitePref.mode;
+            source = "site";
+            customValues = sitePref.values;
+        }
+
+        if (!GDPRConfig.MODES.includes(mode)) {
+            mode = GDPRConfig.defaultSettings.defaultMode;
+        }
+
+        return {
+            mode: mode,
+            source: source,
+            values: GDPRConfig.valuesForMode(mode, subsetValues, customValues)
+        };
+    }
 
     static clearRuleCache() {
         return new Promise((resolve, reject)=>{
@@ -312,8 +445,13 @@ GDPRConfig.defaultValues = {
 };
 
 GDPRConfig.defaultSettings = {
-    "hideInsteadOfPIP": false
-}
+    "hideInsteadOfPIP": false,
+    // Consent-O-Matic Plus: "ask" | "acceptAll" | "rejectAll" | "subset"
+    "defaultMode": "ask"
+};
+
+// All modes a decision can have. "custom" is only valid as a per-site preference.
+GDPRConfig.MODES = ["ask", "acceptAll", "rejectAll", "subset", "custom"];
 
 GDPRConfig.defaultDebugFlags = {
     "clickDelay": false,
