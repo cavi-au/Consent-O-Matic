@@ -68,6 +68,19 @@ module.exports = env=>({
   },
   plugins: [
     new CopyPlugin({patterns: [{
+        // Consent-O-Matic Plus: merge our own rule files into one bundled rule list
+        from: "rules-plus/*.json",
+        to: "plus-rules.json",
+        transformAll(assets) {
+            const merged = {};
+            assets.forEach((asset) => {
+                const rules = JSON.parse(asset.data.toString());
+                delete rules["$schema"];
+                Object.assign(merged, rules);
+            });
+            return JSON.stringify(merged);
+        }
+    }, {
         from: "Extension/manifest." + env.target + ".json",
         to: "manifest.json",
         force: true,

@@ -11,7 +11,8 @@
     "build-firefox": "webpack --env target=firefox",
     "build-chromium": "webpack --env target=chromium",
     "build-safari": "webpack --env target=safari",
-    "build": "webpack --env target=firefox && webpack --env target=chromium && webpack --env target=safari"
+    "build": "webpack --env target=firefox && webpack --env target=chromium && webpack --env target=safari",
+    "test:e2e": "node test/e2e.cjs"
   },
   "dependencies": {
     "copy-webpack-plugin": "^12.0.2",

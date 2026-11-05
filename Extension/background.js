@@ -17,6 +17,25 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             return false;
         }
 
+        case "AskUser": {
+            // A CMP was found inside an iframe: ask the top frame of the tab to show the unified popup
+            let request = JSON.parse(message.substring(message.indexOf("|")+1));
+            request.type = "ShowUnifiedPopup";
+            chrome.tabs.sendMessage(sender.tab.id, request, {frameId: 0}).then((answer)=>{
+                reply(answer == null ? null : answer);
+            }).catch((e)=>{
+                console.warn("Could not show unified popup in top frame:", e);
+                reply(null);
+            });
+            return true;
+        }
+
+        case "OpenOptions": {
+            chrome.runtime.openOptionsPage();
+            reply();
+            return false;
+        }
+
         case "GetRuleList": {
             GDPRConfig.getDebugValues().then((debugValues)=>{
                 fetchRules(debugValues.alwaysForceRulesUpdate).then((rules)=>{
@@ -122,15 +141,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
 });
 
 function setBadgeCheckmark(text, id) {
-    if (chrome.browserAction){
-        if (chrome.browserAction.setBadgeText){
-            chrome.browserAction.setBadgeText({
+    // MV3 (Chromium) uses chrome.action, MV2 (Firefox/Safari) uses chrome.browserAction
+    const actionApi = chrome.action || chrome.browserAction;
+    if (actionApi){
+        if (actionApi.setBadgeText){
+            actionApi.setBadgeText({
                 text: text,
                 tabId: id
             });
         }
-        if (chrome.browserAction.setBadgeBackgroundColor){
-            chrome.browserAction.setBadgeBackgroundColor({
+        if (actionApi.setBadgeBackgroundColor){
+            actionApi.setBadgeBackgroundColor({
                 color: "white",
                 tabId: id
             });
@@ -181,6 +202,12 @@ function fetchRules(forceUpdate) {
                             }
                         }
                     }
+                }
+
+                // Consent-O-Matic Plus: our own bundled rules are always loaded last so they take precedence
+                let plusRules = await fetchRulesList(chrome.runtime.getURL("plus-rules.json"));
+                if (plusRules != null) {
+                    rules.push(plusRules);
                 }
 
                 chrome.storage.local.set({

@@ -119,6 +119,18 @@ body {
             gap: 0.5em;
         }
     }
+    .plussite {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        select {
+            padding: 0.5em;
+            font: inherit;
+        }
+        small {
+            opacity: 0.75;
+        }
+    }
     .unhandledtab_complete {
         align-items: center;
         justify-content: center;  
@@ -366,3 +378,51 @@ button, input {
 
 
 
+
+/* Consent-O-Matic Plus: default behaviour chooser and site choices list */
+.configurator .plusmode {
+    .modelist {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        margin-top: 0.5em;
+        label {
+            display: flex;
+            gap: 0.75em;
+            align-items: flex-start;
+            padding: 0.75em 1em;
+            border: 1px solid #c8cbe0;
+            cursor: pointer;
+            input {
+                margin: 0.25em 0 0;
+                padding: 0;
+                width: 1.2em;
+                height: 1.2em;
+                flex: none;
+                accent-color: #25348c;
+            }
+            &:has(input:checked) {
+                border-color: #25348c;
+                background: #eef0f8;
+            }
+        }
+    }
+}
+.configurator .tab_sites {
+    .sitesempty {
+        padding: 0 2em;
+    }
+    table.siteList {
+        margin: 0 2em;
+        border-collapse: collapse;
+        th, td {
+            text-align: left;
+            padding: 0.4em 1em 0.4em 0;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            padding: 0.4em 0.8em;
+            margin: 0;
+        }
+    }
+}

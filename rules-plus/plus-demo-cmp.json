@@ -1,0 +1,96 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "PlusDemoCMP": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#plus-demo-cmp"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "#plus-demo-cmp",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "#plus-demo-cmp"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#plus-demo-settings"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "A",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": { "selector": "#plus-demo-functional" }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": { "selector": "#plus-demo-functional" }
+                            }
+                        },
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": { "selector": "#plus-demo-analytics" }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": { "selector": "#plus-demo-analytics" }
+                            }
+                        },
+                        {
+                            "type": "F",
+                            "matcher": {
+                                "type": "checkbox",
+                                "target": { "selector": "#plus-demo-marketing" }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "target": { "selector": "#plus-demo-marketing" }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "#plus-demo-save"
+                    }
+                }
+            }
+        ]
+    }
+}

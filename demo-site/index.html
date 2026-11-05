@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plus Demo Shop</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 32px; background: #f6f7fb; color: #1b1f2e; }
+  #consent-status { padding: 12px; background: #fff; border: 1px solid #ccd; border-radius: 8px; white-space: pre; }
+  #plus-demo-cmp { display: none; position: fixed; left: 0; right: 0; bottom: 0; background: #222; color: #fff; padding: 20px; }
+  #plus-demo-cmp.visible { display: block; }
+  #plus-demo-options { display: none; margin-top: 12px; }
+  #plus-demo-options.open { display: block; }
+  #plus-demo-cmp button { margin: 4px; padding: 8px 14px; }
+  /* A typical dark-pattern banner: "Accept" is big and bright, "Reject" is hidden away */
+  #plus-demo-accept { background: #2ecc71; font-size: 18px; border: 0; }
+  #plus-demo-settings { background: none; color: #aaa; border: 0; text-decoration: underline; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Plus Demo Shop</h1>
+<p>A test page with its own cookie banner ("PlusDemoCMP"), handled by <code>rules-plus/plus-demo-cmp.json</code>.</p>
+<h2>Consent recorded by the site</h2>
+<div id="consent-status">none yet</div>
+
+<div id="plus-demo-cmp" role="dialog" aria-label="Cookie consent">
+  <strong>We value your privacy!</strong> We and our 812 partners use cookies to improve your experience.
+  <div>
+    <button id="plus-demo-accept">Accept &amp; continue</button>
+    <button id="plus-demo-settings">Manage settings</button>
+  </div>
+  <div id="plus-demo-options">
+    <label><input type="checkbox" id="plus-demo-necessary" checked disabled> Strictly necessary</label><br>
+    <label><input type="checkbox" id="plus-demo-functional" checked> Functional</label><br>
+    <label><input type="checkbox" id="plus-demo-analytics" checked> Analytics</label><br>
+    <label><input type="checkbox" id="plus-demo-marketing" checked> Marketing</label><br>
+    <button id="plus-demo-save">Save preferences</button>
+  </div>
+</div>
+
+<script>
+  const cmp = document.getElementById("plus-demo-cmp");
+  function record(consent) {
+    document.cookie = "plus_demo_consent=" + encodeURIComponent(JSON.stringify(consent)) + "; path=/";
+    document.getElementById("consent-status").textContent = JSON.stringify(consent, null, 2);
+    cmp.classList.remove("visible");
+  }
+  document.getElementById("plus-demo-accept").addEventListener("click", () =>
+    record({ functional: true, analytics: true, marketing: true }));
+  document.getElementById("plus-demo-settings").addEventListener("click", () =>
+    document.getElementById("plus-demo-options").classList.add("open"));
+  document.getElementById("plus-demo-save").addEventListener("click", () => record({
+    functional: document.getElementById("plus-demo-functional").checked,
+    analytics: document.getElementById("plus-demo-analytics").checked,
+    marketing: document.getElementById("plus-demo-marketing").checked
+  }));
+  // Simulate a CMP script that loads a moment after the page
+  if (!document.cookie.includes("plus_demo_consent=")) {
+    setTimeout(() => cmp.classList.add("visible"), 300);
+  }
+</script>
+</body>
+</html>
