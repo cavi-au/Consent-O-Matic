@@ -1,0 +1,64 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "BBC": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "section[aria-labelledby='consent-banner-title'] button[data-testid='reject-button']"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "section[aria-labelledby='consent-banner-title'] button[data-testid='reject-button']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "section[aria-labelledby='consent-banner-title']"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS"
+            },
+            {
+                "name": "DO_CONSENT"
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "ifallowall",
+                    "trueAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "section[aria-labelledby='consent-banner-title'] button[data-testid='accept-button']"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "click",
+                        "target": {
+                            "selector": "section[aria-labelledby='consent-banner-title'] button[data-testid='reject-button']"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "UTILITY"
+            }
+        ]
+    }
+}
