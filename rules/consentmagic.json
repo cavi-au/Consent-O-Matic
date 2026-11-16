@@ -1,0 +1,160 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "ConsentMagic": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cs_action_btn[data-cs_action]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": ".cs_action_btn[data-cs_action='allow_all']",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": "button.options_btn"
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "list",
+                    "actions": [
+                        {
+                            "type": "waitcss",
+                            "target": {
+                                "selector": ".cs_popup_content",
+                                "displayFilter": true
+                            },
+                            "retries": 20,
+                            "waitTime": 250
+                        },
+                        {
+                            "type": "consent",
+                            "consents": [
+                                {
+                                    "type": "B",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Analytics"
+                                        },
+                                        "target": {
+                                            "selector": "input.primary-switch-input[type='checkbox']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Analytics"
+                                        },
+                                        "target": {
+                                            "selector": "label.primary-switch-btn"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "E",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Embedded Videos"
+                                        },
+                                        "target": {
+                                            "selector": "input.primary-switch-input[type='checkbox']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Embedded Videos"
+                                        },
+                                        "target": {
+                                            "selector": "label.primary-switch-btn"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "A",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Google Fonts"
+                                        },
+                                        "target": {
+                                            "selector": "input.primary-switch-input[type='checkbox']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Google Fonts"
+                                        },
+                                        "target": {
+                                            "selector": "label.primary-switch-btn"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "F",
+                                    "matcher": {
+                                        "type": "checkbox",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Marketing"
+                                        },
+                                        "target": {
+                                            "selector": "input.primary-switch-input[type='checkbox']"
+                                        }
+                                    },
+                                    "toggleAction": {
+                                        "type": "click",
+                                        "parent": {
+                                            "selector": ".cm-script-title-block",
+                                            "textFilter": "Marketing"
+                                        },
+                                        "target": {
+                                            "selector": "label.primary-switch-btn"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "click",
+                    "target": {
+                        "selector": ".cs_setting_save_button[data-cs_action='cs_confirm']"
+                    }
+                }
+            }
+        ]
+    }
+}
