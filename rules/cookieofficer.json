@@ -1,0 +1,199 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "CookieOfficer": {
+        "detectors": [
+            {
+                "presentMatcher": [
+                    {
+                        "type": "css",
+                        "target": {
+                            "selector": "[data-co-banner]"
+                        }
+                    }
+                ],
+                "showingMatcher": [
+                    {
+                        "type": "css",
+                        "parent": {
+                            "selector": "[data-co-banner]"
+                        },
+                        "target": {
+                            "selector": "button[data-co-action]",
+                            "displayFilter": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "HIDE_CMP",
+                "action": {
+                    "type": "hide",
+                    "target": {
+                        "selector": "[data-co-banner]"
+                    }
+                }
+            },
+            {
+                "name": "OPEN_OPTIONS",
+                "action": {
+                    "type": "ifcss",
+                    "parent": {
+                        "selector": "[data-co-banner]"
+                    },
+                    "target": {
+                        "selector": ".co-switch"
+                    },
+                    "falseAction": {
+                        "type": "ifcss",
+                        "parent": {
+                            "selector": "[data-co-banner]"
+                        },
+                        "target": {
+                            "selector": ".co-btns button[data-co-action='manage']"
+                        },
+                        "trueAction": {
+                            "type": "list",
+                            "actions": [
+                                {
+                                    "type": "click",
+                                    "parent": {
+                                        "selector": "[data-co-banner]"
+                                    },
+                                    "target": {
+                                        "selector": ".co-btns button[data-co-action='manage']"
+                                    }
+                                },
+                                {
+                                    "type": "waitcss",
+                                    "parent": {
+                                        "selector": "[data-co-banner]"
+                                    },
+                                    "target": {
+                                        "selector": ".co-switch"
+                                    },
+                                    "retries": 20,
+                                    "waitTime": 100
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "name": "DO_CONSENT",
+                "action": {
+                    "type": "consent",
+                    "consents": [
+                        {
+                            "type": "A",
+                            "matcher": {
+                                "type": "css",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:personalization\"][aria-checked=\"true\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:personalization\"]"
+                                }
+                            }
+                        },
+                        {
+                            "type": "B",
+                            "matcher": {
+                                "type": "css",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:analytics\"][aria-checked=\"true\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:analytics\"]"
+                                }
+                            }
+                        },
+                        {
+                            "type": "F",
+                            "matcher": {
+                                "type": "css",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:marketing\"][aria-checked=\"true\"]"
+                                }
+                            },
+                            "toggleAction": {
+                                "type": "click",
+                                "parent": {
+                                    "selector": "[data-co-banner]"
+                                },
+                                "target": {
+                                    "selector": ".co-switch[data-co-k=\"sw:marketing\"]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SAVE_CONSENT",
+                "action": {
+                    "type": "ifcss",
+                    "parent": {
+                        "selector": "[data-co-banner]"
+                    },
+                    "target": {
+                        "selector": ".co-switch"
+                    },
+                    "trueAction": {
+                        "type": "click",
+                        "parent": {
+                            "selector": "[data-co-banner]"
+                        },
+                        "target": {
+                            "selector": ".co-btns button[data-co-action='manage']"
+                        }
+                    },
+                    "falseAction": {
+                        "type": "ifallowall",
+                        "trueAction": {
+                            "type": "click",
+                            "parent": {
+                                "selector": "[data-co-banner]"
+                            },
+                            "target": {
+                                "selector": ".co-btns button[data-co-action='accept']"
+                            }
+                        },
+                        "falseAction": {
+                            "type": "click",
+                            "parent": {
+                                "selector": "[data-co-banner]"
+                            },
+                            "target": {
+                                "selector": ".co-btns button[data-co-action='reject']"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
