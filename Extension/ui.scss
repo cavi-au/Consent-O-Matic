@@ -490,3 +490,20 @@ button, input {
         color: $muted;
     }
 }
+
+/* Consent-o-Manual: cookie filter list toggle */
+.configurator .filterlist {
+    label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    input {
+        margin: 0;
+        padding: 0;
+        width: 1.2em;
+        height: 1.2em;
+    }
+}

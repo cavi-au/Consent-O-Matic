@@ -451,7 +451,9 @@ GDPRConfig.defaultSettings = {
     // Consent-o-Manual: "card" (centre of the screen) | "banner" (bottom of the screen)
     "popupStyle": "card",
     // Consent-o-Manual: show the green "action taken" notification
-    "showNotifications": true
+    "showNotifications": true,
+    // Consent-o-Manual: also detect banners with the bundled cookie-notice filter list
+    "useCookieFilterList": true
 };
 
 // All modes a decision can have. "custom" is only valid as a per-site preference.

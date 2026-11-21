@@ -19,10 +19,11 @@ const PORT = 8765;
 
 function serveDemoSite() {
     const html = fs.readFileSync(path.join(ROOT, "demo-site", "index.html"));
+    const filterListHtml = fs.readFileSync(path.join(ROOT, "demo-site", "filter-list.html"));
     const framed = '<!DOCTYPE html><html><body><h1>Framed</h1><iframe src="/" style="width:100%;height:600px"></iframe></body></html>';
     const server = http.createServer((req, res)=>{
         res.writeHead(200, {"Content-Type": "text/html"});
-        res.end(req.url.startsWith("/framed") ? framed : html);
+        res.end(req.url.startsWith("/framed") ? framed : req.url.startsWith("/filter-list") ? filterListHtml : html);
     });
     return new Promise((resolve)=>server.listen(PORT, ()=>resolve(server)));
 }
@@ -245,6 +246,80 @@ async function main() {
             await page.goto(`http://localhost:${PORT}/framed`);
             await page.waitForSelector("consent-o-manual-toast", {state: "attached", timeout: 15000});
             assert.strictEqual(await page.getAttribute("consent-o-manual-toast", "data-mode"), "acceptAll");
+            await page.close();
+        });
+
+        async function filterListStatus(page) {
+            await page.waitForFunction(()=>document.getElementById("consent-status").textContent !== "none yet", null, {timeout: 15000});
+            return page.textContent("#consent-status");
+        }
+
+        await test("filter list: banner with no rule is rejected with its Reject button", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "rejectAll"}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list`);
+            assert.strictEqual(await filterListStatus(page), "rejected");
+            await page.waitForSelector("consent-o-manual-toast", {state: "attached", timeout: 5000});
+            assert.strictEqual(await page.getAttribute("consent-o-manual-toast", "data-mode"), "rejectAll");
+            await page.close();
+        });
+
+        await test("filter list: 'accept all' clicks the Accept button", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "acceptAll"}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list`);
+            assert.strictEqual(await filterListStatus(page), "accepted");
+            await page.close();
+        });
+
+        await test("filter list: partial preferences are answered with Reject, never Accept", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({
+                generalSettings: {defaultMode: "subset"},
+                consentValues: {A: true, B: true, D: true, E: true, F: false, X: true}
+            }, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list`);
+            assert.strictEqual(await filterListStatus(page), "rejected");
+            await page.close();
+        });
+
+        await test("filter list: 'ask' shows the Accept/Reject-only popup and remembers the answer", async ()=>{
+            await reset();
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list`);
+            await popupShown(page);
+            await page.keyboard.press("Tab");          // Reject all
+            await page.keyboard.press("Enter");
+            assert.strictEqual(await filterListStatus(page), "rejected");
+            const prefs = await storage(()=>new Promise((r)=>chrome.storage.local.get("sitePreferences", (x)=>r(x.sitePreferences))));
+            assert.strictEqual(prefs["localhost"].mode, "rejectAll");
+            await page.close();
+        });
+
+        await test("filter list: banner without a Reject button is hidden, not accepted", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "rejectAll"}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list?variant=accept-only`);
+            await page.waitForSelector("consent-o-manual-toast", {state: "attached", timeout: 15000});
+            assert.strictEqual(await page.getAttribute("consent-o-manual-toast", "data-mode"), "hidden");
+            assert.strictEqual(await page.textContent("#consent-status"), "none yet");
+            assert.strictEqual(await page.isVisible(".gdpr_wrapper"), false, "banner should be hidden");
+            assert.strictEqual(await page.evaluate(()=>getComputedStyle(document.body).overflow), "auto", "scrolling should be restored");
+            await page.close();
+        });
+
+        await test("filter list can be turned off", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "rejectAll", useCookieFilterList: false}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/filter-list`);
+            await page.waitForTimeout(3500);
+            assert.strictEqual(await page.textContent("#consent-status"), "none yet");
+            assert(await page.isVisible(".gdpr_wrapper"), "banner should be left alone");
             await page.close();
         });
     } finally {

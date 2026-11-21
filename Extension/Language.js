@@ -1,4 +1,19 @@
 const translations = {
+    "PLUS_LIMITED_NOTE": {
+        "en": "Consent-o-Manual found this banner with its cookie filter list, so it can only accept or reject everything here."
+    },
+    "PLUS_TOAST_HIDDEN": {
+        "en": "Hid the cookie banner on %1%"
+    },
+    "PLUS_FILTERLIST_TITLE": {
+        "en": "Cookie filter list"
+    },
+    "PLUS_FILTERLIST_DESCRIPTION": {
+        "en": "Also find cookie banners that no rule covers, using the bundled AdGuard Cookie Notices filter list. These banners can only be answered with Accept all or Reject all: Consent-o-Manual clicks the matching button, or hides the banner if there isn't one. It never clicks Accept when your choice is to reject."
+    },
+    "PLUS_FILTERLIST_TOGGLE": {
+        "en": "Use the cookie filter list"
+    },
     "PLUS_TOAST_ACCEPT": {
         "en": "Accepted all cookies on %1%"
     },

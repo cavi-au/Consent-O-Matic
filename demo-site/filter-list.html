@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filter List Demo</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 32px; background: #f6f7fb; color: #1b1f2e; }
+  body.locked { overflow: hidden; }
+  #consent-status { padding: 12px; background: #fff; border: 1px solid #ccd; border-radius: 8px; }
+  .gdpr_wrapper { position: fixed; left: 16px; right: 16px; bottom: 16px; background: #222; color: #fff; padding: 20px; border-radius: 8px; }
+  .gdpr_wrapper button { margin: 4px; padding: 8px 14px; }
+</style>
+</head>
+<body class="locked">
+<h1>Filter List Demo</h1>
+<p>This banner has no Consent-o-Manual rule. It is found through the cookie filter list (<code>##.gdpr_wrapper</code>).
+Add <code>?variant=accept-only</code> for a banner with no reject button.</p>
+<h2>Consent recorded by the site</h2>
+<div id="consent-status">none yet</div>
+
+<script>
+  const variant = new URLSearchParams(location.search).get("variant");
+  const banner = document.createElement("div");
+  banner.className = "gdpr_wrapper";
+  banner.innerHTML = "<strong>Cookies!</strong> We use cookies to give you the best experience on our website. " +
+    '<div><button id="accept">Accept all</button>' +
+    (variant === "accept-only" ? "" : '<button id="reject">Reject all</button>') +
+    '<button id="settings">Cookie settings</button></div>';
+  function record(choice) {
+    document.getElementById("consent-status").textContent = choice;
+    banner.remove();
+    document.body.classList.remove("locked");
+  }
+  setTimeout(() => {
+    document.body.appendChild(banner);
+    banner.querySelector("#accept").addEventListener("click", () => record("accepted"));
+    const reject = banner.querySelector("#reject");
+    if (reject) reject.addEventListener("click", () => record("rejected"));
+    banner.querySelector("#settings").addEventListener("click", () => record("settings opened"));
+  }, 300);
+</script>
+</body>
+</html>

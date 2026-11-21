@@ -1,4 +1,5 @@
 import GDPRConfig from './GDPRConfig.js';
+import {selectorsForHost} from '../filters/parse-cookie-filters.cjs';
 
 const STATUS = {
     "INIT": 0,
@@ -39,6 +40,15 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             });
             reply();
             return false;
+        }
+
+        case "GetCookieFilters": {
+            // Selectors from the bundled cookie-notice filter list that apply on the given host
+            let host = message.substring(message.indexOf("|")+1);
+            loadCookieFilters().then((filters)=>{
+                reply(filters == null ? [] : selectorsForHost(filters, host));
+            });
+            return true;
         }
 
         case "OpenOptions": {
@@ -235,6 +245,21 @@ function fetchRules(forceUpdate) {
 }
 
 let tabStatusMap = new Map();
+
+// Consent-o-Manual: the parsed cookie-notice filter list, loaded once per service worker lifetime
+let cookieFiltersPromise = null;
+function loadCookieFilters() {
+    if (cookieFiltersPromise == null) {
+        cookieFiltersPromise = fetch(chrome.runtime.getURL("cookie-filters.json"))
+            .then((response)=>response.json())
+            .catch((e)=>{
+                console.warn("Could not load cookie filter list:", e);
+                cookieFiltersPromise = null;
+                return null;
+            });
+    }
+    return cookieFiltersPromise;
+}
 
 chrome.tabs.onUpdated.addListener((tabId, info, tab)=>{
     if(info.status != null && info.status === "Loading") {

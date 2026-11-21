@@ -2,6 +2,7 @@ import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 import UnifiedPopup from "./UnifiedPopup.js";
 import ActionToast from "./ActionToast.js";
+import {FilterListDetector} from "./FilterListCMP.js";
 
 const insideIframe = window !== window.parent;
 
@@ -11,12 +12,12 @@ let lastAction = null;
 /**
  * Shows the unified popup in this (top) frame and returns the user's answer, or null.
  */
-async function askUser({host, cmpName}) {
+async function askUser({host, cmpName, limited}) {
     const [subsetValues, generalSettings] = await Promise.all([
         GDPRConfig.getConsentValues(),
         GDPRConfig.getGeneralSettings()
     ]);
-    return UnifiedPopup.show({host, cmpName, subsetValues, style: generalSettings.popupStyle});
+    return UnifiedPopup.show({host, cmpName, subsetValues, limited: limited === true, style: generalSettings.popupStyle});
 }
 
 /**
@@ -44,7 +45,9 @@ function notifyAction(host, action) {
  * Resolves per-site preference -> global default -> unified popup.
  */
 function createDecisionProvider(host) {
-    return async (cmpName)=>{
+    // options.limited: the banner can only be answered with Accept all / Reject all (filter-list banners)
+    return async (cmpName, options = {})=>{
+        const limited = options.limited === true;
         lastAction = null;
         const decision = await GDPRConfig.resolveDecision(host);
         if (ConsentEngine.debugValues.debugLog) {
@@ -57,11 +60,11 @@ function createDecisionProvider(host) {
 
         let answer;
         if (!insideIframe) {
-            answer = await askUser({host, cmpName});
+            answer = await askUser({host, cmpName, limited});
         } else {
             // The CMP lives in an iframe: show the popup in the top frame instead of inside a tiny iframe
             answer = await new Promise((resolve)=>{
-                chrome.runtime.sendMessage("AskUser|" + JSON.stringify({host, cmpName}), (response)=>{
+                chrome.runtime.sendMessage("AskUser|" + JSON.stringify({host, cmpName, limited}), (response)=>{
                     resolve(response == null ? null : response);
                 });
             });
@@ -130,7 +133,7 @@ async function contentScriptRunner() {
         
                         GDPRConfig.getConsentValues().then((consentTypes)=>{
                             GDPRConfig.getDebugValues().then((debugValues)=>{
-                                GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+                                GDPRConfig.getGeneralSettings().then(async (generalSettings)=>{
                                     if(debugValues.debugLog) {
                                         console.log("FetchedRules:", fetchedRules);
                                         console.log("CustomRules:", customRules);
@@ -140,6 +143,20 @@ async function contentScriptRunner() {
                                     ConsentEngine.generalSettings = generalSettings;
                                     ConsentEngine.topFrameUrl = url;
                                     ConsentEngine.decisionProvider = createDecisionProvider(url);
+
+                                    // Consent-o-Manual: also detect banners from the cookie-notice filter list (top frame only)
+                                    ConsentEngine.filterListDetector = null;
+                                    if (!insideIframe && generalSettings.useCookieFilterList !== false) {
+                                        const selectors = await new Promise((resolve)=>{
+                                            chrome.runtime.sendMessage("GetCookieFilters|" + url, (response)=>resolve(response || []));
+                                        });
+                                        if (selectors.length > 0) {
+                                            ConsentEngine.filterListDetector = new FilterListDetector(selectors);
+                                            if (debugValues.debugLog) {
+                                                console.log("Cookie filter list: " + selectors.length + " selectors for " + url);
+                                            }
+                                        }
+                                    }
             
                                     chrome.runtime.sendMessage("Searching");
                                     let engine = new ConsentEngine(config, consentTypes, (evt)=>{
@@ -153,7 +170,10 @@ async function contentScriptRunner() {
                                             result.url = url;
         
                                             chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
-                                            notifyAction(url, lastAction);
+                                            // Filter-list banners report what was really done (it may differ from the choice)
+                                            notifyAction(url, evt.action != null
+                                                ? {mode: evt.action.mode, source: lastAction != null ? lastAction.source : null}
+                                                : lastAction);
                                         } else if(evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
                                         } else {

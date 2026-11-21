@@ -15,7 +15,8 @@ const MESSAGES = {
     acceptAll: "PLUS_TOAST_ACCEPT",
     rejectAll: "PLUS_TOAST_REJECT",
     subset: "PLUS_TOAST_SUBSET",
-    custom: "PLUS_TOAST_CUSTOM"
+    custom: "PLUS_TOAST_CUSTOM",
+    hidden: "PLUS_TOAST_HIDDEN"
 };
 
 const SOURCES = {
@@ -69,7 +70,7 @@ export default class ActionToast {
     /**
      * @param {object} options
      * @param {string} options.host   Host of the top-level page
-     * @param {string} options.mode   "acceptAll" | "rejectAll" | "subset" | "custom"
+     * @param {string} options.mode   "acceptAll" | "rejectAll" | "subset" | "custom" | "hidden"
      * @param {string} options.source "site" | "global" | "asked"
      */
     static show({host, mode, source}) {

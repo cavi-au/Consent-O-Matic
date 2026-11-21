@@ -4,6 +4,7 @@ const ZipPlugin = require('zip-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 const glob = require("glob");
+const {parseCookieFilters} = require("./filters/parse-cookie-filters.cjs");
 module.exports = env=>({
   mode: 'production',
   entry: {
@@ -72,6 +73,13 @@ module.exports = env=>({
   },
   plugins: [
     new CopyPlugin({patterns: [{
+        // Consent-o-Manual: cookie-notice filter list -> selectors used to detect banners no rule covers
+        from: "filters/cookie-notices.txt",
+        to: "cookie-filters.json",
+        transform(content) {
+            return JSON.stringify(parseCookieFilters(content.toString()));
+        }
+    }, {
         // Consent-o-Manual: merge our own rule files into one bundled rule list
         from: "rules-plus/*.json",
         to: "plus-rules.json",

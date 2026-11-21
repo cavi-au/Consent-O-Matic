@@ -15,6 +15,9 @@ import Language from "./Language.js";
  *   - "card":   a card in the centre of the screen
  *   - "banner": a full-width banner along the bottom of the screen
  *
+ * With `limited: true` (a banner found only through the cookie filter list) the popup offers just
+ * Accept all / Reject all, because such banners can't be answered category by category.
+ *
  * The dialog lives in a closed shadow root so the page can neither restyle it nor
  * script it, and only trusted (real user) events are accepted.
  *
@@ -64,6 +67,7 @@ const STYLE = `
 h2 { margin: 0 0 6px; font-size: 20px; line-height: 1.25; }
 p { margin: 0 0 14px; color: var(--muted); }
 .host { color: var(--fg); font-weight: 600; word-break: break-all; }
+.note { font-size: 13px; background: var(--blue-soft); border-radius: 8px; padding: 8px 10px; }
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 .actions .wide { grid-column: 1 / -1; }
 @media (max-width: 380px) { .actions { grid-template-columns: 1fr; } }
@@ -128,6 +132,7 @@ export default class UnifiedPopup {
      * @param {string} options.cmpName      Name of the detected CMP rule
      * @param {object} options.subsetValues The user's global "my subset" values {A..X}
      * @param {string} options.style        "card" (default) or "banner"
+     * @param {boolean} options.limited     Only offer Accept all / Reject all
      */
     static show(options) {
         if (UnifiedPopup.current != null) {
@@ -141,12 +146,13 @@ export default class UnifiedPopup {
         return popup.promise;
     }
 
-    constructor({host, cmpName, subsetValues, style}) {
+    constructor({host, cmpName, subsetValues, style, limited}) {
         // Show the site name the way people recognise it (no port)
         this.host = ("" + host).replace(/:\d+$/, "");
         this.cmpName = cmpName;
         this.subsetValues = Object.assign({}, subsetValues);
         this.style = STYLES.includes(style) ? style : "card";
+        this.limited = limited === true;
         this.previousFocus = document.activeElement;
 
         this.promise = new Promise((resolve)=>{
@@ -199,7 +205,12 @@ export default class UnifiedPopup {
             "aria-expanded": "false", "aria-controls": "com-plus-categories"
         });
         customize.append(document.createTextNode(s("PLUS_CUSTOMIZE")), this.el("span", {class: "sub"}, s("PLUS_CUSTOMIZE_SUB")));
-        actions.append(acceptAll, rejectAll, subset, customize);
+        if (this.limited) {
+            actions.append(acceptAll, rejectAll);
+            intro.appendChild(this.el("p", {class: "note"}, s("PLUS_LIMITED_NOTE")));
+        } else {
+            actions.append(acceptAll, rejectAll, subset, customize);
+        }
 
         // Category toggles, pre-filled with "my subset"
         const categories = this.el("fieldset", {class: "categories", id: "com-plus-categories"});
@@ -233,7 +244,11 @@ export default class UnifiedPopup {
         );
         bottom.append(remember, links);
 
-        dialog.append(intro, actions, categories, bottom);
+        if (this.limited) {
+            dialog.append(intro, actions, bottom);
+        } else {
+            dialog.append(intro, actions, categories, bottom);
+        }
         backdrop.appendChild(dialog);
         this.root.appendChild(backdrop);
 

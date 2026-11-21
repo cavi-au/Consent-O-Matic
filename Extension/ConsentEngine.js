@@ -1,4 +1,5 @@
 import CMP from "./CMP.js";
+import {answerFilterListBanner} from "./FilterListCMP.js";
 
 export default class ConsentEngine {
     constructor(config, consentTypes, handledCallback) {
@@ -394,6 +395,61 @@ export default class ConsentEngine {
             await checkIsShowing();
         } else {
             self.checkRunning = false;
+            // Consent-o-Manual: no rule matched, so look for a banner the cookie filter list knows about
+            if (ConsentEngine.filterListDetector != null && !self.filterListDone) {
+                await self.checkFilterList();
+            }
+        }
+    }
+
+    /**
+     * Consent-o-Manual: handle a cookie banner found with the cookie-notice filter list.
+     * The match must stay visible for a second with no rule matching, so rules always win.
+     */
+    async checkFilterList() {
+        const found = ConsentEngine.filterListDetector.scan();
+        if (found == null) {
+            this.filterListCandidate = null;
+            return;
+        }
+        if (this.filterListCandidate == null || this.filterListCandidate.element !== found.element) {
+            this.filterListCandidate = {element: found.element, since: Date.now()};
+            // Keep the engine running long enough to act on it
+            this.startStopTimeout();
+            return;
+        }
+        if (Date.now() - this.filterListCandidate.since < 1000) return;
+
+        if (ConsentEngine.debugValues.debugLog) {
+            console.log("Cookie banner found with the filter list:", found.selector, found.element);
+        }
+
+        this.filterListDone = true;
+        this.checkRunning = true;
+        this.stopObserver();
+        clearTimeout(this.stopEngineId);
+        clearInterval(this.domScannerIntervalID);
+
+        let result = null;
+        try {
+            result = await answerFilterListBanner(found.element, ConsentEngine.decisionProvider);
+        } catch (e) {
+            console.error("Consent-o-Manual: could not answer banner from the filter list:", e);
+            this.checkRunning = false;
+            this.handledCallback({handled: false, error: true});
+            return;
+        }
+        this.checkRunning = false;
+
+        if (result == null) {
+            this.handledCallback({handled: false, dismissed: true});
+        } else {
+            this.handledCallback({
+                handled: true,
+                cmpName: "Cookie filter list",
+                clicks: result.clicks,
+                action: {mode: result.mode}
+            });
         }
     }
 
@@ -508,3 +564,8 @@ ConsentEngine.singleton = null;
  * Returning null means "do nothing on this page".
  */
 ConsentEngine.decisionProvider = null;
+
+/**
+ * Optional FilterListDetector (set by the content script in the top frame) used when no rule matches.
+ */
+ConsentEngine.filterListDetector = null;

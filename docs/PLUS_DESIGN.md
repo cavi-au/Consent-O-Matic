@@ -8,6 +8,8 @@ engine and its rule files, and add:
 - **Global settings** that say what to do when a banner appears.
 - **Per-site preferences** that override the global setting.
 - **Our own rule files** (`rules-plus/`), bundled into the extension.
+- **Detection with a cookie filter list**: banners that no rule covers are found with the bundled AdGuard
+  Cookie Notices list and answered with Accept all or Reject all.
 - **Display preferences**: the popup can be a centred *card* or a bottom *banner*, and a green notification
   in the bottom-right corner says what was answered for you.
 
@@ -67,7 +69,11 @@ flowchart TD
     B -- no --> Z[Do nothing]
     B -- yes --> C[Engine loads rules:<br/>upstream lists + bundled plus-rules.json]
     C --> D{CMP detected<br/>and showing<br/>within 5 s?}
-    D -- no --> Z2[Badge: nothing found]
+    D -- no --> FL{Filter list matches<br/>a visible banner<br/>for 1 s?}
+    FL -- no --> Z2[Badge: nothing found]
+    FL -- yes --> FLD[resolveDecision, or popup with<br/>Accept / Reject only]
+    FLD --> FLA[Click the matching button,<br/>or hide the banner]
+    FLA --> O
     D -- yes --> E[resolveDecision host]
     E --> F{Per-site<br/>preference?}
     F -- yes --> G[Use site mode]
@@ -102,6 +108,7 @@ flowchart TD
 | | Keep running on this site? | Turn the extension on or off for this site | `setPageActive` (upstream) |
 | Options → Your Choice | "When a cookie banner appears" | Global default mode | `setGeneralSettings({defaultMode})` |
 | | Category toggles | The "my preferences" set | `setConsentValues` (upstream) |
+| Options → Rule Lists | Use the cookie filter list | Turn filter-list detection on or off | `setGeneralSettings({useCookieFilterList})` |
 | Options → Display | Card / Banner | Layout of the unified popup | `setGeneralSettings({popupStyle})` |
 | | Notify me when an action is taken | Turn the green notification on or off | `setGeneralSettings({showNotifications})` |
 | Notification | × | Close it before the 5 seconds are up | none |
@@ -118,6 +125,7 @@ flowchart TD
 | `generalSettings.defaultMode` | `chrome.storage.sync` | `"ask" \| "acceptAll" \| "rejectAll" \| "subset"` (default `"ask"`) | Global setting |
 | `generalSettings.popupStyle` | `chrome.storage.sync` | `"card" \| "banner"` (default `"card"`) | Popup layout |
 | `generalSettings.showNotifications` | `chrome.storage.sync` | `bool` (default `true`) | Green action notification |
+| `generalSettings.useCookieFilterList` | `chrome.storage.sync` | `bool` (default `true`) | Detect banners with the filter list |
 | `consentValues` | `chrome.storage.sync` (upstream) | `{A,B,D,E,F,X: bool}` | The "my preferences" set |
 | `sitePreferences[host]` | `chrome.storage.local` | `{mode, values?, updated}` | Per-site override |
 
@@ -159,6 +167,34 @@ service worker --tabs.sendMessage({type:"ShowUnifiedPopup"}, {frameId:0})--> top
 top frame shows the popup --answer--> service worker --answer--> iframe engine continues
 ```
 
+### Banners without a rule: the cookie filter list
+
+Rules only exist for some CMPs. To find other banners, the extension bundles the AdGuard Cookie Notices
+filter list (`filters/cookie-notices.txt`, see `filters/README.md` for its licence).
+
+- **Build time.** `filters/parse-cookie-filters.cjs` keeps the element-hiding rules: about 1,700 generic
+  selectors, site-specific selectors for about 19,000 domains, and exceptions. They go into
+  `build/cookie-filters.json`. Network rules, scriptlets and extended CSS are ignored.
+- **Per page.** In the top frame, the content script asks the service worker (`GetCookieFilters|host`) for
+  the selectors that apply on that host, and builds a `FilterListDetector`.
+- **Fast matching.** Running 1,700 selectors through `querySelectorAll` took about 380 ms per scan on a
+  page with 8,000 elements. Nearly every selector needs a particular id or class, so the detector looks
+  those up directly (`getElementById`, `getElementsByClassName`) and only runs the full selector on the
+  elements that come back. A scan now takes under 1 ms.
+- **Rules win.** The engine only checks the filter list when no rule matched. A match must stay visible
+  for a second before anything happens.
+- **Answering.** The list says nothing about buttons, so only Accept all or Reject all is possible.
+  - A choice that allows every category means Accept; any other choice means Reject, so the extension
+    never grants more than the user chose.
+  - In "ask" mode the popup shows only Accept all and Reject all, with a note explaining why.
+  - The extension looks for a button whose text means Accept or Reject (English plus common European
+    languages). Buttons for settings, policies or "save selection" are ignored.
+  - It clicks the matching button. If there isn't one, or the banner is still there after 1.5 seconds, it
+    hides the banner and gives back page scrolling. It never clicks Accept when the answer is Reject.
+  - The notification says what really happened: accepted, rejected, or "Hid the cookie banner".
+- **Limits.** Generic button matching can miss unusual wording, and hiding a banner doesn't tell the site
+  anything. Most sites treat that as no consent, but some may not.
+
 ### Action notification
 
 After the engine has filled in a banner, the content script shows `ActionToast` with the mode that was
@@ -194,7 +230,7 @@ To load it in Chrome: open `chrome://extensions`, turn on *Developer mode*, clic
 open <http://localhost:8000>.
 
 ```bash
-npm run test:e2e            # needs Playwright + Chromium; runs the 13 end-to-end scenarios
+npm run test:e2e            # needs Playwright + Chromium; runs the 19 end-to-end scenarios
 ```
 
 ---
@@ -215,10 +251,14 @@ npm run test:e2e            # needs Playwright + Chromium; runs the 13 end-to-en
 - Rebranded to **Consent-o-Manual** with a new cookie-and-cursor logo and a white and blue palette.
 - Display preferences: popup as a centred card or a bottom banner, and a green action notification in the
   bottom-right corner that closes after 5 seconds and can be turned off.
-- Automated end-to-end test (13 scenarios) that loads the real extension in Chromium.
+- Banners that no rule covers are detected with the AdGuard Cookie Notices filter list and answered with
+  Accept all or Reject all (or hidden when there is no matching button). Demo: `demo-site/filter-list.html`.
+- Automated end-to-end test (19 scenarios) that loads the real extension in Chromium.
 
 **Left to do**
 - Write and check rules for one or more *real* websites or CMPs that upstream does not cover.
+- Try filter-list detection on real sites and tune the button wording; check for false positives from the
+  broad generic selectors.
 - Rule generation (extra credit):
   - from one site
   - then one CMP across many sites

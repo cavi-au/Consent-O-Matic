@@ -68,6 +68,12 @@ if (optionsUL){
             GDPRConfig.setGeneralSettings({popupStyle: styleForm.elements["popupStyle"].value});
         });
 
+        let filterList = document.querySelector("#useCookieFilterList");
+        filterList.checked = generalSettings.useCookieFilterList !== false;
+        filterList.addEventListener("input", ()=>{
+            GDPRConfig.setGeneralSettings({useCookieFilterList: filterList.checked});
+        });
+
         let notify = document.querySelector("#showNotifications");
         notify.checked = generalSettings.showNotifications !== false;
         notify.addEventListener("input", ()=>{
