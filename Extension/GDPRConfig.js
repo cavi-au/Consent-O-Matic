@@ -294,7 +294,7 @@ export default class GDPRConfig {
     }    
 
     /* ------------------------------------------------------------------
-     * Consent-O-Matic Plus: global overrides and per-site preferences
+     * Consent-o-Manual: global overrides and per-site preferences
      *
      * Resolution order when a CMP is detected on <host>:
      *   1. sitePreferences[host]          (per-site override, storage.local)
@@ -446,8 +446,12 @@ GDPRConfig.defaultValues = {
 
 GDPRConfig.defaultSettings = {
     "hideInsteadOfPIP": false,
-    // Consent-O-Matic Plus: "ask" | "acceptAll" | "rejectAll" | "subset"
-    "defaultMode": "ask"
+    // Consent-o-Manual: "ask" | "acceptAll" | "rejectAll" | "subset"
+    "defaultMode": "ask",
+    // Consent-o-Manual: "card" (centre of the screen) | "banner" (bottom of the screen)
+    "popupStyle": "card",
+    // Consent-o-Manual: show the green "action taken" notification
+    "showNotifications": true
 };
 
 // All modes a decision can have. "custom" is only valid as a per-site preference.

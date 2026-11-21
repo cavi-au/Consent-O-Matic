@@ -1,28 +1,57 @@
 import GDPRConfig from "./GDPRConfig.js";
 import ConsentEngine from "./ConsentEngine.js";
 import UnifiedPopup from "./UnifiedPopup.js";
+import ActionToast from "./ActionToast.js";
 
 const insideIframe = window !== window.parent;
+
+// What the decision provider decided last ({mode, source}), used for the action notification
+let lastAction = null;
 
 /**
  * Shows the unified popup in this (top) frame and returns the user's answer, or null.
  */
 async function askUser({host, cmpName}) {
-    const subsetValues = await GDPRConfig.getConsentValues();
-    return UnifiedPopup.show({host, cmpName, subsetValues});
+    const [subsetValues, generalSettings] = await Promise.all([
+        GDPRConfig.getConsentValues(),
+        GDPRConfig.getGeneralSettings()
+    ]);
+    return UnifiedPopup.show({host, cmpName, subsetValues, style: generalSettings.popupStyle});
 }
 
 /**
- * Consent-O-Matic Plus decision provider used by the engine.
+ * Shows the green "action taken" notification in this (top) frame, unless turned off.
+ */
+async function showActionToast({host, mode, source}) {
+    const generalSettings = await GDPRConfig.getGeneralSettings();
+    if (generalSettings.showNotifications === false) return;
+    ActionToast.show({host, mode, source});
+}
+
+function notifyAction(host, action) {
+    if (action == null) return;
+    const request = {host: host, mode: action.mode, source: action.source};
+    if (!insideIframe) {
+        showActionToast(request);
+    } else {
+        // Shown in the top frame, like the popup
+        chrome.runtime.sendMessage("ShowToast|" + JSON.stringify(request));
+    }
+}
+
+/**
+ * Consent-o-Manual decision provider used by the engine.
  * Resolves per-site preference -> global default -> unified popup.
  */
 function createDecisionProvider(host) {
     return async (cmpName)=>{
+        lastAction = null;
         const decision = await GDPRConfig.resolveDecision(host);
         if (ConsentEngine.debugValues.debugLog) {
-            console.log("Consent-O-Matic Plus decision for", host, decision);
+            console.log("Consent-o-Manual decision for", host, decision);
         }
         if (decision.mode !== "ask") {
+            lastAction = {mode: decision.mode, source: decision.source};
             return decision.values;
         }
 
@@ -45,18 +74,24 @@ function createDecisionProvider(host) {
         if (answer.remember) {
             await GDPRConfig.setSitePreference(host, answer);
         }
+        lastAction = {mode: answer.mode, source: "asked"};
 
         const subsetValues = await GDPRConfig.getConsentValues();
         return GDPRConfig.valuesForMode(answer.mode, subsetValues, answer.values);
     };
 }
 
-// The top frame hosts the unified popup for CMPs found in child iframes
+// The top frame hosts the unified popup and the notification for CMPs found in child iframes
 if (!insideIframe) {
     chrome.runtime.onMessage.addListener((message, sender, reply)=>{
         if (message != null && message.type === "ShowUnifiedPopup") {
             askUser(message).then(reply, ()=>reply(null));
             return true;
+        }
+        if (message != null && message.type === "ShowToast") {
+            showActionToast(message);
+            reply();
+            return false;
         }
         return false;
     });
@@ -118,6 +153,7 @@ async function contentScriptRunner() {
                                             result.url = url;
         
                                             chrome.runtime.sendMessage("HandledCMP|"+JSON.stringify(result));
+                                            notifyAction(url, lastAction);
                                         } else if(evt.error) {
                                             chrome.runtime.sendMessage("CMPError");
                                         } else {

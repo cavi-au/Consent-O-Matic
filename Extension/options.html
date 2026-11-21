@@ -9,7 +9,7 @@
 
 <body>
     <div class="prehead">
-        <img src="logo.svg">
+        <img src="logo.png" alt="">
         <div class="title">
             <h1>[[EXTENSION_NAME]]</h1>
             <h2>[[EXTENSION_SUBTITLE]]</h2>
@@ -49,11 +49,11 @@
                     <ul>
                         <li>
                             <b>Safari (Mac)</b><br>
-                            Settings > Extensions > Consent-O-Matic > Always Allow on Every Website
+                            Settings > Extensions > Consent-o-Manual > Always Allow on Every Website
                         </li>
                         <li>
                             <b>Safari (iOS)</b><br>
-                            Settings > Safari > Extensions > Consent-O-Matic > Permissions > All Websites > Allow
+                            Settings > Safari > Extensions > Consent-o-Manual > Permissions > All Websites > Allow
                         </li>
                     </ul>
                 </div>
@@ -94,6 +94,25 @@
                 [[DISPLAY_DESCRIPTION]]
             </div>
             <ul class="settingsList">
+                <li class="choiceSetting popupStyle">
+                    <div>[[PLUS_POPUP_STYLE_DESCRIPTION]]</div>
+                    <form id="popupStyle">
+			<div>
+				<input type="radio" name="popupStyle" id="ps_card" value="card"/>
+				<label for="ps_card"><h2>[[PLUS_POPUP_STYLE_CARD]]</h2><img src="popup-card.svg" alt="">[[PLUS_POPUP_STYLE_CARD_LABEL]]</label>
+			</div>
+			<div>
+				<input type="radio" name="popupStyle" id="ps_banner" value="banner"/>
+				<label for="ps_banner"><h2>[[PLUS_POPUP_STYLE_BANNER]]</h2><img src="popup-banner.svg" alt="">[[PLUS_POPUP_STYLE_BANNER_LABEL]]</label>
+			</div>
+                    </form>
+                </li>
+                <li class="notifySetting">
+                    <label for="showNotifications">
+                        <input type="checkbox" id="showNotifications">
+                        <span><h2>[[PLUS_NOTIFY_TITLE]]</h2><span class="notifydesc">[[PLUS_NOTIFY_DESCRIPTION]]</span></span>
+                    </label>
+                </li>
                 <li class="hideOrPip">
                     <div>[[HIDE_OR_PIP_DESCRIPTION]]</div>
                     <form id="hideOrPip">
@@ -147,7 +166,7 @@
             </div>
 	    <div class="helptext">
 	    <h2>License</h2><br />
-	    Consent-O-Matic is made available on <a href="https://github.com/cavi-au/Consent-O-Matic">Github</a> under the MIT license
+	    Consent-o-Manual is built on Consent-O-Matic, which is made available on <a href="https://github.com/cavi-au/Consent-O-Matic">Github</a> under the MIT license
 <p>
 MIT License
 </p><p>

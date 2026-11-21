@@ -60,7 +60,22 @@ if (optionsUL){
         });
     });
 
-    // Consent-O-Matic Plus: global default behaviour
+    // Consent-o-Manual: popup style (card / banner) and the action notification
+    GDPRConfig.getGeneralSettings().then((generalSettings)=>{
+        let styleForm = document.querySelector("#generalTab #popupStyle");
+        styleForm.elements["popupStyle"].value = generalSettings.popupStyle;
+        styleForm.addEventListener("input", ()=>{
+            GDPRConfig.setGeneralSettings({popupStyle: styleForm.elements["popupStyle"].value});
+        });
+
+        let notify = document.querySelector("#showNotifications");
+        notify.checked = generalSettings.showNotifications !== false;
+        notify.addEventListener("input", ()=>{
+            GDPRConfig.setGeneralSettings({showNotifications: notify.checked});
+        });
+    });
+
+    // Consent-o-Manual: global default behaviour
     GDPRConfig.getGeneralSettings().then((generalSettings)=>{
         let modeForm = document.querySelector("#defaultMode");
         modeForm.elements["defaultMode"].value = generalSettings.defaultMode;
@@ -69,7 +84,7 @@ if (optionsUL){
         });
     });
 
-    // Consent-O-Matic Plus: per-site preferences
+    // Consent-o-Manual: per-site preferences
     let siteTable = document.querySelector("#sitesTab table.siteList");
     const modeLabels = {
         ask: "PLUS_MODE_ASK",

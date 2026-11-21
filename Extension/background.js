@@ -30,6 +30,17 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             return true;
         }
 
+        case "ShowToast": {
+            // A CMP inside an iframe was handled: show the action notification in the top frame
+            let request = JSON.parse(message.substring(message.indexOf("|")+1));
+            request.type = "ShowToast";
+            chrome.tabs.sendMessage(sender.tab.id, request, {frameId: 0}).catch((e)=>{
+                console.warn("Could not show action notification in top frame:", e);
+            });
+            reply();
+            return false;
+        }
+
         case "OpenOptions": {
             chrome.runtime.openOptionsPage();
             reply();
@@ -204,7 +215,7 @@ function fetchRules(forceUpdate) {
                     }
                 }
 
-                // Consent-O-Matic Plus: our own bundled rules are always loaded last so they take precedence
+                // Consent-o-Manual: our own bundled rules are always loaded last so they take precedence
                 let plusRules = await fetchRulesList(chrome.runtime.getURL("plus-rules.json"));
                 if (plusRules != null) {
                     rules.push(plusRules);

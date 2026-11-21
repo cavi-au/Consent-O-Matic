@@ -1,6 +1,10 @@
-# Consent-O-Matic Plus
+# Consent-o-Manual
 
-> This fork adds a unified, accessible consent popup (Accept all / Reject all non-essential / Use my preferences / Customize), global settings, per-site preferences and our own bundled rules (`rules-plus/`). See **[docs/PLUS_DESIGN.md](docs/PLUS_DESIGN.md)** for the design, flow chart, backend and status. Build with `npm run build-chromium`, load `build/` unpacked in Chrome, test with `npm run test:e2e`.
+<img src="Extension/logo.png" width="120" alt="Consent-o-Manual logo: a cursor clicking a cookie">
+
+> Consent-o-Manual is built on Consent-O-Matic. It adds one unified, accessible consent popup (Accept all / Reject all non-essential / Use my preferences / Customize) shown as a centred card or a bottom banner, a green notification when an action is taken, global settings, per-site preferences and our own bundled rules (`rules-plus/`). See **[docs/PLUS_DESIGN.md](docs/PLUS_DESIGN.md)** for the design, flow chart, backend and status. Build with `npm run build-chromium`, load `build/` unpacked in Chrome, test with `npm run test:e2e`.
+>
+> The rest of this README is the original Consent-O-Matic documentation.
 
 # Consent-O-Matic
 

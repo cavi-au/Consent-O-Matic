@@ -1,3 +1,15 @@
+// Consent-o-Manual palette: white background, blue buttons and details
+$blue: #1d4ed8;
+$blue-hover: #1e40af;
+$blue-soft: #eff4ff;
+$ink: #0f172a;
+$muted: #475569;
+$line: #dbe3f4;
+
+html {
+    background: #f1f5fb;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -9,23 +21,22 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: top;
-    background: #00309a;
-    background: linear-gradient(to right, rgba(0, 48, 154, 1) 0%, rgba(0, 22, 91, 1) 100%);
+    background: white;
     max-width: 50em;
     min-width: 20em;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid $line;
+    border-right: 1px solid $line;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-    line-height: 1.25em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
+    box-shadow: 0 0 1.5em rgba(15, 23, 42, 0.08);
+    line-height: 1.35em;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Verdana, sans-serif;
+    color: $ink;
 }
 
 .header {
-    border-top: 1px solid #2f1988;
-    border-bottom: 1px solid #2f1988;
+    background: white;
+    border-bottom: 1px solid $line;
 
     ul {
         display: flex;
@@ -36,18 +47,24 @@ body {
 
     li {
         display: inline-block;
-        background: rgba(100, 100, 200, 0.2);
+        background: transparent;
+        color: $muted;
+        font-weight: 600;
         cursor: pointer;
         padding: 1em;
         margin: 0;
-        transition: background 0.20s ease-in-out;
+        border-bottom: 3px solid transparent;
+        transition: background 0.20s ease-in-out, color 0.20s ease-in-out;
 
         &:hover {
-            background: rgba(100, 100, 200, 0.5);
+            background: $blue-soft;
+            color: $blue;
         }
         &.active {
             opacity: 1 !important;
-            background: rgba(100, 100, 255, 0.7);
+            color: $blue;
+            background: $blue-soft;
+            border-bottom-color: $blue;
         }
     }
 }
@@ -56,11 +73,12 @@ body {
 .prehead {
     position: relative;
     padding: 1em;
-    color: white;
-    font-family: sans-serif;
+    color: $blue;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     display: flex;
     margin-bottom: 0em;
-    background: rgb(44, 69, 193);
+    background: white;
+    border-top: 4px solid $blue;
 
     .title {
         display: flex;
@@ -77,7 +95,7 @@ body {
     h2 {
         margin-top: 0;
         margin-bottom: 0;
-        opacity: 0.8;
+        color: $muted;
         font-weight: normal;
         font-size: 1em;
     }
@@ -146,21 +164,40 @@ body {
 }
 
 button, input {
-    padding: 1em;
+    padding: 0.8em 1.2em;
     margin: 0.5em 0;
-    border: 1px solid black;
-    border-radius: 0;
-    background: #25348c;
+    border: 1px solid $blue;
+    border-radius: 8px;
+    background: $blue;
     transition: background 0.125s ease-in-out;
     color: white;
+    font: inherit;
+    font-weight: 600;
     cursor: pointer;        
     &:hover {
-        background: #3244a2;
+        background: $blue-hover;
+    }
+    &:focus-visible {
+        outline: 3px solid #f59e0b;
+        outline-offset: 2px;
     }
     &[type="url"]{
-        color: black;
-        background: rgba(100, 100, 100,0.2);
+        color: $ink;
+        background: white;
+        border-color: $line;
+        font-weight: normal;
+        cursor: text;
     }
+    &[type="checkbox"], &[type="radio"] {
+        accent-color: $blue;
+    }
+}
+
+.popup select {
+    border: 1px solid $line;
+    border-radius: 8px;
+    color: $ink;
+    background: white;
 }
 
 
@@ -207,13 +244,13 @@ button, input {
             }
 
             &.active {
-                background: rgba(100, 255, 100, 0.2);
+                background: $blue-soft;
                 &:hover {
-                    background: rgba(50, 255, 50, 0.2);
+                    background: #e2eaff;
                 }
             }
 
-            &.hideOrPip {
+            &.hideOrPip, &.choiceSetting {
                 padding: 2em;
 
                 form {
@@ -233,10 +270,11 @@ button, input {
                         display: none;
 
                         &:checked + label {
-                            background: rgba(100, 255, 100, 0.2);
+                            background: $blue-soft;
+                            outline: 2px solid $blue;
                         }
                         &:checked + label img {
-                            background: rgba(50, 255, 50, 0.2);
+                            background: white;
                             box-shadow: 0em 0em 0.2em rgba(0,0,0,0.2);
                         }
                     }
@@ -305,7 +343,7 @@ button, input {
     }    
 
     input:checked+.knob {
-        background-color: #66bb6a;
+        background-color: $blue;
         &:before {
             transform: translateX(24px);
         }
@@ -379,7 +417,7 @@ button, input {
 
 
 
-/* Consent-O-Matic Plus: default behaviour chooser and site choices list */
+/* Consent-o-Manual: default behaviour chooser and site choices list */
 .configurator .plusmode {
     .modelist {
         display: flex;
@@ -399,11 +437,11 @@ button, input {
                 width: 1.2em;
                 height: 1.2em;
                 flex: none;
-                accent-color: #25348c;
+                accent-color: $blue;
             }
             &:has(input:checked) {
-                border-color: #25348c;
-                background: #eef0f8;
+                border-color: $blue;
+                background: $blue-soft;
             }
         }
     }
@@ -424,5 +462,31 @@ button, input {
             padding: 0.4em 0.8em;
             margin: 0;
         }
+    }
+}
+
+/* Consent-o-Manual: action notification toggle */
+.configurator .settingsList li.notifySetting {
+    padding: 2em;
+    cursor: default;
+    label {
+        display: flex;
+        gap: 1em;
+        align-items: flex-start;
+        cursor: pointer;
+    }
+    input {
+        margin: 0.2em 0 0;
+        padding: 0;
+        width: 1.3em;
+        height: 1.3em;
+        flex: none;
+    }
+    h2 {
+        display: block;
+        margin-bottom: 0.25em;
+    }
+    .notifydesc {
+        color: $muted;
     }
 }

@@ -1,11 +1,11 @@
 {
-  "name": "consent-o-matic",
+  "name": "consent-o-manual",
   "version": "1.1.5",
-  "description": "A browser extension that tries to fill out GDPR consent popups for you",
+  "description": "Consent-o-Manual: one clear, accessible popup for every cookie banner (built on Consent-O-Matic)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cavi-au/Consent-O-Matic"
+    "url": "https://github.com/NoahBao/Consent-O-Matic-Plus"
   },
   "scripts": {
     "build-firefox": "webpack --env target=firefox",

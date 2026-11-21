@@ -1,8 +1,8 @@
 {
-	"name": "Consent-O-Matic",
-	"description": "Automatic handling of GDPR consent forms",
-	"author": "CAVI - Aarhus University",
-	"homepage_url": "https://github.com/cavi-au/Consent-O-Matic",
+	"name": "Consent-o-Manual",
+	"description": "One clear popup for every cookie banner: your choice, applied the way you decide",
+	"author": "Consent-o-Manual team (based on Consent-O-Matic by CAVI - Aarhus University)",
+	"homepage_url": "https://github.com/NoahBao/Consent-O-Matic-Plus",
 	"version": "REPLACED_BY_BUILD_SCRIPT",
 	"manifest_version": 3,
 	"permissions": [
@@ -14,7 +14,7 @@
 		"<all_urls>"
 	],
 	"action": {
-		"default_title": "Consent-O-Matic",
+		"default_title": "Consent-o-Manual",
 		"default_popup": "popup.html"
 	},
 	"background": {
@@ -43,13 +43,26 @@
 		"open_in_tab": true
 	},
 	"icons": {
+		"16": "icon_16.png",
+		"32": "icon_32.png",
 		"48": "icon_48.png",
-		"96": "icon_96.png"
+		"96": "icon_96.png",
+		"128": "icon_128.png"
 	},
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "gdpr@cavi.au.dk",
 			"strict_min_version": "109.0"
 		}
-	}
+	},
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"logo.png"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	]
 }

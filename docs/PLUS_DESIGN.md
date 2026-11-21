@@ -1,6 +1,6 @@
-# Consent-O-Matic Plus — design & status
+# Consent-o-Manual — design & status
 
-Consent-O-Matic Plus builds on [Consent-O-Matic](https://github.com/cavi-au/consent-o-matic): we reuse its
+Consent-o-Manual (formerly "Consent-O-Matic Plus") builds on [Consent-O-Matic](https://github.com/cavi-au/consent-o-matic): we reuse its
 engine and its rule files, and add:
 
 - **One unified popup** that replaces each site's own cookie banner. It has four choices: *Accept all*,
@@ -8,6 +8,8 @@ engine and its rule files, and add:
 - **Global settings** that say what to do when a banner appears.
 - **Per-site preferences** that override the global setting.
 - **Our own rule files** (`rules-plus/`), bundled into the extension.
+- **Display preferences**: the popup can be a centred *card* or a bottom *banner*, and a green notification
+  in the bottom-right corner says what was answered for you.
 
 This document covers the project plan items: visual design, the extension flow chart, the backend design,
 and the Phase 6 slide material.
@@ -16,13 +18,23 @@ and the Phase 6 slide material.
 
 ## 1. Visual design
 
-| Unified popup | Customize expanded | Mobile / dark mode |
-|---|---|---|
-| ![](images/1-unified-popup.png) | ![](images/2-customize.png) | ![](images/6-mobile-dark.png) |
+**Branding.** The extension is called **Consent-o-Manual**. The logo is a pixel cursor clicking the centre of
+a cookie (`Extension/logo.png`, plus `icon_16/32/48/96/128/1024.png`).
 
-| Options: global behaviour | Options: site choices | Toolbar popup |
+**Palette.** White backgrounds with blue buttons and details (`#1d4ed8`, hover `#1e40af`, soft blue `#eff4ff`
+for highlights). The only exception is the action notification, which is green (`#15803d`).
+
+| Card (centre of screen) | Banner (bottom of screen) | Banner on a phone |
 |---|---|---|
-| ![](images/3-options.png) | ![](images/4-site-choices.png) | ![](images/5-toolbar-popup.png) |
+| ![](images/1-card.png) | ![](images/2-banner.png) | ![](images/4-banner-mobile.png) |
+
+| Banner with Customize open | Action notification | Toolbar popup |
+|---|---|---|
+| ![](images/3-banner-customize.png) | ![](images/5-notification.png) | ![](images/9-toolbar-popup.png) |
+
+| Options: global behaviour | Options: Display | Options: site choices |
+|---|---|---|
+| ![](images/6-options.png) | ![](images/7-display.png) | ![](images/8-site-choices.png) |
 
 **Button placement**
 - *Accept all* and *Reject all non-essential* are side by side and look identical. Neither choice is pushed
@@ -36,9 +48,10 @@ and the Phase 6 slide material.
 
 **Accessibility**
 - The popup is a `role="dialog"` with `aria-modal`. Keyboard focus starts on the first button and stays
-  inside the popup. Esc means "Not now".
-- Every button is at least 44 px tall. Focus rings are visible. The popup follows the system's dark mode
-  setting and works on phone-width screens.
+  inside the popup. Esc means "Not now". The card and banner have the same buttons in the same keyboard order.
+- Every button is at least 44 px tall. Focus rings are visible. Both layouts work on phone-width screens.
+- The notification is a `role="status"` live region, so screen readers announce it without moving focus.
+  It has a close button and doesn't animate when the system asks for reduced motion.
 - Our automated tests use only the keyboard, so keyboard support is tested every time they run.
 
 **Wording.** All new text is in `Extension/Language.js` under the `PLUS_*` keys. Only English exists so far;
@@ -62,7 +75,7 @@ flowchart TD
     G --> I{mode == ask?}
     H --> I
     I -- no --> J[Mode → category values]
-    I -- yes --> K[Show unified popup<br/>in top frame]
+    I -- yes --> K[Show unified popup in top frame<br/>as card or banner]
     K -- Not now / Esc --> Z3[Leave site banner alone]
     K -- Accept all / Reject all /<br/>Use my preferences / Customize --> L{Remember<br/>ticked?}
     L -- yes --> M[Save per-site preference]
@@ -70,6 +83,9 @@ flowchart TD
     M --> J
     J --> N[Run rule: HIDE_CMP → OPEN_OPTIONS →<br/>DO_CONSENT → SAVE_CONSENT]
     N --> O[Badge ✔ + statistics]
+    O --> P{Notifications<br/>on?}
+    P -- yes --> Q[Green notice, bottom right,<br/>closes after 5 s]
+    P -- no --> R[Done]
 ```
 
 **Screens and what their buttons do**
@@ -86,6 +102,9 @@ flowchart TD
 | | Keep running on this site? | Turn the extension on or off for this site | `setPageActive` (upstream) |
 | Options → Your Choice | "When a cookie banner appears" | Global default mode | `setGeneralSettings({defaultMode})` |
 | | Category toggles | The "my preferences" set | `setConsentValues` (upstream) |
+| Options → Display | Card / Banner | Layout of the unified popup | `setGeneralSettings({popupStyle})` |
+| | Notify me when an action is taken | Turn the green notification on or off | `setGeneralSettings({showNotifications})` |
+| Notification | × | Close it before the 5 seconds are up | none |
 | Options → Site choices | Remove / Remove all | Delete per-site preferences | `setSitePreference(host,null)` / `clearSitePreferences()` |
 
 ---
@@ -97,6 +116,8 @@ flowchart TD
 | Key | Storage | Shape | Meaning |
 |---|---|---|---|
 | `generalSettings.defaultMode` | `chrome.storage.sync` | `"ask" \| "acceptAll" \| "rejectAll" \| "subset"` (default `"ask"`) | Global setting |
+| `generalSettings.popupStyle` | `chrome.storage.sync` | `"card" \| "banner"` (default `"card"`) | Popup layout |
+| `generalSettings.showNotifications` | `chrome.storage.sync` | `bool` (default `true`) | Green action notification |
 | `consentValues` | `chrome.storage.sync` (upstream) | `{A,B,D,E,F,X: bool}` | The "my preferences" set |
 | `sitePreferences[host]` | `chrome.storage.local` | `{mode, values?, updated}` | Per-site override |
 
@@ -138,9 +159,16 @@ service worker --tabs.sendMessage({type:"ShowUnifiedPopup"}, {frameId:0})--> top
 top frame shows the popup --answer--> service worker --answer--> iframe engine continues
 ```
 
+### Action notification
+
+After the engine has filled in a banner, the content script shows `ActionToast` with the mode that was
+applied and where it came from ("your saved choice for this site", "your global setting" or "your choice").
+Like the popup, it is drawn in the top frame; for a CMP inside an iframe the request goes through the service
+worker (`ShowToast|{...}`). It is purely visual and has no effect on what was answered.
+
 ### Security
 
-The popup is drawn inside a **closed** shadow root, so page scripts cannot restyle it or read it. Clicks and
+The popup and the notification are drawn inside **closed** shadow roots, so page scripts cannot restyle it or read it. Clicks and
 key presses that a script fakes (`isTrusted === false`) are ignored. If the page removes the popup while it is
 waiting for an answer, it puts it back.
 
@@ -166,7 +194,7 @@ To load it in Chrome: open `chrome://extensions`, turn on *Developer mode*, clic
 open <http://localhost:8000>.
 
 ```bash
-npm run test:e2e            # needs Playwright + Chromium; runs the 9 end-to-end scenarios
+npm run test:e2e            # needs Playwright + Chromium; runs the 13 end-to-end scenarios
 ```
 
 ---
@@ -184,7 +212,10 @@ npm run test:e2e            # needs Playwright + Chromium; runs the 9 end-to-end
   Options → Site choices.
 - CMPs inside iframes are answered through the popup in the top frame.
 - Fixed the badge for Manifest V3 (`chrome.action`). Saving one general setting no longer wipes the others.
-- Automated end-to-end test (9 scenarios) that loads the real extension in Chromium.
+- Rebranded to **Consent-o-Manual** with a new cookie-and-cursor logo and a white and blue palette.
+- Display preferences: popup as a centred card or a bottom banner, and a green action notification in the
+  bottom-right corner that closes after 5 seconds and can be turned off.
+- Automated end-to-end test (13 scenarios) that loads the real extension in Chromium.
 
 **Left to do**
 - Write and check rules for one or more *real* websites or CMPs that upstream does not cover.
@@ -192,7 +223,9 @@ npm run test:e2e            # needs Playwright + Chromium; runs the 9 end-to-end
   - from one site
   - then one CMP across many sites
   - then as many CMPs as possible, using our list of CMP HTML element names to detect them
-- Hide the site's banner while the unified popup is open. Right now our popup sits on top of a backdrop.
+- Hide the site's banner while the unified popup is open. Right now our popup sits on top of a backdrop,
+  and the site's own banner is still there underneath ours.
 - Translate the `PLUS_*` strings.
-- Rebrand: name, icon, and the "Let us know" button, which still reports to the upstream CAVI server.
+- Finish the rebrand: the "Let us know" button still reports to the upstream CAVI server, the Firefox add-on
+  id is still upstream's, and the Safari/Xcode project still uses the old `logo.svg`.
 - Check the Firefox and Safari builds by hand. Only Chromium is covered by the automated test.

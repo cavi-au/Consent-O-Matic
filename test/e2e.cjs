@@ -1,5 +1,5 @@
 /*
- * Consent-O-Matic Plus end-to-end test.
+ * Consent-o-Manual end-to-end test.
  *
  * Loads the built Chromium extension (build/) into Chromium, serves demo-site/ locally and checks
  * that the unified popup, per-site preferences and global settings drive the PlusDemoCMP banner.
@@ -33,7 +33,7 @@ async function siteConsent(page) {
 }
 
 async function popupShown(page) {
-    await page.waitForSelector("consent-o-matic-plus", {state: "attached", timeout: 15000});
+    await page.waitForSelector("consent-o-manual", {state: "attached", timeout: 15000});
 }
 
 async function main() {
@@ -77,7 +77,7 @@ async function main() {
             if (p.url().startsWith("chrome-extension://")) await p.close();
         }
 
-        console.log("Consent-O-Matic Plus e2e");
+        console.log("Consent-o-Manual e2e");
 
         await test("unified popup appears and 'Reject all non-essential' rejects everything", async ()=>{
             await reset();
@@ -98,7 +98,7 @@ async function main() {
             const page = await context.newPage();
             await page.goto(`http://localhost:${PORT}/`);
             assert.deepStrictEqual(await siteConsent(page), {functional: false, analytics: false, marketing: false});
-            assert.strictEqual(await page.$("consent-o-matic-plus"), null, "popup should not be shown");
+            assert.strictEqual(await page.$("consent-o-manual"), null, "popup should not be shown");
             await page.close();
         });
 
@@ -177,7 +177,7 @@ async function main() {
             const page = await context.newPage();
             await page.goto(`http://127.0.0.1:${PORT}/`);
             assert.deepStrictEqual(await siteConsent(page), {functional: false, analytics: false, marketing: false});
-            assert.strictEqual(await page.$("consent-o-matic-plus"), null, "popup should not be shown");
+            assert.strictEqual(await page.$("consent-o-manual"), null, "popup should not be shown");
             await page.close();
         });
 
@@ -188,6 +188,63 @@ async function main() {
             const page = await context.newPage();
             await page.goto(`http://127.0.0.1:${PORT}/`);
             assert.deepStrictEqual(await siteConsent(page), {functional: true, analytics: true, marketing: true});
+            await page.close();
+        });
+
+        await test("popup style setting: card by default, banner when chosen", async ()=>{
+            await reset();
+            let page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/`);
+            await popupShown(page);
+            assert.strictEqual(await page.getAttribute("consent-o-manual", "data-style"), "card");
+            await page.close();
+
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "ask", popupStyle: "banner"}}, r)));
+            page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/`);
+            await popupShown(page);
+            assert.strictEqual(await page.getAttribute("consent-o-manual", "data-style"), "banner");
+            // Same buttons, same keyboard order in the banner layout
+            await page.keyboard.press("Tab");
+            await page.keyboard.press("Enter");
+            assert.deepStrictEqual(await siteConsent(page), {functional: false, analytics: false, marketing: false});
+            await page.close();
+        });
+
+        await test("green notification appears after an action and disappears after 5 seconds", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "rejectAll"}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/`);
+            await siteConsent(page);
+            await page.waitForSelector("consent-o-manual-toast", {state: "attached", timeout: 5000});
+            assert.strictEqual(await page.getAttribute("consent-o-manual-toast", "data-mode"), "rejectAll");
+            const shownAt = Date.now();
+            await page.waitForSelector("consent-o-manual-toast", {state: "detached", timeout: 8000});
+            const shownFor = Date.now() - shownAt;
+            assert(shownFor > 4000 && shownFor < 7000, "toast should stay about 5 s, stayed " + shownFor + " ms");
+            await page.close();
+        });
+
+        await test("notification can be turned off in settings", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "acceptAll", showNotifications: false}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/`);
+            assert.deepStrictEqual(await siteConsent(page), {functional: true, analytics: true, marketing: true});
+            await page.waitForTimeout(1000);
+            assert.strictEqual(await page.$("consent-o-manual-toast"), null, "toast should not be shown");
+            await page.close();
+        });
+
+        await test("notification for an iframe CMP is shown in the top frame", async ()=>{
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.sync.set({generalSettings: {defaultMode: "acceptAll"}}, r)));
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}/framed`);
+            await page.waitForSelector("consent-o-manual-toast", {state: "attached", timeout: 15000});
+            assert.strictEqual(await page.getAttribute("consent-o-manual-toast", "data-mode"), "acceptAll");
             await page.close();
         });
     } finally {

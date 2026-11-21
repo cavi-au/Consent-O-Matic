@@ -18,7 +18,7 @@ if (frontTab){
             window.close();
         });
 
-        // Consent-O-Matic Plus: per-site choice for the current site
+        // Consent-o-Manual: per-site choice for the current site
         let siteMode = document.querySelector("#sitemode");
         const globalLabels = {
             ask: "PLUS_MODE_ASK",

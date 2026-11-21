@@ -11,8 +11,12 @@ module.exports = env=>({
     content: [
       './Extension/contentScript.js',
       "./Extension/content.scss",
+      "./Extension/icon_16.png",
+      "./Extension/icon_32.png",
       "./Extension/icon_48.png",
       "./Extension/icon_96.png",
+      "./Extension/icon_128.png",
+      "./Extension/logo.png",
       ...glob.sync(__dirname + "/Extension/*.svg")
     ],
     ui: [
@@ -68,7 +72,7 @@ module.exports = env=>({
   },
   plugins: [
     new CopyPlugin({patterns: [{
-        // Consent-O-Matic Plus: merge our own rule files into one bundled rule list
+        // Consent-o-Manual: merge our own rule files into one bundled rule list
         from: "rules-plus/*.json",
         to: "plus-rules.json",
         transformAll(assets) {

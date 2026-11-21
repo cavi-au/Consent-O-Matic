@@ -246,7 +246,7 @@ export default class ConsentEngine {
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
-                            // Consent-O-Matic Plus: decide what to answer (per-site preference,
+                            // Consent-o-Manual: decide what to answer (per-site preference,
                             // global setting, or ask the user via the unified popup) before touching the CMP
                             clearTimeout(self.stopEngineId);
                             if (ConsentEngine.decisionProvider != null) {
@@ -254,7 +254,7 @@ export default class ConsentEngine {
                                 try {
                                     decision = await ConsentEngine.decisionProvider(cmp.name);
                                 } catch (e) {
-                                    console.error("Consent-O-Matic Plus: could not resolve a decision:", e);
+                                    console.error("Consent-o-Manual: could not resolve a decision:", e);
                                 }
 
                                 if (decision == null) {
