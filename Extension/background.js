@@ -225,7 +225,7 @@ function fetchRules(forceUpdate) {
                     }
                 }
 
-                // Consent-o-Manual: our own bundled rules are always loaded last so they take precedence
+                // Consent-O-Manual: our own bundled rules are always loaded last so they take precedence
                 let plusRules = await fetchRulesList(chrome.runtime.getURL("plus-rules.json"));
                 if (plusRules != null) {
                     rules.push(plusRules);
@@ -246,7 +246,7 @@ function fetchRules(forceUpdate) {
 
 let tabStatusMap = new Map();
 
-// Consent-o-Manual: the parsed cookie-notice filter list, loaded once per service worker lifetime
+// Consent-O-Manual: the parsed cookie-notice filter list, loaded once per service worker lifetime
 let cookieFiltersPromise = null;
 function loadCookieFilters() {
     if (cookieFiltersPromise == null) {

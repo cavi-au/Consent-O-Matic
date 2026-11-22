@@ -247,7 +247,7 @@ export default class ConsentEngine {
                             self.startObserver();
                             self.handleMutations([]);
                         } else {
-                            // Consent-o-Manual: decide what to answer (per-site preference,
+                            // Consent-O-Manual: decide what to answer (per-site preference,
                             // global setting, or ask the user via the unified popup) before touching the CMP
                             clearTimeout(self.stopEngineId);
                             if (ConsentEngine.decisionProvider != null) {
@@ -255,7 +255,7 @@ export default class ConsentEngine {
                                 try {
                                     decision = await ConsentEngine.decisionProvider(cmp.name);
                                 } catch (e) {
-                                    console.error("Consent-o-Manual: could not resolve a decision:", e);
+                                    console.error("Consent-O-Manual: could not resolve a decision:", e);
                                 }
 
                                 if (decision == null) {
@@ -395,7 +395,7 @@ export default class ConsentEngine {
             await checkIsShowing();
         } else {
             self.checkRunning = false;
-            // Consent-o-Manual: no rule matched, so look for a banner the cookie filter list knows about
+            // Consent-O-Manual: no rule matched, so look for a banner the cookie filter list knows about
             if (ConsentEngine.filterListDetector != null && !self.filterListDone) {
                 await self.checkFilterList();
             }
@@ -403,7 +403,7 @@ export default class ConsentEngine {
     }
 
     /**
-     * Consent-o-Manual: handle a cookie banner found with the cookie-notice filter list.
+     * Consent-O-Manual: handle a cookie banner found with the cookie-notice filter list.
      * The match must stay visible for a second with no rule matching, so rules always win.
      */
     async checkFilterList() {
@@ -434,7 +434,7 @@ export default class ConsentEngine {
         try {
             result = await answerFilterListBanner(found.element, ConsentEngine.decisionProvider);
         } catch (e) {
-            console.error("Consent-o-Manual: could not answer banner from the filter list:", e);
+            console.error("Consent-O-Manual: could not answer banner from the filter list:", e);
             this.checkRunning = false;
             this.handledCallback({handled: false, error: true});
             return;

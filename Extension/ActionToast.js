@@ -1,7 +1,7 @@
 import Language from "./Language.js";
 
 /**
- * Consent-o-Manual action notification.
+ * Consent-O-Manual action notification.
  *
  * A small green notice in the bottom-right corner that tells the user what was
  * answered on their behalf ("Rejected all non-essential cookies on example.com").

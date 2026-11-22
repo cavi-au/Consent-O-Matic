@@ -1,5 +1,5 @@
 /*
- * Consent-o-Manual: turns an AdGuard / uBlock style cookie-notice filter list into the
+ * Consent-O-Manual: turns an AdGuard / uBlock style cookie-notice filter list into the
  * compact JSON the extension uses to *detect* cookie banners.
  *
  * Only element-hiding rules are used:

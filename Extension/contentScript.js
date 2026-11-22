@@ -41,7 +41,7 @@ function notifyAction(host, action) {
 }
 
 /**
- * Consent-o-Manual decision provider used by the engine.
+ * Consent-O-Manual decision provider used by the engine.
  * Resolves per-site preference -> global default -> unified popup.
  */
 function createDecisionProvider(host) {
@@ -51,7 +51,7 @@ function createDecisionProvider(host) {
         lastAction = null;
         const decision = await GDPRConfig.resolveDecision(host);
         if (ConsentEngine.debugValues.debugLog) {
-            console.log("Consent-o-Manual decision for", host, decision);
+            console.log("Consent-O-Manual decision for", host, decision);
         }
         if (decision.mode !== "ask") {
             lastAction = {mode: decision.mode, source: decision.source};
@@ -144,7 +144,7 @@ async function contentScriptRunner() {
                                     ConsentEngine.topFrameUrl = url;
                                     ConsentEngine.decisionProvider = createDecisionProvider(url);
 
-                                    // Consent-o-Manual: also detect banners from the cookie-notice filter list (top frame only)
+                                    // Consent-O-Manual: also detect banners from the cookie-notice filter list (top frame only)
                                     ConsentEngine.filterListDetector = null;
                                     if (!insideIframe && generalSettings.useCookieFilterList !== false) {
                                         const selectors = await new Promise((resolve)=>{

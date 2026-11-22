@@ -1,7 +1,7 @@
 {
   "name": "consent-o-manual",
   "version": "1.1.5",
-  "description": "Consent-o-Manual: one clear, accessible popup for every cookie banner (built on Consent-O-Matic)",
+  "description": "Consent-O-Manual: one clear, accessible popup for every cookie banner (built on Consent-O-Matic)",
   "license": "MIT",
   "repository": {
     "type": "git",

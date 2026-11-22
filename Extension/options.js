@@ -60,7 +60,7 @@ if (optionsUL){
         });
     });
 
-    // Consent-o-Manual: popup style (card / banner) and the action notification
+    // Consent-O-Manual: popup style (card / banner) and the action notification
     GDPRConfig.getGeneralSettings().then((generalSettings)=>{
         let styleForm = document.querySelector("#generalTab #popupStyle");
         styleForm.elements["popupStyle"].value = generalSettings.popupStyle;
@@ -81,7 +81,7 @@ if (optionsUL){
         });
     });
 
-    // Consent-o-Manual: global default behaviour
+    // Consent-O-Manual: global default behaviour
     GDPRConfig.getGeneralSettings().then((generalSettings)=>{
         let modeForm = document.querySelector("#defaultMode");
         modeForm.elements["defaultMode"].value = generalSettings.defaultMode;
@@ -90,7 +90,7 @@ if (optionsUL){
         });
     });
 
-    // Consent-o-Manual: per-site preferences
+    // Consent-O-Manual: per-site preferences
     let siteTable = document.querySelector("#sitesTab table.siteList");
     const modeLabels = {
         ask: "PLUS_MODE_ASK",

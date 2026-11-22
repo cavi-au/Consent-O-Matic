@@ -1,5 +1,5 @@
 /*
- * Consent-o-Manual end-to-end test.
+ * Consent-O-Manual end-to-end test.
  *
  * Loads the built Chromium extension (build/) into Chromium, serves demo-site/ locally and checks
  * that the unified popup, per-site preferences and global settings drive the PlusDemoCMP banner.
@@ -78,7 +78,7 @@ async function main() {
             if (p.url().startsWith("chrome-extension://")) await p.close();
         }
 
-        console.log("Consent-o-Manual e2e");
+        console.log("Consent-O-Manual e2e");
 
         await test("unified popup appears and 'Reject all non-essential' rejects everything", async ()=>{
             await reset();

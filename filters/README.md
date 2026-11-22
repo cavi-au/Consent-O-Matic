@@ -6,7 +6,7 @@
 that covers the rest of this repository.
 
 At build time, `parse-cookie-filters.cjs` keeps only the element-hiding rules (`##`, `#@#`) and writes
-them to `build/cookie-filters.json`. Consent-o-Manual uses them to **detect** cookie banners that no rule
+them to `build/cookie-filters.json`. Consent-O-Manual uses them to **detect** cookie banners that no rule
 in `rules/` or `rules-plus/` covers. Network rules, scriptlets, CSS injection and extended-CSS rules are
 ignored.
 

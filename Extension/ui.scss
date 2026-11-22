@@ -1,4 +1,4 @@
-// Consent-o-Manual palette: white background, blue buttons and details
+// Consent-O-Manual palette: white background, blue buttons and details
 $blue: #1d4ed8;
 $blue-hover: #1e40af;
 $blue-soft: #eff4ff;
@@ -417,7 +417,7 @@ button, input {
 
 
 
-/* Consent-o-Manual: default behaviour chooser and site choices list */
+/* Consent-O-Manual: default behaviour chooser and site choices list */
 .configurator .plusmode {
     .modelist {
         display: flex;
@@ -465,7 +465,7 @@ button, input {
     }
 }
 
-/* Consent-o-Manual: action notification toggle */
+/* Consent-O-Manual: action notification toggle */
 .configurator .settingsList li.notifySetting {
     padding: 2em;
     cursor: default;
@@ -491,7 +491,7 @@ button, input {
     }
 }
 
-/* Consent-o-Manual: cookie filter list toggle */
+/* Consent-O-Manual: cookie filter list toggle */
 .configurator .filterlist {
     label {
         display: inline-flex;

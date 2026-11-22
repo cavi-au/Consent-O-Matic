@@ -294,7 +294,7 @@ export default class GDPRConfig {
     }    
 
     /* ------------------------------------------------------------------
-     * Consent-o-Manual: global overrides and per-site preferences
+     * Consent-O-Manual: global overrides and per-site preferences
      *
      * Resolution order when a CMP is detected on <host>:
      *   1. sitePreferences[host]          (per-site override, storage.local)
@@ -446,13 +446,13 @@ GDPRConfig.defaultValues = {
 
 GDPRConfig.defaultSettings = {
     "hideInsteadOfPIP": false,
-    // Consent-o-Manual: "ask" | "acceptAll" | "rejectAll" | "subset"
+    // Consent-O-Manual: "ask" | "acceptAll" | "rejectAll" | "subset"
     "defaultMode": "ask",
-    // Consent-o-Manual: "card" (centre of the screen) | "banner" (bottom of the screen)
+    // Consent-O-Manual: "card" (centre of the screen) | "banner" (bottom of the screen)
     "popupStyle": "card",
-    // Consent-o-Manual: show the green "action taken" notification
+    // Consent-O-Manual: show the green "action taken" notification
     "showNotifications": true,
-    // Consent-o-Manual: also detect banners with the bundled cookie-notice filter list
+    // Consent-O-Manual: also detect banners with the bundled cookie-notice filter list
     "useCookieFilterList": true
 };
 

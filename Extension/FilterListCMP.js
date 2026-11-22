@@ -1,5 +1,5 @@
 /**
- * Consent-o-Manual: cookie banners found with the cookie-notice filter list.
+ * Consent-O-Manual: cookie banners found with the cookie-notice filter list.
  *
  * The rule files say exactly how to answer a known CMP. The filter list only says which
  * elements are cookie banners, so for a banner found that way we answer generically:

@@ -73,14 +73,14 @@ module.exports = env=>({
   },
   plugins: [
     new CopyPlugin({patterns: [{
-        // Consent-o-Manual: cookie-notice filter list -> selectors used to detect banners no rule covers
+        // Consent-O-Manual: cookie-notice filter list -> selectors used to detect banners no rule covers
         from: "filters/cookie-notices.txt",
         to: "cookie-filters.json",
         transform(content) {
             return JSON.stringify(parseCookieFilters(content.toString()));
         }
     }, {
-        // Consent-o-Manual: merge our own rule files into one bundled rule list
+        // Consent-O-Manual: merge our own rule files into one bundled rule list
         from: "rules-plus/*.json",
         to: "plus-rules.json",
         transformAll(assets) {

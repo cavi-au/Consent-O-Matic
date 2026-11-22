@@ -1,7 +1,7 @@
 import Language from "./Language.js";
 
 /**
- * Consent-o-Manual unified consent popup.
+ * Consent-O-Manual unified consent popup.
  *
  * Shown in the top frame when a CMP is detected and the resolved mode is "ask".
  * It replaces every site's own banner with one consistent, accessible dialog:
@@ -48,7 +48,7 @@ const STYLE = `
     padding: 16px;
     background: rgba(15, 23, 42, 0.40);
     font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    /* Consent-o-Manual palette: white surfaces, blue buttons and details */
+    /* Consent-O-Manual palette: white surfaces, blue buttons and details */
     --bg: #ffffff; --fg: #0f172a; --muted: #475569; --line: #dbe3f4;
     --blue: #1d4ed8; --blue-hover: #1e40af; --blue-soft: #eff4ff; --on-blue: #ffffff;
     --focus: #f59e0b;

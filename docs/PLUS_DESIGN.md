@@ -1,6 +1,6 @@
-# Consent-o-Manual — design & status
+# Consent-O-Manual — design & status
 
-Consent-o-Manual (formerly "Consent-O-Matic Plus") builds on [Consent-O-Matic](https://github.com/cavi-au/consent-o-matic): we reuse its
+Consent-O-Manual (formerly "Consent-O-Matic Plus") builds on [Consent-O-Matic](https://github.com/cavi-au/consent-o-matic): we reuse its
 engine and its rule files, and add:
 
 - **One unified popup** that replaces each site's own cookie banner. It has four choices: *Accept all*,
@@ -20,7 +20,7 @@ and the Phase 6 slide material.
 
 ## 1. Visual design
 
-**Branding.** The extension is called **Consent-o-Manual**. The logo is a pixel cursor clicking the centre of
+**Branding.** The extension is called **Consent-O-Manual**. The logo is a pixel cursor clicking the centre of
 a cookie (`Extension/logo.png`, plus `icon_16/32/48/96/128/1024.png`).
 
 **Palette.** White backgrounds with blue buttons and details (`#1d4ed8`, hover `#1e40af`, soft blue `#eff4ff`
@@ -248,7 +248,7 @@ npm run test:e2e            # needs Playwright + Chromium; runs the 19 end-to-en
   Options → Site choices.
 - CMPs inside iframes are answered through the popup in the top frame.
 - Fixed the badge for Manifest V3 (`chrome.action`). Saving one general setting no longer wipes the others.
-- Rebranded to **Consent-o-Manual** with a new cookie-and-cursor logo and a white and blue palette.
+- Rebranded to **Consent-O-Manual** with a new cookie-and-cursor logo and a white and blue palette.
 - Display preferences: popup as a centred card or a bottom banner, and a green action notification in the
   bottom-right corner that closes after 5 seconds and can be turned off.
 - Banners that no rule covers are detected with the AdGuard Cookie Notices filter list and answered with

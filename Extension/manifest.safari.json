@@ -1,7 +1,7 @@
 {
-	"name": "Consent-o-Manual",
+	"name": "Consent-O-Manual",
 	"description": "One clear popup for every cookie banner: your choice, applied the way you decide",
-	"author": "Consent-o-Manual team (based on Consent-O-Matic by CAVI - Aarhus University)",
+	"author": "Consent-O-Manual team (based on Consent-O-Matic by CAVI - Aarhus University)",
 	"homepage_url": "https://github.com/NoahBao/Consent-O-Matic-Plus",
 	"version": "REPLACED_BY_BUILD_SCRIPT",
 	"manifest_version": 3,
@@ -14,7 +14,7 @@
 		"<all_urls>"
 	],
 	"action": {
-		"default_title": "Consent-o-Manual",
+		"default_title": "Consent-O-Manual",
 		"default_popup": "popup.html"
 	},
 	"background": {

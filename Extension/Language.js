@@ -1,6 +1,6 @@
 const translations = {
     "PLUS_LIMITED_NOTE": {
-        "en": "Consent-o-Manual found this banner with its cookie filter list, so it can only accept or reject everything here."
+        "en": "Consent-O-Manual found this banner with its cookie filter list, so it can only accept or reject everything here."
     },
     "PLUS_TOAST_HIDDEN": {
         "en": "Hid the cookie banner on %1%"
@@ -9,7 +9,7 @@ const translations = {
         "en": "Cookie filter list"
     },
     "PLUS_FILTERLIST_DESCRIPTION": {
-        "en": "Also find cookie banners that no rule covers, using the bundled AdGuard Cookie Notices filter list. These banners can only be answered with Accept all or Reject all: Consent-o-Manual clicks the matching button, or hides the banner if there isn't one. It never clicks Accept when your choice is to reject."
+        "en": "Also find cookie banners that no rule covers, using the bundled AdGuard Cookie Notices filter list. These banners can only be answered with Accept all or Reject all: Consent-O-Manual clicks the matching button, or hides the banner if there isn't one. It never clicks Accept when your choice is to reject."
     },
     "PLUS_FILTERLIST_TOGGLE": {
         "en": "Use the cookie filter list"
@@ -39,7 +39,7 @@ const translations = {
         "en": "Close notification"
     },
     "PLUS_POPUP_STYLE_DESCRIPTION": {
-        "en": "How should the Consent-o-Manual popup look when it asks you about a site's cookies?"
+        "en": "How should the Consent-O-Manual popup look when it asks you about a site's cookies?"
     },
     "PLUS_POPUP_STYLE_CARD": {
         "en": "Card"
@@ -57,7 +57,7 @@ const translations = {
         "en": "Notify me when an action is taken"
     },
     "PLUS_NOTIFY_DESCRIPTION": {
-        "en": "Show a small green notice in the bottom-right corner saying what Consent-o-Manual answered for you. It disappears by itself after 5 seconds."
+        "en": "Show a small green notice in the bottom-right corner saying what Consent-O-Manual answered for you. It disappears by itself after 5 seconds."
     },
     "PLUS_SHORT_A": {
         "en": "Remember your settings such as language, region or login."
@@ -78,7 +78,7 @@ const translations = {
         "en": "Purposes the site doesn't fit into the categories above."
     },
     "PLUS_NAME": {
-        "en": "Consent-o-Manual"
+        "en": "Consent-O-Manual"
     },
     "PLUS_PROMPT_TITLE": {
         "en": "This site wants to use cookies"
@@ -126,7 +126,7 @@ const translations = {
         "en": "When a cookie banner appears"
     },
     "PLUS_DEFAULT_MODE_DESCRIPTION": {
-        "en": "Choose what Consent-o-Manual does on sites where you haven't saved a choice yet. Choices you save for a specific site always win over this setting."
+        "en": "Choose what Consent-O-Manual does on sites where you haven't saved a choice yet. Choices you save for a specific site always win over this setting."
     },
     "PLUS_MODE_ASK": {
         "en": "Ask me with the unified popup"
@@ -195,11 +195,11 @@ const translations = {
         "en": "Reload the page to apply a new choice."
     },
     "EXTENSION_NAME": {
-        "en": "Consent-o-Manual",
-        "da": "Consent-o-Manual",
-        "de": "Consent-o-Manual",
-        "pt": "Consent-o-Manual",
-        "fr": "Consent-o-Manual"
+        "en": "Consent-O-Manual",
+        "da": "Consent-O-Manual",
+        "de": "Consent-O-Manual",
+        "pt": "Consent-O-Manual",
+        "fr": "Consent-O-Manual"
     },
     "EXTENSION_SUBTITLE": {
         "en": "Your Choice - Applied Everywhere",
@@ -277,25 +277,25 @@ const translations = {
         "fr": "Affichage"
     },
     "DISPLAY_DESCRIPTION": {
-        "en": "Configure the appearance and behaviour of Consent-o-Manual",
-        "da": "Konfigurer Consent-o-Manual's udseende og opførsel",
-        "de": "Konfiguration des Aussehens und Verhaltens von Consent-o-Manual",
-        "pt": "Configure a aparência e o comportamento do Consent-o-Manual",
-        "fr": "Configurez l'apparence et le comportement de Consent-o-Manual"
+        "en": "Configure the appearance and behaviour of Consent-O-Manual",
+        "da": "Konfigurer Consent-O-Manual's udseende og opførsel",
+        "de": "Konfiguration des Aussehens und Verhaltens von Consent-O-Manual",
+        "pt": "Configure a aparência e o comportamento do Consent-O-Manual",
+        "fr": "Configurez l'apparence et le comportement de Consent-O-Manual"
     },
     "CHOICE_DESCRIPTION": {
-        "en": "Configure what categories of tracking you would like to allow. Consent-o-Manual then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
-        "da": "Konfigurer hvilke tracking-kategorier du gerne vil tillade. Så vil Consent-o-Manual udfylde samtykke-popups så godt den kan baseret på dine valg. Som standard bliver alt tracking afvist.",
-        "de": "Legen Sie fest, welche Kategorien von Tracking Sie zulassen möchten. Consent-o-Manual füllt dann, basierend auf Ihren Voreinstellungen, die Zustimmungs-Popups so gut wie möglich aus. Standardmäßig wird jegliches Tracking abgelehnt.",
-        "pt": "Configure quais categorias de rastreamento você gostaria de permitir. O Consent-o-Manual preenche os pop-ups de consentimento da melhor forma possível com base em suas preferências. Todos os rastreamentos são rejeitados por padrão.",
-        "fr": "Configurez les catégories de suivi que vous souhaitez autoriser. Consent-o-Manual remplit ensuite les popups de consentement de la meilleure façon possible en fonction de vos préférences. Tout suivi est rejeté par défaut."
+        "en": "Configure what categories of tracking you would like to allow. Consent-O-Manual then fills out consent popups as best as possible based on your preferences. All tracking is rejected by default.",
+        "da": "Konfigurer hvilke tracking-kategorier du gerne vil tillade. Så vil Consent-O-Manual udfylde samtykke-popups så godt den kan baseret på dine valg. Som standard bliver alt tracking afvist.",
+        "de": "Legen Sie fest, welche Kategorien von Tracking Sie zulassen möchten. Consent-O-Manual füllt dann, basierend auf Ihren Voreinstellungen, die Zustimmungs-Popups so gut wie möglich aus. Standardmäßig wird jegliches Tracking abgelehnt.",
+        "pt": "Configure quais categorias de rastreamento você gostaria de permitir. O Consent-O-Manual preenche os pop-ups de consentimento da melhor forma possível com base em suas preferências. Todos os rastreamentos são rejeitados por padrão.",
+        "fr": "Configurez les catégories de suivi que vous souhaitez autoriser. Consent-O-Manual remplit ensuite les popups de consentement de la meilleure façon possible en fonction de vos préférences. Tout suivi est rejeté par défaut."
     },
     "RULES_DESCRIPTION": {
-        "en": "Consent-o-Manual comes with a set of rules that tell it how to understand each kind of GDPR consent popup. You can add more sources of rules here - or even create your own list and share it with others!",
-        "da": "Sammen med Consent-o-Manual følger et sæt af regler der beskriver hvordan hver enkelt slags GDPR-samtykke-popup skal behandles. Du kan tilføje flere regel-kilder her - eller oprette din egen liste og dele den med andre!",
-        "de": "Consent-o-Manual wird mit einer Reihe von Regeln geliefert, die ihm sagen, wie es jede Art von GDPR-Einwilligungs-Popup verstehen soll. Sie können hier weitere Quellen für Regeln hinzufügen - oder sogar Ihre eigene Liste erstellen und sie mit anderen teilen!",
-        "pt": "O Consent-o-Manual vem com um conjunto de regras de como entender cada tipo de pop-up de consentimento do GDPR. Você pode adicionar mais regras aqui - ou até mesmo criar sua própria lista e compartilhá-la com outras pessoas!",
-        "fr": "Consent-o-Manual est livré avec un ensemble de règles qui lui indiquent comment comprendre chaque type de popup de consentement GDPR. Vous pouvez ajouter plus de sources de règles ici - ou même créer votre propre liste et la partager avec d'autres!"
+        "en": "Consent-O-Manual comes with a set of rules that tell it how to understand each kind of GDPR consent popup. You can add more sources of rules here - or even create your own list and share it with others!",
+        "da": "Sammen med Consent-O-Manual følger et sæt af regler der beskriver hvordan hver enkelt slags GDPR-samtykke-popup skal behandles. Du kan tilføje flere regel-kilder her - eller oprette din egen liste og dele den med andre!",
+        "de": "Consent-O-Manual wird mit einer Reihe von Regeln geliefert, die ihm sagen, wie es jede Art von GDPR-Einwilligungs-Popup verstehen soll. Sie können hier weitere Quellen für Regeln hinzufügen - oder sogar Ihre eigene Liste erstellen und sie mit anderen teilen!",
+        "pt": "O Consent-O-Manual vem com um conjunto de regras de como entender cada tipo de pop-up de consentimento do GDPR. Você pode adicionar mais regras aqui - ou até mesmo criar sua própria lista e compartilhá-la com outras pessoas!",
+        "fr": "Consent-O-Manual est livré avec un ensemble de règles qui lui indiquent comment comprendre chaque type de popup de consentement GDPR. Vous pouvez ajouter plus de sources de règles ici - ou même créer votre propre liste et la partager avec d'autres!"
     },
     "ADD_LIST": {
         "en": "Add List",
@@ -347,11 +347,11 @@ const translations = {
         "fr": "Effacer"
     },
     "ABOUT_DESCRIPTION": {
-        "en": "Here you can see how many times a popup has been filled out and just how many clicks Consent-o-Manual has saved you.",
-        "da": "Her kan du se hvor mange gange der er blevet udfyldt en popup for dig, og hvor mange klik Consent-o-Manual har sparet dig.",
-        "de": "Hier können Sie sehen, wie häufig ein Popup ausgefüllt wurde und wie viele Klicks dank Consent-o-Manual gespart wurden.",
-        "pt": "Aqui você pode ver quantas vezes um pop-up foi preenchido e quantos cliques o Consent-o-Manual economizou para você.",
-        "fr": "Ici, vous pouvez voir combien de fois un popup a été remplie et combien de clics Consent-o-Manual vous a économisés."
+        "en": "Here you can see how many times a popup has been filled out and just how many clicks Consent-O-Manual has saved you.",
+        "da": "Her kan du se hvor mange gange der er blevet udfyldt en popup for dig, og hvor mange klik Consent-O-Manual har sparet dig.",
+        "de": "Hier können Sie sehen, wie häufig ein Popup ausgefüllt wurde und wie viele Klicks dank Consent-O-Manual gespart wurden.",
+        "pt": "Aqui você pode ver quantas vezes um pop-up foi preenchido e quantos cliques o Consent-O-Manual economizou para você.",
+        "fr": "Ici, vous pouvez voir combien de fois un popup a été remplie et combien de clics Consent-O-Manual vous a économisés."
     },
     "CLICKS_SAVED": {
         "en": "clicks saved",
@@ -1415,11 +1415,11 @@ const translations = {
         "fr": "myCmp"
     },
     "OPTIONS_TITLE": {
-        "en": "Consent-o-Manual Options",
-        "da": "Consent-o-Manual indstillinger",
-        "de": "Consent-o-Manual Einstellungen",
-        "pt": "Opções do Consent-o-Manual",
-        "fr": "Options de Consent-o-Manual"
+        "en": "Consent-O-Manual Options",
+        "da": "Consent-O-Manual indstillinger",
+        "de": "Consent-O-Manual Einstellungen",
+        "pt": "Opções do Consent-O-Manual",
+        "fr": "Options de Consent-O-Manual"
     },
     "ARE_YOU_SURE": {
         "en": "Are you sure?",
@@ -1652,11 +1652,11 @@ const translations = {
         "fr": "Cacher de la détection"
     },
     "HIDE_FROM_DETECTION_HELP": {
-        "en": "Make sure this element and its children, is never detected by Consent-o-Manual",
-        "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af Consent-o-Manual",
-        "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von Consent-o-Manual erkannt werden",
-        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo Consent-o-Manual",
-        "fr": "Assurez-vous que cet élément et ses enfants ne sont jamais détectés par Consent-o-Manual"
+        "en": "Make sure this element and its children, is never detected by Consent-O-Manual",
+        "da": "Sørg for, at dette element og dets børn aldrig bliver opdaget af Consent-O-Manual",
+        "de": "Stellen Sie sicher, dass dieses Element und seine untergeordneten Elemente niemals von Consent-O-Manual erkannt werden",
+        "pt": "Certifique-se de que este elemento e seus filhos nunca sejam detectados pelo Consent-O-Manual",
+        "fr": "Assurez-vous que cet élément et ses enfants ne sont jamais détectés par Consent-O-Manual"
     },
     "FORCE_HIDE": {
         "en": "Force hide",
