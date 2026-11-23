@@ -113,7 +113,14 @@ async function contentScriptRunner() {
             });
         });
     }
-    const urlObj = new URL(url);
+    // No answer from the service worker (e.g. it failed to start) or an unusual frame URL: do nothing
+    let urlObj;
+    try {
+        urlObj = new URL(url);
+    } catch (e) {
+        console.warn("Consent-O-Manual: could not work out the page address, skipping this frame", url);
+        return;
+    }
     url = urlObj.host;
 
     GDPRConfig.isActive(url).then(async (active) => {

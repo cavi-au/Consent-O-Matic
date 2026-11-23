@@ -7,8 +7,12 @@ if (frontTab){
         active: true,
         currentWindow: true
     }, (tabs) => {
-        const urlObj = new URL(tabs[0].url);
-        const url = urlObj.host;
+        let url = "";
+        try {
+            url = new URL(tabs[0].url).host;
+        } catch (e) {
+            // No usable address for this tab (e.g. a browser page): the per-site controls do nothing
+        }
 
         let activeInput = document.querySelector(".siteselector input");
         document.querySelector("#site").textContent = url;

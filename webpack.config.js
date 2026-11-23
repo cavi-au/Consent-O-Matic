@@ -35,7 +35,9 @@ module.exports = env=>({
   output: {
     publicPath: "",
     filename: '[name].js',
-    path: path.resolve(__dirname, 'build')
+    // Chromium builds into build/; Firefox and Safari get their own folders so that
+    // `npm run build` can't leave another browser's manifest in build/
+    path: path.resolve(__dirname, env.target === 'chromium' ? 'build' : 'build-' + env.target)
   },
   module: {
     parser: {

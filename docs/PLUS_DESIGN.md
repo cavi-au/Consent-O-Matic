@@ -225,6 +225,10 @@ npm ci
 npm run build-chromium      # output in build/
 ```
 
+`npm run build-firefox` and `npm run build-safari` write to `build-firefox/` and `build-safari/`, and
+`npm run build` makes all three. Always load **`build/`** in Chrome: the Firefox and Safari manifests
+use `background.scripts`, which Chrome's Manifest V3 ignores, so the extension's background never starts.
+
 To load it in Chrome: open `chrome://extensions`, turn on *Developer mode*, click *Load unpacked* and pick
 `build/`. To see the demo, serve `demo-site/` (for example `python3 -m http.server -d demo-site 8000`) and
 open <http://localhost:8000>.
