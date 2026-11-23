@@ -195,6 +195,30 @@ filter list (`filters/cookie-notices.txt`, see `filters/README.md` for its licen
 - **Limits.** Generic button matching can miss unusual wording, and hiding a banner doesn't tell the site
   anything. Most sites treat that as no consent, but some may not.
 
+### "Clicks saved" statistic
+
+The About tab's total compares each answer with doing it by hand on the site's own banner
+(`Extension/ClickStats.js`):
+
+    clicks saved = clicks needed on the site's banner - clicks made in our popup   (never below 0)
+
+- **Clicks needed on the site's banner**
+  - 1, if the answer is accept-everything or reject-everything and the site's banner already shows a matching
+    one-click button. The engine checks for visible Accept / Reject buttons inside the elements the rule's
+    detector matched, before anything is hidden.
+  - 1, if the banner was only hidden.
+  - Otherwise, the clicks the extension actually made (opening settings, toggles, save).
+- **Clicks made in our popup**: every button or checkbox pressed, including Customize, each category
+  toggle and Save. Automatic answers from a saved site choice or the global setting count 0.
+
+Examples:
+- The site has "Reject all" and you press our "Reject all non-essential": 1 − 1 = 0.
+- The same site, answered automatically: 1.
+- The demo shop has no reject button (Manage settings + 3 toggles + Save = 5 clicks). Our Reject saves 4;
+  rejecting automatically saves 5.
+
+The per-CMP table still shows the clicks the extension actually made.
+
 ### Action notification
 
 After the engine has filled in a banner, the content script shows `ActionToast` with the mode that was
@@ -234,7 +258,7 @@ To load it in Chrome: open `chrome://extensions`, turn on *Developer mode*, clic
 open <http://localhost:8000>.
 
 ```bash
-npm run test:e2e            # needs Playwright + Chromium; runs the 19 end-to-end scenarios
+npm run test:e2e            # needs Playwright + Chromium; runs the 25 end-to-end scenarios
 ```
 
 ---
@@ -257,7 +281,9 @@ npm run test:e2e            # needs Playwright + Chromium; runs the 19 end-to-en
   bottom-right corner that closes after 5 seconds and can be turned off.
 - Banners that no rule covers are detected with the AdGuard Cookie Notices filter list and answered with
   Accept all or Reject all (or hidden when there is no matching button). Demo: `demo-site/filter-list.html`.
-- Automated end-to-end test (19 scenarios) that loads the real extension in Chromium.
+- "Clicks saved" now compares with answering the site's own banner by hand and subtracts clicks made in
+  our popup.
+- Automated end-to-end test (25 scenarios) that loads the real extension in Chromium.
 
 **Left to do**
 - Write and check rules for one or more *real* websites or CMPs that upstream does not cover.

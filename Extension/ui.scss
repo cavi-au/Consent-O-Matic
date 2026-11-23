@@ -507,3 +507,13 @@ button, input {
         height: 1.2em;
     }
 }
+
+/* Consent-O-Manual: explanation under "clicks saved" */
+.configurator .savesexplainer {
+    max-width: 36em;
+    margin: 0 auto;
+    padding: 0 2em;
+    text-align: center;
+    color: $muted;
+    font-size: 0.9em;
+}

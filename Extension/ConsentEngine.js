@@ -1,5 +1,6 @@
 import CMP from "./CMP.js";
-import {answerFilterListBanner} from "./FilterListCMP.js";
+import {answerFilterListBanner, findButtons} from "./FilterListCMP.js";
+import Tools from "./Tools.js";
 
 export default class ConsentEngine {
     constructor(config, consentTypes, handledCallback) {
@@ -250,6 +251,9 @@ export default class ConsentEngine {
                             // Consent-O-Manual: decide what to answer (per-site preference,
                             // global setting, or ask the user via the unified popup) before touching the CMP
                             clearTimeout(self.stopEngineId);
+                            // Before anything is hidden: does the site's banner already offer a
+                            // one-click Accept / Reject? Used for the "clicks saved" statistic.
+                            const oneClick = self.findOneClickButtons(cmp);
                             if (ConsentEngine.decisionProvider != null) {
                                 let decision = null;
                                 try {
@@ -347,7 +351,9 @@ export default class ConsentEngine {
                                 self.handledCallback({
                                     handled: true,
                                     cmpName: cmp.name,
-                                    clicks: self.numClicks
+                                    clicks: self.numClicks,
+                                    values: self.consentTypes,
+                                    oneClick: oneClick
                                 });
                             } catch (e) {
                                 console.log("Error during consent handling:", e);
@@ -403,6 +409,37 @@ export default class ConsentEngine {
     }
 
     /**
+     * Consent-O-Manual: which one-click answers the site's own banner shows right now.
+     * Looks for visible Accept / Reject buttons inside the elements the rule's detector matched.
+     * Returns {accept: bool, reject: bool}.
+     */
+    findOneClickButtons(cmp) {
+        const result = {accept: false, reject: false};
+        try {
+            const detector = cmp.detectors.find((d)=>d.detect());
+            if (detector == null) return result;
+            const roots = new Set();
+            [...detector.showingMatchers, ...detector.presentMatchers].forEach((matcher)=>{
+                if (matcher.config == null || matcher.config.type !== "css") return;
+                const found = Tools.find(matcher.config);
+                [found.target, found.parent].forEach((el)=>{
+                    if (el != null && el !== document.body && el !== document.documentElement) roots.add(el);
+                });
+            });
+            roots.forEach((root)=>{
+                const buttons = findButtons(root);
+                if (buttons.accept != null) result.accept = true;
+                if (buttons.reject != null) result.reject = true;
+            });
+        } catch (e) {
+            if (ConsentEngine.debugValues.debugLog) {
+                console.warn("Could not look for one-click buttons:", e);
+            }
+        }
+        return result;
+    }
+
+    /**
      * Consent-O-Manual: handle a cookie banner found with the cookie-notice filter list.
      * The match must stay visible for a second with no rule matching, so rules always win.
      */
@@ -448,6 +485,7 @@ export default class ConsentEngine {
                 handled: true,
                 cmpName: "Cookie filter list",
                 clicks: result.clicks,
+                oneClick: result.oneClick,
                 action: {mode: result.mode}
             });
         }

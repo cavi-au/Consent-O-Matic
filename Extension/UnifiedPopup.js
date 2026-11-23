@@ -22,7 +22,8 @@ import Language from "./Language.js";
  * script it, and only trusted (real user) events are accepted.
  *
  * UnifiedPopup.show() resolves with
- *   {mode: "acceptAll"|"rejectAll"|"subset"|"custom", values: {A..X} (custom only), remember: bool}
+ *   {mode: "acceptAll"|"rejectAll"|"subset"|"custom", values: {A..X} (custom only), remember: bool,
+ *    userClicks: number of buttons/checkboxes the user pressed in the popup}
  * or null if the user chose "Not now" (the site's own banner is then left alone).
  */
 
@@ -154,6 +155,8 @@ export default class UnifiedPopup {
         this.style = STYLES.includes(style) ? style : "card";
         this.limited = limited === true;
         this.previousFocus = document.activeElement;
+        // Clicks (or Enter/Space presses) on the popup's buttons and checkboxes, for "clicks saved"
+        this.userClicks = 0;
 
         this.promise = new Promise((resolve)=>{
             this.resolve = resolve;
@@ -282,6 +285,14 @@ export default class UnifiedPopup {
     onClick(evt) {
         // Ignore synthetic clicks dispatched by page scripts
         if (!evt.isTrusted) return;
+
+        // Count presses on buttons and checkboxes (a click on a label is counted once, on its checkbox).
+        // "Global settings" only opens the options page, so it isn't part of answering the banner.
+        const pressed = evt.target.closest("button, input");
+        if (pressed != null && pressed.getAttribute("data-action") !== "settings") {
+            this.userClicks++;
+        }
+
         const button = evt.target.closest("button[data-action]");
         if (button == null) return;
 
@@ -345,6 +356,9 @@ export default class UnifiedPopup {
 
     finish(result) {
         if (this.closed) return;
+        if (result != null) {
+            result.userClicks = this.userClicks;
+        }
         this.closed = true;
         this.removalObserver.disconnect();
         this.hostElement.remove();

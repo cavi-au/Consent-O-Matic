@@ -322,6 +322,56 @@ async function main() {
             assert(await page.isVisible(".gdpr_wrapper"), "banner should be left alone");
             await page.close();
         });
+
+        // ---- "clicks saved" statistic ----
+        async function savedAfter(path, settings, answer) {
+            await reset();
+            await storage(()=>new Promise((r)=>chrome.storage.local.set({statistics: {clicks: 0, cmps: {}}}, r)));
+            if (settings != null) {
+                await storage((settings)=>new Promise((r)=>chrome.storage.sync.set({generalSettings: settings}, r)), settings);
+            }
+            const page = await context.newPage();
+            await page.goto(`http://localhost:${PORT}${path}`);
+            if (answer != null) {
+                await popupShown(page);
+                for (const key of answer) await page.keyboard.press(key);
+            }
+            await page.waitForFunction(()=>document.getElementById("consent-status").textContent !== "none yet"
+                || document.querySelector("consent-o-manual-toast") != null, null, {timeout: 15000});
+            let stats;
+            for (let i = 0; i < 20; i++) {
+                stats = await storage(()=>new Promise((r)=>chrome.storage.local.get("statistics", (x)=>r(x.statistics))));
+                if (Object.keys(stats.cmps).length > 0) break;
+                await page.waitForTimeout(250);
+            }
+            await page.close();
+            return stats.clicks;
+        }
+
+        await test("clicks saved: site has no Reject button, our Reject in the popup saves 4 of 5 clicks", async ()=>{
+            // The demo banner needs Manage settings + 3 toggles + Save = 5 clicks to reject by hand
+            assert.strictEqual(await savedAfter("/", null, ["Tab", "Enter"]), 4);
+        });
+
+        await test("clicks saved: site has its own Accept button, our Accept all saves 0", async ()=>{
+            assert.strictEqual(await savedAfter("/", null, ["Enter"]), 0);
+        });
+
+        await test("clicks saved: automatic reject without a site Reject button saves all 5", async ()=>{
+            assert.strictEqual(await savedAfter("/", {defaultMode: "rejectAll"}), 5);
+        });
+
+        await test("clicks saved: site has its own Reject button, our Reject saves 0", async ()=>{
+            assert.strictEqual(await savedAfter("/filter-list", null, ["Tab", "Enter"]), 0);
+        });
+
+        await test("clicks saved: automatic reject with a site Reject button saves 1", async ()=>{
+            assert.strictEqual(await savedAfter("/filter-list", {defaultMode: "rejectAll"}), 1);
+        });
+
+        await test("clicks saved: a hidden banner counts as 1", async ()=>{
+            assert.strictEqual(await savedAfter("/filter-list?variant=accept-only", {defaultMode: "rejectAll"}), 1);
+        });
     } finally {
         await context.close();
         server.close();

@@ -1,4 +1,7 @@
 const translations = {
+    "PLUS_CLICKS_SAVED_EXPLAINER": {
+        "en": "Counted against answering each site's own banner by hand: if the banner already had a one-click button for your answer, that's 1 click. Clicks you make in the Consent-O-Manual popup are subtracted. The table below shows the clicks Consent-O-Manual actually made."
+    },
     "PLUS_LIMITED_NOTE": {
         "en": "Consent-O-Manual found this banner with its cookie filter list, so it can only accept or reject everything here."
     },

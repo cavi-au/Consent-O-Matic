@@ -136,7 +136,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, reply) {
             tabStatusMap.set(sender.tab.id, STATUS.HANDLED);
 
             GDPRConfig.getStatistics().then((entries)=>{
-                entries.clicks += json.clicks;
+                // Total = clicks saved (see ClickStats.js); the per-CMP table keeps the clicks actually made
+                entries.clicks += (typeof json.saved === "number") ? json.saved : json.clicks;
                 
                 if (!entries.cmps.hasOwnProperty(json.cmp)){
                     entries.cmps[json.cmp] = {

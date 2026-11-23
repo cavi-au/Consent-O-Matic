@@ -214,7 +214,8 @@ export function findButtons(element) {
  * Answers a banner found with the filter list.
  * @param element          the banner
  * @param decisionProvider async (cmpName, options) => consent values {A..X} or null
- * @returns {mode: "acceptAll"|"rejectAll"|"hidden", clicks} or null if the user chose "Not now"
+ * @returns {mode: "acceptAll"|"rejectAll"|"hidden", clicks, oneClick: {accept, reject}}
+ *          or null if the user chose "Not now"
  */
 export async function answerFilterListBanner(element, decisionProvider) {
     const values = await decisionProvider("Cookie filter list", {limited: true});
@@ -222,19 +223,21 @@ export async function answerFilterListBanner(element, decisionProvider) {
 
     const acceptEverything = Object.values(values).length > 0 && Object.values(values).every((v)=>v === true);
     const want = acceptEverything ? "accept" : "reject";
-    const button = findButtons(element)[want];
+    const buttons = findButtons(element);
+    const button = buttons[want];
+    const oneClick = {accept: buttons.accept != null, reject: buttons.reject != null};
 
     if (button != null) {
         button.click();
         await new Promise((resolve)=>setTimeout(resolve, 1500));
         if (!isVisible(element)) {
-            return {mode: acceptEverything ? "acceptAll" : "rejectAll", clicks: 1};
+            return {mode: acceptEverything ? "acceptAll" : "rejectAll", clicks: 1, oneClick};
         }
     }
 
     // No matching button, or the click didn't close it: hide the banner without consenting
     hideBanner(element);
-    return {mode: "hidden", clicks: button != null ? 1 : 0};
+    return {mode: "hidden", clicks: button != null ? 1 : 0, oneClick};
 }
 
 function hideBanner(element) {
